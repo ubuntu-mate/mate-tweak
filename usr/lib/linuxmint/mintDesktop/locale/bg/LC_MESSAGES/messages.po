@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Елементи на работния плот"
+
+msgid "Computer"
+msgstr "Компютър"
+
+msgid "Home"
+msgstr "Домашна директория"
+
+msgid "Network"
+msgstr "Мрежа"
+
+msgid "Trash"
+msgstr "Кошче"
+
+msgid "Mounted Volumes"
+msgstr "Монтирани дялове"

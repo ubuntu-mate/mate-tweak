@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Predmeti Radne Površine"
+ 
+msgid "Computer"
+msgstr "Računalo"
+ 
+msgid "Home"
+msgstr "Početna Mapa"
+ 
+msgid "Network"
+msgstr "Mreža"
+ 
+msgid "Trash"
+msgstr "Smeće"
+ 
+msgid "Mounted Volumes"
+msgstr "Montirani Diskovi"

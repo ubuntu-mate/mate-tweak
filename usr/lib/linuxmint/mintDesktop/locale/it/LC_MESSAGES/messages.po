@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Icone del desktop"
+
+msgid "Computer"
+msgstr "Computer"
+
+msgid "Home"
+msgstr "Cartella personale"
+
+msgid "Network"
+msgstr "Rete"
+
+msgid "Trash"
+msgstr "Cestino"
+
+msgid "Mounted Volumes"
+msgstr "Volume montato"

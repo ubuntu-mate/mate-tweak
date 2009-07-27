@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Elements a l'escriptori"
+
+msgid "Computer"
+msgstr "Ordinador"
+
+msgid "Home"
+msgstr "Carpeta personal"
+
+msgid "Network"
+msgstr "Xarxa"
+
+msgid "Trash"
+msgstr "Paperera"
+
+msgid "Mounted Volumes"
+msgstr "Volums muntats"

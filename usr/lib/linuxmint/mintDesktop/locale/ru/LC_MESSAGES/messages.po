@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Значки Рабочего стола"
+
+msgid "Computer"
+msgstr "Компьютер"
+
+msgid "Home"
+msgstr "Домашняя папка"
+
+msgid "Network"
+msgstr "Сеть"
+
+msgid "Trash"
+msgstr "Корзина"
+
+msgid "Mounted Volumes"
+msgstr "Подключённые устройства"

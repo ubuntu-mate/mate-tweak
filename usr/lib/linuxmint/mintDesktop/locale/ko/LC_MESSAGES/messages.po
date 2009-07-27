@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "바탕화면 항목"
+
+msgid "Computer"
+msgstr "컴퓨터"
+
+msgid "Home"
+msgstr "홈"
+
+msgid "Network"
+msgstr "네트워크"
+
+msgid "Trash"
+msgstr "휴지통"
+
+msgid "Mounted Volumes"
+msgstr "마운트된 저장소들"

@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Položky na ploche"
+
+msgid "Computer"
+msgstr "Počítač"
+
+msgid "Home"
+msgstr "Domovský priečinok"
+
+msgid "Network"
+msgstr "Sieťové miesta"
+
+msgid "Trash"
+msgstr "Kôš"
+
+msgid "Mounted Volumes"
+msgstr "Pripojené zariadenia"

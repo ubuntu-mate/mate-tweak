@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Bureaublad elementen"
+
+msgid "Computer"
+msgstr "Computer"
+
+msgid "Home"
+msgstr "Persoonlijke map"
+
+msgid "Network"
+msgstr "Netwerk"
+
+msgid "Trash"
+msgstr "Prullenbak"
+
+msgid "Mounted Volumes"
+msgstr "Gekoppelde volumina"

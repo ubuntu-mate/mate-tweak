@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Елементи робочого столу"
+
+msgid "Computer"
+msgstr "Комп'ютер"
+
+msgid "Home"
+msgstr "Домашній каталог"
+
+msgid "Network"
+msgstr "Мережа"
+
+msgid "Trash"
+msgstr "Смітник"
+
+msgid "Mounted Volumes"
+msgstr "Примонтовані диски"

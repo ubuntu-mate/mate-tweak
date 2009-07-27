@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "デスクトップ上のアイコン"
+
+msgid "Computer"
+msgstr "コンピュータ"
+
+msgid "Home"
+msgstr "home ディレクトリ"
+
+msgid "Network"
+msgstr "ネットワーク"
+
+msgid "Trash"
+msgstr "ゴミ箱"
+
+msgid "Mounted Volumes"
+msgstr "マウントした記憶装置・領域"

@@ -1,0 +1,17 @@
+msgid "Desktop Items"
+msgstr "Skrivbordsobjekt"
+
+msgid "Computer"
+msgstr "Dator"
+
+msgid "Home"
+msgstr "Hem"
+
+msgid "Network"
+msgstr "Nätverk"
+
+msgid "Trash"
+msgstr "Papperskorgen"
+
+msgid "Mounted Volumes"
+msgstr "Monterade Volymer"
