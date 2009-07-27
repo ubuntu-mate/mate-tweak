@@ -18,6 +18,10 @@ except Exception, detail:
 # i18n
 gettext.install("messages", "/usr/lib/linuxmint/mintDesktop/locale")
 
+# i18n for menu item
+menuName = _("Desktop Configuration Tool")
+menuGenericName = _("Gnome Settings")
+menuComment = _("Fine-tune Gnome settings")
 
 class MintDesktop:
 	"""MintDesktop - Makes the best out of your Gnome desktop..."""
@@ -26,6 +30,7 @@ class MintDesktop:
 		
 		self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
 		self.wTree = gtk.glade.XML(self.gladefile, "main_window") 
+		self.wTree.get_widget("main_window").set_title(_("Desktop Configuration Tool"))
 		self.wTree.get_widget("main_window").connect("destroy", gtk.main_quit)
 		self.wTree.get_widget("button_cancel").connect("clicked", gtk.main_quit)
 		self.wTree.get_widget("button_ok").connect("clicked", self.applyChanges)

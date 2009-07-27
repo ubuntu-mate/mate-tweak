@@ -1,6 +1,7 @@
 [Desktop Entry]
-Name=mintDesktop
-Comment=Desktop configuration tool
+Name=Desktop Configuration Tool
+GenericName=Gnome Settings
+Comment=Fine-tune Gnome settings
 Exec=mintdesktop
 Icon=user-desktop
 Terminal=false

@@ -1,3 +1,9 @@
+mintdesktop (3.1.4) helena; urgency=low
+
+  * Blueprint implemented: https://blueprints.launchpad.net/linuxmint/+spec/generic-branding
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon,  27 Jul 2009 18:12:00 +0000
+
 mintdesktop (3.1.3) gloria; urgency=low
 
   * Updated translations

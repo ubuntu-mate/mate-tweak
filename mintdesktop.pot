@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-27 12:48+0200\n"
+"POT-Creation-Date: 2009-07-27 18:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,26 +16,39 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:34
-msgid "Desktop Items"
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:22
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:33
+msgid "Desktop Configuration Tool"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:36
-msgid "Computer"
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:23
+msgid "Gnome Settings"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:37
-msgid "Home"
-msgstr ""
-
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:38
-msgid "Network"
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:24
+msgid "Fine-tune Gnome settings"
 msgstr ""
 
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:39
+msgid "Desktop Items"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:41
+msgid "Computer"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:42
+msgid "Home"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:43
+msgid "Network"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:44
 msgid "Trash"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:40
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:45
 msgid "Mounted Volumes"
 msgstr ""
