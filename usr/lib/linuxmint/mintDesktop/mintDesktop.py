@@ -16,7 +16,7 @@ except Exception, detail:
 
 
 # i18n
-gettext.install("messages", "/usr/lib/linuxmint/mintDesktop/locale")
+gettext.install("mintdesktop", "/usr/share/linuxmint/locale")
 
 # i18n for menu item
 menuName = _("Desktop Configuration Tool")

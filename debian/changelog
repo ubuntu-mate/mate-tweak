@@ -1,3 +1,9 @@
+mintdesktop (3.1.5) helena; urgency=low
+
+  * Changed translation framework
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue,  3 Nov 2009 11:57:00 +0000
+
 mintdesktop (3.1.4) helena; urgency=low
 
   * Blueprint implemented: https://blueprints.launchpad.net/linuxmint/+spec/generic-branding
