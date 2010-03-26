@@ -16,6 +16,7 @@ except Exception, detail:
 
 
 # i18n
+# TODO: Badly need to fix this - overuse of "The" etc.
 gettext.install("mintdesktop", "/usr/share/linuxmint/locale")
 
 # i18n for menu item
@@ -30,21 +31,30 @@ class MintDesktop:
 		
 		self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
 		self.wTree = gtk.glade.XML(self.gladefile, "main_window") 
-		self.wTree.get_widget("main_window").set_title(_("Desktop Configuration Tool"))
+		# update il8n- saying its a "Tool" is rather redundant
+		#self.wTree.get_widget("main_window").set_title(_("Desktop Configuration Tool"))
+		self.wTree.get_widget("main_window").set_title("Desktop Configuration")
 		self.wTree.get_widget("main_window").connect("destroy", gtk.main_quit)
 		self.wTree.get_widget("button_cancel").connect("clicked", gtk.main_quit)
-		self.wTree.get_widget("button_ok").connect("clicked", self.applyChanges)
+		self.wTree.get_widget("checkbox_computer").connect("clicked", self.applyChanges)
+		self.wTree.get_widget("checkbox_home").connect("clicked", self.applyChanges)
+		self.wTree.get_widget("checkbox_network").connect("clicked", self.applyChanges)
+		self.wTree.get_widget("checkbox_trash").connect("clicked", self.applyChanges)
+		self.wTree.get_widget("checkbox_volumes").connect("clicked", self.applyChanges)
+		self.wTree.get_widget("checkbox_compositing").connect("clicked", self.applyChanges)
+		self.wTree.get_widget("combo_wmlayout").connect("changed", self.applyChanges)
 
 		# i18n
 		self.wTree.get_widget("label3").set_text(_("Desktop Items"))
-		self.wTree.get_widget("label5").set_text("Gnome Compositing")
+		#self.wTree.get_widget("label5").set_text("Gnome Compositing")
+		self.wTree.get_widget("label5").set_text("Window Manager Tweaks")
 		self.wTree.get_widget("checkbox_computer").set_label(_("Computer"))
 		self.wTree.get_widget("checkbox_home").set_label(_("Home"))
 		self.wTree.get_widget("checkbox_network").set_label(_("Network"))
 		self.wTree.get_widget("checkbox_trash").set_label(_("Trash"))
 		self.wTree.get_widget("checkbox_volumes").set_label(_("Mounted Volumes"))
 		self.wTree.get_widget("checkbox_compositing").set_label("Gnome compositing")		
-		
+
 		# Get the current configuration
 		confComputer = commands.getoutput("gconftool-2 --get /apps/nautilus/desktop/computer_icon_visible")
 		if (confComputer == "true"):
@@ -64,6 +74,18 @@ class MintDesktop:
 		confCompositing = commands.getoutput("gconftool-2 --get /apps/metacity/general/compositing_manager")
 		if (confCompositing == "true"):
 			self.wTree.get_widget("checkbox_compositing").set_active(1)
+
+		# slightly more complicated. find the window manager button layout in use..
+		confLayout = commands.getoutput("gconftool-2 --get /apps/metacity/general/button_layout")
+		if (confLayout == "menu:minimize,maximize,close"):
+			self.wTree.get_widget("combo_wmlayout").set_active(2)
+		elif (confLayout == "close,minimize,maximize:menu"):
+			self.wTree.get_widget("combo_wmlayout").set_active(1)
+		elif (confLayout == "minimize,maximize,close:menu"):
+			self.wTree.get_widget("combo_wmlayout").set_active(0)
+		#else
+			# TODO: Add checking for custom layouts here, store the layout etc.
+		
 					
 
 	def applyChanges(self, widget): 
@@ -102,9 +124,15 @@ class MintDesktop:
 			os.system("gconftool-2 --type bool --set /apps/metacity/general/compositing_manager true")
 		else:
 			os.system("gconftool-2 --type bool --set /apps/metacity/general/compositing_manager false")
-		
-		gtk.main_quit()		
-		sys.exit(0)	
+
+		wmindex = self.wTree.get_widget("combo_wmlayout").get_active()
+		if (wmindex == 0):
+			os.system("gconftool-2 --type string --set /apps/metacity/general/button_layout minimize,maximize,close:menu")
+		elif (wmindex == 1):
+			os.system("gconftool-2 --type string --set /apps/metacity/general/button_layout close,minimize,maximize:menu")
+		elif (wmindex == 2):
+			os.system("gconftool-2 --type string --set /apps/metacity/general/button_layout menu:minimize,maximize,close")
+	
 			
 if __name__ == "__main__":
 	MintDesktop()
