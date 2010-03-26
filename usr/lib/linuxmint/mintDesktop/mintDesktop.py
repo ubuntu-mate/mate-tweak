@@ -51,8 +51,7 @@ class MintDesktop:
 
 	def __init__(self):
 		
-		#self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
-		self.gladefile = 'mintDesktop.glade'
+		self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
 		self.wTree = gtk.glade.XML(self.gladefile, "main_window") 
 		# update il8n- saying its a "Tool" is rather redundant
 		#self.wTree.get_widget("main_window").set_title(_("Desktop Configuration Tool"))
