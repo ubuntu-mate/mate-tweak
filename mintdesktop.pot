@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-28 12:14+0100\n"
+"POT-Creation-Date: 2010-03-28 13:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:24
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:73
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:74
 msgid "Desktop Settings"
 msgstr ""
 
@@ -29,50 +29,50 @@ msgstr ""
 msgid "Fine-tune Gnome settings"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:66
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:67
 msgid "Traditional style"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:67
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:68
 msgid "Mac style"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:68
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:69
 msgid "Ubuntu style"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:74
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:75
 msgid "Desktop Items"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:75
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:76
 msgid "Window Manager"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:76
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:77
 msgid "Window buttons layout:"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:77
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:78
 msgid "Computer"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:78
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:79
 msgid "Home"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:79
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:80
 msgid "Network"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:80
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:81
 msgid "Trash"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:81
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:82
 msgid "Mounted Volumes"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:82
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:83
 msgid "Gnome compositing"
 msgstr ""

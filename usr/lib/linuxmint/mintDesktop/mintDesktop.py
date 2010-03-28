@@ -25,7 +25,8 @@ menuName = _("Desktop Settings")
 menuGenericName = _("Gnome Gonfiguration Tool")
 menuComment = _("Fine-tune Gnome settings")
 
-class MintDesktop:
+class MintDesktop:	
+
 	"""MintDesktop - Makes the best out of your Gnome desktop..."""
 
 	# Set a string in gconf
@@ -108,11 +109,11 @@ class MintDesktop:
 
 		# slightly more complicated. find the window manager button layout in use..
 		confLayout = self.get_string("/apps/metacity/general/button_layout")
-		if (confLayout == "menu:minimize,maximize,close"):
+		if (":minimize,maximize,close" in confLayout):
 			self.wTree.get_widget("combo_wmlayout").set_active(0)
-		elif (confLayout == "close,minimize,maximize:menu"):
+		elif ("close,minimize,maximize:" in confLayout):
 			self.wTree.get_widget("combo_wmlayout").set_active(1)
-		elif (confLayout == "minimize,maximize,close:menu"):
+		elif ("maximize,minimize,close:" in confLayout):
 			self.wTree.get_widget("combo_wmlayout").set_active(2)
 
 		#else
@@ -127,9 +128,9 @@ class MintDesktop:
 		if (wmindex == 0):
 			self.set_string("/apps/metacity/general/button_layout", "menu:minimize,maximize,close")
 		elif (wmindex == 1):
-			self.set_string("/apps/metacity/general/button_layout", "close,minimize,maximize:menu")
+			self.set_string("/apps/metacity/general/button_layout", "close,minimize,maximize:")
 		elif (wmindex == 2):
-			self.set_string("/apps/metacity/general/button_layout", "minimize,maximize,close:menu")
+			self.set_string("/apps/metacity/general/button_layout", "maximize,minimize,close:")
 			
 if __name__ == "__main__":
 	MintDesktop()

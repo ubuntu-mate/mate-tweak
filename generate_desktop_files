@@ -22,7 +22,7 @@ menuComment = menuComment.strip()
 
 desktopFile = open("usr/share/applications/mintDesktop.desktop", "w")
 desktopFile.writelines("""[Desktop Entry]
-Name=Desktop Configuration Tool
+Name=Desktop Settings
 """)
 
 import gettext
