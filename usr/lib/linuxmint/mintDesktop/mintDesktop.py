@@ -21,8 +21,8 @@ except Exception, detail:
 gettext.install("mintdesktop", "/usr/share/linuxmint/locale")
 
 # i18n for menu item
-menuName = _("Desktop Configuration Tool")
-menuGenericName = _("Gnome Settings")
+menuName = _("Desktop Settings")
+menuGenericName = _("Gnome Gonfiguration Tool")
 menuComment = _("Fine-tune Gnome settings")
 
 class MintDesktop:
@@ -53,30 +53,33 @@ class MintDesktop:
 		
 		self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
 		self.wTree = gtk.glade.XML(self.gladefile, "main_window") 
-		# update il8n- saying its a "Tool" is rather redundant
-		#self.wTree.get_widget("main_window").set_title(_("Desktop Configuration Tool"))
-		self.wTree.get_widget("main_window").set_title("Desktop Configuration")
+
 		self.wTree.get_widget("main_window").connect("destroy", gtk.main_quit)
 		self.wTree.get_widget("button_cancel").connect("clicked", gtk.main_quit)
 		self.wTree.get_widget("checkbox_computer").connect("clicked", lambda x: self.set_bool("/apps/nautilus/desktop/computer_icon_visible", x))
 		self.wTree.get_widget("checkbox_home").connect("clicked", lambda x: self.set_bool("/apps/nautilus/desktop/home_icon_visible", x))
-
 		self.wTree.get_widget("checkbox_network").connect("clicked", lambda x: self.set_bool("/apps/nautilus/desktop/network_icon_visible", x))
 		self.wTree.get_widget("checkbox_trash").connect("clicked", lambda x: self.set_bool("/apps/nautilus/desktop/trash_icon_visible", x))
 		self.wTree.get_widget("checkbox_volumes").connect("clicked", lambda x: self.set_bool("/apps/nautilus/desktop/volumes_visible", x))
 		self.wTree.get_widget("checkbox_compositing").connect("clicked", lambda x: self.set_bool("/apps/metacity/general/compositing_manager", x))
-		self.wTree.get_widget("combo_wmlayout").connect("changed", self.applyWMChanges)
+
+		self.wTree.get_widget("combo_wmlayout").append_text(_("Traditional style"))
+		self.wTree.get_widget("combo_wmlayout").append_text(_("Mac style"))
+		self.wTree.get_widget("combo_wmlayout").append_text(_("Ubuntu style"))
+
+		
 
 		# i18n
+		self.wTree.get_widget("main_window").set_title(_("Desktop Settings"))
 		self.wTree.get_widget("label3").set_text(_("Desktop Items"))
-		#self.wTree.get_widget("label5").set_text("Gnome Compositing")
-		self.wTree.get_widget("label5").set_text("Window Manager Tweaks")
+		self.wTree.get_widget("label5").set_text(_("Window Manager"))
+		self.wTree.get_widget("label_layouts").set_text(_("Window buttons layout:"))
 		self.wTree.get_widget("checkbox_computer").set_label(_("Computer"))
 		self.wTree.get_widget("checkbox_home").set_label(_("Home"))
 		self.wTree.get_widget("checkbox_network").set_label(_("Network"))
 		self.wTree.get_widget("checkbox_trash").set_label(_("Trash"))
 		self.wTree.get_widget("checkbox_volumes").set_label(_("Mounted Volumes"))
-		self.wTree.get_widget("checkbox_compositing").set_label("Gnome compositing")		
+		self.wTree.get_widget("checkbox_compositing").set_label(_("Gnome compositing"))
 
 		# Get the current configuration
 		confComputer = self.get_bool("/apps/nautilus/desktop/computer_icon_visible")
@@ -106,24 +109,27 @@ class MintDesktop:
 		# slightly more complicated. find the window manager button layout in use..
 		confLayout = self.get_string("/apps/metacity/general/button_layout")
 		if (confLayout == "menu:minimize,maximize,close"):
-			self.wTree.get_widget("combo_wmlayout").set_active(2)
+			self.wTree.get_widget("combo_wmlayout").set_active(0)
 		elif (confLayout == "close,minimize,maximize:menu"):
 			self.wTree.get_widget("combo_wmlayout").set_active(1)
 		elif (confLayout == "minimize,maximize,close:menu"):
-			self.wTree.get_widget("combo_wmlayout").set_active(0)
+			self.wTree.get_widget("combo_wmlayout").set_active(2)
+
 		#else
 			# TODO: Add checking for custom layouts here, store the layout etc.
+
+		self.wTree.get_widget("combo_wmlayout").connect("changed", self.applyWMChanges)
 		
 
 	''' Update the window manager button layout '''
 	def applyWMChanges(self, widget): 
 		wmindex = self.wTree.get_widget("combo_wmlayout").get_active()
 		if (wmindex == 0):
-			self.set_string("/apps/metacity/general/button_layout", "minimize,maximize,close:menu")
+			self.set_string("/apps/metacity/general/button_layout", "menu:minimize,maximize,close")
 		elif (wmindex == 1):
 			self.set_string("/apps/metacity/general/button_layout", "close,minimize,maximize:menu")
 		elif (wmindex == 2):
-			self.set_string("/apps/metacity/general/button_layout", "menu:minimize,maximize,close")	
+			self.set_string("/apps/metacity/general/button_layout", "minimize,maximize,close:menu")
 			
 if __name__ == "__main__":
 	MintDesktop()

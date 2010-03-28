@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-03 12:01+0000\n"
+"POT-Creation-Date: 2010-03-28 12:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,39 +16,63 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:22
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:33
-msgid "Desktop Configuration Tool"
-msgstr ""
-
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:23
-msgid "Gnome Settings"
-msgstr ""
-
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:24
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:73
+msgid "Desktop Settings"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:25
+msgid "Gnome Gonfiguration Tool"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:26
 msgid "Fine-tune Gnome settings"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:39
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:66
+msgid "Traditional style"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:67
+msgid "Mac style"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:68
+msgid "Ubuntu style"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:74
 msgid "Desktop Items"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:41
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:75
+msgid "Window Manager"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:76
+msgid "Window buttons layout:"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:77
 msgid "Computer"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:42
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:78
 msgid "Home"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:43
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:79
 msgid "Network"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:44
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:80
 msgid "Trash"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:45
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:81
 msgid "Mounted Volumes"
+msgstr ""
+
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:82
+msgid "Gnome compositing"
 msgstr ""

@@ -144,9 +144,7 @@
                     <child>
                       <widget class="GtkComboBox" id="combo_wmlayout">
                         <property name="visible">True</property>
-                        <property name="items" translatable="yes">Left
-Left (Inverted)
-Right</property>
+                        <property name="items" translatable="yes"></property>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
