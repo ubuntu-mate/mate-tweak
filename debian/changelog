@@ -1,3 +1,9 @@
+mintdesktop (3.1.7) isadora; urgency=low
+
+  * Updated menu button styles
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun,  28 Mar 2010 13:20:00 +0000
+
 mintdesktop (3.1.6) isadora; urgency=low
 
   * Added window buttons layout styles
