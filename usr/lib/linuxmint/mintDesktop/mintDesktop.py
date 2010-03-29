@@ -17,7 +17,6 @@ except Exception, detail:
 
 
 # i18n
-# TODO: Badly need to fix this - overuse of "The" etc.
 gettext.install("mintdesktop", "/usr/share/linuxmint/locale")
 
 # i18n for menu item
@@ -39,10 +38,10 @@ class MintDesktop:
 		client = gconf.client_get_default()
 		return client.get_string(key)
 
-	# Set a boolean in gconf according to the value of the passed gtk.CheckButton
+	# Set a boolean in gconf according to the value
 	def set_bool(self, key, value):
 		client = gconf.client_get_default()
-		client.set_bool(key, value.get_active())
+		client.set_bool(key, value)
 
 	# Get a boolean from gconf
 	def get_bool(self, key):
@@ -51,8 +50,7 @@ class MintDesktop:
 
 
 	def __init__(self):
-		#self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
-		self.gladefile = 'mintDesktop.glade'
+		self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
 		self.wTree = gtk.glade.XML(self.gladefile, "main_window") 
 
 		self.wTree.get_widget("main_window").connect("destroy", gtk.main_quit)
@@ -98,7 +96,7 @@ class MintDesktop:
 		widget = self.wTree.get_widget(name)
 		conf = self.get_bool(key)
 		widget.set_active(conf)
-		widget.connect("clicked", lambda x: self.set_bool(key, x))
+		widget.connect("clicked", lambda x: self.set_bool(key, x.get_active()))
 		self.add_notify(key, widget)
 
 	''' Bind the ComboBox to gconf and assign the action '''
