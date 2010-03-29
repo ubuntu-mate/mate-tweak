@@ -51,16 +51,18 @@ class MintDesktop:
 
 
 	def __init__(self):
-		
 		self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
-
 		self.wTree = gtk.glade.XML(self.gladefile, "main_window") 
 
 		self.wTree.get_widget("main_window").connect("destroy", gtk.main_quit)
 		self.wTree.get_widget("button_cancel").connect("clicked", gtk.main_quit)
-		self.wTree.get_widget("combo_wmlayout").append_text(_("Traditional style"))
-		self.wTree.get_widget("combo_wmlayout").append_text(_("Mac style"))
-		self.wTree.get_widget("combo_wmlayout").append_text(_("Ubuntu style"))
+
+		# combobox
+		wmstyles = gtk.ListStore(str, str)
+		wmstyles.append([_("Traditional style"), ":minimize,maximize,close"])
+		wmstyles.append([_("Mac style"), "close,minimize,maximize:"])
+		wmstyles.append([_("Ubuntu style"), "maximize,minimize,close:"])
+		self.wTree.get_widget("combo_wmlayout").set_model(wmstyles)
 
 		# i18n
 		self.wTree.get_widget("main_window").set_title(_("Desktop Settings"))
@@ -87,20 +89,8 @@ class MintDesktop:
 		self.init_checkbox("/apps/nautilus/desktop/volumes_visible", "checkbox_volumes")
 		self.init_checkbox("/apps/metacity/general/compositing_manager", "checkbox_compositing")
 
-		# slightly more complicated. find the window manager button layout in use..
-		confLayout = self.get_string("/apps/metacity/general/button_layout")
-		if (":minimize,maximize,close" in confLayout):
-			self.wTree.get_widget("combo_wmlayout").set_active(0)
-		elif ("close,minimize,maximize:" in confLayout):
-			self.wTree.get_widget("combo_wmlayout").set_active(1)
-		elif ("maximize,minimize,close:" in confLayout):
-			self.wTree.get_widget("combo_wmlayout").set_active(2)
-
-		#else
-			# TODO: Add checking for custom layouts here, store the layout etc.
-
-		self.wTree.get_widget("combo_wmlayout").connect("changed", self.applyWMChanges)
-
+		# sets up the metacity button layout combobox
+		self.init_combobox("/apps/metacity/general/button_layout", "combo_wmlayout")
 
 	''' Initialise the CheckButton with a gconf value, then bind it with the gconf system '''
 	def init_checkbox(self, key, name):
@@ -109,6 +99,24 @@ class MintDesktop:
 		widget.set_active(conf)
 		widget.connect("clicked", lambda x: self.set_bool(key, x))
 		self.add_notify(key, widget)
+
+	''' Bind the ComboBox to gconf and assign the action '''
+	def init_combobox(self, key, name):
+		widget = self.wTree.get_widget(name)
+		conf = self.get_string(key)
+		index = 0
+		for row in widget.get_model():
+			if(conf == row[1]):
+				widget.set_active(index)
+				break
+			index = index +1
+		widget.connect("changed", lambda x: self.combo_fallback(key, x))
+	
+	''' Fallback for all combo boxes '''	
+	def combo_fallback(self, key, widget):
+		act = widget.get_active()
+		value = widget.get_model()[act]
+		self.set_string(key, value[1])
 
 	''' adds a notify system... '''
 	def add_notify(self, key, widget):
@@ -128,23 +136,13 @@ class MintDesktop:
 			client.notify_remove (notify_id)
 
 	''' Callback for gconf. update our internal values '''
-	def key_changed_callback (self, client, cnxn_id, entry, widget):
+	def key_changed_callback (self, client, notify_id, entry, widget):
 		# deal with all boolean (checkboxes)
 		if (type(widget) == gtk.CheckButton):
 			if(entry.value.type == gconf.VALUE_BOOL):
 				value = entry.value.get_bool()
 				if(widget):
 					widget.set_active(value)
-
-	''' Update the window manager button layout '''
-	def applyWMChanges(self, widget): 
-		wmindex = self.wTree.get_widget("combo_wmlayout").get_active()
-		if (wmindex == 0):
-			self.set_string("/apps/metacity/general/button_layout", "menu:minimize,maximize,close")
-		elif (wmindex == 1):
-			self.set_string("/apps/metacity/general/button_layout", "close,minimize,maximize:")
-		elif (wmindex == 2):
-			self.set_string("/apps/metacity/general/button_layout", "maximize,minimize,close:")
 			
 if __name__ == "__main__":
 	MintDesktop()
