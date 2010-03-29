@@ -51,7 +51,8 @@ class MintDesktop:
 
 
 	def __init__(self):
-		self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
+		#self.gladefile = '/usr/lib/linuxmint/mintDesktop/mintDesktop.glade'
+		self.gladefile = 'mintDesktop.glade'
 		self.wTree = gtk.glade.XML(self.gladefile, "main_window") 
 
 		self.wTree.get_widget("main_window").connect("destroy", gtk.main_quit)
@@ -59,7 +60,7 @@ class MintDesktop:
 
 		# combobox
 		wmstyles = gtk.ListStore(str, str)
-		wmstyles.append([_("Traditional style"), ":minimize,maximize,close"])
+		wmstyles.append([_("Traditional style"), "menu:minimize,maximize,close"])
 		wmstyles.append([_("Mac style"), "close,minimize,maximize:"])
 		wmstyles.append([_("Ubuntu style"), "maximize,minimize,close:"])
 		self.wTree.get_widget("combo_wmlayout").set_model(wmstyles)
@@ -111,6 +112,7 @@ class MintDesktop:
 				break
 			index = index +1
 		widget.connect("changed", lambda x: self.combo_fallback(key, x))
+		self.add_notify(key, widget)
 	
 	''' Fallback for all combo boxes '''	
 	def combo_fallback(self, key, widget):
@@ -148,13 +150,14 @@ class MintDesktop:
 			if(entry.value.type == gconf.VALUE_STRING):
 				if(not widget and not value):
 					return
-			# the string in question :)
-			value = entry.value.get_string()
-			for row in widget.get_model():
-				if(value == row[1]):
-					widget.set_active(index)
-					break
-				index = index +1
+				# the string in question :)
+				value = entry.value.get_string()
+				index = 0
+				for row in widget.get_model():
+					if(value == row[1]):
+						widget.set_active(index)
+						break
+					index = index +1
 			
 if __name__ == "__main__":
 	MintDesktop()
