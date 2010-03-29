@@ -143,6 +143,18 @@ class MintDesktop:
 				value = entry.value.get_bool()
 				if(widget):
 					widget.set_active(value)
+		elif( type(widget) == gtk.ComboBox ):
+			# Sanity check, if its crap ignore it.
+			if(entry.value.type == gconf.VALUE_STRING):
+				if(not widget and not value):
+					return
+			# the string in question :)
+			value = entry.value.get_string()
+			for row in widget.get_model():
+				if(value == row[1]):
+					widget.set_active(index)
+					break
+				index = index +1
 			
 if __name__ == "__main__":
 	MintDesktop()
