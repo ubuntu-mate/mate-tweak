@@ -145,12 +145,6 @@ class MintDesktop:
 		self.get_widget("combobox_toolicons").set_model(iconStyles)
 		self.init_combobox("/desktop/gnome/interface/toolbar_style", "combobox_toolicons")
 
-		# demo stuff (for the interface tab)
-		self.get_widget("toolbar1").add(gtk.ToolButton(gtk.STOCK_NEW))
-		self.get_widget("toolbar1").add(gtk.ToolButton(gtk.STOCK_OPEN))
-		self.get_widget("toolbar1").add(gtk.ToolButton(gtk.STOCK_SAVE))
-		self.get_widget("toolbar1").show_all()
-
 		self.get_widget("main_window").show()
 
 	''' Saves typing self.get_widget all the time.... '''
