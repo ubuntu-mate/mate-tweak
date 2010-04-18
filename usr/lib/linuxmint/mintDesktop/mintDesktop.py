@@ -82,8 +82,8 @@ class MintDesktop:
 		img = theme.load_icon("preferences-desktop-wallpaper", 36, 0)
 
 		# set up the side view - navigation.
-      		self.get_widget("side_view").set_text_column(0)
-        	self.get_widget("side_view").set_pixbuf_column(1)
+      	self.get_widget("side_view").set_text_column(0)
+        self.get_widget("side_view").set_pixbuf_column(1)
 		self.get_widget("side_view").set_model(self.store)
 		self.get_widget("side_view").select_path((0,))
 		self.get_widget("side_view").connect("selection_changed", self.side_view_nav )

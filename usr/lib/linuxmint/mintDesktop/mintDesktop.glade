@@ -27,8 +27,8 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="columns">1</property>
-                    <property name="column_spacing">2</property>
-                    <property name="margin">2</property>
+                    <property name="column_spacing">0</property>
+                    <property name="margin">0</property>
                   </widget>
                 </child>
               </widget>
