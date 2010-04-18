@@ -1,3 +1,11 @@
+mintdesktop (3.1.8) isadora; urgency=low
+
+  * Ikey changes
+  * i18n
+  * Relooking
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun,  18 Apr 2010 18:03:00 +0000
+
 mintdesktop (3.1.7) isadora; urgency=low
 
   * Updated menu button styles

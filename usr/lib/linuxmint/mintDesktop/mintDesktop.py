@@ -21,8 +21,8 @@ except Exception, detail:
 gettext.install("mintdesktop", "/usr/share/linuxmint/locale")
 
 # i18n for menu item
-menuName = _("Desktop Configuration Tool")
-menuGenericName = _("Gnome Settings")
+menuName = _("Desktop Settings")
+menuGenericName = _("Gnome Configuration Tool")
 menuComment = _("Fine-tune Gnome settings")
 
 class MintDesktop:
@@ -74,34 +74,58 @@ class MintDesktop:
 		img = theme.load_icon("user-desktop", 36, 0)
 		# create the backing store for the side nav-view. very perty.
 		self.store = gtk.ListStore(str, gtk.gdk.Pixbuf)
-		self.store.append(["Desktop", img])
+		self.store.append([_("Desktop"), img])
 		img = theme.load_icon("gnome-windows", 36, 0)
-		self.store.append(["Window Manager", img])
+		self.store.append([_("Windows"), img])
 		img = theme.load_icon("preferences-desktop", 36, 0)
-		self.store.append(["Interface", img])
+		self.store.append([_("Interface"), img])
 		img = theme.load_icon("preferences-desktop-wallpaper", 36, 0)
 
 		# set up the side view - navigation.
-      	self.get_widget("side_view").set_text_column(0)
-        self.get_widget("side_view").set_pixbuf_column(1)
+	      	self.get_widget("side_view").set_text_column(0)
+        	self.get_widget("side_view").set_pixbuf_column(1)
 		self.get_widget("side_view").set_model(self.store)
 		self.get_widget("side_view").select_path((0,))
 		self.get_widget("side_view").connect("selection_changed", self.side_view_nav )
 
 		# set up larger components.
-		self.get_widget("main_window").set_title("Desktop Configuration")
+		self.get_widget("main_window").set_title("Desktop Settings")
 		self.get_widget("main_window").connect("destroy", gtk.main_quit)
 		self.get_widget("button_cancel").connect("clicked", gtk.main_quit)
+		self.get_widget("button_about").connect("clicked", self.about_callback)
 
 		# i18n
-		self.get_widget("label3").set_text(_("Desktop Items"))
-		self.get_widget("label5").set_text("Window Manager Tweaks")
+		self.get_widget("label_desktop_icons").set_markup("<b>" + _("Desktop icons") + "</b>")
+		self.get_widget("label_performance").set_markup("<b>" + _("Performance") + "</b>")
+		self.get_widget("label_appearance").set_markup("<b>" + _("Appearance") + "</b>")
+		self.get_widget("label_icons").set_markup("<b>" + _("Icons") + "</b>")
+		self.get_widget("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
+		self.get_widget("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
+
+		self.get_widget("caption_desktop_icons").set_markup("<small><i><span foreground=\"#555555\">" + _("Select the items you want to see on the desktop:") + "</span></i></small>")
+
 		self.get_widget("checkbox_computer").set_label(_("Computer"))
 		self.get_widget("checkbox_home").set_label(_("Home"))
 		self.get_widget("checkbox_network").set_label(_("Network"))
 		self.get_widget("checkbox_trash").set_label(_("Trash"))
 		self.get_widget("checkbox_volumes").set_label(_("Mounted Volumes"))
-		self.get_widget("checkbox_compositing").set_label("Gnome compositing")		
+
+		self.get_widget("checkbutton_resources").set_label(_("Don't show window content while dragging them"))
+		self.get_widget("checkbox_compositing").set_label(_("Use Gnome compositing"))
+		self.get_widget("checkbutton_titlebar").set_label(_("Use system font in titlebar"))
+
+
+		self.get_widget("label_layouts").set_text(_("Buttons layout:"))	
+
+		self.get_widget("checkbutton_menuicon").set_label(_("Show icons on menus"))
+		self.get_widget("checkbutton_button_icons").set_label(_("Show icons on buttons"))
+		self.get_widget("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
+		self.get_widget("checkbutton_unicode").set_label(_("Show Unicode Control Character menu in context menus"))	
+
+		self.get_widget("label_tool_icons").set_text(_("Buttons labels:"))	
+		self.get_widget("label_icon_size").set_text(_("Icon size:"))		
+
+
 
 		# Desktop page
 		self.init_checkbox("/apps/nautilus/desktop/computer_icon_visible", "checkbox_computer")
@@ -117,35 +141,67 @@ class MintDesktop:
 
 		# interface page
 		self.init_checkbox("/desktop/gnome/interface/menus_have_icons", "checkbutton_menuicon")
-		self.init_checkbox("/desktop/gnome/interface/menus_have_tearoff", "checkbutton_menu_tearoff")
 		self.init_checkbox("/desktop/gnome/interface/show_input_method_menu","checkbutton_im_menu")
 		self.init_checkbox("/desktop/gnome/interface/show_unicode_menu", "checkbutton_unicode")
 		self.init_checkbox("/desktop/gnome/interface/buttons_have_icons", "checkbutton_button_icons")
 
 		iconSizes = gtk.ListStore(str, str)
-		iconSizes.append(["Small", "small-toolbar"])
-		iconSizes.append(["Large", "large-toolbar"])
+		iconSizes.append([_("Small"), "small-toolbar"])
+		iconSizes.append([_("Large"), "large-toolbar"])
 		self.get_widget("combobox_icon_size").set_model(iconSizes)
 		self.init_combobox("/desktop/gnome/interface/toolbar_icons_size", "combobox_icon_size")
 
 		# Metacity button layouts..
 		layouts = gtk.ListStore(str, str)
-		layouts.append(["Left", "minimize,maximize,close:menu"])
-		layouts.append(["Left (Inverted)", "close,minimize,maximize:menu"])
-		layouts.append(["Right", "menu:minimize,maximize,close"])
+		layouts.append([_("Traditional style"), "menu:minimize,maximize,close"])
+		layouts.append([_("Mac style"), "close,minimize,maximize:"])
+		layouts.append([_("Ubuntu style"), "minimize,maximize,close:"])
 		self.get_widget("combo_wmlayout").set_model(layouts)
 		self.init_combobox("/apps/metacity/general/button_layout", "combo_wmlayout")
 
 		# toolbar icon styles
 		iconStyles = gtk.ListStore(str, str)
-		iconStyles.append(["Text below items", "both"])
-		iconStyles.append(["Text beside items", "both-horiz"])
-		iconStyles.append(["Icons only", "icons"])
-		iconStyles.append(["Text only", "text"])
+		iconStyles.append([_("Text below items"), "both"])
+		iconStyles.append([_("Text beside items"), "both-horiz"])
+		iconStyles.append([_("Icons only"), "icons"])
+		iconStyles.append([_("Text only"), "text"])
 		self.get_widget("combobox_toolicons").set_model(iconStyles)
 		self.init_combobox("/desktop/gnome/interface/toolbar_style", "combobox_toolicons")
 
 		self.get_widget("main_window").show()
+
+	def about_callback(self, w):
+		dlg = gtk.AboutDialog()
+		dlg.set_title(_("About"))
+		dlg.set_program_name("mintDesktop")	
+		dlg.set_comments(_("Desktop Settings"))
+		try:
+			h = open('/usr/share/common-licenses/GPL','r')
+			s = h.readlines()
+			gpl = ""
+			for line in s:
+				gpl += line
+			h.close()
+			dlg.set_license(gpl)
+		except Exception, detail:
+			print detail
+		try: 
+			version = commands.getoutput("/usr/lib/linuxmint/common/version.py mintdesktop")
+			dlg.set_version(version)
+		except Exception, detail:
+			print detail
+
+		dlg.set_authors(["Clement Lefebvre <root@linuxmint.com>", "Ikey Doherty <contactjfreak@googlemail.com>"]) 
+		self.iconTheme = gtk.icon_theme_get_default()
+		img = self.iconTheme.load_icon("user-desktop", 48, 0)
+
+		dlg.set_icon(img)
+		dlg.set_logo(img)
+		def close(w, res):
+		    if res == gtk.RESPONSE_CANCEL:
+		        w.hide()
+		dlg.connect("response", close)
+		dlg.show()
 
 	''' Saves typing self.get_widget all the time.... '''
 	def get_widget(self, which):
