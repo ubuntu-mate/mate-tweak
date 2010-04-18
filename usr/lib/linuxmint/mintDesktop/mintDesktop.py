@@ -123,7 +123,6 @@ class MintDesktop:
 		self.init_checkbox("/desktop/gnome/interface/show_input_method_menu","checkbutton_im_menu")
 		self.init_checkbox("/desktop/gnome/interface/show_unicode_menu", "checkbutton_unicode")
 		self.init_checkbox("/desktop/gnome/interface/buttons_have_icons", "checkbutton_button_icons")
-		self.init_checkbox("/desktop/gnome/interface/enable_animations", "checkbutton_animations")
 
 		iconSizes = gtk.ListStore(str, str)
 		iconSizes.append(["Small", "small-toolbar"])
