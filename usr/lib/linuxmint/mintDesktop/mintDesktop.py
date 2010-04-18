@@ -119,7 +119,6 @@ class MintDesktop:
 		self.init_checkbox("/desktop/gnome/interface/menus_have_icons", "checkbutton_menuicon")
 		self.init_checkbox("/desktop/gnome/interface/menus_have_tearoff", "checkbutton_menu_tearoff")
 		self.init_checkbox("/desktop/gnome/interface/menubar_detachable","checkbutton_menubarmove")
-		self.init_checkbox("/desktop/gnome/interface/can_change_accels", "checkbutton_acel_edit")
 		self.init_checkbox("/desktop/gnome/interface/toolbar_detachable", "checkbutton_toolbar_detach")
 		self.init_checkbox("/desktop/gnome/interface/show_input_method_menu","checkbutton_im_menu")
 		self.init_checkbox("/desktop/gnome/interface/show_unicode_menu", "checkbutton_unicode")
