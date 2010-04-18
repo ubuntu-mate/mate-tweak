@@ -112,7 +112,6 @@ class MintDesktop:
 
 		# Window Manager page
 		self.init_checkbox("/apps/metacity/general/reduced_resources", "checkbutton_resources")
-		self.init_checkbox("/apps/metacity/general/disable_workarounds", "checkbutton_workarounds")
 		self.init_checkbox("/apps/metacity/general/compositing_manager", "checkbox_compositing")
 		self.init_checkbox("/apps/metacity/general/titlebar_uses_system_font", "checkbutton_titlebar")
 
