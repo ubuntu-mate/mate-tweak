@@ -1,3 +1,9 @@
+mintdesktop (3.1.9) isadora; urgency=low
+
+  * Renamed button layouts
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun,  25 Apr 2010 19:41:00 +0000
+
 mintdesktop (3.1.8) isadora; urgency=low
 
   * Ikey changes

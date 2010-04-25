@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-18 18:03+0100\n"
+"POT-Creation-Date: 2010-04-25 19:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:24
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:177
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:176
 msgid "Desktop Settings"
 msgstr ""
 
@@ -138,33 +138,29 @@ msgid "Large"
 msgstr ""
 
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:156
-msgid "Traditional style"
+msgid "Traditional style (Left)"
 msgstr ""
 
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:157
-msgid "Mac style"
+msgid "Mac style (Right)"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:158
-msgid "Ubuntu style"
-msgstr ""
-
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:164
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:163
 msgid "Text below items"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:165
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:164
 msgid "Text beside items"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:166
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:165
 msgid "Icons only"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:167
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:166
 msgid "Text only"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:175
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:174
 msgid "About"
 msgstr ""

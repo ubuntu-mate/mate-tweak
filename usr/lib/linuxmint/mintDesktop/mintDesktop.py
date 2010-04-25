@@ -153,9 +153,8 @@ class MintDesktop:
 
 		# Metacity button layouts..
 		layouts = gtk.ListStore(str, str)
-		layouts.append([_("Traditional style"), "menu:minimize,maximize,close"])
-		layouts.append([_("Mac style"), "close,minimize,maximize:"])
-		layouts.append([_("Ubuntu style"), "minimize,maximize,close:"])
+		layouts.append([_("Traditional style (Left)"), "menu:minimize,maximize,close"])
+		layouts.append([_("Mac style (Right)"), "close,minimize,maximize:"])
 		self.get_widget("combo_wmlayout").set_model(layouts)
 		self.init_combobox("/apps/metacity/general/button_layout", "combo_wmlayout")
 
