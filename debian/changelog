@@ -1,3 +1,9 @@
+mintdesktop (3.2.0) isadora; urgency=low
+
+  * Renamed button layouts
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed,  28 Apr 2010 14:34:00 +0000
+
 mintdesktop (3.1.9) isadora; urgency=low
 
   * Renamed button layouts

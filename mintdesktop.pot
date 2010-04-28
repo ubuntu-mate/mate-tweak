@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-25 19:40+0100\n"
+"POT-Creation-Date: 2010-04-28 14:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,11 +138,11 @@ msgid "Large"
 msgstr ""
 
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:156
-msgid "Traditional style (Left)"
+msgid "Traditional style (Right)"
 msgstr ""
 
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:157
-msgid "Mac style (Right)"
+msgid "Mac style (Left)"
 msgstr ""
 
 #: usr/lib/linuxmint/mintDesktop/mintDesktop.py:163
