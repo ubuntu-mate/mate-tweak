@@ -80,6 +80,8 @@ class MintDesktop:
         img = theme.load_icon("preferences-desktop", 36, 0)
         self.store.append([_("Interface"), img])
         img = theme.load_icon("preferences-desktop-wallpaper", 36, 0)
+        self.store.append([_("Terminal"), img])
+        img = theme.load_icon("terminal", 36, 0)
 
         # set up the side view - navigation.
         self.get_widget("side_view").set_text_column(0)
@@ -101,6 +103,7 @@ class MintDesktop:
         self.get_widget("label_icons").set_markup("<b>" + _("Icons") + "</b>")
         self.get_widget("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
         self.get_widget("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
+        self.get_widget("label_terminal").set_markup("<b>" + _("Terminal") + "</b>")
 
         self.get_widget("caption_desktop_icons").set_markup("<small><i><span foreground=\"#555555\">" + _("Select the items you want to see on the desktop:") + "</span></i></small>")
 
@@ -113,7 +116,7 @@ class MintDesktop:
         self.get_widget("checkbutton_resources").set_label(_("Don't show window content while dragging them"))
         self.get_widget("checkbox_compositing").set_label(_("Use Gnome compositing"))
         self.get_widget("checkbutton_titlebar").set_label(_("Use system font in titlebar"))
-
+        self.get_widget("checkbox_fortunes").set_label(_("Show fortune cookies"))
 
         self.get_widget("label_layouts").set_text(_("Buttons layout:"))
 
@@ -124,8 +127,6 @@ class MintDesktop:
 
         self.get_widget("label_tool_icons").set_text(_("Buttons labels:"))
         self.get_widget("label_icon_size").set_text(_("Icon size:"))
-
-
 
         # Desktop page
         self.init_checkbox("/apps/nautilus/desktop/computer_icon_visible", "checkbox_computer")
@@ -144,6 +145,9 @@ class MintDesktop:
         self.init_checkbox("/desktop/gnome/interface/show_input_method_menu","checkbutton_im_menu")
         self.init_checkbox("/desktop/gnome/interface/show_unicode_menu", "checkbutton_unicode")
         self.init_checkbox("/desktop/gnome/interface/buttons_have_icons", "checkbutton_button_icons")
+        
+        # terminal page
+        self.init_checkbox("/desktop/linuxmint/terminal/show_fortunes", "checkbox_fortunes")
 
         iconSizes = gtk.ListStore(str, str)
         iconSizes.append([_("Small"), "small-toolbar"])

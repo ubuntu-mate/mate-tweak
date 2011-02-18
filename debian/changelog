@@ -1,3 +1,10 @@
+mintdesktop (3.2.3) julia; urgency=low
+
+  * Better looking UI
+  * Added terminal option to hide/show fortune cookies
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri,  18 Feb 2011 12:12:00 +0000
+
 mintdesktop (3.2.2) julia; urgency=low
 
   * Removed obsolete/buggy prerm
