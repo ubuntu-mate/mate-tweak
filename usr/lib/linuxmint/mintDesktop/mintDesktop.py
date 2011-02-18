@@ -22,11 +22,16 @@ gettext.install("mintdesktop", "/usr/share/linuxmint/locale")
 
 # i18n for menu item
 menuName = _("Desktop Settings")
-menuGenericName = _("Gnome Configuration Tool")
-menuComment = _("Fine-tune Gnome settings")
+menuGenericName = _("Desktop Configuration Tool")
+menuComment = _("Fine-tune desktop settings")
+
+class SidePage:
+    def __init__(self, notebook_index, name, icon):
+        self.notebook_index = notebook_index
+        self.name = name
+        self.icon = icon
 
 class MintDesktop:
-    """MintDesktop - Makes the best out of your Gnome desktop..."""
 
     # Set a string in gconf
     def set_string(self, key, value):
@@ -53,7 +58,8 @@ class MintDesktop:
         path = param.get_selected_items()
         if (len(path) > 0):
             selection = path[0][0]
-            self.get_widget("notebook1").set_current_page(selection)
+            target = self.sidePages[selection].notebook_index
+            self.get_widget("notebook1").set_current_page(target)
 
     ''' Create the UI '''
     def __init__(self):
@@ -68,20 +74,36 @@ class MintDesktop:
         client.add_dir("/apps/metacity/general", gconf.CLIENT_PRELOAD_NONE)
         client.add_dir("/desktop/gnome/interface", gconf.CLIENT_PRELOAD_NONE)
         client.add_dir("/apps/nautilus/preferences", gconf.CLIENT_PRELOAD_NONE)
-
-        # get the icon theme.
+               
+        side_gnome_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
+        side_gnome_windows = SidePage(1, _("Windows"), "gnome-windows")
+        side_gnome_interface = SidePage(2, _("Interface"), "preferences-desktop")
+        side_terminal = SidePage(3, _("Terminal"), "terminal")
+        
+        # Define which side-options apply to which desktop
+        desktop = commands.getoutput("grep DESKTOP /etc/linuxmint/info | cut -f 2 -d \"=\"").lower()
+        if desktop == "gnome":
+            self.sidePages = [side_gnome_desktop_options, side_gnome_windows, side_gnome_interface, side_terminal]
+        elif desktop == "kde":
+            self.sidePages = [side_terminal]
+        elif desktop == "lxde":
+            self.sidePages = [side_terminal]
+        elif desktop == "xfce":
+            self.sidePages = [side_terminal]
+        elif desktop == "fluxbox":
+            self.sidePages = [side_terminal]
+        else:
+            self.sidePages = [side_terminal]
+            
+        # create the backing store for the side nav-view.                    
         theme = gtk.icon_theme_get_default()
-        img = theme.load_icon("user-desktop", 36, 0)
-        # create the backing store for the side nav-view. very perty.
         self.store = gtk.ListStore(str, gtk.gdk.Pixbuf)
-        self.store.append([_("Desktop"), img])
-        img = theme.load_icon("gnome-windows", 36, 0)
-        self.store.append([_("Windows"), img])
-        img = theme.load_icon("preferences-desktop", 36, 0)
-        self.store.append([_("Interface"), img])
-        img = theme.load_icon("preferences-desktop-wallpaper", 36, 0)
-        self.store.append([_("Terminal"), img])
-        img = theme.load_icon("terminal", 36, 0)
+        for sidePage in self.sidePages:
+            img = theme.load_icon(sidePage.icon, 36, 0)                        
+            self.store.append([sidePage.name, img])       
+            
+        target = self.sidePages[0].notebook_index
+        self.get_widget("notebook1").set_current_page(target)                                            
 
         # set up the side view - navigation.
         self.get_widget("side_view").set_text_column(0)
