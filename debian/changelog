@@ -1,3 +1,9 @@
+mintdesktop (3.2.5) lisa; urgency=low
+
+  * Different panels for mate and gnome3
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri,  28 Oct 2011 11:59:00 +0000
+
 mintdesktop (3.2.4) katya; urgency=low
 
   * Katya  
