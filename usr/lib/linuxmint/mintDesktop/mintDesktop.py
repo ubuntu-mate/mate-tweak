@@ -10,7 +10,7 @@ try:
     import gtk
     import gtk.glade
     import gettext
-    import gconf
+    import mateconf
 except Exception, detail:
     print detail
     sys.exit(1)
@@ -35,22 +35,22 @@ class MintDesktop:
 
     # Set a string in gconf
     def set_string(self, key, value):
-        client = gconf.client_get_default()
+        client = mateconf.client_get_default()
         client.set_string(key, value)
 
     # Get a string from gconf
     def get_string(self, key):
-        client = gconf.client_get_default()
+        client = mateconf.client_get_default()
         return client.get_string(key)
 
     # Set a boolean in gconf according to the value of the passed gtk.CheckButton
     def set_bool(self, key, value):
-        client = gconf.client_get_default()
+        client = mateconf.client_get_default()
         client.set_bool(key, value.get_active())
 
     # Get a boolean from gconf
     def get_bool(self, key):
-        client = gconf.client_get_default()
+        client = mateconf.client_get_default()
         return client.get_bool(key)
 
     # Change pages
@@ -69,11 +69,11 @@ class MintDesktop:
         self.get_widget("main_window").connect("destroy", gtk.main_quit)
 
         # say hi to gconf
-        client = gconf.client_get_default()
-        client.add_dir("/apps/nautilus/desktop", gconf.CLIENT_PRELOAD_NONE)
-        client.add_dir("/apps/metacity/general", gconf.CLIENT_PRELOAD_NONE)
-        client.add_dir("/desktop/gnome/interface", gconf.CLIENT_PRELOAD_NONE)
-        client.add_dir("/apps/nautilus/preferences", gconf.CLIENT_PRELOAD_NONE)
+        client = mateconf.client_get_default()
+        client.add_dir("/apps/caja/desktop", mateconf.CLIENT_PRELOAD_NONE)
+        client.add_dir("/apps/marco/general", mateconf.CLIENT_PRELOAD_NONE)
+        client.add_dir("/desktop/mate/interface", mateconf.CLIENT_PRELOAD_NONE)
+        client.add_dir("/apps/caja/preferences", mateconf.CLIENT_PRELOAD_NONE)
                
         side_gnome_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_gnome_windows = SidePage(1, _("Windows"), "gnome-windows")
@@ -158,22 +158,22 @@ class MintDesktop:
         self.get_widget("label_icon_size").set_text(_("Icon size:"))
 
         # Desktop page
-        self.init_checkbox("/apps/nautilus/desktop/computer_icon_visible", "checkbox_computer")
-        self.init_checkbox("/apps/nautilus/desktop/home_icon_visible", "checkbox_home")
-        self.init_checkbox("/apps/nautilus/desktop/network_icon_visible", "checkbox_network")
-        self.init_checkbox("/apps/nautilus/desktop/trash_icon_visible", "checkbox_trash")
-        self.init_checkbox("/apps/nautilus/desktop/volumes_visible", "checkbox_volumes")
+        self.init_checkbox("/apps/caja/desktop/computer_icon_visible", "checkbox_computer")
+        self.init_checkbox("/apps/caja/desktop/home_icon_visible", "checkbox_home")
+        self.init_checkbox("/apps/caja/desktop/network_icon_visible", "checkbox_network")
+        self.init_checkbox("/apps/caja/desktop/trash_icon_visible", "checkbox_trash")
+        self.init_checkbox("/apps/caja/desktop/volumes_visible", "checkbox_volumes")
 
         # Window Manager page
-        self.init_checkbox("/apps/metacity/general/reduced_resources", "checkbutton_resources")
-        self.init_checkbox("/apps/metacity/general/compositing_manager", "checkbox_compositing")
-        self.init_checkbox("/apps/metacity/general/titlebar_uses_system_font", "checkbutton_titlebar")
+        self.init_checkbox("/apps/marco/general/reduced_resources", "checkbutton_resources")
+        self.init_checkbox("/apps/marco/general/compositing_manager", "checkbox_compositing")
+        self.init_checkbox("/apps/marco/general/titlebar_uses_system_font", "checkbutton_titlebar")
 
         # interface page
-        self.init_checkbox("/desktop/gnome/interface/menus_have_icons", "checkbutton_menuicon")
-        self.init_checkbox("/desktop/gnome/interface/show_input_method_menu","checkbutton_im_menu")
-        self.init_checkbox("/desktop/gnome/interface/show_unicode_menu", "checkbutton_unicode")
-        self.init_checkbox("/desktop/gnome/interface/buttons_have_icons", "checkbutton_button_icons")
+        self.init_checkbox("/desktop/mate/interface/menus_have_icons", "checkbutton_menuicon")
+        self.init_checkbox("/desktop/mate/interface/show_input_method_menu","checkbutton_im_menu")
+        self.init_checkbox("/desktop/mate/interface/show_unicode_menu", "checkbutton_unicode")
+        self.init_checkbox("/desktop/mate/interface/buttons_have_icons", "checkbutton_button_icons")
         
         # terminal page
         self.init_checkbox("/desktop/linuxmint/terminal/show_fortunes", "checkbox_fortunes")
@@ -182,14 +182,14 @@ class MintDesktop:
         iconSizes.append([_("Small"), "small-toolbar"])
         iconSizes.append([_("Large"), "large-toolbar"])
         self.get_widget("combobox_icon_size").set_model(iconSizes)
-        self.init_combobox("/desktop/gnome/interface/toolbar_icons_size", "combobox_icon_size")
+        self.init_combobox("/desktop/mate/interface/toolbar_icons_size", "combobox_icon_size")
 
         # Metacity button layouts..
         layouts = gtk.ListStore(str, str)
         layouts.append([_("Traditional style (Right)"), "menu:minimize,maximize,close"])
         layouts.append([_("Mac style (Left)"), "close,minimize,maximize:"])
         self.get_widget("combo_wmlayout").set_model(layouts)
-        self.init_combobox("/apps/metacity/general/button_layout", "combo_wmlayout")
+        self.init_combobox("/apps/marco/general/button_layout", "combo_wmlayout")
 
         # toolbar icon styles
         iconStyles = gtk.ListStore(str, str)
@@ -198,7 +198,7 @@ class MintDesktop:
         iconStyles.append([_("Icons only"), "icons"])
         iconStyles.append([_("Text only"), "text"])
         self.get_widget("combobox_toolicons").set_model(iconStyles)
-        self.init_combobox("/desktop/gnome/interface/toolbar_style", "combobox_toolicons")
+        self.init_combobox("/desktop/mate/interface/toolbar_style", "combobox_toolicons")
 
         self.get_widget("main_window").show()
 
@@ -268,7 +268,7 @@ class MintDesktop:
 
     ''' adds a notify system... '''
     def add_notify(self, key, widget):
-        client = gconf.client_get_default()
+        client = mateconf.client_get_default()
         notify_id = client.notify_add(key, self.key_changed_callback, widget)
         widget.set_data('notify_id', notify_id)
         widget.set_data('client', client)
@@ -287,14 +287,14 @@ class MintDesktop:
     def key_changed_callback (self, client, cnxn_id, entry, widget):
         # deal with all boolean (checkboxes)
         if (type(widget) == gtk.CheckButton):
-            if(entry.value.type == gconf.VALUE_BOOL):
+            if(entry.value.type == mateconf.VALUE_BOOL):
                 value = entry.value.get_bool()
                 if(widget):
                     widget.set_active(value)
         # combobox, multiple targets..
         elif( type(widget) == gtk.ComboBox ):
             # Sanity check, if its crap ignore it.
-            if(entry.value.type == gconf.VALUE_STRING):
+            if(entry.value.type == mateconf.VALUE_STRING):
                 if(not widget and not value):
                     return
             # the string in question :)

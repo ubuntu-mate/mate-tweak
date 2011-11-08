@@ -1,3 +1,9 @@
+mintdesktop (3.2.6) lisa; urgency=low
+
+  * Added full support for MATE
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue,  8 Nov 2011 10:31:00 +0000
+
 mintdesktop (3.2.5) lisa; urgency=low
 
   * Different panels for mate and gnome3
