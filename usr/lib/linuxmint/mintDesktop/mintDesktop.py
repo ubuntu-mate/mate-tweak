@@ -85,20 +85,10 @@ class MintDesktop:
         
         try:
             desktop = os.environ["DESKTOP_SESSION"].lower()
-            if desktop == "gnome" or desktop == "gnome-shell":
-                self.sidePages = [side_terminal]
-            elif desktop == "mate":
-                self.sidePages = [side_gnome_desktop_options, side_gnome_windows, side_gnome_interface, side_terminal]
-            elif desktop == "kde":
-                self.sidePages = [side_terminal]
-            elif desktop == "lxde":
-                self.sidePages = [side_terminal]
-            elif desktop == "xfce":
-                self.sidePages = [side_terminal]
-            elif desktop == "fluxbox":
+            if desktop in ["gnome", "gnome-shell", "kde", "lxde", "xfce", "fluxbox"]:
                 self.sidePages = [side_terminal]
             else:
-                self.sidePages = [side_terminal]
+                self.sidePages = [side_gnome_desktop_options, side_gnome_windows, side_gnome_interface, side_terminal]            
         except Exception, detail:
             print detail
             
