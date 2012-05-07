@@ -1,3 +1,9 @@
+mintdesktop (3.2.8) precise; urgency=low
+
+  * Fixed wrong icon name
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 07 May 2012 16:50:07 +0100
+
 mintdesktop (3.2.7) maya; urgency=low
 
   * Dedicated mintDesktop to MATE

@@ -76,7 +76,7 @@ class MintDesktop:
         client.add_dir("/apps/caja/preferences", mateconf.CLIENT_PRELOAD_NONE)
                
         side_gnome_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
-        side_gnome_windows = SidePage(1, _("Windows"), "gnome-windows")
+        side_gnome_windows = SidePage(1, _("Windows"), "preferences-system-windows")
         side_gnome_interface = SidePage(2, _("Interface"), "preferences-desktop")
         side_terminal = SidePage(3, _("Terminal"), "terminal")
         
