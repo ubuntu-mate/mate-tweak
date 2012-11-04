@@ -85,12 +85,13 @@ class MintDesktop:
         
         try:
             desktop = os.environ["DESKTOP_SESSION"].lower()
-            if desktop in ["gnome", "gnome-shell", "kde", "lxde", "xfce", "fluxbox"]:
+            if desktop in ["cinnamon", "gnome", "gnome-shell", "kde", "lxde", "xfce", "fluxbox"]:
+                print desktop
                 self.sidePages = [side_terminal]
             else:
                 self.sidePages = [side_gnome_desktop_options, side_gnome_windows, side_gnome_interface, side_terminal]            
         except Exception, detail:
-            print detail
+            print "Error: %s " % detail
             
         # create the backing store for the side nav-view.                    
         theme = gtk.icon_theme_get_default()
@@ -112,8 +113,7 @@ class MintDesktop:
         # set up larger components.
         self.get_widget("main_window").set_title("Desktop Settings")
         self.get_widget("main_window").connect("destroy", gtk.main_quit)
-        self.get_widget("button_cancel").connect("clicked", gtk.main_quit)
-        self.get_widget("button_about").connect("clicked", self.about_callback)
+        self.get_widget("button_cancel").connect("clicked", gtk.main_quit)        
 
         # i18n
         self.get_widget("label_desktop_icons").set_markup("<b>" + _("Desktop icons") + "</b>")
@@ -133,7 +133,7 @@ class MintDesktop:
         self.get_widget("checkbox_volumes").set_label(_("Mounted Volumes"))
 
         self.get_widget("checkbutton_resources").set_label(_("Don't show window content while dragging them"))
-        self.get_widget("checkbox_compositing").set_label(_("Use Gnome compositing"))
+        self.get_widget("checkbox_compositing").set_label(_("Use compositing"))
         self.get_widget("checkbutton_titlebar").set_label(_("Use system font in titlebar"))
         self.get_widget("checkbox_fortunes").set_label(_("Show fortune cookies"))
 
@@ -190,40 +190,7 @@ class MintDesktop:
         self.get_widget("combobox_toolicons").set_model(iconStyles)
         self.init_combobox("/desktop/mate/interface/toolbar_style", "combobox_toolicons")
 
-        self.get_widget("main_window").show()
-
-    def about_callback(self, w):
-        dlg = gtk.AboutDialog()
-        dlg.set_title(_("About"))
-        dlg.set_program_name("mintDesktop")
-        dlg.set_comments(_("Desktop Settings"))
-        try:
-            h = open('/usr/share/common-licenses/GPL','r')
-            s = h.readlines()
-            gpl = ""
-            for line in s:
-                gpl += line
-            h.close()
-            dlg.set_license(gpl)
-        except Exception, detail:
-            print detail
-        try:
-            version = commands.getoutput("/usr/lib/linuxmint/common/version.py mintdesktop")
-            dlg.set_version(version)
-        except Exception, detail:
-            print detail
-
-        dlg.set_authors(["Clement Lefebvre <root@linuxmint.com>", "Ikey Doherty <contactjfreak@googlemail.com>"])
-        self.iconTheme = gtk.icon_theme_get_default()
-        img = self.iconTheme.load_icon("user-desktop", 48, 0)
-
-        dlg.set_icon(img)
-        dlg.set_logo(img)
-        def close(w, res):
-            if res == gtk.RESPONSE_CANCEL:
-                w.hide()
-        dlg.connect("response", close)
-        dlg.show()
+        self.get_widget("main_window").show()    
 
     ''' Saves typing self.get_widget all the time.... '''
     def get_widget(self, which):

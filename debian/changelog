@@ -1,4 +1,13 @@
-mintdesktop (3.2.8) precise; urgency=low
+mintdesktop (3.2.9) nadia; urgency=low
+
+  * Removed about dialog (useless)
+  * Changed "Use GNOME Compositing" label to "Use Compositing" (refers to Marco's)
+  * Added cinnamon in the list of known desktop sessions
+  * Updated POT File
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 04 Nov 2012 10:52:10 +0000
+
+mintdesktop (3.2.8) maya; urgency=low
 
   * Fixed wrong icon name
 
