@@ -9,4 +9,4 @@ Package: mintdesktop
 Architecture: all
 Depends: python (>= 2.4), python (<< 3), python-gtk2, python-glade2, python-mate, python-corba, mint-info
 Description: Desktop configuration tool
- Configures some aspects of the Gnome desktop. 
+ Configures some aspects of the desktop. 
