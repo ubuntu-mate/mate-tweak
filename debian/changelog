@@ -1,3 +1,9 @@
+mintdesktop (3.3.0) olivia; urgency=low
+
+  * Changed description in debian/control
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 12 Mar 2013 15:36:29 +0000
+
 mintdesktop (3.2.9) nadia; urgency=low
 
   * Removed about dialog (useless)
