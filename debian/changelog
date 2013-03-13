@@ -1,3 +1,9 @@
+mintdesktop (3.3.1) olivia; urgency=low
+
+  * Migrated to MATE 1.6 (gsettings, gi, etc..)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 13 Mar 2013 13:52:40 +0000
+
 mintdesktop (3.3.0) olivia; urgency=low
 
   * Changed description in debian/control
