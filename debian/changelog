@@ -1,3 +1,9 @@
+mintdesktop (3.3.2) petra; urgency=low
+
+  * Hide mintfortune conf for now (removed from mintsystem until systemd/XDG_RUNTIME_DIR is fixed)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 11 Nov 2013 18:29:34 +0000
+
 mintdesktop (3.3.1) olivia; urgency=low
 
   * Migrated to MATE 1.6 (gsettings, gi, etc..)

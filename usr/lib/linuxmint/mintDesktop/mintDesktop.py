@@ -95,7 +95,7 @@ class MintDesktop:
         side_gnome_interface = SidePage(2, _("Interface"), "preferences-desktop")
         side_terminal = SidePage(3, _("Terminal"), "terminal")
                 
-        self.sidePages = [side_gnome_desktop_options, side_gnome_windows, side_gnome_interface, side_terminal]            
+        self.sidePages = [side_gnome_desktop_options, side_gnome_windows, side_gnome_interface]            
                 
         # create the backing store for the side nav-view.                    
         theme = Gtk.IconTheme.get_default()
