@@ -1,3 +1,9 @@
+mintdesktop (3.3.3) petra; urgency=low
+
+  * Show mintfortune conf (systemd fixed)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 22 Nov 2013 10:45:52 +0000
+
 mintdesktop (3.3.2) petra; urgency=low
 
   * Hide mintfortune conf for now (removed from mintsystem until systemd/XDG_RUNTIME_DIR is fixed)
