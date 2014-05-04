@@ -1,3 +1,9 @@
+mintdesktop (3.3.5) qiana; urgency=medium
+
+  * Updated desktop file
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 04 May 2014 02:48:31 +0100
+
 mintdesktop (3.3.4) qiana; urgency=medium
 
   * Removed temp file from package (was added by mistake)
