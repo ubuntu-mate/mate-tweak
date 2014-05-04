@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 10:51+0000\n"
+"POT-Creation-Date: 2014-05-04 02:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,155 +17,151 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:24
-msgid "Desktop Settings"
-msgstr ""
-
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:25
-msgid "Desktop Configuration Tool"
-msgstr ""
-
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:26
-msgid "Fine-tune desktop settings"
-msgstr ""
-
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:78
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:88
 msgid "Desktop"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:79
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:89
 msgid "Windows"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:80
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:90
 msgid "Interface"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:81
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:125
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:91
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:124
 msgid "Terminal"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:119
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:118
 msgid "Desktop icons"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:120
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:119
 msgid "Performance"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:121
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:120
 msgid "Appearance"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:122
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:121
 msgid "Icons"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:123
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:122
 msgid "Context menus"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:124
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:123
 msgid "Toolbars"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:127
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:126
 msgid "Select the items you want to see on the desktop:"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:129
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:128
 msgid "Computer"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:130
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:129
 msgid "Home"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:131
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:130
 msgid "Network"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:132
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:131
 msgid "Trash"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:133
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:132
 msgid "Mounted Volumes"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:135
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:134
 msgid "Don't show window content while dragging them"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:136
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:135
 msgid "Use compositing"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:137
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:136
 msgid "Use system font in titlebar"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:138
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:137
 msgid "Show fortune cookies"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:140
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:139
 msgid "Buttons layout:"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:142
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:141
 msgid "Show icons on menus"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:143
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:142
 msgid "Show icons on buttons"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:144
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:143
 msgid "Show Input Methods menu in context menus"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:145
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:144
 msgid "Show Unicode Control Character menu in context menus"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:147
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:146
 msgid "Buttons labels:"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:148
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:147
 msgid "Icon size:"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:172
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:171
 msgid "Small"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:173
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:172
 msgid "Large"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:179
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:178
 msgid "Traditional style (Right)"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:180
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:179
 msgid "Mac style (Left)"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:186
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:185
 msgid "Text below items"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:187
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:186
 msgid "Text beside items"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:188
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:187
 msgid "Icons only"
 msgstr ""
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:189
+#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:188
 msgid "Text only"
+msgstr ""
+
+#: generate_desktop_files:25
+msgid "Desktop Settings"
+msgstr ""
+
+#: generate_desktop_files:25
+msgid "Fine-tune desktop settings"
 msgstr ""

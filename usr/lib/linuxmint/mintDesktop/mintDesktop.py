@@ -21,11 +21,6 @@ except Exception, detail:
 # TODO: Badly need to fix this - overuse of "The" etc.
 gettext.install("mintdesktop", "/usr/share/linuxmint/locale")
 
-# i18n for menu item
-menuName = _("Desktop Settings")
-menuGenericName = _("Desktop Configuration Tool")
-menuComment = _("Fine-tune desktop settings")
-
 class SidePage:
     def __init__(self, notebook_index, name, icon):
         self.notebook_index = notebook_index
