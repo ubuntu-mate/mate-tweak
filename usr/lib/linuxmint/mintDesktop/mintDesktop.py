@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import gi
-gi.require_version("Gtk", "2.0")
  
 from gi.repository import Gtk, GdkPixbuf, Gdk, GObject
 from gi.repository import Gio
@@ -122,7 +121,6 @@ class MintDesktop:
         # set up larger components.
         self.builder.get_object("main_window").set_title("Desktop Settings")
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
-        self.builder.get_object("button_cancel").connect("clicked", Gtk.main_quit)        
 
         # i18n
         self.builder.get_object("label_desktop_icons").set_markup("<b>" + _("Desktop icons") + "</b>")
