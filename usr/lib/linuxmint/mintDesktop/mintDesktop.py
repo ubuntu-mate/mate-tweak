@@ -78,6 +78,13 @@ class MintDesktop:
 
     ''' Create the UI '''
     def __init__(self):
+        # Detect which WM is running
+        marco_mode = False
+        wm_info = commands.getoutput("wmctrl -m")        
+        if "Marco" in wm_info:
+            print "Marco WM detected"
+            marco_mode = True
+
         # load our glade ui file in
         self.builder = Gtk.Builder()
         self.builder.add_from_file('/usr/lib/linuxmint/mintDesktop/mintDesktop.ui')
@@ -90,7 +97,10 @@ class MintDesktop:
         side_gnome_interface = SidePage(2, _("Interface"), "preferences-desktop")
         side_terminal = SidePage(3, _("Terminal"), "terminal")
                 
-        self.sidePages = [side_gnome_desktop_options, side_gnome_windows, side_gnome_interface, side_terminal]
+        if marco_mode:
+            self.sidePages = [side_gnome_desktop_options, side_gnome_windows, side_gnome_interface, side_terminal]
+        else:
+            self.sidePages = [side_gnome_desktop_options, side_gnome_interface, side_terminal]
                 
         # create the backing store for the side nav-view.                    
         theme = Gtk.IconTheme.get_default()
