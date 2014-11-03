@@ -1,3 +1,10 @@
+mate-tweak (3.3.6) trusty; urgency=medium
+
+  * Initial fork of mintDesktop.
+  * Removed configuration options specific to Linux Mint.
+
+ -- Martin Wimpress <code@ubuntu-mate.org>  Sun, 02 Nov 2014 00:50:40 +0100
+ 
 mintdesktop (3.3.6) qiana; urgency=medium
 
   * Simplified UI

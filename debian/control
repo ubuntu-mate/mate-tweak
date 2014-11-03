@@ -1,12 +1,12 @@
-Source: mintdesktop
+Source: mate-tweak
 Section: admin
 Priority: optional
-Maintainer: Clement Lefebvre <root@linuxmint.com>
+Maintainer: Martin Wimpress <code@ubuntu-mate.org>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
-Package: mintdesktop
+Package: mate-tweak
 Architecture: all
-Depends: python (>= 2.4), python (<< 3), mint-info, mintsystem, wmctrl
-Description: Desktop configuration tool
- Configures some aspects of the desktop. 
+Depends: python (>= 2.4), python (<< 3), wmctrl
+Description: MATE desktop tweak tool
+ Configures some aspects of the MATE desktop.

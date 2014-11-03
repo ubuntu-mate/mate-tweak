@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 import gi
  
@@ -10,7 +10,7 @@ try:
     import commands
     import sys
     import string
-    import gettext    
+    import gettext
 except Exception, detail:
     print detail
     sys.exit(1)
@@ -18,7 +18,7 @@ except Exception, detail:
 
 # i18n
 # TODO: Badly need to fix this - overuse of "The" etc.
-gettext.install("mintdesktop", "/usr/share/linuxmint/locale")
+gettext.install("mate-tweak", "/usr/share/ubuntu-mate/locale")
 
 class SidePage:
     def __init__(self, notebook_index, name, icon):
@@ -26,7 +26,7 @@ class SidePage:
         self.name = name
         self.icon = icon
 
-class MintDesktop:
+class MateTweak:
 
     def set_string(self, schema, key, value):
         settings = Gio.Settings.new(schema)
@@ -38,7 +38,7 @@ class MintDesktop:
 
     def set_bool(self, schema, key, value):
         settings = Gio.Settings.new(schema)
-        settings.set_boolean(key, value.get_active())        
+        settings.set_boolean(key, value.get_active())
     
     def get_bool(self, schema, key):
         settings = Gio.Settings.new(schema)
@@ -48,7 +48,7 @@ class MintDesktop:
         widget = self.builder.get_object(name)
         value = self.get_bool(schema, key)
         widget.set_active(value)
-        widget.connect("clicked", lambda x: self.set_bool(schema, key, x))       
+        widget.connect("clicked", lambda x: self.set_bool(schema, key, x))
 
     def init_combobox(self, schema, key, name):
         widget = self.builder.get_object(name)
@@ -68,7 +68,7 @@ class MintDesktop:
 
     # Change pages
     def side_view_nav(self, param):
-        treePaths = param.get_selected_items()        
+        treePaths = param.get_selected_items()
         if (len(treePaths) > 0):
             treePath = treePaths[0]
             index = int("%s" % treePath) #Hack to turn treePath into an int
@@ -77,16 +77,9 @@ class MintDesktop:
 
     ''' Create the UI '''
     def __init__(self):
-        # Detect which WM is running
-        marco_mode = False
-        wm_info = commands.getoutput("wmctrl -m")        
-        if "Marco" in wm_info:
-            print "Marco WM detected"
-            marco_mode = True
-
         # load our glade ui file in
         self.builder = Gtk.Builder()
-        self.builder.add_from_file('/usr/lib/linuxmint/mintDesktop/mintDesktop.ui')
+        self.builder.add_from_file('/usr/lib/ubuntu-mate/mate-tweak/mate-tweak.ui')
         self.window = self.builder.get_object( "main_window" )
                
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
@@ -94,22 +87,22 @@ class MintDesktop:
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
         side_interface = SidePage(2, _("Interface"), "preferences-desktop")
-        side_terminal = SidePage(3, _("Terminal"), "terminal")
-                
-        if marco_mode:
-            self.sidePages = [side_desktop_options, side_windows, side_interface, side_terminal]
+
+        # Detect which WM is running
+        if "Marco" in commands.getoutput("wmctrl -m"):
+            self.sidePages = [side_desktop_options, side_interface, side_windows]
         else:
-            self.sidePages = [side_desktop_options, side_interface, side_terminal]
-                
-        # create the backing store for the side nav-view.                    
+            self.sidePages = [side_desktop_options, side_interface]
+
+        # create the backing store for the side nav-view.
         theme = Gtk.IconTheme.get_default()
         self.store = Gtk.ListStore(str, GdkPixbuf.Pixbuf)
         for sidePage in self.sidePages:
-            img = theme.load_icon(sidePage.icon, 36, 0)                        
-            self.store.append([sidePage.name, img])       
-            
+            img = theme.load_icon(sidePage.icon, 36, 0)
+            self.store.append([sidePage.name, img])
+
         target = self.sidePages[0].notebook_index
-        self.builder.get_object("notebook1").set_current_page(target)                                            
+        self.builder.get_object("notebook1").set_current_page(target)
 
         # set up the side view - navigation.
         self.builder.get_object("side_view").set_text_column(0)
@@ -119,7 +112,7 @@ class MintDesktop:
         self.builder.get_object("side_view").connect("selection_changed", self.side_view_nav )
 
         # set up larger components.
-        self.builder.get_object("main_window").set_title("Desktop Settings")
+        self.builder.get_object("main_window").set_title("MATE Tweak")
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
 
         # i18n
@@ -129,7 +122,6 @@ class MintDesktop:
         self.builder.get_object("label_icons").set_markup("<b>" + _("Icons") + "</b>")
         self.builder.get_object("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
         self.builder.get_object("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
-        self.builder.get_object("label_terminal").set_markup("<b>" + _("Terminal") + "</b>")
 
         self.builder.get_object("caption_desktop_icons").set_markup("<small><i><span foreground=\"#555555\">" + _("Select the items you want to see on the desktop:") + "</span></i></small>")
 
@@ -142,7 +134,6 @@ class MintDesktop:
         self.builder.get_object("checkbutton_resources").set_label(_("Don't show window content while dragging them"))
         self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
         self.builder.get_object("checkbutton_titlebar").set_label(_("Use system font in titlebar"))
-        self.builder.get_object("checkbox_fortunes").set_label(_("Show fortune cookies"))
 
         self.builder.get_object("label_layouts").set_text(_("Buttons layout:"))
 
@@ -172,9 +163,6 @@ class MintDesktop:
         self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
         self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
         
-        # terminal page
-        self.init_checkbox("com.linuxmint.terminal", "show-fortunes", "checkbox_fortunes")
-
         iconSizes = Gtk.ListStore(str, str)
         iconSizes.append([_("Small"), "small-toolbar"])
         iconSizes.append([_("Large"), "large-toolbar"])
@@ -201,5 +189,5 @@ class MintDesktop:
 
     
 if __name__ == "__main__":
-    MintDesktop()
+    MateTweak()
     Gtk.main()

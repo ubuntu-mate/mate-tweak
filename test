@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-sudo rm -rf /usr/lib/linuxmint/mintDesktop
+sudo rm -rf /usr/lib/ubuntu-mate/mate-tweak
 sudo cp -R usr /
-mintdesktop
+mate-tweak
