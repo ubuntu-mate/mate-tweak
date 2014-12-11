@@ -1,4 +1,4 @@
-mate-tweak (3.3.6~trusty2) trusty; urgency=medium
+mate-tweak (3.3.6) vivid; urgency=medium
 
   * Initial fork of mintDesktop.
   * Removed configuration options specific to Linux Mint.
