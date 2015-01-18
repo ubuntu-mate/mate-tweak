@@ -45,21 +45,25 @@ class MateTweak:
         return settings.get_boolean(key)
     
     def init_checkbox(self, schema, key, name):
-        widget = self.builder.get_object(name)
-        value = self.get_bool(schema, key)
-        widget.set_active(value)
-        widget.connect("clicked", lambda x: self.set_bool(schema, key, x))
+        source = Gio.SettingsSchemaSource.get_default()
+        if source.lookup(schema, True) != None:
+            widget = self.builder.get_object(name)
+            value = self.get_bool(schema, key)
+            widget.set_active(value)
+            widget.connect("clicked", lambda x: self.set_bool(schema, key, x))       
 
     def init_combobox(self, schema, key, name):
-        widget = self.builder.get_object(name)
-        conf = self.get_string(schema, key)
-        index = 0
-        for row in widget.get_model():
-            if(conf == row[1]):
-                widget.set_active(index)
-                break
-            index = index +1
-        widget.connect("changed", lambda x: self.combo_fallback(schema, key, x))
+        source = Gio.SettingsSchemaSource.get_default()
+        if source.lookup(schema, True) != None:
+            widget = self.builder.get_object(name)
+            conf = self.get_string(schema, key)
+            index = 0
+            for row in widget.get_model():
+                if(conf == row[1]):
+                    widget.set_active(index)
+                    break
+                index = index +1
+            widget.connect("changed", lambda x: self.combo_fallback(schema, key, x))
 
     def combo_fallback(self, schema, key, widget):
         act = widget.get_active()
@@ -73,7 +77,7 @@ class MateTweak:
             treePath = treePaths[0]
             index = int("%s" % treePath) #Hack to turn treePath into an int
             target = self.sidePages[index].notebook_index
-            self.builder.get_object("notebook1").set_current_page(index)
+            self.builder.get_object("notebook1").set_current_page(target)
 
     ''' Create the UI '''
     def __init__(self):
@@ -87,6 +91,10 @@ class MateTweak:
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
         side_interface = SidePage(2, _("Interface"), "preferences-desktop")
+                
+        if not marco_mode:
+        	self.builder.get_object("frame_marco1").hide()
+        	self.builder.get_object("frame_marco2").hide()
 
         # Detect which WM is running
         if "Marco" in commands.getoutput("wmctrl -m"):
@@ -122,6 +130,7 @@ class MateTweak:
         self.builder.get_object("label_icons").set_markup("<b>" + _("Icons") + "</b>")
         self.builder.get_object("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
         self.builder.get_object("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
+        self.builder.get_object("label_wm").set_markup("<b>" + _("Window Manager") + "</b>")
 
         self.builder.get_object("caption_desktop_icons").set_markup("<small><i><span foreground=\"#555555\">" + _("Select the items you want to see on the desktop:") + "</span></i></small>")
 
@@ -136,6 +145,8 @@ class MateTweak:
         self.builder.get_object("checkbutton_titlebar").set_label(_("Use system font in titlebar"))
 
         self.builder.get_object("label_layouts").set_text(_("Buttons layout:"))
+
+        self.builder.get_object("label_window_manager").set_text(_("Window manager:"))
 
         self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
         self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
@@ -175,6 +186,13 @@ class MateTweak:
         layouts.append([_("Mac style (Left)"), "close,minimize,maximize:"])
         self.builder.get_object("combo_wmlayout").set_model(layouts)
         self.init_combobox("org.mate.Marco.general", "button-layout", "combo_wmlayout")
+
+        wms = Gtk.ListStore(str, str)
+        wms.append([_("Marco (stable and reliable)"), "marco"])
+        wms.append([_("Compiz (impressive desktop effects)"), "compiz"])
+        self.builder.get_object("combo_wm").set_model(wms)
+        self.builder.get_object("combo_wm").set_tooltip_text(_("Log out and log back in for changes to take effect. If things go wrong, run 'mate-wm-recovery' to switch back to Marco."))
+        self.init_combobox("org.mate.session.required-components", "windowmanager", "combo_wm")
 
         # toolbar icon styles
         iconStyles = Gtk.ListStore(str, str)

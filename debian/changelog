@@ -1,3 +1,10 @@
+mate-tweak (3.4.1) vivid; urgency=medium
+
+  * Synced with mintDesktop.
+  * Added Compiz support.
+
+ -- Martin Wimpress <code@flexion.org>  Sun, 18 Jan 2015 07:47:22 +0000
+
 mate-tweak (3.3.6) vivid; urgency=medium
 
   * Initial fork of mintDesktop.
