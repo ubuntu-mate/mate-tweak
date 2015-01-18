@@ -91,16 +91,22 @@ class MateTweak:
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
         side_interface = SidePage(2, _("Interface"), "preferences-desktop")
-                
-        if not marco_mode:
-        	self.builder.get_object("frame_marco1").hide()
-        	self.builder.get_object("frame_marco2").hide()
+
+        if "Marco" in commands.getoutput("wmctrl -m"):
+            marco_mode = True
+        else:
+            marco_mode = False
+        
+#        if not marco_mode:
 
         # Detect which WM is running
-        if "Marco" in commands.getoutput("wmctrl -m"):
+        if marco_mode:
             self.sidePages = [side_desktop_options, side_interface, side_windows]
         else:
             self.sidePages = [side_desktop_options, side_interface]
+            self.builder.get_object("frame_marco1").hide()
+            self.builder.get_object("frame_marco2").hide()
+
 
         # create the backing store for the side nav-view.
         theme = Gtk.IconTheme.get_default()
