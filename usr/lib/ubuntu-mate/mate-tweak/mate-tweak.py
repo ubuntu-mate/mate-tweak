@@ -73,11 +73,11 @@ class MateTweak:
         
         # If the window manager is being changed, replace it.
         if schema == "org.mate.session.required-components" and key == "windowmanager":
-            new_wm = value[1] 
-            print("Changing to " + new_wm)            
+            new_wm = value[1]
+            print("Changing to " + new_wm)
             # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
-            devnull = open(os.devnull, 'wb')            
-            Popen(['nohup', new_wm, '--replace'], stdout=devnull, stderr=devnull)
+            devnull = open(os.devnull, 'wb')
+            Popen([new_wm, '--replace'], stdout=devnull, stderr=devnull)
             devnull.close()
 
     # Change pages
