@@ -1,16 +1,16 @@
 #!/usr/bin/env python2
 
 import gi
- 
+import os
+import string
+import sys
+
 from gi.repository import Gtk, GdkPixbuf, Gdk, GObject
 from gi.repository import Gio
 from subprocess import Popen
 
 try:
-    import os
     import commands
-    import sys
-    import string
     import gettext
 except Exception, detail:
     print detail
@@ -66,19 +66,30 @@ class MateTweak:
                 index = index +1
             widget.connect("changed", lambda x: self.combo_fallback(schema, key, x))
 
-    def combo_fallback(self, schema, key, widget):
-        act = widget.get_active()
-        value = widget.get_model()[act]        
-        self.set_string(schema, key, value[1])
-        
-        # If the window manager is being changed, replace it.
-        if schema == "org.mate.session.required-components" and key == "windowmanager":
-            new_wm = value[1]
-            print("Changing to " + new_wm)
+    def additional_tweaks(self, schema, key, value):
+        if schema == "org.mate.Marco.general" and key == "button-layout":
+            # If the button-layout is changed in MATE reflect that change
+            # for GTK3 and GNOME.
+            self.set_string("org.mate.interface", "gtk-decoration-layout", value)
+            self.set_string("org.gnome.desktop.wm.preferences", "button-layout", value)
+
+        elif schema == "org.mate.session.required-components" and key == "windowmanager":
+            # If the window manager is being changed, replace it.
+            print('Replacing the window manager with ' + value)
             # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
             devnull = open(os.devnull, 'wb')
-            Popen([new_wm, '--replace'], stdout=devnull, stderr=devnull)
+            Popen([value, '--replace'], stdout=devnull, stderr=devnull)
             devnull.close()
+            # As we are replacing the window manager, exit MATE Tweak.
+            sys.exit(0)
+
+    def combo_fallback(self, schema, key, widget):
+        act = widget.get_active()
+        value = widget.get_model()[act]
+        self.set_string(schema, key, value[1])
+
+        # Process any additional changes required for the schema and key
+        self.additional_tweaks(schema, key, value[1])
 
     # Change pages
     def side_view_nav(self, param):
@@ -106,24 +117,25 @@ class MateTweak:
         marco_mode = False
         compiz_mode = False        
         current_wm = commands.getoutput("wmctrl -m")
-        
         if "Marco" in current_wm:
             marco_mode = True
         elif "Compiz" in current_wm:
             compiz_mode = True
         
+        # Do not show Marco configuration options because Marco is not
+        # currently running.
+        if not marco_mode:
+            self.builder.get_object("frame_marco1").hide()
+
         if marco_mode or compiz_mode:
             # Show window manager configuration
             self.sidePages = [side_desktop_options, side_interface, side_windows]
         else:
-            # Do not show window manager configuration
+            # Do not show window manager configuration because the
+            # currently running window manager is unknown.
             self.sidePages = [side_desktop_options, side_interface]
             self.builder.get_object("frame_marco2").hide()
-        
-        # Do not show marco configuration options, marco is not currently running.
-        if not marco_mode:
-            self.builder.get_object("frame_marco1").hide()        
-        
+
         # create the backing store for the side nav-view.
         theme = Gtk.IconTheme.get_default()
         self.store = Gtk.ListStore(str, GdkPixbuf.Pixbuf)
@@ -164,7 +176,6 @@ class MateTweak:
 
         self.builder.get_object("checkbutton_resources").set_label(_("Don't show window content while dragging them"))
         self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
-        self.builder.get_object("checkbutton_titlebar").set_label(_("Use system font in titlebar"))
 
         self.builder.get_object("label_layouts").set_text(_("Buttons layout:"))
 
@@ -188,7 +199,6 @@ class MateTweak:
         # Window Manager page        
         self.init_checkbox("org.mate.Marco.general", "reduced-resources", "checkbutton_resources")
         self.init_checkbox("org.mate.Marco.general", "compositing-manager", "checkbox_compositing")
-        self.init_checkbox("org.mate.Marco.general", "titlebar-uses-system-font", "checkbutton_titlebar")
 
         # interface page
         self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
@@ -207,13 +217,10 @@ class MateTweak:
         layouts.append([_("Traditional (Right)"), "menu:minimize,maximize,close"])
         layouts.append([_("Comtemporary (Left)"), "close,minimize,maximize:"])
         self.builder.get_object("combo_wmlayout").set_model(layouts)
-        if compiz_mode:
-            self.init_combobox("org.gnome.desktop.wm.preferences", "button-layout", "combo_wmlayout")
-        else:
-            self.init_combobox("org.mate.Marco.general", "button-layout", "combo_wmlayout")
+        self.init_combobox("org.mate.Marco.general", "button-layout", "combo_wmlayout")
 
-        wms = Gtk.ListStore(str, str)        
-        wms.append([_("Marco (Simple CPU composited desktop effects)"), "marco"])
+        wms = Gtk.ListStore(str, str)
+        wms.append([_("Marco (Simple desktop effects)"), "marco"])
         wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), "compiz"])
         self.builder.get_object("combo_wm").set_model(wms)
         self.builder.get_object("combo_wm").set_tooltip_text(_("The new window manager will be activated upon selection."))
@@ -227,7 +234,6 @@ class MateTweak:
         iconStyles.append([_("Text only"), "text"])
         self.builder.get_object("combobox_toolicons").set_model(iconStyles)
         self.init_combobox("org.mate.interface", "toolbar-style", "combobox_toolicons")
-
         self.builder.get_object("main_window").show()
 
     
