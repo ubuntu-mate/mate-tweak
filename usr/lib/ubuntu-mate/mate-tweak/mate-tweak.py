@@ -92,22 +92,14 @@ class MateTweak:
         side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
         side_interface = SidePage(2, _("Interface"), "preferences-desktop")
 
+        # TODO - Review this when Compiz is running.
         if "Marco" in commands.getoutput("wmctrl -m"):
-            marco_mode = True
-        else:
-            marco_mode = False
-        
-#        if not marco_mode:
-
-        # Detect which WM is running
-        if marco_mode:
             self.sidePages = [side_desktop_options, side_interface, side_windows]
         else:
             self.sidePages = [side_desktop_options, side_interface]
             self.builder.get_object("frame_marco1").hide()
             self.builder.get_object("frame_marco2").hide()
-
-
+        
         # create the backing store for the side nav-view.
         theme = Gtk.IconTheme.get_default()
         self.store = Gtk.ListStore(str, GdkPixbuf.Pixbuf)
@@ -197,7 +189,7 @@ class MateTweak:
         wms.append([_("Marco (stable and reliable)"), "marco"])
         wms.append([_("Compiz (impressive desktop effects)"), "compiz"])
         self.builder.get_object("combo_wm").set_model(wms)
-        self.builder.get_object("combo_wm").set_tooltip_text(_("Log out and log back in for changes to take effect. If things go wrong, run 'mate-wm-recovery' to switch back to Marco."))
+        self.builder.get_object("combo_wm").set_tooltip_text(_("Log out and log back in for changes to take effect."))
         self.init_combobox("org.mate.session.required-components", "windowmanager", "combo_wm")
 
         # toolbar icon styles
