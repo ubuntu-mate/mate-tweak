@@ -1,9 +1,9 @@
 mate-tweak (3.4.1) vivid; urgency=medium
 
   * Synced with mintDesktop.
-  * Added Compiz support.
+  * Added Compiz support with live switching between Marco and Compiz.
 
- -- Martin Wimpress <code@flexion.org>  Sun, 18 Jan 2015 07:47:22 +0000
+ -- Martin Wimpress <code@flexion.org>  Sun, 18 Jan 2015 21:54:22 +0000
 
 mate-tweak (3.3.6) vivid; urgency=medium
 
