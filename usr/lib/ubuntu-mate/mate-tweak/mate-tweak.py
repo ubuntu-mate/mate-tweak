@@ -2,6 +2,7 @@
 
 import gi
 import os
+import psutil
 import string
 import sys
 
@@ -66,6 +67,20 @@ class MateTweak:
                 index = index +1
             widget.connect("changed", lambda x: self.combo_fallback(schema, key, x))
 
+    def replace_windowmanager(self, wm):
+        # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
+        devnull = open(os.devnull, 'wb')
+        Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
+        devnull.close()
+
+    def process_running(self, pname):
+        running = False
+        for proc in psutil.process.iter():
+            if proc.name() == pname
+                running = True
+                break
+        return running
+
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
             # If the button-layout is changed in MATE reflect that change
@@ -74,12 +89,26 @@ class MateTweak:
             self.set_string("org.gnome.desktop.wm.preferences", "button-layout", value)
 
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
-            # If the window manager is being changed, replace it.
-            print('Replacing the window manager with ' + value)
-            # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
-            devnull = open(os.devnull, 'wb')
-            Popen([value, '--replace'], stdout=devnull, stderr=devnull)
-            devnull.close()
+	    wm = value
+ 
+            # Sanity check
+	    if wm is not 'compiz' and wm is not 'marco':
+                wm = 'marco'
+
+            # If the window manager is being changed, replace it now!
+            print('Replacing the window manager with ' + wm)
+            self.replace_windowmanager(wm)
+
+            # Compiz has a habit of crashing on it's the very first invocation.
+            # Detect if the window manager is running, if not try it again.           
+            if not self.process_running(wm):
+                print(wm + ' is not running. Trying again...')
+		self.replace_windowmanager(wm)
+                if not self.process_running(wm) and wm == 'compiz':        
+                    self.replace_windowmanger('marco')
+            else:
+                print(wm + ' appears to be running. All good.')
+
             # As we are replacing the window manager, exit MATE Tweak.
             sys.exit(0)
 
