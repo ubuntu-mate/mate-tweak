@@ -75,8 +75,8 @@ class MateTweak:
 
     def process_running(self, pname):
         running = False
-        for proc in psutil.process.iter():
-            if proc.name() == pname
+        for proc in psutil.process_iter():
+            if proc.name() == pname:
                 running = True
                 break
         return running
@@ -92,7 +92,7 @@ class MateTweak:
 	    wm = value
  
             # Sanity check
-	    if wm is not 'compiz' and wm is not 'marco':
+	    if wm not in ['compiz', 'marco']:
                 wm = 'marco'
 
             # If the window manager is being changed, replace it now!
@@ -104,7 +104,8 @@ class MateTweak:
             if not self.process_running(wm):
                 print(wm + ' is not running. Trying again...')
 		self.replace_windowmanager(wm)
-                if not self.process_running(wm) and wm == 'compiz':        
+                if not self.process_running(wm) and wm == 'compiz':
+                    print('Failed to start compiz (twice), falling back to marco')
                     self.replace_windowmanger('marco')
             else:
                 print(wm + ' appears to be running. All good.')
