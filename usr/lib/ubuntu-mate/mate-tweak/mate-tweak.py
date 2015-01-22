@@ -106,6 +106,7 @@ class MateTweak:
 		self.replace_windowmanager(wm)
                 if not self.process_running(wm) and wm == 'compiz':
                     print('Failed to start compiz (twice), falling back to marco')
+                    self.set_string('org.mate.session.required-components', 'windowmanager', 'marco')
                     self.replace_windowmanger('marco')
             else:
                 print(wm + ' appears to be running. All good.')
