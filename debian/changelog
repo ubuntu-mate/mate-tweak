@@ -1,4 +1,4 @@
-mate-tweak (3.4.1~15.04-3) vivid; urgency=medium
+mate-tweak (3.4.1~14.04-5) trusty; urgency=medium
 
   * Synced with mintDesktop.
   * Added Compiz support with live switching between Marco and Compiz.
