@@ -2,9 +2,9 @@
 
 import gi
 import os
-import psutil
 import string
 import sys
+import time
 
 from gi.repository import Gtk, GdkPixbuf, Gdk, GObject
 from gi.repository import Gio
@@ -16,7 +16,6 @@ try:
 except Exception, detail:
     print detail
     sys.exit(1)
-
 
 # i18n
 # TODO: Badly need to fix this - overuse of "The" etc.
@@ -67,19 +66,32 @@ class MateTweak:
                 index = index +1
             widget.connect("changed", lambda x: self.combo_fallback(schema, key, x))
 
+    def find_on_path(self, command):
+        """Is command on the executable search path?"""
+        if 'PATH' not in os.environ:
+            return False
+        path = os.environ['PATH']
+        for element in path.split(os.pathsep):
+            if not element:
+                continue
+            filename = os.path.join(element, command)
+            if os.path.isfile(filename) and os.access(filename, os.X_OK):
+                return True
+        return False
+
     def replace_windowmanager(self, wm):
         # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
         devnull = open(os.devnull, 'wb')
-        Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
-        devnull.close()
+        if wm == 'compiz':
+            # mate-panel needs to be replaced when switching to Compiz to avoid
+            # rendering screw ups.
+            Popen(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
+            Popen([wm, '--replace', 'ccp'], stdout=devnull, stderr=devnull)
+            Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
+        else:
+            Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
 
-    def process_running(self, pname):
-        running = False
-        for proc in psutil.process_iter():
-            if proc.name() == pname:
-                running = True
-                break
-        return running
+        devnull.close()
 
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
@@ -89,28 +101,15 @@ class MateTweak:
             self.set_string("org.gnome.desktop.wm.preferences", "button-layout", value)
 
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
-	    wm = value
- 
+            wm = value
             # Sanity check
-	    if wm not in ['compiz', 'marco']:
+            if wm not in ['compiz', 'marco']:
                 wm = 'marco'
 
             # If the window manager is being changed, replace it now!
             print('Replacing the window manager with ' + wm)
             self.replace_windowmanager(wm)
-
-            # Compiz has a habit of crashing on it's the very first invocation.
-            # Detect if the window manager is running, if not try it again.           
-            if not self.process_running(wm):
-                print(wm + ' is not running. Trying again...')
-		self.replace_windowmanager(wm)
-                if not self.process_running(wm) and wm == 'compiz':
-                    print('Failed to start compiz (twice), falling back to marco')
-                    self.set_string('org.mate.session.required-components', 'windowmanager', 'marco')
-                    self.replace_windowmanger('marco')
-            else:
-                print(wm + ' appears to be running. All good.')
-
+            
             # As we are replacing the window manager, exit MATE Tweak.
             sys.exit(0)
 
@@ -252,7 +251,8 @@ class MateTweak:
 
         wms = Gtk.ListStore(str, str)
         wms.append([_("Marco (Simple desktop effects)"), "marco"])
-        wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), "compiz"])
+        if self.find_on_path('compiz'):
+            wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), "compiz"])
         self.builder.get_object("combo_wm").set_model(wms)
         self.builder.get_object("combo_wm").set_tooltip_text(_("The new window manager will be activated upon selection."))
         self.init_combobox("org.mate.session.required-components", "windowmanager", "combo_wm")
