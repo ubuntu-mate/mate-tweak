@@ -3,9 +3,13 @@ Upstream-Name: mate-tweak
 Upstream-Contact: Martin Wimpress <code@ubuntu-mate.org>
 Source: https://bitbucket.org/flexiondotorg/mate-tweak/
 
-Files: *
+Files: usr/*
 Copyright: 2007-2014 Clement Lefebvre <root@linuxmint.com>
            2015 Martin Wimpress <code@ubuntu-mate.org>
+License: GPL-2+
+
+Files: debian/*
+Copyright: 2015 Martin Wimpress <code@ubuntu-mate.org>
 License: GPL-2+
 
 License: GPL-2+

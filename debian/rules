@@ -1,4 +1,10 @@
 #!/usr/bin/make -f
 
+DHFLAGS=--parallel
+
 %:
-	dh ${@} --with python2
+	dh $@ $(DHFLAGS) --with python2
+
+get-orig-source:
+	uscan --nonconf --force-download --rename --download-current-version --destdir=..
+
