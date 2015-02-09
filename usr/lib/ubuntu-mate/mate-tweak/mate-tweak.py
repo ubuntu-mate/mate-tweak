@@ -400,7 +400,7 @@ class MateTweak:
             and mate_menu_available:
             panels.append([_("Redmond with Indicators and MATE Menu"), "redmond-indicators-fresh"])
         
-        if dock is not None:    
+        if dock:    
 			if self.panel_layout_exists('eleven'):
 				panels.append([_("Eleven"), "eleven"])
 
