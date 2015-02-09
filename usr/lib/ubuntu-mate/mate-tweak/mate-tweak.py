@@ -2,6 +2,7 @@
 
 import gi
 import os
+import shutil
 import string
 import sys
 import time
@@ -90,8 +91,86 @@ class MateTweak:
             Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
         else:
             Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
-
         devnull.close()
+
+    def enable_dock(self, dock):
+        shutil.copy2('/usr/share/applications/' + dock + '.desktop', os.path.expanduser('~/.config/autostart/'))
+		
+        devnull = open(os.devnull, 'wb')
+		# Docks require compositing
+        current_wm = commands.getoutput("wmctrl -m")
+        if "Marco" in current_wm:		
+            settings = Gio.Settings.new('org.mate.Marco.general')
+            settings.set_boolean('compositing-manager', True)        
+            Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)        
+        Popen([dock], stdout=devnull, stderr=devnull) 
+        devnull.close()
+
+    def disable_dock(self, dock):		
+        if os.path.exists(os.path.expanduser('~/.config/autostart/') + dock + '.desktop'):
+            os.remove(os.path.expanduser('~/.config/autostart/') + dock + '.desktop')
+        devnull = open(os.devnull, 'wb')
+        Popen(['killall', dock], stdout=devnull, stderr=devnull)         
+        devnull.close()
+
+    def enable_mate_volume_applet(self):
+        devnull = open(os.devnull, 'wb')		
+        Popen(['mate-volume-control-applet'], stdout=devnull, stderr=devnull)		
+        devnull.close()
+        
+        # If the system autostart is missing create a user autostart.
+        if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
+            shutil.copy2('/usr/lib/ubuntu-mate/mate-tweak/mate-volume-control-applet.desktop', os.path.expanduser('~/.config/autostart/'))			
+        	
+    def disable_mate_volume_applet(self):
+        devnull = open(os.devnull, 'wb')        
+        Popen(['killall', 'mate-volume-control-applet'], stdout=devnull, stderr=devnull)
+        
+        if os.path.exists(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop'):
+            os.remove(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop')
+        if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
+			Popen(['pkexec', '/usr/lib/ubuntu-mate/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
+        devnull.close()
+        
+    def replace_panel_layout(self, panel_layout):		
+        # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL        
+        devnull = open(os.devnull, 'wb')       
+        Popen(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
+        os.system('mate-panel --layout ' + panel_layout + ' --reset')
+        Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
+        devnull.close()
+        
+        # Indicator enabled layouts auto-load the sound-indicator.
+        # Therefore, make mate-volume-control-applet is killed or 
+        # started accordingly.
+        if 'indicators' in panel_layout:
+            self.disable_mate_volume_applet()
+        else:
+            self.enable_mate_volume_applet()
+        
+        # Enable/disable the appropriate dock if one of the dock ready
+        # panel layouts is selected.
+        dock = None
+        if os.path.exists('/usr/bin/docky'):
+            dock = 'docky'	
+        elif os.path.exists('/usr/bin/plank'):
+            dock = 'plank'							
+                    
+        if panel_layout.startswith('eleven') and dock is not None:			
+            if dock is 'docky':
+                self.disable_dock('plank')
+            elif dock is 'plank':
+                self.disable_dock('docky')
+
+            self.enable_dock(dock)
+        else:
+            self.disable_dock('docky')
+            self.disable_dock('plank')
+
+    def panel_layout_exists(self, panel_layout):
+        if os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout'):
+            return True
+        return False
 
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
@@ -111,7 +190,12 @@ class MateTweak:
             self.replace_windowmanager(wm)
             
             # As we are replacing the window manager, exit MATE Tweak.
-            sys.exit(0)
+            sys.exit(0)            
+            
+        elif schema == "org.mate.panel" and key == "default-layout":            
+            panel_layout = value
+            # If the panel layout is being changed, replace it now!
+            self.replace_panel_layout(panel_layout)
 
     def combo_fallback(self, schema, key, widget):
         act = widget.get_active()
@@ -208,7 +292,6 @@ class MateTweak:
         self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
 
         self.builder.get_object("label_layouts").set_text(_("Buttons layout:"))
-
         self.builder.get_object("label_window_manager").set_text(_("Window manager:"))
 
         self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
@@ -242,13 +325,14 @@ class MateTweak:
         self.builder.get_object("combobox_icon_size").set_model(iconSizes)
         self.init_combobox("org.mate.interface", "toolbar-icons-size", "combobox_icon_size")
 
-        # Metacity button layouts..
+        # Window control button
         layouts = Gtk.ListStore(str, str)
         layouts.append([_("Traditional (Right)"), "menu:minimize,maximize,close"])
         layouts.append([_("Comtemporary (Left)"), "close,minimize,maximize:"])
         self.builder.get_object("combo_wmlayout").set_model(layouts)
         self.init_combobox("org.mate.Marco.general", "button-layout", "combo_wmlayout")
 
+        # Window manager
         wms = Gtk.ListStore(str, str)
         wms.append([_("Marco (Simple desktop effects)"), "marco"])
         if self.find_on_path('compiz'):
@@ -256,6 +340,94 @@ class MateTweak:
         self.builder.get_object("combo_wm").set_model(wms)
         self.builder.get_object("combo_wm").set_tooltip_text(_("The new window manager will be activated upon selection."))
         self.init_combobox("org.mate.session.required-components", "windowmanager", "combo_wm")
+
+        # Panel layouts
+        indicators_available = False
+        if os.path.exists('/usr/lib/indicators/7/libapplication.so') \
+           and os.path.exists('/usr/lib/indicator-sound-gtk2/indicator-sound-service') \
+           and os.path.exists('/usr/lib/mate-indicator-applet/mate-indicator-applet'):
+               indicators_available = True
+
+        mate_menu_available = False
+        if os.path.exists('/usr/lib/ubuntu-mate/mate-menu/mate-menu.py'):
+			mate_menu_available = True
+
+        mint_menu_available = False
+        if os.path.exists('usr/lib/linuxmint/mintMenu/mintMenu.py'):
+			mint_menu_available = True			
+			
+        gnome_menu_available = False
+        if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
+            gnome_menu_available = True			
+
+        dock = False
+        if os.path.exists('/usr/bin/docky') or os.path.exists('/usr/bin/plank'):
+            dock = True
+
+        panels = Gtk.ListStore(str, str)
+        if self.panel_layout_exists('default'):
+            panels.append([_("MATE Desktop"), "default"])
+
+        if self.panel_layout_exists('ubuntu-mate'):
+            panels.append([_("Ubuntu MATE"), "ubuntu-mate"])
+
+        if self.panel_layout_exists('ubuntu-mate-fresh') \
+            and mate_menu_available:
+            panels.append([_("Ubuntu MATE with MATE Menu"), "ubuntu-mate-fresh"])
+
+        if self.panel_layout_exists('ubuntu-mate-indicators') \
+            and indicators_available:
+            panels.append([_("Ubuntu MATE with Indicators"), "ubuntu-mate-indicators"])
+
+        if self.panel_layout_exists('ubuntu-mate-indicators-fresh') \
+            and indicators_available \
+            and mate_menu_available:
+            panels.append([_("Ubuntu MATE with Indicators and MATE Menu"), "ubuntu-mate-indicators-fresh"])
+
+        if self.panel_layout_exists('redmond'):
+            panels.append([_("Redmond"), "redmond"])
+
+        if self.panel_layout_exists('redmond-fresh') \
+            and mate_menu_available:
+            panels.append([_("Redmond with MATE Menu"), "redmond-fresh"])
+
+        if self.panel_layout_exists('redmond-indicators') \
+            and indicators_available:
+            panels.append([_("Redmond with Indicators"), "redmond-indicators"])
+
+        if self.panel_layout_exists('redmond-indicators-fresh') \
+            and indicators_available \
+            and mate_menu_available:
+            panels.append([_("Redmond with Indicators and MATE Menu"), "redmond-indicators-fresh"])
+        
+        if dock is not None:    
+			if self.panel_layout_exists('eleven'):
+				panels.append([_("Eleven"), "eleven"])
+
+			if self.panel_layout_exists('eleven-fresh') \
+				and mate_menu_available:
+				panels.append([_("Eleven with MATE Menu"), "eleven-fresh"])
+
+			if self.panel_layout_exists('eleven-indicators') \
+				and indicators_available:
+				panels.append([_("Eleven with Indicators"), "eleven-indicators"])
+
+			if self.panel_layout_exists('eleven-indicators-fresh') \
+				and indicators_available \
+				and mate_menu_available:
+				panels.append([_("Eleven with Indicators and MATE Menu"), "eleven-indicators-fresh"])            
+
+        if self.panel_layout_exists('linuxmint') \
+            and mint_menu_available:
+            panels.append([_("Linux Mint"), "linuxmint"])
+
+        if self.panel_layout_exists('opensuse') \
+            and gnome_menu_available:
+            panels.append([_("openSUSE"), "opensuse"])        
+
+        self.builder.get_object("combobox_panels").set_model(panels)
+        self.builder.get_object("combobox_panels").set_tooltip_text(_("The new panel layout will be activated on selection and destroy any customisations you might have made."))
+        self.init_combobox("org.mate.panel", "default-layout", "combobox_panels")
 
         # toolbar icon styles
         iconStyles = Gtk.ListStore(str, str)
