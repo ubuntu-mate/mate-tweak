@@ -2,6 +2,7 @@ mate-tweak (3.4.1) vivid; urgency=medium
 
   * Synced with mintDesktop.
   * Added Compiz support with live switching between Marco and Compiz.
+  * Added panel layout interface switcher.
   * Change button-layout for MATE, GTK3 and GNOME.
 
  -- Martin Wimpress <code@flexion.org>  Sun, 18 Jan 2015 21:54:22 +0000
