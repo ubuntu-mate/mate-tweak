@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-sudo rm -rf /usr/lib/ubuntu-mate/mate-tweak
-sudo cp -R usr /
-mate-tweak

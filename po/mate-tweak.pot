@@ -1,0 +1,232 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-18 15:02+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../mate-tweak:249
+msgid "Desktop"
+msgstr ""
+
+#: ../mate-tweak:250
+msgid "Windows"
+msgstr ""
+
+#: ../mate-tweak:251
+msgid "Interface"
+msgstr ""
+
+#: ../mate-tweak:298
+msgid "Desktop icons"
+msgstr ""
+
+#: ../mate-tweak:299
+msgid "Performance"
+msgstr ""
+
+#: ../mate-tweak:300
+msgid "Appearance"
+msgstr ""
+
+#: ../mate-tweak:301
+msgid "Icons"
+msgstr ""
+
+#: ../mate-tweak:302
+msgid "Context menus"
+msgstr ""
+
+#: ../mate-tweak:303
+msgid "Toolbars"
+msgstr ""
+
+#: ../mate-tweak:304
+msgid "Window Manager"
+msgstr ""
+
+#: ../mate-tweak:306
+msgid "Select the items you want to see on the desktop:"
+msgstr ""
+
+#: ../mate-tweak:308
+msgid "Computer"
+msgstr ""
+
+#: ../mate-tweak:309
+msgid "Home"
+msgstr ""
+
+#: ../mate-tweak:310
+msgid "Network"
+msgstr ""
+
+#: ../mate-tweak:311
+msgid "Trash"
+msgstr ""
+
+#: ../mate-tweak:312
+msgid "Mounted Volumes"
+msgstr ""
+
+#: ../mate-tweak:314
+msgid "Don't show window content while dragging them"
+msgstr ""
+
+#: ../mate-tweak:315
+msgid "Use compositing"
+msgstr ""
+
+#: ../mate-tweak:317
+msgid "Buttons layout:"
+msgstr ""
+
+#: ../mate-tweak:318
+msgid "Window manager:"
+msgstr ""
+
+#: ../mate-tweak:320
+msgid "Show icons on menus"
+msgstr ""
+
+#: ../mate-tweak:321
+msgid "Show icons on buttons"
+msgstr ""
+
+#: ../mate-tweak:322
+msgid "Show Input Methods menu in context menus"
+msgstr ""
+
+#: ../mate-tweak:323
+msgid "Show Unicode Control Character menu in context menus"
+msgstr ""
+
+#: ../mate-tweak:325
+msgid "Buttons labels:"
+msgstr ""
+
+#: ../mate-tweak:326
+msgid "Icon size:"
+msgstr ""
+
+#: ../mate-tweak:346
+msgid "Small"
+msgstr ""
+
+#: ../mate-tweak:347
+msgid "Large"
+msgstr ""
+
+#: ../mate-tweak:353
+msgid "Traditional (Right)"
+msgstr ""
+
+#: ../mate-tweak:354
+msgid "Contemporary (Left)"
+msgstr ""
+
+#: ../mate-tweak:360
+msgid "Marco (Simple desktop effects)"
+msgstr ""
+
+#: ../mate-tweak:362
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr ""
+
+#: ../mate-tweak:364
+msgid "The new window manager will be activated upon selection."
+msgstr ""
+
+#: ../mate-tweak:392
+msgid "MATE Desktop"
+msgstr ""
+
+#: ../mate-tweak:395
+msgid "Ubuntu MATE"
+msgstr ""
+
+#: ../mate-tweak:399
+msgid "Ubuntu MATE with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:403
+msgid "Ubuntu MATE with Indicators"
+msgstr ""
+
+#: ../mate-tweak:408
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:411
+msgid "Redmond"
+msgstr ""
+
+#: ../mate-tweak:415
+msgid "Redmond with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:419
+msgid "Redmond with Indicators"
+msgstr ""
+
+#: ../mate-tweak:424
+msgid "Redmond with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:428
+msgid "Eleven"
+msgstr ""
+
+#: ../mate-tweak:432
+msgid "Eleven with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:436
+msgid "Eleven with Indicators"
+msgstr ""
+
+#: ../mate-tweak:441
+msgid "Eleven with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:445
+msgid "Linux Mint"
+msgstr ""
+
+#: ../mate-tweak:449
+msgid "openSUSE"
+msgstr ""
+
+#: ../mate-tweak:452
+msgid ""
+"The new panel layout will be activated on selection and destroy any "
+"customisations you might have made."
+msgstr ""
+
+#: ../mate-tweak:457
+msgid "Text below items"
+msgstr ""
+
+#: ../mate-tweak:458
+msgid "Text beside items"
+msgstr ""
+
+#: ../mate-tweak:459
+msgid "Icons only"
+msgstr ""
+
+#: ../mate-tweak:460
+msgid "Text only"
+msgstr ""

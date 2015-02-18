@@ -1,6 +1,0 @@
-#!/usr/bin/env python
-
-import os
-
-if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-    os.remove('/etc/xdg/autostart/mate-volume-control-applet.desktop')
