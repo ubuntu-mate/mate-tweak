@@ -52,7 +52,7 @@ data_files = [
     ('{prefix}/share/man/man1'.format(prefix=sys.prefix), glob('data/*.1')),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/mate-tweak.desktop',]),
     ('{prefix}/share/mate-tweak'.format(prefix=sys.prefix), ['data/mate-volume-control-applet.desktop',]),
-    ('{prefix}/share/polkit'.format(prefix=sys.prefix), ['data/org.mate.mate-tweak.policy',]),
+    ('{prefix}/share/polkit/actions'.format(prefix=sys.prefix), ['data/org.mate.mate-tweak.policy',]),
     ('{prefix}/lib/mate-tweak'.format(prefix=sys.prefix), ['data/mate-tweak.ui', 'util/disable-mate-volume-applet',]),
 ]
 data_files.extend(datafilelist('{prefix}/share/locale'.format(prefix=sys.prefix), 'build/mo'))
