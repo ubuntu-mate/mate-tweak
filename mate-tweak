@@ -140,16 +140,17 @@ class MateTweak:
         
         # If the system autostart is missing create a user autostart.
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            shutil.copy2('/usr/lib/ubuntu-mate/mate-tweak/mate-volume-control-applet.desktop', os.path.expanduser('~/.config/autostart/'))			
+            shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.expanduser('~/.config/autostart/'))
         	
     def disable_mate_volume_applet(self):
         devnull = open(os.devnull, 'wb')        
         Popen(['killall', 'mate-volume-control-applet'], stdout=devnull, stderr=devnull)
         
+        # If a system or user autostart exists, remove it.
         if os.path.exists(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop'):
             os.remove(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-			Popen(['pkexec', '/usr/lib/ubuntu-mate/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
+			Popen(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
         devnull.close()
         
     def replace_panel_layout(self, panel_layout):		
