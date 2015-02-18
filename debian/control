@@ -2,8 +2,12 @@ Source: mate-tweak
 Section: admin
 Priority: optional
 Maintainer: Martin Wimpress <code@ubuntu-mate.org>
-Build-Depends: debhelper (>= 9), python
+Uploaders: Mike Gabriel <sunweaver@debian.org>,
+Build-Depends: debhelper (>= 9),
+               python,
+               python-setuptools,
 Standards-Version: 3.9.6
+X-Python-Version: >= 2.6
 
 Package: mate-tweak
 Architecture: all

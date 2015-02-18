@@ -5,6 +5,10 @@ DHFLAGS=--parallel
 %:
 	dh $@ $(DHFLAGS) --with python2
 
+override_dh_auto_clean:
+	rm -Rf mate-tweak.egg-info/
+	dh_auto_clean
+
 get-orig-source:
 	uscan --nonconf --force-download --rename --download-current-version --destdir=..
 
