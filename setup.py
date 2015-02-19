@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2015 by Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -56,8 +56,6 @@ data_files = [
     ('{prefix}/lib/mate-tweak'.format(prefix=sys.prefix), ['data/mate-tweak.ui', 'util/disable-mate-volume-applet',]),
 ]
 data_files.extend(datafilelist('{prefix}/share/locale'.format(prefix=sys.prefix), 'build/mo'))
-
-
 
 cmdclass ={
             "build" : DistUtilsExtra.command.build_extra.build_extra,

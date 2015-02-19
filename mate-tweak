@@ -61,18 +61,18 @@ class MateTweak:
     def set_bool(self, schema, key, value):
         settings = Gio.Settings.new(schema)
         settings.set_boolean(key, value.get_active())
-    
+
     def get_bool(self, schema, key):
         settings = Gio.Settings.new(schema)
         return settings.get_boolean(key)
-    
+
     def init_checkbox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup(schema, True) != None:
             widget = self.builder.get_object(name)
             value = self.get_bool(schema, key)
             widget.set_active(value)
-            widget.connect("clicked", lambda x: self.set_bool(schema, key, x))       
+            widget.connect("clicked", lambda x: self.set_bool(schema, key, x))
 
     def init_combobox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
@@ -82,7 +82,7 @@ class MateTweak:
             index = 0
             for row in widget.get_model():
                 if(conf == row[1]):
-                    widget.set_active(index)                    
+                    widget.set_active(index)
                     break
                 index = index +1
             widget.connect("changed", lambda x: self.combo_fallback(schema, key, x))
@@ -115,69 +115,69 @@ class MateTweak:
 
     def enable_dock(self, dock):
         shutil.copy2('/usr/share/applications/' + dock + '.desktop', os.path.expanduser('~/.config/autostart/'))
-		
+
         devnull = open(os.devnull, 'wb')
-		# Docks require compositing
+        # Docks require compositing
         current_wm = commands.getoutput("wmctrl -m")
-        if "Marco" in current_wm:		
+        if "Marco" in current_wm:
             settings = Gio.Settings.new('org.mate.Marco.general')
-            settings.set_boolean('compositing-manager', True)        
-            Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)        
-        Popen([dock], stdout=devnull, stderr=devnull) 
+            settings.set_boolean('compositing-manager', True)
+            Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)
+        Popen([dock], stdout=devnull, stderr=devnull)
         devnull.close()
 
-    def disable_dock(self, dock):		
+    def disable_dock(self, dock):
         if os.path.exists(os.path.expanduser('~/.config/autostart/') + dock + '.desktop'):
             os.remove(os.path.expanduser('~/.config/autostart/') + dock + '.desktop')
         devnull = open(os.devnull, 'wb')
-        Popen(['killall', dock], stdout=devnull, stderr=devnull)         
+        Popen(['killall', dock], stdout=devnull, stderr=devnull)
         devnull.close()
 
     def enable_mate_volume_applet(self):
-        devnull = open(os.devnull, 'wb')		
-        Popen(['mate-volume-control-applet'], stdout=devnull, stderr=devnull)		
+        devnull = open(os.devnull, 'wb')
+        Popen(['mate-volume-control-applet'], stdout=devnull, stderr=devnull)
         devnull.close()
-        
+
         # If the system autostart is missing create a user autostart.
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.expanduser('~/.config/autostart/'))
-        	
+
     def disable_mate_volume_applet(self):
-        devnull = open(os.devnull, 'wb')        
+        devnull = open(os.devnull, 'wb')
         Popen(['killall', 'mate-volume-control-applet'], stdout=devnull, stderr=devnull)
-        
+
         # If a system or user autostart exists, remove it.
         if os.path.exists(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop'):
             os.remove(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-			Popen(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
+            Popen(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
         devnull.close()
-        
-    def replace_panel_layout(self, panel_layout):		
-        # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL        
-        devnull = open(os.devnull, 'wb')       
+
+    def replace_panel_layout(self, panel_layout):
+        # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
+        devnull = open(os.devnull, 'wb')
         Popen(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
         os.system('mate-panel --layout ' + panel_layout + ' --reset')
         Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
         devnull.close()
-        
+
         # Indicator enabled layouts auto-load the sound-indicator.
-        # Therefore, make mate-volume-control-applet is killed or 
+        # Therefore, make mate-volume-control-applet is killed or
         # started accordingly.
         if 'indicators' in panel_layout:
             self.disable_mate_volume_applet()
         else:
             self.enable_mate_volume_applet()
-        
+
         # Enable/disable the appropriate dock if one of the dock ready
         # panel layouts is selected.
         dock = None
         if os.path.exists('/usr/bin/docky'):
-            dock = 'docky'	
+            dock = 'docky'
         elif os.path.exists('/usr/bin/plank'):
-            dock = 'plank'							
-                    
-        if panel_layout.startswith('eleven') and dock is not None:			
+            dock = 'plank'
+
+        if panel_layout.startswith('eleven') and dock is not None:
             if dock is 'docky':
                 self.disable_dock('plank')
             elif dock is 'plank':
@@ -209,11 +209,11 @@ class MateTweak:
             # If the window manager is being changed, replace it now!
             print('Replacing the window manager with ' + wm)
             self.replace_windowmanager(wm)
-            
+
             # As we are replacing the window manager, exit MATE Tweak.
-            sys.exit(0)            
-            
-        elif schema == "org.mate.panel" and key == "default-layout":            
+            sys.exit(0)
+
+        elif schema == "org.mate.panel" and key == "default-layout":
             panel_layout = value
             # If the panel layout is being changed, replace it now!
             self.replace_panel_layout(panel_layout)
@@ -244,22 +244,22 @@ class MateTweak:
         self.builder.add_from_file('/usr/lib/mate-tweak/mate-tweak.ui')
 
         self.window = self.builder.get_object( "main_window" )
-               
+
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
-                      
+
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
         side_interface = SidePage(2, _("Interface"), "preferences-desktop")
-        
+
         # Determine the currently active window manager
         marco_mode = False
-        compiz_mode = False        
+        compiz_mode = False
         current_wm = commands.getoutput("wmctrl -m")
         if "Marco" in current_wm:
             marco_mode = True
         elif "Compiz" in current_wm:
             compiz_mode = True
-        
+
         # Do not show Marco configuration options because Marco is not
         # currently running.
         if not marco_mode:
@@ -333,7 +333,7 @@ class MateTweak:
         self.init_checkbox("org.mate.caja.desktop", "trash-icon-visible", "checkbox_trash")
         self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
 
-        # Window Manager page        
+        # Window Manager page
         self.init_checkbox("org.mate.Marco.general", "reduced-resources", "checkbutton_resources")
         self.init_checkbox("org.mate.Marco.general", "compositing-manager", "checkbox_compositing")
 
@@ -342,7 +342,7 @@ class MateTweak:
         self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
         self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
         self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
-        
+
         iconSizes = Gtk.ListStore(str, str)
         iconSizes.append([_("Small"), "small-toolbar"])
         iconSizes.append([_("Large"), "large-toolbar"])
@@ -374,15 +374,15 @@ class MateTweak:
 
         mate_menu_available = False
         if os.path.exists('/usr/lib/ubuntu-mate/mate-menu/mate-menu.py'):
-			mate_menu_available = True
+            mate_menu_available = True
 
         mint_menu_available = False
         if os.path.exists('usr/lib/linuxmint/mintMenu/mintMenu.py'):
-			mint_menu_available = True			
-			
+            mint_menu_available = True
+
         gnome_menu_available = False
         if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
-            gnome_menu_available = True			
+            gnome_menu_available = True
 
         dock = False
         if os.path.exists('/usr/bin/docky') or os.path.exists('/usr/bin/plank'):
@@ -423,23 +423,23 @@ class MateTweak:
             and indicators_available \
             and mate_menu_available:
             panels.append([_("Redmond with Indicators and MATE Menu"), "redmond-indicators-fresh"])
-        
-        if dock:    
-			if self.panel_layout_exists('eleven'):
-				panels.append([_("Eleven"), "eleven"])
 
-			if self.panel_layout_exists('eleven-fresh') \
-				and mate_menu_available:
-				panels.append([_("Eleven with MATE Menu"), "eleven-fresh"])
+        if dock:
+            if self.panel_layout_exists('eleven'):
+                panels.append([_("Eleven"), "eleven"])
 
-			if self.panel_layout_exists('eleven-indicators') \
-				and indicators_available:
-				panels.append([_("Eleven with Indicators"), "eleven-indicators"])
+            if self.panel_layout_exists('eleven-fresh') \
+                and mate_menu_available:
+                panels.append([_("Eleven with MATE Menu"), "eleven-fresh"])
 
-			if self.panel_layout_exists('eleven-indicators-fresh') \
-				and indicators_available \
-				and mate_menu_available:
-				panels.append([_("Eleven with Indicators and MATE Menu"), "eleven-indicators-fresh"])            
+            if self.panel_layout_exists('eleven-indicators') \
+                and indicators_available:
+                panels.append([_("Eleven with Indicators"), "eleven-indicators"])
+
+            if self.panel_layout_exists('eleven-indicators-fresh') \
+                and indicators_available \
+                and mate_menu_available:
+                panels.append([_("Eleven with Indicators and MATE Menu"), "eleven-indicators-fresh"])
 
         if self.panel_layout_exists('linuxmint') \
             and mint_menu_available:
@@ -447,7 +447,7 @@ class MateTweak:
 
         if self.panel_layout_exists('opensuse') \
             and gnome_menu_available:
-            panels.append([_("openSUSE"), "opensuse"])        
+            panels.append([_("openSUSE"), "opensuse"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
         self.builder.get_object("combobox_panels").set_tooltip_text(_("The new panel layout will be activated on selection and destroy any customisations you might have made."))
@@ -463,7 +463,7 @@ class MateTweak:
         self.init_combobox("org.mate.interface", "toolbar-style", "combobox_toolicons")
         self.builder.get_object("main_window").show()
 
-    
+
 if __name__ == "__main__":
     MateTweak()
     Gtk.main()
