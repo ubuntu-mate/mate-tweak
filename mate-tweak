@@ -36,7 +36,7 @@ except Exception, detail:
     print detail
     sys.exit(1)
 
-__VERSION__="3.4.1"
+__VERSION__="3.4.3"
 
 # i18n
 # TODO: Badly need to fix this - overuse of "The" etc.
