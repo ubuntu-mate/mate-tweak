@@ -104,7 +104,7 @@ class MateTweak:
             else:
                 raise
 
-    def get_current_wm(self)
+    def get_current_wm(self):
         process = subprocess.Popen(['wmctrl', '-m'], stdout=subprocess.PIPE)
         out, err = process.communicate()
         return out
