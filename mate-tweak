@@ -18,25 +18,20 @@
 # Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
+import errno
+import gettext
 import gi
 import os
 import shutil
 import string
+import subprocess
 import sys
 import time
 
 from gi.repository import Gtk, GdkPixbuf, Gdk, GObject
 from gi.repository import Gio
-from subprocess import Popen
 
-try:
-    import commands
-    import gettext
-except Exception, detail:
-    print detail
-    sys.exit(1)
-
-__VERSION__="3.4.3"
+__VERSION__="3.4.4"
 
 # i18n
 # TODO: Badly need to fix this - overuse of "The" etc.
@@ -100,65 +95,82 @@ class MateTweak:
                 return True
         return False
 
+    def mkdir_p(self, path):
+        try:
+            os.makedirs(path)
+        except OSError as exc: # Python >2.5
+            if exc.errno == errno.EEXIST and os.path.isdir(path):
+                pass
+            else:
+                raise
+
+    def get_current_wm(self)
+        process = subprocess.Popen(['wmctrl', '-m'], stdout=subprocess.PIPE)
+        out, err = process.communicate()
+        return out
+
     def replace_windowmanager(self, wm):
         # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
         devnull = open(os.devnull, 'wb')
         if wm == 'compiz':
             # mate-panel needs to be replaced when switching to Compiz to avoid
             # rendering screw ups.
-            Popen(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
-            Popen([wm, '--replace', 'ccp'], stdout=devnull, stderr=devnull)
-            Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
+            subprocess.Popen([wm, '--replace', 'ccp'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
         else:
-            Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
+            subprocess.Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
         devnull.close()
 
     def enable_dock(self, dock):
+        self.mkdir_p(os.path.expanduser('~/.config/autostart/'))
         shutil.copy2('/usr/share/applications/' + dock + '.desktop', os.path.expanduser('~/.config/autostart/'))
 
         devnull = open(os.devnull, 'wb')
         # Docks require compositing
-        current_wm = commands.getoutput("wmctrl -m")
+        current_wm = self.get_current_wm()
         if "Marco" in current_wm:
             settings = Gio.Settings.new('org.mate.Marco.general')
             settings.set_boolean('compositing-manager', True)
-            Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)
-        Popen([dock], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)
+
+        subprocess.Popen([dock], stdout=devnull, stderr=devnull)
         devnull.close()
 
     def disable_dock(self, dock):
         if os.path.exists(os.path.expanduser('~/.config/autostart/') + dock + '.desktop'):
             os.remove(os.path.expanduser('~/.config/autostart/') + dock + '.desktop')
         devnull = open(os.devnull, 'wb')
-        Popen(['killall', dock], stdout=devnull, stderr=devnull)
+        subprocess.Popen(['killall', dock], stdout=devnull, stderr=devnull)
         devnull.close()
 
     def enable_mate_volume_applet(self):
         devnull = open(os.devnull, 'wb')
-        Popen(['mate-volume-control-applet'], stdout=devnull, stderr=devnull)
+        subprocess.Popen(['mate-volume-control-applet'], stdout=devnull, stderr=devnull)
         devnull.close()
 
         # If the system autostart is missing create a user autostart.
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
+            self.mkdir_p(os.path.expanduser('~/.config/autostart/'))
             shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.expanduser('~/.config/autostart/'))
 
     def disable_mate_volume_applet(self):
         devnull = open(os.devnull, 'wb')
-        Popen(['killall', 'mate-volume-control-applet'], stdout=devnull, stderr=devnull)
+        subprocess.Popen(['killall', 'mate-volume-control-applet'], stdout=devnull, stderr=devnull)
 
         # If a system or user autostart exists, remove it.
         if os.path.exists(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop'):
             os.remove(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            Popen(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
         devnull.close()
 
     def replace_panel_layout(self, panel_layout):
         # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
         devnull = open(os.devnull, 'wb')
-        Popen(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
+        subprocess.Popen(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
         os.system('mate-panel --layout ' + panel_layout + ' --reset')
-        Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
+        subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
         devnull.close()
 
         # Indicator enabled layouts auto-load the sound-indicator.
@@ -254,7 +266,7 @@ class MateTweak:
         # Determine the currently active window manager
         marco_mode = False
         compiz_mode = False
-        current_wm = commands.getoutput("wmctrl -m")
+        current_wm = self.get_current_wm()
         if "Marco" in current_wm:
             marco_mode = True
         elif "Compiz" in current_wm:
