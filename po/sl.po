@@ -1,11 +1,11 @@
-# Slovenian translation for linuxmint
+# Slovenian translation for MATE Tweak
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
-# This file is distributed under the same license as the linuxmint package.
+# This file is distributed under the same license as the package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: linuxmint\n"
+"Project-Id-Version: mate-tweak\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-12-09 16:44+0000\n"
 "PO-Revision-Date: 2015-01-16 15:32+0000\n"
@@ -17,149 +17,149 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:110
+#: ../mate-tweak:110
 msgid "Desktop"
 msgstr "Namizje"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:111
+#: ../mate-tweak:111
 msgid "Windows"
 msgstr "Okna"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:112
+#: ../mate-tweak:112
 msgid "Interface"
 msgstr "Vmesnik"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:113
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:160
+#: ../mate-tweak:113
+#: ../mate-tweak:160
 msgid "Terminal"
 msgstr "Terminal"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:154
+#: ../mate-tweak:154
 msgid "Desktop icons"
 msgstr "Ikone namizja"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:155
+#: ../mate-tweak:155
 msgid "Performance"
 msgstr "Zmogljivost"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:156
+#: ../mate-tweak:156
 msgid "Appearance"
 msgstr "Videz"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:157
+#: ../mate-tweak:157
 msgid "Icons"
 msgstr "Ikone"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:158
+#: ../mate-tweak:158
 msgid "Context menus"
 msgstr "Vsebinski meniji"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:159
+#: ../mate-tweak:159
 msgid "Toolbars"
 msgstr "Orodne vrstice"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:161
+#: ../mate-tweak:161
 msgid "Window Manager"
 msgstr "Upravljalnik oken"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:163
+#: ../mate-tweak:163
 msgid "Select the items you want to see on the desktop:"
 msgstr "Izberite predmete, ki jih želite videti na namizju:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:165
+#: ../mate-tweak:165
 msgid "Computer"
 msgstr "Računalnik"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:166
+#: ../mate-tweak:166
 msgid "Home"
 msgstr "Domov"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:167
+#: ../mate-tweak:167
 msgid "Network"
 msgstr "Omrežje"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:168
+#: ../mate-tweak:168
 msgid "Trash"
 msgstr "Smeti"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:169
+#: ../mate-tweak:169
 msgid "Mounted Volumes"
 msgstr "Priklopljeni pogoni"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:171
+#: ../mate-tweak:171
 msgid "Don't show window content while dragging them"
 msgstr "Ne kaži vsebine oken med njihovo vleko"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:172
+#: ../mate-tweak:172
 msgid "Use compositing"
 msgstr "Uporabi skladnjo 3D"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:173
+#: ../mate-tweak:173
 msgid "Use system font in titlebar"
 msgstr "Uporabi sistemsko pisavo v naslovni vrstici"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:174
+#: ../mate-tweak:174
 msgid "Show fortune cookies"
 msgstr "Pokaži piškotke modrosti"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:176
+#: ../mate-tweak:176
 msgid "Buttons layout:"
 msgstr "Razporeditev gumbov:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:178
+#: ../mate-tweak:178
 msgid "Window manager:"
 msgstr "Upravljalnik oken:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:180
+#: ../mate-tweak:180
 msgid "Show icons on menus"
 msgstr "Pokaži ikone v meniju"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:181
+#: ../mate-tweak:181
 msgid "Show icons on buttons"
 msgstr "Pokaži ikone na gumbih"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:182
+#: ../mate-tweak:182
 msgid "Show Input Methods menu in context menus"
 msgstr "Prikaži meni vhodnih metod v vsebinskih menijih"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:183
+#: ../mate-tweak:183
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Prikažni nadzorni znak Unicode v vsebinskih menijih"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:185
+#: ../mate-tweak:185
 msgid "Buttons labels:"
 msgstr "Označbe gumbov:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:186
+#: ../mate-tweak:186
 msgid "Icon size:"
 msgstr "Velikost ikon:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:210
+#: ../mate-tweak:210
 msgid "Small"
 msgstr "Majhne"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:211
+#: ../mate-tweak:211
 msgid "Large"
 msgstr "Velike"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:217
+#: ../mate-tweak:217
 msgid "Traditional style (Right)"
 msgstr "Običajen slog (desno)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:218
+#: ../mate-tweak:218
 msgid "Mac style (Left)"
 msgstr "Slog Mackintosh (levo)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:225
+#: ../mate-tweak:225
 msgid "Marco (stable and reliable)"
 msgstr "Marco (stabilen in zanesljiv)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:226
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:234
+#: ../mate-tweak:226
+#: ../mate-tweak:234
 msgid "Compiz (impressive desktop effects)"
 msgstr "Compiz (impresivni namizni učinki)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:228
+#: ../mate-tweak:228
 msgid ""
 "Log out and log back in for changes to take effect. If things go wrong, run "
 "'mate-wm-recovery' to switch back to Marco."
@@ -167,27 +167,27 @@ msgstr ""
 "Odjavite se ter ponovno prijavite za uveljavitev sprememb. Če gredo stvari "
 "po zlu, zaženite 'mate-wm-recovery' za preklop nazaj na Marco."
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:233
+#: ../mate-tweak:233
 msgid "Xfwm (stable and reliable)"
 msgstr "Xfwm (stabilno in zanesljivo)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:237
+#: ../mate-tweak:237
 msgid "Log out and log back in for changes to take effect."
 msgstr "Za uveljavitev sprememb se odjavite ter ponovno prijavite."
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:246
+#: ../mate-tweak:246
 msgid "Text below items"
 msgstr "Besedilo pod predmeti"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:247
+#: ../mate-tweak:247
 msgid "Text beside items"
 msgstr "Besedilo ob predmetih"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:248
+#: ../mate-tweak:248
 msgid "Icons only"
 msgstr "Samo ikone"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:249
+#: ../mate-tweak:249
 msgid "Text only"
 msgstr "Samo besedilo"
 

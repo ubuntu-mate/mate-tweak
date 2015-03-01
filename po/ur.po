@@ -1,11 +1,11 @@
-# Urdu translation for linuxmint
+# Urdu translation for MATE Tweak
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
-# This file is distributed under the same license as the linuxmint package.
+# This file is distributed under the same license as the package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: linuxmint\n"
+"Project-Id-Version: mate-tweak\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-12-09 16:44+0000\n"
 "PO-Revision-Date: 2014-12-31 23:04+0000\n"
@@ -17,149 +17,149 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:110
+#: ../mate-tweak:110
 msgid "Desktop"
 msgstr "ڈیسک ٹاپ"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:111
+#: ../mate-tweak:111
 msgid "Windows"
 msgstr "ونڈوز"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:112
+#: ../mate-tweak:112
 msgid "Interface"
 msgstr "مواجہہ"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:113
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:160
+#: ../mate-tweak:113
+#: ../mate-tweak:160
 msgid "Terminal"
 msgstr "ٹرمنل"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:154
+#: ../mate-tweak:154
 msgid "Desktop icons"
 msgstr "ڈیسک ٹاپ آئیکون"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:155
+#: ../mate-tweak:155
 msgid "Performance"
 msgstr "کارکردگی"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:156
+#: ../mate-tweak:156
 msgid "Appearance"
 msgstr "مظہر"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:157
+#: ../mate-tweak:157
 msgid "Icons"
 msgstr "آئیکونز"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:158
+#: ../mate-tweak:158
 msgid "Context menus"
 msgstr "ذیلی فہرست"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:159
+#: ../mate-tweak:159
 msgid "Toolbars"
 msgstr "اوزاری پٹیاں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:161
+#: ../mate-tweak:161
 msgid "Window Manager"
 msgstr "ونڈو منتظم"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:163
+#: ../mate-tweak:163
 msgid "Select the items you want to see on the desktop:"
 msgstr "ان عناصر کو منتخب کیجئے جنہیں آپ سطحِ مکتب پر دیکھنا چاہتے ہیں:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:165
+#: ../mate-tweak:165
 msgid "Computer"
 msgstr "کمپیوٹر"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:166
+#: ../mate-tweak:166
 msgid "Home"
 msgstr "صفحہ اول"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:167
+#: ../mate-tweak:167
 msgid "Network"
 msgstr "نیٹ ورک"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:168
+#: ../mate-tweak:168
 msgid "Trash"
 msgstr "ردی"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:169
+#: ../mate-tweak:169
 msgid "Mounted Volumes"
 msgstr "ماؤنٹ شدہ والیمز"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:171
+#: ../mate-tweak:171
 msgid "Don't show window content while dragging them"
 msgstr "ونڈو کو ہلاتے ہوئے اس کے مشمولات نہ دکھائیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:172
+#: ../mate-tweak:172
 msgid "Use compositing"
 msgstr "ترکیب استعمال کریں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:173
+#: ../mate-tweak:173
 msgid "Use system font in titlebar"
 msgstr "عنوان کی پٹی کیلئے نظام کا رسم الخط استعمال کریں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:174
+#: ../mate-tweak:174
 msgid "Show fortune cookies"
 msgstr "فارٹیون کوکیز دیکھیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:176
+#: ../mate-tweak:176
 msgid "Buttons layout:"
 msgstr "بٹن دائیں یا بائیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:178
+#: ../mate-tweak:178
 msgid "Window manager:"
 msgstr "ونڈو منتظم"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:180
+#: ../mate-tweak:180
 msgid "Show icons on menus"
 msgstr "مینیو میں آئیکون بھی دکھائیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:181
+#: ../mate-tweak:181
 msgid "Show icons on buttons"
 msgstr "بٹنوں پر آئیکون دکھائیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:182
+#: ../mate-tweak:182
 msgid "Show Input Methods menu in context menus"
 msgstr "داخل کرنے کے طریقے ذیلی مینیو میں دکھائیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:183
+#: ../mate-tweak:183
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "یونیکوڈ کنٹرول کریکٹر مینیو ذیلی مینیو میں دکھائیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:185
+#: ../mate-tweak:185
 msgid "Buttons labels:"
 msgstr "بٹنوں کے لیبل"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:186
+#: ../mate-tweak:186
 msgid "Icon size:"
 msgstr "آئیکون سائز"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:210
+#: ../mate-tweak:210
 msgid "Small"
 msgstr "چھوٹا"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:211
+#: ../mate-tweak:211
 msgid "Large"
 msgstr "بڑا"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:217
+#: ../mate-tweak:217
 msgid "Traditional style (Right)"
 msgstr "روائیتی انداز ۔ دائیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:218
+#: ../mate-tweak:218
 msgid "Mac style (Left)"
 msgstr "میک انداز ۔ بائیں"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:225
+#: ../mate-tweak:225
 msgid "Marco (stable and reliable)"
 msgstr "مارکو (مستحکم اور قابل اعتماد)۔"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:226
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:234
+#: ../mate-tweak:226
+#: ../mate-tweak:234
 msgid "Compiz (impressive desktop effects)"
 msgstr "کامپز (ڈیسک ٹاپ کے متاثر کن آثار)۔"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:228
+#: ../mate-tweak:228
 msgid ""
 "Log out and log back in for changes to take effect. If things go wrong, run "
 "'mate-wm-recovery' to switch back to Marco."
@@ -167,27 +167,27 @@ msgstr ""
 "تبدیلیوں کی اثرپذیری کے لیے لاگ آؤٹ ہوکر دوبارہ لاگ ان ہوں۔ اگر کچھ غلط ہو "
 "تو مارکو میں واپس آنے کے لیے کماندڈ چلائیں۔ 'mate-wm-recovery'"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:233
+#: ../mate-tweak:233
 msgid "Xfwm (stable and reliable)"
 msgstr "xfwm (مستحکم اور قابل اعتماد)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:237
+#: ../mate-tweak:237
 msgid "Log out and log back in for changes to take effect."
 msgstr "تبدیلیوں کی اثرپذیری کے لیے لاگ آؤٹ کرکے دوبارہ لاگ ان کریں۔"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:246
+#: ../mate-tweak:246
 msgid "Text below items"
 msgstr "متن عناصر کے نیچے"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:247
+#: ../mate-tweak:247
 msgid "Text beside items"
 msgstr "متن عناصر کے ایک جانب"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:248
+#: ../mate-tweak:248
 msgid "Icons only"
 msgstr "صرف آئیکون"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:249
+#: ../mate-tweak:249
 msgid "Text only"
 msgstr "صرف متن"
 

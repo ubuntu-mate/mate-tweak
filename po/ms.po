@@ -1,11 +1,11 @@
-# Malay translation for linuxmint
+# Malay translation for MATE Tweak
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
-# This file is distributed under the same license as the linuxmint package.
+# This file is distributed under the same license as the package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: linuxmint\n"
+"Project-Id-Version: mate-tweak\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-12-09 16:44+0000\n"
 "PO-Revision-Date: 2015-01-26 06:45+0000\n"
@@ -17,149 +17,149 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-02-25 10:21+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:110
+#: ../mate-tweak:110
 msgid "Desktop"
 msgstr "Desktop"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:111
+#: ../mate-tweak:111
 msgid "Windows"
 msgstr "Tetingkap"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:112
+#: ../mate-tweak:112
 msgid "Interface"
 msgstr "Antaramuka"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:113
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:160
+#: ../mate-tweak:113
+#: ../mate-tweak:160
 msgid "Terminal"
 msgstr "Terminal"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:154
+#: ../mate-tweak:154
 msgid "Desktop icons"
 msgstr "Ikon Desktop"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:155
+#: ../mate-tweak:155
 msgid "Performance"
 msgstr "Prestasi"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:156
+#: ../mate-tweak:156
 msgid "Appearance"
 msgstr "Penampilan"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:157
+#: ../mate-tweak:157
 msgid "Icons"
 msgstr "Ikon"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:158
+#: ../mate-tweak:158
 msgid "Context menus"
 msgstr "Konteks menu"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:159
+#: ../mate-tweak:159
 msgid "Toolbars"
 msgstr "Palang Alat"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:161
+#: ../mate-tweak:161
 msgid "Window Manager"
 msgstr "Pengurus Tetingkap"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:163
+#: ../mate-tweak:163
 msgid "Select the items you want to see on the desktop:"
 msgstr "Pilih item yang anda pada desktop:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:165
+#: ../mate-tweak:165
 msgid "Computer"
 msgstr "Komputer"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:166
+#: ../mate-tweak:166
 msgid "Home"
 msgstr "Laman Utama"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:167
+#: ../mate-tweak:167
 msgid "Network"
 msgstr "Rangkaian"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:168
+#: ../mate-tweak:168
 msgid "Trash"
 msgstr "Tong Sampah"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:169
+#: ../mate-tweak:169
 msgid "Mounted Volumes"
 msgstr "Volum Terlekap"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:171
+#: ../mate-tweak:171
 msgid "Don't show window content while dragging them"
 msgstr "Jangan paparkan kandungan tetingkap semasa menyeretnya"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:172
+#: ../mate-tweak:172
 msgid "Use compositing"
 msgstr "Guna penggubahan"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:173
+#: ../mate-tweak:173
 msgid "Use system font in titlebar"
 msgstr "Gunakan fon sistem dalam palang tajuk"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:174
+#: ../mate-tweak:174
 msgid "Show fortune cookies"
 msgstr "Papar kuki nasib"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:176
+#: ../mate-tweak:176
 msgid "Buttons layout:"
 msgstr "Bentangan butang:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:178
+#: ../mate-tweak:178
 msgid "Window manager:"
 msgstr "Pengurus Tetingkap:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:180
+#: ../mate-tweak:180
 msgid "Show icons on menus"
 msgstr "Papar ikon pada menu"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:181
+#: ../mate-tweak:181
 msgid "Show icons on buttons"
 msgstr "Papar ikon pada butang"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:182
+#: ../mate-tweak:182
 msgid "Show Input Methods menu in context menus"
 msgstr "Papar menu Kaedah Input dalam menu konteks"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:183
+#: ../mate-tweak:183
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Papar menu Aksara Kawalan Unikod dalam menu konteks"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:185
+#: ../mate-tweak:185
 msgid "Buttons labels:"
 msgstr "Label butang:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:186
+#: ../mate-tweak:186
 msgid "Icon size:"
 msgstr "Saiz ikon:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:210
+#: ../mate-tweak:210
 msgid "Small"
 msgstr "Kecil"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:211
+#: ../mate-tweak:211
 msgid "Large"
 msgstr "Besar"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:217
+#: ../mate-tweak:217
 msgid "Traditional style (Right)"
 msgstr "Gaya Tradisional (Kanan)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:218
+#: ../mate-tweak:218
 msgid "Mac style (Left)"
 msgstr "Gaya Mac (Kiri)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:225
+#: ../mate-tweak:225
 msgid "Marco (stable and reliable)"
 msgstr "Marco (stabil dan dipercayai)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:226
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:234
+#: ../mate-tweak:226
+#: ../mate-tweak:234
 msgid "Compiz (impressive desktop effects)"
 msgstr "Compiz (efek desktop yang mengagumkan)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:228
+#: ../mate-tweak:228
 msgid ""
 "Log out and log back in for changes to take effect. If things go wrong, run "
 "'mate-wm-recovery' to switch back to Marco."
@@ -168,28 +168,28 @@ msgstr ""
 "berjalan dengan betul, jalankan 'mate-wm-recovery' untuk tukar kembali ke "
 "Marco."
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:233
+#: ../mate-tweak:233
 msgid "Xfwm (stable and reliable)"
 msgstr "Xfwm (Stabil dan dipercayai)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:237
+#: ../mate-tweak:237
 msgid "Log out and log back in for changes to take effect."
 msgstr ""
 "Log keluar dan log masuk kembali untuk sebarang perubahan akan berkuat kuasa."
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:246
+#: ../mate-tweak:246
 msgid "Text below items"
 msgstr "Teks dibawah item"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:247
+#: ../mate-tweak:247
 msgid "Text beside items"
 msgstr "Teks bersebelahan item"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:248
+#: ../mate-tweak:248
 msgid "Icons only"
 msgstr "Ikon sahaja"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:249
+#: ../mate-tweak:249
 msgid "Text only"
 msgstr "Teks sahaja"
 

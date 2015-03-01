@@ -1,11 +1,11 @@
-# Vietnamese translation for linuxmint
+# Vietnamese translation for MATE Tweak
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
-# This file is distributed under the same license as the linuxmint package.
+# This file is distributed under the same license as the package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: linuxmint\n"
+"Project-Id-Version: mate-tweak\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-12-09 16:44+0000\n"
 "PO-Revision-Date: 2014-12-27 02:33+0000\n"
@@ -17,149 +17,149 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:110
+#: ../mate-tweak:110
 msgid "Desktop"
 msgstr "Bàn làm việc"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:111
+#: ../mate-tweak:111
 msgid "Windows"
 msgstr "Cửa sổ"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:112
+#: ../mate-tweak:112
 msgid "Interface"
 msgstr "Giao diện"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:113
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:160
+#: ../mate-tweak:113
+#: ../mate-tweak:160
 msgid "Terminal"
 msgstr "Trình dòng lệnh"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:154
+#: ../mate-tweak:154
 msgid "Desktop icons"
 msgstr "Biểu tượng bàn làm việc"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:155
+#: ../mate-tweak:155
 msgid "Performance"
 msgstr "Hiệu năng"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:156
+#: ../mate-tweak:156
 msgid "Appearance"
 msgstr "Diện mạo"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:157
+#: ../mate-tweak:157
 msgid "Icons"
 msgstr "Biểu tượng"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:158
+#: ../mate-tweak:158
 msgid "Context menus"
 msgstr "Trình đơn ngữ cảnh"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:159
+#: ../mate-tweak:159
 msgid "Toolbars"
 msgstr "Thanh công cụ"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:161
+#: ../mate-tweak:161
 msgid "Window Manager"
 msgstr "Trình Quản lý cửa sổ:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:163
+#: ../mate-tweak:163
 msgid "Select the items you want to see on the desktop:"
 msgstr "Chọn các mục muốn hiển thị trên màn hình làm việc:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:165
+#: ../mate-tweak:165
 msgid "Computer"
 msgstr "Máy vi tính"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:166
+#: ../mate-tweak:166
 msgid "Home"
 msgstr "Nhà"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:167
+#: ../mate-tweak:167
 msgid "Network"
 msgstr "Mạng"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:168
+#: ../mate-tweak:168
 msgid "Trash"
 msgstr "Thùng rác"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:169
+#: ../mate-tweak:169
 msgid "Mounted Volumes"
 msgstr "Phân vùng đã gắn kết"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:171
+#: ../mate-tweak:171
 msgid "Don't show window content while dragging them"
 msgstr "Không hiển thị nội dung cửa sổ khi kéo"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:172
+#: ../mate-tweak:172
 msgid "Use compositing"
 msgstr "Dùng bộ tổng hợp"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:173
+#: ../mate-tweak:173
 msgid "Use system font in titlebar"
 msgstr "Dùng phông chữ hệ thống trên thanh tiêu đề"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:174
+#: ../mate-tweak:174
 msgid "Show fortune cookies"
 msgstr "Hiện bánh may mắn"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:176
+#: ../mate-tweak:176
 msgid "Buttons layout:"
 msgstr "Bố cục nút nhấn:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:178
+#: ../mate-tweak:178
 msgid "Window manager:"
 msgstr "Trình quản lý cửa sổ:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:180
+#: ../mate-tweak:180
 msgid "Show icons on menus"
 msgstr "Hiện biểu tượng trên trình đơn"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:181
+#: ../mate-tweak:181
 msgid "Show icons on buttons"
 msgstr "Hiện biểu tượng trên nút nhấn"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:182
+#: ../mate-tweak:182
 msgid "Show Input Methods menu in context menus"
 msgstr "Hiện trình đơn bộ gõ trong các trình đơn ngữ cảnh"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:183
+#: ../mate-tweak:183
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Hiện trình đơn Ký tự điều khiển Unicode trong các trình đơn ngữ cảnh"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:185
+#: ../mate-tweak:185
 msgid "Buttons labels:"
 msgstr "Nhãn nút nhấn:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:186
+#: ../mate-tweak:186
 msgid "Icon size:"
 msgstr "Kích thước biểu tượng:"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:210
+#: ../mate-tweak:210
 msgid "Small"
 msgstr "Nhỏ"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:211
+#: ../mate-tweak:211
 msgid "Large"
 msgstr "Lớn"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:217
+#: ../mate-tweak:217
 msgid "Traditional style (Right)"
 msgstr "Kiểu truyền thống (bên phải)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:218
+#: ../mate-tweak:218
 msgid "Mac style (Left)"
 msgstr "Kiểu giao diện Mac (bên trái)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:225
+#: ../mate-tweak:225
 msgid "Marco (stable and reliable)"
 msgstr "Marco (ổn định và bảo đảm)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:226
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:234
+#: ../mate-tweak:226
+#: ../mate-tweak:234
 msgid "Compiz (impressive desktop effects)"
 msgstr "Compiz (hiệu ứng màn hình làm việc ấn tượng)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:228
+#: ../mate-tweak:228
 msgid ""
 "Log out and log back in for changes to take effect. If things go wrong, run "
 "'mate-wm-recovery' to switch back to Marco."
@@ -167,27 +167,27 @@ msgstr ""
 "Đăng xuất và vào lại để các thay đổi có hiệu lực. Nếu có vấn đề gì, hãy chạy "
 "'mate-wm-recovery' để trở về Marco."
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:233
+#: ../mate-tweak:233
 msgid "Xfwm (stable and reliable)"
 msgstr "Xfwm (stable and reliable)"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:237
+#: ../mate-tweak:237
 msgid "Log out and log back in for changes to take effect."
 msgstr "Đăng xuất và đăng nhập trở lại để các thay đổi có hiệu lực."
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:246
+#: ../mate-tweak:246
 msgid "Text below items"
 msgstr "Văn bản nằm dưới các mục"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:247
+#: ../mate-tweak:247
 msgid "Text beside items"
 msgstr "Văn bản nằm cạnh các mục"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:248
+#: ../mate-tweak:248
 msgid "Icons only"
 msgstr "Chỉ hiện biểu tượng"
 
-#: usr/lib/linuxmint/mintDesktop/mintDesktop.py:249
+#: ../mate-tweak:249
 msgid "Text only"
 msgstr "Chỉ hiện văn bản"
 
