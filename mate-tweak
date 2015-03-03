@@ -23,15 +23,13 @@ import gettext
 import gi
 import os
 import shutil
-import string
 import subprocess
 import sys
-import time
 
 from gi.repository import Gtk, GdkPixbuf, Gdk, GObject
 from gi.repository import Gio
 
-__VERSION__="3.4.4"
+__VERSION__="3.4.5"
 
 # i18n
 # TODO: Badly need to fix this - overuse of "The" etc.
