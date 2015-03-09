@@ -383,7 +383,7 @@ class MateTweak:
                indicators_available = True
 
         mate_menu_available = False
-        if os.path.exists('/usr/lib/ubuntu-mate/mate-menu/mate-menu.py'):
+        if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
             mate_menu_available = True
 
         mint_menu_available = False
