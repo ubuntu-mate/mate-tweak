@@ -24,6 +24,7 @@ import gi
 import os
 import shutil
 import subprocess
+import string
 import sys
 
 from gi.repository import Gtk, GdkPixbuf, Gdk, GObject
@@ -182,9 +183,9 @@ class MateTweak:
         # Enable/disable the appropriate dock if one of the dock ready
         # panel layouts is selected.
         dock = None
-        if os.path.exists('/usr/bin/docky'):
+        if self.find_on_path('docky'):
             dock = 'docky'
-        elif os.path.exists('/usr/bin/plank'):
+        elif self.find_on_path('plank'):
             dock = 'plank'
 
         if panel_layout.startswith('eleven') and dock is not None:
@@ -201,6 +202,17 @@ class MateTweak:
     def panel_layout_exists(self, panel_layout):
         if os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout'):
             return True
+        return False
+
+    def compiz_capable(self):
+        if self.find_on_path('compiz') and self.find_on_path('glxinfo'):
+            process = subprocess.Popen(['glxinfo'], stdout=subprocess.PIPE)
+            out, err = process.communicate()
+            software_rasterizer = out.count("Software Rasterizer")
+            texture_from_pixmap = out.count("texture_from_pixmap")
+            if software_rasterizer == 0 and texture_from_pixmap > 2:
+                return True
+
         return False
 
     def additional_tweaks(self, schema, key, value):
@@ -369,7 +381,7 @@ class MateTweak:
         # Window manager
         wms = Gtk.ListStore(str, str)
         wms.append([_("Marco (Simple desktop effects)"), "marco"])
-        if self.find_on_path('compiz'):
+        if self.compiz_capable():
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), "compiz"])
         self.builder.get_object("combo_wm").set_model(wms)
         self.builder.get_object("combo_wm").set_tooltip_text(_("The new window manager will be activated upon selection."))
