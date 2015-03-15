@@ -1,12 +1,9 @@
 This is MATE Tweak, a fork of [mintDesktop](https://github.com/linuxmint/mintdesktop).
 
   * MATE Tweak removes the Mint specific configuration options.
+  * MATE Tweak adds User Interfacing switching.
+  * MATE Tweak adds live Compiz switching.
 
-Personally I'm not the least bit interested in using the MATE Tweak but I 
-see that it is regularly requested in the Ubuntu MATE community. So 
-consider MATE Tweak a gift from me, to you :-)
+MATE Tweak needs translators!
 
-Anyone interested in testing MATE Tweak I've made packages for Trusty and
-Utopic, which you can install from the following PPA:
-
-  * https://launchpad.net/~ubuntu-mate-dev/+archive/ubuntu/ppa
+  * https://www.transifex.com/projects/p/MATE/resource/mate-tweak/
