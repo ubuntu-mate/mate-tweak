@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[MATE.mate-tweak]
+file_filter = po/<lang>.po
+source_file = po/mate-tweak.pot
+source_lang = en
