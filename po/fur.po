@@ -3,115 +3,111 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dragnadh <dragnadh@gmail.com>, 2015
-# Mathijn Jonker <mathijnjonker@hotmail.com>, 2015
-# Mathijn Jonker <mathijnjonker@hotmail.com>, 2015
-# Nathan Follens, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-17 07:53+0000\n"
-"PO-Revision-Date: 2015-03-25 12:14+0000\n"
-"Last-Translator: dragnadh <dragnadh@gmail.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/MATE/language/nl/)\n"
+"PO-Revision-Date: 2015-03-15 20:33+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Friulian (http://www.transifex.com/projects/p/MATE/language/fur/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
+"Language: fur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:272
 msgid "Desktop"
-msgstr "Bureaublad"
+msgstr ""
 
 #: ../mate-tweak:273
 msgid "Windows"
-msgstr "Vensters"
+msgstr ""
 
 #: ../mate-tweak:274
 msgid "Interface"
-msgstr "Interface"
+msgstr ""
 
 #: ../mate-tweak:321
 msgid "Desktop icons"
-msgstr "Bureaubladpictogrammen"
+msgstr ""
 
 #: ../mate-tweak:322
 msgid "Performance"
-msgstr "Prestatie"
+msgstr ""
 
 #: ../mate-tweak:323
 msgid "Appearance"
-msgstr "Uiterlijk"
+msgstr ""
 
 #: ../mate-tweak:324
 msgid "Icons"
-msgstr "Pictogrammen"
+msgstr ""
 
 #: ../mate-tweak:325
 msgid "Context menus"
-msgstr "Context-menu's"
+msgstr ""
 
 #: ../mate-tweak:326
 msgid "Toolbars"
-msgstr "Werkbalken"
+msgstr ""
 
 #: ../mate-tweak:327
 msgid "Window Manager"
-msgstr "Windowmanager"
+msgstr ""
 
 #: ../mate-tweak:329
 msgid "Select the items you want to see on the desktop:"
-msgstr "Selecteer de items die je op het bureaublad wil zien:"
+msgstr ""
 
 #: ../mate-tweak:331
 msgid "Computer"
-msgstr "Computer"
+msgstr ""
 
 #: ../mate-tweak:332
 msgid "Home"
-msgstr "Persoonlijke map"
+msgstr ""
 
 #: ../mate-tweak:333
 msgid "Network"
-msgstr "Netwerk"
+msgstr ""
 
 #: ../mate-tweak:334
 msgid "Trash"
-msgstr "Prullenbak"
+msgstr ""
 
 #: ../mate-tweak:335
 msgid "Mounted Volumes"
-msgstr "Aangekoppelde volumes"
+msgstr ""
 
 #: ../mate-tweak:337
 msgid "Don't show window content while dragging them"
-msgstr "De inhoud van het venster niet tonen tijdens het slepen"
+msgstr ""
 
 #: ../mate-tweak:338
 msgid "Use compositing"
-msgstr "Gebruik 'composting'"
+msgstr ""
 
 #: ../mate-tweak:340
 msgid "Buttons layout:"
-msgstr "Knoppenopmaak:"
+msgstr ""
 
 #: ../mate-tweak:341
 msgid "Window manager:"
-msgstr "Vensterbeheerder:"
+msgstr ""
 
 #: ../mate-tweak:343
 msgid "Show icons on menus"
-msgstr "Toon pictogrammen op menu's"
+msgstr ""
 
 #: ../mate-tweak:344
 msgid "Show icons on buttons"
-msgstr "Toon pictogrammen op knoppen"
+msgstr ""
 
 #: ../mate-tweak:345
 msgid "Show Input Methods menu in context menus"
-msgstr "Toon invoermethodemenu in contextmenu's"
+msgstr ""
 
 #: ../mate-tweak:346
 msgid "Show Unicode Control Character menu in context menus"
@@ -119,23 +115,23 @@ msgstr ""
 
 #: ../mate-tweak:348
 msgid "Buttons labels:"
-msgstr "Knoppenlabels:"
+msgstr ""
 
 #: ../mate-tweak:349
 msgid "Icon size:"
-msgstr "Pictogram grote:"
+msgstr ""
 
 #: ../mate-tweak:369
 msgid "Small"
-msgstr "Klein"
+msgstr ""
 
 #: ../mate-tweak:370
 msgid "Large"
-msgstr "Groot"
+msgstr ""
 
 #: ../mate-tweak:376
 msgid "Traditional (Right)"
-msgstr "Traditioneel (Rechts)"
+msgstr ""
 
 #: ../mate-tweak:377
 msgid "Contemporary (Left)"
@@ -143,51 +139,51 @@ msgstr ""
 
 #: ../mate-tweak:383
 msgid "Marco (Simple desktop effects)"
-msgstr "Marco (Simpele bureaublad effecten)"
+msgstr ""
 
 #: ../mate-tweak:385
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (Geavanceerde GPU versnelde bureaublad effecten)"
+msgstr ""
 
 #: ../mate-tweak:387
 msgid "The new window manager will be activated upon selection."
-msgstr "De nieuwe vensterbeheerder zal geactiveerd worden na selectie."
+msgstr ""
 
 #: ../mate-tweak:415
 msgid "MATE Desktop"
-msgstr "MATE Bureaublad"
+msgstr ""
 
 #: ../mate-tweak:418
 msgid "Ubuntu MATE"
-msgstr "Ubuntu MATE"
+msgstr ""
 
 #: ../mate-tweak:422
 msgid "Ubuntu MATE with MATE Menu"
-msgstr "Ubuntu MATE met MATE Menu"
+msgstr ""
 
 #: ../mate-tweak:426
 msgid "Ubuntu MATE with Indicators"
-msgstr "Ubuntu MATE met Indicatoren"
+msgstr ""
 
 #: ../mate-tweak:431
 msgid "Ubuntu MATE with Indicators and MATE Menu"
-msgstr "Ubuntu MATE met Indicators en MATE Menu"
+msgstr ""
 
 #: ../mate-tweak:434
 msgid "Redmond"
-msgstr "Redmond"
+msgstr ""
 
 #: ../mate-tweak:438
 msgid "Redmond with MATE Menu"
-msgstr "Redmond met MATE Menu"
+msgstr ""
 
 #: ../mate-tweak:442
 msgid "Redmond with Indicators"
-msgstr "Redmond met Indicators"
+msgstr ""
 
 #: ../mate-tweak:447
 msgid "Redmond with Indicators and MATE Menu"
-msgstr "Redmond met Indicators en MATE Menu"
+msgstr ""
 
 #: ../mate-tweak:451
 msgid "Eleven"
@@ -207,11 +203,11 @@ msgstr ""
 
 #: ../mate-tweak:468
 msgid "Linux Mint"
-msgstr "Linux Mint"
+msgstr ""
 
 #: ../mate-tweak:472
 msgid "openSUSE"
-msgstr "openSUSE"
+msgstr ""
 
 #: ../mate-tweak:475
 msgid ""
@@ -221,16 +217,16 @@ msgstr ""
 
 #: ../mate-tweak:480
 msgid "Text below items"
-msgstr "Tekst onder items"
+msgstr ""
 
 #: ../mate-tweak:481
 msgid "Text beside items"
-msgstr "Tekst naast items"
+msgstr ""
 
 #: ../mate-tweak:482
 msgid "Icons only"
-msgstr "Alleen pictogrammen"
+msgstr ""
 
 #: ../mate-tweak:483
 msgid "Text only"
-msgstr "Alleen tekst"
+msgstr ""

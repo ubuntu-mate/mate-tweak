@@ -1,213 +1,234 @@
-# Portuguese translation for MATE Tweak
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
-# This file is distributed under the same license as the package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Diogo Oliveira <diogodesigns@gmail.com>, 2015
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-tweak\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-12-09 16:44+0000\n"
-"PO-Revision-Date: 2014-12-14 22:46+0000\n"
-"Last-Translator: Tiago S. <Unknown>\n"
-"Language-Team: Portuguese <pt@li.org>\n"
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-17 07:53+0000\n"
+"PO-Revision-Date: 2015-03-26 17:43+0000\n"
+"Last-Translator: Diogo Oliveira <diogodesigns@gmail.com>\n"
+"Language-Team: Portuguese (http://www.transifex.com/projects/p/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:110
+#: ../mate-tweak:272
 msgid "Desktop"
 msgstr "Ambiente de trabalho"
 
-#: ../mate-tweak:111
+#: ../mate-tweak:273
 msgid "Windows"
 msgstr "Janelas"
 
-#: ../mate-tweak:112
+#: ../mate-tweak:274
 msgid "Interface"
 msgstr "Interface"
 
-#: ../mate-tweak:113
-#: ../mate-tweak:160
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ../mate-tweak:154
+#: ../mate-tweak:321
 msgid "Desktop icons"
 msgstr "Ícones de ambiente de trabalho"
 
-#: ../mate-tweak:155
+#: ../mate-tweak:322
 msgid "Performance"
 msgstr "Desempenho"
 
-#: ../mate-tweak:156
+#: ../mate-tweak:323
 msgid "Appearance"
 msgstr "Aparência"
 
-#: ../mate-tweak:157
+#: ../mate-tweak:324
 msgid "Icons"
 msgstr "Ícones"
 
-#: ../mate-tweak:158
+#: ../mate-tweak:325
 msgid "Context menus"
 msgstr "Menus de contexto"
 
-#: ../mate-tweak:159
+#: ../mate-tweak:326
 msgid "Toolbars"
 msgstr "Barras de ferramentas"
 
-#: ../mate-tweak:161
+#: ../mate-tweak:327
 msgid "Window Manager"
 msgstr "Gestor de Janelas"
 
-#: ../mate-tweak:163
+#: ../mate-tweak:329
 msgid "Select the items you want to see on the desktop:"
 msgstr "Selecione os itens a exibir no ambiente de trabalho:"
 
-#: ../mate-tweak:165
+#: ../mate-tweak:331
 msgid "Computer"
 msgstr "Computador"
 
-#: ../mate-tweak:166
+#: ../mate-tweak:332
 msgid "Home"
 msgstr "Pasta pessoal"
 
-#: ../mate-tweak:167
+#: ../mate-tweak:333
 msgid "Network"
 msgstr "Rede"
 
-#: ../mate-tweak:168
+#: ../mate-tweak:334
 msgid "Trash"
 msgstr "Lixo"
 
-#: ../mate-tweak:169
+#: ../mate-tweak:335
 msgid "Mounted Volumes"
 msgstr "Volumes montados"
 
-#: ../mate-tweak:171
+#: ../mate-tweak:337
 msgid "Don't show window content while dragging them"
 msgstr "Não mostrar o conteúdo da janela ao arrastar"
 
-#: ../mate-tweak:172
+#: ../mate-tweak:338
 msgid "Use compositing"
 msgstr "Usar composição"
 
-#: ../mate-tweak:173
-msgid "Use system font in titlebar"
-msgstr "Utilizar tipo de letra do sistema na barra de título"
-
-#: ../mate-tweak:174
-msgid "Show fortune cookies"
-msgstr "Mostrar \"fortune\""
-
-#: ../mate-tweak:176
+#: ../mate-tweak:340
 msgid "Buttons layout:"
 msgstr "Esquema dos botões:"
 
-#: ../mate-tweak:178
+#: ../mate-tweak:341
 msgid "Window manager:"
 msgstr "Gestor de Janelas"
 
-#: ../mate-tweak:180
+#: ../mate-tweak:343
 msgid "Show icons on menus"
 msgstr "Mostrar ícones nos menus"
 
-#: ../mate-tweak:181
+#: ../mate-tweak:344
 msgid "Show icons on buttons"
 msgstr "Mostrar ícones nos botões"
 
-#: ../mate-tweak:182
+#: ../mate-tweak:345
 msgid "Show Input Methods menu in context menus"
 msgstr "Mostrar métodos de inserção nos menus de contexto"
 
-#: ../mate-tweak:183
+#: ../mate-tweak:346
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Mostrar controlo de caracteres Unicode nos menus de contexto"
 
-#: ../mate-tweak:185
+#: ../mate-tweak:348
 msgid "Buttons labels:"
 msgstr "Texto dos botões:"
 
-#: ../mate-tweak:186
+#: ../mate-tweak:349
 msgid "Icon size:"
 msgstr "Tamanho dos ícones:"
 
-#: ../mate-tweak:210
+#: ../mate-tweak:369
 msgid "Small"
 msgstr "Pequeno"
 
-#: ../mate-tweak:211
+#: ../mate-tweak:370
 msgid "Large"
 msgstr "Grande"
 
-#: ../mate-tweak:217
-msgid "Traditional style (Right)"
-msgstr "Estilo tradicional (à direita)"
+#: ../mate-tweak:376
+msgid "Traditional (Right)"
+msgstr "Tradicional (direita)"
 
-#: ../mate-tweak:218
-msgid "Mac style (Left)"
-msgstr "Estilo Mac (à esquerda)"
+#: ../mate-tweak:377
+msgid "Contemporary (Left)"
+msgstr "Contemporâneo (Esquerda)"
 
-#: ../mate-tweak:225
-msgid "Marco (stable and reliable)"
-msgstr "Marco (estável e confiável)"
+#: ../mate-tweak:383
+msgid "Marco (Simple desktop effects)"
+msgstr "Marco (Efeitos de desktop simples)"
 
-#: ../mate-tweak:226
-#: ../mate-tweak:234
-msgid "Compiz (impressive desktop effects)"
-msgstr "Compiz (efeitos de ambiente de trabalho impressionantes)"
+#: ../mate-tweak:385
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr "Compiz (Efeitos de desktop avançados por aceleração de GPU)"
 
-#: ../mate-tweak:228
+#: ../mate-tweak:387
+msgid "The new window manager will be activated upon selection."
+msgstr "Um novo gestor de janelas será ativado em cima da seleção."
+
+#: ../mate-tweak:415
+msgid "MATE Desktop"
+msgstr "Área de Trabalho MATE"
+
+#: ../mate-tweak:418
+msgid "Ubuntu MATE"
+msgstr "Ubuntu MATE"
+
+#: ../mate-tweak:422
+msgid "Ubuntu MATE with MATE Menu"
+msgstr "Ubuntu MATE com Menu MATE "
+
+#: ../mate-tweak:426
+msgid "Ubuntu MATE with Indicators"
+msgstr "Ubuntu MATE com Indicadores"
+
+#: ../mate-tweak:431
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr "Ubuntu MATE com Indicadores e Menu MATE"
+
+#: ../mate-tweak:434
+msgid "Redmond"
+msgstr "Redmond"
+
+#: ../mate-tweak:438
+msgid "Redmond with MATE Menu"
+msgstr "Redmond com Menu MATE"
+
+#: ../mate-tweak:442
+msgid "Redmond with Indicators"
+msgstr "Redmond com Indicadores"
+
+#: ../mate-tweak:447
+msgid "Redmond with Indicators and MATE Menu"
+msgstr "Redmond com Indicadores e Menu MATE"
+
+#: ../mate-tweak:451
+msgid "Eleven"
+msgstr "Eleven"
+
+#: ../mate-tweak:455
+msgid "Eleven with MATE Menu"
+msgstr "Eleven com Menu MATE "
+
+#: ../mate-tweak:459
+msgid "Eleven with Indicators"
+msgstr "Eleven com Indicadores"
+
+#: ../mate-tweak:464
+msgid "Eleven with Indicators and MATE Menu"
+msgstr "Eleven com Indicadores e Menu MATE"
+
+#: ../mate-tweak:468
+msgid "Linux Mint"
+msgstr "Linux Mint"
+
+#: ../mate-tweak:472
+msgid "openSUSE"
+msgstr "openSUSE"
+
+#: ../mate-tweak:475
 msgid ""
-"Log out and log back in for changes to take effect. If things go wrong, run "
-"'mate-wm-recovery' to switch back to Marco."
-msgstr ""
-"Terminar sessão e voltar a entrar para as alterações terem efeito. Se algo "
-"correr mal, corra 'mate-wm-recovery' para mudar novamente para Marco."
+"The new panel layout will be activated on selection and destroy any "
+"customisations you might have made."
+msgstr "O novo layout do painel irá ser ativado na seleção e apagará qualquer customização que tenhas feito."
 
-#: ../mate-tweak:233
-msgid "Xfwm (stable and reliable)"
-msgstr "Xfwm (estável e confiável)"
-
-#: ../mate-tweak:237
-msgid "Log out and log back in for changes to take effect."
-msgstr ""
-"Terminar sessão e voltar a entrar para que as mudanças entrem em efeito."
-
-#: ../mate-tweak:246
+#: ../mate-tweak:480
 msgid "Text below items"
 msgstr "Texto por baixo dos itens"
 
-#: ../mate-tweak:247
+#: ../mate-tweak:481
 msgid "Text beside items"
 msgstr "Texto ao lado dos itens"
 
-#: ../mate-tweak:248
+#: ../mate-tweak:482
 msgid "Icons only"
 msgstr "Apenas ícones"
 
-#: ../mate-tweak:249
+#: ../mate-tweak:483
 msgid "Text only"
 msgstr "Apenas texto"
-
-#: generate_desktop_files:25
-msgid "Desktop Settings"
-msgstr "Definições do ambiente de trabalho"
-
-#: generate_desktop_files:25
-msgid "Fine-tune desktop settings"
-msgstr "Ajustar definições do ambiente de trabalho"
-
-#~ msgid "Desktop Items"
-#~ msgstr "Itens da Área de Trabalho"
-
-#~ msgid "Gnome Settings"
-#~ msgstr "Configurações do Gnome"
-
-#~ msgid "Fine-tune Gnome settings"
-#~ msgstr "Ajustar as definições do Gnome"
-
-#~ msgid "Desktop Configuration Tool"
-#~ msgstr "Ferramenta de configuração do ambiente de trabalho"
