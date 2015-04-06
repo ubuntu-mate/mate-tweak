@@ -69,7 +69,7 @@ setup(
     description = "MATE Tweak is a tiny toolset to fine-tune the MATE desktop environment",
     license = 'GPLv2+',
     author = 'Martin Wimpress',
-    url = 'https://bitbucket.org/flexiondotorg/mate-tweak/',
+    url = 'https://bitbucket.org/ubuntu-mate/mate-tweak/',
     package_dir = {'': '.'},
     data_files = data_files,
     install_requires = [ 'setuptools', ],
