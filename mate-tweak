@@ -30,7 +30,7 @@ import sys
 from gi.repository import Gtk, GdkPixbuf, Gdk, GObject
 from gi.repository import Gio
 
-__VERSION__="3.4.7"
+__VERSION__="3.4.8"
 
 # i18n
 gettext.install("mate-tweak", "/usr/share/locale")
@@ -111,6 +111,12 @@ class MateTweak:
         # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
         devnull = open(os.devnull, 'wb')
         if wm == 'compiz':
+            # Make sure Metacity is uses the same theme as Marco. This ensures
+            # gtk-window-decorator does not incorrectly change theme when
+            # switching from Marco to Compiz.
+            mate_theme = self.get_string('org.mate.interface', 'gtk-theme')
+            self.set_string('org.gnome.desktop.wm.preferences', 'theme', mate_theme)
+
             # mate-panel needs to be replaced when switching to Compiz to avoid
             # rendering screw ups.
             subprocess.Popen(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
@@ -118,6 +124,7 @@ class MateTweak:
             subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
         else:
             subprocess.Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
+
         devnull.close()
 
     def enable_dock(self, dock):
