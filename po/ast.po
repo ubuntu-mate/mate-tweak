@@ -6,198 +6,269 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-tweak\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-12-09 16:44+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-07 10:39+0100\n"
 "PO-Revision-Date: 2014-12-25 23:42+0000\n"
 "Last-Translator: enolp <enolp@softastur.org>\n"
 "Language-Team: Asturian <ast@li.org>\n"
+"Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2015-02-25 10:21+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: ../mate-tweak:110
+#: ../mate-tweak:282
 msgid "Desktop"
 msgstr "Escritoriu"
 
-#: ../mate-tweak:111
+#: ../mate-tweak:283
 msgid "Windows"
 msgstr "Ventanes"
 
-#: ../mate-tweak:112
+#: ../mate-tweak:284
 msgid "Interface"
 msgstr "Interfaz"
 
-#: ../mate-tweak:113
-#: ../mate-tweak:160
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ../mate-tweak:154
+#: ../mate-tweak:331
 msgid "Desktop icons"
 msgstr "Iconos d'escritoriu"
 
-#: ../mate-tweak:155
+#: ../mate-tweak:332
 msgid "Performance"
 msgstr "Rindimientu"
 
-#: ../mate-tweak:156
+#: ../mate-tweak:333
 msgid "Appearance"
 msgstr "Aspeutu"
 
-#: ../mate-tweak:157
+#: ../mate-tweak:334
 msgid "Icons"
 msgstr "Iconos"
 
-#: ../mate-tweak:158
+#: ../mate-tweak:335
 msgid "Context menus"
 msgstr "Menús contestuales"
 
-#: ../mate-tweak:159
+#: ../mate-tweak:336
 msgid "Toolbars"
 msgstr "Barres de ferramientes"
 
-#: ../mate-tweak:161
+#: ../mate-tweak:337
 msgid "Window Manager"
 msgstr "Alministrador de ventanes"
 
-#: ../mate-tweak:163
+#: ../mate-tweak:339
 msgid "Select the items you want to see on the desktop:"
 msgstr "Esbilla los elementos que quies ver nel escritoriu:"
 
-#: ../mate-tweak:165
+#: ../mate-tweak:341
 msgid "Computer"
 msgstr "Ordenador"
 
-#: ../mate-tweak:166
+#: ../mate-tweak:342
 msgid "Home"
 msgstr "Home"
 
-#: ../mate-tweak:167
+#: ../mate-tweak:343
 msgid "Network"
 msgstr "Rede"
 
-#: ../mate-tweak:168
+#: ../mate-tweak:344
 msgid "Trash"
 msgstr "Papelera"
 
-#: ../mate-tweak:169
+#: ../mate-tweak:345
 msgid "Mounted Volumes"
 msgstr "Volúmenes montaos"
 
-#: ../mate-tweak:171
+#: ../mate-tweak:347
 msgid "Don't show window content while dragging them"
 msgstr "Nun amosar el conteníu de la ventana al arrastrales"
 
-#: ../mate-tweak:172
+#: ../mate-tweak:348
 msgid "Use compositing"
 msgstr "Usar composición"
 
-#: ../mate-tweak:173
-msgid "Use system font in titlebar"
-msgstr "Usar fonte del sistema na barra del títulu"
-
-#: ../mate-tweak:174
-msgid "Show fortune cookies"
-msgstr "Amosar cites de la fortuna"
-
-#: ../mate-tweak:176
+#: ../mate-tweak:350
 msgid "Buttons layout:"
 msgstr "Dsitribución de botones:"
 
-#: ../mate-tweak:178
+#: ../mate-tweak:351
 msgid "Window manager:"
 msgstr "Alministrador de ventanes:"
 
-#: ../mate-tweak:180
+#: ../mate-tweak:353
 msgid "Show icons on menus"
 msgstr "Amosar iconos nos menús"
 
-#: ../mate-tweak:181
+#: ../mate-tweak:354
 msgid "Show icons on buttons"
 msgstr "Amosar iconos nos botones"
 
-#: ../mate-tweak:182
+#: ../mate-tweak:355
 msgid "Show Input Methods menu in context menus"
 msgstr "Amosar menú de métodos d'entrada en menús contestuales"
 
-#: ../mate-tweak:183
+#: ../mate-tweak:356
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Amosar menú de carauter de control Unicode nos menús contestuales"
 
-#: ../mate-tweak:185
+#: ../mate-tweak:358
 msgid "Buttons labels:"
 msgstr "Etiquetes de botones:"
 
-#: ../mate-tweak:186
+#: ../mate-tweak:359
 msgid "Icon size:"
 msgstr "Tamañu d'iconu:"
 
-#: ../mate-tweak:210
+#: ../mate-tweak:379
 msgid "Small"
 msgstr "Pequeñu"
 
-#: ../mate-tweak:211
+#: ../mate-tweak:380
 msgid "Large"
 msgstr "Grande"
 
-#: ../mate-tweak:217
-msgid "Traditional style (Right)"
+#: ../mate-tweak:386
+#, fuzzy
+msgid "Traditional (Right)"
 msgstr "Estilu tradicional (drecha)"
 
-#: ../mate-tweak:218
-msgid "Mac style (Left)"
-msgstr "Estilu Mac (izquierdu)"
+#: ../mate-tweak:387
+msgid "Contemporary (Left)"
+msgstr ""
 
-#: ../mate-tweak:225
-msgid "Marco (stable and reliable)"
-msgstr "Marco (estable y fiable)"
-
-#: ../mate-tweak:226
-#: ../mate-tweak:234
-msgid "Compiz (impressive desktop effects)"
+#: ../mate-tweak:393
+#, fuzzy
+msgid "Marco (Simple desktop effects)"
 msgstr "Compiz (efeutos d'escritoriu impresionantes)"
 
-#: ../mate-tweak:228
-msgid ""
-"Log out and log back in for changes to take effect. If things go wrong, run "
-"'mate-wm-recovery' to switch back to Marco."
+#: ../mate-tweak:395
+#, fuzzy
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr "Compiz (efeutos d'escritoriu impresionantes)"
+
+#: ../mate-tweak:397
+msgid "The new window manager will be activated upon selection."
 msgstr ""
-"Zarra y anicia sesión pa que les camudancies faigan efeutu. Si les coses van "
-"mal, executa 'mate-wm-recovery' pa volver a Marco."
 
-#: ../mate-tweak:233
-msgid "Xfwm (stable and reliable)"
-msgstr "Xfwm (estable y fiable)"
+#: ../mate-tweak:425
+#, fuzzy
+msgid "MATE Desktop"
+msgstr "Escritoriu"
 
-#: ../mate-tweak:237
-msgid "Log out and log back in for changes to take effect."
-msgstr "Zarra y anicia sesión pa que les camudancies faigan efeutu."
+#: ../mate-tweak:428
+msgid "Ubuntu MATE"
+msgstr ""
 
-#: ../mate-tweak:246
+#: ../mate-tweak:432
+msgid "Ubuntu MATE with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:436
+msgid "Ubuntu MATE with Indicators"
+msgstr ""
+
+#: ../mate-tweak:441
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:444
+msgid "Redmond"
+msgstr ""
+
+#: ../mate-tweak:448
+msgid "Redmond with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:452
+msgid "Redmond with Indicators"
+msgstr ""
+
+#: ../mate-tweak:457
+msgid "Redmond with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:461
+msgid "Eleven"
+msgstr ""
+
+#: ../mate-tweak:465
+msgid "Eleven with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:469
+msgid "Eleven with Indicators"
+msgstr ""
+
+#: ../mate-tweak:474
+msgid "Eleven with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:478
+msgid "Linux Mint"
+msgstr ""
+
+#: ../mate-tweak:482
+msgid "openSUSE"
+msgstr ""
+
+#: ../mate-tweak:485
+msgid ""
+"The new panel layout will be activated on selection and destroy any "
+"customisations you might have made."
+msgstr ""
+
+#: ../mate-tweak:490
 msgid "Text below items"
 msgstr "Testu baxo los elementos"
 
-#: ../mate-tweak:247
+#: ../mate-tweak:491
 msgid "Text beside items"
 msgstr "Testu al llau de los elementos"
 
-#: ../mate-tweak:248
+#: ../mate-tweak:492
 msgid "Icons only"
 msgstr "Namái iconos"
 
-#: ../mate-tweak:249
+#: ../mate-tweak:493
 msgid "Text only"
 msgstr "Namái testu"
 
-#: generate_desktop_files:25
-msgid "Desktop Settings"
-msgstr "Axustes d'escritoriu"
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
 
-#: generate_desktop_files:25
-msgid "Fine-tune desktop settings"
-msgstr "Axuste finu de los axustes del escritoriu"
+#~ msgid "Use system font in titlebar"
+#~ msgstr "Usar fonte del sistema na barra del títulu"
+
+#~ msgid "Show fortune cookies"
+#~ msgstr "Amosar cites de la fortuna"
+
+#~ msgid "Mac style (Left)"
+#~ msgstr "Estilu Mac (izquierdu)"
+
+#~ msgid "Marco (stable and reliable)"
+#~ msgstr "Marco (estable y fiable)"
+
+#~ msgid ""
+#~ "Log out and log back in for changes to take effect. If things go wrong, "
+#~ "run 'mate-wm-recovery' to switch back to Marco."
+#~ msgstr ""
+#~ "Zarra y anicia sesión pa que les camudancies faigan efeutu. Si les coses "
+#~ "van mal, executa 'mate-wm-recovery' pa volver a Marco."
+
+#~ msgid "Xfwm (stable and reliable)"
+#~ msgstr "Xfwm (estable y fiable)"
+
+#~ msgid "Log out and log back in for changes to take effect."
+#~ msgstr "Zarra y anicia sesión pa que les camudancies faigan efeutu."
+
+#~ msgid "Desktop Settings"
+#~ msgstr "Axustes d'escritoriu"
+
+#~ msgid "Fine-tune desktop settings"
+#~ msgstr "Axuste finu de los axustes del escritoriu"
 
 #~ msgid "Desktop Items"
 #~ msgstr "Elementos del escritoriu"

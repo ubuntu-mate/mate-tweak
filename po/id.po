@@ -6,199 +6,270 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-tweak\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-12-09 16:44+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-07 10:39+0100\n"
 "PO-Revision-Date: 2014-12-17 03:49+0000\n"
 "Last-Translator: Fajar Ichwan Noor <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2015-02-25 10:21+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: ../mate-tweak:110
+#: ../mate-tweak:282
 msgid "Desktop"
 msgstr "Desktop"
 
-#: ../mate-tweak:111
+#: ../mate-tweak:283
 msgid "Windows"
 msgstr "Jendela"
 
-#: ../mate-tweak:112
+#: ../mate-tweak:284
 msgid "Interface"
 msgstr "Antarmuka"
 
-#: ../mate-tweak:113
-#: ../mate-tweak:160
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ../mate-tweak:154
+#: ../mate-tweak:331
 msgid "Desktop icons"
 msgstr "Ikon desktop"
 
-#: ../mate-tweak:155
+#: ../mate-tweak:332
 msgid "Performance"
 msgstr "Kinerja"
 
-#: ../mate-tweak:156
+#: ../mate-tweak:333
 msgid "Appearance"
 msgstr "Penampilan"
 
-#: ../mate-tweak:157
+#: ../mate-tweak:334
 msgid "Icons"
 msgstr "Ikon"
 
-#: ../mate-tweak:158
+#: ../mate-tweak:335
 msgid "Context menus"
 msgstr "Sajian Isi"
 
-#: ../mate-tweak:159
+#: ../mate-tweak:336
 msgid "Toolbars"
 msgstr "Toolbar"
 
-#: ../mate-tweak:161
+#: ../mate-tweak:337
 msgid "Window Manager"
 msgstr "Pengelola Jendela"
 
-#: ../mate-tweak:163
+#: ../mate-tweak:339
 msgid "Select the items you want to see on the desktop:"
 msgstr "Pilih item yang akan ditampilkan di desktop"
 
-#: ../mate-tweak:165
+#: ../mate-tweak:341
 msgid "Computer"
 msgstr "Komputer"
 
-#: ../mate-tweak:166
+#: ../mate-tweak:342
 msgid "Home"
 msgstr "Beranda"
 
-#: ../mate-tweak:167
+#: ../mate-tweak:343
 msgid "Network"
 msgstr "Jaringan"
 
-#: ../mate-tweak:168
+#: ../mate-tweak:344
 msgid "Trash"
 msgstr "Tempat Sampah"
 
-#: ../mate-tweak:169
+#: ../mate-tweak:345
 msgid "Mounted Volumes"
 msgstr "Volume yang terpasang"
 
-#: ../mate-tweak:171
+#: ../mate-tweak:347
 msgid "Don't show window content while dragging them"
 msgstr "Jangan perlihatkan isi berkas ketika menggeser"
 
-#: ../mate-tweak:172
+#: ../mate-tweak:348
 msgid "Use compositing"
 msgstr "Gunakan pengkomposisian"
 
-#: ../mate-tweak:173
-msgid "Use system font in titlebar"
-msgstr "Gunakan fonta sistem pada bar judul"
-
-#: ../mate-tweak:174
-msgid "Show fortune cookies"
-msgstr "Tampilkan Keberuntungan Cookie"
-
-#: ../mate-tweak:176
+#: ../mate-tweak:350
 msgid "Buttons layout:"
 msgstr "Tampilan tombol:"
 
-#: ../mate-tweak:178
+#: ../mate-tweak:351
 msgid "Window manager:"
 msgstr "Pengelola jendela:"
 
-#: ../mate-tweak:180
+#: ../mate-tweak:353
 msgid "Show icons on menus"
 msgstr "Perlihatkan ikon pada menu"
 
-#: ../mate-tweak:181
+#: ../mate-tweak:354
 msgid "Show icons on buttons"
 msgstr "Perlihatkan ikon pada tombol"
 
-#: ../mate-tweak:182
+#: ../mate-tweak:355
 msgid "Show Input Methods menu in context menus"
 msgstr "Tunjukkan Metode Masukan menu pada menu isi"
 
-#: ../mate-tweak:183
+#: ../mate-tweak:356
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Tunjukkan Menu Pengatur Karakter Unicode pada menu isi"
 
-#: ../mate-tweak:185
+#: ../mate-tweak:358
 msgid "Buttons labels:"
 msgstr "Label Tombol"
 
-#: ../mate-tweak:186
+#: ../mate-tweak:359
 msgid "Icon size:"
 msgstr "Ukuran ikon:"
 
-#: ../mate-tweak:210
+#: ../mate-tweak:379
 msgid "Small"
 msgstr "Kecil"
 
-#: ../mate-tweak:211
+#: ../mate-tweak:380
 msgid "Large"
 msgstr "Besar"
 
-#: ../mate-tweak:217
-msgid "Traditional style (Right)"
+#: ../mate-tweak:386
+#, fuzzy
+msgid "Traditional (Right)"
 msgstr "Gaya Tradisional (Kanan)"
 
-#: ../mate-tweak:218
-msgid "Mac style (Left)"
-msgstr "Gaya Mac (Kiri)"
+#: ../mate-tweak:387
+msgid "Contemporary (Left)"
+msgstr ""
 
-#: ../mate-tweak:225
-msgid "Marco (stable and reliable)"
-msgstr "Marco (stabil dan handal)"
-
-#: ../mate-tweak:226
-#: ../mate-tweak:234
-msgid "Compiz (impressive desktop effects)"
+#: ../mate-tweak:393
+#, fuzzy
+msgid "Marco (Simple desktop effects)"
 msgstr "Compiz (efek desktop yang impresif)"
 
-#: ../mate-tweak:228
+#: ../mate-tweak:395
+#, fuzzy
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr "Compiz (efek desktop yang impresif)"
+
+#: ../mate-tweak:397
+msgid "The new window manager will be activated upon selection."
+msgstr ""
+
+#: ../mate-tweak:425
+#, fuzzy
+msgid "MATE Desktop"
+msgstr "Desktop"
+
+#: ../mate-tweak:428
+msgid "Ubuntu MATE"
+msgstr ""
+
+#: ../mate-tweak:432
+msgid "Ubuntu MATE with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:436
+msgid "Ubuntu MATE with Indicators"
+msgstr ""
+
+#: ../mate-tweak:441
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:444
+msgid "Redmond"
+msgstr ""
+
+#: ../mate-tweak:448
+msgid "Redmond with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:452
+msgid "Redmond with Indicators"
+msgstr ""
+
+#: ../mate-tweak:457
+msgid "Redmond with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:461
+msgid "Eleven"
+msgstr ""
+
+#: ../mate-tweak:465
+msgid "Eleven with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:469
+msgid "Eleven with Indicators"
+msgstr ""
+
+#: ../mate-tweak:474
+msgid "Eleven with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:478
+msgid "Linux Mint"
+msgstr ""
+
+#: ../mate-tweak:482
+msgid "openSUSE"
+msgstr ""
+
+#: ../mate-tweak:485
 msgid ""
-"Log out and log back in for changes to take effect. If things go wrong, run "
-"'mate-wm-recovery' to switch back to Marco."
+"The new panel layout will be activated on selection and destroy any "
+"customisations you might have made."
 msgstr ""
-"Log out dan login kembali agar perubahan diterapkan. Jika ada yang salah, "
-"jalankan 'mate-wm-recovery' untuk beralih kembali ke Marco."
 
-#: ../mate-tweak:233
-msgid "Xfwm (stable and reliable)"
-msgstr "Xfwm (stabil dan handal)"
-
-#: ../mate-tweak:237
-msgid "Log out and log back in for changes to take effect."
-msgstr ""
-"Keluar dan masuk kembali untuk mendapatkan perubahan dan menerima efeknya."
-
-#: ../mate-tweak:246
+#: ../mate-tweak:490
 msgid "Text below items"
 msgstr "Teks di bawah objek"
 
-#: ../mate-tweak:247
+#: ../mate-tweak:491
 msgid "Text beside items"
 msgstr "Teks di samping objek"
 
-#: ../mate-tweak:248
+#: ../mate-tweak:492
 msgid "Icons only"
 msgstr "Hanya ikon"
 
-#: ../mate-tweak:249
+#: ../mate-tweak:493
 msgid "Text only"
 msgstr "Teks saja"
 
-#: generate_desktop_files:25
-msgid "Desktop Settings"
-msgstr "Pengaturan Desktop"
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
 
-#: generate_desktop_files:25
-msgid "Fine-tune desktop settings"
-msgstr "Pengaturan Desktop Fine-Tune"
+#~ msgid "Use system font in titlebar"
+#~ msgstr "Gunakan fonta sistem pada bar judul"
+
+#~ msgid "Show fortune cookies"
+#~ msgstr "Tampilkan Keberuntungan Cookie"
+
+#~ msgid "Mac style (Left)"
+#~ msgstr "Gaya Mac (Kiri)"
+
+#~ msgid "Marco (stable and reliable)"
+#~ msgstr "Marco (stabil dan handal)"
+
+#~ msgid ""
+#~ "Log out and log back in for changes to take effect. If things go wrong, "
+#~ "run 'mate-wm-recovery' to switch back to Marco."
+#~ msgstr ""
+#~ "Log out dan login kembali agar perubahan diterapkan. Jika ada yang salah, "
+#~ "jalankan 'mate-wm-recovery' untuk beralih kembali ke Marco."
+
+#~ msgid "Xfwm (stable and reliable)"
+#~ msgstr "Xfwm (stabil dan handal)"
+
+#~ msgid "Log out and log back in for changes to take effect."
+#~ msgstr ""
+#~ "Keluar dan masuk kembali untuk mendapatkan perubahan dan menerima efeknya."
+
+#~ msgid "Desktop Settings"
+#~ msgstr "Pengaturan Desktop"
+
+#~ msgid "Fine-tune desktop settings"
+#~ msgstr "Pengaturan Desktop Fine-Tune"
 
 #~ msgid "Desktop Configuration Tool"
 #~ msgstr "Perangkat konfigurasi Desktop"

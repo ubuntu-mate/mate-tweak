@@ -6,198 +6,270 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-tweak\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-12-09 16:44+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-07 10:39+0100\n"
 "PO-Revision-Date: 2014-12-09 17:46+0000\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2015-02-25 10:21+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: ../mate-tweak:110
+#: ../mate-tweak:282
 msgid "Desktop"
 msgstr "Skrivebord"
 
-#: ../mate-tweak:111
+#: ../mate-tweak:283
 msgid "Windows"
 msgstr "Vinduer"
 
-#: ../mate-tweak:112
+#: ../mate-tweak:284
 msgid "Interface"
 msgstr "Grænseflade"
 
-#: ../mate-tweak:113
-#: ../mate-tweak:160
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ../mate-tweak:154
+#: ../mate-tweak:331
 msgid "Desktop icons"
 msgstr "Skrivebordsikoner"
 
-#: ../mate-tweak:155
+#: ../mate-tweak:332
 msgid "Performance"
 msgstr "Ydeevne"
 
-#: ../mate-tweak:156
+#: ../mate-tweak:333
 msgid "Appearance"
 msgstr "Udseende"
 
-#: ../mate-tweak:157
+#: ../mate-tweak:334
 msgid "Icons"
 msgstr "Ikoner"
 
-#: ../mate-tweak:158
+#: ../mate-tweak:335
 msgid "Context menus"
 msgstr "Kontekstmenuer"
 
-#: ../mate-tweak:159
+#: ../mate-tweak:336
 msgid "Toolbars"
 msgstr "Værktøjslinjer"
 
-#: ../mate-tweak:161
+#: ../mate-tweak:337
 msgid "Window Manager"
 msgstr "Vindueshåndtering"
 
-#: ../mate-tweak:163
+#: ../mate-tweak:339
 msgid "Select the items you want to see on the desktop:"
 msgstr "Vælg de ikoner der skal vises på skrivebordet:"
 
-#: ../mate-tweak:165
+#: ../mate-tweak:341
 msgid "Computer"
 msgstr "Computer"
 
-#: ../mate-tweak:166
+#: ../mate-tweak:342
 msgid "Home"
 msgstr "Hjem"
 
-#: ../mate-tweak:167
+#: ../mate-tweak:343
 msgid "Network"
 msgstr "Netværk"
 
-#: ../mate-tweak:168
+#: ../mate-tweak:344
 msgid "Trash"
 msgstr "Papirkurv"
 
-#: ../mate-tweak:169
+#: ../mate-tweak:345
 msgid "Mounted Volumes"
 msgstr "Monterede arkiver"
 
-#: ../mate-tweak:171
+#: ../mate-tweak:347
 msgid "Don't show window content while dragging them"
 msgstr "Vis ikke vinduers indhold, mens de flyttes"
 
-#: ../mate-tweak:172
+#: ../mate-tweak:348
 msgid "Use compositing"
 msgstr "Brug komposition"
 
-#: ../mate-tweak:173
-msgid "Use system font in titlebar"
-msgstr "Benyt systemskrifttype i titellinjen"
-
-#: ../mate-tweak:174
-msgid "Show fortune cookies"
-msgstr "Vis lykkekager"
-
-#: ../mate-tweak:176
+#: ../mate-tweak:350
 msgid "Buttons layout:"
 msgstr "Knappernes layout:"
 
-#: ../mate-tweak:178
+#: ../mate-tweak:351
 msgid "Window manager:"
 msgstr "Vindueshåndtering:"
 
-#: ../mate-tweak:180
+#: ../mate-tweak:353
 msgid "Show icons on menus"
 msgstr "Vis ikoner på menuer"
 
-#: ../mate-tweak:181
+#: ../mate-tweak:354
 msgid "Show icons on buttons"
 msgstr "Vis ikoner på knapper"
 
-#: ../mate-tweak:182
+#: ../mate-tweak:355
 msgid "Show Input Methods menu in context menus"
 msgstr "Vis Inputmetode-menu i kontekstmenuer"
 
-#: ../mate-tweak:183
+#: ../mate-tweak:356
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Vis Unicode-kontroltegnsmenu i kontekstmenuer"
 
-#: ../mate-tweak:185
+#: ../mate-tweak:358
 msgid "Buttons labels:"
 msgstr "Knappers etiketter:"
 
-#: ../mate-tweak:186
+#: ../mate-tweak:359
 msgid "Icon size:"
 msgstr "Ikonstørrelse:"
 
-#: ../mate-tweak:210
+#: ../mate-tweak:379
 msgid "Small"
 msgstr "Lille"
 
-#: ../mate-tweak:211
+#: ../mate-tweak:380
 msgid "Large"
 msgstr "Stor"
 
-#: ../mate-tweak:217
-msgid "Traditional style (Right)"
+#: ../mate-tweak:386
+#, fuzzy
+msgid "Traditional (Right)"
 msgstr "Traditionelt (højre)"
 
-#: ../mate-tweak:218
-msgid "Mac style (Left)"
-msgstr "Mac-stil (venstre)"
+#: ../mate-tweak:387
+msgid "Contemporary (Left)"
+msgstr ""
 
-#: ../mate-tweak:225
-msgid "Marco (stable and reliable)"
-msgstr "Marco (stabil og pålidelig)"
-
-#: ../mate-tweak:226
-#: ../mate-tweak:234
-msgid "Compiz (impressive desktop effects)"
+#: ../mate-tweak:393
+#, fuzzy
+msgid "Marco (Simple desktop effects)"
 msgstr "Compiz (imponerende skrivebordseffekter)"
 
-#: ../mate-tweak:228
-msgid ""
-"Log out and log back in for changes to take effect. If things go wrong, run "
-"'mate-wm-recovery' to switch back to Marco."
+#: ../mate-tweak:395
+#, fuzzy
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr "Compiz (imponerende skrivebordseffekter)"
+
+#: ../mate-tweak:397
+msgid "The new window manager will be activated upon selection."
 msgstr ""
-"Du skal logge af og logge på igen, før ændringerne træder i kraft. Hvis "
-"noget går galt, så kør \"mate-wm-recovery\" for at vende tilbage til Marco."
 
-#: ../mate-tweak:233
-msgid "Xfwm (stable and reliable)"
-msgstr "Xfwm (stabil og pålidelig)"
+#: ../mate-tweak:425
+#, fuzzy
+msgid "MATE Desktop"
+msgstr "Skrivebord"
 
-#: ../mate-tweak:237
-msgid "Log out and log back in for changes to take effect."
-msgstr "Log af og log på igen, før ændringerne træder i kraft."
+#: ../mate-tweak:428
+msgid "Ubuntu MATE"
+msgstr ""
 
-#: ../mate-tweak:246
+#: ../mate-tweak:432
+msgid "Ubuntu MATE with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:436
+msgid "Ubuntu MATE with Indicators"
+msgstr ""
+
+#: ../mate-tweak:441
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:444
+msgid "Redmond"
+msgstr ""
+
+#: ../mate-tweak:448
+msgid "Redmond with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:452
+msgid "Redmond with Indicators"
+msgstr ""
+
+#: ../mate-tweak:457
+msgid "Redmond with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:461
+msgid "Eleven"
+msgstr ""
+
+#: ../mate-tweak:465
+msgid "Eleven with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:469
+msgid "Eleven with Indicators"
+msgstr ""
+
+#: ../mate-tweak:474
+msgid "Eleven with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:478
+msgid "Linux Mint"
+msgstr ""
+
+#: ../mate-tweak:482
+msgid "openSUSE"
+msgstr ""
+
+#: ../mate-tweak:485
+msgid ""
+"The new panel layout will be activated on selection and destroy any "
+"customisations you might have made."
+msgstr ""
+
+#: ../mate-tweak:490
 msgid "Text below items"
 msgstr "Tekst under elementer"
 
-#: ../mate-tweak:247
+#: ../mate-tweak:491
 msgid "Text beside items"
 msgstr "Tekst ved siden af elementer"
 
-#: ../mate-tweak:248
+#: ../mate-tweak:492
 msgid "Icons only"
 msgstr "Kun ikoner"
 
-#: ../mate-tweak:249
+#: ../mate-tweak:493
 msgid "Text only"
 msgstr "Kun tekst"
 
-#: generate_desktop_files:25
-msgid "Desktop Settings"
-msgstr "Skrivebordsindstillinger"
+#~ msgid "Terminal"
+#~ msgstr "Terminal"
 
-#: generate_desktop_files:25
-msgid "Fine-tune desktop settings"
-msgstr "Finjustér skrivebordsindstillingerne"
+#~ msgid "Use system font in titlebar"
+#~ msgstr "Benyt systemskrifttype i titellinjen"
+
+#~ msgid "Show fortune cookies"
+#~ msgstr "Vis lykkekager"
+
+#~ msgid "Mac style (Left)"
+#~ msgstr "Mac-stil (venstre)"
+
+#~ msgid "Marco (stable and reliable)"
+#~ msgstr "Marco (stabil og pålidelig)"
+
+#~ msgid ""
+#~ "Log out and log back in for changes to take effect. If things go wrong, "
+#~ "run 'mate-wm-recovery' to switch back to Marco."
+#~ msgstr ""
+#~ "Du skal logge af og logge på igen, før ændringerne træder i kraft. Hvis "
+#~ "noget går galt, så kør \"mate-wm-recovery\" for at vende tilbage til "
+#~ "Marco."
+
+#~ msgid "Xfwm (stable and reliable)"
+#~ msgstr "Xfwm (stabil og pålidelig)"
+
+#~ msgid "Log out and log back in for changes to take effect."
+#~ msgstr "Log af og log på igen, før ændringerne træder i kraft."
+
+#~ msgid "Desktop Settings"
+#~ msgstr "Skrivebordsindstillinger"
+
+#~ msgid "Fine-tune desktop settings"
+#~ msgstr "Finjustér skrivebordsindstillingerne"
 
 #~ msgid "Desktop Items"
 #~ msgstr "Skrivebordselementer"

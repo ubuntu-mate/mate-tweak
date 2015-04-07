@@ -6,198 +6,269 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-tweak\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-12-09 16:44+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-07 10:39+0100\n"
 "PO-Revision-Date: 2014-12-27 02:33+0000\n"
 "Last-Translator: Saki <a4e484b@hotmail.com>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: ../mate-tweak:110
+#: ../mate-tweak:282
 msgid "Desktop"
 msgstr "Bàn làm việc"
 
-#: ../mate-tweak:111
+#: ../mate-tweak:283
 msgid "Windows"
 msgstr "Cửa sổ"
 
-#: ../mate-tweak:112
+#: ../mate-tweak:284
 msgid "Interface"
 msgstr "Giao diện"
 
-#: ../mate-tweak:113
-#: ../mate-tweak:160
-msgid "Terminal"
-msgstr "Trình dòng lệnh"
-
-#: ../mate-tweak:154
+#: ../mate-tweak:331
 msgid "Desktop icons"
 msgstr "Biểu tượng bàn làm việc"
 
-#: ../mate-tweak:155
+#: ../mate-tweak:332
 msgid "Performance"
 msgstr "Hiệu năng"
 
-#: ../mate-tweak:156
+#: ../mate-tweak:333
 msgid "Appearance"
 msgstr "Diện mạo"
 
-#: ../mate-tweak:157
+#: ../mate-tweak:334
 msgid "Icons"
 msgstr "Biểu tượng"
 
-#: ../mate-tweak:158
+#: ../mate-tweak:335
 msgid "Context menus"
 msgstr "Trình đơn ngữ cảnh"
 
-#: ../mate-tweak:159
+#: ../mate-tweak:336
 msgid "Toolbars"
 msgstr "Thanh công cụ"
 
-#: ../mate-tweak:161
+#: ../mate-tweak:337
 msgid "Window Manager"
 msgstr "Trình Quản lý cửa sổ:"
 
-#: ../mate-tweak:163
+#: ../mate-tweak:339
 msgid "Select the items you want to see on the desktop:"
 msgstr "Chọn các mục muốn hiển thị trên màn hình làm việc:"
 
-#: ../mate-tweak:165
+#: ../mate-tweak:341
 msgid "Computer"
 msgstr "Máy vi tính"
 
-#: ../mate-tweak:166
+#: ../mate-tweak:342
 msgid "Home"
 msgstr "Nhà"
 
-#: ../mate-tweak:167
+#: ../mate-tweak:343
 msgid "Network"
 msgstr "Mạng"
 
-#: ../mate-tweak:168
+#: ../mate-tweak:344
 msgid "Trash"
 msgstr "Thùng rác"
 
-#: ../mate-tweak:169
+#: ../mate-tweak:345
 msgid "Mounted Volumes"
 msgstr "Phân vùng đã gắn kết"
 
-#: ../mate-tweak:171
+#: ../mate-tweak:347
 msgid "Don't show window content while dragging them"
 msgstr "Không hiển thị nội dung cửa sổ khi kéo"
 
-#: ../mate-tweak:172
+#: ../mate-tweak:348
 msgid "Use compositing"
 msgstr "Dùng bộ tổng hợp"
 
-#: ../mate-tweak:173
-msgid "Use system font in titlebar"
-msgstr "Dùng phông chữ hệ thống trên thanh tiêu đề"
-
-#: ../mate-tweak:174
-msgid "Show fortune cookies"
-msgstr "Hiện bánh may mắn"
-
-#: ../mate-tweak:176
+#: ../mate-tweak:350
 msgid "Buttons layout:"
 msgstr "Bố cục nút nhấn:"
 
-#: ../mate-tweak:178
+#: ../mate-tweak:351
 msgid "Window manager:"
 msgstr "Trình quản lý cửa sổ:"
 
-#: ../mate-tweak:180
+#: ../mate-tweak:353
 msgid "Show icons on menus"
 msgstr "Hiện biểu tượng trên trình đơn"
 
-#: ../mate-tweak:181
+#: ../mate-tweak:354
 msgid "Show icons on buttons"
 msgstr "Hiện biểu tượng trên nút nhấn"
 
-#: ../mate-tweak:182
+#: ../mate-tweak:355
 msgid "Show Input Methods menu in context menus"
 msgstr "Hiện trình đơn bộ gõ trong các trình đơn ngữ cảnh"
 
-#: ../mate-tweak:183
+#: ../mate-tweak:356
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Hiện trình đơn Ký tự điều khiển Unicode trong các trình đơn ngữ cảnh"
 
-#: ../mate-tweak:185
+#: ../mate-tweak:358
 msgid "Buttons labels:"
 msgstr "Nhãn nút nhấn:"
 
-#: ../mate-tweak:186
+#: ../mate-tweak:359
 msgid "Icon size:"
 msgstr "Kích thước biểu tượng:"
 
-#: ../mate-tweak:210
+#: ../mate-tweak:379
 msgid "Small"
 msgstr "Nhỏ"
 
-#: ../mate-tweak:211
+#: ../mate-tweak:380
 msgid "Large"
 msgstr "Lớn"
 
-#: ../mate-tweak:217
-msgid "Traditional style (Right)"
+#: ../mate-tweak:386
+#, fuzzy
+msgid "Traditional (Right)"
 msgstr "Kiểu truyền thống (bên phải)"
 
-#: ../mate-tweak:218
-msgid "Mac style (Left)"
-msgstr "Kiểu giao diện Mac (bên trái)"
+#: ../mate-tweak:387
+msgid "Contemporary (Left)"
+msgstr ""
 
-#: ../mate-tweak:225
-msgid "Marco (stable and reliable)"
-msgstr "Marco (ổn định và bảo đảm)"
-
-#: ../mate-tweak:226
-#: ../mate-tweak:234
-msgid "Compiz (impressive desktop effects)"
+#: ../mate-tweak:393
+#, fuzzy
+msgid "Marco (Simple desktop effects)"
 msgstr "Compiz (hiệu ứng màn hình làm việc ấn tượng)"
 
-#: ../mate-tweak:228
-msgid ""
-"Log out and log back in for changes to take effect. If things go wrong, run "
-"'mate-wm-recovery' to switch back to Marco."
+#: ../mate-tweak:395
+#, fuzzy
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr "Compiz (hiệu ứng màn hình làm việc ấn tượng)"
+
+#: ../mate-tweak:397
+msgid "The new window manager will be activated upon selection."
 msgstr ""
-"Đăng xuất và vào lại để các thay đổi có hiệu lực. Nếu có vấn đề gì, hãy chạy "
-"'mate-wm-recovery' để trở về Marco."
 
-#: ../mate-tweak:233
-msgid "Xfwm (stable and reliable)"
-msgstr "Xfwm (stable and reliable)"
+#: ../mate-tweak:425
+#, fuzzy
+msgid "MATE Desktop"
+msgstr "Bàn làm việc"
 
-#: ../mate-tweak:237
-msgid "Log out and log back in for changes to take effect."
-msgstr "Đăng xuất và đăng nhập trở lại để các thay đổi có hiệu lực."
+#: ../mate-tweak:428
+msgid "Ubuntu MATE"
+msgstr ""
 
-#: ../mate-tweak:246
+#: ../mate-tweak:432
+msgid "Ubuntu MATE with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:436
+msgid "Ubuntu MATE with Indicators"
+msgstr ""
+
+#: ../mate-tweak:441
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:444
+msgid "Redmond"
+msgstr ""
+
+#: ../mate-tweak:448
+msgid "Redmond with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:452
+msgid "Redmond with Indicators"
+msgstr ""
+
+#: ../mate-tweak:457
+msgid "Redmond with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:461
+msgid "Eleven"
+msgstr ""
+
+#: ../mate-tweak:465
+msgid "Eleven with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:469
+msgid "Eleven with Indicators"
+msgstr ""
+
+#: ../mate-tweak:474
+msgid "Eleven with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:478
+msgid "Linux Mint"
+msgstr ""
+
+#: ../mate-tweak:482
+msgid "openSUSE"
+msgstr ""
+
+#: ../mate-tweak:485
+msgid ""
+"The new panel layout will be activated on selection and destroy any "
+"customisations you might have made."
+msgstr ""
+
+#: ../mate-tweak:490
 msgid "Text below items"
 msgstr "Văn bản nằm dưới các mục"
 
-#: ../mate-tweak:247
+#: ../mate-tweak:491
 msgid "Text beside items"
 msgstr "Văn bản nằm cạnh các mục"
 
-#: ../mate-tweak:248
+#: ../mate-tweak:492
 msgid "Icons only"
 msgstr "Chỉ hiện biểu tượng"
 
-#: ../mate-tweak:249
+#: ../mate-tweak:493
 msgid "Text only"
 msgstr "Chỉ hiện văn bản"
 
-#: generate_desktop_files:25
-msgid "Desktop Settings"
-msgstr "Thiết lập Màn hình làm việc"
+#~ msgid "Terminal"
+#~ msgstr "Trình dòng lệnh"
 
-#: generate_desktop_files:25
-msgid "Fine-tune desktop settings"
-msgstr "Tinh chỉnh thiết đặt Bàn làm việc"
+#~ msgid "Use system font in titlebar"
+#~ msgstr "Dùng phông chữ hệ thống trên thanh tiêu đề"
+
+#~ msgid "Show fortune cookies"
+#~ msgstr "Hiện bánh may mắn"
+
+#~ msgid "Mac style (Left)"
+#~ msgstr "Kiểu giao diện Mac (bên trái)"
+
+#~ msgid "Marco (stable and reliable)"
+#~ msgstr "Marco (ổn định và bảo đảm)"
+
+#~ msgid ""
+#~ "Log out and log back in for changes to take effect. If things go wrong, "
+#~ "run 'mate-wm-recovery' to switch back to Marco."
+#~ msgstr ""
+#~ "Đăng xuất và vào lại để các thay đổi có hiệu lực. Nếu có vấn đề gì, hãy "
+#~ "chạy 'mate-wm-recovery' để trở về Marco."
+
+#~ msgid "Xfwm (stable and reliable)"
+#~ msgstr "Xfwm (stable and reliable)"
+
+#~ msgid "Log out and log back in for changes to take effect."
+#~ msgstr "Đăng xuất và đăng nhập trở lại để các thay đổi có hiệu lực."
+
+#~ msgid "Desktop Settings"
+#~ msgstr "Thiết lập Màn hình làm việc"
+
+#~ msgid "Fine-tune desktop settings"
+#~ msgstr "Tinh chỉnh thiết đặt Bàn làm việc"
 
 #~ msgid "Desktop Items"
 #~ msgstr "Mục trên desktop"

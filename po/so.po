@@ -6,196 +6,251 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mate-tweak\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-12-09 16:44+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-07 10:39+0100\n"
 "PO-Revision-Date: 2012-06-13 05:33+0000\n"
 "Last-Translator: Ismael Omar <ismaelhssn@gmail.com>\n"
 "Language-Team: Somali <so@li.org>\n"
+"Language: so\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: ../mate-tweak:110
+#: ../mate-tweak:282
 msgid "Desktop"
 msgstr "Dheskitoobka"
 
-#: ../mate-tweak:111
+#: ../mate-tweak:283
 msgid "Windows"
 msgstr "Shaashadda"
 
-#: ../mate-tweak:112
+#: ../mate-tweak:284
 msgid "Interface"
 msgstr "Wajhadda"
 
-#: ../mate-tweak:113
-#: ../mate-tweak:160
-msgid "Terminal"
-msgstr "Darfiyadda"
-
-#: ../mate-tweak:154
+#: ../mate-tweak:331
 msgid "Desktop icons"
 msgstr "Aykonadda Dheskitoobka"
 
-#: ../mate-tweak:155
+#: ../mate-tweak:332
 msgid "Performance"
 msgstr "Hanaan socodka"
 
-#: ../mate-tweak:156
+#: ../mate-tweak:333
 msgid "Appearance"
 msgstr "Muuqaalka"
 
-#: ../mate-tweak:157
+#: ../mate-tweak:334
 msgid "Icons"
 msgstr "Aykonadda"
 
-#: ../mate-tweak:158
+#: ../mate-tweak:335
 msgid "Context menus"
 msgstr "Qaaimooyinka dhanka ah"
 
-#: ../mate-tweak:159
+#: ../mate-tweak:336
 msgid "Toolbars"
 msgstr "Looxadda qalabka"
 
-#: ../mate-tweak:161
+#: ../mate-tweak:337
 msgid "Window Manager"
 msgstr ""
 
-#: ../mate-tweak:163
+#: ../mate-tweak:339
 msgid "Select the items you want to see on the desktop:"
 msgstr "Dooro sheyadda aad dooneysid inaad ka aragtid dheskitoobka:"
 
-#: ../mate-tweak:165
+#: ../mate-tweak:341
 msgid "Computer"
 msgstr "Kombiyuutar"
 
-#: ../mate-tweak:166
+#: ../mate-tweak:342
 msgid "Home"
 msgstr "Guriga"
 
-#: ../mate-tweak:167
+#: ../mate-tweak:343
 msgid "Network"
 msgstr "Shabakadda"
 
-#: ../mate-tweak:168
+#: ../mate-tweak:344
 msgid "Trash"
 msgstr "Salladda Qashinka"
 
-#: ../mate-tweak:169
+#: ../mate-tweak:345
 msgid "Mounted Volumes"
 msgstr "Volume-yadda ku rakiban"
 
-#: ../mate-tweak:171
+#: ../mate-tweak:347
 msgid "Don't show window content while dragging them"
 msgstr "Ha muujinin waxa ku jira windhoowga markii la jiidayo"
 
-#: ../mate-tweak:172
+#: ../mate-tweak:348
 msgid "Use compositing"
 msgstr ""
 
-#: ../mate-tweak:173
-msgid "Use system font in titlebar"
-msgstr "U isticmaal farta siistamka cinwanka  looxadda"
-
-#: ../mate-tweak:174
-msgid "Show fortune cookies"
-msgstr "Muuji buskudyadda nasiibka"
-
-#: ../mate-tweak:176
+#: ../mate-tweak:350
 msgid "Buttons layout:"
 msgstr "Qaabka muuqashadda badhanadda:"
 
-#: ../mate-tweak:178
+#: ../mate-tweak:351
 msgid "Window manager:"
 msgstr ""
 
-#: ../mate-tweak:180
+#: ../mate-tweak:353
 msgid "Show icons on menus"
 msgstr "Muuji aykonadda iyo qaaimooyinka"
 
-#: ../mate-tweak:181
+#: ../mate-tweak:354
 msgid "Show icons on buttons"
 msgstr "Muuji aykonadda iyo badhanadda"
 
-#: ../mate-tweak:182
+#: ../mate-tweak:355
 msgid "Show Input Methods menu in context menus"
 msgstr "Muuji qaabka loo gelinayo qaaimooyinka dhanka ah"
 
-#: ../mate-tweak:183
+#: ../mate-tweak:356
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Muuji Xukmidda Xarfaha Yunikoodka ee qaaimadaha dhanka"
 
-#: ../mate-tweak:185
+#: ../mate-tweak:358
 msgid "Buttons labels:"
 msgstr "Magacyadda badhanadda:"
 
-#: ../mate-tweak:186
+#: ../mate-tweak:359
 msgid "Icon size:"
 msgstr "Xajmiga aykonka:"
 
-#: ../mate-tweak:210
+#: ../mate-tweak:379
 msgid "Small"
 msgstr "Yar"
 
-#: ../mate-tweak:211
+#: ../mate-tweak:380
 msgid "Large"
 msgstr "Weyn"
 
-#: ../mate-tweak:217
-msgid "Traditional style (Right)"
+#: ../mate-tweak:386
+#, fuzzy
+msgid "Traditional (Right)"
 msgstr "Habka caadiga ah (Midig)"
 
-#: ../mate-tweak:218
-msgid "Mac style (Left)"
-msgstr "Habka Makiintooshka (Bidix)"
-
-#: ../mate-tweak:225
-msgid "Marco (stable and reliable)"
+#: ../mate-tweak:387
+msgid "Contemporary (Left)"
 msgstr ""
 
-#: ../mate-tweak:226
-#: ../mate-tweak:234
-msgid "Compiz (impressive desktop effects)"
+#: ../mate-tweak:393
+msgid "Marco (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:228
+#: ../mate-tweak:395
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr ""
+
+#: ../mate-tweak:397
+msgid "The new window manager will be activated upon selection."
+msgstr ""
+
+#: ../mate-tweak:425
+#, fuzzy
+msgid "MATE Desktop"
+msgstr "Dheskitoobka"
+
+#: ../mate-tweak:428
+msgid "Ubuntu MATE"
+msgstr ""
+
+#: ../mate-tweak:432
+msgid "Ubuntu MATE with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:436
+msgid "Ubuntu MATE with Indicators"
+msgstr ""
+
+#: ../mate-tweak:441
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:444
+msgid "Redmond"
+msgstr ""
+
+#: ../mate-tweak:448
+msgid "Redmond with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:452
+msgid "Redmond with Indicators"
+msgstr ""
+
+#: ../mate-tweak:457
+msgid "Redmond with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:461
+msgid "Eleven"
+msgstr ""
+
+#: ../mate-tweak:465
+msgid "Eleven with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:469
+msgid "Eleven with Indicators"
+msgstr ""
+
+#: ../mate-tweak:474
+msgid "Eleven with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:478
+msgid "Linux Mint"
+msgstr ""
+
+#: ../mate-tweak:482
+msgid "openSUSE"
+msgstr ""
+
+#: ../mate-tweak:485
 msgid ""
-"Log out and log back in for changes to take effect. If things go wrong, run "
-"'mate-wm-recovery' to switch back to Marco."
+"The new panel layout will be activated on selection and destroy any "
+"customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:233
-msgid "Xfwm (stable and reliable)"
-msgstr ""
-
-#: ../mate-tweak:237
-msgid "Log out and log back in for changes to take effect."
-msgstr ""
-
-#: ../mate-tweak:246
+#: ../mate-tweak:490
 msgid "Text below items"
 msgstr "Qoraalka sheyadda hoostooda"
 
-#: ../mate-tweak:247
+#: ../mate-tweak:491
 msgid "Text beside items"
 msgstr "Qoraalka sheyadda gadaashooda"
 
-#: ../mate-tweak:248
+#: ../mate-tweak:492
 msgid "Icons only"
 msgstr "Aykonadda oo kaliya"
 
-#: ../mate-tweak:249
+#: ../mate-tweak:493
 msgid "Text only"
 msgstr "Qoraalka oo kaliya"
 
-#: generate_desktop_files:25
-msgid "Desktop Settings"
-msgstr "Setting-yadda dheskitoobka"
+#~ msgid "Terminal"
+#~ msgstr "Darfiyadda"
 
-#: generate_desktop_files:25
-msgid "Fine-tune desktop settings"
-msgstr "Isku hagaaji setting-yadda dheskitoobka"
+#~ msgid "Use system font in titlebar"
+#~ msgstr "U isticmaal farta siistamka cinwanka  looxadda"
+
+#~ msgid "Show fortune cookies"
+#~ msgstr "Muuji buskudyadda nasiibka"
+
+#~ msgid "Mac style (Left)"
+#~ msgstr "Habka Makiintooshka (Bidix)"
+
+#~ msgid "Desktop Settings"
+#~ msgstr "Setting-yadda dheskitoobka"
+
+#~ msgid "Fine-tune desktop settings"
+#~ msgstr "Isku hagaaji setting-yadda dheskitoobka"
 
 #~ msgid "Desktop Configuration Tool"
 #~ msgstr "Agabka Bedbedelida Dheskitoobka"
