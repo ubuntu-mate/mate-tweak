@@ -1,0 +1,96 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the
+# Free Software Foundation, Inc.,
+# 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+from __future__ import unicode_literals, print_function, absolute_import
+from gi.repository import Gio
+import getpass
+import os.path
+
+VALID = {'toplevel': ('expand', 'size', 'orientation'),
+         'launcher': ('object-type', 'launcher-location', 'menu-path', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
+         'applet': ('object-type', 'applet-iid', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
+         'menu-bar': ('object-type', 'applet-iid', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
+         'menu': ('object-type', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
+         'action': ('object-type', 'action-type', 'position', 'toplevel-id', 'panel-right-stick', 'locked'),
+         'separator': ('object-type', 'toplevel-id', 'position', 'panel-right-stick', 'locked')}
+
+schemas = {'panel': 'org.mate.panel',
+           'object': 'org.mate.panel.object',
+           'toplevel':'org.mate.panel.toplevel'}
+
+paths = {'object': '/org/mate/panel/objects/',
+         'toplevel': '/org/mate/panel/toplevels/'}
+
+general_settings = Gio.Settings.new(schemas['panel'])
+
+toplevel_ids = general_settings['toplevel-id-list']
+object_ids = general_settings['object-id-list']
+
+layout = []
+
+for toplevel in toplevel_ids:
+    settings = Gio.Settings.new_with_path(
+        schemas['toplevel'],
+        paths['toplevel'] + toplevel + '/')
+
+    layout.append("[Toplevel %s]\n" % toplevel)
+
+    for key in settings.keys():
+        val = settings[key]
+        if str(val) == "True" or str(val) == "False":
+            val = str(val).lower()
+
+        if key in VALID['toplevel']:
+            layout.append("%s=%s\n" % (key, val))
+    layout.append("\n")
+
+for obj in object_ids:
+    settings = Gio.Settings.new_with_path(
+        schemas['object'],
+        paths['object'] + obj + '/')
+
+    obj_toplevel = settings['toplevel-id']
+    obj_type = settings['object-type']
+    obj_name = ""
+    if obj_type == "applet":
+        obj_name = settings['applet-iid'].split(":")[-1]
+    elif obj_type == "action":
+        obj_name = settings['action-type']
+    else:
+        obj_name = obj_type
+
+    if not obj_toplevel in toplevel_ids:
+        print("WARNING! object \"%s\" references unknown toplevel... skipped" % obj_name)
+        continue
+        
+    layout.append("[Object %s]\n" % obj_name.lower())
+    for key in settings.keys():
+        if key in VALID[obj_type]:
+            val = settings[key]
+            if str(val) == "True" or str(val) == "False":
+                val = str(val).lower()
+
+            layout.append("%s=%s\n" % (key, val))
+    layout.append("\n")
+
+current_user = getpass.getuser()
+
+with open(os.path.join('/','usr','share','mate-panel','layouts',current_user + '.layout'), 'w') as fobj:
+    fobj.writelines(layout)
