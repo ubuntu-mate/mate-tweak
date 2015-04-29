@@ -265,17 +265,19 @@ class MateTweak:
             target = self.sidePages[index].notebook_index
             self.builder.get_object("notebook1").set_current_page(target)
 
+    def save_panels(self, widget):
+        current_user = getpass.getuser()
+        print "Saving panel layout for " + current_user
+
     ''' Create the UI '''
     def __init__(self):
-        # load our glade ui file in
+        # Load the Glade UI file
         self.builder = Gtk.Builder()
-
-        # FIXME: this path should not be hard-coded!
         self.builder.add_from_file('/usr/lib/mate-tweak/mate-tweak.ui')
 
         self.window = self.builder.get_object( "main_window" )
-
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
+        self.builder.get_object("button_save_panels").connect("clicked", self.save_panels)
 
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
@@ -290,10 +292,41 @@ class MateTweak:
         elif "Compiz" in current_wm:
             compiz_mode = True
 
+        # Determine what capabilities are available
+        indicators_available = False
+        if os.path.exists('/usr/lib/indicators/7/libapplication.so') and \
+           os.path.exists('/usr/lib/indicator-sound-gtk2/indicator-sound-service') and \
+           os.path.exists('/usr/lib/mate-indicator-applet/mate-indicator-applet'):
+            indicators_available = True
+
+        mate_menu_available = False
+        if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
+            mate_menu_available = True
+
+        mint_menu_available = False
+        if os.path.exists('usr/lib/linuxmint/mintMenu/mintMenu.py'):
+            mint_menu_available = True
+
+        gnome_menu_available = False
+        if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
+            gnome_menu_available = True
+
+        maximus_available = False
+        if os.path.exists('/usr/bin/mate-maximus') and \
+           os.path.exists('/usr/lib/mate-netbook/mate-window-picker-applet'):
+            maximus_available = True
+
+        dock = False
+        if os.path.exists('/usr/bin/docky') or os.path.exists('/usr/bin/plank'):
+            dock = True
+
         # Do not show Marco configuration options because Marco is not
         # currently running.
         if not marco_mode:
             self.builder.get_object("frame_marco1").hide()
+
+        if not maximus_available:
+            self.builder.get_object("frame_maximus").hide()
 
         if marco_mode or compiz_mode:
             # Show window manager configuration
@@ -328,6 +361,7 @@ class MateTweak:
         # i18n
         self.builder.get_object("label_desktop_icons").set_markup("<b>" + _("Desktop icons") + "</b>")
         self.builder.get_object("label_performance").set_markup("<b>" + _("Performance") + "</b>")
+        self.builder.get_object("label_maximus").set_markup("<b>" + _("Maximus") + "</b>")
         self.builder.get_object("label_appearance").set_markup("<b>" + _("Appearance") + "</b>")
         self.builder.get_object("label_icons").set_markup("<b>" + _("Icons") + "</b>")
         self.builder.get_object("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
@@ -342,8 +376,11 @@ class MateTweak:
         self.builder.get_object("checkbox_trash").set_label(_("Trash"))
         self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
 
-        self.builder.get_object("checkbutton_resources").set_label(_("Don't show window content while dragging them"))
+        self.builder.get_object("checkbox_resources").set_label(_("Don't show window content while dragging them"))
         self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
+
+        self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
+        self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
 
         self.builder.get_object("label_layouts").set_text(_("Buttons layout:"))
         self.builder.get_object("label_window_manager").set_text(_("Window manager:"))
@@ -364,8 +401,10 @@ class MateTweak:
         self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
 
         # Window Manager page
-        self.init_checkbox("org.mate.Marco.general", "reduced-resources", "checkbutton_resources")
+        self.init_checkbox("org.mate.Marco.general", "reduced-resources", "checkbox_resources")
         self.init_checkbox("org.mate.Marco.general", "compositing-manager", "checkbox_compositing")
+        self.init_checkbox("org.mate.maximus", "undecorate", "checkbox_undecorate")
+        self.init_checkbox("org.mate.maximus", "no-maximize", "checkbox_always_maximize")
 
         # interface page
         self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
@@ -396,33 +435,6 @@ class MateTweak:
         self.init_combobox("org.mate.session.required-components", "windowmanager", "combo_wm")
 
         # Panel layouts
-        indicators_available = False
-        if os.path.exists('/usr/lib/indicators/7/libapplication.so') \
-           and os.path.exists('/usr/lib/indicator-sound-gtk2/indicator-sound-service') \
-           and os.path.exists('/usr/lib/mate-indicator-applet/mate-indicator-applet'):
-               indicators_available = True
-
-        mate_menu_available = False
-        if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
-            mate_menu_available = True
-
-        mint_menu_available = False
-        if os.path.exists('usr/lib/linuxmint/mintMenu/mintMenu.py'):
-            mint_menu_available = True
-
-        gnome_menu_available = False
-        if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
-            gnome_menu_available = True
-
-        maximus_available = False
-        if os.path.exists('/usr/bin/mate-maximus') and
-           os.path.exists('/usr/lib/mate-netbook/mate-window-picker-applet'):
-            maximus_available = True
-
-        dock = False
-        if os.path.exists('/usr/bin/docky') or os.path.exists('/usr/bin/plank'):
-            dock = True
-
         panels = Gtk.ListStore(str, str)
 
         current_user = getpass.getuser()
@@ -466,45 +478,45 @@ class MateTweak:
             panels.append([_("Redmond with Indicators and MATE Menu"), "redmond-indicators-fresh"])
 
         if maximus_available:
-            if self.panel_layout_exists('netbook')
+            if self.panel_layout_exists('netbook'):
                 panels.append([_("Netbook"), "netbook"])
 
             if self.panel_layout_exists('netbook-fresh') \
                 and mate_menu_available:
                 panels.append([_("Netbook with MATE Menu"), "netbook-fresh"])
 
-            if self.panel_layout_exists('netbook-indicators') \
-                and indicators_available:
+            if self.panel_layout_exists('netbook-indicators') and \
+               indicators_available:
                 panels.append([_("Netbook with Indicators"), "netbook-indicators"])
 
-            if self.panel_layout_exists('netbook-indicators-fresh') \
-                and indicators_available \
-                and mate_menu_available:
+            if self.panel_layout_exists('netbook-indicators-fresh') and \
+               indicators_available and \
+               mate_menu_available:
                 panels.append([_("Netbook with Indicators and MATE Menu"), "netbook-indicators-fresh"])
 
         if dock:
             if self.panel_layout_exists('eleven'):
                 panels.append([_("Cupertino"), "eleven"])
 
-            if self.panel_layout_exists('eleven-fresh') \
-                and mate_menu_available:
+            if self.panel_layout_exists('eleven-fresh') and \
+               mate_menu_available:
                 panels.append([_("Cupertino with MATE Menu"), "eleven-fresh"])
 
-            if self.panel_layout_exists('eleven-indicators') \
-                and indicators_available:
+            if self.panel_layout_exists('eleven-indicators') and \
+               indicators_available:
                 panels.append([_("Cupertino with Indicators"), "eleven-indicators"])
 
-            if self.panel_layout_exists('eleven-indicators-fresh') \
-                and indicators_available \
-                and mate_menu_available:
+            if self.panel_layout_exists('eleven-indicators-fresh') and \
+                indicators_available and \
+                mate_menu_available:
                 panels.append([_("Cupertino with Indicators and MATE Menu"), "eleven-indicators-fresh"])
 
-        if self.panel_layout_exists('linuxmint') \
-            and mint_menu_available:
+        if self.panel_layout_exists('linuxmint') and \
+           mint_menu_available:
             panels.append([_("Linux Mint"), "linuxmint"])
 
-        if self.panel_layout_exists('opensuse') \
-            and gnome_menu_available:
+        if self.panel_layout_exists('opensuse') and \
+           gnome_menu_available:
             panels.append([_("openSUSE"), "opensuse"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
