@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2015 by Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
@@ -22,7 +22,6 @@ import os
 import sys
 
 from glob import glob
-
 from setuptools import setup
 
 import DistUtilsExtra.command.build_extra
@@ -34,9 +33,11 @@ import DistUtilsExtra.command.clean_i18n
 
 # silence pyflakes, __VERSION__ is properly assigned below...
 __VERSION__ = '0.0.0.0'
-for line in file('mate-tweak').readlines():
-    if (line.startswith('__VERSION__')):
-        exec(line.strip())
+with open('mate-tweak') as f:
+    for line in f:
+        if (line.startswith('__VERSION__')):
+            exec(line.strip())
+
 PROGRAM_VERSION = __VERSION__
 
 def datafilelist(installbase, sourcebase):

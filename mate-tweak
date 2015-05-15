@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
@@ -54,6 +54,12 @@ class MateTweak:
     def set_bool(self, schema, key, value):
         settings = Gio.Settings.new(schema)
         settings.set_boolean(key, value.get_active())
+
+        # If Maximus is being tweaked, replace it to make the settings effective.
+        if schema == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
+            devnull = open(os.devnull, 'wb')
+            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
+            devnull.close()
 
     def get_bool(self, schema, key):
         settings = Gio.Settings.new(schema)
@@ -134,7 +140,7 @@ class MateTweak:
         devnull = open(os.devnull, 'wb')
         # Docks require compositing
         current_wm = self.get_current_wm()
-        if "Marco" in current_wm:
+        if 'Marco' in current_wm:
             settings = Gio.Settings.new('org.mate.Marco.general')
             settings.set_boolean('compositing-manager', True)
             subprocess.Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)
@@ -229,7 +235,6 @@ class MateTweak:
             # for GTK3 and GNOME.
             self.set_string("org.mate.interface", "gtk-decoration-layout", value)
             self.set_string("org.gnome.desktop.wm.preferences", "button-layout", value)
-
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
             wm = value
             # Sanity check
@@ -265,33 +270,14 @@ class MateTweak:
             target = self.sidePages[index].notebook_index
             self.builder.get_object("notebook1").set_current_page(target)
 
-    def save_panels(self, widget):
-        current_user = getpass.getuser()
-        print "Saving panel layout for " + current_user
+    def maximus_available(self):
+        available = False
+        if os.path.exists('/usr/bin/mate-maximus') and \
+           os.path.exists('/usr/lib/mate-netbook/mate-window-picker-applet'):
+            available = True
+        return available
 
-    ''' Create the UI '''
-    def __init__(self):
-        # Load the Glade UI file
-        self.builder = Gtk.Builder()
-        self.builder.add_from_file('/usr/lib/mate-tweak/mate-tweak.ui')
-
-        self.window = self.builder.get_object( "main_window" )
-        self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
-        self.builder.get_object("button_save_panels").connect("clicked", self.save_panels)
-
-        side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
-        side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
-        side_interface = SidePage(2, _("Interface"), "preferences-desktop")
-
-        # Determine the currently active window manager
-        marco_mode = False
-        compiz_mode = False
-        current_wm = self.get_current_wm()
-        if "Marco" in current_wm:
-            marco_mode = True
-        elif "Compiz" in current_wm:
-            compiz_mode = True
-
+    def make_list_of_panel_layouts(self):
         # Determine what capabilities are available
         indicators_available = False
         if os.path.exists('/usr/lib/indicators/7/libapplication.so') and \
@@ -311,128 +297,9 @@ class MateTweak:
         if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
             gnome_menu_available = True
 
-        maximus_available = False
-        if os.path.exists('/usr/bin/mate-maximus') and \
-           os.path.exists('/usr/lib/mate-netbook/mate-window-picker-applet'):
-            maximus_available = True
-
         dock = False
         if os.path.exists('/usr/bin/docky') or os.path.exists('/usr/bin/plank'):
             dock = True
-
-        # Do not show Marco configuration options because Marco is not
-        # currently running.
-        if not marco_mode:
-            self.builder.get_object("frame_marco1").hide()
-
-        if not maximus_available:
-            self.builder.get_object("frame_maximus").hide()
-
-        if marco_mode or compiz_mode:
-            # Show window manager configuration
-            self.sidePages = [side_desktop_options, side_interface, side_windows]
-        else:
-            # Do not show window manager configuration because the
-            # currently running window manager is unknown.
-            self.sidePages = [side_desktop_options, side_interface]
-            self.builder.get_object("frame_marco2").hide()
-
-        # create the backing store for the side nav-view.
-        theme = Gtk.IconTheme.get_default()
-        self.store = Gtk.ListStore(str, GdkPixbuf.Pixbuf)
-        for sidePage in self.sidePages:
-            img = theme.load_icon(sidePage.icon, 36, 0)
-            self.store.append([sidePage.name, img])
-
-        target = self.sidePages[0].notebook_index
-        self.builder.get_object("notebook1").set_current_page(target)
-
-        # set up the side view - navigation.
-        self.builder.get_object("side_view").set_text_column(0)
-        self.builder.get_object("side_view").set_pixbuf_column(1)
-        self.builder.get_object("side_view").set_model(self.store)
-        self.builder.get_object("side_view").select_path(Gtk.TreePath.new_first())
-        self.builder.get_object("side_view").connect("selection_changed", self.side_view_nav )
-
-        # set up larger components.
-        self.builder.get_object("main_window").set_title("MATE Tweak")
-        self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
-
-        # i18n
-        self.builder.get_object("label_desktop_icons").set_markup("<b>" + _("Desktop icons") + "</b>")
-        self.builder.get_object("label_performance").set_markup("<b>" + _("Performance") + "</b>")
-        self.builder.get_object("label_maximus").set_markup("<b>" + _("Maximus") + "</b>")
-        self.builder.get_object("label_appearance").set_markup("<b>" + _("Appearance") + "</b>")
-        self.builder.get_object("label_icons").set_markup("<b>" + _("Icons") + "</b>")
-        self.builder.get_object("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
-        self.builder.get_object("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
-        self.builder.get_object("label_wm").set_markup("<b>" + _("Window Manager") + "</b>")
-
-        self.builder.get_object("caption_desktop_icons").set_markup("<small><i><span foreground=\"#555555\">" + _("Select the items you want to see on the desktop:") + "</span></i></small>")
-
-        self.builder.get_object("checkbox_computer").set_label(_("Computer"))
-        self.builder.get_object("checkbox_home").set_label(_("Home"))
-        self.builder.get_object("checkbox_network").set_label(_("Network"))
-        self.builder.get_object("checkbox_trash").set_label(_("Trash"))
-        self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
-
-        self.builder.get_object("checkbox_resources").set_label(_("Don't show window content while dragging them"))
-        self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
-
-        self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
-        self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
-
-        self.builder.get_object("label_layouts").set_text(_("Buttons layout:"))
-        self.builder.get_object("label_window_manager").set_text(_("Window manager:"))
-
-        self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
-        self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
-        self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
-        self.builder.get_object("checkbutton_unicode").set_label(_("Show Unicode Control Character menu in context menus"))
-
-        self.builder.get_object("label_tool_icons").set_text(_("Buttons labels:"))
-        self.builder.get_object("label_icon_size").set_text(_("Icon size:"))
-
-        # Desktop page
-        self.init_checkbox("org.mate.caja.desktop", "computer-icon-visible", "checkbox_computer")
-        self.init_checkbox("org.mate.caja.desktop", "home-icon-visible", "checkbox_home")
-        self.init_checkbox("org.mate.caja.desktop", "network-icon-visible", "checkbox_network")
-        self.init_checkbox("org.mate.caja.desktop", "trash-icon-visible", "checkbox_trash")
-        self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
-
-        # Window Manager page
-        self.init_checkbox("org.mate.Marco.general", "reduced-resources", "checkbox_resources")
-        self.init_checkbox("org.mate.Marco.general", "compositing-manager", "checkbox_compositing")
-        self.init_checkbox("org.mate.maximus", "undecorate", "checkbox_undecorate")
-        self.init_checkbox("org.mate.maximus", "no-maximize", "checkbox_always_maximize")
-
-        # interface page
-        self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
-        self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
-        self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
-        self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
-
-        iconSizes = Gtk.ListStore(str, str)
-        iconSizes.append([_("Small"), "small-toolbar"])
-        iconSizes.append([_("Large"), "large-toolbar"])
-        self.builder.get_object("combobox_icon_size").set_model(iconSizes)
-        self.init_combobox("org.mate.interface", "toolbar-icons-size", "combobox_icon_size")
-
-        # Window control button
-        layouts = Gtk.ListStore(str, str)
-        layouts.append([_("Traditional (Right)"), "menu:minimize,maximize,close"])
-        layouts.append([_("Contemporary (Left)"), "close,minimize,maximize:"])
-        self.builder.get_object("combo_wmlayout").set_model(layouts)
-        self.init_combobox("org.mate.Marco.general", "button-layout", "combo_wmlayout")
-
-        # Window manager
-        wms = Gtk.ListStore(str, str)
-        wms.append([_("Marco (Simple desktop effects)"), "marco"])
-        if self.compiz_capable():
-            wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), "compiz"])
-        self.builder.get_object("combo_wm").set_model(wms)
-        self.builder.get_object("combo_wm").set_tooltip_text(_("The new window manager will be activated upon selection."))
-        self.init_combobox("org.mate.session.required-components", "windowmanager", "combo_wm")
 
         # Panel layouts
         panels = Gtk.ListStore(str, str)
@@ -477,7 +344,7 @@ class MateTweak:
             and mate_menu_available:
             panels.append([_("Redmond with Indicators and MATE Menu"), "redmond-indicators-fresh"])
 
-        if maximus_available:
+        if self.maximus_available():
             if self.panel_layout_exists('netbook'):
                 panels.append([_("Netbook"), "netbook"])
 
@@ -520,6 +387,167 @@ class MateTweak:
             panels.append([_("openSUSE"), "opensuse"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
+
+    def save_panels(self, widget):
+        os.system('pkexec ' + os.path.join('/','usr','lib','mate-tweak','mate-panel-backup') + ' ' + getpass.getuser())
+        self.make_list_of_panel_layouts()
+        
+    def compiz_reset(self, widget):
+        # Switch to Marco. Purge all Compiz config and cache. Switch to Compiz.
+        self.replace_windowmanager('marco')
+        devnull = open(os.devnull, 'wb')
+        subprocess.Popen(['dconf', 'reset', '-f', '/org/compiz/'], stdout=devnull, stderr=devnull)
+        devnull.close()
+        config_compiz = os.path.join(os.path.expanduser('~'),'.config','compiz1')
+        cache_compiz = os.path.join(os.path.expanduser('~'),'.cache','compizconfg1')
+        shutil.rmtree(config_compiz)
+        shutil.rmtree(cache_compiz)
+        self.replace_windowmanager('compiz')
+
+    ''' Create the UI '''
+    def __init__(self):
+        # Load the Glade UI file
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file('/usr/lib/mate-tweak/mate-tweak.ui')
+
+        self.window = self.builder.get_object( "main_window" )
+        self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
+        self.builder.get_object("button_save_panels").connect("clicked", self.save_panels)
+        self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
+
+        side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
+        side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
+        side_interface = SidePage(2, _("Interface"), "preferences-desktop")
+
+        # Determine the currently active window manager
+        marco_mode = False
+        compiz_mode = False
+        current_wm = self.get_current_wm()
+        if "Marco" in current_wm:
+            marco_mode = True
+        elif "Compiz" in current_wm:
+            compiz_mode = True
+
+        # Do not show Marco configuration options because Marco is not
+        # currently running.
+        if not marco_mode:
+            self.builder.get_object("frame_marco").hide()
+
+        if not compiz_mode:
+            self.builder.get_object("button_compiz_reset").hide()
+
+        if not self.maximus_available():
+            self.builder.get_object("frame_maximus").hide()
+
+        if marco_mode or compiz_mode:
+            # Show window manager configuration
+            self.sidePages = [side_desktop_options, side_interface, side_windows]
+        else:
+            # Do not show window manager configuration because the
+            # currently running window manager is unknown.
+            self.sidePages = [side_desktop_options, side_interface]
+            self.builder.get_object("frame_appearance").hide()
+
+        # create the backing store for the side nav-view.
+        theme = Gtk.IconTheme.get_default()
+        self.store = Gtk.ListStore(str, GdkPixbuf.Pixbuf)
+        for sidePage in self.sidePages:
+            img = theme.load_icon(sidePage.icon, 36, 0)
+            self.store.append([sidePage.name, img])
+
+        target = self.sidePages[0].notebook_index
+        self.builder.get_object("notebook1").set_current_page(target)
+
+        # set up the side view - navigation.
+        self.builder.get_object("side_view").set_text_column(0)
+        self.builder.get_object("side_view").set_pixbuf_column(1)
+        self.builder.get_object("side_view").set_model(self.store)
+        self.builder.get_object("side_view").select_path(Gtk.TreePath.new_first())
+        self.builder.get_object("side_view").connect("selection_changed", self.side_view_nav)
+
+        # set up larger components.
+        self.builder.get_object("main_window").set_title("MATE Tweak")
+        self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
+
+        # i18n
+        self.builder.get_object("label_desktop_icons").set_markup("<b>" + _("Desktop icons") + "</b>")
+        self.builder.get_object("label_performance").set_markup("<b>" + _("Performance") + "</b>")
+        self.builder.get_object("label_maximus").set_markup("<b>" + _("Maximus") + "</b>")
+        self.builder.get_object("label_appearance").set_markup("<b>" + _("Appearance") + "</b>")
+        self.builder.get_object("label_icons").set_markup("<b>" + _("Icons") + "</b>")
+        self.builder.get_object("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
+        self.builder.get_object("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
+        self.builder.get_object("label_window_manager").set_markup("<b>" + _("Window manager") + "</b>")
+
+        self.builder.get_object("caption_desktop_icons").set_markup("<small>" + _("Select the items you want to see on the desktop:") + "</small>")
+
+        self.builder.get_object("checkbox_computer").set_label(_("Computer"))
+        self.builder.get_object("checkbox_home").set_label(_("Home"))
+        self.builder.get_object("checkbox_network").set_label(_("Network"))
+        self.builder.get_object("checkbox_trash").set_label(_("Trash"))
+        self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
+
+        self.builder.get_object("checkbox_resources").set_label(_("Don't show window content while dragging them"))
+        self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
+
+        self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
+        self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
+
+        self.builder.get_object("label_window_control").set_markup("<small>" + _("Window control placement.") + "</small>")
+
+        self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
+        self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
+        self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
+        self.builder.get_object("checkbutton_unicode").set_label(_("Show Unicode Control Character menu in context menus"))
+
+        self.builder.get_object("label_toolbar_style").set_text(_("Style:"))
+        self.builder.get_object("label_toolbar_icon_size").set_text(_("Icon size:"))
+
+        # Desktop page
+        self.init_checkbox("org.mate.caja.desktop", "computer-icon-visible", "checkbox_computer")
+        self.init_checkbox("org.mate.caja.desktop", "home-icon-visible", "checkbox_home")
+        self.init_checkbox("org.mate.caja.desktop", "network-icon-visible", "checkbox_network")
+        self.init_checkbox("org.mate.caja.desktop", "trash-icon-visible", "checkbox_trash")
+        self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
+
+        # Window Manager page
+        self.init_checkbox("org.mate.Marco.general", "reduced-resources", "checkbox_resources")
+        self.init_checkbox("org.mate.Marco.general", "compositing-manager", "checkbox_compositing")
+        self.init_checkbox("org.mate.maximus", "undecorate", "checkbox_undecorate")
+        self.init_checkbox("org.mate.maximus", "no-maximize", "checkbox_always_maximize")
+
+        # interface page
+        self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
+        self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
+        self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
+        self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
+
+        iconSizes = Gtk.ListStore(str, str)
+        iconSizes.append([_("Small"), "small-toolbar"])
+        iconSizes.append([_("Large"), "large-toolbar"])
+        self.builder.get_object("combobox_toolbar_icon_size").set_model(iconSizes)
+        self.init_combobox("org.mate.interface", "toolbar-icons-size", "combobox_toolbar_icon_size")
+
+        # Window control button
+        layouts = Gtk.ListStore(str, str)
+        layouts.append([_("Traditional (Right)"), "menu:minimize,maximize,close"])
+        layouts.append([_("Contemporary (Left)"), "close,minimize,maximize:"])
+        self.builder.get_object("combobox_window_control").set_model(layouts)
+        self.init_combobox("org.mate.Marco.general", "button-layout", "combobox_window_control")
+
+        # Window manager
+        wms = Gtk.ListStore(str, str)
+        wms.append([_("Marco (Simple desktop effects)"), "marco"])
+        if self.compiz_capable():
+            wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), "compiz"])
+        self.builder.get_object("combobox_window_manager").set_model(wms)
+        self.builder.get_object("combobox_window_manager").set_tooltip_text(_("The new window manager will be activated upon selection."))
+        self.builder.get_object("caption_window_manager").set_markup("<small>" + _("Select a window manager.") + "</small>")
+        self.init_combobox("org.mate.session.required-components", "windowmanager", "combobox_window_manager")
+
+        # Panel layouts
+        self.make_list_of_panel_layouts()
+        self.builder.get_object("caption_panels").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
         self.builder.get_object("combobox_panels").set_tooltip_text(_("The new panel layout will be activated on selection and destroy any customisations you might have made."))
         self.init_combobox("org.mate.panel", "default-layout", "combobox_panels")
 
@@ -529,8 +557,8 @@ class MateTweak:
         iconStyles.append([_("Text beside items"), "both-horiz"])
         iconStyles.append([_("Icons only"), "icons"])
         iconStyles.append([_("Text only"), "text"])
-        self.builder.get_object("combobox_toolicons").set_model(iconStyles)
-        self.init_combobox("org.mate.interface", "toolbar-style", "combobox_toolicons")
+        self.builder.get_object("combobox_toolbar_style").set_model(iconStyles)
+        self.init_combobox("org.mate.interface", "toolbar-style", "combobox_toolbar_style")
         self.builder.get_object("main_window").show()
 
 
