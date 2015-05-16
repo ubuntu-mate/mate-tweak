@@ -398,11 +398,14 @@ class MateTweak:
         devnull = open(os.devnull, 'wb')
         subprocess.Popen(['dconf', 'reset', '-f', '/org/compiz/'], stdout=devnull, stderr=devnull)
         devnull.close()
-        config_compiz = os.path.join(os.path.expanduser('~'),'.config','compiz1')
+        config_compiz = os.path.join(os.path.expanduser('~'),'.config','compiz-1')
         cache_compiz = os.path.join(os.path.expanduser('~'),'.cache','compizconfg1')
-        shutil.rmtree(config_compiz)
-        shutil.rmtree(cache_compiz)
+        if os.path.exists(config_compiz):
+            shutil.rmtree(config_compiz)
+        if os.path.exists(cache_compiz):
+            shutil.rmtree(cache_compiz)
         self.replace_windowmanager('compiz')
+        Gtk.main_quit()
 
     ''' Create the UI '''
     def __init__(self):
