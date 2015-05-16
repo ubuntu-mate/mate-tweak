@@ -37,6 +37,7 @@ with open('mate-tweak') as f:
     for line in f:
         if (line.startswith('__VERSION__')):
             exec(line.strip())
+            break
 
 PROGRAM_VERSION = __VERSION__
 
