@@ -1,7 +1,6 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -20,6 +19,19 @@
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 import os
+import shutil
+import sys
 
-if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-    os.remove('/etc/xdg/autostart/mate-volume-control-applet.desktop')
+if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        filename = sys.argv[1]
+        if os.path.exists(os.path.join('/','tmp',filename + '-tweak.layout')):
+            shutil.copy2(os.path.join('/','tmp',filename + '-tweak.layout'),
+                         os.path.join('/','usr','share','mate-panel','layouts',filename + '-tweak.layout'))
+            os.remove(os.path.join('/','tmp',filename + '-tweak.layout'))
+        else:
+            print('ERROR! Unable to find ' + os.path.join('/','tmp',filename + '-tweak.layout'))
+            sys.exit(1)
+    else:
+        print("ERORR! No name supplied.")
+        sys.exit(1)

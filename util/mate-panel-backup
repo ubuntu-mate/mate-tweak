@@ -92,8 +92,8 @@ def panel_dump(filename):
                 layout.append("%s=%s\n" % (key, val))
         layout.append("\n")
 
-    print(layout)
-    with open(os.path.join('/','usr','share','mate-panel','layouts',filename + '.layout'), 'w') as f:
+    #print(layout)
+    with open(os.path.join('/','tmp',filename + '-tweak.layout'), 'w') as f:
         f.writelines(layout)
 
 if __name__ == '__main__':
@@ -102,5 +102,5 @@ if __name__ == '__main__':
         print("Backing up " + current_user)
         panel_dump(current_user)
     else:
-        print("No username supplied.")
+        print("No name supplied.")
         sys.exit(1)
