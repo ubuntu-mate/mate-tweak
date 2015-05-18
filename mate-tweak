@@ -22,6 +22,7 @@ import errno
 import gettext
 import getpass
 import gi
+import glob
 import os
 import shutil
 import subprocess
@@ -362,10 +363,11 @@ class MateTweak:
         # Panel layouts
         panels = Gtk.ListStore(str, str)
 
-        current_user = getpass.getuser()
-
-        if self.panel_layout_exists(current_user + '-tweak'):
-            panels.append([_('Layout: ' + current_user), current_user + '-tweak'])
+        # Add any saved panel layouts first.
+        layouts = os.path.join('/','usr','share','mate-panel','layouts','*-tweak.layout')
+        for layout in glob.glob(layouts):
+            current_layout = layout.replace('.layout', '').replace('/usr/share/mate-panel/layouts/', '');
+            panels.append([_('Custom: ') + current_layout, current_layout])
 
         if self.panel_layout_exists('default'):
             panels.append([_("GNOME2"), "default"])
