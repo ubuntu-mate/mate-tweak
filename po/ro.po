@@ -1,285 +1,234 @@
-# Romanian translation for MATE Tweak
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
-# This file is distributed under the same license as the package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Daniel <danny34ever@yahoo.com>, 2015
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-tweak\n"
+"Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 11:07+0100\n"
-"PO-Revision-Date: 2015-01-21 11:05+0000\n"
-"Last-Translator: Flaviu <flaviu@gmx.com>\n"
-"Language-Team: Romanian <ro@li.org>\n"
-"Language: ro\n"
+"POT-Creation-Date: 2015-03-17 07:53+0000\n"
+"PO-Revision-Date: 2015-04-21 15:18+0000\n"
+"Last-Translator: Daniel <danny34ever@yahoo.com>\n"
+"Language-Team: Romanian (http://www.transifex.com/projects/p/MATE/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
-#: ../mate-tweak:279
+#: ../mate-tweak:272
 msgid "Desktop"
 msgstr "Spațiu de lucru"
 
-#: ../mate-tweak:280
+#: ../mate-tweak:273
 msgid "Windows"
 msgstr "Ferestre"
 
-#: ../mate-tweak:281
+#: ../mate-tweak:274
 msgid "Interface"
 msgstr "Interfață"
 
-#: ../mate-tweak:328
+#: ../mate-tweak:321
 msgid "Desktop icons"
 msgstr "Pictograme de pe spaţiul de lucru"
 
-#: ../mate-tweak:329
+#: ../mate-tweak:322
 msgid "Performance"
 msgstr "Performanță"
 
-#: ../mate-tweak:330
+#: ../mate-tweak:323
 msgid "Appearance"
 msgstr "Înfățișare"
 
-#: ../mate-tweak:331
+#: ../mate-tweak:324
 msgid "Icons"
 msgstr "Pictograme"
 
-#: ../mate-tweak:332
+#: ../mate-tweak:325
 msgid "Context menus"
 msgstr "Meniuri contextuale"
 
-#: ../mate-tweak:333
+#: ../mate-tweak:326
 msgid "Toolbars"
 msgstr "Bare de unelte"
 
-#: ../mate-tweak:334
+#: ../mate-tweak:327
 msgid "Window Manager"
 msgstr "Administrator de ferestre"
 
-#: ../mate-tweak:336
+#: ../mate-tweak:329
 msgid "Select the items you want to see on the desktop:"
 msgstr "Selectaţi obiectele pe care le doriţi pe spaţiul de lucru:"
 
-#: ../mate-tweak:338
+#: ../mate-tweak:331
 msgid "Computer"
 msgstr "Calculator"
 
-#: ../mate-tweak:339
+#: ../mate-tweak:332
 msgid "Home"
 msgstr "Acasă"
 
-#: ../mate-tweak:340
+#: ../mate-tweak:333
 msgid "Network"
 msgstr "Reţea"
 
-#: ../mate-tweak:341
+#: ../mate-tweak:334
 msgid "Trash"
 msgstr "Coş de gunoi"
 
-#: ../mate-tweak:342
+#: ../mate-tweak:335
 msgid "Mounted Volumes"
 msgstr "Partiții montate"
 
-#: ../mate-tweak:344
+#: ../mate-tweak:337
 msgid "Don't show window content while dragging them"
 msgstr "Nu afişa conţinutul ferestrelor în timpul mutării"
 
-#: ../mate-tweak:345
+#: ../mate-tweak:338
 msgid "Use compositing"
 msgstr "Utilizați compoziția"
 
-#: ../mate-tweak:347
+#: ../mate-tweak:340
 msgid "Buttons layout:"
-msgstr "Aranjarea butoanelor:"
+msgstr "Aranjament butoane:"
 
-#: ../mate-tweak:348
+#: ../mate-tweak:341
 msgid "Window manager:"
 msgstr "Administrator de ferestre"
 
-#: ../mate-tweak:350
+#: ../mate-tweak:343
 msgid "Show icons on menus"
 msgstr "Arată pictograme în meniuri"
 
-#: ../mate-tweak:351
+#: ../mate-tweak:344
 msgid "Show icons on buttons"
 msgstr "Arată pictograme pe butoane"
 
-#: ../mate-tweak:352
+#: ../mate-tweak:345
 msgid "Show Input Methods menu in context menus"
 msgstr "Arată meniul metodelor de intrare în meniurile contextuale"
 
-#: ../mate-tweak:353
+#: ../mate-tweak:346
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Arată meniul caracterelor de control unicod în meniul contextual"
 
-#: ../mate-tweak:355
+#: ../mate-tweak:348
 msgid "Buttons labels:"
 msgstr "Etichete butoane:"
 
-#: ../mate-tweak:356
+#: ../mate-tweak:349
 msgid "Icon size:"
 msgstr "Dimensiune pictogramă:"
 
-#: ../mate-tweak:376
+#: ../mate-tweak:369
 msgid "Small"
 msgstr "Mică"
 
-#: ../mate-tweak:377
+#: ../mate-tweak:370
 msgid "Large"
 msgstr "Mare"
 
-#: ../mate-tweak:383
-#, fuzzy
+#: ../mate-tweak:376
 msgid "Traditional (Right)"
-msgstr "Stil tradiţional (dreapta)"
+msgstr "Tradițional (dreapta)"
 
-#: ../mate-tweak:384
+#: ../mate-tweak:377
 msgid "Contemporary (Left)"
-msgstr ""
+msgstr "Contemporan (stânga)"
 
-#: ../mate-tweak:390
-#, fuzzy
+#: ../mate-tweak:383
 msgid "Marco (Simple desktop effects)"
-msgstr "Compiz (efecte de birou impresionante)"
+msgstr "Marco (efecte desktop simple)"
 
-#: ../mate-tweak:392
-#, fuzzy
+#: ../mate-tweak:385
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (efecte de birou impresionante)"
+msgstr "Compiz (efecte desktop avansate accelerate de placa video)"
 
-#: ../mate-tweak:394
+#: ../mate-tweak:387
 msgid "The new window manager will be activated upon selection."
-msgstr ""
+msgstr "Noul administrator de ferestre va fi activat la selectare"
+
+#: ../mate-tweak:415
+msgid "MATE Desktop"
+msgstr "Desktop MATE"
+
+#: ../mate-tweak:418
+msgid "Ubuntu MATE"
+msgstr "Ubuntu MATE"
 
 #: ../mate-tweak:422
-#, fuzzy
-msgid "MATE Desktop"
-msgstr "Spațiu de lucru"
-
-#: ../mate-tweak:425
-msgid "Ubuntu MATE"
-msgstr ""
-
-#: ../mate-tweak:429
 msgid "Ubuntu MATE with MATE Menu"
-msgstr ""
+msgstr "Ubuntu MATE cu meniul MATE"
 
-#: ../mate-tweak:433
+#: ../mate-tweak:426
 msgid "Ubuntu MATE with Indicators"
-msgstr ""
+msgstr "Ubuntu MATE cu indicatori"
+
+#: ../mate-tweak:431
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr "Ubuntu MATE cu indicatori și meniul MATE"
+
+#: ../mate-tweak:434
+msgid "Redmond"
+msgstr "Redmond"
 
 #: ../mate-tweak:438
-msgid "Ubuntu MATE with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:441
-msgid "Redmond"
-msgstr ""
-
-#: ../mate-tweak:445
 msgid "Redmond with MATE Menu"
-msgstr ""
+msgstr "Redmond cu meniul MATE"
 
-#: ../mate-tweak:449
+#: ../mate-tweak:442
 msgid "Redmond with Indicators"
-msgstr ""
+msgstr "Redmond cu indicatori"
 
-#: ../mate-tweak:454
+#: ../mate-tweak:447
 msgid "Redmond with Indicators and MATE Menu"
-msgstr ""
+msgstr "Redmond cu indicatori și meniul MATE"
 
-#: ../mate-tweak:458
+#: ../mate-tweak:451
 msgid "Eleven"
-msgstr ""
+msgstr "Eleven"
 
-#: ../mate-tweak:462
+#: ../mate-tweak:455
 msgid "Eleven with MATE Menu"
-msgstr ""
+msgstr "Eleven cu meniul MATE"
 
-#: ../mate-tweak:466
+#: ../mate-tweak:459
 msgid "Eleven with Indicators"
-msgstr ""
+msgstr "Eleven cu indicatori"
 
-#: ../mate-tweak:471
+#: ../mate-tweak:464
 msgid "Eleven with Indicators and MATE Menu"
-msgstr ""
+msgstr "Eleven cu indicators și meniul MATE"
+
+#: ../mate-tweak:468
+msgid "Linux Mint"
+msgstr "Linux Mint"
+
+#: ../mate-tweak:472
+msgid "openSUSE"
+msgstr "openSUSE"
 
 #: ../mate-tweak:475
-msgid "Linux Mint"
-msgstr ""
-
-#: ../mate-tweak:479
-msgid "openSUSE"
-msgstr ""
-
-#: ../mate-tweak:482
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
+msgstr "Noul aranjament al panourilor va fi activat la selectare și va distruge orice personalizări ați fi făcut"
 
-#: ../mate-tweak:487
+#: ../mate-tweak:480
 msgid "Text below items"
 msgstr "Text sub elemente"
 
-#: ../mate-tweak:488
+#: ../mate-tweak:481
 msgid "Text beside items"
 msgstr "Text lângă elemente"
 
-#: ../mate-tweak:489
+#: ../mate-tweak:482
 msgid "Icons only"
 msgstr "Doar pictograme"
 
-#: ../mate-tweak:490
+#: ../mate-tweak:483
 msgid "Text only"
 msgstr "Doar text"
-
-#~ msgid "Terminal"
-#~ msgstr "Terminal"
-
-#~ msgid "Use system font in titlebar"
-#~ msgstr "Utilizaţi fontul de sistem în bara de titlu"
-
-#~ msgid "Show fortune cookies"
-#~ msgstr "Arată răvașele text"
-
-#~ msgid "Mac style (Left)"
-#~ msgstr "Stil Mac (stânga)"
-
-#~ msgid "Marco (stable and reliable)"
-#~ msgstr "Marco (stabil și de încredere)"
-
-#~ msgid ""
-#~ "Log out and log back in for changes to take effect. If things go wrong, "
-#~ "run 'mate-wm-recovery' to switch back to Marco."
-#~ msgstr ""
-#~ "Ieși și autentificăte din nou pentru ca modificările să aibă efect. În "
-#~ "cazul în care lucrurile nu merg bine, rulați \"mate-wm-recovery\" pentru "
-#~ "a reveni la Marco."
-
-#~ msgid "Xfwm (stable and reliable)"
-#~ msgstr "Xfwm (stabil și de încredere)"
-
-#~ msgid "Log out and log back in for changes to take effect."
-#~ msgstr ""
-#~ "Ieși și te autentifică din nou pentru ca modificările să aibă efect.."
-
-#~ msgid "Desktop Settings"
-#~ msgstr "Preferințe spațiu de lucru"
-
-#~ msgid "Fine-tune desktop settings"
-#~ msgstr "Rafinează setările spațiului de lucru"
-
-#~ msgid "Gnome Settings"
-#~ msgstr "Setări Gnome"
-
-#~ msgid "Desktop Configuration Tool"
-#~ msgstr "Utilitar pentru configurarea spaţiului de lucru"
-
-#~ msgid "Desktop Items"
-#~ msgstr "Obiecte ale spaţiului de lucru"
-
-#~ msgid "Fine-tune Gnome settings"
-#~ msgstr "Setări detaliate Gnome"

@@ -1,283 +1,234 @@
-# Czech translation for MATE Tweak
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
-# This file is distributed under the same license as the package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Milan Milzou <vonfsro@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-tweak\n"
+"Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 11:07+0100\n"
-"PO-Revision-Date: 2014-12-14 21:04+0000\n"
-"Last-Translator: Ondřej Kolín <ondrej.kolin@gmail.com>\n"
-"Language-Team: Czech <cs@li.org>\n"
-"Language: cs\n"
+"POT-Creation-Date: 2015-03-17 07:53+0000\n"
+"PO-Revision-Date: 2015-04-15 07:09+0000\n"
+"Last-Translator: Milan Milzou <vonfsro@gmail.com>\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/MATE/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-25 10:21+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../mate-tweak:279
+#: ../mate-tweak:272
 msgid "Desktop"
 msgstr "Plocha"
 
-#: ../mate-tweak:280
+#: ../mate-tweak:273
 msgid "Windows"
 msgstr "Okna"
 
-#: ../mate-tweak:281
+#: ../mate-tweak:274
 msgid "Interface"
 msgstr "Prostředí"
 
-#: ../mate-tweak:328
+#: ../mate-tweak:321
 msgid "Desktop icons"
 msgstr "Ikony na ploše"
 
-#: ../mate-tweak:329
+#: ../mate-tweak:322
 msgid "Performance"
 msgstr "Výkon"
 
-#: ../mate-tweak:330
+#: ../mate-tweak:323
 msgid "Appearance"
 msgstr "Chování"
 
-#: ../mate-tweak:331
+#: ../mate-tweak:324
 msgid "Icons"
 msgstr "Ikony"
 
-#: ../mate-tweak:332
+#: ../mate-tweak:325
 msgid "Context menus"
 msgstr "Kontextové nabídky"
 
-#: ../mate-tweak:333
+#: ../mate-tweak:326
 msgid "Toolbars"
 msgstr "Nástrojové lišty"
 
-#: ../mate-tweak:334
+#: ../mate-tweak:327
 msgid "Window Manager"
 msgstr "Správce oken"
 
-#: ../mate-tweak:336
+#: ../mate-tweak:329
 msgid "Select the items you want to see on the desktop:"
 msgstr "Vyberte položky které chcete zobrazovat na ploše:"
 
-#: ../mate-tweak:338
+#: ../mate-tweak:331
 msgid "Computer"
 msgstr "Počítač"
 
-#: ../mate-tweak:339
+#: ../mate-tweak:332
 msgid "Home"
 msgstr "Domovská složka"
 
-#: ../mate-tweak:340
+#: ../mate-tweak:333
 msgid "Network"
 msgstr "Síť"
 
-#: ../mate-tweak:341
+#: ../mate-tweak:334
 msgid "Trash"
 msgstr "Koš"
 
-#: ../mate-tweak:342
+#: ../mate-tweak:335
 msgid "Mounted Volumes"
 msgstr "Připojené disky"
 
-#: ../mate-tweak:344
+#: ../mate-tweak:337
 msgid "Don't show window content while dragging them"
 msgstr "Při přemísťování nezobrazovat obsah okna"
 
-#: ../mate-tweak:345
+#: ../mate-tweak:338
 msgid "Use compositing"
 msgstr "Použít kompozitování"
 
-#: ../mate-tweak:347
+#: ../mate-tweak:340
 msgid "Buttons layout:"
 msgstr "Rozložení tlačítek:"
 
-#: ../mate-tweak:348
+#: ../mate-tweak:341
 msgid "Window manager:"
 msgstr "Správce oken:"
 
-#: ../mate-tweak:350
+#: ../mate-tweak:343
 msgid "Show icons on menus"
 msgstr "Zobrazovat ikony v nabídkách"
 
-#: ../mate-tweak:351
+#: ../mate-tweak:344
 msgid "Show icons on buttons"
 msgstr "Zobrazovat ikony na tlačítkách"
 
-#: ../mate-tweak:352
+#: ../mate-tweak:345
 msgid "Show Input Methods menu in context menus"
 msgstr "V kontextových nabídkách zobrazovat metody vstupu"
 
-#: ../mate-tweak:353
+#: ../mate-tweak:346
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "V kontextových nabídkách zobrazovat řídící znaky Unicode"
 
-#: ../mate-tweak:355
+#: ../mate-tweak:348
 msgid "Buttons labels:"
 msgstr "Popisky tlačítek:"
 
-#: ../mate-tweak:356
+#: ../mate-tweak:349
 msgid "Icon size:"
 msgstr "Velikost ikon:"
 
-#: ../mate-tweak:376
+#: ../mate-tweak:369
 msgid "Small"
 msgstr "Malé"
 
-#: ../mate-tweak:377
+#: ../mate-tweak:370
 msgid "Large"
 msgstr "Velké"
 
-#: ../mate-tweak:383
-#, fuzzy
+#: ../mate-tweak:376
 msgid "Traditional (Right)"
-msgstr "Tradiční styl (vpravo)"
+msgstr "Tradiční (Vpravo)"
 
-#: ../mate-tweak:384
+#: ../mate-tweak:377
 msgid "Contemporary (Left)"
-msgstr ""
+msgstr "Současná (Vlevo)"
 
-#: ../mate-tweak:390
-#, fuzzy
+#: ../mate-tweak:383
 msgid "Marco (Simple desktop effects)"
-msgstr "Compiz (působivé efekty)"
+msgstr "Marco (Jednoduché efekty plochy)"
 
-#: ../mate-tweak:392
-#, fuzzy
+#: ../mate-tweak:385
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (působivé efekty)"
+msgstr "Compiz (Pokročilejší efekty plochy s GPU akcelerací)"
 
-#: ../mate-tweak:394
+#: ../mate-tweak:387
 msgid "The new window manager will be activated upon selection."
-msgstr ""
+msgstr "Nový správce oken bude aktivován při výběru."
+
+#: ../mate-tweak:415
+msgid "MATE Desktop"
+msgstr "Prostředí MATE"
+
+#: ../mate-tweak:418
+msgid "Ubuntu MATE"
+msgstr "Ubuntu MATE"
 
 #: ../mate-tweak:422
-#, fuzzy
-msgid "MATE Desktop"
-msgstr "Plocha"
-
-#: ../mate-tweak:425
-msgid "Ubuntu MATE"
-msgstr ""
-
-#: ../mate-tweak:429
 msgid "Ubuntu MATE with MATE Menu"
-msgstr ""
+msgstr "Ubuntu MATE s MATE Menu"
 
-#: ../mate-tweak:433
+#: ../mate-tweak:426
 msgid "Ubuntu MATE with Indicators"
-msgstr ""
+msgstr "Ubuntu MATE s indikátory"
+
+#: ../mate-tweak:431
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr "Ubuntu MATE s Indikátory a MATE Menu"
+
+#: ../mate-tweak:434
+msgid "Redmond"
+msgstr "Redmond"
 
 #: ../mate-tweak:438
-msgid "Ubuntu MATE with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:441
-msgid "Redmond"
-msgstr ""
-
-#: ../mate-tweak:445
 msgid "Redmond with MATE Menu"
-msgstr ""
+msgstr "Redmond s MATE Menu"
 
-#: ../mate-tweak:449
+#: ../mate-tweak:442
 msgid "Redmond with Indicators"
-msgstr ""
+msgstr "Redmond s Indikátory"
 
-#: ../mate-tweak:454
+#: ../mate-tweak:447
 msgid "Redmond with Indicators and MATE Menu"
-msgstr ""
+msgstr "Redmond s Indikátory a MATE Menu"
 
-#: ../mate-tweak:458
+#: ../mate-tweak:451
 msgid "Eleven"
-msgstr ""
+msgstr "Eleven"
 
-#: ../mate-tweak:462
+#: ../mate-tweak:455
 msgid "Eleven with MATE Menu"
-msgstr ""
+msgstr "Eleven s MATE Menu"
 
-#: ../mate-tweak:466
+#: ../mate-tweak:459
 msgid "Eleven with Indicators"
-msgstr ""
+msgstr "Eleven s Indikátory"
 
-#: ../mate-tweak:471
+#: ../mate-tweak:464
 msgid "Eleven with Indicators and MATE Menu"
-msgstr ""
+msgstr "Eleven s Indikátory a MATE Menu"
+
+#: ../mate-tweak:468
+msgid "Linux Mint"
+msgstr "Linux Mint"
+
+#: ../mate-tweak:472
+msgid "openSUSE"
+msgstr "openSUSE"
 
 #: ../mate-tweak:475
-msgid "Linux Mint"
-msgstr ""
-
-#: ../mate-tweak:479
-msgid "openSUSE"
-msgstr ""
-
-#: ../mate-tweak:482
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
+msgstr "Nové rozložení panelů se aktivuje při výběru a zničí veškeré úpravy, které jste provedli."
 
-#: ../mate-tweak:487
+#: ../mate-tweak:480
 msgid "Text below items"
 msgstr "Text pod položkami"
 
-#: ../mate-tweak:488
+#: ../mate-tweak:481
 msgid "Text beside items"
 msgstr "Text vedle položek"
 
-#: ../mate-tweak:489
+#: ../mate-tweak:482
 msgid "Icons only"
 msgstr "Pouze ikony"
 
-#: ../mate-tweak:490
+#: ../mate-tweak:483
 msgid "Text only"
 msgstr "Pouze text"
-
-#~ msgid "Terminal"
-#~ msgstr "Terminál"
-
-#~ msgid "Use system font in titlebar"
-#~ msgstr "Pro názvy na lištách používat systémový font"
-
-#~ msgid "Show fortune cookies"
-#~ msgstr "Zobrazit náhodné cookies"
-
-#~ msgid "Mac style (Left)"
-#~ msgstr "Styl Mac (vlevo)"
-
-#~ msgid "Marco (stable and reliable)"
-#~ msgstr "Marco (stabilní a spolehlivý)"
-
-#~ msgid ""
-#~ "Log out and log back in for changes to take effect. If things go wrong, "
-#~ "run 'mate-wm-recovery' to switch back to Marco."
-#~ msgstr ""
-#~ "Pro uplatnění změn se prosím odhlaste a znovu přihlaste. V případě "
-#~ "problémů spusťte 'mate-wm-recovery', který vrátí zpět správce oken Marco."
-
-#~ msgid "Xfwm (stable and reliable)"
-#~ msgstr "Xfwm (stabilní a spolehlivý)"
-
-#~ msgid "Log out and log back in for changes to take effect."
-#~ msgstr "Odhlaste se a přihlaste se k aplikování těchto změn."
-
-#~ msgid "Desktop Settings"
-#~ msgstr "Nastavení plochy"
-
-#~ msgid "Fine-tune desktop settings"
-#~ msgstr "Podrobnější nastavení plochy"
-
-#~ msgid "Desktop Items"
-#~ msgstr "Položky na ploše"
-
-#~ msgid "Desktop Configuration Tool"
-#~ msgstr "Konfigurační nástroj plochy"
-
-#~ msgid "Gnome Settings"
-#~ msgstr "Nastavení Gnome"
-
-#~ msgid "Fine-tune Gnome settings"
-#~ msgstr "Doladění nastavení Gnome"
