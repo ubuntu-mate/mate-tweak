@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mate-tweak\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 11:07+0100\n"
+"POT-Creation-Date: 2015-05-18 23:31+0100\n"
 "PO-Revision-Date: 2014-12-09 22:17+0000\n"
 "Last-Translator: kelebek333 <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -18,223 +18,279 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: ../mate-tweak:279
+#: ../mate-tweak:373
+msgid "GNOME2"
+msgstr ""
+
+#: ../mate-tweak:376
+msgid "Ubuntu MATE"
+msgstr ""
+
+#: ../mate-tweak:380
+msgid "Ubuntu MATE with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:384
+msgid "Ubuntu MATE with Indicators"
+msgstr ""
+
+#: ../mate-tweak:389
+msgid "Ubuntu MATE with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:392
+msgid "Redmond"
+msgstr ""
+
+#: ../mate-tweak:396
+msgid "Redmond with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:400
+msgid "Redmond with Indicators"
+msgstr ""
+
+#: ../mate-tweak:405
+msgid "Redmond with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:409
+msgid "Netbook"
+msgstr ""
+
+#: ../mate-tweak:413
+msgid "Netbook with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:417
+msgid "Netbook with Indicators"
+msgstr ""
+
+#: ../mate-tweak:422
+msgid "Netbook with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:426
+msgid "Cupertino"
+msgstr ""
+
+#: ../mate-tweak:430
+msgid "Cupertino with MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:434
+msgid "Cupertino with Indicators"
+msgstr ""
+
+#: ../mate-tweak:439
+msgid "Cupertino with Indicators and MATE Menu"
+msgstr ""
+
+#: ../mate-tweak:443
+msgid "Linux Mint"
+msgstr ""
+
+#: ../mate-tweak:447
+msgid "openSUSE"
+msgstr ""
+
+#: ../mate-tweak:490
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: ../mate-tweak:280
+#: ../mate-tweak:491
 msgid "Windows"
 msgstr "Pencereler"
 
-#: ../mate-tweak:281
+#: ../mate-tweak:492
 msgid "Interface"
 msgstr "Arayüz"
 
-#: ../mate-tweak:328
+#: ../mate-tweak:543
 msgid "Desktop icons"
 msgstr "Masaüstü simgeleri"
 
-#: ../mate-tweak:329
+#: ../mate-tweak:544
 msgid "Performance"
 msgstr "Performans"
 
-#: ../mate-tweak:330
+#: ../mate-tweak:545
+msgid "Maximus"
+msgstr ""
+
+#: ../mate-tweak:546
 msgid "Appearance"
 msgstr "Görünüm"
 
-#: ../mate-tweak:331
+#: ../mate-tweak:547
 msgid "Icons"
 msgstr "Simgeler"
 
-#: ../mate-tweak:332
+#: ../mate-tweak:548
 msgid "Context menus"
 msgstr "İçerik menüleri"
 
-#: ../mate-tweak:333
+#: ../mate-tweak:549
 msgid "Toolbars"
 msgstr "Araç Çubukları"
 
-#: ../mate-tweak:334
-msgid "Window Manager"
-msgstr "Pencere Yöneticisi"
+#: ../mate-tweak:550
+#, fuzzy
+msgid "Window manager"
+msgstr "Pencere yöneticisi:"
 
-#: ../mate-tweak:336
+#: ../mate-tweak:552
 msgid "Select the items you want to see on the desktop:"
 msgstr "Masaüstünde görmek istediğiniz ögeleri seçin:"
 
-#: ../mate-tweak:338
+#: ../mate-tweak:554
 msgid "Computer"
 msgstr "Bilgisayar"
 
-#: ../mate-tweak:339
+#: ../mate-tweak:555
 msgid "Home"
 msgstr "Ev Dizini"
 
-#: ../mate-tweak:340
+#: ../mate-tweak:556
 msgid "Network"
 msgstr "Ağ"
 
-#: ../mate-tweak:341
+#: ../mate-tweak:557
 msgid "Trash"
 msgstr "Çöp Kutusu"
 
-#: ../mate-tweak:342
+#: ../mate-tweak:558
 msgid "Mounted Volumes"
 msgstr "Bağlı Birimler"
 
-#: ../mate-tweak:344
+#: ../mate-tweak:560
 msgid "Don't show window content while dragging them"
 msgstr "Sürüklerken pencere içeriğini gösterme"
 
-#: ../mate-tweak:345
+#: ../mate-tweak:561
 msgid "Use compositing"
 msgstr "Compositing özelliğini kullan"
 
-#: ../mate-tweak:347
-msgid "Buttons layout:"
-msgstr "Düğme düzeni:"
+#: ../mate-tweak:563
+msgid "Undecorate maximized windows"
+msgstr ""
 
-#: ../mate-tweak:348
-msgid "Window manager:"
-msgstr "Pencere yöneticisi:"
+#: ../mate-tweak:564
+msgid "Do not auto-maximize new windows"
+msgstr ""
 
-#: ../mate-tweak:350
+#: ../mate-tweak:566
+msgid "Window control placement."
+msgstr ""
+
+#: ../mate-tweak:568
 msgid "Show icons on menus"
 msgstr "Menülerde simgeleri göster"
 
-#: ../mate-tweak:351
+#: ../mate-tweak:569
 msgid "Show icons on buttons"
 msgstr "Düğmelerde simgeleri göster"
 
-#: ../mate-tweak:352
+#: ../mate-tweak:570
 msgid "Show Input Methods menu in context menus"
 msgstr "Girdi Yöntemleri menüsünü içerik menülerinde göster"
 
-#: ../mate-tweak:353
+#: ../mate-tweak:571
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Unicode Kontrol Karakter menüsünü içerik menülerinde göster"
 
-#: ../mate-tweak:355
-msgid "Buttons labels:"
-msgstr "Düğme etiketleri:"
+#: ../mate-tweak:573
+msgid "Style:"
+msgstr ""
 
-#: ../mate-tweak:356
+#: ../mate-tweak:574
 msgid "Icon size:"
 msgstr "Simge boyutu:"
 
-#: ../mate-tweak:376
+#: ../mate-tweak:601
 msgid "Small"
 msgstr "Küçük"
 
-#: ../mate-tweak:377
+#: ../mate-tweak:602
 msgid "Large"
 msgstr "Büyük"
 
-#: ../mate-tweak:383
+#: ../mate-tweak:608
 #, fuzzy
 msgid "Traditional (Right)"
 msgstr "Geleneksel biçim (Sağ)"
 
-#: ../mate-tweak:384
+#: ../mate-tweak:609
 msgid "Contemporary (Left)"
 msgstr ""
 
-#: ../mate-tweak:390
+#: ../mate-tweak:617
 #, fuzzy
 msgid "Marco (Simple desktop effects)"
 msgstr "Compiz (etkileyici masaüstü efektleri)"
 
-#: ../mate-tweak:392
+#: ../mate-tweak:619
+#, fuzzy
+msgid "Metacity (Simple desktop effects)"
+msgstr "Compiz (etkileyici masaüstü efektleri)"
+
+#: ../mate-tweak:621
+#, fuzzy
+msgid "Mutter (Elegant GPU accelerated desktop effects)"
+msgstr "Compiz (etkileyici masaüstü efektleri)"
+
+#: ../mate-tweak:623
 #, fuzzy
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (etkileyici masaüstü efektleri)"
 
-#: ../mate-tweak:394
+#: ../mate-tweak:626
 msgid "The new window manager will be activated upon selection."
 msgstr ""
 
-#: ../mate-tweak:422
+#: ../mate-tweak:627
 #, fuzzy
-msgid "MATE Desktop"
-msgstr "Masaüstü"
+msgid "Select a window manager."
+msgstr "Pencere yöneticisi:"
 
-#: ../mate-tweak:425
-msgid "Ubuntu MATE"
+#: ../mate-tweak:632
+msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:429
-msgid "Ubuntu MATE with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:433
-msgid "Ubuntu MATE with Indicators"
-msgstr ""
-
-#: ../mate-tweak:438
-msgid "Ubuntu MATE with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:441
-msgid "Redmond"
-msgstr ""
-
-#: ../mate-tweak:445
-msgid "Redmond with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:449
-msgid "Redmond with Indicators"
-msgstr ""
-
-#: ../mate-tweak:454
-msgid "Redmond with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:458
-msgid "Eleven"
-msgstr ""
-
-#: ../mate-tweak:462
-msgid "Eleven with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:466
-msgid "Eleven with Indicators"
-msgstr ""
-
-#: ../mate-tweak:471
-msgid "Eleven with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:475
-msgid "Linux Mint"
-msgstr ""
-
-#: ../mate-tweak:479
-msgid "openSUSE"
-msgstr ""
-
-#: ../mate-tweak:482
+#: ../mate-tweak:633
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:487
+#: ../mate-tweak:638
 msgid "Text below items"
 msgstr "Metin öğelerin altında"
 
-#: ../mate-tweak:488
+#: ../mate-tweak:639
 msgid "Text beside items"
 msgstr "Metin öğelerin yanında"
 
-#: ../mate-tweak:489
+#: ../mate-tweak:640
 msgid "Icons only"
 msgstr "Sadece simgeler"
 
-#: ../mate-tweak:490
+#: ../mate-tweak:641
 msgid "Text only"
 msgstr "Sadece metin"
+
+#~ msgid "Window Manager"
+#~ msgstr "Pencere Yöneticisi"
+
+#~ msgid "Buttons layout:"
+#~ msgstr "Düğme düzeni:"
+
+#~ msgid "Buttons labels:"
+#~ msgstr "Düğme etiketleri:"
+
+#, fuzzy
+#~ msgid "MATE Desktop"
+#~ msgstr "Masaüstü"
 
 #~ msgid "Terminal"
 #~ msgstr "Uçbirim"
