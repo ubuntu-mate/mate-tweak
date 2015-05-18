@@ -262,14 +262,10 @@ class MateTweak:
         return False
 
     def marco_capable(self):
-        if self.find_on_path('marco'):
-            return True
-        return False
+        return self.find_on_path('marco')
 
     def metacity_capable(self):
-        if self.find_on_path('metacity'):
-            return True
-        return False
+        return self.find_on_path('metacity')
 
     def mutter_capable(self):
         if self.find_on_path('mutter') and self.find_on_path('glxinfo'):
@@ -299,6 +295,12 @@ class MateTweak:
             # Update the widget based on the selected window manager.
             if wm == 'marco' or  wm == 'metacity':
                 self.builder.get_object('frame_marco').show()
+                if wm == 'marco':
+                    self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
+                    self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
+                elif wm == 'metacity':
+                    self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
+                    self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
             else:
                 self.builder.get_object('frame_marco').hide()
 
@@ -613,7 +615,7 @@ class MateTweak:
         # Window manager
         wms = Gtk.ListStore(str, str)
 
-        if self.metacity_capable():
+        if self.marco_capable():
             wms.append([_("Marco (Simple desktop effects)"), 'marco'])
         if self.metacity_capable():
             wms.append([_("Metacity (Simple desktop effects)"), 'metacity'])
