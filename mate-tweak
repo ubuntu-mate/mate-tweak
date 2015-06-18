@@ -203,6 +203,16 @@ class MateTweak:
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=devnull, stderr=devnull)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=devnull, stderr=devnull)
         subprocess.call(['mate-panel', '--layout', panel_layout, '--reset'], stdout=devnull, stderr=devnull)
+        devnull.close()
+
+        if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.panel')):
+            print('Loading additional panel configuration for ' + panel_layout)
+            cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + panel_layout + '.panel'
+            os.system(cmd)
+        else:
+            print('No additional panel configuration for ' + panel_layout)
+
+        devnull = open(os.devnull, 'wb')
         subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
         devnull.close()
 
