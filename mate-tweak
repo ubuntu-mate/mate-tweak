@@ -30,7 +30,7 @@ import string
 
 from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk, Notify
 
-__VERSION__="3.4.9"
+__VERSION__="3.5.0"
 
 # i18n
 gettext.install("mate-tweak", "/usr/share/locale")
