@@ -133,7 +133,10 @@ class MateTweak:
             # gtk-window-decorator does not incorrectly change theme when
             # switching from Marco to Compiz.
             mate_theme = self.get_string('org.mate.interface', 'gtk-theme')
+            # metacity <= 3.12
             self.set_string('org.gnome.desktop.wm.preferences', 'theme', mate_theme)
+            # metacity >= 3.16
+            self.set_string('org.gnome.metacity', 'theme', mate_theme)
 
             # mate-panel needs to be replaced when switching to Compiz to avoid
             # rendering screw ups.
