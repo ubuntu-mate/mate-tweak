@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 23:31+0100\n"
+"POT-Creation-Date: 2015-07-01 15:28+0100\n"
 "PO-Revision-Date: 2015-04-21 15:18+0000\n"
 "Last-Translator: Daniel <danny34ever@yahoo.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/MATE/language/"
@@ -21,249 +21,279 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 
-#: ../mate-tweak:373
+#: ../mate-tweak:408
 msgid "GNOME2"
 msgstr ""
 
-#: ../mate-tweak:376
+#: ../mate-tweak:411
 msgid "Ubuntu MATE"
 msgstr "Ubuntu MATE"
 
-#: ../mate-tweak:380
+#: ../mate-tweak:415
 msgid "Ubuntu MATE with MATE Menu"
 msgstr "Ubuntu MATE cu meniul MATE"
 
-#: ../mate-tweak:384
+#: ../mate-tweak:419
 msgid "Ubuntu MATE with Indicators"
 msgstr "Ubuntu MATE cu indicatori"
 
-#: ../mate-tweak:389
+#: ../mate-tweak:424
 msgid "Ubuntu MATE with Indicators and MATE Menu"
 msgstr "Ubuntu MATE cu indicatori și meniul MATE"
 
-#: ../mate-tweak:392
+#: ../mate-tweak:427
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:396
+#: ../mate-tweak:431
 msgid "Redmond with MATE Menu"
 msgstr "Redmond cu meniul MATE"
 
-#: ../mate-tweak:400
+#: ../mate-tweak:435
 msgid "Redmond with Indicators"
 msgstr "Redmond cu indicatori"
 
-#: ../mate-tweak:405
+#: ../mate-tweak:440
 msgid "Redmond with Indicators and MATE Menu"
 msgstr "Redmond cu indicatori și meniul MATE"
 
-#: ../mate-tweak:409
+#: ../mate-tweak:444
 msgid "Netbook"
 msgstr ""
 
-#: ../mate-tweak:413
+#: ../mate-tweak:448
 #, fuzzy
 msgid "Netbook with MATE Menu"
 msgstr "Redmond cu meniul MATE"
 
-#: ../mate-tweak:417
+#: ../mate-tweak:452
 #, fuzzy
 msgid "Netbook with Indicators"
 msgstr "Redmond cu indicatori"
 
-#: ../mate-tweak:422
+#: ../mate-tweak:457
 #, fuzzy
 msgid "Netbook with Indicators and MATE Menu"
 msgstr "Redmond cu indicatori și meniul MATE"
 
-#: ../mate-tweak:426
+#: ../mate-tweak:461
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:430
+#: ../mate-tweak:465
 #, fuzzy
 msgid "Cupertino with MATE Menu"
 msgstr "Eleven cu meniul MATE"
 
-#: ../mate-tweak:434
+#: ../mate-tweak:469
 #, fuzzy
 msgid "Cupertino with Indicators"
 msgstr "Eleven cu indicatori"
 
-#: ../mate-tweak:439
+#: ../mate-tweak:474
 #, fuzzy
 msgid "Cupertino with Indicators and MATE Menu"
 msgstr "Eleven cu indicators și meniul MATE"
 
-#: ../mate-tweak:443
+#: ../mate-tweak:478
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:447
+#: ../mate-tweak:482
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:490
+#: ../mate-tweak:525
 msgid "Desktop"
 msgstr "Spațiu de lucru"
 
-#: ../mate-tweak:491
+#: ../mate-tweak:526
 msgid "Windows"
 msgstr "Ferestre"
 
-#: ../mate-tweak:492
+#: ../mate-tweak:527
 msgid "Interface"
 msgstr "Interfață"
 
-#: ../mate-tweak:543
+#: ../mate-tweak:578
+#, fuzzy
+msgid "MATE Tweak"
+msgstr "Desktop MATE"
+
+#: ../mate-tweak:581
 msgid "Desktop icons"
 msgstr "Pictograme de pe spaţiul de lucru"
 
-#: ../mate-tweak:544
+#: ../mate-tweak:582
 msgid "Performance"
 msgstr "Performanță"
 
-#: ../mate-tweak:545
+#: ../mate-tweak:583
+#, fuzzy
+msgid "Window Behaviour"
+msgstr "Administrator de ferestre"
+
+#: ../mate-tweak:584
 msgid "Maximus"
 msgstr ""
 
-#: ../mate-tweak:546
+#: ../mate-tweak:585
 msgid "Appearance"
 msgstr "Înfățișare"
 
-#: ../mate-tweak:547
+#: ../mate-tweak:586
 msgid "Icons"
 msgstr "Pictograme"
 
-#: ../mate-tweak:548
+#: ../mate-tweak:587
 msgid "Context menus"
 msgstr "Meniuri contextuale"
 
-#: ../mate-tweak:549
+#: ../mate-tweak:588
 msgid "Toolbars"
 msgstr "Bare de unelte"
 
-#: ../mate-tweak:550
+#: ../mate-tweak:589
 #, fuzzy
 msgid "Window manager"
 msgstr "Administrator de ferestre"
 
-#: ../mate-tweak:552
+#: ../mate-tweak:591
 msgid "Select the items you want to see on the desktop:"
 msgstr "Selectaţi obiectele pe care le doriţi pe spaţiul de lucru:"
 
-#: ../mate-tweak:554
+#: ../mate-tweak:592
+msgid "Window behaviour and new window placement."
+msgstr ""
+
+#: ../mate-tweak:594
 msgid "Computer"
 msgstr "Calculator"
 
-#: ../mate-tweak:555
+#: ../mate-tweak:595
 msgid "Home"
 msgstr "Acasă"
 
-#: ../mate-tweak:556
+#: ../mate-tweak:596
 msgid "Network"
 msgstr "Reţea"
 
-#: ../mate-tweak:557
+#: ../mate-tweak:597
 msgid "Trash"
 msgstr "Coş de gunoi"
 
-#: ../mate-tweak:558
+#: ../mate-tweak:598
 msgid "Mounted Volumes"
 msgstr "Partiții montate"
 
-#: ../mate-tweak:560
+#: ../mate-tweak:600
 msgid "Don't show window content while dragging them"
 msgstr "Nu afişa conţinutul ferestrelor în timpul mutării"
 
-#: ../mate-tweak:561
+#: ../mate-tweak:601
 msgid "Use compositing"
 msgstr "Utilizați compoziția"
 
-#: ../mate-tweak:563
+#: ../mate-tweak:603
 msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:564
+#: ../mate-tweak:604
 msgid "Do not auto-maximize new windows"
 msgstr ""
 
-#: ../mate-tweak:566
+#: ../mate-tweak:606
 msgid "Window control placement."
 msgstr ""
 
-#: ../mate-tweak:568
+#: ../mate-tweak:608
 msgid "Show icons on menus"
 msgstr "Arată pictograme în meniuri"
 
-#: ../mate-tweak:569
+#: ../mate-tweak:609
 msgid "Show icons on buttons"
 msgstr "Arată pictograme pe butoane"
 
-#: ../mate-tweak:570
+#: ../mate-tweak:610
 msgid "Show Input Methods menu in context menus"
 msgstr "Arată meniul metodelor de intrare în meniurile contextuale"
 
-#: ../mate-tweak:571
+#: ../mate-tweak:611
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Arată meniul caracterelor de control unicod în meniul contextual"
 
-#: ../mate-tweak:573
+#: ../mate-tweak:613
 msgid "Style:"
 msgstr ""
 
-#: ../mate-tweak:574
+#: ../mate-tweak:614
 msgid "Icon size:"
 msgstr "Dimensiune pictogramă:"
 
-#: ../mate-tweak:601
+#: ../mate-tweak:624
+msgid "Center"
+msgstr ""
+
+#: ../mate-tweak:625
+msgid "Origin"
+msgstr ""
+
+#: ../mate-tweak:626
+msgid "Random"
+msgstr ""
+
+#: ../mate-tweak:627
+msgid "Smart"
+msgstr ""
+
+#: ../mate-tweak:656
 msgid "Small"
 msgstr "Mică"
 
-#: ../mate-tweak:602
+#: ../mate-tweak:657
 msgid "Large"
 msgstr "Mare"
 
-#: ../mate-tweak:608
+#: ../mate-tweak:663
 msgid "Traditional (Right)"
 msgstr "Tradițional (dreapta)"
 
-#: ../mate-tweak:609
+#: ../mate-tweak:664
 msgid "Contemporary (Left)"
 msgstr "Contemporan (stânga)"
 
-#: ../mate-tweak:617
+#: ../mate-tweak:672
 msgid "Marco (Simple desktop effects)"
 msgstr "Marco (efecte desktop simple)"
 
-#: ../mate-tweak:619
+#: ../mate-tweak:674
 #, fuzzy
 msgid "Metacity (Simple desktop effects)"
 msgstr "Marco (efecte desktop simple)"
 
-#: ../mate-tweak:621
+#: ../mate-tweak:676
 #, fuzzy
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Compiz (efecte desktop avansate accelerate de placa video)"
 
-#: ../mate-tweak:623
+#: ../mate-tweak:678
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (efecte desktop avansate accelerate de placa video)"
 
-#: ../mate-tweak:626
+#: ../mate-tweak:681
 msgid "The new window manager will be activated upon selection."
 msgstr "Noul administrator de ferestre va fi activat la selectare"
 
-#: ../mate-tweak:627
+#: ../mate-tweak:682
 #, fuzzy
 msgid "Select a window manager."
 msgstr "Administrator de ferestre"
 
-#: ../mate-tweak:632
+#: ../mate-tweak:687
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:633
+#: ../mate-tweak:688
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
@@ -271,19 +301,19 @@ msgstr ""
 "Noul aranjament al panourilor va fi activat la selectare și va distruge "
 "orice personalizări ați fi făcut"
 
-#: ../mate-tweak:638
+#: ../mate-tweak:693
 msgid "Text below items"
 msgstr "Text sub elemente"
 
-#: ../mate-tweak:639
+#: ../mate-tweak:694
 msgid "Text beside items"
 msgstr "Text lângă elemente"
 
-#: ../mate-tweak:640
+#: ../mate-tweak:695
 msgid "Icons only"
 msgstr "Doar pictograme"
 
-#: ../mate-tweak:641
+#: ../mate-tweak:696
 msgid "Text only"
 msgstr "Doar text"
 
@@ -295,9 +325,6 @@ msgstr "Doar text"
 
 #~ msgid "Buttons labels:"
 #~ msgstr "Etichete butoane:"
-
-#~ msgid "MATE Desktop"
-#~ msgstr "Desktop MATE"
 
 #~ msgid "Eleven"
 #~ msgstr "Eleven"
