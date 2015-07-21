@@ -27,6 +27,7 @@ import os
 import shutil
 import subprocess
 import string
+import time
 
 from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk, Notify
 
@@ -181,6 +182,9 @@ class MateTweak:
             else:
                 subprocess.Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
 
+            # Just give the window manager a second
+            time.sleep(1)
+
             subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
             if wm == 'compiz':
                 subprocess.Popen(['gtk-window-decorator', '--metacity-theme', mate_theme, '--replace'], stdout=devnull, stderr=devnull)
@@ -245,20 +249,43 @@ class MateTweak:
         devnull.close()
 
     def replace_panel_layout(self, panel_layout):
+        # If the selected panel layout has MATE Menu and Indicators then
+        # make those options visible.
+        if self.panel_layout_exists(panel_layout + '-fresh') and \
+           self.panel_layout_exists(panel_layout + '-indicators') and \
+           self.panel_layout_exists(panel_layout + '-indicators-fresh'):
+            self.builder.get_object('frame_panel_features').show()
+        else:
+            self.builder.get_object('frame_panel_features').hide()
+
+        new_layout = panel_layout
+        if self.builder.get_object('checkbutton_indicators').get_active() and \
+           self.builder.get_object('checkbutton_advanced_menu').get_active():
+            new_layout += '-indicators-fresh'
+        elif self.builder.get_object('checkbutton_indicators').get_active():
+            new_layout += '-indicators'
+        elif self.builder.get_object('checkbutton_advanced_menu').get_active():
+            new_layout += '-indicators'
+
+        if not self.panel_layout_exists(new_layout):
+            new_layout = panel_layout
+
+        print('Switching to: ' + new_layout)
+
         # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
         devnull = open(os.devnull, 'wb')
         subprocess.call(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=devnull, stderr=devnull)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=devnull, stderr=devnull)
-        subprocess.call(['mate-panel', '--layout', panel_layout, '--reset'], stdout=devnull, stderr=devnull)
+        subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=devnull, stderr=devnull)
         devnull.close()
 
-        if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.panel')):
+        if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + panel_layout)
-            cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + panel_layout + '.panel'
+            cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
             os.system(cmd)
         else:
-            print('No additional panel configuration for ' + panel_layout)
+            print('No additional panel configuration for ' + new_layout)
 
         devnull = open(os.devnull, 'wb')
         subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
@@ -267,7 +294,7 @@ class MateTweak:
         # Indicator enabled layouts auto-load the sound-indicator.
         # Therefore, make mate-volume-control-applet is killed or
         # started accordingly.
-        if 'indicators' in panel_layout:
+        if 'indicators' in new_layout:
             self.disable_mate_volume_applet()
         else:
             self.enable_mate_volume_applet()
@@ -281,7 +308,7 @@ class MateTweak:
             dock = 'plank'
 
         current_wm = self.get_current_wm()
-        if panel_layout.startswith('eleven') and dock is not None:
+        if new_layout.startswith('eleven') and dock is not None:
             if 'Compiz' in current_wm:
                 # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
                 devnull = open(os.devnull, 'wb')
@@ -306,7 +333,8 @@ class MateTweak:
     def panel_layout_exists(self, panel_layout):
         if os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout'):
             return True
-        return False
+        else:
+            return False
 
     def compiz_capable(self):
         if self.find_on_path('compiz') and self.find_on_path('glxinfo'):
@@ -424,14 +452,14 @@ class MateTweak:
         if os.path.exists('/usr/bin/docky') or os.path.exists('/usr/bin/plank'):
             dock = True
 
-        #if indicators_available or mate_menu_available:
-        #    self.builder.get_object('frame_panel_features').show()
-        #    if not indicators_available:
-        #        self.builder.get_object('checkbutton_indicators').hide()
-        #    if not mate_menu_available:
-        #        self.builder.get_object('checkbutton_advanced_menu').hide()
-        #else:
-        self.builder.get_object('frame_panel_features').hide()
+        if indicators_available or mate_menu_available:
+            self.builder.get_object('frame_panel_features').show()
+            if not indicators_available:
+                self.builder.get_object('checkbutton_indicators').hide()
+            if not mate_menu_available:
+                self.builder.get_object('checkbutton_advanced_menu').hide()
+        else:
+            self.builder.get_object('frame_panel_features').hide()
 
         # Panel layouts
         panels = Gtk.ListStore(str, str)
@@ -448,75 +476,21 @@ class MateTweak:
         if self.panel_layout_exists('ubuntu-mate'):
             panels.append([_("Ubuntu MATE"), "ubuntu-mate"])
 
-        if self.panel_layout_exists('ubuntu-mate-fresh') \
-            and mate_menu_available:
-            panels.append([_("Ubuntu MATE with MATE Menu"), "ubuntu-mate-fresh"])
-
-        if self.panel_layout_exists('ubuntu-mate-indicators') \
-            and indicators_available:
-            panels.append([_("Ubuntu MATE with Indicators"), "ubuntu-mate-indicators"])
-
-        if self.panel_layout_exists('ubuntu-mate-indicators-fresh') \
-            and indicators_available \
-            and mate_menu_available:
-            panels.append([_("Ubuntu MATE with Indicators and MATE Menu"), "ubuntu-mate-indicators-fresh"])
-
         if self.panel_layout_exists('redmond'):
             panels.append([_("Redmond"), "redmond"])
-
-        if self.panel_layout_exists('redmond-fresh') \
-            and mate_menu_available:
-            panels.append([_("Redmond with MATE Menu"), "redmond-fresh"])
-
-        if self.panel_layout_exists('redmond-indicators') \
-            and indicators_available:
-            panels.append([_("Redmond with Indicators"), "redmond-indicators"])
-
-        if self.panel_layout_exists('redmond-indicators-fresh') \
-            and indicators_available \
-            and mate_menu_available:
-            panels.append([_("Redmond with Indicators and MATE Menu"), "redmond-indicators-fresh"])
 
         if self.maximus_available():
             if self.panel_layout_exists('netbook'):
                 panels.append([_("Netbook"), "netbook"])
 
-            if self.panel_layout_exists('netbook-fresh') \
-                and mate_menu_available:
-                panels.append([_("Netbook with MATE Menu"), "netbook-fresh"])
-
-            if self.panel_layout_exists('netbook-indicators') and \
-               indicators_available:
-                panels.append([_("Netbook with Indicators"), "netbook-indicators"])
-
-            if self.panel_layout_exists('netbook-indicators-fresh') and \
-               indicators_available and \
-               mate_menu_available:
-                panels.append([_("Netbook with Indicators and MATE Menu"), "netbook-indicators-fresh"])
-
         if dock:
             if self.panel_layout_exists('eleven'):
                 panels.append([_("Cupertino"), "eleven"])
 
-            if self.panel_layout_exists('eleven-fresh') and \
-               mate_menu_available:
-                panels.append([_("Cupertino with MATE Menu"), "eleven-fresh"])
-
-            if self.panel_layout_exists('eleven-indicators') and \
-               indicators_available:
-                panels.append([_("Cupertino with Indicators"), "eleven-indicators"])
-
-            if self.panel_layout_exists('eleven-indicators-fresh') and \
-                indicators_available and \
-                mate_menu_available:
-                panels.append([_("Cupertino with Indicators and MATE Menu"), "eleven-indicators-fresh"])
-
-        if self.panel_layout_exists('linuxmint') and \
-           mint_menu_available:
+        if self.panel_layout_exists('linuxmint') and mint_menu_available:
             panels.append([_("Linux Mint"), "linuxmint"])
 
-        if self.panel_layout_exists('opensuse') and \
-           gnome_menu_available:
+        if self.panel_layout_exists('opensuse') and gnome_menu_available:
             panels.append([_("openSUSE"), "opensuse"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
@@ -712,20 +686,38 @@ class MateTweak:
         self.make_list_of_panel_layouts()
         self.builder.get_object("caption_panels").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
         self.builder.get_object("combobox_panels").set_tooltip_text(_("The new panel layout will be activated on selection and destroy any customisations you might have made."))
-        self.init_combobox("org.mate.panel", "default-layout", "combobox_panels")
 
-        # Toggle Panel features
-        current_layout = self.get_string("org.mate.panel", "default-layout")
+        # Set the base layout and toggle available feature.
+        current_layout = self.get_string('org.mate.panel', 'default-layout')
+        base_layout = current_layout.replace('-indicators','').replace('-fresh','')
+        print ('Schema layout: ' + current_layout)
+        print('Base layout: ' + base_layout)
+
         if 'indicators' in current_layout:
-            print('Indicators enabled')
             self.builder.get_object('checkbutton_indicators').set_active(True)
         else:
             self.builder.get_object('checkbutton_indicators').set_active(False)
+
         if 'fresh' in current_layout:
-            print('Advanced menu enabled')
             self.builder.get_object('checkbutton_advanced_menu').set_active(True)
         else:
             self.builder.get_object('checkbutton_advanced_menu').set_active(False)
+
+        if not self.panel_layout_exists(base_layout + '-fresh') and \
+           not self.panel_layout_exists(base_layout + '-indicators') and \
+           not self.panel_layout_exists(base_layout + '-indicators-fresh'):
+            self.builder.get_object('frame_panel_features').hide()
+
+        source = Gio.SettingsSchemaSource.get_default()
+        if source.lookup('org.mate.panel', True) != None:
+            widget = self.builder.get_object('combobox_panels')
+            index = 0
+            for row in widget.get_model():
+                if(base_layout == row[1]):
+                    widget.set_active(index)
+                    break
+                index = index +1
+            widget.connect("changed", lambda x: self.combo_fallback('org.mate.panel', 'default-layout', x))
 
         # toolbar icon styles
         iconStyles = Gtk.ListStore(str, str)
