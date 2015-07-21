@@ -265,7 +265,7 @@ class MateTweak:
         elif self.builder.get_object('checkbutton_indicators').get_active():
             new_layout += '-indicators'
         elif self.builder.get_object('checkbutton_advanced_menu').get_active():
-            new_layout += '-indicators'
+            new_layout += '-fresh'
 
         if not self.panel_layout_exists(new_layout):
             new_layout = panel_layout
@@ -330,11 +330,47 @@ class MateTweak:
             self.disable_dock('docky')
             self.disable_dock('plank')
 
-    def panel_layout_exists(self, panel_layout):
-        if os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout'):
-            return True
+    def init_panel_features(self):
+        # Set the base layout and toggle visiable options.
+        current_layout = self.get_string('org.mate.panel', 'default-layout')
+        base_layout = current_layout.replace('-indicators','').replace('-fresh','')
+        print ('Schema layout: ' + current_layout)
+        print('Base layout: ' + base_layout)
+
+        if 'indicators' in current_layout:
+            self.builder.get_object('checkbutton_indicators').set_active(True)
         else:
-            return False
+            self.builder.get_object('checkbutton_indicators').set_active(False)
+
+        if 'fresh' in current_layout:
+            self.builder.get_object('checkbutton_advanced_menu').set_active(True)
+        else:
+            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
+
+        if not self.panel_layout_exists(base_layout + '-fresh') and \
+           not self.panel_layout_exists(base_layout + '-indicators') and \
+           not self.panel_layout_exists(base_layout + '-indicators-fresh'):
+            self.builder.get_object('frame_panel_features').hide()
+
+        source = Gio.SettingsSchemaSource.get_default()
+        if source.lookup('org.mate.panel', True) != None:
+            widget = self.builder.get_object('combobox_panels')
+            index = 0
+            for row in widget.get_model():
+                if(base_layout == row[1]):
+                    widget.set_active(index)
+                    break
+                index = index +1
+            widget.connect("changed", lambda x: self.combo_fallback('org.mate.panel', 'default-layout', x))
+
+    def toggle_panel_features(self, widget):
+        # Set the base layout and toggle visiable options.
+        current_layout = current_layout = self.get_string('org.mate.panel', 'default-layout')
+        base_layout = current_layout.replace('-indicators','').replace('-fresh','')
+        self.replace_panel_layout(base_layout)
+
+    def panel_layout_exists(self, panel_layout):
+        return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
 
     def compiz_capable(self):
         if self.find_on_path('compiz') and self.find_on_path('glxinfo'):
@@ -686,38 +722,9 @@ class MateTweak:
         self.make_list_of_panel_layouts()
         self.builder.get_object("caption_panels").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
         self.builder.get_object("combobox_panels").set_tooltip_text(_("The new panel layout will be activated on selection and destroy any customisations you might have made."))
-
-        # Set the base layout and toggle available feature.
-        current_layout = self.get_string('org.mate.panel', 'default-layout')
-        base_layout = current_layout.replace('-indicators','').replace('-fresh','')
-        print ('Schema layout: ' + current_layout)
-        print('Base layout: ' + base_layout)
-
-        if 'indicators' in current_layout:
-            self.builder.get_object('checkbutton_indicators').set_active(True)
-        else:
-            self.builder.get_object('checkbutton_indicators').set_active(False)
-
-        if 'fresh' in current_layout:
-            self.builder.get_object('checkbutton_advanced_menu').set_active(True)
-        else:
-            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
-
-        if not self.panel_layout_exists(base_layout + '-fresh') and \
-           not self.panel_layout_exists(base_layout + '-indicators') and \
-           not self.panel_layout_exists(base_layout + '-indicators-fresh'):
-            self.builder.get_object('frame_panel_features').hide()
-
-        source = Gio.SettingsSchemaSource.get_default()
-        if source.lookup('org.mate.panel', True) != None:
-            widget = self.builder.get_object('combobox_panels')
-            index = 0
-            for row in widget.get_model():
-                if(base_layout == row[1]):
-                    widget.set_active(index)
-                    break
-                index = index +1
-            widget.connect("changed", lambda x: self.combo_fallback('org.mate.panel', 'default-layout', x))
+        self.init_panel_features()
+        self.builder.get_object("checkbutton_indicators").connect("toggled", self.toggle_panel_features)
+        self.builder.get_object("checkbutton_advanced_menu").connect("toggled", self.toggle_panel_features)
 
         # toolbar icon styles
         iconStyles = Gtk.ListStore(str, str)
