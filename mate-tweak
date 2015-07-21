@@ -331,7 +331,7 @@ class MateTweak:
             self.disable_dock('plank')
 
     def init_panel_features(self):
-        # Set the base layout and toggle visiable options.
+        # Set the base layout and toggle visible options.
         current_layout = self.get_string('org.mate.panel', 'default-layout')
         base_layout = current_layout.replace('-indicators','').replace('-fresh','')
         print ('Schema layout: ' + current_layout)
@@ -364,7 +364,7 @@ class MateTweak:
             widget.connect("changed", lambda x: self.combo_fallback('org.mate.panel', 'default-layout', x))
 
     def toggle_panel_features(self, widget):
-        # Set the base layout and toggle visiable options.
+        # Set the base layout and and issue a replace
         current_layout = current_layout = self.get_string('org.mate.panel', 'default-layout')
         base_layout = current_layout.replace('-indicators','').replace('-fresh','')
         self.replace_panel_layout(base_layout)
