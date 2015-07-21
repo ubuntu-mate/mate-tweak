@@ -648,11 +648,13 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label_xalign">0</property>
+                    <property name="label_yalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
                       <object class="GtkAlignment" id="alignment_panel_features">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="top_padding">6</property>
                         <property name="left_padding">12</property>
                         <child>
                           <object class="GtkBox" id="box_panel_features">
@@ -714,6 +716,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label_xalign">0</property>
+                    <property name="label_yalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
                       <object class="GtkAlignment" id="alignment_icons">
