@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mate-tweak\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 23:31+0100\n"
+"POT-Creation-Date: 2015-07-01 15:28+0100\n"
 "PO-Revision-Date: 2014-11-15 17:29+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
@@ -18,260 +18,290 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-02-25 10:21+0000\n"
 "X-Generator: Launchpad (build 17355)\n"
 
-#: ../mate-tweak:373
+#: ../mate-tweak:408
 msgid "GNOME2"
 msgstr ""
 
-#: ../mate-tweak:376
+#: ../mate-tweak:411
 msgid "Ubuntu MATE"
 msgstr ""
 
-#: ../mate-tweak:380
+#: ../mate-tweak:415
 msgid "Ubuntu MATE with MATE Menu"
 msgstr ""
 
-#: ../mate-tweak:384
+#: ../mate-tweak:419
 msgid "Ubuntu MATE with Indicators"
 msgstr ""
 
-#: ../mate-tweak:389
+#: ../mate-tweak:424
 msgid "Ubuntu MATE with Indicators and MATE Menu"
 msgstr ""
 
-#: ../mate-tweak:392
+#: ../mate-tweak:427
 msgid "Redmond"
 msgstr ""
 
-#: ../mate-tweak:396
+#: ../mate-tweak:431
 msgid "Redmond with MATE Menu"
 msgstr ""
 
-#: ../mate-tweak:400
+#: ../mate-tweak:435
 msgid "Redmond with Indicators"
 msgstr ""
 
-#: ../mate-tweak:405
+#: ../mate-tweak:440
 msgid "Redmond with Indicators and MATE Menu"
 msgstr ""
 
-#: ../mate-tweak:409
+#: ../mate-tweak:444
 msgid "Netbook"
 msgstr ""
 
-#: ../mate-tweak:413
+#: ../mate-tweak:448
 msgid "Netbook with MATE Menu"
 msgstr ""
 
-#: ../mate-tweak:417
+#: ../mate-tweak:452
 msgid "Netbook with Indicators"
 msgstr ""
 
-#: ../mate-tweak:422
+#: ../mate-tweak:457
 msgid "Netbook with Indicators and MATE Menu"
 msgstr ""
 
-#: ../mate-tweak:426
+#: ../mate-tweak:461
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:430
+#: ../mate-tweak:465
 msgid "Cupertino with MATE Menu"
 msgstr ""
 
-#: ../mate-tweak:434
+#: ../mate-tweak:469
 msgid "Cupertino with Indicators"
 msgstr ""
 
-#: ../mate-tweak:439
+#: ../mate-tweak:474
 msgid "Cupertino with Indicators and MATE Menu"
 msgstr ""
 
-#: ../mate-tweak:443
+#: ../mate-tweak:478
 msgid "Linux Mint"
 msgstr ""
 
-#: ../mate-tweak:447
+#: ../mate-tweak:482
 msgid "openSUSE"
 msgstr ""
 
-#: ../mate-tweak:490
+#: ../mate-tweak:525
 msgid "Desktop"
 msgstr "ዴስክቶፕ"
 
-#: ../mate-tweak:491
+#: ../mate-tweak:526
 msgid "Windows"
 msgstr "መስኮቶች"
 
-#: ../mate-tweak:492
+#: ../mate-tweak:527
 msgid "Interface"
 msgstr "ግንኙነት"
 
-#: ../mate-tweak:543
+#: ../mate-tweak:578
+#, fuzzy
+msgid "MATE Tweak"
+msgstr "ዴስክቶፕ"
+
+#: ../mate-tweak:581
 msgid "Desktop icons"
 msgstr "የዴስክቶፕ ምልክቶች"
 
-#: ../mate-tweak:544
+#: ../mate-tweak:582
 msgid "Performance"
 msgstr "አፈጻጸም"
 
-#: ../mate-tweak:545
+#: ../mate-tweak:583
+#, fuzzy
+msgid "Window Behaviour"
+msgstr "የመስኮት አስተዳዳሪ:"
+
+#: ../mate-tweak:584
 msgid "Maximus"
 msgstr ""
 
-#: ../mate-tweak:546
+#: ../mate-tweak:585
 msgid "Appearance"
 msgstr "አቀራረብ"
 
-#: ../mate-tweak:547
+#: ../mate-tweak:586
 msgid "Icons"
 msgstr "ምልክቶች"
 
-#: ../mate-tweak:548
+#: ../mate-tweak:587
 msgid "Context menus"
 msgstr "የዝርዝሮች አገባብ"
 
-#: ../mate-tweak:549
+#: ../mate-tweak:588
 msgid "Toolbars"
 msgstr "ቱልባሮች"
 
-#: ../mate-tweak:550
+#: ../mate-tweak:589
 #, fuzzy
 msgid "Window manager"
 msgstr "የመስኮት አስተዳዳሪ:"
 
-#: ../mate-tweak:552
+#: ../mate-tweak:591
 msgid "Select the items you want to see on the desktop:"
 msgstr "ዴስክቶፕ ላይ ማየት የሚፈልጉትን ምልክት ይምረጡ"
 
-#: ../mate-tweak:554
+#: ../mate-tweak:592
+msgid "Window behaviour and new window placement."
+msgstr ""
+
+#: ../mate-tweak:594
 msgid "Computer"
 msgstr "ኮምፒዩተር"
 
-#: ../mate-tweak:555
+#: ../mate-tweak:595
 msgid "Home"
 msgstr "ቤት"
 
-#: ../mate-tweak:556
+#: ../mate-tweak:596
 msgid "Network"
 msgstr "ኔትዎርክ"
 
-#: ../mate-tweak:557
+#: ../mate-tweak:597
 msgid "Trash"
 msgstr "ቆሻሻ"
 
-#: ../mate-tweak:558
+#: ../mate-tweak:598
 msgid "Mounted Volumes"
 msgstr "የተጨመሩ መጠኖች"
 
-#: ../mate-tweak:560
+#: ../mate-tweak:600
 msgid "Don't show window content while dragging them"
 msgstr "መስኮቱን በምጎትትበት ጊዜ ይዞታውን አታሳይ"
 
-#: ../mate-tweak:561
+#: ../mate-tweak:601
 msgid "Use compositing"
 msgstr "ማዋሀጃን ይጠቀሙ"
 
-#: ../mate-tweak:563
+#: ../mate-tweak:603
 msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:564
+#: ../mate-tweak:604
 msgid "Do not auto-maximize new windows"
 msgstr ""
 
-#: ../mate-tweak:566
+#: ../mate-tweak:606
 msgid "Window control placement."
 msgstr ""
 
-#: ../mate-tweak:568
+#: ../mate-tweak:608
 msgid "Show icons on menus"
 msgstr "ምልክቶችን በዝርዝር ውስጥ ማሳየት"
 
-#: ../mate-tweak:569
+#: ../mate-tweak:609
 msgid "Show icons on buttons"
 msgstr "ምልክቶችን በቁልፍ ላይ አሳይ"
 
-#: ../mate-tweak:570
+#: ../mate-tweak:610
 msgid "Show Input Methods menu in context menus"
 msgstr "የማስገቢያ ዝርዝር ዘዴዎችን አገባብ በዝርዝር አገባብ ላይ አሳይ"
 
-#: ../mate-tweak:571
+#: ../mate-tweak:611
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "የዩኒኮድ ባህሪ ዝርዝር መቆጣጠሪያን በዝርዝር አገባብ ላይ አሳይ"
 
-#: ../mate-tweak:573
+#: ../mate-tweak:613
 msgid "Style:"
 msgstr ""
 
-#: ../mate-tweak:574
+#: ../mate-tweak:614
 msgid "Icon size:"
 msgstr "የምልክት መጠን:"
 
-#: ../mate-tweak:601
+#: ../mate-tweak:624
+msgid "Center"
+msgstr ""
+
+#: ../mate-tweak:625
+msgid "Origin"
+msgstr ""
+
+#: ../mate-tweak:626
+msgid "Random"
+msgstr ""
+
+#: ../mate-tweak:627
+msgid "Smart"
+msgstr ""
+
+#: ../mate-tweak:656
 msgid "Small"
 msgstr "ትንሽ"
 
-#: ../mate-tweak:602
+#: ../mate-tweak:657
 msgid "Large"
 msgstr "ትልቅ"
 
-#: ../mate-tweak:608
+#: ../mate-tweak:663
 #, fuzzy
 msgid "Traditional (Right)"
 msgstr "ባህላዊ ዘዴ (ቀኝ)"
 
-#: ../mate-tweak:609
+#: ../mate-tweak:664
 msgid "Contemporary (Left)"
 msgstr ""
 
-#: ../mate-tweak:617
+#: ../mate-tweak:672
 msgid "Marco (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:619
+#: ../mate-tweak:674
 msgid "Metacity (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:621
+#: ../mate-tweak:676
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:623
+#: ../mate-tweak:678
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:626
+#: ../mate-tweak:681
 msgid "The new window manager will be activated upon selection."
 msgstr ""
 
-#: ../mate-tweak:627
+#: ../mate-tweak:682
 #, fuzzy
 msgid "Select a window manager."
 msgstr "የመስኮት አስተዳዳሪ:"
 
-#: ../mate-tweak:632
+#: ../mate-tweak:687
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:633
+#: ../mate-tweak:688
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:638
+#: ../mate-tweak:693
 msgid "Text below items"
 msgstr "ጽሁፍ ከእቃው ስር"
 
-#: ../mate-tweak:639
+#: ../mate-tweak:694
 msgid "Text beside items"
 msgstr "ጽሁፍ ከእቃው አጠገብ"
 
-#: ../mate-tweak:640
+#: ../mate-tweak:695
 msgid "Icons only"
 msgstr "ምልክቶች ብቻ"
 
-#: ../mate-tweak:641
+#: ../mate-tweak:696
 msgid "Text only"
 msgstr "ጽሁፍ ብቻ"
 
@@ -283,10 +313,6 @@ msgstr "ጽሁፍ ብቻ"
 
 #~ msgid "Buttons labels:"
 #~ msgstr "ቁልፍ ምልክቶች:"
-
-#, fuzzy
-#~ msgid "MATE Desktop"
-#~ msgstr "ዴስክቶፕ"
 
 #~ msgid "Terminal"
 #~ msgstr "ተርሚናል"
