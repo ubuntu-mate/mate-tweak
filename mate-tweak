@@ -2,7 +2,7 @@
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -63,18 +63,18 @@ class MateTweak:
         if schema == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
             devnull = open(os.devnull, 'wb')
             subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
-            
+
             # When changing undecorate state replace the window manager
             # to ensure there are no rendering or strut issues.
             if key == 'undecorate':
                 replace_windowmanager(self.get_current_wm(), false)
             devnull.close()
-            
+
         # If panel features are being changed replace the panel layout.
         if schema == "org.mate.panel" and (key == "undecorate" or key == "no-maximize"):
             devnull = open(os.devnull, 'wb')
             subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
-            
+
             # When changing undecorate state replace the window manager
             # to ensure there are no rendering or strut issues.
             if key == 'undecorate':
@@ -142,7 +142,7 @@ class MateTweak:
 
     def get_current_wm(self):
         process = subprocess.Popen(['wmctrl', '-m'], stdout=subprocess.PIPE)
-        out, err = process.communicate()
+        current_wm, err = process.communicate()
         if 'Marco' in current_wm:
             wm = 'marco'
         elif 'Metacity' in current_wm:
@@ -153,13 +153,13 @@ class MateTweak:
             wm = 'compiz'
         else:
             wm = 'unknown'
-            
+
         return wm
 
     def replace_windowmanager(self, wm, notify):
         # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
         devnull = open(os.devnull, 'wb')
-        
+
         if wm == 'compiz' or wm == 'mutter':
             # Make sure Metacity is uses the same theme as Marco. This ensures
             # gtk-window-decorator does not incorrectly change theme when
@@ -180,7 +180,7 @@ class MateTweak:
                 subprocess.Popen([wm, '--replace', 'ccp'], stdout=devnull, stderr=devnull)
             else:
                 subprocess.Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
-                
+
             subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
             if wm == 'compiz':
                 subprocess.Popen(['gtk-window-decorator', '--metacity-theme', mate_theme, '--replace'], stdout=devnull, stderr=devnull)
@@ -358,12 +358,10 @@ class MateTweak:
                     self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
-                    self.init_combobox("org.mate.Marco.general", "focus-new-windows", "combobox_window_placement")
                 elif wm == 'metacity':
                     self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
-                    self.init_combobox('org.gnome.metacity', 'placement-mode', 'combobox_window_placement')
             else:
                 self.builder.get_object('frame_performance').hide()
                 self.builder.get_object('frame_behaviour').hide()
@@ -431,7 +429,7 @@ class MateTweak:
         #    if not indicators_available:
         #        self.builder.get_object('checkbutton_indicators').hide()
         #    if not mate_menu_available:
-        #        self.builder.get_object('checkbutton_advanced_menu').hide()                
+        #        self.builder.get_object('checkbutton_advanced_menu').hide()
         #else:
         self.builder.get_object('frame_panel_features').hide()
 
@@ -535,7 +533,7 @@ class MateTweak:
         self.set_string('org.mate.panel', 'default-layout', layoutname + '-tweak')
         self.make_list_of_panel_layouts()
         self.update_combobox('org.mate.panel', 'default-layout', 'combobox_panels')
-        
+
     def compiz_reset(self, widget):
         # Switch to Marco. Purge all Compiz config and cache. Switch to Compiz.
         self.replace_windowmanager('marco', False)
@@ -602,7 +600,7 @@ class MateTweak:
         if not marco_mode and not metacity_mode:
             self.builder.get_object('frame_performance').hide()
             self.builder.get_object('checkbox_snapping').hide()
-            
+
         if not compiz_mode:
             self.builder.get_object('button_compiz_reset').hide()
 
@@ -704,7 +702,7 @@ class MateTweak:
             wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
         if self.compiz_capable():
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
-        
+
         self.builder.get_object("combobox_window_manager").set_model(wms)
         self.builder.get_object("combobox_window_manager").set_tooltip_text(_("The new window manager will be activated upon selection."))
         self.builder.get_object("caption_window_manager").set_markup("<small>" + _("Select a window manager.") + "</small>")
@@ -715,7 +713,7 @@ class MateTweak:
         self.builder.get_object("caption_panels").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
         self.builder.get_object("combobox_panels").set_tooltip_text(_("The new panel layout will be activated on selection and destroy any customisations you might have made."))
         self.init_combobox("org.mate.panel", "default-layout", "combobox_panels")
-        
+
         # Toggle Panel features
         current_layout = self.get_string("org.mate.panel", "default-layout")
         if 'indicators' in current_layout:
