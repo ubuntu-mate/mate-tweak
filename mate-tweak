@@ -142,9 +142,9 @@ class MateTweak:
             # rendering screw ups.
             subprocess.call(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
             subprocess.Popen([wm, '--replace', 'ccp'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
             if wm == 'compiz':
                 subprocess.Popen(['gtk-window-decorator', '--metacity-theme', mate_theme, '--replace'], stdout=devnull, stderr=devnull)
-            subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
         else:
             subprocess.Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
         devnull.close()
