@@ -171,7 +171,7 @@ class MateTweak:
             # metacity >= 3.16
             # The schema may not be installed
             schemasource = Gio.SettingsSchemaSource.get_default()
-            meta_316_schema = schemasource.lookup('org.gnome.metacity')
+            meta_316_schema = schemasource.lookup('org.gnome.metacity', False)
             if meta_316_schema:
                 self.set_string('org.gnome.metacity', 'theme', mate_theme)
 
@@ -470,7 +470,7 @@ class MateTweak:
         indicators_available = False
         if os.path.exists('/usr/lib/indicators/7/libapplication.so') and \
            os.path.exists('/usr/lib/indicator-sound-gtk2/indicator-sound-service') and \
-           os.path.exists('/usr/lib/mate-indicator-applet/mate-indicator-applet'):
+           os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
             indicators_available = True
 
         mate_menu_available = False
