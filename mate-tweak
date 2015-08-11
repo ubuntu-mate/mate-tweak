@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
@@ -31,7 +31,7 @@ import time
 
 from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk, Notify
 
-__VERSION__="3.5.0"
+__VERSION__="3.5.1"
 
 # i18n
 gettext.install("mate-tweak", "/usr/share/locale")
@@ -143,14 +143,16 @@ class MateTweak:
 
     def get_current_wm(self):
         process = subprocess.Popen(['wmctrl', '-m'], stdout=subprocess.PIPE)
-        current_wm, err = process.communicate()
-        if 'Marco' in current_wm:
+        out, err = process.communicate()
+        current_wm = out.decode('utf-8')
+
+        if ('Marco' in current_wm):
             wm = 'marco'
-        elif 'Metacity' in current_wm:
+        elif ('Metacity' in current_wm):
             wm = 'metacity'
-        elif 'Mutter' in current_wm:
+        elif ('Mutter' in current_wm):
             wm = 'mutter'
-        elif 'Compiz' in current_wm:
+        elif ('Compiz' in current_wm):
             wm = 'compiz'
         else:
             wm = 'unknown'
@@ -162,15 +164,20 @@ class MateTweak:
         devnull = open(os.devnull, 'wb')
 
         if wm == 'compiz' or wm == 'mutter':
-            # Make sure Metacity is uses the same theme as Marco. This ensures
-            # gtk-window-decorator does not incorrectly change theme when
-            # switching from Marco to Compiz.
+            # Make sure Metacity is uses the same themes as Marco. This
+            # ensures gtk-window-decorator does not incorrectly change
+            # themes when switching from Marco to Compiz.
             mate_theme = self.get_string('org.mate.interface', 'gtk-theme')
-            # metacity <= 3.12
-            self.set_string('org.gnome.desktop.wm.preferences', 'theme', mate_theme)
+            mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', 'cursor-theme')
+
+            schemasource = Gio.SettingsSchemaSource.get_default()
+            gnome_desktop_schema = schemasource.lookup('org.gnome.desktop', False)
+            if gnome_desktop_schema:
+                self.set_string('org.gnome.desktop.wm.preferences', 'theme', mate_theme)
+                self.set_string('org.gnome.desktop.interface', 'cursor-theme', mate_cursor_theme)
+
             # metacity >= 3.16
             # The schema may not be installed
-            schemasource = Gio.SettingsSchemaSource.get_default()
             meta_316_schema = schemasource.lookup('org.gnome.metacity', False)
             if meta_316_schema:
                 self.set_string('org.gnome.metacity', 'theme', mate_theme)
@@ -187,8 +194,6 @@ class MateTweak:
             time.sleep(1)
 
             subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
-            if wm == 'compiz':
-                subprocess.Popen(['gtk-window-decorator', '--metacity-theme', mate_theme, '--replace'], stdout=devnull, stderr=devnull)
         else:
             # If switching away from Compiz, attempt to kill gtk-window-decorator.
             #subprocess.call(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
@@ -377,8 +382,10 @@ class MateTweak:
         if self.find_on_path('compiz') and self.find_on_path('glxinfo'):
             process = subprocess.Popen(['glxinfo'], stdout=subprocess.PIPE)
             out, err = process.communicate()
-            software_rasterizer = out.count("Software Rasterizer")
-            texture_from_pixmap = out.count("texture_from_pixmap")
+            decoded = out.decode('utf-8')
+
+            software_rasterizer = decoded.count("Software Rasterizer")
+            texture_from_pixmap = decoded.count("texture_from_pixmap")
             if software_rasterizer == 0 and texture_from_pixmap > 2:
                 return True
 
