@@ -1,333 +1,230 @@
-# Punjabi translation for MATE Tweak
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
+# Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-tweak\n"
+"Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 15:28+0100\n"
-"PO-Revision-Date: 2013-02-24 03:22+0000\n"
-"Last-Translator: Navdeep Singh <Unknown>\n"
-"Language-Team: Punjabi <pa@li.org>\n"
+"POT-Creation-Date: 2015-08-13 12:27+0100\n"
+"PO-Revision-Date: 2015-08-13 11:24+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"Language-Team: Panjabi (Punjabi) (http://www.transifex.com/mate/MATE/"
+"language/pa/)\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-25 10:22+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:408
+#: ../mate-tweak:529
 msgid "GNOME2"
 msgstr ""
 
-#: ../mate-tweak:411
+#: ../mate-tweak:532
 msgid "Ubuntu MATE"
 msgstr ""
 
-#: ../mate-tweak:415
-msgid "Ubuntu MATE with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:419
-msgid "Ubuntu MATE with Indicators"
-msgstr ""
-
-#: ../mate-tweak:424
-msgid "Ubuntu MATE with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:427
+#: ../mate-tweak:535
 msgid "Redmond"
 msgstr ""
 
-#: ../mate-tweak:431
-msgid "Redmond with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:435
-msgid "Redmond with Indicators"
-msgstr ""
-
-#: ../mate-tweak:440
-msgid "Redmond with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:444
+#: ../mate-tweak:539
 msgid "Netbook"
 msgstr ""
 
-#: ../mate-tweak:448
-msgid "Netbook with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:452
-msgid "Netbook with Indicators"
-msgstr ""
-
-#: ../mate-tweak:457
-msgid "Netbook with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:461
+#: ../mate-tweak:543
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:465
-msgid "Cupertino with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:469
-msgid "Cupertino with Indicators"
-msgstr ""
-
-#: ../mate-tweak:474
-msgid "Cupertino with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:478
+#: ../mate-tweak:546
 msgid "Linux Mint"
 msgstr ""
 
-#: ../mate-tweak:482
+#: ../mate-tweak:549
 msgid "openSUSE"
 msgstr ""
 
-#: ../mate-tweak:525
+#: ../mate-tweak:594
 msgid "Desktop"
 msgstr "ਡੈਸਕਟਾਪ"
 
-#: ../mate-tweak:526
+#: ../mate-tweak:595
 msgid "Windows"
 msgstr "ਵਿੰਡੋ"
 
-#: ../mate-tweak:527
+#: ../mate-tweak:596
 msgid "Interface"
 msgstr "ਇੰਟਰਫੇਸ"
 
-#: ../mate-tweak:578
-#, fuzzy
+#: ../mate-tweak:651
 msgid "MATE Tweak"
-msgstr "ਡੈਸਕਟਾਪ"
+msgstr ""
 
-#: ../mate-tweak:581
+#: ../mate-tweak:654
 msgid "Desktop icons"
 msgstr "ਡੈਸਕਟਾਪ ਆਈਕਾਨ"
 
-#: ../mate-tweak:582
+#: ../mate-tweak:655
 msgid "Performance"
 msgstr "ਕਾਰਗੁਜ਼ਾਰੀ"
 
-#: ../mate-tweak:583
+#: ../mate-tweak:656
 msgid "Window Behaviour"
 msgstr ""
 
-#: ../mate-tweak:584
-msgid "Maximus"
-msgstr ""
-
-#: ../mate-tweak:585
+#: ../mate-tweak:657
 msgid "Appearance"
 msgstr "ਦਿਁਖ"
 
-#: ../mate-tweak:586
+#: ../mate-tweak:658
 msgid "Icons"
 msgstr "ਆਈਕਾਨ"
 
-#: ../mate-tweak:587
+#: ../mate-tweak:659
 msgid "Context menus"
 msgstr "ਪਰਸੰਗ ਮੇਨੂ"
 
-#: ../mate-tweak:588
+#: ../mate-tweak:660
 msgid "Toolbars"
 msgstr "ਟੂਲਬਾਰ"
 
-#: ../mate-tweak:589
+#: ../mate-tweak:661
 msgid "Window manager"
 msgstr ""
 
-#: ../mate-tweak:591
+#: ../mate-tweak:663
 msgid "Select the items you want to see on the desktop:"
 msgstr "ਆਈਟਮਾਂ ਚੁਣੋ, ਜੋ ਕਿ ਤੁਸੀਂ ਡੈਸਕਟਾਪ ਉੱਤੇ ਵੇਖਣਾ ਚਾਹੁੰਦੇ ਹੋ:"
 
-#: ../mate-tweak:592
-msgid "Window behaviour and new window placement."
-msgstr ""
-
-#: ../mate-tweak:594
+#: ../mate-tweak:665
 msgid "Computer"
 msgstr "ਕੰਪਿਊਟਰ"
 
-#: ../mate-tweak:595
+#: ../mate-tweak:666
 msgid "Home"
 msgstr "ਘਰ"
 
-#: ../mate-tweak:596
+#: ../mate-tweak:667
 msgid "Network"
 msgstr "ਨੈੱਟਵਰਕ"
 
-#: ../mate-tweak:597
+#: ../mate-tweak:668
 msgid "Trash"
 msgstr "ਰੱਦੀ"
 
-#: ../mate-tweak:598
+#: ../mate-tweak:669
 msgid "Mounted Volumes"
 msgstr "ਮਾਊਂਟ ਕੀਤੇ ਵਾਲੀਅਮ"
 
-#: ../mate-tweak:600
-msgid "Don't show window content while dragging them"
-msgstr "ਜਦੋਂ ਵਿੰਡੋ ਨੂੰ ਡਰੈਗ ਕਰਨਾ ਹੋਵੇ ਤਾਂ ਇਹਨਾਂ ਦੀ ਸਮੱਗਰੀ ਨਾ ਵੇਖਾਓ"
-
-#: ../mate-tweak:601
-msgid "Use compositing"
-msgstr "ਕੰਪੋਜਿਸ਼ਨ ਵਰਤੋ"
-
-#: ../mate-tweak:603
-msgid "Undecorate maximized windows"
-msgstr ""
-
-#: ../mate-tweak:604
-msgid "Do not auto-maximize new windows"
-msgstr ""
-
-#: ../mate-tweak:606
-msgid "Window control placement."
-msgstr ""
-
-#: ../mate-tweak:608
-msgid "Show icons on menus"
-msgstr "ਮੇਨੂ ਉੱਤੇ ਆਈਕਾਨ"
-
-#: ../mate-tweak:609
-msgid "Show icons on buttons"
-msgstr "ਬਟਨਾਂ ਉੱਤੇ ਆਈਕਾਨ ਵੇਖੋ"
-
-#: ../mate-tweak:610
-msgid "Show Input Methods menu in context menus"
-msgstr "ਪਰਸੰਗ ਮੇਨੂ ਵਿੱਚ ਇੰਪੁੱਟ ਢੰਗ ਮੇਨੂ ਵੇਖਾਓ"
-
-#: ../mate-tweak:611
-msgid "Show Unicode Control Character menu in context menus"
-msgstr "ਪਰਸੰਗ ਮੇਨੂ ਵਿੱਚ ਯੂਨੀਕੋਡ ਕੰਟਰੋਲ ਅੱਖਰ ਵੇਖੋ"
-
-#: ../mate-tweak:613
-msgid "Style:"
-msgstr ""
-
-#: ../mate-tweak:614
-msgid "Icon size:"
-msgstr "ਆਈਕਾਨ ਆਕਾਰ:"
-
-#: ../mate-tweak:624
-msgid "Center"
-msgstr ""
-
-#: ../mate-tweak:625
-msgid "Origin"
-msgstr ""
-
-#: ../mate-tweak:626
-msgid "Random"
-msgstr ""
-
-#: ../mate-tweak:627
-msgid "Smart"
-msgstr ""
-
-#: ../mate-tweak:656
-msgid "Small"
-msgstr "ਛੋਟੇ"
-
-#: ../mate-tweak:657
-msgid "Large"
-msgstr "ਵੱਡੇ"
-
-#: ../mate-tweak:663
-#, fuzzy
-msgid "Traditional (Right)"
-msgstr "ਪੁਰਾਣਾ ਸਟਾਈਲ (ਸੱਜੇ)"
-
-#: ../mate-tweak:664
-msgid "Contemporary (Left)"
+#: ../mate-tweak:671
+msgid "Use less resources"
 msgstr ""
 
 #: ../mate-tweak:672
+msgid "Use compositing"
+msgstr "ਕੰਪੋਜਿਸ਼ਨ ਵਰਤੋ"
+
+#: ../mate-tweak:674
+msgid "Undecorate maximized windows"
+msgstr ""
+
+#: ../mate-tweak:675
+msgid "Do not auto-maximize new windows"
+msgstr ""
+
+#: ../mate-tweak:677
+msgid "Window control placement."
+msgstr ""
+
+#: ../mate-tweak:679
+msgid "Show icons on menus"
+msgstr "ਮੇਨੂ ਉੱਤੇ ਆਈਕਾਨ"
+
+#: ../mate-tweak:680
+msgid "Show icons on buttons"
+msgstr "ਬਟਨਾਂ ਉੱਤੇ ਆਈਕਾਨ ਵੇਖੋ"
+
+#: ../mate-tweak:681
+msgid "Show Input Methods menu in context menus"
+msgstr "ਪਰਸੰਗ ਮੇਨੂ ਵਿੱਚ ਇੰਪੁੱਟ ਢੰਗ ਮੇਨੂ ਵੇਖਾਓ"
+
+#: ../mate-tweak:682
+msgid "Show Unicode Control Character menu in context menus"
+msgstr "ਪਰਸੰਗ ਮੇਨੂ ਵਿੱਚ ਯੂਨੀਕੋਡ ਕੰਟਰੋਲ ਅੱਖਰ ਵੇਖੋ"
+
+#: ../mate-tweak:684
+msgid "Style:"
+msgstr ""
+
+#: ../mate-tweak:685
+msgid "Icon size:"
+msgstr "ਆਈਕਾਨ ਆਕਾਰ:"
+
+#: ../mate-tweak:711
+msgid "Small"
+msgstr "ਛੋਟੇ"
+
+#: ../mate-tweak:712
+msgid "Large"
+msgstr "ਵੱਡੇ"
+
+#: ../mate-tweak:718
+msgid "Traditional (Right)"
+msgstr ""
+
+#: ../mate-tweak:719
+msgid "Contemporary (Left)"
+msgstr ""
+
+#: ../mate-tweak:727
 msgid "Marco (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:674
+#: ../mate-tweak:729
 msgid "Metacity (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:676
+#: ../mate-tweak:731
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:678
+#: ../mate-tweak:733
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:681
+#: ../mate-tweak:736
 msgid "The new window manager will be activated upon selection."
 msgstr ""
 
-#: ../mate-tweak:682
+#: ../mate-tweak:737
 msgid "Select a window manager."
 msgstr ""
 
-#: ../mate-tweak:687
+#: ../mate-tweak:742
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:688
+#: ../mate-tweak:743
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:693
+#: ../mate-tweak:750
 msgid "Text below items"
 msgstr "ਆਈਟਮਾਂ ਹੇਠ ਟੈਕਸਟ"
 
-#: ../mate-tweak:694
+#: ../mate-tweak:751
 msgid "Text beside items"
 msgstr "ਆਈਟਮਾਂ ਨਾਲ ਟੈਕਸਟ"
 
-#: ../mate-tweak:695
+#: ../mate-tweak:752
 msgid "Icons only"
 msgstr "ਕੇਵਲ ਆਈਕਾਨ"
 
-#: ../mate-tweak:696
+#: ../mate-tweak:753
 msgid "Text only"
 msgstr "ਕੇਵਲ ਟੈਕਸਟ"
-
-#~ msgid "Buttons layout:"
-#~ msgstr "ਬਟਨ ਲੇਆਉਟ"
-
-#~ msgid "Buttons labels:"
-#~ msgstr "ਬਟਨ ਲੇਬਲ:"
-
-#~ msgid "Terminal"
-#~ msgstr "ਟਰਮੀਨਲ"
-
-#~ msgid "Use system font in titlebar"
-#~ msgstr "ਟਾਈਟਲ-ਬਾਰ ਵਿੱਚ ਸਿਸਟਮ ਫੋਂਟ ਵਰਤੋਂ"
-
-#~ msgid "Show fortune cookies"
-#~ msgstr "ਫਾਰਟਿਊਨ ਕੂਕੀਜ਼ ਵੇਖੋ"
-
-#~ msgid "Mac style (Left)"
-#~ msgstr "ਮੈਕ ਸਟਾਈਲ (ਖੱਬੇ)"
-
-#~ msgid "Desktop Settings"
-#~ msgstr "ਡੈਸਕਟਾਪ ਸੈਟਿੰਗ"
-
-#~ msgid "Fine-tune desktop settings"
-#~ msgstr "ਢੁੱਕਵੀਂ ਡੈਸਕਟਾਪ ਸੈਟਿੰਗ"
-
-#~ msgid "Fine-tune Gnome settings"
-#~ msgstr "ਗਨੋਮ ਸੈਟਿੰਗ ਅਨੁਕੂਲ ਕਰੋ"
-
-#~ msgid "Desktop Configuration Tool"
-#~ msgstr "ਡੈਸਕਟਾਪ ਸੰਰਚਨਾ ਟੂਲ"

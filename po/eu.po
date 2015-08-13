@@ -1,365 +1,232 @@
-# Basque translation for MATE Tweak
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
-# This file is distributed under the same license as the package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
+# Translators:
+# Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2015
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-tweak\n"
+"Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 15:28+0100\n"
-"PO-Revision-Date: 2014-12-10 23:09+0000\n"
-"Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
-"Language-Team: Basque <eu@li.org>\n"
+"POT-Creation-Date: 2015-08-13 12:27+0100\n"
+"PO-Revision-Date: 2015-08-13 11:24+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"Language-Team: Basque (http://www.transifex.com/mate/MATE/language/eu/)\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-25 10:21+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:408
+#: ../mate-tweak:529
 msgid "GNOME2"
 msgstr ""
 
-#: ../mate-tweak:411
+#: ../mate-tweak:532
 msgid "Ubuntu MATE"
-msgstr ""
+msgstr "Ubuntu MATE"
 
-#: ../mate-tweak:415
-msgid "Ubuntu MATE with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:419
-msgid "Ubuntu MATE with Indicators"
-msgstr ""
-
-#: ../mate-tweak:424
-msgid "Ubuntu MATE with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:427
+#: ../mate-tweak:535
 msgid "Redmond"
-msgstr ""
+msgstr "Redmond"
 
-#: ../mate-tweak:431
-msgid "Redmond with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:435
-msgid "Redmond with Indicators"
-msgstr ""
-
-#: ../mate-tweak:440
-msgid "Redmond with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:444
+#: ../mate-tweak:539
 msgid "Netbook"
 msgstr ""
 
-#: ../mate-tweak:448
-msgid "Netbook with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:452
-msgid "Netbook with Indicators"
-msgstr ""
-
-#: ../mate-tweak:457
-msgid "Netbook with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:461
+#: ../mate-tweak:543
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:465
-msgid "Cupertino with MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:469
-msgid "Cupertino with Indicators"
-msgstr ""
-
-#: ../mate-tweak:474
-msgid "Cupertino with Indicators and MATE Menu"
-msgstr ""
-
-#: ../mate-tweak:478
+#: ../mate-tweak:546
 msgid "Linux Mint"
-msgstr ""
+msgstr "Linux Mint"
 
-#: ../mate-tweak:482
+#: ../mate-tweak:549
 msgid "openSUSE"
-msgstr ""
+msgstr "openSUSE"
 
-#: ../mate-tweak:525
+#: ../mate-tweak:594
 msgid "Desktop"
 msgstr "Mahaigaina"
 
-#: ../mate-tweak:526
+#: ../mate-tweak:595
 msgid "Windows"
 msgstr "Leihoak"
 
-#: ../mate-tweak:527
+#: ../mate-tweak:596
 msgid "Interface"
 msgstr "Interfazea"
 
-#: ../mate-tweak:578
-#, fuzzy
+#: ../mate-tweak:651
 msgid "MATE Tweak"
-msgstr "Mahaigaina"
+msgstr ""
 
-#: ../mate-tweak:581
+#: ../mate-tweak:654
 msgid "Desktop icons"
 msgstr "Mahaigaineko ikonoak"
 
-#: ../mate-tweak:582
+#: ../mate-tweak:655
 msgid "Performance"
 msgstr "Errendimendua"
 
-#: ../mate-tweak:583
-#, fuzzy
+#: ../mate-tweak:656
 msgid "Window Behaviour"
-msgstr "Leiho-kudeatzailea:"
-
-#: ../mate-tweak:584
-msgid "Maximus"
 msgstr ""
 
-#: ../mate-tweak:585
+#: ../mate-tweak:657
 msgid "Appearance"
 msgstr "Itxura"
 
-#: ../mate-tweak:586
+#: ../mate-tweak:658
 msgid "Icons"
 msgstr "Ikonoak"
 
-#: ../mate-tweak:587
+#: ../mate-tweak:659
 msgid "Context menus"
 msgstr "Testuinguru menuak"
 
-#: ../mate-tweak:588
+#: ../mate-tweak:660
 msgid "Toolbars"
 msgstr "Tresna-barrak"
 
-#: ../mate-tweak:589
-#, fuzzy
+#: ../mate-tweak:661
 msgid "Window manager"
-msgstr "Leiho-kudeatzailea:"
+msgstr ""
 
-#: ../mate-tweak:591
+#: ../mate-tweak:663
 msgid "Select the items you want to see on the desktop:"
 msgstr "Hautatu mahaigainean ikusi nahi dituzun elementuak:"
 
-#: ../mate-tweak:592
-msgid "Window behaviour and new window placement."
-msgstr ""
-
-#: ../mate-tweak:594
+#: ../mate-tweak:665
 msgid "Computer"
 msgstr "Ordenagailua"
 
-#: ../mate-tweak:595
+#: ../mate-tweak:666
 msgid "Home"
 msgstr "Karpeta nagusia"
 
-#: ../mate-tweak:596
+#: ../mate-tweak:667
 msgid "Network"
 msgstr "Sarea"
 
-#: ../mate-tweak:597
+#: ../mate-tweak:668
 msgid "Trash"
 msgstr "Zakarrontzia"
 
-#: ../mate-tweak:598
+#: ../mate-tweak:669
 msgid "Mounted Volumes"
 msgstr "Muntatutako bolumenak"
 
-#: ../mate-tweak:600
-msgid "Don't show window content while dragging them"
-msgstr "Ez erakutsi leihoen edukia arrastatzen diren bitartean"
-
-#: ../mate-tweak:601
-msgid "Use compositing"
-msgstr "Erabili konposaketa"
-
-#: ../mate-tweak:603
-msgid "Undecorate maximized windows"
-msgstr ""
-
-#: ../mate-tweak:604
-msgid "Do not auto-maximize new windows"
-msgstr ""
-
-#: ../mate-tweak:606
-msgid "Window control placement."
-msgstr ""
-
-#: ../mate-tweak:608
-msgid "Show icons on menus"
-msgstr "Erakutsi ikonoak menuetan"
-
-#: ../mate-tweak:609
-msgid "Show icons on buttons"
-msgstr "Erakutsi ikonoak botoietan"
-
-#: ../mate-tweak:610
-msgid "Show Input Methods menu in context menus"
-msgstr "Erakutsi Sarrera Metodoak menua testuinguru menuetan"
-
-#: ../mate-tweak:611
-msgid "Show Unicode Control Character menu in context menus"
-msgstr "Erakutsi Unicode Kontrol Karaktereen menua testuinguru menuetan"
-
-#: ../mate-tweak:613
-msgid "Style:"
-msgstr ""
-
-#: ../mate-tweak:614
-msgid "Icon size:"
-msgstr "Ikonoen tamaina:"
-
-#: ../mate-tweak:624
-msgid "Center"
-msgstr ""
-
-#: ../mate-tweak:625
-msgid "Origin"
-msgstr ""
-
-#: ../mate-tweak:626
-msgid "Random"
-msgstr ""
-
-#: ../mate-tweak:627
-msgid "Smart"
-msgstr ""
-
-#: ../mate-tweak:656
-msgid "Small"
-msgstr "Txikia"
-
-#: ../mate-tweak:657
-msgid "Large"
-msgstr "Handia"
-
-#: ../mate-tweak:663
-#, fuzzy
-msgid "Traditional (Right)"
-msgstr "Estilo tradizionala (eskuinean)"
-
-#: ../mate-tweak:664
-msgid "Contemporary (Left)"
+#: ../mate-tweak:671
+msgid "Use less resources"
 msgstr ""
 
 #: ../mate-tweak:672
-#, fuzzy
-msgid "Marco (Simple desktop effects)"
-msgstr "Compiz (mahaigaineko efektu ikusgarriak)"
+msgid "Use compositing"
+msgstr "Erabili konposaketa"
 
 #: ../mate-tweak:674
-#, fuzzy
-msgid "Metacity (Simple desktop effects)"
-msgstr "Compiz (mahaigaineko efektu ikusgarriak)"
-
-#: ../mate-tweak:676
-#, fuzzy
-msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr "Compiz (mahaigaineko efektu ikusgarriak)"
-
-#: ../mate-tweak:678
-#, fuzzy
-msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (mahaigaineko efektu ikusgarriak)"
-
-#: ../mate-tweak:681
-msgid "The new window manager will be activated upon selection."
+msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:682
-#, fuzzy
-msgid "Select a window manager."
-msgstr "Leiho-kudeatzailea:"
+#: ../mate-tweak:675
+msgid "Do not auto-maximize new windows"
+msgstr ""
 
-#: ../mate-tweak:687
+#: ../mate-tweak:677
+msgid "Window control placement."
+msgstr ""
+
+#: ../mate-tweak:679
+msgid "Show icons on menus"
+msgstr "Erakutsi ikonoak menuetan"
+
+#: ../mate-tweak:680
+msgid "Show icons on buttons"
+msgstr "Erakutsi ikonoak botoietan"
+
+#: ../mate-tweak:681
+msgid "Show Input Methods menu in context menus"
+msgstr "Erakutsi Sarrera Metodoak menua testuinguru menuetan"
+
+#: ../mate-tweak:682
+msgid "Show Unicode Control Character menu in context menus"
+msgstr "Erakutsi Unicode Kontrol Karaktereen menua testuinguru menuetan"
+
+#: ../mate-tweak:684
+msgid "Style:"
+msgstr ""
+
+#: ../mate-tweak:685
+msgid "Icon size:"
+msgstr "Ikonoen tamaina:"
+
+#: ../mate-tweak:711
+msgid "Small"
+msgstr "Txikia"
+
+#: ../mate-tweak:712
+msgid "Large"
+msgstr "Handia"
+
+#: ../mate-tweak:718
+msgid "Traditional (Right)"
+msgstr "Tradizionala (eskuinean)"
+
+#: ../mate-tweak:719
+msgid "Contemporary (Left)"
+msgstr "Gaur egungoa (ezkerrean)"
+
+#: ../mate-tweak:727
+msgid "Marco (Simple desktop effects)"
+msgstr "Marco (Mahaigaineko efektu sinpleak)"
+
+#: ../mate-tweak:729
+msgid "Metacity (Simple desktop effects)"
+msgstr ""
+
+#: ../mate-tweak:731
+msgid "Mutter (Elegant GPU accelerated desktop effects)"
+msgstr ""
+
+#: ../mate-tweak:733
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr "Compiz (GPU bidez azeleratutako mahaigaineko efektu aurreratuak)"
+
+#: ../mate-tweak:736
+msgid "The new window manager will be activated upon selection."
+msgstr "Hautatutakoan aktibatuko da leiho kudeatzaile berria."
+
+#: ../mate-tweak:737
+msgid "Select a window manager."
+msgstr ""
+
+#: ../mate-tweak:742
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:688
+#: ../mate-tweak:743
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
+"Panel diseinu berria hautatutakoan aktibatuko da eta aurretik egin dituzun "
+"pertsonalizazio guztiak desegingo ditu."
 
-#: ../mate-tweak:693
+#: ../mate-tweak:750
 msgid "Text below items"
 msgstr "Testua elementuen azpian"
 
-#: ../mate-tweak:694
+#: ../mate-tweak:751
 msgid "Text beside items"
 msgstr "Testua elementuen ondoan"
 
-#: ../mate-tweak:695
+#: ../mate-tweak:752
 msgid "Icons only"
 msgstr "Ikonoak soilik"
 
-#: ../mate-tweak:696
+#: ../mate-tweak:753
 msgid "Text only"
 msgstr "Testua soilik"
-
-#~ msgid "Window Manager"
-#~ msgstr "Leiho-kudeatzailea"
-
-#~ msgid "Buttons layout:"
-#~ msgstr "Botoien antolamendua"
-
-#~ msgid "Buttons labels:"
-#~ msgstr "Botoien etiketak:"
-
-#~ msgid "Terminal"
-#~ msgstr "Terminala"
-
-#~ msgid "Use system font in titlebar"
-#~ msgstr "Erabili sistemaren letra-tipoa titulu-barran"
-
-#~ msgid "Show fortune cookies"
-#~ msgstr "Erakutsi zortearen gailetak"
-
-#~ msgid "Mac style (Left)"
-#~ msgstr "Mac estiloa (ezkerrean)"
-
-#~ msgid "Marco (stable and reliable)"
-#~ msgstr "Marco (egonkorra eta fidagarria)"
-
-#~ msgid ""
-#~ "Log out and log back in for changes to take effect. If things go wrong, "
-#~ "run 'mate-wm-recovery' to switch back to Marco."
-#~ msgstr ""
-#~ "Saioa amaitu eta hasi berriz aldaketek eragina izan dezaten. Arazoren bat "
-#~ "badago exekutatu 'mate-wm-recovery' berriz ere Marco erabiltzeko."
-
-#~ msgid "Xfwm (stable and reliable)"
-#~ msgstr "Xfwm (egonkorra eta fidagarria)"
-
-#~ msgid "Log out and log back in for changes to take effect."
-#~ msgstr "Saioa amaitu eta hasi berriro aldaketek eragina izan dezaten."
-
-#~ msgid "Desktop Settings"
-#~ msgstr "Mahaigainaren ezarpenak"
-
-#~ msgid "Fine-tune desktop settings"
-#~ msgstr "Mahaigainaren ezarpenen doiketa fina"
-
-#~ msgid "Desktop Items"
-#~ msgstr "Mahaiganieko Elementuak"
-
-#~ msgid "Gnome Settings"
-#~ msgstr "Gnomeren Hobespenak"
-
-#~ msgid "Fine-tune Gnome settings"
-#~ msgstr "Zehaztu Gnomeren hobespenak"
-
-#~ msgid "Desktop Configuration Tool"
-#~ msgstr "Mahaigaina konfiguratzeko tresna"
