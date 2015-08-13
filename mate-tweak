@@ -29,6 +29,7 @@ import subprocess
 import string
 import time
 
+from configobj import ConfigObj
 from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk, Notify
 
 __VERSION__="3.5.1"
@@ -159,6 +160,14 @@ class MateTweak:
 
         return wm
 
+    def update_cursor_theme(self, theme):
+        self.mkdir_p(os.path.expanduser('~/.icons/default/'))
+        config = ConfigObj()
+        config.filename = os.path.expanduser('~/.icons/default/index.theme')
+        config['icon theme'] = {}
+        config['icon theme']['Inherits'] = theme
+        config.write()
+
     def replace_windowmanager(self, wm, notify):
         # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
         devnull = open(os.devnull, 'wb')
@@ -175,6 +184,8 @@ class MateTweak:
             if gnome_desktop_schema:
                 self.set_string('org.gnome.desktop.wm.preferences', 'theme', mate_theme)
                 self.set_string('org.gnome.desktop.interface', 'cursor-theme', mate_cursor_theme)
+
+            self.update_cursor_theme(mate_cursor_theme)
 
             # metacity >= 3.16
             # The schema may not be installed
