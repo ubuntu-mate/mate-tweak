@@ -499,6 +499,10 @@ class MateTweak:
         if os.path.exists('usr/lib/linuxmint/mintMenu/mintMenu.py'):
             mint_menu_available = True
 
+        mageia_cc_available = False
+        if os.path.exists('/usr/share/applications/mageia-drakconf.desktop'):
+            mageia_cc_available = True
+
         gnome_menu_available = False
         if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
             gnome_menu_available = True
@@ -525,28 +529,34 @@ class MateTweak:
             current_layout = layout.replace('.layout', '').replace('/usr/share/mate-panel/layouts/', '');
             panels.append([_('Custom: ') + current_layout, current_layout])
 
+        if dock:
+            if self.panel_layout_exists('eleven'):
+                panels.append([_("Cupertino"), "eleven"])
+
+        if self.panel_layout_exists('fedora'):
+            panels.append([_("Fedora"), "fedora"])
+
         if self.panel_layout_exists('default'):
             panels.append([_("GNOME2"), "default"])
 
-        if self.panel_layout_exists('ubuntu-mate'):
-            panels.append([_("Ubuntu MATE"), "ubuntu-mate"])
+        if self.panel_layout_exists('linuxmint') and mint_menu_available:
+            panels.append([_("Linux Mint"), "linuxmint"])
 
-        if self.panel_layout_exists('redmond'):
-            panels.append([_("Redmond"), "redmond"])
+        if self.panel_layout_exists('mageia') and mageia_cc_available:
+            panels.append([_("Mageia"), "mageia"])
 
         if self.maximus_available():
             if self.panel_layout_exists('netbook'):
                 panels.append([_("Netbook"), "netbook"])
 
-        if dock:
-            if self.panel_layout_exists('eleven'):
-                panels.append([_("Cupertino"), "eleven"])
-
-        if self.panel_layout_exists('linuxmint') and mint_menu_available:
-            panels.append([_("Linux Mint"), "linuxmint"])
-
         if self.panel_layout_exists('opensuse') and gnome_menu_available:
             panels.append([_("openSUSE"), "opensuse"])
+
+        if self.panel_layout_exists('redmond'):
+            panels.append([_("Redmond"), "redmond"])
+
+        if self.panel_layout_exists('ubuntu-mate'):
+            panels.append([_("Ubuntu MATE"), "ubuntu-mate"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
 
