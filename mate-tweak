@@ -412,8 +412,10 @@ class MateTweak:
         if self.find_on_path('mutter') and self.find_on_path('glxinfo'):
             process = subprocess.Popen(['glxinfo'], stdout=subprocess.PIPE)
             out, err = process.communicate()
-            software_rasterizer = out.count("Software Rasterizer")
-            texture_from_pixmap = out.count("texture_from_pixmap")
+            decoded = out.decode('utf-8')
+
+            software_rasterizer = decoded.count("Software Rasterizer")
+            texture_from_pixmap = decoded.count("texture_from_pixmap")
             if software_rasterizer == 0 and texture_from_pixmap > 2:
                 return True
         return False
