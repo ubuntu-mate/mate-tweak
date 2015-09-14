@@ -30,7 +30,7 @@ import string
 import time
 
 from configobj import ConfigObj
-from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk, Notify
+from gi.repository import Gdk, GdkPixbuf, GdkX11, Gio, GObject, Gtk, Notify
 
 __VERSION__="3.5.1"
 
@@ -45,21 +45,24 @@ class SidePage:
 
 class MateTweak:
 
-    def set_string(self, schema, key, value):
-        settings = Gio.Settings.new(schema)
+    def set_string(self, schema, path, key, value):
+        if path: settings = Gio.Settings.new_with_path(schema, path)
+        else: settings = Gio.Settings.new(schema)
         try:
             settings.set_string(key, value)
         except:
             print('Unable set ' + key + ' with ' + value + ' in ' + schema)
             pass
 
-    def get_string(self, schema, key):
-        settings = Gio.Settings.new(schema)
+    def get_string(self, schema, path, key):
+        if path: settings = Gio.Settings.new_with_path(schema, path)
+        else: settings = Gio.Settings.new(schema)
         return settings.get_string(key)
 
-    def set_bool(self, schema, key, value):
-        settings = Gio.Settings.new(schema)
-        settings.set_boolean(key, value.get_active())
+    def set_bool(self, schema, path, key, value):
+        if path: settings = Gio.Settings.new_with_path(schema, path)
+        else: settings = Gio.Settings.new(schema)
+        settings.set_boolean(key, value)
 
         # If Maximus is being tweaked, replace it to make the settings effective.
         if schema == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
@@ -83,23 +86,24 @@ class MateTweak:
                 replace_windowmanager(self.get_current_wm(), false)
             devnull.close()
 
-    def get_bool(self, schema, key):
-        settings = Gio.Settings.new(schema)
+    def get_bool(self, schema, path, key):
+        if path: settings = Gio.Settings.new_with_path(schema, path)
+        else: settings = Gio.Settings.new(schema)
         return settings.get_boolean(key)
 
     def init_checkbox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup(schema, True) != None:
             widget = self.builder.get_object(name)
-            value = self.get_bool(schema, key)
+            value = self.get_bool(schema, None, key)
             widget.set_active(value)
-            widget.connect("clicked", lambda x: self.set_bool(schema, key, x))
+            widget.connect("clicked", lambda x: self.set_bool(schema, None, key, x))
 
     def init_combobox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup(schema, True) != None:
             widget = self.builder.get_object(name)
-            conf = self.get_string(schema, key)
+            conf = self.get_string(schema, None, key)
             index = 0
             for row in widget.get_model():
                 if(conf == row[1]):
@@ -112,7 +116,7 @@ class MateTweak:
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup(schema, True) != None:
             widget = self.builder.get_object(name)
-            conf = self.get_string(schema, key)
+            conf = self.get_string(schema, None, key)
             index = 0
             for row in widget.get_model():
                 if(conf == row[1]):
@@ -143,9 +147,8 @@ class MateTweak:
                 raise
 
     def get_current_wm(self):
-        process = subprocess.Popen(['wmctrl', '-m'], stdout=subprocess.PIPE)
-        out, err = process.communicate()
-        current_wm = out.decode('utf-8')
+        screen = Gdk.Screen.get_default()
+        current_wm = GdkX11.X11Screen.get_window_manager_name(screen)
 
         if ('Marco' in current_wm):
             wm = 'marco'
@@ -176,14 +179,14 @@ class MateTweak:
             # Make sure Metacity is uses the same themes as Marco. This
             # ensures gtk-window-decorator does not incorrectly change
             # themes when switching from Marco to Compiz.
-            mate_theme = self.get_string('org.mate.interface', 'gtk-theme')
-            mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', 'cursor-theme')
+            mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
+            mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', None, 'cursor-theme')
 
             schemasource = Gio.SettingsSchemaSource.get_default()
             gnome_desktop_schema = schemasource.lookup('org.gnome.desktop', False)
             if gnome_desktop_schema:
-                self.set_string('org.gnome.desktop.wm.preferences', 'theme', mate_theme)
-                self.set_string('org.gnome.desktop.interface', 'cursor-theme', mate_cursor_theme)
+                self.set_string('org.gnome.desktop.wm.preferences', None, 'theme', mate_theme)
+                self.set_string('org.gnome.desktop.interface', None, 'cursor-theme', mate_cursor_theme)
 
             self.update_cursor_theme(mate_cursor_theme)
 
@@ -191,7 +194,7 @@ class MateTweak:
             # The schema may not be installed
             meta_316_schema = schemasource.lookup('org.gnome.metacity', False)
             if meta_316_schema:
-                self.set_string('org.gnome.metacity', 'theme', mate_theme)
+                self.set_string('org.gnome.metacity', None, 'theme', mate_theme)
 
             # mate-panel needs to be replaced when switching to Compiz/Mutter
             # to avoid rendering screw ups and strut issues.
@@ -227,11 +230,11 @@ class MateTweak:
         current_wm = self.get_current_wm()
         if current_wm == 'marco':
             settings = Gio.Settings.new('org.mate.Marco.general')
-            settings.set_boolean('compositing-manager', True)
+            settings.set_boolean('compositing-manager', None, True)
             subprocess.Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)
         elif current_wm == 'metacity':
             settings = Gio.Settings.new('org.gnome.metacity')
-            settings.set_boolean('compositing-manager', True)
+            settings.set_boolean('compositing-manager', None, True)
             subprocess.Popen(['metacity', '--replace'], stdout=devnull, stderr=devnull)
 
         subprocess.Popen([dock], stdout=devnull, stderr=devnull)
@@ -324,13 +327,14 @@ class MateTweak:
         elif self.find_on_path('plank'):
             dock = 'plank'
 
+        thumbnail_schema_id = "org.compiz.thumbnail"
+        thumbnail_profile_path = '/org/compiz/profiles/mate/plugins/thumbnail/'
+
         current_wm = self.get_current_wm()
         if new_layout.startswith('eleven') and dock is not None:
-            if 'Compiz' in current_wm:
+            if 'compiz' in current_wm:
                 # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
-                devnull = open(os.devnull, 'wb')
-                subprocess.call(['dconf', 'write', '/org/compiz/profiles/mate/plugins/thumbnail/current-viewport', 'false'], stdout=devnull, stderr=devnull)
-                devnull.close()
+                self.set_bool(thumbnail_schema_id, thumbnail_profile_path, "current-viewport", False)
 
             if dock is 'docky':
                 self.disable_dock('plank')
@@ -340,16 +344,14 @@ class MateTweak:
         else:
             if self.get_current_wm() == 'compiz':
                 # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
-                devnull = open(os.devnull, 'wb')
-                subprocess.call(['dconf', 'write', '/org/compiz/profiles/mate/plugins/thumbnail/current-viewport', 'true'], stdout=devnull, stderr=devnull)
-                devnull.close()
+                self.set_bool(thumbnail_schema_id, thumbnail_profile_path, "current-viewport", True)
 
             self.disable_dock('docky')
             self.disable_dock('plank')
 
     def init_panel_features(self):
         # Set the base layout and toggle visible options.
-        current_layout = self.get_string('org.mate.panel', 'default-layout')
+        current_layout = self.get_string('org.mate.panel', None, 'default-layout')
         base_layout = current_layout.replace('-indicators','').replace('-fresh','')
         print ('Schema layout: ' + current_layout)
         print('Base layout: ' + base_layout)
@@ -382,7 +384,7 @@ class MateTweak:
 
     def toggle_panel_features(self, widget):
         # Set the base layout and and issue a replace
-        current_layout = current_layout = self.get_string('org.mate.panel', 'default-layout')
+        current_layout = current_layout = self.get_string('org.mate.panel', None, 'default-layout')
         base_layout = current_layout.replace('-indicators','').replace('-fresh','')
         self.replace_panel_layout(base_layout)
 
@@ -424,8 +426,8 @@ class MateTweak:
         if schema == "org.mate.Marco.general" and key == "button-layout":
             # If the button-layout is changed in MATE reflect that change
             # for GTK3 and GNOME.
-            self.set_string("org.mate.interface", "gtk-decoration-layout", value)
-            self.set_string("org.gnome.desktop.wm.preferences", "button-layout", value)
+            self.set_string("org.mate.interface", None, "gtk-decoration-layout", value)
+            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", value)
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
             wm = value
             # Sanity check
@@ -464,7 +466,7 @@ class MateTweak:
     def combo_fallback(self, schema, key, widget):
         act = widget.get_active()
         value = widget.get_model()[act]
-        self.set_string(schema, key, value[1])
+        self.set_string(schema, None, key, value[1])
 
         # Process any additional changes required for the schema and key
         self.additional_tweaks(schema, key, value[1])
@@ -571,7 +573,7 @@ class MateTweak:
         Notify.init(_('Panel Layout Saved'))
         save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as /usr/share/mate-panel/layouts/' + layoutname +'-tweak.layout'),'dialog-information')
         save_panels_notify.show()
-        self.set_string('org.mate.panel', 'default-layout', layoutname + '-tweak')
+        self.set_string('org.mate.panel', None, 'default-layout', layoutname + '-tweak')
         self.make_list_of_panel_layouts()
         self.update_combobox('org.mate.panel', 'default-layout', 'combobox_panels')
 
