@@ -30,7 +30,7 @@ import string
 import time
 
 from configobj import ConfigObj
-from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk, Notify
+from gi.repository import Gdk, GdkPixbuf, GdkX11, Gio, GObject, Gtk, Notify
 
 __VERSION__="3.5.1"
 
@@ -143,9 +143,8 @@ class MateTweak:
                 raise
 
     def get_current_wm(self):
-        process = subprocess.Popen(['wmctrl', '-m'], stdout=subprocess.PIPE)
-        out, err = process.communicate()
-        current_wm = out.decode('utf-8')
+        screen = Gdk.Screen.get_default()
+        current_wm = GdkX11.X11Screen.get_window_manager_name(screen)
 
         if ('Marco' in current_wm):
             wm = 'marco'
