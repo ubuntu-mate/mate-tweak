@@ -332,7 +332,7 @@ class MateTweak:
 
         current_wm = self.get_current_wm()
         if new_layout.startswith('eleven') and dock is not None:
-            if 'Compiz' in current_wm:
+            if 'compiz' in current_wm:
                 # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
                 self.set_bool(thumbnail_schema_id, thumbnail_profile_path, "current-viewport", False)
 
