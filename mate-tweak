@@ -25,6 +25,7 @@ import gi
 import glob
 import os
 import shutil
+import signal
 import subprocess
 import string
 import time
@@ -38,6 +39,9 @@ from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import Notify
 from gi.repository import GLib
+
+# Workaround introspection bug, gnome bug 622084
+signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 __VERSION__="3.5.1"
 
