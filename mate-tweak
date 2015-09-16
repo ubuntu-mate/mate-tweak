@@ -30,7 +30,14 @@ import string
 import time
 
 from configobj import ConfigObj
-from gi.repository import Gdk, GdkPixbuf, GdkX11, Gio, GObject, Gtk, Notify
+from gi.repository import Gdk
+from gi.repository import GdkPixbuf
+from gi.repository import GdkX11
+from gi.repository import Gio
+from gi.repository import GObject
+from gi.repository import Gtk
+from gi.repository import Notify
+from gi.repository import GLib
 
 __VERSION__="3.5.1"
 
