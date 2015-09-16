@@ -171,9 +171,10 @@ class MateTweak:
         return wm
 
     def update_cursor_theme(self, theme):
-        self.mkdir_p(os.path.expanduser('~/.icons/default/'))
+        home_dir = GLib.get_home_dir()
+        self.mkdir_p(os.path.join(home_dir, '.icons/default/'))
         config = ConfigObj()
-        config.filename = os.path.expanduser('~/.icons/default/index.theme')
+        config.filename = os.path.join(home_dir, '.icons/default/index.theme')
         config['icon theme'] = {}
         config['icon theme']['Inherits'] = theme
         config.write()
@@ -229,8 +230,9 @@ class MateTweak:
             replace_windowmanager_notify.show()
 
     def enable_dock(self, dock):
-        self.mkdir_p(os.path.expanduser('~/.config/autostart/'))
-        shutil.copy2('/usr/share/applications/' + dock + '.desktop', os.path.expanduser('~/.config/autostart/'))
+        config_dir = GLib.get_user_config_dir()
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        shutil.copy2('/usr/share/applications/' + dock + '.desktop', os.path.join(config_dir, 'autostart/'))
 
         devnull = open(os.devnull, 'wb')
         # Docks require compositing
@@ -248,8 +250,9 @@ class MateTweak:
         devnull.close()
 
     def disable_dock(self, dock):
-        if os.path.exists(os.path.expanduser('~/.config/autostart/') + dock + '.desktop'):
-            os.remove(os.path.expanduser('~/.config/autostart/') + dock + '.desktop')
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + dock + '.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + dock + '.desktop')
         devnull = open(os.devnull, 'wb')
         subprocess.call(['killall', dock], stdout=devnull, stderr=devnull)
         devnull.close()
@@ -261,16 +264,18 @@ class MateTweak:
 
         # If the system autostart is missing create a user autostart.
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            self.mkdir_p(os.path.expanduser('~/.config/autostart/'))
-            shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.expanduser('~/.config/autostart/'))
+            config_dir = GLib.get_user_config_dir()
+            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+            shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
 
     def disable_mate_volume_applet(self):
         devnull = open(os.devnull, 'wb')
         subprocess.call(['killall', 'mate-volume-control-applet'], stdout=devnull, stderr=devnull)
 
         # If a system or user autostart exists, remove it.
-        if os.path.exists(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop'):
-            os.remove(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop')
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
         devnull.close()
@@ -590,8 +595,8 @@ class MateTweak:
         devnull = open(os.devnull, 'wb')
         subprocess.call(['dconf', 'reset', '-f', '/org/compiz/'], stdout=devnull, stderr=devnull)
         devnull.close()
-        config_compiz = os.path.join(os.path.expanduser('~'),'.config','compiz-1')
-        cache_compiz = os.path.join(os.path.expanduser('~'),'.cache','compizconfg1')
+        config_compiz = os.path.join(GLib.get_user_config_dir(), 'compiz-1')
+        cache_compiz = os.path.join(GLib.get_user_cache_dir(), 'compizconfg1')
         if os.path.exists(config_compiz):
             shutil.rmtree(config_compiz)
         if os.path.exists(cache_compiz):
