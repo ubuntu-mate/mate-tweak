@@ -240,12 +240,10 @@ class MateTweak:
         # Docks require compositing
         current_wm = self.get_current_wm()
         if current_wm == 'marco':
-            settings = Gio.Settings.new('org.mate.Marco.general')
-            settings.set_boolean('compositing-manager', None, True)
+            self.set_bool('org.mate.Marco.general', None, 'compositing-manager', True)
             subprocess.Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)
         elif current_wm == 'metacity':
-            settings = Gio.Settings.new('org.gnome.metacity')
-            settings.set_boolean('compositing-manager', None, True)
+            self.set_bool('org.gnome.metacity', None, 'compositing-manager', True)
             subprocess.Popen(['metacity', '--replace'], stdout=devnull, stderr=devnull)
 
         subprocess.Popen([dock], stdout=devnull, stderr=devnull)
