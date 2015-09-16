@@ -51,6 +51,28 @@ class SidePage:
         self.icon = icon
 
 class MateTweak:
+    def on_checkbox_toggled(self, widget, schema_id, key):
+        # If Maximus is being tweaked, replace it to make the settings effective.
+        if schema_id == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
+            devnull = open(os.devnull, 'wb')
+            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
+
+            # When changing undecorate state replace the window manager
+            # to ensure there are no rendering or strut issues.
+            if key == 'undecorate':
+                self.replace_windowmanager(self.get_current_wm(), False)
+            devnull.close()
+
+        # If panel features are being changed replace the panel layout.
+        if schema_id == "org.mate.panel" and (key == "undecorate" or key == "no-maximize"):
+            devnull = open(os.devnull, 'wb')
+            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
+
+            # When changing undecorate state replace the window manager
+            # to ensure there are no rendering or strut issues.
+            if key == 'undecorate':
+                self.replace_windowmanager(self.get_current_wm(), False)
+            devnull.close()
 
     def set_string(self, schema, path, key, value):
         if path: settings = Gio.Settings.new_with_path(schema, path)
@@ -71,40 +93,20 @@ class MateTweak:
         else: settings = Gio.Settings.new(schema)
         settings.set_boolean(key, value)
 
-        # If Maximus is being tweaked, replace it to make the settings effective.
-        if schema == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
-            devnull = open(os.devnull, 'wb')
-            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
-
-            # When changing undecorate state replace the window manager
-            # to ensure there are no rendering or strut issues.
-            if key == 'undecorate':
-                replace_windowmanager(self.get_current_wm(), false)
-            devnull.close()
-
-        # If panel features are being changed replace the panel layout.
-        if schema == "org.mate.panel" and (key == "undecorate" or key == "no-maximize"):
-            devnull = open(os.devnull, 'wb')
-            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
-
-            # When changing undecorate state replace the window manager
-            # to ensure there are no rendering or strut issues.
-            if key == 'undecorate':
-                replace_windowmanager(self.get_current_wm(), false)
-            devnull.close()
-
     def get_bool(self, schema, path, key):
         if path: settings = Gio.Settings.new_with_path(schema, path)
         else: settings = Gio.Settings.new(schema)
         return settings.get_boolean(key)
 
-    def init_checkbox(self, schema, key, name):
+    def init_checkbox(self, schema_id, key, name):
         source = Gio.SettingsSchemaSource.get_default()
-        if source.lookup(schema, True) != None:
+        schema = source.lookup(schema_id, True)
+        if schema:
+            settings = Gio.Settings.new_full(schema)
             widget = self.builder.get_object(name)
-            value = self.get_bool(schema, None, key)
-            widget.set_active(value)
-            widget.connect("clicked", lambda x: self.set_bool(schema, None, key, x))
+
+            settings.bind(key, widget, "active", Gio.SettingsBindFlags.DEFAULT)
+            widget.connect("toggled", self.on_checkbox_toggled, schema_id, key)
 
     def init_combobox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
