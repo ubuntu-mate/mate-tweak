@@ -74,10 +74,11 @@
                           <object class="GtkLabel" id="caption_desktop_icons">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="ypad">6</property>
+                            <property name="halign">start</property>
+                            <property name="margin_top">3</property>
+                            <property name="margin_bottom">3</property>
                             <property name="label" translatable="yes">&lt;small&gt;Select the items you want to see on the desktop:&lt;/small&gt;</property>
                             <property name="use_markup">True</property>
-                            <property name="xalign">0</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -92,7 +93,6 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -108,7 +108,6 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -124,7 +123,6 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -140,7 +138,6 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -156,7 +153,6 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -207,15 +203,14 @@
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
                         <property name="orientation">vertical</property>
-                        <property name="spacing">6</property>
                         <child>
                           <object class="GtkCheckButton" id="checkbox_resources">
                             <property name="label" translatable="yes">Use less resources</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0</property>
-                            <property name="yalign">0</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -231,8 +226,8 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0</property>
-                            <property name="yalign">0</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -277,8 +272,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0</property>
-                            <property name="yalign">0</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -294,8 +289,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0</property>
-                            <property name="yalign">0</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -311,8 +306,8 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0</property>
-                            <property name="yalign">0</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -423,7 +418,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">start</property>
-                            <property name="ypad">6</property>
+                            <property name="margin_top">6</property>
                             <property name="label" translatable="yes">&lt;small&gt;Select a window manager.&lt;/small&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="ellipsize">end</property>
@@ -526,7 +521,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="halign">start</property>
-                            <property name="ypad">6</property>
+                            <property name="margin_top">6</property>
                             <property name="label" translatable="yes">&lt;small&gt;Select a panel layout to change the user interface.&lt;/small&gt;
 </property>
                             <property name="use_markup">True</property>
@@ -617,7 +612,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -632,7 +628,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -678,7 +675,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0.5</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -693,7 +691,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0.5</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -738,7 +737,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0.5</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -753,7 +753,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="xalign">0.5</property>
+                            <property name="halign">start</property>
+                            <property name="valign">center</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
