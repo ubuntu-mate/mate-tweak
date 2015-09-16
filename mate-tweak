@@ -30,7 +30,14 @@ import string
 import time
 
 from configobj import ConfigObj
-from gi.repository import Gdk, GdkPixbuf, GdkX11, Gio, GObject, Gtk, Notify
+from gi.repository import Gdk
+from gi.repository import GdkPixbuf
+from gi.repository import GdkX11
+from gi.repository import Gio
+from gi.repository import GObject
+from gi.repository import Gtk
+from gi.repository import Notify
+from gi.repository import GLib
 
 __VERSION__="3.5.1"
 
@@ -44,6 +51,28 @@ class SidePage:
         self.icon = icon
 
 class MateTweak:
+    def on_checkbox_toggled(self, widget, schema_id, key):
+        # If Maximus is being tweaked, replace it to make the settings effective.
+        if schema_id == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
+            devnull = open(os.devnull, 'wb')
+            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
+
+            # When changing undecorate state replace the window manager
+            # to ensure there are no rendering or strut issues.
+            if key == 'undecorate':
+                self.replace_windowmanager(self.get_current_wm(), False)
+            devnull.close()
+
+        # If panel features are being changed replace the panel layout.
+        if schema_id == "org.mate.panel" and (key == "undecorate" or key == "no-maximize"):
+            devnull = open(os.devnull, 'wb')
+            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
+
+            # When changing undecorate state replace the window manager
+            # to ensure there are no rendering or strut issues.
+            if key == 'undecorate':
+                self.replace_windowmanager(self.get_current_wm(), False)
+            devnull.close()
 
     def set_string(self, schema, path, key, value):
         if path: settings = Gio.Settings.new_with_path(schema, path)
@@ -64,40 +93,20 @@ class MateTweak:
         else: settings = Gio.Settings.new(schema)
         settings.set_boolean(key, value)
 
-        # If Maximus is being tweaked, replace it to make the settings effective.
-        if schema == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
-            devnull = open(os.devnull, 'wb')
-            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
-
-            # When changing undecorate state replace the window manager
-            # to ensure there are no rendering or strut issues.
-            if key == 'undecorate':
-                replace_windowmanager(self.get_current_wm(), false)
-            devnull.close()
-
-        # If panel features are being changed replace the panel layout.
-        if schema == "org.mate.panel" and (key == "undecorate" or key == "no-maximize"):
-            devnull = open(os.devnull, 'wb')
-            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
-
-            # When changing undecorate state replace the window manager
-            # to ensure there are no rendering or strut issues.
-            if key == 'undecorate':
-                replace_windowmanager(self.get_current_wm(), false)
-            devnull.close()
-
     def get_bool(self, schema, path, key):
         if path: settings = Gio.Settings.new_with_path(schema, path)
         else: settings = Gio.Settings.new(schema)
         return settings.get_boolean(key)
 
-    def init_checkbox(self, schema, key, name):
+    def init_checkbox(self, schema_id, key, name):
         source = Gio.SettingsSchemaSource.get_default()
-        if source.lookup(schema, True) != None:
+        schema = source.lookup(schema_id, True)
+        if schema:
+            settings = Gio.Settings.new_full(schema)
             widget = self.builder.get_object(name)
-            value = self.get_bool(schema, None, key)
-            widget.set_active(value)
-            widget.connect("clicked", lambda x: self.set_bool(schema, None, key, x))
+
+            settings.bind(key, widget, "active", Gio.SettingsBindFlags.DEFAULT)
+            widget.connect("toggled", self.on_checkbox_toggled, schema_id, key)
 
     def init_combobox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
@@ -110,7 +119,7 @@ class MateTweak:
                     widget.set_active(index)
                     break
                 index = index +1
-            widget.connect("changed", lambda x: self.combo_fallback(schema, key, x))
+            widget.connect("changed", self.combo_fallback, schema, key)
 
     def update_combobox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
@@ -164,9 +173,10 @@ class MateTweak:
         return wm
 
     def update_cursor_theme(self, theme):
-        self.mkdir_p(os.path.expanduser('~/.icons/default/'))
+        home_dir = GLib.get_home_dir()
+        self.mkdir_p(os.path.join(home_dir, '.icons/default/'))
         config = ConfigObj()
-        config.filename = os.path.expanduser('~/.icons/default/index.theme')
+        config.filename = os.path.join(home_dir, '.icons/default/index.theme')
         config['icon theme'] = {}
         config['icon theme']['Inherits'] = theme
         config.write()
@@ -222,8 +232,9 @@ class MateTweak:
             replace_windowmanager_notify.show()
 
     def enable_dock(self, dock):
-        self.mkdir_p(os.path.expanduser('~/.config/autostart/'))
-        shutil.copy2('/usr/share/applications/' + dock + '.desktop', os.path.expanduser('~/.config/autostart/'))
+        config_dir = GLib.get_user_config_dir()
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        shutil.copy2('/usr/share/applications/' + dock + '.desktop', os.path.join(config_dir, 'autostart/'))
 
         devnull = open(os.devnull, 'wb')
         # Docks require compositing
@@ -241,8 +252,9 @@ class MateTweak:
         devnull.close()
 
     def disable_dock(self, dock):
-        if os.path.exists(os.path.expanduser('~/.config/autostart/') + dock + '.desktop'):
-            os.remove(os.path.expanduser('~/.config/autostart/') + dock + '.desktop')
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + dock + '.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + dock + '.desktop')
         devnull = open(os.devnull, 'wb')
         subprocess.call(['killall', dock], stdout=devnull, stderr=devnull)
         devnull.close()
@@ -254,16 +266,18 @@ class MateTweak:
 
         # If the system autostart is missing create a user autostart.
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            self.mkdir_p(os.path.expanduser('~/.config/autostart/'))
-            shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.expanduser('~/.config/autostart/'))
+            config_dir = GLib.get_user_config_dir()
+            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+            shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
 
     def disable_mate_volume_applet(self):
         devnull = open(os.devnull, 'wb')
         subprocess.call(['killall', 'mate-volume-control-applet'], stdout=devnull, stderr=devnull)
 
         # If a system or user autostart exists, remove it.
-        if os.path.exists(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop'):
-            os.remove(os.path.expanduser('~/.config/autostart/') + 'mate-volume-control-applet.desktop')
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
         devnull.close()
@@ -380,7 +394,7 @@ class MateTweak:
                     widget.set_active(index)
                     break
                 index = index +1
-            widget.connect("changed", lambda x: self.combo_fallback('org.mate.panel', 'default-layout', x))
+            widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
     def toggle_panel_features(self, widget):
         # Set the base layout and and issue a replace
@@ -463,7 +477,7 @@ class MateTweak:
             # If the panel layout is being changed, replace it now!
             self.replace_panel_layout(panel_layout)
 
-    def combo_fallback(self, schema, key, widget):
+    def combo_fallback(self, widget, schema, key):
         act = widget.get_active()
         value = widget.get_model()[act]
         self.set_string(schema, None, key, value[1])
@@ -583,8 +597,8 @@ class MateTweak:
         devnull = open(os.devnull, 'wb')
         subprocess.call(['dconf', 'reset', '-f', '/org/compiz/'], stdout=devnull, stderr=devnull)
         devnull.close()
-        config_compiz = os.path.join(os.path.expanduser('~'),'.config','compiz-1')
-        cache_compiz = os.path.join(os.path.expanduser('~'),'.cache','compizconfg1')
+        config_compiz = os.path.join(GLib.get_user_config_dir(), 'compiz-1')
+        cache_compiz = os.path.join(GLib.get_user_cache_dir(), 'compizconfg1')
         if os.path.exists(config_compiz):
             shutil.rmtree(config_compiz)
         if os.path.exists(cache_compiz):
