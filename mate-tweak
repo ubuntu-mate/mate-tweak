@@ -119,7 +119,7 @@ class MateTweak:
                     widget.set_active(index)
                     break
                 index = index +1
-            widget.connect("changed", lambda x: self.combo_fallback(schema, key, x))
+            widget.connect("changed", self.combo_fallback, schema, key)
 
     def update_combobox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
@@ -394,7 +394,7 @@ class MateTweak:
                     widget.set_active(index)
                     break
                 index = index +1
-            widget.connect("changed", lambda x: self.combo_fallback('org.mate.panel', 'default-layout', x))
+            widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
     def toggle_panel_features(self, widget):
         # Set the base layout and and issue a replace
@@ -477,7 +477,7 @@ class MateTweak:
             # If the panel layout is being changed, replace it now!
             self.replace_panel_layout(panel_layout)
 
-    def combo_fallback(self, schema, key, widget):
+    def combo_fallback(self, widget, schema, key):
         act = widget.get_active()
         value = widget.get_model()[act]
         self.set_string(schema, None, key, value[1])
