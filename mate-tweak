@@ -25,11 +25,15 @@ import gi
 import glob
 import os
 import shutil
+import signal
 import subprocess
 import string
+import sys
 import time
 
 from configobj import ConfigObj
+from ctypes import cdll, byref, create_string_buffer
+
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from gi.repository import GdkX11
@@ -39,10 +43,29 @@ from gi.repository import Gtk
 from gi.repository import Notify
 from gi.repository import GLib
 
+# Workaround introspection bug, gnome bug 622084
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+
 __VERSION__="3.5.1"
 
 # i18n
 gettext.install("mate-tweak", "/usr/share/locale")
+
+def set_proc_title(name=None):
+    '''Set the process title'''
+
+    if not name:
+        name = os.path.basename(sys.argv[0])
+
+    libc = cdll.LoadLibrary('libc.so.6')
+    buff = create_string_buffer(len(name)+1)
+    buff.value = name.encode("UTF-8")
+    ret = libc.prctl(15, byref(buff), 0, 0, 0)
+
+    if ret != 0:
+        print("Failed to set process title")
+
+    return ret
 
 class SidePage:
     def __init__(self, notebook_index, name, icon):
@@ -240,12 +263,10 @@ class MateTweak:
         # Docks require compositing
         current_wm = self.get_current_wm()
         if current_wm == 'marco':
-            settings = Gio.Settings.new('org.mate.Marco.general')
-            settings.set_boolean('compositing-manager', None, True)
+            self.set_bool('org.mate.Marco.general', None, 'compositing-manager', True)
             subprocess.Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)
         elif current_wm == 'metacity':
-            settings = Gio.Settings.new('org.gnome.metacity')
-            settings.set_boolean('compositing-manager', None, True)
+            self.set_bool('org.gnome.metacity', None, 'compositing-manager', True)
             subprocess.Popen(['metacity', '--replace'], stdout=devnull, stderr=devnull)
 
         subprocess.Popen([dock], stdout=devnull, stderr=devnull)
@@ -784,5 +805,6 @@ class MateTweak:
         self.builder.get_object("main_window").show()
 
 if __name__ == "__main__":
+    set_proc_title()
     MateTweak()
     Gtk.main()
