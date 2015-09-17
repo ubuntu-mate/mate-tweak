@@ -28,9 +28,12 @@ import shutil
 import signal
 import subprocess
 import string
+import sys
 import time
 
 from configobj import ConfigObj
+from ctypes import cdll, byref, create_string_buffer
+
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from gi.repository import GdkX11
@@ -47,6 +50,22 @@ __VERSION__="3.5.1"
 
 # i18n
 gettext.install("mate-tweak", "/usr/share/locale")
+
+def set_proc_title(name=None):
+    '''Set the process title'''
+
+    if not name:
+        name = os.path.basename(sys.argv[0])
+
+    libc = cdll.LoadLibrary('libc.so.6')
+    buff = create_string_buffer(len(name)+1)
+    buff.value = name.encode("UTF-8")
+    ret = libc.prctl(15, byref(buff), 0, 0, 0)
+
+    if ret != 0:
+        print("Failed to set process title")
+
+    return ret
 
 class SidePage:
     def __init__(self, notebook_index, name, icon):
@@ -786,5 +805,6 @@ class MateTweak:
         self.builder.get_object("main_window").show()
 
 if __name__ == "__main__":
+    set_proc_title()
     MateTweak()
     Gtk.main()
