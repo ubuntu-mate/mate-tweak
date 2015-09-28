@@ -21,5 +21,7 @@
 
 import os
 
-if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-    os.remove('/etc/xdg/autostart/mate-volume-control-applet.desktop')
+if __name__ == '__main__':
+    volume_applet = os.path.join('/','etc','xdg','autostart','mate-volume-control-applet.desktop')
+    if os.path.exists(volume_applet):
+        os.remove(volume_applet)

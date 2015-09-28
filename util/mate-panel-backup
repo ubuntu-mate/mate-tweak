@@ -18,20 +18,17 @@
 # Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
-from __future__ import unicode_literals, print_function, absolute_import
-from gi.repository import Gio
-
 import os
 import subprocess
 import sys
+from gi.repository import Gio
+from subprocess import PIPE
 
 def dconf_dump(dconf_path, dump_filename):
-    process = subprocess.Popen(['dconf', 'dump', dconf_path], stdout=subprocess.PIPE)
-    out, err = process.communicate()
-    decoded = out.decode('utf-8')
-
+    process = subprocess.Popen(['dconf', 'dump', dconf_path], stdout=PIPE)
+    out = process.communicate()[0].decode("UTF-8")
     with open(os.path.join('/','tmp',dump_filename), 'w') as f:
-        f.writelines(decoded)
+        f.writelines(out)
 
 def panel_dump(filename):
     VALID = {'toplevel': ('expand', 'size', 'orientation'),
@@ -106,14 +103,14 @@ def panel_dump(filename):
         f.writelines(layout)
 
     # Dump dconf panel
-    dconf_dump('/org/mate/panel/', filename + '-tweak.panel')
+    dconf_dump(os.path.join('/','org','mate','panel', filename + '-tweak.panel'))
 
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
-        current_user = sys.argv[1]
-        print("Backing up " + current_user)
-        panel_dump(current_user)
+        layout_name = sys.argv[1]
+        print("Backing up " + layout_name)
+        panel_dump(layout_name)
     else:
-        print("No name supplied.")
+        print("No layout name supplied.")
         sys.exit(1)
