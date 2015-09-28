@@ -294,7 +294,7 @@ class MateTweak:
            self.panel_layout_exists(panel_layout + '-indicators-fresh'):
             self.builder.get_object('frame_panel_features').show()
         else:
-            self.builder.get_object('frame_panel_features').hide()
+            self.builder.get_object('frame_panel_features').props.sensitive = False
 
         new_layout = panel_layout
         if self.builder.get_object('checkbutton_indicators').get_active() and \
@@ -382,7 +382,7 @@ class MateTweak:
         if not self.panel_layout_exists(base_layout + '-fresh') and \
            not self.panel_layout_exists(base_layout + '-indicators') and \
            not self.panel_layout_exists(base_layout + '-indicators-fresh'):
-            self.builder.get_object('frame_panel_features').hide()
+            self.builder.get_object('frame_panel_features').props.sensitive = False
 
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup('org.mate.panel', True) != None:
@@ -443,9 +443,6 @@ class MateTweak:
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", value)
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
             wm = value
-            # Sanity check
-            if wm not in ['compiz', 'marco', 'metacity', 'mutter']:
-                wm = 'marco'
 
             # If the window manager is being changed, replace it now!
             self.replace_windowmanager(wm, True)
@@ -463,8 +460,8 @@ class MateTweak:
                     self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
             else:
-                self.builder.get_object('frame_performance').hide()
-                self.builder.get_object('frame_behaviour').hide()
+                self.builder.get_object('frame_performance').props.sensitive = False
+                self.builder.get_object('frame_behaviour').props.sensitive = False
 
             if wm == 'compiz':
                self.builder.get_object('button_compiz_reset').show()
@@ -531,11 +528,11 @@ class MateTweak:
         if indicators_available or mate_menu_available:
             self.builder.get_object('frame_panel_features').show()
             if not indicators_available:
-                self.builder.get_object('checkbutton_indicators').hide()
+                self.builder.get_object('checkbutton_indicators').props.sensitive = False
             if not mate_menu_available:
-                self.builder.get_object('checkbutton_advanced_menu').hide()
+                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
         else:
-            self.builder.get_object('frame_panel_features').hide()
+            self.builder.get_object('frame_panel_features').props.sensitive = False
 
         # Panel layouts
         panels = Gtk.ListStore(str, str)
@@ -650,15 +647,15 @@ class MateTweak:
         # Do not show Performance or Window behaviour configuration
         # options when Marco or Metacity are not currently running.
         if not marco_mode and not metacity_mode:
-            self.builder.get_object('frame_performance').hide()
-            self.builder.get_object('checkbox_snapping').hide()
+            self.builder.get_object('frame_performance').props.sensitive = False
+            self.builder.get_object('checkbox_snapping').props.sensitive = False
 
         if not compiz_mode:
-            self.builder.get_object('button_compiz_reset').hide()
+            self.builder.get_object('button_compiz_reset').props.sensitive = False
 
         if not self.maximus_available():
-            self.builder.get_object('checkbox_undecorate').hide()
-            self.builder.get_object('checkbox_always_maximize').hide()
+            self.builder.get_object('checkbox_undecorate').props.sensitive = False
+            self.builder.get_object('checkbox_always_maximize').props.sensitive = False
         else:
             self.init_checkbox("org.mate.maximus", "undecorate", "checkbox_undecorate")
             self.init_checkbox("org.mate.maximus", "no-maximize", "checkbox_always_maximize")
