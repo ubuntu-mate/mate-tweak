@@ -404,17 +404,27 @@ class MateTweak:
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
 
-    def compiz_capable(self):
-        if self.find_on_path('compiz') and self.find_on_path('glxinfo'):
+    def check_glx_features(self):
+        if self.find_on_path('glxinfo'):
             process = subprocess.Popen(['glxinfo'], stdout=subprocess.PIPE)
-            out, err = process.communicate()
-            decoded = out.decode('utf-8')
+            out = process.communicate()[0].decode("UTF-8")
+            if out.count("Software Rasterizer") == 0:
+                self.software_rasterizer = False
+            else:
+                self.software_rasterizer = True
 
-            software_rasterizer = decoded.count("Software Rasterizer")
-            texture_from_pixmap = decoded.count("texture_from_pixmap")
-            if software_rasterizer == 0 and texture_from_pixmap > 2:
-                return True
+            if out.count("texture_from_pixmap") > 2:
+                self.texture_from_pixmap = True
+            else:
+                self.texture_from_pixmap = False
+        else:
+            self.software_rasterizer = False
+            self.texture_from_pixmap = False
 
+    def compiz_capable(self):
+        if self.find_on_path('compiz'):
+            if not self.software_rasterizer and self.texture_from_pixmap:
+                 return True
         return False
 
     def marco_capable(self):
@@ -424,14 +434,8 @@ class MateTweak:
         return self.find_on_path('metacity')
 
     def mutter_capable(self):
-        if self.find_on_path('mutter') and self.find_on_path('glxinfo'):
-            process = subprocess.Popen(['glxinfo'], stdout=subprocess.PIPE)
-            out, err = process.communicate()
-            decoded = out.decode('utf-8')
-
-            software_rasterizer = decoded.count("Software Rasterizer")
-            texture_from_pixmap = decoded.count("texture_from_pixmap")
-            if software_rasterizer == 0 and texture_from_pixmap > 2:
+        if self.find_on_path('mutter'):
+            if not self.software_rasterizer and self.texture_from_pixmap:
                 return True
         return False
 
@@ -602,6 +606,9 @@ class MateTweak:
 
     ''' Create the UI '''
     def __init__(self):
+        # Check for glx features
+        self.check_glx_features()
+
         # Load the Glade UI file
         self.builder = Gtk.Builder()
         self.builder.add_from_file('/usr/lib/mate-tweak/mate-tweak.ui')
@@ -651,7 +658,7 @@ class MateTweak:
             self.builder.get_object('checkbox_snapping').props.sensitive = False
 
         if not compiz_mode:
-            self.builder.get_object('button_compiz_reset').props.sensitive = False
+            self.builder.get_object('button_compiz_reset').hide()
 
         if not self.maximus_available():
             self.builder.get_object('checkbox_undecorate').props.sensitive = False
