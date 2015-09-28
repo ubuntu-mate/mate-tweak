@@ -46,7 +46,7 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__="3.5.2"
+__VERSION__="3.5.2a"
 
 # i18n
 gettext.install("mate-tweak", "/usr/share/locale")
@@ -208,7 +208,7 @@ class MateTweak:
         # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
         devnull = open(os.devnull, 'wb')
 
-        if wm == 'compiz' or wm == 'mutter':
+        if wm == 'compiz' or wm == 'mutter' or wm == 'metacity':
             # Make sure Metacity is uses the same themes as Marco. This
             # ensures gtk-window-decorator does not incorrectly change
             # themes when switching from Marco to Compiz.
