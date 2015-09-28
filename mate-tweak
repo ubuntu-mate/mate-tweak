@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
@@ -33,6 +33,7 @@ import time
 
 from configobj import ConfigObj
 from ctypes import cdll, byref, create_string_buffer
+from subprocess import DEVNULL
 
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
@@ -46,7 +47,7 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__="3.5.2a"
+__VERSION__="3.5.2"
 
 # i18n
 gettext.install("mate-tweak", "/usr/share/locale")
@@ -77,25 +78,21 @@ class MateTweak:
     def on_checkbox_toggled(self, widget, schema_id, key):
         # If Maximus is being tweaked, replace it to make the settings effective.
         if schema_id == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
-            devnull = open(os.devnull, 'wb')
-            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['mate-maximus', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
             # When changing undecorate state replace the window manager
             # to ensure there are no rendering or strut issues.
             if key == 'undecorate':
                 self.replace_windowmanager(self.get_current_wm(), False)
-            devnull.close()
 
         # If panel features are being changed replace the panel layout.
         if schema_id == "org.mate.panel" and (key == "undecorate" or key == "no-maximize"):
-            devnull = open(os.devnull, 'wb')
-            subprocess.Popen(['mate-maximus', '--replace'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['mate-maximus', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
             # When changing undecorate state replace the window manager
             # to ensure there are no rendering or strut issues.
             if key == 'undecorate':
                 self.replace_windowmanager(self.get_current_wm(), False)
-            devnull.close()
 
     def set_string(self, schema, path, key, value):
         if path: settings = Gio.Settings.new_with_path(schema, path)
@@ -205,9 +202,6 @@ class MateTweak:
         config.write()
 
     def replace_windowmanager(self, wm, notify):
-        # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
-        devnull = open(os.devnull, 'wb')
-
         if wm == 'compiz' or wm == 'mutter' or wm == 'metacity':
             # Make sure Metacity is uses the same themes as Marco. This
             # ensures gtk-window-decorator does not incorrectly change
@@ -231,23 +225,20 @@ class MateTweak:
 
             # mate-panel needs to be replaced when switching to Compiz/Mutter
             # to avoid rendering screw ups and strut issues.
-            subprocess.call(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
+            subprocess.call(['killall', 'mate-panel'], stdout=DEVNULL, stderr=DEVNULL)
             if wm == 'compiz':
-                subprocess.Popen([wm, '--replace', 'ccp'], stdout=devnull, stderr=devnull)
+                subprocess.Popen([wm, '--replace', 'ccp'], stdout=DEVNULL, stderr=DEVNULL)
             else:
-                subprocess.Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
+                subprocess.Popen([wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
             # Just give the window manager a second
             time.sleep(1)
 
-            subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
         else:
             # If switching away from Compiz, attempt to kill gtk-window-decorator.
-            #subprocess.call(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
-            subprocess.call(['killall', 'gtk-window-decorator'], stdout=devnull, stderr=devnull)
-            subprocess.Popen([wm, '--replace'], stdout=devnull, stderr=devnull)
-            #subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
-        devnull.close()
+            subprocess.call(['killall', 'gtk-window-decorator'], stdout=DEVNULL, stderr=DEVNULL)
+            subprocess.Popen([wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         if notify:
             Notify.init(_('Window Manager Replaced'))
@@ -259,31 +250,25 @@ class MateTweak:
         self.mkdir_p(os.path.join(config_dir, 'autostart/'))
         shutil.copy2('/usr/share/applications/' + dock + '.desktop', os.path.join(config_dir, 'autostart/'))
 
-        devnull = open(os.devnull, 'wb')
         # Docks require compositing
         current_wm = self.get_current_wm()
         if current_wm == 'marco':
             self.set_bool('org.mate.Marco.general', None, 'compositing-manager', True)
-            subprocess.Popen(['marco', '--replace'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['marco', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
         elif current_wm == 'metacity':
             self.set_bool('org.gnome.metacity', None, 'compositing-manager', True)
-            subprocess.Popen(['metacity', '--replace'], stdout=devnull, stderr=devnull)
+            subprocess.Popen(['metacity', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
-        subprocess.Popen([dock], stdout=devnull, stderr=devnull)
-        devnull.close()
+        subprocess.Popen([dock], stdout=DEVNULL, stderr=DEVNULL)
 
     def disable_dock(self, dock):
         config_dir = GLib.get_user_config_dir()
         if os.path.exists(os.path.join(config_dir, 'autostart/') + dock + '.desktop'):
             os.remove(os.path.join(config_dir, 'autostart/') + dock + '.desktop')
-        devnull = open(os.devnull, 'wb')
-        subprocess.call(['killall', dock], stdout=devnull, stderr=devnull)
-        devnull.close()
+        subprocess.call(['killall', dock], stdout=DEVNULL, stderr=DEVNULL)
 
     def enable_mate_volume_applet(self):
-        devnull = open(os.devnull, 'wb')
-        subprocess.Popen(['mate-volume-control-applet'], stdout=devnull, stderr=devnull)
-        devnull.close()
+        subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
         # If the system autostart is missing create a user autostart.
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
@@ -292,16 +277,14 @@ class MateTweak:
             shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
 
     def disable_mate_volume_applet(self):
-        devnull = open(os.devnull, 'wb')
-        subprocess.call(['killall', 'mate-volume-control-applet'], stdout=devnull, stderr=devnull)
+        subprocess.call(['killall', 'mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
         # If a system or user autostart exists, remove it.
         config_dir = GLib.get_user_config_dir()
         if os.path.exists(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop'):
             os.remove(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=devnull, stderr=devnull)
-        devnull.close()
+            subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
     def replace_panel_layout(self, panel_layout):
         # If the selected panel layout has MATE Menu and Indicators then
@@ -327,13 +310,10 @@ class MateTweak:
 
         print('Switching to: ' + new_layout)
 
-        # Use this in python < 3.3. Python >= 3.3 has subprocess.DEVNULL
-        devnull = open(os.devnull, 'wb')
-        subprocess.call(['killall', 'mate-panel'], stdout=devnull, stderr=devnull)
-        subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=devnull, stderr=devnull)
-        subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=devnull, stderr=devnull)
-        subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=devnull, stderr=devnull)
-        devnull.close()
+        subprocess.call(['killall', 'mate-panel'], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=DEVNULL, stderr=DEVNULL)
 
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + panel_layout)
@@ -342,9 +322,7 @@ class MateTweak:
         else:
             print('No additional panel configuration for ' + new_layout)
 
-        devnull = open(os.devnull, 'wb')
-        subprocess.Popen(['mate-panel', '--replace'], stdout=devnull, stderr=devnull)
-        devnull.close()
+        subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Indicator enabled layouts auto-load the sound-indicator.
         # Therefore, make mate-volume-control-applet is killed or
@@ -601,10 +579,8 @@ class MateTweak:
 
     def save_panels(self, widget):
         layoutname = getpass.getuser()
-        devnull = open(os.devnull, 'wb')
-        subprocess.call(['/usr/lib/mate-tweak/mate-panel-backup', layoutname], stdout=devnull, stderr=devnull)
-        subprocess.call(['pkexec', '/usr/lib/mate-tweak/install-mate-panel-layout', layoutname], stdout=devnull, stderr=devnull)
-        devnull.close()
+        subprocess.call(['/usr/lib/mate-tweak/mate-panel-backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.call(['pkexec', '/usr/lib/mate-tweak/install-mate-panel-layout', layoutname], stdout=DEVNULL, stderr=DEVNULL)
         Notify.init(_('Panel Layout Saved'))
         save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as /usr/share/mate-panel/layouts/' + layoutname +'-tweak.layout'),'dialog-information')
         save_panels_notify.show()
@@ -615,9 +591,7 @@ class MateTweak:
     def compiz_reset(self, widget):
         # Switch to Marco. Purge all Compiz config and cache. Switch to Compiz.
         self.replace_windowmanager('marco', False)
-        devnull = open(os.devnull, 'wb')
-        subprocess.call(['dconf', 'reset', '-f', '/org/compiz/'], stdout=devnull, stderr=devnull)
-        devnull.close()
+        subprocess.call(['dconf', 'reset', '-f', '/org/compiz/'], stdout=DEVNULL, stderr=DEVNULL)
         config_compiz = os.path.join(GLib.get_user_config_dir(), 'compiz-1')
         cache_compiz = os.path.join(GLib.get_user_cache_dir(), 'compizconfg1')
         if os.path.exists(config_compiz):
