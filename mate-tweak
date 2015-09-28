@@ -201,10 +201,10 @@ class MateTweak:
         config['icon theme']['Inherits'] = theme
         config.write()
 
-    def replace_windowmanager(self, wm, notify):
+    def replace_windowmanager(self, new_wm, notify):
         # Make sure Compiz, Metacity and Mutter use the same theme as
         # Marco to prevent theme/xcursor changes when switching themes.
-        if wm == 'compiz' or wm == 'mutter' or wm == 'metacity':
+        if new_wm == 'compiz' or new_wm == 'mutter' or new_wm == 'metacity':
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
             mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', None, 'cursor-theme')
 
@@ -222,30 +222,26 @@ class MateTweak:
             if meta_316_schema:
                 self.set_string('org.gnome.metacity', None, 'theme', mate_theme)
 
-        # mate-panel and the dock need to be replaced when switching
-        # to window manager to avoid rendering screw ups and strut issues.
-        if self.dock_enabled:
-            self.kill_dock()
+        # mate-panel needs to be replaced when switching window manager
+        # to avoid rendering screw ups and strut issues.
         subprocess.call(['killall', 'mate-panel'], stdout=DEVNULL, stderr=DEVNULL)
 
-        if wm == 'compiz':
+        if new_wm == 'compiz':
             subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
-            subprocess.Popen([wm, '--replace', 'ccp'], stdout=DEVNULL, stderr=DEVNULL)
+            subprocess.Popen([new_wm, '--replace', 'ccp'], stdout=DEVNULL, stderr=DEVNULL)
         else:
             # If switching away from Compiz, attempt to kill gtk-window-decorator.
             subprocess.call(['killall', 'gtk-window-decorator'], stdout=DEVNULL, stderr=DEVNULL)
-            subprocess.Popen([wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+            subprocess.Popen([new_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
-        if self.dock_enabled:
-            self.run_dock()
 
-        # Update current_wm to the new one we just set.
-        self.current_wm = wm
+        # Update current_wm to the new one.
+        self.current_wm = new_wm
 
         if notify:
             Notify.init(_('Window Manager Replaced'))
-            replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + wm),'dialog-information')
+            replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + new_wm),'dialog-information')
             replace_windowmanager_notify.show()
 
     def run_dock(self):
