@@ -103,7 +103,7 @@ def panel_dump(filename):
         f.writelines(layout)
 
     # Dump dconf panel
-    dconf_dump(os.path.join('/','org','mate','panel', filename + '-tweak.panel'))
+    dconf_dump('/org/mate/panel/', filename + '-tweak.panel')
 
 
 if __name__ == '__main__':
