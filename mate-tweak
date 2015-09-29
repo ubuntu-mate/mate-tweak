@@ -438,7 +438,7 @@ class MateTweak:
 
     def toggle_panel_features(self, widget):
         # Set the base layout and and issue a replace
-        current_layout = current_layout = self.get_string('org.mate.panel', None, 'default-layout')
+        current_layout = self.get_string('org.mate.panel', None, 'default-layout')
         base_layout = current_layout.replace('-indicators','').replace('-fresh','')
         self.replace_panel_layout(base_layout)
 
