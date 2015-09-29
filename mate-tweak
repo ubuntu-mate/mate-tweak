@@ -30,7 +30,6 @@ import signal
 import subprocess
 import string
 import sys
-import time
 
 from configobj import ConfigObj
 from ctypes import cdll, byref, create_string_buffer
@@ -174,19 +173,18 @@ class MateTweak:
         # Order is important because Marco actually advertises itself
         # as 'Marco (Metacity)'.
         if ('Marco' in current_wm):
-            wm = 'marco'
+            self.current_wm = 'marco'
         elif ('Metacity' in current_wm):
-            wm = 'metacity'
+            self.current_wm = 'metacity'
         elif ('Muffin' in current_wm):
-            wm = 'muffin'
+            self.current_wm = 'muffin'
         elif ('Mutter' in current_wm):
-            wm = 'mutter'
+            self.current_wm = 'mutter'
         elif ('Compiz' in current_wm):
-            wm = 'compiz'
+            self.current_wm = 'compiz'
         else:
-            wm = 'unknown'
+            self.current_wm = 'Unknown'
 
-        self.current_wm = wm
         print('Window Manager is: ' + self.current_wm)
 
         self.compiz_capable = False
@@ -230,7 +228,7 @@ class MateTweak:
     def replace_windowmanager(self, new_wm, notify):
         # Make sure Compiz, Metacity and Mutter use the same theme as
         # Marco to prevent theme/xcursor changes when switching themes.
-        if new_wm == 'compiz' or new_wm == 'mutter' or new_wm == 'metacity':
+        if new_wm == 'compiz' or new_wm == 'metacity' or new_wm == 'mutter':
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
             mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', None, 'cursor-theme')
 
@@ -240,25 +238,21 @@ class MateTweak:
                 self.set_string('org.gnome.desktop.wm.preferences', None, 'theme', mate_theme)
                 self.set_string('org.gnome.desktop.interface', None, 'cursor-theme', mate_cursor_theme)
 
-            self.update_cursor_theme(mate_cursor_theme)
-
-            # metacity >= 3.16
-            # The schema may not be installed
-            meta_316_schema = schemasource.lookup('org.gnome.metacity', False)
-            if meta_316_schema:
+            # metacity >= 3.16 - this schema may not be installed
+            metacity_schema = schemasource.lookup('org.gnome.metacity', False)
+            if metacity_schema:
                 self.set_string('org.gnome.metacity', None, 'theme', mate_theme)
 
-        # mate-panel needs to be replaced when switching window manager
-        # to avoid rendering screw ups and strut issues.
-        subprocess.call(['killall', 'mate-panel'], stdout=DEVNULL, stderr=DEVNULL)
-        subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
+            self.update_cursor_theme(mate_cursor_theme)
+
         if new_wm == 'compiz':
             subprocess.Popen([new_wm, '--replace', 'ccp'], stdout=DEVNULL, stderr=DEVNULL)
         else:
-            # If switching away from Compiz, attempt to kill gtk-window-decorator.
-            #subprocess.call(['killall', 'gtk-window-decorator'], stdout=DEVNULL, stderr=DEVNULL)
             subprocess.Popen([new_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
+        # Sometimes the outgoing window manager is left running and
+        # replace mate-panel to avoid strut issues.
+        subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Update current_wm to the new one.
@@ -360,7 +354,6 @@ class MateTweak:
         subprocess.call(['killall', 'mate-panel'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=DEVNULL, stderr=DEVNULL)
-
         # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + panel_layout)
@@ -368,6 +361,7 @@ class MateTweak:
             os.system(cmd)
         else:
             subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=DEVNULL, stderr=DEVNULL)
+
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Indicator enabled layouts auto-load the sound-indicator.
