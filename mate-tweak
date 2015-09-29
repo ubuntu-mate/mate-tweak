@@ -86,15 +86,6 @@ class MateTweak:
             if key == 'undecorate':
                 self.replace_windowmanager(self.current_wm, False)
 
-        # If panel features are being changed replace the panel layout.
-        if schema_id == "org.mate.panel" and (key == "undecorate" or key == "no-maximize"):
-            subprocess.Popen(['mate-maximus', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
-
-            # When changing undecorate state replace the window manager
-            # to ensure there are no rendering or strut issues.
-            if key == 'undecorate':
-                self.replace_windowmanager(self.current_wm, False)
-
     def set_string(self, schema, path, key, value):
         if path: settings = Gio.Settings.new_with_path(schema, path)
         else: settings = Gio.Settings.new(schema)
@@ -486,6 +477,10 @@ class MateTweak:
                     self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
+            elif wm == 'mutter':
+                self.builder.get_object('frame_performance').props.sensitive = False
+                self.builder.get_object('frame_behaviour').props.sensitive = True
+                self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
             else:
                 self.builder.get_object('frame_performance').props.sensitive = False
                 self.builder.get_object('frame_behaviour').props.sensitive = False
@@ -496,8 +491,8 @@ class MateTweak:
                self.builder.get_object('button_compiz_reset').hide()
 
         elif schema == "org.mate.panel" and key == "default-layout":
-            panel_layout = value
             # If the panel layout is being changed, replace it now!
+            panel_layout = value
             self.replace_panel_layout(panel_layout)
 
     def combo_fallback(self, widget, schema, key):
@@ -688,6 +683,9 @@ class MateTweak:
         if not self.current_wm == "marco" and not self.current_wm == "metacity":
             self.builder.get_object('frame_performance').props.sensitive = False
             self.builder.get_object('checkbox_snapping').props.sensitive = False
+        elif self.current_wm == 'mutter':
+            self.builder.get_object('frame_performance').props.sensitive = False
+            self.builder.get_object('checkbox_snapping').props.sensitive = True
 
         if not self.current_wm == "compiz":
             self.builder.get_object('button_compiz_reset').hide()
@@ -759,6 +757,8 @@ class MateTweak:
             self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
             self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
+        elif self.current_wm == "mutter":
+            self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
 
         # interface page
         self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
