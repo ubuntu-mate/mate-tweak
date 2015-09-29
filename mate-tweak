@@ -23,6 +23,7 @@ import gettext
 import getpass
 import gi
 import glob
+import mmap
 import os
 import shutil
 import signal
@@ -175,14 +176,18 @@ class MateTweak:
             else:
                 raise
 
-    def get_current_wm(self):
+    def check_wm_features(self):
         screen = Gdk.Screen.get_default()
         current_wm = GdkX11.X11Screen.get_window_manager_name(screen)
 
+        # Order is important because Marco actually advertises itself
+        # as 'Marco (Metacity)'.
         if ('Marco' in current_wm):
             wm = 'marco'
         elif ('Metacity' in current_wm):
             wm = 'metacity'
+        elif ('Muffin' in current_wm):
+            wm = 'muffin'
         elif ('Mutter' in current_wm):
             wm = 'mutter'
         elif ('Compiz' in current_wm):
@@ -190,7 +195,37 @@ class MateTweak:
         else:
             wm = 'unknown'
 
-        return wm
+        self.current_wm = wm
+        print('Window Manager is: ' + self.current_wm)
+
+        self.compiz_capable = False
+        self.compton_capable = False
+        self.marco_capable = False
+        self.metacity_capable = False
+        self.muffin_capable = False
+        self.mutter_capable = False
+
+        if self.find_on_path('compiz'):
+            if not self.software_rasterizer and self.texture_from_pixmap:
+                 self.compiz_capable = True
+
+        if self.find_on_path('compton'):
+            self.compton_capable = True
+
+        if self.find_on_path('marco'):
+            self.marco_capable = True
+
+        if self.find_on_path('metacity'):
+            self.metacity_capable = True
+
+        # Not stable under MATE
+        #if self.find_on_path('muffin'):
+        #    if not self.software_rasterizer and self.texture_from_pixmap:
+        #        self.muffin_capable = True
+
+        if self.find_on_path('mutter'):
+            if not self.software_rasterizer and self.texture_from_pixmap:
+                self.mutter_capable = True
 
     def update_cursor_theme(self, theme):
         home_dir = GLib.get_home_dir()
@@ -225,13 +260,12 @@ class MateTweak:
         # mate-panel needs to be replaced when switching window manager
         # to avoid rendering screw ups and strut issues.
         subprocess.call(['killall', 'mate-panel'], stdout=DEVNULL, stderr=DEVNULL)
-
+        subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
         if new_wm == 'compiz':
-            subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
             subprocess.Popen([new_wm, '--replace', 'ccp'], stdout=DEVNULL, stderr=DEVNULL)
         else:
             # If switching away from Compiz, attempt to kill gtk-window-decorator.
-            subprocess.call(['killall', 'gtk-window-decorator'], stdout=DEVNULL, stderr=DEVNULL)
+            #subprocess.call(['killall', 'gtk-window-decorator'], stdout=DEVNULL, stderr=DEVNULL)
             subprocess.Popen([new_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
@@ -298,6 +332,13 @@ class MateTweak:
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
+    def layout_uses_indicators(self, panel_layout):
+        with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as file, \
+            mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
+            if s.find(b'IndicatorApplet') != -1:
+                return True
+        return False
+
     def replace_panel_layout(self, panel_layout):
         # If the selected panel layout has MATE Menu and Indicators then
         # make those options visible.
@@ -325,21 +366,20 @@ class MateTweak:
         subprocess.call(['killall', 'mate-panel'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=DEVNULL, stderr=DEVNULL)
-        subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=DEVNULL, stderr=DEVNULL)
 
+        # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + panel_layout)
             cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
             os.system(cmd)
         else:
-            print('No additional panel configuration for ' + new_layout)
-
+            subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Indicator enabled layouts auto-load the sound-indicator.
-        # Therefore, make mate-volume-control-applet is killed or
+        # Therefore, make sure mate-volume-control-applet is killed or
         # started accordingly.
-        if 'indicators' in new_layout:
+        if self.layout_uses_indicators(new_layout):
             self.disable_mate_volume_applet()
         else:
             self.enable_mate_volume_applet()
@@ -422,24 +462,6 @@ class MateTweak:
             self.software_rasterizer = False
             self.texture_from_pixmap = False
 
-    def compiz_capable(self):
-        if self.find_on_path('compiz'):
-            if not self.software_rasterizer and self.texture_from_pixmap:
-                 return True
-        return False
-
-    def marco_capable(self):
-        return self.find_on_path('marco')
-
-    def metacity_capable(self):
-        return self.find_on_path('metacity')
-
-    def mutter_capable(self):
-        if self.find_on_path('mutter'):
-            if not self.software_rasterizer and self.texture_from_pixmap:
-                return True
-        return False
-
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
             # If the button-layout is changed in MATE reflect that change
@@ -514,39 +536,41 @@ class MateTweak:
             self.dock_enabled = False
 
     def check_panel_features(self):
-        # Determine what capabilities are available
+        # Determine what panel features are available
+        self.gnome_menu_available = False
+        self.indicators_available = False
+        self.mageia_cc_available = False
+        self.mate_menu_available = False
+        self.maximus_available = False
+        self.mint_menu_available = False
+        self.volume_applet_enabled = False
+
+        if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
+            self.gnome_menu_available = True
+
         if os.path.exists('/usr/lib/indicators/7/libapplication.so') and \
            os.path.exists('/usr/lib/indicator-sound-gtk2/indicator-sound-service') and \
            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
             self.indicators_available = True
-        else:
-            self.indicators_available = False
+
+        if os.path.exists('/usr/share/applications/mageia-drakconf.desktop'):
+            self.mageia_cc_available = True
+
+        if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
+            self.mate_menu_available = True
 
         if os.path.exists('/usr/bin/mate-maximus') and \
            os.path.exists('/usr/lib/mate-netbook/mate-window-picker-applet'):
             self.maximus_available = True
-        else:
-            self.maximus_available = False
-
-        if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
-            self.mate_menu_available = True
-        else:
-            self.mate_menu_available = False
 
         if os.path.exists('usr/lib/linuxmint/mintMenu/mintMenu.py'):
             self.mint_menu_available = True
-        else:
-            self.mint_menu_available = False
 
-        if os.path.exists('/usr/share/applications/mageia-drakconf.desktop'):
-            self.mageia_cc_available = True
-        else:
-            self.mageia_cc_available = False
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop') or \
+           os.path.exists(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop'):
+            self.volume_applet_enabled = True
 
-        if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
-            self.gnome_menu_available = True
-        else:
-            self.gnome_menu_available = False
 
     def make_list_of_panel_layouts(self):
         if self.indicators_available or self.mate_menu_available:
@@ -629,13 +653,11 @@ class MateTweak:
 
     ''' Create the UI '''
     def __init__(self):
-        # Check for glx, panel and dock features
+        # Check for glx, panel, dock and wm features
         self.check_glx_features()
-        self.check_panel_features()
         self.check_dock_features()
-
-        # Set current running windowmanager
-        self.current_wm = self.get_current_wm()
+        self.check_panel_features()
+        self.check_wm_features()
 
         # Load the Glade UI file
         self.builder = Gtk.Builder()
@@ -760,13 +782,15 @@ class MateTweak:
         # Window manager
         wms = Gtk.ListStore(str, str)
 
-        if self.marco_capable():
+        if self.marco_capable:
             wms.append([_("Marco (Simple desktop effects)"), 'marco'])
-        if self.metacity_capable():
+        if self.metacity_capable:
             wms.append([_("Metacity (Simple desktop effects)"), 'metacity'])
-        if self.mutter_capable():
+        if self.muffin_capable:
+            wms.append([_("Muffin (Elegant GPU accelerated desktop effects)"), 'muffin'])
+        if self.mutter_capable:
             wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
-        if self.compiz_capable():
+        if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
         self.builder.get_object("combobox_window_manager").set_model(wms)
