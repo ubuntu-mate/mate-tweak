@@ -332,14 +332,14 @@ class MateTweak:
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
-    def layout_uses_indicators(self, panel_layout):
+    def panel_layout_uses_indicators(self, panel_layout):
         with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as file, \
             mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
             if s.find(b'IndicatorApplet') != -1:
                 return True
         return False
 
-    def replace_panel_layout(self, panel_layout):
+    def update_panel_layout_features(self, panel_layout):
         # If the selected panel layout has MATE Menu and Indicators then
         # make those options visible.
         if self.panel_layout_exists(panel_layout + '-fresh') and \
@@ -348,6 +348,9 @@ class MateTweak:
             self.builder.get_object('frame_panel_features').props.sensitive = True
         else:
             self.builder.get_object('frame_panel_features').props.sensitive = False
+
+    def replace_panel_layout(self, panel_layout):
+        self.update_panel_layout_features(panel_layout)
 
         new_layout = panel_layout
         if self.builder.get_object('checkbutton_indicators').get_active() and \
@@ -379,7 +382,7 @@ class MateTweak:
         # Indicator enabled layouts auto-load the sound-indicator.
         # Therefore, make sure mate-volume-control-applet is killed or
         # started accordingly.
-        if self.layout_uses_indicators(new_layout):
+        if self.panel_layout_uses_indicators(new_layout):
             self.disable_mate_volume_applet()
         else:
             self.enable_mate_volume_applet()
@@ -407,8 +410,8 @@ class MateTweak:
         # Set the base layout and toggle visible options.
         current_layout = self.get_string('org.mate.panel', None, 'default-layout')
         base_layout = current_layout.replace('-indicators','').replace('-fresh','')
-        print ('Schema layout: ' + current_layout)
         print('Base layout: ' + base_layout)
+        print ('Current layout: ' + current_layout)
 
         if 'indicators' in current_layout:
             self.builder.get_object('checkbutton_indicators').set_active(True)
@@ -420,10 +423,7 @@ class MateTweak:
         else:
             self.builder.get_object('checkbutton_advanced_menu').set_active(False)
 
-        if not self.panel_layout_exists(base_layout + '-fresh') and \
-           not self.panel_layout_exists(base_layout + '-indicators') and \
-           not self.panel_layout_exists(base_layout + '-indicators-fresh'):
-            self.builder.get_object('frame_panel_features').props.sensitive = False
+        self.update_panel_layout_features(base_layout)
 
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup('org.mate.panel', True) != None:
