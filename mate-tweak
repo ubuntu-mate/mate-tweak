@@ -406,41 +406,41 @@ class MateTweak:
                 self.set_bool(thumbnail_schema_id, thumbnail_profile_path, 'current-viewport', True)
             self.disable_dock()
 
-    def init_panel_features(self):
-        # Set the base layout and toggle visible options.
-        current_layout = self.get_string('org.mate.panel', None, 'default-layout')
-        base_layout = current_layout.replace('-indicators','').replace('-fresh','')
-        print('Base layout: ' + base_layout)
-        print ('Current layout: ' + current_layout)
+    def get_panel_layout(self):
+        self.current_layout = self.get_string('org.mate.panel', None, 'default-layout')
+        self.base_layout = self.current_layout.replace('-indicators','').replace('-fresh','')
 
-        if 'indicators' in current_layout:
+    def init_panel_features(self):
+        self.get_panel_layout()
+        print('Base layout: ' + self.base_layout)
+        print ('Current layout: ' + self.current_layout)
+
+        if 'indicators' in self.current_layout:
             self.builder.get_object('checkbutton_indicators').set_active(True)
         else:
             self.builder.get_object('checkbutton_indicators').set_active(False)
 
-        if 'fresh' in current_layout:
+        if 'fresh' in self.current_layout:
             self.builder.get_object('checkbutton_advanced_menu').set_active(True)
         else:
             self.builder.get_object('checkbutton_advanced_menu').set_active(False)
 
-        self.update_panel_layout_features(base_layout)
+        self.update_panel_layout_features(self.base_layout)
 
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup('org.mate.panel', True) != None:
             widget = self.builder.get_object('combobox_panels')
             index = 0
             for row in widget.get_model():
-                if(base_layout == row[1]):
+                if(self.base_layout == row[1]):
                     widget.set_active(index)
                     break
                 index = index +1
             widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
     def toggle_panel_features(self, widget):
-        # Set the base layout and and issue a replace
-        current_layout = self.get_string('org.mate.panel', None, 'default-layout')
-        base_layout = current_layout.replace('-indicators','').replace('-fresh','')
-        self.replace_panel_layout(base_layout)
+        self.get_panel_layout()
+        self.replace_panel_layout(self.base_layout)
 
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
