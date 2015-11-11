@@ -504,7 +504,7 @@ class MateTweak:
             treePath = treePaths[0]
             index = int("%s" % treePath) #Hack to turn treePath into an int
             target = self.sidePages[index].notebook_index
-            self.builder.get_object("notebook1").set_current_page(target)
+            self.builder.get_object("main_notebook").set_current_page(target)
 
     def check_dock_features(self):
         config_dir = GLib.get_user_config_dir()
@@ -670,7 +670,7 @@ class MateTweak:
             self.store.append([sidePage.name, img])
 
         target = self.sidePages[0].notebook_index
-        self.builder.get_object("notebook1").set_current_page(target)
+        self.builder.get_object("main_notebook").set_current_page(target)
 
         # Do not show Performance or Window behaviour configuration
         # options when Marco or Metacity are not currently running.
@@ -720,7 +720,7 @@ class MateTweak:
         self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
 
         self.builder.get_object("checkbox_resources").set_label(_("Use less resources"))
-        self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
+        self.builder.get_object("checkbox_animations").set_label(_("Enable animations"))
 
         self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
         self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
