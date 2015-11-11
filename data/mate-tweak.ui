@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.19.0 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
   <object class="GtkWindow" id="main_window">
@@ -179,7 +179,7 @@
                   </object>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">True</property>
+                    <property name="fill">False</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -207,6 +207,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkLabel" id="label_performance_tuning">
@@ -305,6 +306,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkCheckButton" id="checkbox_snapping">
@@ -390,6 +392,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkLabel" id="label_window_control">
@@ -456,6 +459,7 @@
                         <property name="halign">start</property>
                         <property name="valign">center</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkLabel" id="caption_window_manager">
@@ -543,7 +547,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="opacity">0.94999999999999996</property>
-                <property name="halign">start</property>
                 <property name="border_width">6</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
@@ -558,6 +561,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkLabel" id="caption_panels">
@@ -631,7 +635,7 @@
                   </object>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">True</property>
+                    <property name="fill">False</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -640,13 +644,13 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label_xalign">0</property>
-                    <property name="label_yalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
                       <object class="GtkBox" id="box_panel_features">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
@@ -696,7 +700,7 @@
                   </object>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">True</property>
+                    <property name="fill">False</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -705,13 +709,13 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label_xalign">0</property>
-                    <property name="label_yalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
                       <object class="GtkBox" id="box_icons">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
@@ -776,6 +780,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
@@ -840,6 +845,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">12</property>
+                        <property name="border_width">6</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
@@ -937,8 +943,8 @@
                     </child>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
                     <property name="position">5</property>
                   </packing>
                 </child>
