@@ -119,17 +119,23 @@ class MateTweak:
             settings.bind(key, widget, "active", Gio.SettingsBindFlags.DEFAULT)
             widget.connect("toggled", self.on_checkbox_toggled, schema_id, key)
 
-    def init_combobox(self, schema, key, name):
+    def init_combobox(self, schema, key, name, default = None):
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup(schema, True) != None:
             widget = self.builder.get_object(name)
             conf = self.get_string(schema, None, key)
             index = 0
+            default_index = None
             for row in widget.get_model():
-                if(conf == row[1]):
+                if default != None and default == row[1]:
+                    default_index = index
+                if conf == row[1]:
                     widget.set_active(index)
+                    default_index = None
                     break
                 index = index +1
+            if default_index != None:
+                widget.set_active(default_index)
             widget.connect("changed", self.combo_fallback, schema, key)
 
     def update_combobox(self, schema, key, name):
@@ -226,6 +232,9 @@ class MateTweak:
         config.write()
 
     def replace_windowmanager(self, new_wm, notify):
+        if new_wm == 'Unknown':
+            return
+
         # Make sure Compiz, Metacity and Mutter use the same theme as
         # Marco to prevent theme/xcursor changes when switching themes.
         if new_wm == 'compiz' or new_wm == 'metacity' or new_wm == 'mutter':
@@ -252,7 +261,8 @@ class MateTweak:
 
         # Sometimes the outgoing window manager is left running and
         # replace mate-panel to avoid strut issues.
-        subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
+        if self.current_wm != 'Unknown':
+            subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Update current_wm to the new one.
@@ -787,10 +797,16 @@ class MateTweak:
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
+        if self.current_wm == 'Unknown':
+            wms.append([_("Unknown (Not yet supported)"), 'Unknown'])
+            self.builder.get_object("label_unknown_wm").set_markup('<span size="small" foreground="#cc0000">' + _("You are currently using an unknown and unsupported window manager. Thus we cannot guarantee that changes made here will be effective.") + '</span>')
+        else:
+            self.builder.get_object("label_unknown_wm").hide()
+
         self.builder.get_object("combobox_window_manager").set_model(wms)
         self.builder.get_object("combobox_window_manager").set_tooltip_text(_("The new window manager will be activated upon selection."))
         self.builder.get_object("caption_window_manager").set_markup("<small>" + _("Select a window manager.") + "</small>")
-        self.init_combobox("org.mate.session.required-components", "windowmanager", "combobox_window_manager")
+        self.init_combobox("org.mate.session.required-components", "windowmanager", "combobox_window_manager", "Unknown")
 
         # Panel layouts
         self.make_list_of_panel_layouts()

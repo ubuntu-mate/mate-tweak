@@ -458,6 +458,22 @@
                         <property name="margin_left">12</property>
                         <property name="orientation">vertical</property>
                         <child>
+                          <object class="GtkLabel" id="label_unknown_wm">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_top">6</property>
+                            <property name="margin_bottom">6</property>
+                            <property name="label" translatable="yes">&lt;span size="small" foreground="#cc0000"&gt;You are currently using an unknown and unsupported window manager. Thus we cannot guarantee that changes made here will be effective.&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
                           <object class="GtkLabel" id="caption_window_manager">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -469,7 +485,7 @@
                           <packing>
                             <property name="expand">False</property>
                             <property name="fill">False</property>
-                            <property name="position">0</property>
+                            <property name="position">1</property>
                           </packing>
                         </child>
                         <child>
@@ -490,7 +506,7 @@
                             <property name="expand">False</property>
                             <property name="fill">False</property>
                             <property name="padding">3</property>
-                            <property name="position">1</property>
+                            <property name="position">2</property>
                           </packing>
                         </child>
                         <child>
@@ -508,7 +524,7 @@
                           <packing>
                             <property name="expand">False</property>
                             <property name="fill">False</property>
-                            <property name="position">2</property>
+                            <property name="position">3</property>
                           </packing>
                         </child>
                       </object>
