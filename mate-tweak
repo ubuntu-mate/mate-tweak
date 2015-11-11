@@ -47,7 +47,7 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '3.5.2a'
+__VERSION__ = '3.5.4'
 
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
@@ -504,7 +504,7 @@ class MateTweak:
             treePath = treePaths[0]
             index = int("%s" % treePath) #Hack to turn treePath into an int
             target = self.sidePages[index].notebook_index
-            self.builder.get_object("notebook1").set_current_page(target)
+            self.builder.get_object("main_notebook").set_current_page(target)
 
     def check_dock_features(self):
         config_dir = GLib.get_user_config_dir()
@@ -529,6 +529,7 @@ class MateTweak:
         self.gnome_menu_available = False
         self.indicators_available = False
         self.mageia_cc_available = False
+        self.mate_dock_available = False
         self.mate_menu_available = False
         self.maximus_available = False
         self.mint_menu_available = False
@@ -544,6 +545,9 @@ class MateTweak:
 
         if os.path.exists('/usr/share/applications/mageia-drakconf.desktop'):
             self.mageia_cc_available = True
+
+        if os.path.exists('/usr/lib/mate-applets/mate-dock-applet/dock.py'):
+            self.mate_dock_available = True
 
         if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
             self.mate_menu_available = True
@@ -599,6 +603,9 @@ class MateTweak:
 
         if self.panel_layout_exists('mageia') and self.mageia_cc_available:
             panels.append([_("Mageia"), "mageia"])
+
+        if self.panel_layout_exists('mutiny') and self.mate_dock_available:
+            panels.append([_("Mutiny"), "mutiny"])
 
         if self.panel_layout_exists('netbook') and self.maximus_available:
             panels.append([_("Netbook"), "netbook"])
@@ -669,8 +676,8 @@ class MateTweak:
             img = theme.load_icon(sidePage.icon, 36, 0)
             self.store.append([sidePage.name, img])
 
-        target = self.sidePages[0].notebook_index
-        self.builder.get_object("notebook1").set_current_page(target)
+        target = int(self.sidePages[0].notebook_index)
+        self.builder.get_object("main_notebook").set_current_page(target)
 
         # Do not show Performance or Window behaviour configuration
         # options when Marco or Metacity are not currently running.
@@ -720,7 +727,7 @@ class MateTweak:
         self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
 
         self.builder.get_object("checkbox_resources").set_label(_("Use less resources"))
-        self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
+        ## FIXME self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
 
         self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
         self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
@@ -745,11 +752,11 @@ class MateTweak:
         # Window Manager page
         if self.current_wm == "marco":
             self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
+            ## FIXME - self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
         elif self.current_wm == "metacity":
             self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
+            ## FIXME - self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
         elif self.current_wm == "mutter":
             self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
