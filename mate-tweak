@@ -207,7 +207,8 @@ class MateTweak:
                  self.compiz_capable = True
 
         if self.find_on_path('compton'):
-            self.compton_capable = True
+            if not self.software_rasterizer and self.texture_from_pixmap:
+                self.compton_capable = True
 
         if self.find_on_path('marco'):
             self.marco_capable = True
@@ -475,10 +476,12 @@ class MateTweak:
                     self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
+                    self.init_checkbox('org.mate.interface', 'gtk-enable-animations', 'checkbox_animations')
                 elif wm == 'metacity':
                     self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
+                    self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
             elif wm == 'mutter':
                 self.builder.get_object('frame_performance').props.sensitive = False
                 self.builder.get_object('frame_behaviour').props.sensitive = True
@@ -734,8 +737,9 @@ class MateTweak:
         self.builder.get_object("checkbox_trash").set_label(_("Trash"))
         self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
 
-        self.builder.get_object("checkbox_resources").set_label(_("Use less resources"))
-        ## FIXME self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
+        self.builder.get_object("checkbox_resources").set_label(_("Show window content when moving windows"))
+        self.builder.get_object("label_performance_tuning").set_markup("<small>" + _("Window manager performance tuning.") + "</small>")
+        self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
 
         self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
         self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
@@ -760,12 +764,14 @@ class MateTweak:
         # Window Manager page
         if self.current_wm == "marco":
             self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-            ## FIXME - self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
+            self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
+            self.init_checkbox('org.mate.interface', 'gtk-enable-animations', 'checkbox_animations')
         elif self.current_wm == "metacity":
             self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-            ## FIXME - self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
+            self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
+            self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
         elif self.current_wm == "mutter":
             self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
 
