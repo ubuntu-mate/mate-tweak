@@ -241,7 +241,7 @@
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbox_resources">
-                            <property name="label" translatable="yes">Show window content when moving windows</property>
+                            <property name="label" translatable="yes">Do not show window content when moving windows</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>

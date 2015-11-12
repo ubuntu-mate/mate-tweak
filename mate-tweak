@@ -737,7 +737,7 @@ class MateTweak:
         self.builder.get_object("checkbox_trash").set_label(_("Trash"))
         self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
 
-        self.builder.get_object("checkbox_resources").set_label(_("Show window content when moving windows"))
+        self.builder.get_object("checkbox_resources").set_label(_("Do not show window content when moving windows"))
         self.builder.get_object("label_performance_tuning").set_markup("<small>" + _("Window manager performance tuning.") + "</small>")
         self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
 
