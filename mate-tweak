@@ -107,6 +107,16 @@ class MateTweak:
         else: settings = Gio.Settings.new(schema)
         return settings.get_string(key)
 
+    def set_int(self, schema, path, key, value):
+        if path: settings = Gio.Settings.new_with_path(schema, path)
+        else: settings = Gio.Settings.new(schema)
+        settings.set_int(key, value)
+
+    def get_int(self, schema, path, key):
+        if path: settings = Gio.Settings.new_with_path(schema, path)
+        else: settings = Gio.Settings.new(schema)
+        return settings.get_int(key)
+
     def set_bool(self, schema, path, key, value):
         if path: settings = Gio.Settings.new_with_path(schema, path)
         else: settings = Gio.Settings.new(schema)
@@ -387,7 +397,8 @@ class MateTweak:
         thumbnail_profile_path = '/org/compiz/profiles/mate/plugins/thumbnail/'
 
         # Determine if the dock should be enabled
-        if new_layout.startswith('eleven') and self.dock is not None:
+        if (new_layout.startswith('eleven') and self.dock is not None) or \
+           (new_layout.startswith('wimpy') and self.dock is not None):
             if 'compiz' in self.current_wm:
                 # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
                 self.set_bool(thumbnail_schema_id, thumbnail_profile_path, 'current-viewport', False)
