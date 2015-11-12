@@ -35,13 +35,21 @@ from configobj import ConfigObj
 from ctypes import cdll, byref, create_string_buffer
 from subprocess import DEVNULL, PIPE
 
+gi.require_version('Gdk', '3.0')
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
+
+gi.require_version('GdkX11', '3.0')
 from gi.repository import GdkX11
 from gi.repository import Gio
 from gi.repository import GObject
+
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
+
+gi.require_version('Notify', '0.7')
 from gi.repository import Notify
+
 from gi.repository import GLib
 
 # Workaround introspection bug, gnome bug 622084
