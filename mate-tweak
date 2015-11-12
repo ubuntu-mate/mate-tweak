@@ -639,6 +639,9 @@ class MateTweak:
         if self.panel_layout_exists('ubuntu-mate'):
             panels.append([_("Ubuntu MATE"), "ubuntu-mate"])
 
+        if self.panel_layout_exists('wimpy'):
+            panels.append([_("Wimpy"), "wimpy"])
+
         self.builder.get_object("combobox_panels").set_model(panels)
 
     def save_panels(self, widget):
