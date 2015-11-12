@@ -339,9 +339,11 @@ class MateTweak:
         if self.panel_layout_exists(panel_layout + '-fresh') and \
            self.panel_layout_exists(panel_layout + '-indicators') and \
            self.panel_layout_exists(panel_layout + '-indicators-fresh'):
-            self.builder.get_object('frame_panel_features').props.sensitive = True
+            self.builder.get_object('checkbutton_indicators').props.sensitive = True
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
         else:
-            self.builder.get_object('frame_panel_features').props.sensitive = False
+            self.builder.get_object('checkbutton_indicators').props.sensitive = False
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
 
     def replace_panel_layout(self, panel_layout):
         self.update_panel_layout_features(panel_layout)
@@ -462,6 +464,17 @@ class MateTweak:
             # for GTK3 and GNOME.
             self.set_string("org.mate.interface", None, "gtk-decoration-layout", value)
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", value)
+
+        elif (schema == "org.mate.interface" and key == "enable-animations"):
+            self.set_bool('org.mate.panel', None, 'enable-aniations', value)
+            self.set_bool('org.mate.interface', None, 'gtk-enable-aniations', value)
+            self.set_bool('org.gnome.desktop.interface', None, 'enable-aniations', value)
+
+        elif (schema == "org.gnome.desktop.interface" and key == "enable-animations"):
+            self.set_bool('org.mate.panel', None, 'enable-aniations', value)
+            self.set_bool('org.mate.interface', None, 'gtk-enable-aniations', value)
+            self.set_bool('org.mate.interface', None, 'enable-aniations', value)
+
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
             wm = value
 
@@ -476,7 +489,7 @@ class MateTweak:
                     self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
-                    self.init_checkbox('org.mate.interface', 'gtk-enable-animations', 'checkbox_animations')
+                    self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
                 elif wm == 'metacity':
                     self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
@@ -577,18 +590,14 @@ class MateTweak:
 
 
     def make_list_of_panel_layouts(self):
-        if self.indicators_available or self.mate_menu_available:
-            self.builder.get_object('frame_panel_features').props.sensitive = True
-            if not self.indicators_available:
-                self.builder.get_object('checkbutton_indicators').props.sensitive = False
-            else:
-                self.builder.get_object('checkbutton_indicators').props.sensitive = True
-            if not self.mate_menu_available:
-                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
-            else:
-                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
+        if not self.indicators_available:
+            self.builder.get_object('checkbutton_indicators').props.sensitive = False
         else:
-            self.builder.get_object('frame_panel_features').props.sensitive = False
+            self.builder.get_object('checkbutton_indicators').props.sensitive = True
+        if not self.mate_menu_available:
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
+        else:
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
 
         # Panel layouts
         panels = Gtk.ListStore(str, str)
@@ -766,7 +775,7 @@ class MateTweak:
             self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
             self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
-            self.init_checkbox('org.mate.interface', 'gtk-enable-animations', 'checkbox_animations')
+            self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
         elif self.current_wm == "metacity":
             self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
             self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
@@ -780,6 +789,8 @@ class MateTweak:
         self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
         self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
         self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
+        self.init_checkbox("org.mate.peripherals-keyboard-xkb.general", "duplicate-leds", "checkbutton_keyboard_led")
+
 
         iconSizes = Gtk.ListStore(str, str)
         iconSizes.append([_("Small"), "small-toolbar"])
