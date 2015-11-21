@@ -733,6 +733,8 @@ class MateTweak:
         self.builder.get_object("label_performance").set_markup("<b>" + _("Performance") + "</b>")
         self.builder.get_object("label_behaviour").set_markup("<b>" + _("Window Behaviour") + "</b>")
         self.builder.get_object("label_appearance").set_markup("<b>" + _("Appearance") + "</b>")
+        self.builder.get_object("label_panels").set_markup("<b>" + _("Panels") + "</b>")
+        self.builder.get_object("label_panel_features").set_markup("<b>" + _("Panel Features") + "</b>")
         self.builder.get_object("label_icons").set_markup("<b>" + _("Icons") + "</b>")
         self.builder.get_object("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
         self.builder.get_object("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
@@ -746,15 +748,21 @@ class MateTweak:
         self.builder.get_object("checkbox_trash").set_label(_("Trash"))
         self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
 
+        self.builder.get_object("checkbox_animations").set_label(_("Enable animations"))
         self.builder.get_object("checkbox_resources").set_label(_("Do not show window content when moving windows"))
         self.builder.get_object("label_performance_tuning").set_markup("<small>" + _("Window manager performance tuning.") + "</small>")
         self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
 
+        self.builder.get_object("checkbox_snapping").set_label(_("Enable window snapping"))
         self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
         self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
 
         self.builder.get_object("label_window_control").set_markup("<small>" + _("Window control placement.") + "</small>")
 
+        self.builder.get_object("button_save_panels").set_label(_("Save Panel Layout"))
+        self.builder.get_object("checkbutton_indicators").set_label(_("Enable indicators"))
+        self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
+        self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
         self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
         self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
