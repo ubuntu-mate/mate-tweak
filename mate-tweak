@@ -35,19 +35,27 @@ from configobj import ConfigObj
 from ctypes import cdll, byref, create_string_buffer
 from subprocess import DEVNULL, PIPE
 
+gi.require_version('Gdk', '3.0')
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
+
+gi.require_version('GdkX11', '3.0')
 from gi.repository import GdkX11
 from gi.repository import Gio
 from gi.repository import GObject
+
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
+
+gi.require_version('Notify', '0.7')
 from gi.repository import Notify
+
 from gi.repository import GLib
 
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '3.5.2a'
+__VERSION__ = '3.5.4'
 
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
@@ -204,7 +212,8 @@ class MateTweak:
                  self.compiz_capable = True
 
         if self.find_on_path('compton'):
-            self.compton_capable = True
+            if not self.software_rasterizer and self.texture_from_pixmap:
+                self.compton_capable = True
 
         if self.find_on_path('marco'):
             self.marco_capable = True
@@ -345,9 +354,11 @@ class MateTweak:
         if self.panel_layout_exists(panel_layout + '-fresh') and \
            self.panel_layout_exists(panel_layout + '-indicators') and \
            self.panel_layout_exists(panel_layout + '-indicators-fresh'):
-            self.builder.get_object('frame_panel_features').props.sensitive = True
+            self.builder.get_object('checkbutton_indicators').props.sensitive = True
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
         else:
-            self.builder.get_object('frame_panel_features').props.sensitive = False
+            self.builder.get_object('checkbutton_indicators').props.sensitive = False
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
 
     def replace_panel_layout(self, panel_layout):
         self.update_panel_layout_features(panel_layout)
@@ -371,7 +382,7 @@ class MateTweak:
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=DEVNULL, stderr=DEVNULL)
         # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
-            print('Loading additional panel configuration for ' + panel_layout)
+            print('Loading additional panel configuration for ' + new_layout)
             cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
             os.system(cmd)
         else:
@@ -468,6 +479,17 @@ class MateTweak:
             # for GTK3 and GNOME.
             self.set_string("org.mate.interface", None, "gtk-decoration-layout", value)
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", value)
+
+        elif (schema == "org.mate.interface" and key == "enable-animations"):
+            self.set_bool('org.mate.panel', None, 'enable-aniations', value)
+            self.set_bool('org.mate.interface', None, 'gtk-enable-aniations', value)
+            self.set_bool('org.gnome.desktop.interface', None, 'enable-aniations', value)
+
+        elif (schema == "org.gnome.desktop.interface" and key == "enable-animations"):
+            self.set_bool('org.mate.panel', None, 'enable-aniations', value)
+            self.set_bool('org.mate.interface', None, 'gtk-enable-aniations', value)
+            self.set_bool('org.mate.interface', None, 'enable-aniations', value)
+
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
             wm = value
 
@@ -482,10 +504,12 @@ class MateTweak:
                     self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
+                    self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
                 elif wm == 'metacity':
                     self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
                     self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
+                    self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
             elif wm == 'mutter':
                 self.builder.get_object('frame_performance').props.sensitive = False
                 self.builder.get_object('frame_behaviour').props.sensitive = True
@@ -544,6 +568,7 @@ class MateTweak:
         self.gnome_menu_available = False
         self.indicators_available = False
         self.mageia_cc_available = False
+        self.mate_dock_available = False
         self.mate_menu_available = False
         self.maximus_available = False
         self.mint_menu_available = False
@@ -559,6 +584,9 @@ class MateTweak:
 
         if os.path.exists('/usr/share/applications/mageia-drakconf.desktop'):
             self.mageia_cc_available = True
+
+        if os.path.exists('/usr/lib/mate-applets/mate-dock-applet/dock.py'):
+            self.mate_dock_available = True
 
         if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
             self.mate_menu_available = True
@@ -577,18 +605,14 @@ class MateTweak:
 
 
     def make_list_of_panel_layouts(self):
-        if self.indicators_available or self.mate_menu_available:
-            self.builder.get_object('frame_panel_features').props.sensitive = True
-            if not self.indicators_available:
-                self.builder.get_object('checkbutton_indicators').props.sensitive = False
-            else:
-                self.builder.get_object('checkbutton_indicators').props.sensitive = True
-            if not self.mate_menu_available:
-                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
-            else:
-                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
+        if not self.indicators_available:
+            self.builder.get_object('checkbutton_indicators').props.sensitive = False
         else:
-            self.builder.get_object('frame_panel_features').props.sensitive = False
+            self.builder.get_object('checkbutton_indicators').props.sensitive = True
+        if not self.mate_menu_available:
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
+        else:
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
 
         # Panel layouts
         panels = Gtk.ListStore(str, str)
@@ -614,6 +638,9 @@ class MateTweak:
 
         if self.panel_layout_exists('mageia') and self.mageia_cc_available:
             panels.append([_("Mageia"), "mageia"])
+
+        if self.panel_layout_exists('mutiny') and self.mate_dock_available:
+            panels.append([_("Mutiny"), "mutiny"])
 
         if self.panel_layout_exists('netbook') and self.maximus_available:
             panels.append([_("Netbook"), "netbook"])
@@ -685,7 +712,7 @@ class MateTweak:
             img = theme.load_icon(sidePage.icon, 36, 0)
             self.store.append([sidePage.name, img])
 
-        target = self.sidePages[0].notebook_index
+        target = int(self.sidePages[0].notebook_index)
         self.builder.get_object("main_notebook").set_current_page(target)
 
         # Do not show Performance or Window behaviour configuration
@@ -722,6 +749,8 @@ class MateTweak:
         self.builder.get_object("label_performance").set_markup("<b>" + _("Performance") + "</b>")
         self.builder.get_object("label_behaviour").set_markup("<b>" + _("Window Behaviour") + "</b>")
         self.builder.get_object("label_appearance").set_markup("<b>" + _("Appearance") + "</b>")
+        self.builder.get_object("label_panels").set_markup("<b>" + _("Panels") + "</b>")
+        self.builder.get_object("label_panel_features").set_markup("<b>" + _("Panel Features") + "</b>")
         self.builder.get_object("label_icons").set_markup("<b>" + _("Icons") + "</b>")
         self.builder.get_object("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
         self.builder.get_object("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
@@ -736,14 +765,21 @@ class MateTweak:
         self.builder.get_object("checkbox_trash").set_label(_("Trash"))
         self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
 
-        self.builder.get_object("checkbox_resources").set_label(_("Use less resources"))
         self.builder.get_object("checkbox_animations").set_label(_("Enable animations"))
+        self.builder.get_object("checkbox_resources").set_label(_("Do not show window content when moving windows"))
+        self.builder.get_object("label_performance_tuning").set_markup("<small>" + _("Window manager performance tuning.") + "</small>")
+        self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
 
+        self.builder.get_object("checkbox_snapping").set_label(_("Enable window snapping"))
         self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
         self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
 
         self.builder.get_object("label_window_control").set_markup("<small>" + _("Window control placement.") + "</small>")
 
+        self.builder.get_object("button_save_panels").set_label(_("Save Panel Layout"))
+        self.builder.get_object("checkbutton_indicators").set_label(_("Enable indicators"))
+        self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
+        self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
         self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
         self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
@@ -766,10 +802,12 @@ class MateTweak:
             self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
             self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
+            self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
         elif self.current_wm == "metacity":
             self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
             self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
+            self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
         elif self.current_wm == "mutter":
             self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
 
@@ -778,6 +816,8 @@ class MateTweak:
         self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
         self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
         self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
+        self.init_checkbox("org.mate.peripherals-keyboard-xkb.general", "duplicate-leds", "checkbutton_keyboard_led")
+
 
         iconSizes = Gtk.ListStore(str, str)
         iconSizes.append([_("Small"), "small-toolbar"])
