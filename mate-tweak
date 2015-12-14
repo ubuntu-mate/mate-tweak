@@ -643,12 +643,12 @@ class MateTweak:
 
     def save_panels(self, widget):
         layoutname = getpass.getuser()
+        self.set_string('org.mate.panel', None, 'default-layout', layoutname + '-tweak')
         subprocess.call(['/usr/lib/mate-tweak/mate-panel-backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['pkexec', '/usr/lib/mate-tweak/install-mate-panel-layout', layoutname], stdout=DEVNULL, stderr=DEVNULL)
         Notify.init(_('Panel Layout Saved'))
         save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as /usr/share/mate-panel/layouts/' + layoutname +'-tweak.layout'),'dialog-information')
-        save_panels_notify.show()
-        self.set_string('org.mate.panel', None, 'default-layout', layoutname + '-tweak')
+        save_panels_notify.show()                
         self.make_list_of_panel_layouts()
         self.update_combobox('org.mate.panel', 'default-layout', 'combobox_panels')
 
