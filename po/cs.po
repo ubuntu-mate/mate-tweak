@@ -1,27 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Martin Kříž <slovanworks.czech@gmail.com>, 2015
 # Milan Milzou <vonfsro@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-13 12:27+0100\n"
-"PO-Revision-Date: 2015-08-13 11:24+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"POT-Creation-Date: 2015-08-13 12:21+0100\n"
+"PO-Revision-Date: 2015-11-16 20:08+0000\n"
+"Last-Translator: Martin Kříž <slovanworks.czech@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/mate/MATE/language/cs/)\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../mate-tweak:529
 msgid "GNOME2"
-msgstr ""
+msgstr "GNOME2"
 
 #: ../mate-tweak:532
 msgid "Ubuntu MATE"
@@ -33,11 +34,11 @@ msgstr "Redmond"
 
 #: ../mate-tweak:539
 msgid "Netbook"
-msgstr ""
+msgstr "Netbook"
 
 #: ../mate-tweak:543
 msgid "Cupertino"
-msgstr ""
+msgstr "Cupertino"
 
 #: ../mate-tweak:546
 msgid "Linux Mint"
@@ -61,7 +62,7 @@ msgstr "Prostředí"
 
 #: ../mate-tweak:651
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: ../mate-tweak:654
 msgid "Desktop icons"
@@ -73,7 +74,7 @@ msgstr "Výkon"
 
 #: ../mate-tweak:656
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Chování okna"
 
 #: ../mate-tweak:657
 msgid "Appearance"
@@ -93,7 +94,7 @@ msgstr "Nástrojové lišty"
 
 #: ../mate-tweak:661
 msgid "Window manager"
-msgstr ""
+msgstr "Správce oken"
 
 #: ../mate-tweak:663
 msgid "Select the items you want to see on the desktop:"
@@ -121,7 +122,7 @@ msgstr "Připojené disky"
 
 #: ../mate-tweak:671
 msgid "Use less resources"
-msgstr ""
+msgstr "Použít méně prostředků"
 
 #: ../mate-tweak:672
 msgid "Use compositing"
@@ -129,15 +130,15 @@ msgstr "Použít kompozitování"
 
 #: ../mate-tweak:674
 msgid "Undecorate maximized windows"
-msgstr ""
+msgstr "Nedekoruje maximalizovaná okna"
 
 #: ../mate-tweak:675
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "Nebude auto-maximalizovat nová okna"
 
 #: ../mate-tweak:677
 msgid "Window control placement."
-msgstr ""
+msgstr "Ovládání umístění oken."
 
 #: ../mate-tweak:679
 msgid "Show icons on menus"
@@ -157,7 +158,7 @@ msgstr "V kontextových nabídkách zobrazovat řídící znaky Unicode"
 
 #: ../mate-tweak:684
 msgid "Style:"
-msgstr ""
+msgstr "Styl:"
 
 #: ../mate-tweak:685
 msgid "Icon size:"
@@ -185,11 +186,11 @@ msgstr "Marco (Jednoduché efekty plochy)"
 
 #: ../mate-tweak:729
 msgid "Metacity (Simple desktop effects)"
-msgstr ""
+msgstr "Metacity (Jednoduché efekty plochy)"
 
 #: ../mate-tweak:731
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Mutter (Elegantní GPU akcelerované efekty plochy)"
 
 #: ../mate-tweak:733
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
@@ -201,19 +202,17 @@ msgstr "Nový správce oken bude aktivován při výběru."
 
 #: ../mate-tweak:737
 msgid "Select a window manager."
-msgstr ""
+msgstr "Zvolte správce oken."
 
 #: ../mate-tweak:742
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Zvolte rozvržení panelu pro změnu uživatelského rozhraní."
 
 #: ../mate-tweak:743
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Nové rozložení panelů se aktivuje při výběru a zničí veškeré úpravy, které "
-"jste provedli."
+msgstr "Nové rozložení panelů se aktivuje při výběru a zničí veškeré úpravy, které jste provedli."
 
 #: ../mate-tweak:750
 msgid "Text below items"

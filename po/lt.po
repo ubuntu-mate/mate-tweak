@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Moo, 2015
@@ -9,20 +9,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-13 12:27+0100\n"
-"PO-Revision-Date: 2015-08-13 11:24+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"POT-Creation-Date: 2015-08-13 12:21+0100\n"
+"PO-Revision-Date: 2015-12-06 22:35+0000\n"
+"Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/mate/MATE/language/lt/)\n"
-"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../mate-tweak:529
 msgid "GNOME2"
-msgstr ""
+msgstr "GNOME2"
 
 #: ../mate-tweak:532
 msgid "Ubuntu MATE"
@@ -34,11 +33,11 @@ msgstr "Redmond"
 
 #: ../mate-tweak:539
 msgid "Netbook"
-msgstr ""
+msgstr "Tinklinukas"
 
 #: ../mate-tweak:543
 msgid "Cupertino"
-msgstr ""
+msgstr "Cupertino"
 
 #: ../mate-tweak:546
 msgid "Linux Mint"
@@ -50,7 +49,7 @@ msgstr "openSUSE"
 
 #: ../mate-tweak:594
 msgid "Desktop"
-msgstr "Darbastalis"
+msgstr "Darbalaukis"
 
 #: ../mate-tweak:595
 msgid "Windows"
@@ -62,7 +61,7 @@ msgstr "Sąsaja"
 
 #: ../mate-tweak:651
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE papildomi nustatymai"
 
 #: ../mate-tweak:654
 msgid "Desktop icons"
@@ -74,7 +73,7 @@ msgstr "Našumas"
 
 #: ../mate-tweak:656
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Langų elgsena"
 
 #: ../mate-tweak:657
 msgid "Appearance"
@@ -94,11 +93,11 @@ msgstr "Įrankių juostos"
 
 #: ../mate-tweak:661
 msgid "Window manager"
-msgstr ""
+msgstr "Langų tvarkytuvė"
 
 #: ../mate-tweak:663
 msgid "Select the items you want to see on the desktop:"
-msgstr "Pasirinkite norimus darbastalio elementus"
+msgstr "Pasirinkite norimus darbalaukio elementus"
 
 #: ../mate-tweak:665
 msgid "Computer"
@@ -114,15 +113,15 @@ msgstr "Tinklas"
 
 #: ../mate-tweak:668
 msgid "Trash"
-msgstr "Šiukšliadėžė"
+msgstr "Šiukšlinė"
 
 #: ../mate-tweak:669
 msgid "Mounted Volumes"
-msgstr "Prijungti skirsniai"
+msgstr "Prijungti tomai"
 
 #: ../mate-tweak:671
 msgid "Use less resources"
-msgstr ""
+msgstr "Naudoti mažiau išteklių"
 
 #: ../mate-tweak:672
 msgid "Use compositing"
@@ -130,15 +129,15 @@ msgstr "Naudoti kombinavimą"
 
 #: ../mate-tweak:674
 msgid "Undecorate maximized windows"
-msgstr ""
+msgstr "Nuimti dekoravimą nuo išdidintų langų"
 
 #: ../mate-tweak:675
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "Automatiškai neišdidinti naujų langų"
 
 #: ../mate-tweak:677
 msgid "Window control placement."
-msgstr ""
+msgstr "Lango valdiklių vieta."
 
 #: ../mate-tweak:679
 msgid "Show icons on menus"
@@ -158,7 +157,7 @@ msgstr "Kontekstiniuose meniu rodyti Unikodo valdymo simbolio pasirinkimą"
 
 #: ../mate-tweak:684
 msgid "Style:"
-msgstr ""
+msgstr "Stilius:"
 
 #: ../mate-tweak:685
 msgid "Icon size:"
@@ -174,47 +173,45 @@ msgstr "Didelis"
 
 #: ../mate-tweak:718
 msgid "Traditional (Right)"
-msgstr "Tradicinis (Dešinėje)"
+msgstr "Tradicinė (Dešinėje)"
 
 #: ../mate-tweak:719
 msgid "Contemporary (Left)"
-msgstr "Šiuolaikinis (Kairėje)"
+msgstr "Šiuolaikinė (Kairėje)"
 
 #: ../mate-tweak:727
 msgid "Marco (Simple desktop effects)"
-msgstr "Marco (Paprasti darbastalio efektai)"
+msgstr "Marco (Paprasti darbalaukio efektai)"
 
 #: ../mate-tweak:729
 msgid "Metacity (Simple desktop effects)"
-msgstr ""
+msgstr "Metacity (Paprasti darbalaukio efektai)"
 
 #: ../mate-tweak:731
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Mutter (Elegantiški GPU paspartinami darbalaukio efektai)"
 
 #: ../mate-tweak:733
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (Išplėstiniai GPU paspartinami darbastalio efektai)"
+msgstr "Compiz (Išplėstiniai GPU paspartinami darbalaukio efektai)"
 
 #: ../mate-tweak:736
 msgid "The new window manager will be activated upon selection."
-msgstr "Nauja langų valdyklė bus aktyvuota, pasirinkus."
+msgstr "Nauja langų tvarkytuvė bus aktyvuota, pasirinkus."
 
 #: ../mate-tweak:737
 msgid "Select a window manager."
-msgstr ""
+msgstr "Pasirinkite langų tvarkytuvę."
 
 #: ../mate-tweak:742
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Pasirinkite skydelio išdėstymą, kad pakeistumėte naudotojo sąsają."
 
 #: ../mate-tweak:743
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Naujas skydelio išdėstymas bus aktyvuojamas, pasirinkus, ir sunaikins bet "
-"kokį tinkinimą, kurį, galbūt, esate padarę."
+msgstr "Naujas skydelio išdėstymas bus aktyvuojamas, pasirinkus, ir sunaikins bet kokį tinkinimą, kurį, galbūt, esate padarę."
 
 #: ../mate-tweak:750
 msgid "Text below items"

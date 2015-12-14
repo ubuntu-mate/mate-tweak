@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # mauron, 2015
@@ -9,19 +9,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-13 12:27+0100\n"
-"PO-Revision-Date: 2015-08-13 11:24+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"POT-Creation-Date: 2015-08-13 12:21+0100\n"
+"PO-Revision-Date: 2015-11-07 09:30+0000\n"
+"Last-Translator: mauron\n"
 "Language-Team: Turkish (http://www.transifex.com/mate/MATE/language/tr/)\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../mate-tweak:529
 msgid "GNOME2"
-msgstr ""
+msgstr "GNOME2"
 
 #: ../mate-tweak:532
 msgid "Ubuntu MATE"
@@ -33,11 +33,11 @@ msgstr "Redmond"
 
 #: ../mate-tweak:539
 msgid "Netbook"
-msgstr ""
+msgstr "Netbook"
 
 #: ../mate-tweak:543
 msgid "Cupertino"
-msgstr ""
+msgstr "Cupertino"
 
 #: ../mate-tweak:546
 msgid "Linux Mint"
@@ -61,7 +61,7 @@ msgstr "Arayüz"
 
 #: ../mate-tweak:651
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Ayarlayıcısı"
 
 #: ../mate-tweak:654
 msgid "Desktop icons"
@@ -73,7 +73,7 @@ msgstr "Performans"
 
 #: ../mate-tweak:656
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Pencere Davranışı"
 
 #: ../mate-tweak:657
 msgid "Appearance"
@@ -93,7 +93,7 @@ msgstr "Araç Çubukları"
 
 #: ../mate-tweak:661
 msgid "Window manager"
-msgstr ""
+msgstr "Pencere yöneticisi"
 
 #: ../mate-tweak:663
 msgid "Select the items you want to see on the desktop:"
@@ -121,7 +121,7 @@ msgstr "Bağlı Birimler"
 
 #: ../mate-tweak:671
 msgid "Use less resources"
-msgstr ""
+msgstr "Daha az kaynak kullan"
 
 #: ../mate-tweak:672
 msgid "Use compositing"
@@ -129,15 +129,15 @@ msgstr "Compositing özelliğini kullan"
 
 #: ../mate-tweak:674
 msgid "Undecorate maximized windows"
-msgstr ""
+msgstr "Büyültülmüş pencerelerin dekorasyonunu kaldır"
 
 #: ../mate-tweak:675
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "Yeni pencereleri otomatik olarak büyültme"
 
 #: ../mate-tweak:677
 msgid "Window control placement."
-msgstr ""
+msgstr "Pencere kontrolü yerleştirme."
 
 #: ../mate-tweak:679
 msgid "Show icons on menus"
@@ -157,7 +157,7 @@ msgstr "Unicode Kontrol Karakter menüsünü içerik menülerinde göster"
 
 #: ../mate-tweak:684
 msgid "Style:"
-msgstr ""
+msgstr "Biçem:"
 
 #: ../mate-tweak:685
 msgid "Icon size:"
@@ -185,11 +185,11 @@ msgstr "Marco (Sade masaüstü görgeleri)"
 
 #: ../mate-tweak:729
 msgid "Metacity (Simple desktop effects)"
-msgstr ""
+msgstr "Metacity (Sade masaüstü görgeleri)"
 
 #: ../mate-tweak:731
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Mutter (GPU ile hızlandırılmış zarif masaüstü görgeleri)"
 
 #: ../mate-tweak:733
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
@@ -201,19 +201,17 @@ msgstr "Yeni pencere yöneticisi seçimi üzerine devreye girecektir. "
 
 #: ../mate-tweak:737
 msgid "Select a window manager."
-msgstr ""
+msgstr "Bir pencere yöneticisi seç."
 
 #: ../mate-tweak:742
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Kullanıcı arayüzünü değiştirmek için panel düzeni seç."
 
 #: ../mate-tweak:743
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Yeni panel düzeni seçimi üzerine devreye girecektir ve yapmış olduğunuz "
-"kişiselleştirmeleri yok edecektir."
+msgstr "Yeni panel düzeni seçimi üzerine devreye girecektir ve yapmış olduğunuz kişiselleştirmeleri yok edecektir."
 
 #: ../mate-tweak:750
 msgid "Text below items"

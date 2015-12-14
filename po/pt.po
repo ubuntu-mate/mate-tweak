@@ -1,28 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Carlos Moreira <crolidge@gmail.com>, 2015
+# crolidge, 2015
 # Diogo Oliveira <diogodesigns@gmail.com>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-13 12:27+0100\n"
-"PO-Revision-Date: 2015-08-13 11:24+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"POT-Creation-Date: 2015-08-13 12:21+0100\n"
+"PO-Revision-Date: 2015-11-21 19:00+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/mate/MATE/language/pt/)\n"
-"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:529
 msgid "GNOME2"
-msgstr ""
+msgstr "GNOME2"
 
 #: ../mate-tweak:532
 msgid "Ubuntu MATE"
@@ -34,11 +35,11 @@ msgstr "Redmond"
 
 #: ../mate-tweak:539
 msgid "Netbook"
-msgstr ""
+msgstr "Netbook"
 
 #: ../mate-tweak:543
 msgid "Cupertino"
-msgstr ""
+msgstr "Cupertino"
 
 #: ../mate-tweak:546
 msgid "Linux Mint"
@@ -62,7 +63,7 @@ msgstr "Interface"
 
 #: ../mate-tweak:651
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: ../mate-tweak:654
 msgid "Desktop icons"
@@ -74,7 +75,7 @@ msgstr "Desempenho"
 
 #: ../mate-tweak:656
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Comportamento das Janelas"
 
 #: ../mate-tweak:657
 msgid "Appearance"
@@ -94,7 +95,7 @@ msgstr "Barras de ferramentas"
 
 #: ../mate-tweak:661
 msgid "Window manager"
-msgstr ""
+msgstr "Gestor de janelas"
 
 #: ../mate-tweak:663
 msgid "Select the items you want to see on the desktop:"
@@ -122,7 +123,7 @@ msgstr "Volumes montados"
 
 #: ../mate-tweak:671
 msgid "Use less resources"
-msgstr ""
+msgstr "Usar menos recursos"
 
 #: ../mate-tweak:672
 msgid "Use compositing"
@@ -130,15 +131,15 @@ msgstr "Usar composição"
 
 #: ../mate-tweak:674
 msgid "Undecorate maximized windows"
-msgstr ""
+msgstr "Desfazer decoração das janelas maximizadas"
 
 #: ../mate-tweak:675
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "Não auto-maximizar novas janelas"
 
 #: ../mate-tweak:677
 msgid "Window control placement."
-msgstr ""
+msgstr "Colocação do controlo de janelas."
 
 #: ../mate-tweak:679
 msgid "Show icons on menus"
@@ -158,7 +159,7 @@ msgstr "Mostrar controlo de caracteres Unicode nos menus de contexto"
 
 #: ../mate-tweak:684
 msgid "Style:"
-msgstr ""
+msgstr "Estilo:"
 
 #: ../mate-tweak:685
 msgid "Icon size:"
@@ -186,11 +187,11 @@ msgstr "Marco (Efeitos de desktop simples)"
 
 #: ../mate-tweak:729
 msgid "Metacity (Simple desktop effects)"
-msgstr ""
+msgstr "Metacity (Efeitos simples da área de trabalho)"
 
 #: ../mate-tweak:731
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Mutter (efeitos acelerados do ambiente de trabalho Elegant GPU)"
 
 #: ../mate-tweak:733
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
@@ -202,19 +203,17 @@ msgstr "O novo gestor de janelas será ativado na seleção."
 
 #: ../mate-tweak:737
 msgid "Select a window manager."
-msgstr ""
+msgstr "Selecione um gestor de janelas."
 
 #: ../mate-tweak:742
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Selecione uma disposição de painel para mudar a interface de utilizador."
 
 #: ../mate-tweak:743
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"A nova disposição do painel será ativada na seleção e apagará qualquer "
-"personalização que tenha feito."
+msgstr "A nova disposição do painel será ativada na seleção e apagará qualquer personalização que tenha feito."
 
 #: ../mate-tweak:750
 msgid "Text below items"
