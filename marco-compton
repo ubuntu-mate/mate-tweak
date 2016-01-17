@@ -10,8 +10,15 @@ if [ $? -eq 0 ]; then
     done
 fi
 
+# Replace marco and force compositing off.
 marco --no-composite --replace &
-compton --backend ${BACKEND} \
+
+# Allow users to override the defaults by creating their own config
+# for this wrapper.
+if [ -f ${HOME}/.config/marco-compton.conf ]; then
+    compton --config ${HOME}/.config/marco-compton.conf -b
+else
+    compton --backend ${BACKEND} \
         --vsync ${VSYNC} \
         --shadow-ignore-shaped \
         --detect-rounded-corners \
