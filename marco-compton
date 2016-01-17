@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+BACKEND="glx"
+VSYNC="opengl-swc"
+COMPTON_PIDS=$(pidof compton)
+if [ $? -eq 0 ]; then
+    echo "Killing compton"
+    for PID in ${COMPTON_PIDS}; do
+        kill -9 ${PID}
+    done
+fi
+
+marco --no-composite --replace &
+compton --backend ${BACKEND} \
+        --vsync ${VSYNC} \
+        --shadow-ignore-shaped \
+        --detect-rounded-corners \
+        --paint-on-overlay \
+        --glx-no-stencil \
+        --glx-swap-method undefined \
+        --unredir-if-possible \
+        -r 10 -o 0.5 \
+        -c -C -G -b \
+        --shadow-exclude "! name~=''" \
+        --shadow-exclude "name = 'Notification'" \
+        --shadow-exclude "name = 'Plank'" \
+        --shadow-exclude "name = 'Docky'" \
+        --shadow-exclude "name = 'Kupfer'" \
+        --shadow-exclude "name *= 'VLC'" \
+        --shadow-exclude "name *= 'compton'" \
+        --shadow-exclude "name *= 'Chromium'" \
+        --shadow-exclude "name *= 'Chrome'" \
+        --shadow-exclude "name *= 'Firefox'" \
+        --shadow-exclude "class_g = 'Conky'" \
+        --shadow-exclude "class_g = 'Kupfer'" \
+        --shadow-exclude "class_g = 'Synapse'" \
+        --shadow-exclude "class_g ?= 'Notify-osd'" \
+        --shadow-exclude "class_g ?= 'Cairo-dock'"
+
