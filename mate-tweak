@@ -196,8 +196,8 @@ class MateTweak:
         print('Window Manager is: ' + self.current_wm)
 
         self.compiz_capable = False
-        self.compton_capable = False
         self.marco_capable = False
+        self.marco_compton_capable = False
         self.metacity_capable = False
         self.muffin_capable = False
         self.mutter_capable = False
@@ -206,9 +206,9 @@ class MateTweak:
             if not self.software_rasterizer and self.texture_from_pixmap:
                  self.compiz_capable = True
 
-        if self.find_on_path('compton'):
+        if self.find_on_path('marco-compton'):
             if not self.software_rasterizer and self.texture_from_pixmap:
-                self.compton_capable = True
+                self.marco_compton_capable = True
 
         if self.find_on_path('marco'):
             self.marco_capable = True
@@ -261,7 +261,10 @@ class MateTweak:
 
         # Sometimes the outgoing window manager is left running and
         # replace mate-panel to avoid strut issues.
-        subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
+        if new_wm == 'marco-compton':
+            subprocess.call(['killall', 'compton'], stdout=DEVNULL, stderr=DEVNULL)
+        else:
+            subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Update current_wm to the new one.
@@ -648,7 +651,7 @@ class MateTweak:
         subprocess.call(['pkexec', '/usr/lib/mate-tweak/install-mate-panel-layout', layoutname], stdout=DEVNULL, stderr=DEVNULL)
         Notify.init(_('Panel Layout Saved'))
         save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as /usr/share/mate-panel/layouts/' + layoutname +'-tweak.layout'),'dialog-information')
-        save_panels_notify.show()                
+        save_panels_notify.show()
         self.make_list_of_panel_layouts()
         self.update_combobox('org.mate.panel', 'default-layout', 'combobox_panels')
 
@@ -818,6 +821,8 @@ class MateTweak:
 
         if self.marco_capable:
             wms.append([_("Marco (Simple desktop effects)"), 'marco'])
+        if self.marco_compton_capable:
+            wms.append([_("Marco (Simple GPU desktop effects)"), 'marco-compton'])
         if self.metacity_capable:
             wms.append([_("Metacity (Simple desktop effects)"), 'metacity'])
         if self.muffin_capable:

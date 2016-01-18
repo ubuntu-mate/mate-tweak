@@ -77,6 +77,6 @@ setup(
     package_dir = {'': '.'},
     data_files = data_files,
     install_requires = [ 'setuptools', ],
-    scripts = ['mate-tweak'],
+    scripts = ['mate-tweak', 'marco-compton'],
     cmdclass = cmdclass,
 )
