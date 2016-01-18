@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 12:35+0000\n"
+"POT-Creation-Date: 2016-01-18 13:04+0000\n"
 "PO-Revision-Date: 2015-11-10 14:41+0000\n"
 "Last-Translator: Siranush <ss.m.95@mail.ru>\n"
 "Language-Team: Armenian (http://www.transifex.com/mate/MATE/language/hy/)\n"
@@ -19,273 +19,269 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:652
+#: ../mate-tweak:644
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:655
+#: ../mate-tweak:647
 msgid "Fedora"
 msgstr ""
 
-#: ../mate-tweak:658
+#: ../mate-tweak:650
 msgid "GNOME2"
 msgstr "ԳՆՈՄ2"
 
-#: ../mate-tweak:661
+#: ../mate-tweak:653
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:664
+#: ../mate-tweak:656
 msgid "Mageia"
 msgstr ""
 
-#: ../mate-tweak:667
+#: ../mate-tweak:659
 msgid "Mutiny"
 msgstr ""
 
-#: ../mate-tweak:670
+#: ../mate-tweak:662
 msgid "Netbook"
 msgstr "Նեթբուք"
 
-#: ../mate-tweak:673
+#: ../mate-tweak:665
 msgid "openSUSE"
 msgstr ""
 
-#: ../mate-tweak:676
+#: ../mate-tweak:668
 msgid "Redmond"
 msgstr "Ռեդմոնդ"
 
-#: ../mate-tweak:679
+#: ../mate-tweak:671
 msgid "Ubuntu MATE"
 msgstr "Ubuntu Գնոմ"
 
-#: ../mate-tweak:726
+#: ../mate-tweak:718
 msgid "Desktop"
 msgstr "Աշխատանքային սեղան"
 
-#: ../mate-tweak:727
+#: ../mate-tweak:719
 msgid "Windows"
 msgstr "Windows "
 
-#: ../mate-tweak:728
+#: ../mate-tweak:720
 msgid "Interface"
 msgstr "Ինտերֆեյս"
 
-#: ../mate-tweak:768
+#: ../mate-tweak:760
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:771
+#: ../mate-tweak:763
 msgid "Desktop icons"
 msgstr "Աշխատանքային սեղանի պատկերակները"
 
-#: ../mate-tweak:772
+#: ../mate-tweak:764
 msgid "Performance"
 msgstr "Ներկայացում"
 
-#: ../mate-tweak:773
+#: ../mate-tweak:765
 msgid "Window Behaviour"
 msgstr "Պատուհանների Վարքագիծը"
 
-#: ../mate-tweak:774
+#: ../mate-tweak:766
 msgid "Appearance"
 msgstr "Արտաքին տեսք"
 
-#: ../mate-tweak:775
+#: ../mate-tweak:767
 msgid "Panels"
 msgstr ""
 
-#: ../mate-tweak:776
+#: ../mate-tweak:768
 msgid "Panel Features"
 msgstr ""
 
-#: ../mate-tweak:777
+#: ../mate-tweak:769
 msgid "Icons"
 msgstr "Պատկերներ"
 
-#: ../mate-tweak:778
+#: ../mate-tweak:770
 msgid "Context menus"
 msgstr "Համատեքստային Ընտրացանկերը"
 
-#: ../mate-tweak:779
+#: ../mate-tweak:771
 msgid "Toolbars"
 msgstr "Գործիքների վահանակ"
 
-#: ../mate-tweak:780
+#: ../mate-tweak:772
 msgid "Window manager"
 msgstr "Պատուհանի կառավարիչ"
 
-#: ../mate-tweak:782
+#: ../mate-tweak:774
 msgid "Select the items you want to see on the desktop:"
 msgstr "Ընտրեք այն իրերը, որոնք ցանկանում եք տեսնել աշխատասեղանին."
 
-#: ../mate-tweak:784
+#: ../mate-tweak:776
 msgid "Computer"
 msgstr "Համակարգիչ"
 
-#: ../mate-tweak:785
+#: ../mate-tweak:777
 msgid "Home"
 msgstr "Սկիզբ"
 
-#: ../mate-tweak:786
+#: ../mate-tweak:778
 msgid "Network"
 msgstr "Ցանց"
 
-#: ../mate-tweak:787
+#: ../mate-tweak:779
 msgid "Trash"
 msgstr "Աղբ"
 
-#: ../mate-tweak:788
+#: ../mate-tweak:780
 msgid "Mounted Volumes"
 msgstr "Տեղադրված Ծավալներ"
 
-#: ../mate-tweak:790
+#: ../mate-tweak:782
 msgid "Enable animations"
 msgstr ""
 
-#: ../mate-tweak:791
+#: ../mate-tweak:783
 msgid "Do not show window content when moving windows"
 msgstr ""
 
-#: ../mate-tweak:792
+#: ../mate-tweak:784
 msgid "Window manager performance tuning."
 msgstr ""
 
-#: ../mate-tweak:793
+#: ../mate-tweak:785
 msgid "Use compositing"
 msgstr "Օգտագործել կազմավորում"
 
-#: ../mate-tweak:795
+#: ../mate-tweak:787
 msgid "Enable window snapping"
 msgstr ""
 
-#: ../mate-tweak:796
+#: ../mate-tweak:788
 msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:797
+#: ../mate-tweak:789
 msgid "Do not auto-maximize new windows"
 msgstr ""
 
-#: ../mate-tweak:799
+#: ../mate-tweak:791
 msgid "Window control placement."
 msgstr "Պատուհանների հսկողություն տեղադրում։"
 
-#: ../mate-tweak:801
+#: ../mate-tweak:793
 msgid "Save Panel Layout"
 msgstr ""
 
-#: ../mate-tweak:802
+#: ../mate-tweak:794
 msgid "Enable indicators"
 msgstr ""
 
-#: ../mate-tweak:803
+#: ../mate-tweak:795
 msgid "Enable advanced menu"
 msgstr ""
 
-#: ../mate-tweak:804
+#: ../mate-tweak:796
 msgid "Enable keyboard LED"
 msgstr ""
 
-#: ../mate-tweak:805
+#: ../mate-tweak:797
 msgid "Show icons on menus"
 msgstr "Ընտրացանկում ցույց տալ պատկերակները"
 
-#: ../mate-tweak:806
+#: ../mate-tweak:798
 msgid "Show icons on buttons"
 msgstr "Ցույց տալ պատկերակների կոճակներ"
 
-#: ../mate-tweak:807
+#: ../mate-tweak:799
 msgid "Show Input Methods menu in context menus"
 msgstr ""
 
-#: ../mate-tweak:808
+#: ../mate-tweak:800
 msgid "Show Unicode Control Character menu in context menus"
 msgstr ""
 
-#: ../mate-tweak:810
+#: ../mate-tweak:802
 msgid "Style:"
 msgstr "Ոճ:"
 
-#: ../mate-tweak:811
+#: ../mate-tweak:803
 msgid "Icon size:"
 msgstr "Պտկերակի չափը։"
 
-#: ../mate-tweak:843
+#: ../mate-tweak:835
 msgid "Small"
 msgstr "Փոքր"
 
-#: ../mate-tweak:844
+#: ../mate-tweak:836
 msgid "Large"
 msgstr "Խոշոր"
 
-#: ../mate-tweak:850
+#: ../mate-tweak:842
 msgid "Traditional (Right)"
 msgstr "Ավանդական (Աջ)"
 
-#: ../mate-tweak:851
+#: ../mate-tweak:843
 msgid "Contemporary (Left)"
 msgstr "Ժամանակակից (Ձախ)"
 
-#: ../mate-tweak:858
+#: ../mate-tweak:850
 msgid "Marco (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:860
+#: ../mate-tweak:852
 msgid "Marco (Simple GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:862
+#: ../mate-tweak:854
 msgid "Metacity (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:864
+#: ../mate-tweak:856
 msgid "Metacity (Simple GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:866
-msgid "Muffin (Elegant GPU accelerated desktop effects)"
-msgstr ""
-
-#: ../mate-tweak:868
+#: ../mate-tweak:858
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:870
+#: ../mate-tweak:860
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:873
+#: ../mate-tweak:863
 msgid "The new window manager will be activated upon selection."
 msgstr ""
 
-#: ../mate-tweak:874
+#: ../mate-tweak:864
 msgid "Select a window manager."
 msgstr "Ընտրել պատուհանի կառավարիչը։"
 
-#: ../mate-tweak:887
+#: ../mate-tweak:877
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:888
+#: ../mate-tweak:878
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:895
+#: ../mate-tweak:885
 msgid "Text below items"
 msgstr "Տեքստի ներքևում տարրեր"
 
-#: ../mate-tweak:896
+#: ../mate-tweak:886
 msgid "Text beside items"
 msgstr "Տեքստի կողքին տարրեր"
 
-#: ../mate-tweak:897
+#: ../mate-tweak:887
 msgid "Icons only"
 msgstr "Միայն պատկերակներ"
 
-#: ../mate-tweak:898
+#: ../mate-tweak:888
 msgid "Text only"
 msgstr "Միայն տեքստ"
 
