@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WM=marco
+WM=metacity
 BACKEND="glx"
 VSYNC="opengl-swc"
 
