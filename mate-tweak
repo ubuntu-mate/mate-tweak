@@ -197,17 +197,15 @@ class MateTweak:
         if ('Marco' in current_wm):
             self.current_wm = 'marco'
             if self.process_running('compton'):
-                self.current_wm = 'marco-compton'
+                self.current_wm += '-compton'
         elif ('Metacity' in current_wm):
-            self.current_wm = 'metacity'
+            self.current_wm = current_wm.lower()
             if self.process_running('compton'):
-                self.current_wm = 'metacity-compton'
-        elif ('Muffin' in current_wm):
-            self.current_wm = 'muffin'
+                self.current_wm += '-compton'
         elif ('Mutter' in current_wm):
-            self.current_wm = 'mutter'
+            self.current_wm = current_wm.lower()
         elif ('Compiz' in current_wm):
-            self.current_wm = 'compiz'
+            self.current_wm = current_wm.lower()
         else:
             self.current_wm = 'Unknown'
 
@@ -218,7 +216,6 @@ class MateTweak:
         self.marco_compton_capable = False
         self.metacity_capable = False
         self.metacity_compton_capable = False
-        self.muffin_capable = False
         self.mutter_capable = False
 
         if self.find_on_path('compiz'):
@@ -238,11 +235,6 @@ class MateTweak:
 
         if self.find_on_path('metacity'):
             self.metacity_capable = True
-
-        # Not stable under MATE
-        #if self.find_on_path('muffin'):
-        #    if not self.software_rasterizer and self.texture_from_pixmap:
-        #        self.muffin_capable = True
 
         if self.find_on_path('mutter'):
             if not self.software_rasterizer and self.texture_from_pixmap:
@@ -862,8 +854,6 @@ class MateTweak:
             wms.append([_("Metacity (Simple desktop effects)"), 'metacity'])
         if self.metacity_compton_capable:
             wms.append([_("Metacity (Simple GPU accelerated desktop effects)"), 'metacity-compton'])
-        if self.muffin_capable:
-            wms.append([_("Muffin (Elegant GPU accelerated desktop effects)"), 'muffin'])
         if self.mutter_capable:
             wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
         if self.compiz_capable:
