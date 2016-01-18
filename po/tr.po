@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # mauron, 2015
@@ -9,222 +9,290 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-13 12:21+0100\n"
+"POT-Creation-Date: 2016-01-18 12:35+0000\n"
 "PO-Revision-Date: 2015-11-07 09:30+0000\n"
 "Last-Translator: mauron\n"
 "Language-Team: Turkish (http://www.transifex.com/mate/MATE/language/tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../mate-tweak:529
-msgid "GNOME2"
-msgstr "GNOME2"
-
-#: ../mate-tweak:532
-msgid "Ubuntu MATE"
-msgstr "Ubuntu MATE"
-
-#: ../mate-tweak:535
-msgid "Redmond"
-msgstr "Redmond"
-
-#: ../mate-tweak:539
-msgid "Netbook"
-msgstr "Netbook"
-
-#: ../mate-tweak:543
+#: ../mate-tweak:652
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:546
+#: ../mate-tweak:655
+msgid "Fedora"
+msgstr ""
+
+#: ../mate-tweak:658
+msgid "GNOME2"
+msgstr "GNOME2"
+
+#: ../mate-tweak:661
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:549
+#: ../mate-tweak:664
+msgid "Mageia"
+msgstr ""
+
+#: ../mate-tweak:667
+msgid "Mutiny"
+msgstr ""
+
+#: ../mate-tweak:670
+msgid "Netbook"
+msgstr "Netbook"
+
+#: ../mate-tweak:673
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:594
+#: ../mate-tweak:676
+msgid "Redmond"
+msgstr "Redmond"
+
+#: ../mate-tweak:679
+msgid "Ubuntu MATE"
+msgstr "Ubuntu MATE"
+
+#: ../mate-tweak:726
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: ../mate-tweak:595
+#: ../mate-tweak:727
 msgid "Windows"
 msgstr "Pencereler"
 
-#: ../mate-tweak:596
+#: ../mate-tweak:728
 msgid "Interface"
 msgstr "Arayüz"
 
-#: ../mate-tweak:651
+#: ../mate-tweak:768
 msgid "MATE Tweak"
 msgstr "MATE Ayarlayıcısı"
 
-#: ../mate-tweak:654
+#: ../mate-tweak:771
 msgid "Desktop icons"
 msgstr "Masaüstü simgeleri"
 
-#: ../mate-tweak:655
+#: ../mate-tweak:772
 msgid "Performance"
 msgstr "Performans"
 
-#: ../mate-tweak:656
+#: ../mate-tweak:773
 msgid "Window Behaviour"
 msgstr "Pencere Davranışı"
 
-#: ../mate-tweak:657
+#: ../mate-tweak:774
 msgid "Appearance"
 msgstr "Görünüm"
 
-#: ../mate-tweak:658
+#: ../mate-tweak:775
+msgid "Panels"
+msgstr ""
+
+#: ../mate-tweak:776
+msgid "Panel Features"
+msgstr ""
+
+#: ../mate-tweak:777
 msgid "Icons"
 msgstr "Simgeler"
 
-#: ../mate-tweak:659
+#: ../mate-tweak:778
 msgid "Context menus"
 msgstr "İçerik menüleri"
 
-#: ../mate-tweak:660
+#: ../mate-tweak:779
 msgid "Toolbars"
 msgstr "Araç Çubukları"
 
-#: ../mate-tweak:661
+#: ../mate-tweak:780
 msgid "Window manager"
 msgstr "Pencere yöneticisi"
 
-#: ../mate-tweak:663
+#: ../mate-tweak:782
 msgid "Select the items you want to see on the desktop:"
 msgstr "Masaüstünde görmek istediğiniz ögeleri seçin:"
 
-#: ../mate-tweak:665
+#: ../mate-tweak:784
 msgid "Computer"
 msgstr "Bilgisayar"
 
-#: ../mate-tweak:666
+#: ../mate-tweak:785
 msgid "Home"
 msgstr "Ev Dizini"
 
-#: ../mate-tweak:667
+#: ../mate-tweak:786
 msgid "Network"
 msgstr "Ağ"
 
-#: ../mate-tweak:668
+#: ../mate-tweak:787
 msgid "Trash"
 msgstr "Çöp Kutusu"
 
-#: ../mate-tweak:669
+#: ../mate-tweak:788
 msgid "Mounted Volumes"
 msgstr "Bağlı Birimler"
 
-#: ../mate-tweak:671
-msgid "Use less resources"
-msgstr "Daha az kaynak kullan"
+#: ../mate-tweak:790
+msgid "Enable animations"
+msgstr ""
 
-#: ../mate-tweak:672
+#: ../mate-tweak:791
+msgid "Do not show window content when moving windows"
+msgstr ""
+
+#: ../mate-tweak:792
+msgid "Window manager performance tuning."
+msgstr ""
+
+#: ../mate-tweak:793
 msgid "Use compositing"
 msgstr "Compositing özelliğini kullan"
 
-#: ../mate-tweak:674
+#: ../mate-tweak:795
+msgid "Enable window snapping"
+msgstr ""
+
+#: ../mate-tweak:796
 msgid "Undecorate maximized windows"
 msgstr "Büyültülmüş pencerelerin dekorasyonunu kaldır"
 
-#: ../mate-tweak:675
+#: ../mate-tweak:797
 msgid "Do not auto-maximize new windows"
 msgstr "Yeni pencereleri otomatik olarak büyültme"
 
-#: ../mate-tweak:677
+#: ../mate-tweak:799
 msgid "Window control placement."
 msgstr "Pencere kontrolü yerleştirme."
 
-#: ../mate-tweak:679
+#: ../mate-tweak:801
+msgid "Save Panel Layout"
+msgstr ""
+
+#: ../mate-tweak:802
+msgid "Enable indicators"
+msgstr ""
+
+#: ../mate-tweak:803
+msgid "Enable advanced menu"
+msgstr ""
+
+#: ../mate-tweak:804
+msgid "Enable keyboard LED"
+msgstr ""
+
+#: ../mate-tweak:805
 msgid "Show icons on menus"
 msgstr "Menülerde simgeleri göster"
 
-#: ../mate-tweak:680
+#: ../mate-tweak:806
 msgid "Show icons on buttons"
 msgstr "Düğmelerde simgeleri göster"
 
-#: ../mate-tweak:681
+#: ../mate-tweak:807
 msgid "Show Input Methods menu in context menus"
 msgstr "Girdi Yöntemleri menüsünü içerik menülerinde göster"
 
-#: ../mate-tweak:682
+#: ../mate-tweak:808
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Unicode Kontrol Karakter menüsünü içerik menülerinde göster"
 
-#: ../mate-tweak:684
+#: ../mate-tweak:810
 msgid "Style:"
 msgstr "Biçem:"
 
-#: ../mate-tweak:685
+#: ../mate-tweak:811
 msgid "Icon size:"
 msgstr "Simge boyutu:"
 
-#: ../mate-tweak:711
+#: ../mate-tweak:843
 msgid "Small"
 msgstr "Küçük"
 
-#: ../mate-tweak:712
+#: ../mate-tweak:844
 msgid "Large"
 msgstr "Büyük"
 
-#: ../mate-tweak:718
+#: ../mate-tweak:850
 msgid "Traditional (Right)"
 msgstr "Geleneksel (Sağ)"
 
-#: ../mate-tweak:719
+#: ../mate-tweak:851
 msgid "Contemporary (Left)"
 msgstr "Çağdaş (Sol)"
 
-#: ../mate-tweak:727
+#: ../mate-tweak:858
 msgid "Marco (Simple desktop effects)"
 msgstr "Marco (Sade masaüstü görgeleri)"
 
-#: ../mate-tweak:729
+#: ../mate-tweak:860
+#, fuzzy
+msgid "Marco (Simple GPU accelerated desktop effects)"
+msgstr "Mutter (GPU ile hızlandırılmış zarif masaüstü görgeleri)"
+
+#: ../mate-tweak:862
 msgid "Metacity (Simple desktop effects)"
 msgstr "Metacity (Sade masaüstü görgeleri)"
 
-#: ../mate-tweak:731
+#: ../mate-tweak:864
+#, fuzzy
+msgid "Metacity (Simple GPU accelerated desktop effects)"
+msgstr "Mutter (GPU ile hızlandırılmış zarif masaüstü görgeleri)"
+
+#: ../mate-tweak:866
+#, fuzzy
+msgid "Muffin (Elegant GPU accelerated desktop effects)"
+msgstr "Mutter (GPU ile hızlandırılmış zarif masaüstü görgeleri)"
+
+#: ../mate-tweak:868
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (GPU ile hızlandırılmış zarif masaüstü görgeleri)"
 
-#: ../mate-tweak:733
+#: ../mate-tweak:870
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (Gelişmiş, GPU ile hızlandırılmış masaüstü görgeleri)"
 
-#: ../mate-tweak:736
+#: ../mate-tweak:873
 msgid "The new window manager will be activated upon selection."
 msgstr "Yeni pencere yöneticisi seçimi üzerine devreye girecektir. "
 
-#: ../mate-tweak:737
+#: ../mate-tweak:874
 msgid "Select a window manager."
 msgstr "Bir pencere yöneticisi seç."
 
-#: ../mate-tweak:742
+#: ../mate-tweak:887
 msgid "Select a panel layout to change the user interface."
 msgstr "Kullanıcı arayüzünü değiştirmek için panel düzeni seç."
 
-#: ../mate-tweak:743
+#: ../mate-tweak:888
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr "Yeni panel düzeni seçimi üzerine devreye girecektir ve yapmış olduğunuz kişiselleştirmeleri yok edecektir."
+msgstr ""
+"Yeni panel düzeni seçimi üzerine devreye girecektir ve yapmış olduğunuz "
+"kişiselleştirmeleri yok edecektir."
 
-#: ../mate-tweak:750
+#: ../mate-tweak:895
 msgid "Text below items"
 msgstr "Metin öğelerin altında"
 
-#: ../mate-tweak:751
+#: ../mate-tweak:896
 msgid "Text beside items"
 msgstr "Metin öğelerin yanında"
 
-#: ../mate-tweak:752
+#: ../mate-tweak:897
 msgid "Icons only"
 msgstr "Sadece simgeler"
 
-#: ../mate-tweak:753
+#: ../mate-tweak:898
 msgid "Text only"
 msgstr "Sadece metin"
+
+#~ msgid "Use less resources"
+#~ msgstr "Daha az kaynak kullan"

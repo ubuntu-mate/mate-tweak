@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-13 12:27+0100\n"
+"POT-Creation-Date: 2016-01-18 12:35+0000\n"
 "PO-Revision-Date: 2015-08-13 11:24+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Kurdish (http://www.transifex.com/mate/MATE/language/ku/)\n"
@@ -18,212 +18,272 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:529
-msgid "GNOME2"
-msgstr ""
-
-#: ../mate-tweak:532
-msgid "Ubuntu MATE"
-msgstr ""
-
-#: ../mate-tweak:535
-msgid "Redmond"
-msgstr ""
-
-#: ../mate-tweak:539
-msgid "Netbook"
-msgstr ""
-
-#: ../mate-tweak:543
+#: ../mate-tweak:652
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:546
+#: ../mate-tweak:655
+msgid "Fedora"
+msgstr ""
+
+#: ../mate-tweak:658
+msgid "GNOME2"
+msgstr ""
+
+#: ../mate-tweak:661
 msgid "Linux Mint"
 msgstr ""
 
-#: ../mate-tweak:549
+#: ../mate-tweak:664
+msgid "Mageia"
+msgstr ""
+
+#: ../mate-tweak:667
+msgid "Mutiny"
+msgstr ""
+
+#: ../mate-tweak:670
+msgid "Netbook"
+msgstr ""
+
+#: ../mate-tweak:673
 msgid "openSUSE"
 msgstr ""
 
-#: ../mate-tweak:594
-msgid "Desktop"
-msgstr "Sermêze"
-
-#: ../mate-tweak:595
-msgid "Windows"
-msgstr "Windows"
-
-#: ../mate-tweak:596
-msgid "Interface"
-msgstr "Navrû"
-
-#: ../mate-tweak:651
-msgid "MATE Tweak"
-msgstr ""
-
-#: ../mate-tweak:654
-msgid "Desktop icons"
-msgstr "Îkonên sermêze"
-
-#: ../mate-tweak:655
-msgid "Performance"
-msgstr ""
-
-#: ../mate-tweak:656
-msgid "Window Behaviour"
-msgstr ""
-
-#: ../mate-tweak:657
-msgid "Appearance"
-msgstr "Xuyanî"
-
-#: ../mate-tweak:658
-msgid "Icons"
-msgstr "Îkon"
-
-#: ../mate-tweak:659
-msgid "Context menus"
-msgstr "Gurzê menuyan"
-
-#: ../mate-tweak:660
-msgid "Toolbars"
-msgstr "Darikên Amûran"
-
-#: ../mate-tweak:661
-msgid "Window manager"
-msgstr ""
-
-#: ../mate-tweak:663
-msgid "Select the items you want to see on the desktop:"
-msgstr ""
-
-#: ../mate-tweak:665
-msgid "Computer"
-msgstr "Komputer"
-
-#: ../mate-tweak:666
-msgid "Home"
-msgstr "Mal"
-
-#: ../mate-tweak:667
-msgid "Network"
-msgstr "Tor"
-
-#: ../mate-tweak:668
-msgid "Trash"
-msgstr "Qirşikdank"
-
-#: ../mate-tweak:669
-msgid "Mounted Volumes"
-msgstr "Cêzên lêdayî"
-
-#: ../mate-tweak:671
-msgid "Use less resources"
-msgstr ""
-
-#: ../mate-tweak:672
-msgid "Use compositing"
-msgstr ""
-
-#: ../mate-tweak:674
-msgid "Undecorate maximized windows"
-msgstr ""
-
-#: ../mate-tweak:675
-msgid "Do not auto-maximize new windows"
-msgstr ""
-
-#: ../mate-tweak:677
-msgid "Window control placement."
+#: ../mate-tweak:676
+msgid "Redmond"
 msgstr ""
 
 #: ../mate-tweak:679
+msgid "Ubuntu MATE"
+msgstr ""
+
+#: ../mate-tweak:726
+msgid "Desktop"
+msgstr "Sermêze"
+
+#: ../mate-tweak:727
+msgid "Windows"
+msgstr "Windows"
+
+#: ../mate-tweak:728
+msgid "Interface"
+msgstr "Navrû"
+
+#: ../mate-tweak:768
+msgid "MATE Tweak"
+msgstr ""
+
+#: ../mate-tweak:771
+msgid "Desktop icons"
+msgstr "Îkonên sermêze"
+
+#: ../mate-tweak:772
+msgid "Performance"
+msgstr ""
+
+#: ../mate-tweak:773
+msgid "Window Behaviour"
+msgstr ""
+
+#: ../mate-tweak:774
+msgid "Appearance"
+msgstr "Xuyanî"
+
+#: ../mate-tweak:775
+msgid "Panels"
+msgstr ""
+
+#: ../mate-tweak:776
+msgid "Panel Features"
+msgstr ""
+
+#: ../mate-tweak:777
+msgid "Icons"
+msgstr "Îkon"
+
+#: ../mate-tweak:778
+msgid "Context menus"
+msgstr "Gurzê menuyan"
+
+#: ../mate-tweak:779
+msgid "Toolbars"
+msgstr "Darikên Amûran"
+
+#: ../mate-tweak:780
+msgid "Window manager"
+msgstr ""
+
+#: ../mate-tweak:782
+msgid "Select the items you want to see on the desktop:"
+msgstr ""
+
+#: ../mate-tweak:784
+msgid "Computer"
+msgstr "Komputer"
+
+#: ../mate-tweak:785
+msgid "Home"
+msgstr "Mal"
+
+#: ../mate-tweak:786
+msgid "Network"
+msgstr "Tor"
+
+#: ../mate-tweak:787
+msgid "Trash"
+msgstr "Qirşikdank"
+
+#: ../mate-tweak:788
+msgid "Mounted Volumes"
+msgstr "Cêzên lêdayî"
+
+#: ../mate-tweak:790
+msgid "Enable animations"
+msgstr ""
+
+#: ../mate-tweak:791
+msgid "Do not show window content when moving windows"
+msgstr ""
+
+#: ../mate-tweak:792
+msgid "Window manager performance tuning."
+msgstr ""
+
+#: ../mate-tweak:793
+msgid "Use compositing"
+msgstr ""
+
+#: ../mate-tweak:795
+msgid "Enable window snapping"
+msgstr ""
+
+#: ../mate-tweak:796
+msgid "Undecorate maximized windows"
+msgstr ""
+
+#: ../mate-tweak:797
+msgid "Do not auto-maximize new windows"
+msgstr ""
+
+#: ../mate-tweak:799
+msgid "Window control placement."
+msgstr ""
+
+#: ../mate-tweak:801
+msgid "Save Panel Layout"
+msgstr ""
+
+#: ../mate-tweak:802
+msgid "Enable indicators"
+msgstr ""
+
+#: ../mate-tweak:803
+msgid "Enable advanced menu"
+msgstr ""
+
+#: ../mate-tweak:804
+msgid "Enable keyboard LED"
+msgstr ""
+
+#: ../mate-tweak:805
 msgid "Show icons on menus"
 msgstr "Îkon û menûyan nîşan bide"
 
-#: ../mate-tweak:680
+#: ../mate-tweak:806
 msgid "Show icons on buttons"
 msgstr "Îkon û bişkokan nîşan bide"
 
-#: ../mate-tweak:681
+#: ../mate-tweak:807
 msgid "Show Input Methods menu in context menus"
 msgstr ""
 
-#: ../mate-tweak:682
+#: ../mate-tweak:808
 msgid "Show Unicode Control Character menu in context menus"
 msgstr ""
 
-#: ../mate-tweak:684
+#: ../mate-tweak:810
 msgid "Style:"
 msgstr ""
 
-#: ../mate-tweak:685
+#: ../mate-tweak:811
 msgid "Icon size:"
 msgstr "Bejna îkonan"
 
-#: ../mate-tweak:711
+#: ../mate-tweak:843
 msgid "Small"
 msgstr "Biçûk"
 
-#: ../mate-tweak:712
+#: ../mate-tweak:844
 msgid "Large"
 msgstr "Fireh"
 
-#: ../mate-tweak:718
+#: ../mate-tweak:850
 msgid "Traditional (Right)"
 msgstr ""
 
-#: ../mate-tweak:719
+#: ../mate-tweak:851
 msgid "Contemporary (Left)"
 msgstr ""
 
-#: ../mate-tweak:727
+#: ../mate-tweak:858
 msgid "Marco (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:729
+#: ../mate-tweak:860
+msgid "Marco (Simple GPU accelerated desktop effects)"
+msgstr ""
+
+#: ../mate-tweak:862
 msgid "Metacity (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:731
+#: ../mate-tweak:864
+msgid "Metacity (Simple GPU accelerated desktop effects)"
+msgstr ""
+
+#: ../mate-tweak:866
+msgid "Muffin (Elegant GPU accelerated desktop effects)"
+msgstr ""
+
+#: ../mate-tweak:868
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:733
+#: ../mate-tweak:870
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:736
+#: ../mate-tweak:873
 msgid "The new window manager will be activated upon selection."
 msgstr ""
 
-#: ../mate-tweak:737
+#: ../mate-tweak:874
 msgid "Select a window manager."
 msgstr ""
 
-#: ../mate-tweak:742
+#: ../mate-tweak:887
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:743
+#: ../mate-tweak:888
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:750
+#: ../mate-tweak:895
 msgid "Text below items"
 msgstr ""
 
-#: ../mate-tweak:751
+#: ../mate-tweak:896
 msgid "Text beside items"
 msgstr ""
 
-#: ../mate-tweak:752
+#: ../mate-tweak:897
 msgid "Icons only"
 msgstr "Tenê îkon"
 
-#: ../mate-tweak:753
+#: ../mate-tweak:898
 msgid "Text only"
 msgstr "Tenê nivîs"

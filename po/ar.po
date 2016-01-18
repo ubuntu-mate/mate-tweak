@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-13 12:27+0100\n"
+"POT-Creation-Date: 2016-01-18 12:35+0000\n"
 "PO-Revision-Date: 2015-08-13 11:24+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Arabic (http://www.transifex.com/mate/MATE/language/ar/)\n"
@@ -19,212 +19,275 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: ../mate-tweak:529
-msgid "GNOME2"
-msgstr ""
-
-#: ../mate-tweak:532
-msgid "Ubuntu MATE"
-msgstr "أوبنتو متّة"
-
-#: ../mate-tweak:535
-msgid "Redmond"
-msgstr "ريدموند"
-
-#: ../mate-tweak:539
-msgid "Netbook"
-msgstr ""
-
-#: ../mate-tweak:543
+#: ../mate-tweak:652
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:546
+#: ../mate-tweak:655
+msgid "Fedora"
+msgstr ""
+
+#: ../mate-tweak:658
+msgid "GNOME2"
+msgstr ""
+
+#: ../mate-tweak:661
 msgid "Linux Mint"
 msgstr "لينكس منت"
 
-#: ../mate-tweak:549
+#: ../mate-tweak:664
+msgid "Mageia"
+msgstr ""
+
+#: ../mate-tweak:667
+msgid "Mutiny"
+msgstr ""
+
+#: ../mate-tweak:670
+msgid "Netbook"
+msgstr ""
+
+#: ../mate-tweak:673
 msgid "openSUSE"
 msgstr "أوبن سوزي"
 
-#: ../mate-tweak:594
+#: ../mate-tweak:676
+msgid "Redmond"
+msgstr "ريدموند"
+
+#: ../mate-tweak:679
+msgid "Ubuntu MATE"
+msgstr "أوبنتو متّة"
+
+#: ../mate-tweak:726
 msgid "Desktop"
 msgstr "سطح المكتب"
 
-#: ../mate-tweak:595
+#: ../mate-tweak:727
 msgid "Windows"
 msgstr "النوافذ"
 
-#: ../mate-tweak:596
+#: ../mate-tweak:728
 msgid "Interface"
 msgstr "الواجهة"
 
-#: ../mate-tweak:651
+#: ../mate-tweak:768
 msgid "MATE Tweak"
 msgstr ""
 
-#: ../mate-tweak:654
+#: ../mate-tweak:771
 msgid "Desktop icons"
 msgstr "أيقونات سطح المكتب"
 
-#: ../mate-tweak:655
+#: ../mate-tweak:772
 msgid "Performance"
 msgstr "الأداء"
 
-#: ../mate-tweak:656
+#: ../mate-tweak:773
 msgid "Window Behaviour"
 msgstr ""
 
-#: ../mate-tweak:657
+#: ../mate-tweak:774
 msgid "Appearance"
 msgstr "المظهر"
 
-#: ../mate-tweak:658
+#: ../mate-tweak:775
+msgid "Panels"
+msgstr ""
+
+#: ../mate-tweak:776
+msgid "Panel Features"
+msgstr ""
+
+#: ../mate-tweak:777
 msgid "Icons"
 msgstr "الأيقونات"
 
-#: ../mate-tweak:659
+#: ../mate-tweak:778
 msgid "Context menus"
 msgstr "القوائم الجانبية"
 
-#: ../mate-tweak:660
+#: ../mate-tweak:779
 msgid "Toolbars"
 msgstr "أشرطة الأدوات"
 
-#: ../mate-tweak:661
+#: ../mate-tweak:780
 msgid "Window manager"
 msgstr ""
 
-#: ../mate-tweak:663
+#: ../mate-tweak:782
 msgid "Select the items you want to see on the desktop:"
 msgstr "اختر العناصر التي تريد ظهورها على سطح المكتب:"
 
-#: ../mate-tweak:665
+#: ../mate-tweak:784
 msgid "Computer"
 msgstr "الحاسوب"
 
-#: ../mate-tweak:666
+#: ../mate-tweak:785
 msgid "Home"
 msgstr "المنزل"
 
-#: ../mate-tweak:667
+#: ../mate-tweak:786
 msgid "Network"
 msgstr "الشّبكة"
 
-#: ../mate-tweak:668
+#: ../mate-tweak:787
 msgid "Trash"
 msgstr "سلة المهملات"
 
-#: ../mate-tweak:669
+#: ../mate-tweak:788
 msgid "Mounted Volumes"
 msgstr "الأجزاء الموصولة"
 
-#: ../mate-tweak:671
-msgid "Use less resources"
+#: ../mate-tweak:790
+msgid "Enable animations"
 msgstr ""
 
-#: ../mate-tweak:672
+#: ../mate-tweak:791
+msgid "Do not show window content when moving windows"
+msgstr ""
+
+#: ../mate-tweak:792
+msgid "Window manager performance tuning."
+msgstr ""
+
+#: ../mate-tweak:793
 msgid "Use compositing"
 msgstr "استخدام التأليف"
 
-#: ../mate-tweak:674
+#: ../mate-tweak:795
+msgid "Enable window snapping"
+msgstr ""
+
+#: ../mate-tweak:796
 msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:675
+#: ../mate-tweak:797
 msgid "Do not auto-maximize new windows"
 msgstr ""
 
-#: ../mate-tweak:677
+#: ../mate-tweak:799
 msgid "Window control placement."
 msgstr ""
 
-#: ../mate-tweak:679
+#: ../mate-tweak:801
+msgid "Save Panel Layout"
+msgstr ""
+
+#: ../mate-tweak:802
+msgid "Enable indicators"
+msgstr ""
+
+#: ../mate-tweak:803
+msgid "Enable advanced menu"
+msgstr ""
+
+#: ../mate-tweak:804
+msgid "Enable keyboard LED"
+msgstr ""
+
+#: ../mate-tweak:805
 msgid "Show icons on menus"
 msgstr "اظهر الأيقونات على القوائم"
 
-#: ../mate-tweak:680
+#: ../mate-tweak:806
 msgid "Show icons on buttons"
 msgstr "أظهر الأيقونات في الأزرار"
 
-#: ../mate-tweak:681
+#: ../mate-tweak:807
 msgid "Show Input Methods menu in context menus"
 msgstr "اظهر قائمة طرق الادخال في القوائم الجانبية"
 
-#: ../mate-tweak:682
+#: ../mate-tweak:808
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "اظهر قائمة التحكم بحروف اليونيكود في القوائم الجانبية"
 
-#: ../mate-tweak:684
+#: ../mate-tweak:810
 msgid "Style:"
 msgstr ""
 
-#: ../mate-tweak:685
+#: ../mate-tweak:811
 msgid "Icon size:"
 msgstr "حجم الأيقونة:"
 
-#: ../mate-tweak:711
+#: ../mate-tweak:843
 msgid "Small"
 msgstr "صغير"
 
-#: ../mate-tweak:712
+#: ../mate-tweak:844
 msgid "Large"
 msgstr "عريض"
 
-#: ../mate-tweak:718
+#: ../mate-tweak:850
 msgid "Traditional (Right)"
 msgstr "تقليدي (يمين)"
 
-#: ../mate-tweak:719
+#: ../mate-tweak:851
 msgid "Contemporary (Left)"
 msgstr "مُعاصر (يسار)"
 
-#: ../mate-tweak:727
+#: ../mate-tweak:858
 msgid "Marco (Simple desktop effects)"
 msgstr "ماركو ( تأثيرات بسيطة لسطح المكتب)"
 
-#: ../mate-tweak:729
+#: ../mate-tweak:860
+#, fuzzy
+msgid "Marco (Simple GPU accelerated desktop effects)"
+msgstr "ماركو ( تأثيرات بسيطة لسطح المكتب)"
+
+#: ../mate-tweak:862
 msgid "Metacity (Simple desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:731
+#: ../mate-tweak:864
+#, fuzzy
+msgid "Metacity (Simple GPU accelerated desktop effects)"
+msgstr "كومبيز ( تأثيرات رسومية مسرّعة متقدمة لسطح المكتب)"
+
+#: ../mate-tweak:866
+#, fuzzy
+msgid "Muffin (Elegant GPU accelerated desktop effects)"
+msgstr "كومبيز ( تأثيرات رسومية مسرّعة متقدمة لسطح المكتب)"
+
+#: ../mate-tweak:868
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:733
+#: ../mate-tweak:870
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "كومبيز ( تأثيرات رسومية مسرّعة متقدمة لسطح المكتب)"
 
-#: ../mate-tweak:736
+#: ../mate-tweak:873
 msgid "The new window manager will be activated upon selection."
 msgstr "سيُنشّط مديرُ النوافذ الجديدُ عند التحديد."
 
-#: ../mate-tweak:737
+#: ../mate-tweak:874
 msgid "Select a window manager."
 msgstr ""
 
-#: ../mate-tweak:742
+#: ../mate-tweak:887
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:743
+#: ../mate-tweak:888
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr "سيُنشّط تصميمُ الشريط الجديدُ عند التحديد و سيحذف أي تخصيص قد قمت به."
 
-#: ../mate-tweak:750
+#: ../mate-tweak:895
 msgid "Text below items"
 msgstr "النص تحت العناصر"
 
-#: ../mate-tweak:751
+#: ../mate-tweak:896
 msgid "Text beside items"
 msgstr "النص بجانب العناصر"
 
-#: ../mate-tweak:752
+#: ../mate-tweak:897
 msgid "Icons only"
 msgstr "أيقونات فقط"
 
-#: ../mate-tweak:753
+#: ../mate-tweak:898
 msgid "Text only"
 msgstr "نص فقط"
