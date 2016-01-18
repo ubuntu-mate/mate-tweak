@@ -31,6 +31,7 @@ import signal
 import subprocess
 import string
 import sys
+import time
 
 from configobj import ConfigObj
 from ctypes import cdll, byref, create_string_buffer
@@ -56,7 +57,7 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '3.5.4'
+__VERSION__ = '3.5.5'
 
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
@@ -95,8 +96,10 @@ class MateTweak:
                 self.replace_windowmanager(self.current_wm, False)
 
     def set_string(self, schema, path, key, value):
-        if path: settings = Gio.Settings.new_with_path(schema, path)
-        else: settings = Gio.Settings.new(schema)
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
         try:
             settings.set_string(key, value)
         except:
@@ -104,18 +107,24 @@ class MateTweak:
             pass
 
     def get_string(self, schema, path, key):
-        if path: settings = Gio.Settings.new_with_path(schema, path)
-        else: settings = Gio.Settings.new(schema)
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
         return settings.get_string(key)
 
     def set_bool(self, schema, path, key, value):
-        if path: settings = Gio.Settings.new_with_path(schema, path)
-        else: settings = Gio.Settings.new(schema)
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
         settings.set_boolean(key, value)
 
     def get_bool(self, schema, path, key):
-        if path: settings = Gio.Settings.new_with_path(schema, path)
-        else: settings = Gio.Settings.new(schema)
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
         return settings.get_boolean(key)
 
     def init_checkbox(self, schema_id, key, name):
@@ -196,12 +205,18 @@ class MateTweak:
         # as 'Marco (Metacity)'.
         if ('Marco' in current_wm):
             self.current_wm = 'marco'
+            composite_enabled = self.get_bool('org.mate.Marco.general', None, 'compositing-manager')
             if self.process_running('compton'):
                 self.current_wm += '-compton'
+            elif not composite_enabled:
+                self.current_wm += '-none'
         elif ('Metacity' in current_wm):
             self.current_wm = current_wm.lower()
+            composite_enabled = self.get_bool('org.gnome.metacity', None, 'compositing-manager')
             if self.process_running('compton'):
                 self.current_wm += '-compton'
+            elif not composite_enabled:
+                self.current_wm += '-none'
         elif ('Mutter' in current_wm):
             self.current_wm = current_wm.lower()
         elif ('Compiz' in current_wm):
@@ -252,7 +267,16 @@ class MateTweak:
     def replace_windowmanager(self, new_wm, notify):
         # Make sure Compiz, Metacity and Mutter use the same theme as
         # Marco to prevent theme/xcursor changes when switching themes.
-        if new_wm == 'compiz' or new_wm == 'metacity' or new_wm == 'mutter':
+
+        if '-none' in new_wm:
+            new_wm = new_wm.replace('-none', '')
+            wm_params = '--no-composite'
+        elif new_wm == 'marco' or new_wm == 'metacity':
+            wm_params = '--composite'
+        else:
+            wm_params = ''
+
+        if (new_wm == 'compiz') or (new_wm == 'mutter') or ('metacity' in new_wm):
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
             mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', None, 'cursor-theme')
 
@@ -270,7 +294,7 @@ class MateTweak:
             self.update_cursor_theme(mate_cursor_theme)
 
         # If switching away from a compton composited window manager,
-        # kill compton
+        # kill compton.
         if self.current_wm == 'marco-compton' or self.current_wm == 'metacity-compton':
             self.kill_process('compton')
 
@@ -279,16 +303,14 @@ class MateTweak:
         elif new_wm == 'marco-compton' or new_wm == 'metacity-compton':
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
-            subprocess.Popen([new_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+            subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL)
 
         # Sometimes the outgoing window manager is left running and
         # replace mate-panel to avoid strut issues.
-        if self.current_wm == 'marco-compton':
-            self.kill_process('marco')
-        elif self.current_wm == 'metacity-compton':
-            self.kill_process('metacity')
-        else:
-            self.kill_process(self.current_wm)
+        if self.current_wm == 'compiz':
+            self.kill_process('gtk-window-decorator')
+
+        time.sleep(1)
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Update current_wm to the new one.
@@ -298,9 +320,6 @@ class MateTweak:
             Notify.init(_('Window Manager Replaced'))
             replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + new_wm),'dialog-information')
             replace_windowmanager_notify.show()
-
-    def run_dock(self):
-        subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL)
 
     def enable_dock(self):
         config_dir = GLib.get_user_config_dir()
@@ -321,7 +340,7 @@ class MateTweak:
 
         # Launch the dock, if it is not already enabled.
         if not self.dock_enabled:
-            self.run_dock()
+            subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL)
             self.dock_enabled = True
 
     def disable_dock(self):
@@ -505,27 +524,24 @@ class MateTweak:
             # If the window manager is being changed, replace it now!
             self.replace_windowmanager(wm, True)
 
+            # Strip '-none' off window managers that are being forced to
+            # disable compositing and store the required-component.
+            if '-none' in wm:
+                wm = wm.replace('-none', '')
+                self.set_string(schema, None, key, wm)
+
             # Update the widget based on the selected window manager.
-            if wm == 'marco' or  wm == 'metacity' or wm == 'marco-compton' or wm == 'metacity-compton':
+            if ('marco' in wm) or ('metacity' in wm):
                 self.builder.get_object('frame_performance').props.sensitive = True
                 self.builder.get_object('frame_behaviour').props.sensitive = True
-                if wm == 'marco' or wm == 'marco-compton':
+                if 'marco' in wm:
                     self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-                    self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
                     self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
-
-                elif wm == 'metacity' or wm == 'metacity-compton':
+                elif 'metacity' in wm:
                     self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-                    self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
                     self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
-
-                if wm == "marco-compton" or wm == "metacity-compton":
-                    self.builder.get_object('checkbox_compositing').props.sensitive = False
-                else:
-                    self.builder.get_object('checkbox_compositing').props.sensitive = True
-
             elif wm == 'mutter':
                 self.builder.get_object('frame_performance').props.sensitive = False
                 self.builder.get_object('frame_behaviour').props.sensitive = True
@@ -782,7 +798,6 @@ class MateTweak:
         self.builder.get_object("checkbox_animations").set_label(_("Enable animations"))
         self.builder.get_object("checkbox_resources").set_label(_("Do not show window content when moving windows"))
         self.builder.get_object("label_performance_tuning").set_markup("<small>" + _("Window manager performance tuning.") + "</small>")
-        self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
 
         self.builder.get_object("checkbox_snapping").set_label(_("Enable window snapping"))
         self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
@@ -810,14 +825,12 @@ class MateTweak:
         self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
 
         # Window Manager page
-        if self.current_wm == "marco" or self.current_wm == "marco-compton":
+        if 'marco' in self.current_wm:
             self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
             self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
-        elif self.current_wm == "metacity" or self.current_wm == "metacity-compton":
+        elif 'metacity' in self.current_wm:
             self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
             self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
         elif self.current_wm == "mutter":
@@ -829,7 +842,6 @@ class MateTweak:
         self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
         self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
         self.init_checkbox("org.mate.peripherals-keyboard-xkb.general", "duplicate-leds", "checkbutton_keyboard_led")
-
 
         iconSizes = Gtk.ListStore(str, str)
         iconSizes.append([_("Small"), "small-toolbar"])
@@ -847,13 +859,17 @@ class MateTweak:
         # Window manager
         wms = Gtk.ListStore(str, str)
         if self.marco_capable:
+            wms.append([_("Marco (No desktop effects)"), 'marco-none'])
+        if self.marco_capable:
             wms.append([_("Marco (Simple desktop effects)"), 'marco'])
-        if self.marco_compton_capable:
-            wms.append([_("Marco (Simple GPU accelerated desktop effects)"), 'marco-compton'])
+        if self.marco_compton_capable and not self.software_rasterizer:
+            wms.append([_("Marco (Simple GPU accelerated effects)"), 'marco-compton'])
+        if self.metacity_capable:
+            wms.append([_("Metacity (No desktop effects)"), 'metacity-none'])
         if self.metacity_capable:
             wms.append([_("Metacity (Simple desktop effects)"), 'metacity'])
-        if self.metacity_compton_capable:
-            wms.append([_("Metacity (Simple GPU accelerated desktop effects)"), 'metacity-compton'])
+        if self.metacity_compton_capable and not self.software_rasterizer:
+            wms.append([_("Metacity (Simple GPU accelerated effects)"), 'metacity-compton'])
         if self.mutter_capable:
             wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
         if self.compiz_capable:
@@ -863,14 +879,6 @@ class MateTweak:
         self.builder.get_object("combobox_window_manager").set_tooltip_text(_("The new window manager will be activated upon selection."))
         self.builder.get_object("caption_window_manager").set_markup("<small>" + _("Select a window manager.") + "</small>")
         self.init_combobox("org.mate.session.required-components", "windowmanager", "combobox_window_manager")
-
-        # If Compton is the compositor, make the compositing option insensitive.
-        # NOTE: This has to be left head, after init_panel_features()
-        if self.current_wm == "marco-compton" or self.current_wm == "metacity-compton":
-            print('Turn off compositing checkbox')
-            self.builder.get_object('checkbox_compositing').props.sensitive = False
-        else:
-            self.builder.get_object('checkbox_compositing').props.sensitive = True
 
         # Panel layouts
         self.make_list_of_panel_layouts()
