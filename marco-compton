@@ -50,5 +50,6 @@ else
         --shadow-exclude "class_g = 'Kupfer'" \
         --shadow-exclude "class_g = 'Synapse'" \
         --shadow-exclude "class_g ?= 'Notify-osd'" \
-        --shadow-exclude "class_g ?= 'Cairo-dock'"
+        --shadow-exclude "class_g ?= 'Cairo-dock'" \
+        --shadow-exclude "_GTK_FRAME_EXTENTS@:c"
 fi
