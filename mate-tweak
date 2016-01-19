@@ -305,6 +305,9 @@ class MateTweak:
         if self.current_wm == 'marco-compton' or self.current_wm == 'metacity-compton':
             self.kill_process('compton')
 
+        # Metacity has a habbit of leaving a process running.
+        self.kill_process('metacity')
+
         if new_wm == 'marco-compton' or new_wm == 'metacity-compton' or new_wm == 'marco-no-composite' or new_wm == 'metacity-no-composite':
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
@@ -747,7 +750,7 @@ class MateTweak:
 
         # Do not show Performance or Window behaviour configuration
         # options when Marco or Metacity are not currently running.
-        if 'marco' in self.current_wm and 'metacity' in self.current_wm:
+        if 'marco' in self.current_wm or 'metacity' in self.current_wm:
             self.builder.get_object('frame_performance').props.sensitive = True
             self.builder.get_object('checkbox_snapping').props.sensitive = True
         elif self.current_wm == 'mutter':
