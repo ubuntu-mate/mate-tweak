@@ -28,13 +28,12 @@ if [ -f ${HOME}/.config/${WM}-compton.conf ]; then
 else
     compton --backend ${BACKEND} \
         --vsync ${VSYNC} \
-        --shadow-ignore-shaped \
-        --detect-rounded-corners \
         --paint-on-overlay \
         --glx-no-stencil \
         --glx-swap-method undefined \
         --unredir-if-possible \
-        -r 10 -o 0.5 \
+        --inactive-dim 0.1 \
+        -r 10 -o 0.2 \
         -c -C -G -b \
         --shadow-exclude "! name~=''" \
         --shadow-exclude "name = 'Notification'" \
@@ -42,17 +41,12 @@ else
         --shadow-exclude "name = 'Docky'" \
         --shadow-exclude "name = 'Kupfer'" \
         --shadow-exclude "name *= 'compton'" \
-        --shadow-exclude "name *= 'Chromium'" \
-        --shadow-exclude "name *= 'Chrome'" \
-        --shadow-exclude "name *= 'Firefox'" \
         --shadow-exclude "class_g = 'Conky'" \
         --shadow-exclude "class_g = 'Kupfer'" \
         --shadow-exclude "class_g = 'Synapse'" \
         --shadow-exclude "class_g ?= 'Notify-osd'" \
-        --shadow-exclude "class_g ?= 'Cairo-dock'" \
-        --shadow-exclude 'window_type *= "menu"'
+        --shadow-exclude "class_g ?= 'Cairo-dock'"
 
-#--shadow-exclude "name *= 'VLC'" \
-#--shadow-exclude 'argb && _NET_WM_OPAQUE_REGION@:c' # Fixes GTK3 double shadow
-#--shadow-exclude "_GTK_FRAME_EXTENTS@:c"            # Fixes GTK3 double shadow
+#       --detect-rounded-corners \
+#       --shadow-exclude "_GTK_FRAME_EXTENTS@:c"     # Fixes GTK3 double shadow
 fi
