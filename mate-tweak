@@ -864,17 +864,17 @@ class MateTweak:
         # Window manager
         wms = Gtk.ListStore(str, str)
         if self.marco_no_composite_capable:
-            wms.append([_("Marco (No desktop effects)"), 'marco-no-composite'])
+            wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
         if self.marco_capable:
-            wms.append([_("Marco (Simple desktop effects)"), 'marco'])
+            wms.append([_("Marco (Software compositor)"), 'marco'])
         if self.marco_compton_capable and not self.software_rasterizer:
-            wms.append([_("Marco (Simple GPU accelerated effects)"), 'marco-compton'])
+            wms.append([_("Marco (Compton GPU compositor)"), 'marco-compton'])
         if self.metacity_no_composite_capable:
-            wms.append([_("Metacity (No desktop effects)"), 'metacity-no-composite'])
+            wms.append([_("Metacity (No compositor)"), 'metacity-no-composite'])
         if self.metacity_capable:
-            wms.append([_("Metacity (Simple desktop effects)"), 'metacity'])
+            wms.append([_("Metacity (Software compositor)"), 'metacity'])
         if self.metacity_compton_capable and not self.software_rasterizer:
-            wms.append([_("Metacity (Simple GPU accelerated effects)"), 'metacity-compton'])
+            wms.append([_("Metacity (Compton GPU compositor)"), 'metacity-compton'])
         if self.mutter_capable:
             wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
         if self.compiz_capable:
