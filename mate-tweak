@@ -209,14 +209,14 @@ class MateTweak:
             if self.process_running('compton'):
                 self.current_wm += '-compton'
             elif not composite_enabled:
-                self.current_wm += '-none'
+                self.current_wm += '-no-composite'
         elif ('Metacity' in current_wm):
             self.current_wm = current_wm.lower()
             composite_enabled = self.get_bool('org.gnome.metacity', None, 'compositing-manager')
             if self.process_running('compton'):
                 self.current_wm += '-compton'
             elif not composite_enabled:
-                self.current_wm += '-none'
+                self.current_wm += '-no-composite'
         elif ('Mutter' in current_wm):
             self.current_wm = current_wm.lower()
         elif ('Compiz' in current_wm):
@@ -229,8 +229,10 @@ class MateTweak:
         self.compiz_capable = False
         self.marco_capable = False
         self.marco_compton_capable = False
+        self.marco_no_composite_capable = False
         self.metacity_capable = False
         self.metacity_compton_capable = False
+        self.metacity_no_composite_capable = False
         self.mutter_capable = False
 
         if self.find_on_path('compiz'):
@@ -241,12 +243,18 @@ class MateTweak:
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.marco_compton_capable = True
 
+        if self.find_on_path('marco-no-composite') and self.find_on_path('marco'):
+            self.marco_no_composite_capable = True
+
         if self.find_on_path('marco'):
             self.marco_capable = True
 
         if self.find_on_path('metacity-compton') and self.find_on_path('metacity') and self.find_on_path('compton'):
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.metacity_compton_capable = True
+
+        if self.find_on_path('metacity-no-composite') and self.find_on_path('metacity'):
+            self.metacity_no_composite_capable = True
 
         if self.find_on_path('metacity'):
             self.metacity_capable = True
@@ -268,11 +276,10 @@ class MateTweak:
         # Make sure Compiz, Metacity and Mutter use the same theme as
         # Marco to prevent theme/xcursor changes when switching themes.
 
-        if '-none' in new_wm:
-            new_wm = new_wm.replace('-none', '')
-            wm_params = '--no-composite'
-        elif new_wm == 'marco' or new_wm == 'metacity':
+        if new_wm == 'marco' or new_wm == 'metacity':
             wm_params = '--composite'
+        elif new_wm == 'compiz':
+            wm_params = 'ccp'
         else:
             wm_params = ''
 
@@ -298,28 +305,26 @@ class MateTweak:
         if self.current_wm == 'marco-compton' or self.current_wm == 'metacity-compton':
             self.kill_process('compton')
 
-        if new_wm == 'compiz':
-            subprocess.Popen([new_wm, '--replace', 'ccp'], stdout=DEVNULL, stderr=DEVNULL)
-        elif new_wm == 'marco-compton' or new_wm == 'metacity-compton':
+        if new_wm == 'marco-compton' or new_wm == 'metacity-compton' or new_wm == 'marco-no-composite' or new_wm == 'metacity-no-composite':
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
             subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL)
 
-        # Sometimes the outgoing window manager is left running and
-        # replace mate-panel to avoid strut issues.
+        # Sometimes gtk-window-manager is left behind.
         if self.current_wm == 'compiz':
             self.kill_process('gtk-window-decorator')
 
+        # Replace mate-panel to avoid strut issues.
         time.sleep(1)
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
-
-        # Update current_wm to the new one.
-        self.current_wm = new_wm
 
         if notify:
             Notify.init(_('Window Manager Replaced'))
             replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + new_wm),'dialog-information')
             replace_windowmanager_notify.show()
+
+        # Update current_wm to the new one.
+        self.current_wm = new_wm
 
     def enable_dock(self):
         config_dir = GLib.get_user_config_dir()
@@ -523,12 +528,6 @@ class MateTweak:
 
             # If the window manager is being changed, replace it now!
             self.replace_windowmanager(wm, True)
-
-            # Strip '-none' off window managers that are being forced to
-            # disable compositing and store the required-component.
-            if '-none' in wm:
-                wm = wm.replace('-none', '')
-                self.set_string(schema, None, key, wm)
 
             # Update the widget based on the selected window manager.
             if ('marco' in wm) or ('metacity' in wm):
@@ -748,12 +747,15 @@ class MateTweak:
 
         # Do not show Performance or Window behaviour configuration
         # options when Marco or Metacity are not currently running.
-        if not self.current_wm == "marco" and not self.current_wm == "marco-compton" and not self.current_wm == "metacity" and not self.current_wm == "metacity-compton":
-            self.builder.get_object('frame_performance').props.sensitive = False
-            self.builder.get_object('checkbox_snapping').props.sensitive = False
+        if 'marco' in self.current_wm and 'metacity' in self.current_wm:
+            self.builder.get_object('frame_performance').props.sensitive = True
+            self.builder.get_object('checkbox_snapping').props.sensitive = True
         elif self.current_wm == 'mutter':
             self.builder.get_object('frame_performance').props.sensitive = False
             self.builder.get_object('checkbox_snapping').props.sensitive = True
+        else:
+            self.builder.get_object('frame_performance').props.sensitive = False
+            self.builder.get_object('checkbox_snapping').props.sensitive = False
 
         if not self.current_wm == "compiz":
             self.builder.get_object('button_compiz_reset').hide()
@@ -858,14 +860,14 @@ class MateTweak:
 
         # Window manager
         wms = Gtk.ListStore(str, str)
-        if self.marco_capable:
-            wms.append([_("Marco (No desktop effects)"), 'marco-none'])
+        if self.marco_no_composite_capable:
+            wms.append([_("Marco (No desktop effects)"), 'marco-no-composite'])
         if self.marco_capable:
             wms.append([_("Marco (Simple desktop effects)"), 'marco'])
         if self.marco_compton_capable and not self.software_rasterizer:
             wms.append([_("Marco (Simple GPU accelerated effects)"), 'marco-compton'])
-        if self.metacity_capable:
-            wms.append([_("Metacity (No desktop effects)"), 'metacity-none'])
+        if self.metacity_no_composite_capable:
+            wms.append([_("Metacity (No desktop effects)"), 'metacity-no-composite'])
         if self.metacity_capable:
             wms.append([_("Metacity (Simple desktop effects)"), 'metacity'])
         if self.metacity_compton_capable and not self.software_rasterizer:

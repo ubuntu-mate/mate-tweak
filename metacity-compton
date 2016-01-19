@@ -17,7 +17,7 @@ if [ $? -eq 0 ]; then
     done
 fi
 
-# Replace marco and force compositing off.
+# Replace window manager and force compositing off.
 ${WM} --no-composite --replace &
 sleep 1
 
