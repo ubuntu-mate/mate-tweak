@@ -33,7 +33,9 @@ else
         --glx-swap-method undefined \
         --unredir-if-possible \
         --inactive-dim 0.1 \
-        -r 10 -o 0.5 \
+        --inactive-opacity-override \
+        --mark-wmwin-focused \
+        -r 7 -o 0.3 -l -7 -t -7 \
         -c -C -G -b \
         --shadow-exclude "! name~=''" \
         --shadow-exclude "name = 'Notification'" \
