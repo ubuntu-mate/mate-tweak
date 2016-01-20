@@ -24,18 +24,24 @@ sleep 1
 # Allow users to override the defaults by creating their own config
 # for this wrapper.
 if [ -f ${HOME}/.config/${WM}-compton.conf ]; then
-    compton --config ${HOME}/.config/${WM}-compton.conf -b
+    compton \
+        --config ${HOME}/.config/${WM}-compton.conf \
+        -b
 else
-    compton --backend ${BACKEND} \
+    compton \
+        --config /dev/null \
+        --backend ${BACKEND} \
         --vsync ${VSYNC} \
+        --dbe \
+        --detect-rounded-corners \
         --paint-on-overlay \
         --glx-no-stencil \
         --glx-swap-method undefined \
         --unredir-if-possible \
-        --inactive-dim 0.1 \
+        --inactive-dim 0.05 \
         --inactive-opacity-override \
         --mark-wmwin-focused \
-        -r 7 -o 0.2 -l -7 -t -7\
+        -r 6 -o 0.1 -l -8 -t -8 \
         -c -C -G -b \
         --shadow-exclude "! name~=''" \
         --shadow-exclude "name = 'Notification'" \
@@ -49,6 +55,5 @@ else
         --shadow-exclude "class_g ?= 'Notify-osd'" \
         --shadow-exclude "class_g ?= 'Cairo-dock'"
 
-#       --detect-rounded-corners \
 #       --shadow-exclude "_GTK_FRAME_EXTENTS@:c"     # Fixes GTK3 double shadow
 fi
