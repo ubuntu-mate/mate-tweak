@@ -343,8 +343,16 @@ class MateTweak:
         # Update current_wm to the new one.
         self.current_wm = new_wm
 
+    def remove_dock_autostart(self):
+        # Old versions of MATE Tweak setup an autostart, these should
+        # be removed.
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')        
+
     def enable_dock(self):
         self.set_string('org.mate.session.required-components', None, 'dock', self.dock)
+        self.remove_dock_autostart()
 
         # Docks require compositing
         if self.current_wm == 'marco':
@@ -365,6 +373,7 @@ class MateTweak:
 
     def disable_dock(self):
         self.set_string('org.mate.session.required-components', None, 'dock', '')
+        self.remove_dock_autostart()
         self.kill_process(self.dock)
         self.dock_enabled = False
 
