@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-18 13:04+0000\n"
+"POT-Creation-Date: 2016-01-22 08:32+0000\n"
 "PO-Revision-Date: 2015-08-13 11:24+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/mate/MATE/language/ro/)\n"
@@ -20,253 +20,255 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 
-#: ../mate-tweak:644
+#: ../mate-tweak:681
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:647
+#: ../mate-tweak:684
 msgid "Fedora"
 msgstr ""
 
-#: ../mate-tweak:650
+#: ../mate-tweak:687
 msgid "GNOME2"
 msgstr ""
 
-#: ../mate-tweak:653
+#: ../mate-tweak:690
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:656
+#: ../mate-tweak:693
 msgid "Mageia"
 msgstr ""
 
-#: ../mate-tweak:659
+#: ../mate-tweak:696
 msgid "Mutiny"
 msgstr ""
 
-#: ../mate-tweak:662
+#: ../mate-tweak:699
 msgid "Netbook"
 msgstr ""
 
-#: ../mate-tweak:665
+#: ../mate-tweak:702
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:668
+#: ../mate-tweak:705
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:671
+#: ../mate-tweak:708
 msgid "Ubuntu MATE"
 msgstr "Ubuntu MATE"
 
-#: ../mate-tweak:718
+#: ../mate-tweak:755
 msgid "Desktop"
 msgstr "Spațiu de lucru"
 
-#: ../mate-tweak:719
+#: ../mate-tweak:756
 msgid "Windows"
 msgstr "Ferestre"
 
-#: ../mate-tweak:720
+#: ../mate-tweak:757
 msgid "Interface"
 msgstr "Interfață"
 
-#: ../mate-tweak:760
+#: ../mate-tweak:800
 msgid "MATE Tweak"
 msgstr ""
 
-#: ../mate-tweak:763
+#: ../mate-tweak:803
 msgid "Desktop icons"
 msgstr "Pictograme de pe spaţiul de lucru"
 
-#: ../mate-tweak:764
+#: ../mate-tweak:804
 msgid "Performance"
 msgstr "Performanță"
 
-#: ../mate-tweak:765
+#: ../mate-tweak:805
 msgid "Window Behaviour"
 msgstr ""
 
-#: ../mate-tweak:766
+#: ../mate-tweak:806
 msgid "Appearance"
 msgstr "Înfățișare"
 
-#: ../mate-tweak:767
+#: ../mate-tweak:807
 msgid "Panels"
 msgstr ""
 
-#: ../mate-tweak:768
+#: ../mate-tweak:808
 msgid "Panel Features"
 msgstr ""
 
-#: ../mate-tweak:769
+#: ../mate-tweak:809
 msgid "Icons"
 msgstr "Pictograme"
 
-#: ../mate-tweak:770
+#: ../mate-tweak:810
 msgid "Context menus"
 msgstr "Meniuri contextuale"
 
-#: ../mate-tweak:771
+#: ../mate-tweak:811
 msgid "Toolbars"
 msgstr "Bare de unelte"
 
-#: ../mate-tweak:772
+#: ../mate-tweak:812
 msgid "Window manager"
 msgstr ""
 
-#: ../mate-tweak:774
+#: ../mate-tweak:814
 msgid "Select the items you want to see on the desktop:"
 msgstr "Selectaţi obiectele pe care le doriţi pe spaţiul de lucru:"
 
-#: ../mate-tweak:776
+#: ../mate-tweak:816
 msgid "Computer"
 msgstr "Calculator"
 
-#: ../mate-tweak:777
+#: ../mate-tweak:817
 msgid "Home"
 msgstr "Acasă"
 
-#: ../mate-tweak:778
+#: ../mate-tweak:818
 msgid "Network"
 msgstr "Reţea"
 
-#: ../mate-tweak:779
+#: ../mate-tweak:819
 msgid "Trash"
 msgstr "Coş de gunoi"
 
-#: ../mate-tweak:780
+#: ../mate-tweak:820
 msgid "Mounted Volumes"
 msgstr "Partiții montate"
 
-#: ../mate-tweak:782
+#: ../mate-tweak:822
 msgid "Enable animations"
 msgstr ""
 
-#: ../mate-tweak:783
+#: ../mate-tweak:823
 msgid "Do not show window content when moving windows"
 msgstr ""
 
-#: ../mate-tweak:784
+#: ../mate-tweak:824
 msgid "Window manager performance tuning."
 msgstr ""
 
-#: ../mate-tweak:785
-msgid "Use compositing"
-msgstr "Utilizați compoziția"
-
-#: ../mate-tweak:787
+#: ../mate-tweak:826
 msgid "Enable window snapping"
 msgstr ""
 
-#: ../mate-tweak:788
+#: ../mate-tweak:827
 msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:789
+#: ../mate-tweak:828
 msgid "Do not auto-maximize new windows"
 msgstr ""
 
-#: ../mate-tweak:791
+#: ../mate-tweak:830
 msgid "Window control placement."
 msgstr ""
 
-#: ../mate-tweak:793
+#: ../mate-tweak:832
 msgid "Save Panel Layout"
 msgstr ""
 
-#: ../mate-tweak:794
+#: ../mate-tweak:833
 msgid "Enable indicators"
 msgstr ""
 
-#: ../mate-tweak:795
+#: ../mate-tweak:834
 msgid "Enable advanced menu"
 msgstr ""
 
-#: ../mate-tweak:796
+#: ../mate-tweak:835
 msgid "Enable keyboard LED"
 msgstr ""
 
-#: ../mate-tweak:797
+#: ../mate-tweak:836
 msgid "Show icons on menus"
 msgstr "Arată pictograme în meniuri"
 
-#: ../mate-tweak:798
+#: ../mate-tweak:837
 msgid "Show icons on buttons"
 msgstr "Arată pictograme pe butoane"
 
-#: ../mate-tweak:799
+#: ../mate-tweak:838
 msgid "Show Input Methods menu in context menus"
 msgstr "Arată meniul metodelor de intrare în meniurile contextuale"
 
-#: ../mate-tweak:800
+#: ../mate-tweak:839
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Arată meniul caracterelor de control unicod în meniul contextual"
 
-#: ../mate-tweak:802
+#: ../mate-tweak:841
 msgid "Style:"
 msgstr ""
 
-#: ../mate-tweak:803
+#: ../mate-tweak:842
 msgid "Icon size:"
 msgstr "Dimensiune pictogramă:"
 
-#: ../mate-tweak:835
+#: ../mate-tweak:871
 msgid "Small"
 msgstr "Mică"
 
-#: ../mate-tweak:836
+#: ../mate-tweak:872
 msgid "Large"
 msgstr "Mare"
 
-#: ../mate-tweak:842
+#: ../mate-tweak:878
 msgid "Traditional (Right)"
 msgstr "Tradițional (dreapta)"
 
-#: ../mate-tweak:843
+#: ../mate-tweak:879
 msgid "Contemporary (Left)"
 msgstr "Contemporan (stânga)"
 
-#: ../mate-tweak:850
-msgid "Marco (Simple desktop effects)"
-msgstr "Marco (efecte desktop simple)"
-
-#: ../mate-tweak:852
-#, fuzzy
-msgid "Marco (Simple GPU accelerated desktop effects)"
-msgstr "Marco (efecte desktop simple)"
-
-#: ../mate-tweak:854
-msgid "Metacity (Simple desktop effects)"
+#: ../mate-tweak:886
+msgid "Marco (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:856
-#, fuzzy
-msgid "Metacity (Simple GPU accelerated desktop effects)"
-msgstr "Compiz (efecte desktop avansate accelerate de placa video)"
+#: ../mate-tweak:888
+msgid "Marco (Software compositor)"
+msgstr ""
 
-#: ../mate-tweak:858
+#: ../mate-tweak:890
+msgid "Marco (Compton GPU compositor)"
+msgstr ""
+
+#: ../mate-tweak:892
+msgid "Metacity (No compositor)"
+msgstr ""
+
+#: ../mate-tweak:894
+msgid "Metacity (Software compositor)"
+msgstr ""
+
+#: ../mate-tweak:896
+msgid "Metacity (Compton GPU compositor)"
+msgstr ""
+
+#: ../mate-tweak:898
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:860
+#: ../mate-tweak:900
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (efecte desktop avansate accelerate de placa video)"
 
-#: ../mate-tweak:863
+#: ../mate-tweak:903
 msgid "The new window manager will be activated upon selection."
 msgstr "Noul administrator de ferestre va fi activat la selectare"
 
-#: ../mate-tweak:864
+#: ../mate-tweak:904
 msgid "Select a window manager."
 msgstr ""
 
-#: ../mate-tweak:877
+#: ../mate-tweak:909
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:878
+#: ../mate-tweak:910
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
@@ -274,21 +276,35 @@ msgstr ""
 "Noul aranjament al panourilor va fi activat la selectare și va distruge "
 "orice personalizări ați fi făcut"
 
-#: ../mate-tweak:885
+#: ../mate-tweak:917
 msgid "Text below items"
 msgstr "Text sub elemente"
 
-#: ../mate-tweak:886
+#: ../mate-tweak:918
 msgid "Text beside items"
 msgstr "Text lângă elemente"
 
-#: ../mate-tweak:887
+#: ../mate-tweak:919
 msgid "Icons only"
 msgstr "Doar pictograme"
 
-#: ../mate-tweak:888
+#: ../mate-tweak:920
 msgid "Text only"
 msgstr "Doar text"
+
+#~ msgid "Use compositing"
+#~ msgstr "Utilizați compoziția"
+
+#~ msgid "Marco (Simple desktop effects)"
+#~ msgstr "Marco (efecte desktop simple)"
+
+#, fuzzy
+#~ msgid "Marco (Simple GPU accelerated desktop effects)"
+#~ msgstr "Marco (efecte desktop simple)"
+
+#, fuzzy
+#~ msgid "Metacity (Simple GPU accelerated desktop effects)"
+#~ msgstr "Compiz (efecte desktop avansate accelerate de placa video)"
 
 #, fuzzy
 #~ msgid "Muffin (Elegant GPU accelerated desktop effects)"
