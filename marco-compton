@@ -25,14 +25,12 @@ sleep 1
 # for this wrapper.
 if [ -f ${HOME}/.config/${WM}-compton.conf ]; then
     compton \
-        --config ${HOME}/.config/${WM}-compton.conf \
-        -b
+        --config ${HOME}/.config/${WM}-compton.conf &
 else
     compton \
         --config /dev/null \
         --backend ${BACKEND} \
         --vsync ${VSYNC} \
-        --dbe \
         --detect-rounded-corners \
         --paint-on-overlay \
         --glx-no-stencil \
@@ -42,7 +40,7 @@ else
         --inactive-opacity-override \
         --mark-wmwin-focused \
         -r 8 -o 0.225 -l -12 -t -12 \
-        -c -C -G -b \
+        -c -C -G \
         --shadow-exclude "! name~=''" \
         --shadow-exclude "name = 'Notification'" \
         --shadow-exclude "name = 'Plank'" \
@@ -53,7 +51,6 @@ else
         --shadow-exclude "class_g = 'Kupfer'" \
         --shadow-exclude "class_g = 'Synapse'" \
         --shadow-exclude "class_g ?= 'Notify-osd'" \
-        --shadow-exclude "class_g ?= 'Cairo-dock'"
-
+        --shadow-exclude "class_g ?= 'Cairo-dock'" &
 #       --shadow-exclude "_GTK_FRAME_EXTENTS@:c"    # Fixes GTK3 double shadow
 fi
