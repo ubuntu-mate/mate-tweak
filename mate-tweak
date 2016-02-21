@@ -56,7 +56,7 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '3.5.5'
+__VERSION__ = '3.5.6'
 
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
@@ -622,6 +622,7 @@ class MateTweak:
         self.indicators_available = False
         self.mageia_cc_available = False
         self.mate_dock_available = False
+        self.topmenu_available = False
         self.mate_menu_available = False
         self.maximus_available = False
         self.mint_menu_available = False
@@ -640,6 +641,11 @@ class MateTweak:
 
         if os.path.exists('/usr/lib/mate-applets/mate-dock-applet/dock.py'):
             self.mate_dock_available = True
+
+        if os.path.exists('/usr/lib/mate-applets/topmenu-mate-panel-applet') and \
+           os.path.exists('/usr/lib/libtopmenu-client-gtk2.so.0') and \
+           os.path.exists('/usr/lib/libtopmenu-client-gtk3.so.0'):
+            self.topmenu_available = True
 
         if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
             self.mate_menu_available = True
@@ -692,7 +698,9 @@ class MateTweak:
         if self.panel_layout_exists('mageia') and self.mageia_cc_available:
             panels.append([_("Mageia"), "mageia"])
 
-        if self.panel_layout_exists('mutiny') and self.mate_dock_available:
+        if self.panel_layout_exists('mutiny') and \
+           self.mate_dock_available and \
+           self.topmenu_available:
             panels.append([_("Mutiny"), "mutiny"])
 
         if self.panel_layout_exists('netbook') and self.maximus_available:
