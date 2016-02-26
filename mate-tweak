@@ -409,8 +409,14 @@ class MateTweak:
         if self.panel_layout_exists(panel_layout + '-fresh') and \
            self.panel_layout_exists(panel_layout + '-indicators') and \
            self.panel_layout_exists(panel_layout + '-indicators-fresh'):
-            self.builder.get_object('checkbutton_indicators').props.sensitive = True
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
+            if not self.indicators_available:
+                self.builder.get_object('checkbutton_indicators').props.sensitive = False
+            else:
+                self.builder.get_object('checkbutton_indicators').props.sensitive = True
+            if not self.mate_menu_available:
+                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
+            else:
+                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
         else:
             self.builder.get_object('checkbutton_indicators').props.sensitive = False
             self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
@@ -664,15 +670,6 @@ class MateTweak:
 
 
     def make_list_of_panel_layouts(self):
-        if not self.indicators_available:
-            self.builder.get_object('checkbutton_indicators').props.sensitive = False
-        else:
-            self.builder.get_object('checkbutton_indicators').props.sensitive = True
-        if not self.mate_menu_available:
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
-        else:
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
-
         # Panel layouts
         panels = Gtk.ListStore(str, str)
 
