@@ -667,7 +667,7 @@ class MateTweak:
         else:
             self.launcher = None
 
-        if self.launcher is not None and os.path.exists(os.path.join(config_dir, 'autostart/') + self.launchet + '.desktop'):
+        if self.launcher is not None and os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
             self.launcher_enabled = True
         else:
             self.launcher_enabled = False
@@ -798,6 +798,7 @@ class MateTweak:
         # Check for glx, panel, dock and wm features
         self.check_glx_features()
         self.check_dock_features()
+        self.check_launcher_features()
         self.check_panel_features()
         self.check_wm_features()
 
