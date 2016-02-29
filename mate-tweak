@@ -387,6 +387,33 @@ class MateTweak:
         self.kill_process(self.dock)
         self.dock_enabled = False
 
+    def enable_launcher(self):
+        if self.launcher == 'synapse':
+            synapse_autostart = """[Desktop Entry]
+            Name=Synapse
+            Exec=synapse --startup
+            Encoding=UTF-8
+            Type=Application
+            X-GNOME-Autostart-enabled=true
+            Icon=synapse"""
+            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+            if not os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
+                with open(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop','w') as autostart:
+                    autostart.write(synapse_autostart)
+
+            # Launch synapse, if it is not already enabled.
+            if not self.launcher_enabled:
+                subprocess.Popen([self.launcher, '--startup'], stdout=DEVNULL, stderr=DEVNULL)
+                self.launcher_enabled = True
+
+    def disable_launcher(self):
+        if self.launcher == 'synapse':
+            if os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
+                os.remove(os.path.join(config_dir, 'autostart/') + self.laucnher + '.desktop')
+                
+        self.kill_process(self.launcher)
+        self.launcher_enabled = False
+
     def enable_mate_volume_applet(self):
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
@@ -610,8 +637,6 @@ class MateTweak:
             self.builder.get_object("main_notebook").set_current_page(target)
 
     def check_dock_features(self):
-        config_dir = GLib.get_user_config_dir()
-
         # Order matters. Plank is preferred.
         if self.find_on_path('plank') and \
             os.path.exists(os.path.join('/','usr','share','applications', 'plank.desktop')):
@@ -626,6 +651,20 @@ class MateTweak:
             self.dock_enabled = True
         else:
             self.dock_enabled = False
+
+    def check_launcher_features(self):
+        config_dir = GLib.get_user_config_dir()
+
+        if self.find_on_path('synapse') and \
+            os.path.exists(os.path.join('/','usr','share','applications', 'synapse.desktop')):
+            self.launcher = 'synapse'
+        else:
+            self.launcher = None
+
+        if self.launcher is not None and os.path.exists(os.path.join(config_dir, 'autostart/') + self.launchet + '.desktop'):
+            self.launcher_enabled = True
+        else:
+            self.launcher_enabled = False
 
     def check_panel_features(self):
         # Determine what panel features are available
