@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+WM=marco
+
+if [ ! -x $(which ${WM}) ]; then
+    echo "ERROR! Can't find ${WM}."
+    exit 1
+fi
+
+# Replace window manager and force compositing off.
+${WM} --no-composite --replace &

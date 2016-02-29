@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-13 12:27+0100\n"
+"POT-Creation-Date: 2016-01-22 08:32+0000\n"
 "PO-Revision-Date: 2015-08-13 11:24+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Assamese (http://www.transifex.com/mate/MATE/language/as/)\n"
@@ -17,212 +17,272 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:529
-msgid "GNOME2"
-msgstr ""
-
-#: ../mate-tweak:532
-msgid "Ubuntu MATE"
-msgstr ""
-
-#: ../mate-tweak:535
-msgid "Redmond"
-msgstr ""
-
-#: ../mate-tweak:539
-msgid "Netbook"
-msgstr ""
-
-#: ../mate-tweak:543
+#: ../mate-tweak:681
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:546
+#: ../mate-tweak:684
+msgid "Fedora"
+msgstr ""
+
+#: ../mate-tweak:687
+msgid "GNOME2"
+msgstr ""
+
+#: ../mate-tweak:690
 msgid "Linux Mint"
 msgstr ""
 
-#: ../mate-tweak:549
+#: ../mate-tweak:693
+msgid "Mageia"
+msgstr ""
+
+#: ../mate-tweak:696
+msgid "Mutiny"
+msgstr ""
+
+#: ../mate-tweak:699
+msgid "Netbook"
+msgstr ""
+
+#: ../mate-tweak:702
 msgid "openSUSE"
 msgstr ""
 
-#: ../mate-tweak:594
+#: ../mate-tweak:705
+msgid "Redmond"
+msgstr ""
+
+#: ../mate-tweak:708
+msgid "Ubuntu MATE"
+msgstr ""
+
+#: ../mate-tweak:755
 msgid "Desktop"
 msgstr ""
 
-#: ../mate-tweak:595
+#: ../mate-tweak:756
 msgid "Windows"
 msgstr ""
 
-#: ../mate-tweak:596
+#: ../mate-tweak:757
 msgid "Interface"
 msgstr ""
 
-#: ../mate-tweak:651
+#: ../mate-tweak:800
 msgid "MATE Tweak"
 msgstr ""
 
-#: ../mate-tweak:654
+#: ../mate-tweak:803
 msgid "Desktop icons"
 msgstr ""
 
-#: ../mate-tweak:655
+#: ../mate-tweak:804
 msgid "Performance"
 msgstr ""
 
-#: ../mate-tweak:656
+#: ../mate-tweak:805
 msgid "Window Behaviour"
 msgstr ""
 
-#: ../mate-tweak:657
+#: ../mate-tweak:806
 msgid "Appearance"
 msgstr ""
 
-#: ../mate-tweak:658
+#: ../mate-tweak:807
+msgid "Panels"
+msgstr ""
+
+#: ../mate-tweak:808
+msgid "Panel Features"
+msgstr ""
+
+#: ../mate-tweak:809
 msgid "Icons"
 msgstr ""
 
-#: ../mate-tweak:659
+#: ../mate-tweak:810
 msgid "Context menus"
 msgstr ""
 
-#: ../mate-tweak:660
+#: ../mate-tweak:811
 msgid "Toolbars"
 msgstr ""
 
-#: ../mate-tweak:661
+#: ../mate-tweak:812
 msgid "Window manager"
 msgstr ""
 
-#: ../mate-tweak:663
+#: ../mate-tweak:814
 msgid "Select the items you want to see on the desktop:"
 msgstr ""
 
-#: ../mate-tweak:665
+#: ../mate-tweak:816
 msgid "Computer"
 msgstr ""
 
-#: ../mate-tweak:666
+#: ../mate-tweak:817
 msgid "Home"
 msgstr ""
 
-#: ../mate-tweak:667
+#: ../mate-tweak:818
 msgid "Network"
 msgstr ""
 
-#: ../mate-tweak:668
+#: ../mate-tweak:819
 msgid "Trash"
 msgstr ""
 
-#: ../mate-tweak:669
+#: ../mate-tweak:820
 msgid "Mounted Volumes"
 msgstr ""
 
-#: ../mate-tweak:671
-msgid "Use less resources"
+#: ../mate-tweak:822
+msgid "Enable animations"
 msgstr ""
 
-#: ../mate-tweak:672
-msgid "Use compositing"
+#: ../mate-tweak:823
+msgid "Do not show window content when moving windows"
 msgstr ""
 
-#: ../mate-tweak:674
+#: ../mate-tweak:824
+msgid "Window manager performance tuning."
+msgstr ""
+
+#: ../mate-tweak:826
+msgid "Enable window snapping"
+msgstr ""
+
+#: ../mate-tweak:827
 msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:675
+#: ../mate-tweak:828
 msgid "Do not auto-maximize new windows"
 msgstr ""
 
-#: ../mate-tweak:677
+#: ../mate-tweak:830
 msgid "Window control placement."
 msgstr ""
 
-#: ../mate-tweak:679
+#: ../mate-tweak:832
+msgid "Save Panel Layout"
+msgstr ""
+
+#: ../mate-tweak:833
+msgid "Enable indicators"
+msgstr ""
+
+#: ../mate-tweak:834
+msgid "Enable advanced menu"
+msgstr ""
+
+#: ../mate-tweak:835
+msgid "Enable keyboard LED"
+msgstr ""
+
+#: ../mate-tweak:836
 msgid "Show icons on menus"
 msgstr ""
 
-#: ../mate-tweak:680
+#: ../mate-tweak:837
 msgid "Show icons on buttons"
 msgstr ""
 
-#: ../mate-tweak:681
+#: ../mate-tweak:838
 msgid "Show Input Methods menu in context menus"
 msgstr ""
 
-#: ../mate-tweak:682
+#: ../mate-tweak:839
 msgid "Show Unicode Control Character menu in context menus"
 msgstr ""
 
-#: ../mate-tweak:684
+#: ../mate-tweak:841
 msgid "Style:"
 msgstr ""
 
-#: ../mate-tweak:685
+#: ../mate-tweak:842
 msgid "Icon size:"
 msgstr ""
 
-#: ../mate-tweak:711
+#: ../mate-tweak:871
 msgid "Small"
 msgstr ""
 
-#: ../mate-tweak:712
+#: ../mate-tweak:872
 msgid "Large"
 msgstr ""
 
-#: ../mate-tweak:718
+#: ../mate-tweak:878
 msgid "Traditional (Right)"
 msgstr ""
 
-#: ../mate-tweak:719
+#: ../mate-tweak:879
 msgid "Contemporary (Left)"
 msgstr ""
 
-#: ../mate-tweak:727
-msgid "Marco (Simple desktop effects)"
+#: ../mate-tweak:886
+msgid "Marco (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:729
-msgid "Metacity (Simple desktop effects)"
+#: ../mate-tweak:888
+msgid "Marco (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:731
+#: ../mate-tweak:890
+msgid "Marco (Compton GPU compositor)"
+msgstr ""
+
+#: ../mate-tweak:892
+msgid "Metacity (No compositor)"
+msgstr ""
+
+#: ../mate-tweak:894
+msgid "Metacity (Software compositor)"
+msgstr ""
+
+#: ../mate-tweak:896
+msgid "Metacity (Compton GPU compositor)"
+msgstr ""
+
+#: ../mate-tweak:898
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:733
+#: ../mate-tweak:900
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:736
+#: ../mate-tweak:903
 msgid "The new window manager will be activated upon selection."
 msgstr ""
 
-#: ../mate-tweak:737
+#: ../mate-tweak:904
 msgid "Select a window manager."
 msgstr ""
 
-#: ../mate-tweak:742
+#: ../mate-tweak:909
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:743
+#: ../mate-tweak:910
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:750
+#: ../mate-tweak:917
 msgid "Text below items"
 msgstr ""
 
-#: ../mate-tweak:751
+#: ../mate-tweak:918
 msgid "Text beside items"
 msgstr ""
 
-#: ../mate-tweak:752
+#: ../mate-tweak:919
 msgid "Icons only"
 msgstr ""
 
-#: ../mate-tweak:753
+#: ../mate-tweak:920
 msgid "Text only"
 msgstr ""
