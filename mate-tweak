@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
-# Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
+# Copyright (C) 2015-2016 Martin Wimpress <code@ubuntu-mate.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -416,8 +416,10 @@ class MateTweak:
         if self.launcher == 'synapse':
             if os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
                 os.remove(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop')
-                
-        self.kill_process(self.launcher)
+
+        if self.process_running(self.launcher):
+            self.kill_process(self.launcher)
+
         self.launcher_enabled = False
 
     def enable_mate_volume_applet(self):
@@ -996,7 +998,7 @@ class MateTweak:
         self.builder.get_object("checkbutton_advanced_menu").connect("toggled", self.toggle_panel_features)
 
         # Launcher
-        self.builder.get_object("checkbutton_launcher").connect("toggled", self.toggle_launcher)        
+        self.builder.get_object("checkbutton_launcher").connect("toggled", self.toggle_launcher)
         self.builder.get_object("checkbutton_launcher").set_active(self.launcher_enabled)
         if not self.launcher:
             self.builder.get_object('checkbutton_launcher').props.sensitive = False
