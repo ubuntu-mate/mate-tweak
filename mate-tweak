@@ -58,6 +58,15 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 __VERSION__ = '3.5.6'
 
+__SYNAPSE__ = """[Desktop Entry]
+Name=Synapse
+Exec=synapse --startup
+Encoding=UTF-8
+Type=Application
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true
+Icon=synapse"""
+
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
 
@@ -388,14 +397,10 @@ class MateTweak:
         self.dock_enabled = False
 
     def enable_launcher(self):
+        config_dir = GLib.get_user_config_dir()
         if self.launcher == 'synapse':
-            synapse_autostart = """[Desktop Entry]
-            Name=Synapse
-            Exec=synapse --startup
-            Encoding=UTF-8
-            Type=Application
-            X-GNOME-Autostart-enabled=true
-            Icon=synapse"""
+            synapse_autostart = __SYNAPSE__
+
             self.mkdir_p(os.path.join(config_dir, 'autostart/'))
             if not os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
                 with open(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop','w') as autostart:
@@ -407,9 +412,10 @@ class MateTweak:
                 self.launcher_enabled = True
 
     def disable_launcher(self):
+        config_dir = GLib.get_user_config_dir()
         if self.launcher == 'synapse':
             if os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
-                os.remove(os.path.join(config_dir, 'autostart/') + self.laucnher + '.desktop')
+                os.remove(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop')
                 
         self.kill_process(self.launcher)
         self.launcher_enabled = False
@@ -551,6 +557,12 @@ class MateTweak:
     def toggle_panel_features(self, widget):
         self.get_panel_layout()
         self.replace_panel_layout(self.base_layout)
+
+    def toggle_launcher(self, checkbutton):
+        if checkbutton.get_active():
+            self.enable_launcher()
+        else:
+            self.disable_launcher()
 
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
@@ -892,6 +904,7 @@ class MateTweak:
         self.builder.get_object("checkbutton_indicators").set_label(_("Enable indicators"))
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
+        self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
         self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
         self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
         self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
@@ -929,7 +942,6 @@ class MateTweak:
             metacity_reduced = self.get_bool('org.gnome.metacity', None, 'reduced-resources')
             if metacity_reduced:
                 self.builder.get_object('checkbox_snapping').props.sensitive = False
-
 
         # interface page
         self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
@@ -982,6 +994,12 @@ class MateTweak:
         self.init_panel_features()
         self.builder.get_object("checkbutton_indicators").connect("toggled", self.toggle_panel_features)
         self.builder.get_object("checkbutton_advanced_menu").connect("toggled", self.toggle_panel_features)
+
+        # Launcher
+        self.builder.get_object("checkbutton_launcher").connect("toggled", self.toggle_launcher)        
+        self.builder.get_object("checkbutton_launcher").set_active(self.launcher_enabled)
+        if not self.launcher:
+            self.builder.get_object('checkbutton_launcher').props.sensitive = False
 
         # toolbar icon styles
         iconStyles = Gtk.ListStore(str, str)
