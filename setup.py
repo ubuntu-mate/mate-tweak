@@ -55,6 +55,11 @@ def datafilelist(installbase, sourcebase):
 data_files = [
     ('{prefix}/share/man/man1'.format(prefix=sys.prefix), glob('data/*.1')),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/mate-tweak.desktop',]),
+    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/mate-tweak.desktop',]),
+    ('{prefix}/share/mate/applications'.format(prefix=sys.prefix), ['data/marco-compton.desktop',]),
+    ('{prefix}/share/mate/applications'.format(prefix=sys.prefix), ['data/metacity-compton.desktop',]),
+    ('{prefix}/share/mate/applications'.format(prefix=sys.prefix), ['data/marco-no-composite.desktop',]),
+    ('{prefix}/share/mate/applications'.format(prefix=sys.prefix), ['data/metacity-no-composite.desktop',]),
     ('{prefix}/share/mate-tweak'.format(prefix=sys.prefix), ['data/mate-volume-control-applet.desktop',]),
     ('{prefix}/share/polkit-1/actions'.format(prefix=sys.prefix), ['data/org.mate.mate-tweak.policy',]),
     ('{prefix}/lib/mate-tweak'.format(prefix=sys.prefix), ['data/mate-tweak.ui', 'util/disable-mate-volume-applet', 'util/mate-panel-backup', 'util/install-mate-panel-layout']),
@@ -77,6 +82,6 @@ setup(
     package_dir = {'': '.'},
     data_files = data_files,
     install_requires = [ 'setuptools', ],
-    scripts = ['mate-tweak'],
+    scripts = ['mate-tweak', 'marco-compton', 'marco-no-composite', 'metacity-compton', 'metacity-no-composite'],
     cmdclass = cmdclass,
 )
