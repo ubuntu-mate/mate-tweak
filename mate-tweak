@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
-# Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
+# Copyright (C) 2015-2016 Martin Wimpress <code@ubuntu-mate.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,13 +25,14 @@ import gi
 import glob
 import mmap
 import os
+import psutil
 import shutil
 import signal
 import subprocess
 import string
 import sys
+import time
 
-from configobj import ConfigObj
 from ctypes import cdll, byref, create_string_buffer
 from subprocess import DEVNULL, PIPE
 
@@ -55,7 +56,16 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '3.5.4'
+__VERSION__ = '3.5.7'
+
+__SYNAPSE__ = """[Desktop Entry]
+Name=Synapse
+Exec=synapse --startup
+Encoding=UTF-8
+Type=Application
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true
+Icon=synapse"""
 
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
@@ -84,7 +94,7 @@ class SidePage:
 
 class MateTweak:
     def on_checkbox_toggled(self, widget, schema_id, key):
-        # If Maximus is being tweaked, replace it to make the settings effective.
+        # If Maximus is bt_booleing tweaked, replace it to make the settings effective.
         if schema_id == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
             subprocess.Popen(['mate-maximus', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
@@ -93,9 +103,21 @@ class MateTweak:
             if key == 'undecorate':
                 self.replace_windowmanager(self.current_wm, False)
 
+        elif (key == "reduced-resources"):
+            if ('marco' in self.current_wm):
+                marco_reduced = self.get_bool('org.mate.Marco.general', None, key)
+                self.set_bool('org.mate.Marco.general', None, 'side-by-side-tiling', marco_reduced)
+                self.builder.get_object('checkbox_snapping').props.sensitive = marco_reduced
+            elif ('metacity' in self.current_wm):
+                metacity_reduced = self.get_bool('org.gnome.metacity', None, key)
+                self.set_bool('org.gnome.metacity', None, 'edge-tiling', metacity_reduced)
+                self.builder.get_object('checkbox_snapping').props.sensitive = metacity_reduced
+
     def set_string(self, schema, path, key, value):
-        if path: settings = Gio.Settings.new_with_path(schema, path)
-        else: settings = Gio.Settings.new(schema)
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
         try:
             settings.set_string(key, value)
         except:
@@ -103,18 +125,38 @@ class MateTweak:
             pass
 
     def get_string(self, schema, path, key):
-        if path: settings = Gio.Settings.new_with_path(schema, path)
-        else: settings = Gio.Settings.new(schema)
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
         return settings.get_string(key)
 
     def set_bool(self, schema, path, key, value):
-        if path: settings = Gio.Settings.new_with_path(schema, path)
-        else: settings = Gio.Settings.new(schema)
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
         settings.set_boolean(key, value)
 
+    def get_int(self, schema, path, key):
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
+        return settings.get_int(key)
+
+    def set_int(self, schema, path, key, value):
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
+        settings.set_int(key, value)
+
     def get_bool(self, schema, path, key):
-        if path: settings = Gio.Settings.new_with_path(schema, path)
-        else: settings = Gio.Settings.new(schema)
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
         return settings.get_boolean(key)
 
     def init_checkbox(self, schema_id, key, name):
@@ -158,6 +200,19 @@ class MateTweak:
                     break
                 index = index +1
 
+    def process_running(self, process_name):
+        for process in psutil.process_iter():
+            if process.name() == process_name:
+                return True
+
+        return False
+
+    def kill_process(self, process_name):
+        for process in psutil.process_iter():
+            if process.name() == process_name:
+                print('Killing ' + process.name())
+                process.kill()
+
     def find_on_path(self, command):
         """Is command on the executable search path?"""
         if 'PATH' not in os.environ:
@@ -188,57 +243,71 @@ class MateTweak:
         # as 'Marco (Metacity)'.
         if ('Marco' in current_wm):
             self.current_wm = 'marco'
+            composite_enabled = self.get_bool('org.mate.Marco.general', None, 'compositing-manager')
+            if self.process_running('compton'):
+                self.current_wm += '-compton'
+            elif not composite_enabled:
+                self.current_wm += '-no-composite'
         elif ('Metacity' in current_wm):
-            self.current_wm = 'metacity'
-        elif ('Muffin' in current_wm):
-            self.current_wm = 'muffin'
+            self.current_wm = current_wm.lower()
+            composite_enabled = self.get_bool('org.gnome.metacity', None, 'compositing-manager')
+            if self.process_running('compton'):
+                self.current_wm += '-compton'
+            elif not composite_enabled:
+                self.current_wm += '-no-composite'
         elif ('Mutter' in current_wm):
-            self.current_wm = 'mutter'
+            self.current_wm = current_wm.lower()
         elif ('Compiz' in current_wm):
-            self.current_wm = 'compiz'
+            self.current_wm = current_wm.lower()
         else:
             self.current_wm = 'Unknown'
 
         print('Window Manager is: ' + self.current_wm)
 
         self.compiz_capable = False
-        self.compton_capable = False
         self.marco_capable = False
+        self.marco_compton_capable = False
+        self.marco_no_composite_capable = False
         self.metacity_capable = False
-        self.muffin_capable = False
+        self.metacity_compton_capable = False
+        self.metacity_no_composite_capable = False
         self.mutter_capable = False
 
         if self.find_on_path('compiz'):
             if not self.software_rasterizer and self.texture_from_pixmap:
                  self.compiz_capable = True
 
-        if self.find_on_path('compton'):
+        if self.find_on_path('marco-compton') and self.find_on_path('marco') and self.find_on_path('compton'):
             if not self.software_rasterizer and self.texture_from_pixmap:
-                self.compton_capable = True
+                self.marco_compton_capable = True
+
+        if self.find_on_path('marco-no-composite') and self.find_on_path('marco'):
+            self.marco_no_composite_capable = True
 
         if self.find_on_path('marco'):
             self.marco_capable = True
 
+        if self.find_on_path('metacity-compton') and self.find_on_path('metacity') and self.find_on_path('compton'):
+            if not self.software_rasterizer and self.texture_from_pixmap:
+                self.metacity_compton_capable = True
+
+        if self.find_on_path('metacity-no-composite') and self.find_on_path('metacity'):
+            self.metacity_no_composite_capable = True
+
         if self.find_on_path('metacity'):
             self.metacity_capable = True
-
-        # Not stable under MATE
-        #if self.find_on_path('muffin'):
-        #    if not self.software_rasterizer and self.texture_from_pixmap:
-        #        self.muffin_capable = True
 
         if self.find_on_path('mutter'):
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.mutter_capable = True
 
-    def update_cursor_theme(self, theme):
+    def update_cursor_theme(self, cursor_theme, cursor_size):
         home_dir = GLib.get_home_dir()
-        self.mkdir_p(os.path.join(home_dir, '.icons', 'default'))
-        config = ConfigObj()
-        config.filename = os.path.join(home_dir, '.icons', 'default', 'index.theme')
-        config['icon theme'] = {}
-        config['icon theme']['Inherits'] = theme
-        config.write()
+        filename = os.path.join(home_dir, '.Xdefaults')
+        with open(filename, 'w') as xdefaults:
+            xdefaults.write("Xcursor.theme: %s\n" % cursor_theme)
+            xdefaults.write("Xcursor.size: %s\n" % cursor_size)
+        subprocess.Popen(['xrdb', filename], stdout=DEVNULL, stderr=DEVNULL)
 
     def replace_windowmanager(self, new_wm, notify):
         if new_wm == 'Unknown':
@@ -246,52 +315,72 @@ class MateTweak:
 
         # Make sure Compiz, Metacity and Mutter use the same theme as
         # Marco to prevent theme/xcursor changes when switching themes.
-        if new_wm == 'compiz' or new_wm == 'metacity' or new_wm == 'mutter':
+
+        if new_wm == 'marco' or new_wm == 'metacity':
+            wm_params = '--composite'
+        elif new_wm == 'compiz':
+            wm_params = 'ccp'
+        else:
+            wm_params = ''
+
+        if (new_wm == 'compiz') or (new_wm == 'mutter') or ('metacity' in new_wm):
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
             mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', None, 'cursor-theme')
+            mate_cursor_size = self.get_int('org.mate.peripherals-mouse', None, 'cursor-size')
 
             schemasource = Gio.SettingsSchemaSource.get_default()
             gnome_desktop_schema = schemasource.lookup('org.gnome.desktop', False)
             if gnome_desktop_schema:
                 self.set_string('org.gnome.desktop.wm.preferences', None, 'theme', mate_theme)
                 self.set_string('org.gnome.desktop.interface', None, 'cursor-theme', mate_cursor_theme)
+                self.set_int('org.gnome.desktop.interface', None, 'cursor-size', mate_cursor_size)
 
             # metacity >= 3.16 - this schema may not be installed
             metacity_schema = schemasource.lookup('org.gnome.metacity', False)
             if metacity_schema:
                 self.set_string('org.gnome.metacity', None, 'theme', mate_theme)
 
-            self.update_cursor_theme(mate_cursor_theme)
+            self.update_cursor_theme(mate_cursor_theme, mate_cursor_size)
 
-        if new_wm == 'compiz':
-            subprocess.Popen([new_wm, '--replace', 'ccp'], stdout=DEVNULL, stderr=DEVNULL)
+        # If switching away from a compton composited window manager,
+        # kill compton.
+        if self.current_wm == 'marco-compton' or self.current_wm == 'metacity-compton':
+            self.kill_process('compton')
+
+        # Metacity has a habbit of leaving a process running.
+        self.kill_process('metacity')
+
+        if new_wm == 'marco-compton' or new_wm == 'metacity-compton' or new_wm == 'marco-no-composite' or new_wm == 'metacity-no-composite':
+            subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
-            subprocess.Popen([new_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+            subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL)
 
-        # Sometimes the outgoing window manager is left running and
-        # replace mate-panel to avoid strut issues.
-        if self.current_wm != 'Unknown':
-            subprocess.call(['killall', self.current_wm], stdout=DEVNULL, stderr=DEVNULL)
+        # Sometimes gtk-window-manager is left behind.
+        if self.current_wm == 'compiz':
+            self.kill_process('gtk-window-decorator')
+
+        # Replace mate-panel to avoid strut issues.
+        time.sleep(1)
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
-
-        # Update current_wm to the new one.
-        self.current_wm = new_wm
 
         if notify:
             Notify.init(_('Window Manager Replaced'))
             replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + new_wm),'dialog-information')
             replace_windowmanager_notify.show()
 
-    def run_dock(self):
-        subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL)
+        # Update current_wm to the new one.
+        self.current_wm = new_wm
 
-    def kill_dock(self):
-        subprocess.call(['killall', self.dock], stdout=DEVNULL, stderr=DEVNULL)
+    def remove_dock_autostart(self):
+        # Old versions of MATE Tweak setup an autostart, these should
+        # be removed.
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')
 
     def enable_dock(self):
-        config_dir = GLib.get_user_config_dir()
-        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-        shutil.copy2(os.path.join('/','usr','share','applications', self.dock + '.desktop'), os.path.join(config_dir, 'autostart/'))
+        self.set_string('org.mate.session.required-components', None, 'dock', self.dock)
+        self.remove_dock_autostart()
 
         # Docks require compositing
         if self.current_wm == 'marco':
@@ -307,15 +396,40 @@ class MateTweak:
 
         # Launch the dock, if it is not already enabled.
         if not self.dock_enabled:
-            self.run_dock()
+            subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL)
             self.dock_enabled = True
 
     def disable_dock(self):
-        config_dir = GLib.get_user_config_dir()
-        if os.path.exists(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop'):
-            os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')
-        self.kill_dock()
+        self.set_string('org.mate.session.required-components', None, 'dock', '')
+        self.remove_dock_autostart()
+        self.kill_process(self.dock)
         self.dock_enabled = False
+
+    def enable_launcher(self):
+        config_dir = GLib.get_user_config_dir()
+        if self.launcher == 'synapse':
+            synapse_autostart = __SYNAPSE__
+
+            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+            if not os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
+                with open(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop','w') as autostart:
+                    autostart.write(synapse_autostart)
+
+            # Launch synapse, if it is not already enabled.
+            if not self.launcher_enabled:
+                subprocess.Popen([self.launcher, '--startup'], stdout=DEVNULL, stderr=DEVNULL)
+                self.launcher_enabled = True
+
+    def disable_launcher(self):
+        config_dir = GLib.get_user_config_dir()
+        if self.launcher == 'synapse':
+            if os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
+                os.remove(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop')
+
+        if self.process_running(self.launcher):
+            self.kill_process(self.launcher)
+
+        self.launcher_enabled = False
 
     def enable_mate_volume_applet(self):
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
@@ -327,7 +441,7 @@ class MateTweak:
             shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
 
     def disable_mate_volume_applet(self):
-        subprocess.call(['killall', 'mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
+        self.kill_process('mate-volume-control-applet')
 
         # If a system or user autostart exists, remove it.
         config_dir = GLib.get_user_config_dir()
@@ -349,8 +463,14 @@ class MateTweak:
         if self.panel_layout_exists(panel_layout + '-fresh') and \
            self.panel_layout_exists(panel_layout + '-indicators') and \
            self.panel_layout_exists(panel_layout + '-indicators-fresh'):
-            self.builder.get_object('checkbutton_indicators').props.sensitive = True
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
+            if not self.indicators_available:
+                self.builder.get_object('checkbutton_indicators').props.sensitive = False
+            else:
+                self.builder.get_object('checkbutton_indicators').props.sensitive = True
+            if not self.mate_menu_available:
+                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
+            else:
+                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
         else:
             self.builder.get_object('checkbutton_indicators').props.sensitive = False
             self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
@@ -372,7 +492,7 @@ class MateTweak:
 
         print('Switching to: ' + new_layout)
 
-        subprocess.call(['killall', 'mate-panel'], stdout=DEVNULL, stderr=DEVNULL)
+        self.kill_process('mate-panel')
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=DEVNULL, stderr=DEVNULL)
         # If we have a custom panel layout just replace the dconf dump.
@@ -397,7 +517,8 @@ class MateTweak:
         thumbnail_profile_path = '/org/compiz/profiles/mate/plugins/thumbnail/'
 
         # Determine if the dock should be enabled
-        if new_layout.startswith('eleven') and self.dock is not None:
+        if (new_layout.startswith('eleven') and self.dock is not None) or \
+           (new_layout.startswith('wimpy') and self.dock is not None):
             if 'compiz' in self.current_wm:
                 # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
                 self.set_bool(thumbnail_schema_id, thumbnail_profile_path, 'current-viewport', False)
@@ -448,6 +569,12 @@ class MateTweak:
         self.get_panel_layout()
         self.replace_panel_layout(self.base_layout)
 
+    def toggle_launcher(self, checkbutton):
+        if checkbutton.get_active():
+            self.enable_launcher()
+        else:
+            self.disable_launcher()
+
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
 
@@ -492,17 +619,15 @@ class MateTweak:
             self.replace_windowmanager(wm, True)
 
             # Update the widget based on the selected window manager.
-            if wm == 'marco' or  wm == 'metacity':
+            if ('marco' in wm) or ('metacity' in wm):
                 self.builder.get_object('frame_performance').props.sensitive = True
                 self.builder.get_object('frame_behaviour').props.sensitive = True
-                if wm == 'marco':
+                if 'marco' in wm:
                     self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-                    self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
                     self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
-                elif wm == 'metacity':
+                elif 'metacity' in wm:
                     self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-                    self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
                     self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
                     self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
             elif wm == 'mutter':
@@ -541,8 +666,6 @@ class MateTweak:
             self.builder.get_object("main_notebook").set_current_page(target)
 
     def check_dock_features(self):
-        config_dir = GLib.get_user_config_dir()
-
         # Order matters. Plank is preferred.
         if self.find_on_path('plank') and \
             os.path.exists(os.path.join('/','usr','share','applications', 'plank.desktop')):
@@ -553,10 +676,24 @@ class MateTweak:
         else:
             self.dock = None
 
-        if self.dock is not None and os.path.exists(os.path.join(config_dir, 'autostart', self.dock + '.desktop')):
+        if self.dock is not None and self.get_string('org.mate.session.required-components', None, 'dock'):
             self.dock_enabled = True
         else:
             self.dock_enabled = False
+
+    def check_launcher_features(self):
+        config_dir = GLib.get_user_config_dir()
+
+        if self.find_on_path('synapse') and \
+            os.path.exists(os.path.join('/','usr','share','applications', 'synapse.desktop')):
+            self.launcher = 'synapse'
+        else:
+            self.launcher = None
+
+        if self.launcher is not None and os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
+            self.launcher_enabled = True
+        else:
+            self.launcher_enabled = False
 
     def check_panel_features(self):
         # Determine what panel features are available
@@ -564,6 +701,7 @@ class MateTweak:
         self.indicators_available = False
         self.mageia_cc_available = False
         self.mate_dock_available = False
+        self.topmenu_available = False
         self.mate_menu_available = False
         self.maximus_available = False
         self.mint_menu_available = False
@@ -583,6 +721,11 @@ class MateTweak:
         if os.path.exists('/usr/lib/mate-applets/mate-dock-applet/dock.py'):
             self.mate_dock_available = True
 
+        if os.path.exists('/usr/lib/mate-applets/topmenu-mate-panel-applet') and \
+           os.path.exists('/usr/lib/libtopmenu-client-gtk2.so.0') and \
+           os.path.exists('/usr/lib/libtopmenu-client-gtk3.so.0'):
+            self.topmenu_available = True
+
         if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
             self.mate_menu_available = True
 
@@ -600,15 +743,6 @@ class MateTweak:
 
 
     def make_list_of_panel_layouts(self):
-        if not self.indicators_available:
-            self.builder.get_object('checkbutton_indicators').props.sensitive = False
-        else:
-            self.builder.get_object('checkbutton_indicators').props.sensitive = True
-        if not self.mate_menu_available:
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
-        else:
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
-
         # Panel layouts
         panels = Gtk.ListStore(str, str)
 
@@ -634,7 +768,9 @@ class MateTweak:
         if self.panel_layout_exists('mageia') and self.mageia_cc_available:
             panels.append([_("Mageia"), "mageia"])
 
-        if self.panel_layout_exists('mutiny') and self.mate_dock_available:
+        if self.panel_layout_exists('mutiny') and \
+           self.mate_dock_available and \
+           self.topmenu_available:
             panels.append([_("Mutiny"), "mutiny"])
 
         if self.panel_layout_exists('netbook') and self.maximus_available:
@@ -649,16 +785,19 @@ class MateTweak:
         if self.panel_layout_exists('ubuntu-mate'):
             panels.append([_("Ubuntu MATE"), "ubuntu-mate"])
 
+        if self.panel_layout_exists('wimpy'):
+            panels.append([_("Wimpy"), "wimpy"])
+
         self.builder.get_object("combobox_panels").set_model(panels)
 
     def save_panels(self, widget):
         layoutname = getpass.getuser()
+        self.set_string('org.mate.panel', None, 'default-layout', layoutname + '-tweak')
         subprocess.call(['/usr/lib/mate-tweak/mate-panel-backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['pkexec', '/usr/lib/mate-tweak/install-mate-panel-layout', layoutname], stdout=DEVNULL, stderr=DEVNULL)
         Notify.init(_('Panel Layout Saved'))
         save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as /usr/share/mate-panel/layouts/' + layoutname +'-tweak.layout'),'dialog-information')
         save_panels_notify.show()
-        self.set_string('org.mate.panel', None, 'default-layout', layoutname + '-tweak')
         self.make_list_of_panel_layouts()
         self.update_combobox('org.mate.panel', 'default-layout', 'combobox_panels')
 
@@ -682,6 +821,7 @@ class MateTweak:
         # Check for glx, panel, dock and wm features
         self.check_glx_features()
         self.check_dock_features()
+        self.check_launcher_features()
         self.check_panel_features()
         self.check_wm_features()
 
@@ -711,12 +851,15 @@ class MateTweak:
 
         # Do not show Performance or Window behaviour configuration
         # options when Marco or Metacity are not currently running.
-        if not self.current_wm == "marco" and not self.current_wm == "metacity":
-            self.builder.get_object('frame_performance').props.sensitive = False
-            self.builder.get_object('checkbox_snapping').props.sensitive = False
+        if 'marco' in self.current_wm or 'metacity' in self.current_wm:
+            self.builder.get_object('frame_performance').props.sensitive = True
+            self.builder.get_object('checkbox_snapping').props.sensitive = True
         elif self.current_wm == 'mutter':
             self.builder.get_object('frame_performance').props.sensitive = False
             self.builder.get_object('checkbox_snapping').props.sensitive = True
+        else:
+            self.builder.get_object('frame_performance').props.sensitive = False
+            self.builder.get_object('checkbox_snapping').props.sensitive = False
 
         if not self.current_wm == "compiz":
             self.builder.get_object('button_compiz_reset').hide()
@@ -761,7 +904,6 @@ class MateTweak:
         self.builder.get_object("checkbox_animations").set_label(_("Enable animations"))
         self.builder.get_object("checkbox_resources").set_label(_("Do not show window content when moving windows"))
         self.builder.get_object("label_performance_tuning").set_markup("<small>" + _("Window manager performance tuning.") + "</small>")
-        self.builder.get_object("checkbox_compositing").set_label(_("Use compositing"))
 
         self.builder.get_object("checkbox_snapping").set_label(_("Enable window snapping"))
         self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
@@ -773,6 +915,7 @@ class MateTweak:
         self.builder.get_object("checkbutton_indicators").set_label(_("Enable indicators"))
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
+        self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
         self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
         self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
         self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
@@ -789,18 +932,27 @@ class MateTweak:
         self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
 
         # Window Manager page
-        if self.current_wm == "marco":
+        if 'marco' in self.current_wm:
             self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.mate.Marco.general', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
             self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
-        elif self.current_wm == "metacity":
+        elif 'metacity' in self.current_wm:
             self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.gnome.metacity', 'compositing-manager', 'checkbox_compositing')
             self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
             self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
         elif self.current_wm == "mutter":
             self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
+
+        # Make the Window Snapping checkbox inactive based if reduced resources is enabled
+        #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011
+        if ('marco' in self.current_wm):
+            marco_reduced = self.get_bool('org.mate.Marco.general', None, 'reduced-resources')
+            if marco_reduced:
+                self.builder.get_object('checkbox_snapping').props.sensitive = False
+        elif ('metacity' in self.current_wm):
+            metacity_reduced = self.get_bool('org.gnome.metacity', None, 'reduced-resources')
+            if metacity_reduced:
+                self.builder.get_object('checkbox_snapping').props.sensitive = False
 
         # interface page
         self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
@@ -808,7 +960,6 @@ class MateTweak:
         self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
         self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
         self.init_checkbox("org.mate.peripherals-keyboard-xkb.general", "duplicate-leds", "checkbutton_keyboard_led")
-
 
         iconSizes = Gtk.ListStore(str, str)
         iconSizes.append([_("Small"), "small-toolbar"])
@@ -825,13 +976,18 @@ class MateTweak:
 
         # Window manager
         wms = Gtk.ListStore(str, str)
-
+        if self.marco_no_composite_capable:
+            wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
         if self.marco_capable:
-            wms.append([_("Marco (Simple desktop effects)"), 'marco'])
+            wms.append([_("Marco (Software compositor)"), 'marco'])
+        if self.marco_compton_capable and not self.software_rasterizer:
+            wms.append([_("Marco (Compton GPU compositor)"), 'marco-compton'])
+        if self.metacity_no_composite_capable:
+            wms.append([_("Metacity (No compositor)"), 'metacity-no-composite'])
         if self.metacity_capable:
-            wms.append([_("Metacity (Simple desktop effects)"), 'metacity'])
-        if self.muffin_capable:
-            wms.append([_("Muffin (Elegant GPU accelerated desktop effects)"), 'muffin'])
+            wms.append([_("Metacity (Software compositor)"), 'metacity'])
+        if self.metacity_compton_capable and not self.software_rasterizer:
+            wms.append([_("Metacity (Compton GPU compositor)"), 'metacity-compton'])
         if self.mutter_capable:
             wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
         if self.compiz_capable:
@@ -855,6 +1011,12 @@ class MateTweak:
         self.init_panel_features()
         self.builder.get_object("checkbutton_indicators").connect("toggled", self.toggle_panel_features)
         self.builder.get_object("checkbutton_advanced_menu").connect("toggled", self.toggle_panel_features)
+
+        # Launcher
+        self.builder.get_object("checkbutton_launcher").connect("toggled", self.toggle_launcher)
+        self.builder.get_object("checkbutton_launcher").set_active(self.launcher_enabled)
+        if not self.launcher:
+            self.builder.get_object('checkbutton_launcher').props.sensitive = False
 
         # toolbar icon styles
         iconStyles = Gtk.ListStore(str, str)
