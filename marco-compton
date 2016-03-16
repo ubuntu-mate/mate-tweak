@@ -36,10 +36,9 @@ else
         --glx-no-stencil \
         --glx-swap-method undefined \
         --unredir-if-possible \
-        --inactive-dim 0.05 \
         --inactive-opacity-override \
         --mark-wmwin-focused \
-        -r 8 -o 0.225 -l -12 -t -12 \
+        -r 10 -o 0.225 -l -12 -t -12 \
         -c -C -G \
         --shadow-exclude "! name~=''" \
         --shadow-exclude "name = 'Notification'" \
@@ -51,6 +50,6 @@ else
         --shadow-exclude "class_g = 'Kupfer'" \
         --shadow-exclude "class_g = 'Synapse'" \
         --shadow-exclude "class_g ?= 'Notify-osd'" \
-        --shadow-exclude "class_g ?= 'Cairo-dock'" &
-#       --shadow-exclude "_GTK_FRAME_EXTENTS@:c"    # Fixes GTK3 double shadow
+        --shadow-exclude "class_g ?= 'Cairo-dock'" \
+       --shadow-exclude "_GTK_FRAME_EXTENTS@:c" &
 fi
