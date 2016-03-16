@@ -1,23 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Arif Budiman <arifpedia@gmail.com>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Hafidh Ihsan <hpiece8@gmail.com>, 2016
+# Willy Sudiarto Raharjo <willysr@slackware-id.org>, 2016
 # zk <zamani.karmana@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-22 08:32+0000\n"
-"PO-Revision-Date: 2015-11-05 04:58+0000\n"
-"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
+"PO-Revision-Date: 2016-03-14 17:23+0000\n"
+"Last-Translator: Willy Sudiarto Raharjo <willysr@slackware-id.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/mate/MATE/language/id/)\n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-tweak:681
@@ -26,7 +28,7 @@ msgstr "Cupertino"
 
 #: ../mate-tweak:684
 msgid "Fedora"
-msgstr ""
+msgstr "Fedora"
 
 #: ../mate-tweak:687
 msgid "GNOME2"
@@ -38,11 +40,11 @@ msgstr "Linux Mint"
 
 #: ../mate-tweak:693
 msgid "Mageia"
-msgstr ""
+msgstr "Mageia"
 
 #: ../mate-tweak:696
 msgid "Mutiny"
-msgstr ""
+msgstr "Mutiny"
 
 #: ../mate-tweak:699
 msgid "Netbook"
@@ -94,11 +96,11 @@ msgstr "Penampilan"
 
 #: ../mate-tweak:807
 msgid "Panels"
-msgstr ""
+msgstr "Panel"
 
 #: ../mate-tweak:808
 msgid "Panel Features"
-msgstr ""
+msgstr "Fitur Panel"
 
 #: ../mate-tweak:809
 msgid "Icons"
@@ -142,19 +144,19 @@ msgstr "Volume yang terkait"
 
 #: ../mate-tweak:822
 msgid "Enable animations"
-msgstr ""
+msgstr "Aktifkan animasi"
 
 #: ../mate-tweak:823
 msgid "Do not show window content when moving windows"
-msgstr ""
+msgstr "Sembunyikan konten jendela ketika memindahkan jendela"
 
 #: ../mate-tweak:824
 msgid "Window manager performance tuning."
-msgstr ""
+msgstr "Tuning performa window manager."
 
 #: ../mate-tweak:826
 msgid "Enable window snapping"
-msgstr ""
+msgstr "Aktifkan window snapping"
 
 #: ../mate-tweak:827
 msgid "Undecorate maximized windows"
@@ -170,19 +172,19 @@ msgstr "Penempatan kontrol jendela."
 
 #: ../mate-tweak:832
 msgid "Save Panel Layout"
-msgstr ""
+msgstr "Simpan Layout Panel"
 
 #: ../mate-tweak:833
 msgid "Enable indicators"
-msgstr ""
+msgstr "Aktifkan indikator"
 
 #: ../mate-tweak:834
 msgid "Enable advanced menu"
-msgstr ""
+msgstr "Aktifkan menu advanced"
 
 #: ../mate-tweak:835
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "Aktifkan LED keyboard"
 
 #: ../mate-tweak:836
 msgid "Show icons on menus"
@@ -226,27 +228,27 @@ msgstr "Kontemporer (Kiri)"
 
 #: ../mate-tweak:886
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Marco (Tanpa compositor)"
 
 #: ../mate-tweak:888
 msgid "Marco (Software compositor)"
-msgstr ""
+msgstr "Marco (Software compositor)"
 
 #: ../mate-tweak:890
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (Compton GPU compositor)"
 
 #: ../mate-tweak:892
 msgid "Metacity (No compositor)"
-msgstr ""
+msgstr "Metacity (Tanpa compositor)"
 
 #: ../mate-tweak:894
 msgid "Metacity (Software compositor)"
-msgstr ""
+msgstr "Metacity (Software compositor)"
 
 #: ../mate-tweak:896
 msgid "Metacity (Compton GPU compositor)"
-msgstr ""
+msgstr "Metacity (Compton GPU compositor)"
 
 #: ../mate-tweak:898
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
@@ -272,9 +274,7 @@ msgstr "Pilih tata letak panel untuk mengubah antarmuka pengguna."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Tata letak panel yang baru akan diaktifkan ketika memilih dan menghancurkan "
-"semua penyesuaian yang mungkin telah anda buat."
+msgstr "Tata letak panel yang baru akan diaktifkan ketika memilih dan menghancurkan semua penyesuaian yang mungkin telah anda buat."
 
 #: ../mate-tweak:917
 msgid "Text below items"
@@ -291,27 +291,3 @@ msgstr "Hanya ikon"
 #: ../mate-tweak:920
 msgid "Text only"
 msgstr "Hanya teks"
-
-#~ msgid "Use compositing"
-#~ msgstr "Gunakan pengkomposisian"
-
-#~ msgid "Marco (Simple desktop effects)"
-#~ msgstr "Marco (Efek desktop sederhana)"
-
-#, fuzzy
-#~ msgid "Marco (Simple GPU accelerated desktop effects)"
-#~ msgstr "Mutter (Efek desktop anggun dengan GPU terakselerasi)"
-
-#~ msgid "Metacity (Simple desktop effects)"
-#~ msgstr "Metacity (Efek desktop sederhana)"
-
-#, fuzzy
-#~ msgid "Metacity (Simple GPU accelerated desktop effects)"
-#~ msgstr "Mutter (Efek desktop anggun dengan GPU terakselerasi)"
-
-#, fuzzy
-#~ msgid "Muffin (Elegant GPU accelerated desktop effects)"
-#~ msgstr "Mutter (Efek desktop anggun dengan GPU terakselerasi)"
-
-#~ msgid "Use less resources"
-#~ msgstr "Gunakan sedikit sumber daya"
