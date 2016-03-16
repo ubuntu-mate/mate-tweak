@@ -401,6 +401,7 @@ class MateTweak:
         self.dock_enabled = False
 
     def enable_launcher(self):
+        leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         config_dir = GLib.get_user_config_dir()
         if self.launcher == 'synapse':
             synapse_autostart = __SYNAPSE__
@@ -412,17 +413,32 @@ class MateTweak:
 
             # Launch synapse, if it is not already enabled.
             if not self.launcher_enabled:
+                if leds_enabled:
+                    self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
+
                 subprocess.Popen([self.launcher, '--startup'], stdout=DEVNULL, stderr=DEVNULL)
                 self.launcher_enabled = True
 
+                if leds_enabled:
+                    time.sleep(1)
+                    self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
+
     def disable_launcher(self):
+        leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         config_dir = GLib.get_user_config_dir()
         if self.launcher == 'synapse':
             if os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
                 os.remove(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop')
 
         if self.process_running(self.launcher):
+            if leds_enabled:
+                self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
+
             self.kill_process(self.launcher)
+
+            if leds_enabled:
+                time.sleep(1)
+                self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
 
         self.launcher_enabled = False
 
@@ -906,8 +922,7 @@ class MateTweak:
         self.builder.get_object("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
         self.builder.get_object("label_window_manager").set_markup("<b>" + _("Window manager") + "</b>")
 
-        self.builder.get_object("caption_desktop_icons").set_markup("<small>" + _("Select the items you want to see on the desktop:") + "</small>")
-
+        self.builder.get_object("caption_desktop_icons").set_markup("<small>" + _("Select the Desktop Icons you want enabled:") + "</small>")
         self.builder.get_object("checkbox_show_icons").set_label(_("Show Desktop Icons"))
         self.builder.get_object("checkbox_computer").set_label(_("Computer"))
         self.builder.get_object("checkbox_home").set_label(_("Home"))

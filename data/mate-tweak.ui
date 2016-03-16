@@ -93,7 +93,7 @@
                             <property name="halign">start</property>
                             <property name="margin_top">3</property>
                             <property name="margin_bottom">3</property>
-                            <property name="label" translatable="yes">&lt;small&gt;Select the items you want to see on the desktop:&lt;/small&gt;</property>
+                            <property name="label" translatable="yes">&lt;small&gt;Select the Desktop Icons you want enabled:&lt;/small&gt;</property>
                             <property name="use_markup">True</property>
                           </object>
                           <packing>
