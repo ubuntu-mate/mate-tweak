@@ -467,6 +467,8 @@ class MateTweak:
             self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
 
     def replace_panel_layout(self, panel_layout):
+        leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
+
         self.update_panel_layout_features(panel_layout)
 
         new_layout = panel_layout
@@ -482,7 +484,8 @@ class MateTweak:
             new_layout = panel_layout
 
         print('Switching to: ' + new_layout)
-
+        if leds_enabled:
+            self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
         self.kill_process('mate-panel')
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=DEVNULL, stderr=DEVNULL)
@@ -523,6 +526,10 @@ class MateTweak:
                 # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
                 self.set_bool(thumbnail_schema_id, thumbnail_profile_path, 'current-viewport', True)
             self.disable_dock()
+
+        if leds_enabled:
+            time.sleep(1)
+            self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
 
     def get_panel_layout(self):
         self.current_layout = self.get_string('org.mate.panel', None, 'default-layout')
