@@ -104,15 +104,19 @@ class MateTweak:
                 self.replace_windowmanager(self.current_wm, False)
 
         elif (key == "reduced-resources"):
-            if ('marco' in self.current_wm):            
-                marco_reduced = self.get_bool('org.mate.Marco.general', None, key) 
+            if ('marco' in self.current_wm):
+                marco_reduced = self.get_bool('org.mate.Marco.general', None, key)
                 self.set_bool('org.mate.Marco.general', None, 'side-by-side-tiling', marco_reduced)
                 self.builder.get_object('checkbox_snapping').props.sensitive = marco_reduced
             elif ('metacity' in self.current_wm):
-                metacity_reduced = self.get_bool('org.gnome.metacity', None, key) 
+                metacity_reduced = self.get_bool('org.gnome.metacity', None, key)
                 self.set_bool('org.gnome.metacity', None, 'edge-tiling', metacity_reduced)
                 self.builder.get_object('checkbox_snapping').props.sensitive = metacity_reduced
-            
+
+        # If desktop icons are shown or hidden, enable or not further modifications
+        elif schema_id == "org.mate.background":
+            self.toggle_desktop_icons_sensitiveness()
+
     def set_string(self, schema, path, key, value):
         if path:
             settings = Gio.Settings.new_with_path(schema, path)
@@ -367,7 +371,7 @@ class MateTweak:
         # be removed.
         config_dir = GLib.get_user_config_dir()
         if os.path.exists(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop'):
-            os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')        
+            os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')
 
     def enable_dock(self):
         self.set_string('org.mate.session.required-components', None, 'dock', self.dock)
@@ -440,6 +444,16 @@ class MateTweak:
             os.remove(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
+
+    def toggle_desktop_icons_sensitiveness(self):
+        sensitiveness = self.builder.get_object("checkbox_show_icons").get_active()
+        self.builder.get_object("caption_desktop_icons").set_sensitive(sensitiveness)
+        self.builder.get_object("checkbox_computer").set_sensitive(sensitiveness)
+        self.builder.get_object("checkbox_computer").set_sensitive(sensitiveness)
+        self.builder.get_object("checkbox_home").set_sensitive(sensitiveness)
+        self.builder.get_object("checkbox_network").set_sensitive(sensitiveness)
+        self.builder.get_object("checkbox_trash").set_sensitive(sensitiveness)
+        self.builder.get_object("checkbox_volumes").set_sensitive(sensitiveness)
 
     def panel_layout_uses_indicators(self, panel_layout):
         with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as file, \
@@ -593,7 +607,7 @@ class MateTweak:
             self.software_rasterizer = False
             self.texture_from_pixmap = False
 
-    def additional_tweaks(self, schema, key, value):        
+    def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
             # If the button-layout is changed in MATE reflect that change
             # for GTK3 and GNOME.
@@ -826,6 +840,7 @@ class MateTweak:
         # Load the Glade UI file
         self.builder = Gtk.Builder()
         self.builder.add_from_file('/usr/lib/mate-tweak/mate-tweak.ui')
+        # self.builder.add_from_file('./data/mate-tweak.ui')
 
         self.window = self.builder.get_object( "main_window" )
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
@@ -893,6 +908,7 @@ class MateTweak:
 
         self.builder.get_object("caption_desktop_icons").set_markup("<small>" + _("Select the items you want to see on the desktop:") + "</small>")
 
+        self.builder.get_object("checkbox_show_icons").set_label(_("Show Desktop Icons"))
         self.builder.get_object("checkbox_computer").set_label(_("Computer"))
         self.builder.get_object("checkbox_home").set_label(_("Home"))
         self.builder.get_object("checkbox_network").set_label(_("Network"))
@@ -923,11 +939,13 @@ class MateTweak:
         self.builder.get_object("label_toolbar_icon_size").set_text(_("Icon size:"))
 
         # Desktop page
+        self.init_checkbox("org.mate.background", "show-desktop-icons", "checkbox_show_icons")
         self.init_checkbox("org.mate.caja.desktop", "computer-icon-visible", "checkbox_computer")
         self.init_checkbox("org.mate.caja.desktop", "home-icon-visible", "checkbox_home")
         self.init_checkbox("org.mate.caja.desktop", "network-icon-visible", "checkbox_network")
         self.init_checkbox("org.mate.caja.desktop", "trash-icon-visible", "checkbox_trash")
         self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
+        self.toggle_desktop_icons_sensitiveness()
 
         # Window Manager page
         if 'marco' in self.current_wm:
