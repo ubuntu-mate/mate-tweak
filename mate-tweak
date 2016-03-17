@@ -339,13 +339,13 @@ class MateTweak:
 
         # If switching away from a compton composited window manager,
         # kill compton.
-        if self.current_wm == 'marco-compton' or self.current_wm == 'metacity-compton':
+        if 'compton' in self.current_wm:
             self.kill_process('compton')
 
         # Metacity has a habbit of leaving a process running.
         self.kill_process('metacity')
 
-        if new_wm == 'marco-compton' or new_wm == 'metacity-compton' or new_wm == 'marco-no-composite' or new_wm == 'metacity-no-composite':
+        if ('compton' in new_wm) or ('no-composite' in new_wm):
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
             subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL)
@@ -357,6 +357,40 @@ class MateTweak:
         # Replace mate-panel to avoid strut issues.
         time.sleep(1)
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+
+        # Detect switch to "risky" window manager.
+        if ('compiz' in new_wm) or ('compton' in new_wm):
+            # Should we prompt for confirmation after switching window manager.
+            if 'compton' in new_wm and 'compton' in self.current_wm:
+                confirm = False
+            else:
+                confirm = True
+
+            if confirm and notify:
+                confirm_text = _('<b>Does this window manager look OK?</b>\n\nThe window manager will be restored to the previous configuration in 15 seconds.')
+                ok_label = _('Keep This Configuration')
+                cancel_label = ('Restore Previous Configuration.')
+                confirm = subprocess.Popen(['zenity',
+                                 '--question',
+                                 '--title=',
+                                 "--text="+confirm_text,
+                                 "--ok-label="+ok_label,
+                                 "--cancel-label="+cancel_label,
+                                 '--window-icon=question',
+                                 '--timeout=15'],
+                                 stdin=PIPE, stdout=PIPE, stderr=PIPE)
+                output, error = confirm.communicate()
+                if confirm.returncode == 0:
+                    print('Keeping ' + new_wm)
+                elif confirm.returncode == 1 or confirm.returncode == 5:
+                    print('Reverting to ' + self.current_wm)
+                    notify = False
+                    new_wm = self.current_wm
+                    self.set_string('org.mate.session.required-components', None, 'windowmanager', self.current_wm)
+                    self.update_combobox('org.mate.session.required-components', 'windowmanager', 'combobox_window_manager')
+                    self.replace_windowmanager(self.current_wm, False)
+                else:
+                    print("Unknown")
 
         if notify:
             Notify.init(_('Window Manager Replaced'))
@@ -770,6 +804,28 @@ class MateTweak:
             self.volume_applet_enabled = True
 
 
+    def make_list_of_window_managers(self):
+        wms = Gtk.ListStore(str, str)
+        if self.marco_no_composite_capable:
+            wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
+        if self.marco_capable:
+            wms.append([_("Marco (Software compositor)"), 'marco'])
+        if self.marco_compton_capable and not self.software_rasterizer:
+            wms.append([_("Marco (Compton GPU compositor)"), 'marco-compton'])
+        if self.metacity_no_composite_capable:
+            wms.append([_("Metacity (No compositor)"), 'metacity-no-composite'])
+        if self.metacity_capable:
+            wms.append([_("Metacity (Software compositor)"), 'metacity'])
+        if self.metacity_compton_capable and not self.software_rasterizer:
+            wms.append([_("Metacity (Compton GPU compositor)"), 'metacity-compton'])
+        if self.mutter_capable:
+            wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
+        if self.compiz_capable:
+            wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
+
+        self.builder.get_object("combobox_window_manager").set_model(wms)
+
+
     def make_list_of_panel_layouts(self):
         # Panel layouts
         panels = Gtk.ListStore(str, str)
@@ -1006,25 +1062,7 @@ class MateTweak:
         self.init_combobox("org.mate.Marco.general", "button-layout", "combobox_window_control")
 
         # Window manager
-        wms = Gtk.ListStore(str, str)
-        if self.marco_no_composite_capable:
-            wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
-        if self.marco_capable:
-            wms.append([_("Marco (Software compositor)"), 'marco'])
-        if self.marco_compton_capable and not self.software_rasterizer:
-            wms.append([_("Marco (Compton GPU compositor)"), 'marco-compton'])
-        if self.metacity_no_composite_capable:
-            wms.append([_("Metacity (No compositor)"), 'metacity-no-composite'])
-        if self.metacity_capable:
-            wms.append([_("Metacity (Software compositor)"), 'metacity'])
-        if self.metacity_compton_capable and not self.software_rasterizer:
-            wms.append([_("Metacity (Compton GPU compositor)"), 'metacity-compton'])
-        if self.mutter_capable:
-            wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
-        if self.compiz_capable:
-            wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
-
-        self.builder.get_object("combobox_window_manager").set_model(wms)
+        self.make_list_of_window_managers()
         self.builder.get_object("combobox_window_manager").set_tooltip_text(_("The new window manager will be activated upon selection."))
         self.builder.get_object("caption_window_manager").set_markup("<small>" + _("Select a window manager.") + "</small>")
         self.init_combobox("org.mate.session.required-components", "windowmanager", "combobox_window_manager")
