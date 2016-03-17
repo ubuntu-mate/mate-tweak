@@ -101,7 +101,7 @@ class MateTweak:
             # When changing undecorate state replace the window manager
             # to ensure there are no rendering or strut issues.
             if key == 'undecorate':
-                self.replace_windowmanager(self.current_wm, False)
+                self.replace_windowmanager(self.current_wm)
 
         elif (key == "reduced-resources"):
             if ('marco' in self.current_wm):
@@ -208,7 +208,7 @@ class MateTweak:
     def kill_process(self, process_name):
         for process in psutil.process_iter():
             if process.name() == process_name:
-                print('Killing ' + process.name())
+                #print('Killing ' + process.name())
                 process.kill()
 
     def find_on_path(self, command):
@@ -307,7 +307,7 @@ class MateTweak:
             xdefaults.write("Xcursor.size: %s\n" % cursor_size)
         subprocess.Popen(['xrdb', filename], stdout=DEVNULL, stderr=DEVNULL)
 
-    def replace_windowmanager(self, new_wm, notify):
+    def replace_windowmanager(self, new_wm):
         # Make sure Compiz, Metacity and Mutter use the same theme as
         # Marco to prevent theme/xcursor changes when switching themes.
 
@@ -354,51 +354,58 @@ class MateTweak:
         if self.current_wm == 'compiz':
             self.kill_process('gtk-window-decorator')
 
-        # Replace mate-panel to avoid strut issues.
-        time.sleep(1)
-        subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+        # Replace mate-panel and dock when switching Compiz to avoid strut issues.
+        if new_wm == 'compiz':
+            if self.dock_enabled:
+                self.kill_process(self.dock)
+                time.sleep(1)
+                subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL)
+            subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
+        # Update current_wm to the new one.
+        self.previous_wm = self.current_wm
+        self.current_wm = new_wm
+
+    def confirm_windowmanager(self):
         # Detect switch to "risky" window manager.
-        if ('compiz' in new_wm) or ('compton' in new_wm):
+        if ('compiz' in self.current_wm) or ('compton' in self.current_wm):
             # Should we prompt for confirmation after switching window manager.
-            if 'compton' in new_wm and 'compton' in self.current_wm:
+            if 'compton' in self.previous_wm and 'compton' in self.current_wm:
                 confirm = False
             else:
                 confirm = True
 
-            if confirm and notify:
-                confirm_text = _('<b>Does this window manager look OK?</b>\n\nThe window manager will be restored to the previous configuration in 15 seconds.')
-                ok_label = _('Keep This Configuration')
-                cancel_label = ('Restore Previous Configuration.')
+            if confirm:
+                time.sleep(2)
+                confirm_text = _('<b>Does this window manager look OK?</b>\n\nThe window manager will be restored to the fail-safe configuration in 15 seconds.')
+                title_text = _('Switching to ')
+                ok_label = _('Keep This Window Manager')
+                cancel_label = ('Restore Fail-safe Window Manager')
                 confirm = subprocess.Popen(['zenity',
                                  '--question',
-                                 '--title=',
-                                 "--text="+confirm_text,
-                                 "--ok-label="+ok_label,
-                                 "--cancel-label="+cancel_label,
+                                 "--title=" + title_text + self.current_wm,
+                                 "--text=" + confirm_text,
+                                 "--ok-label=" + ok_label,
+                                 "--cancel-label=" + cancel_label,
                                  '--window-icon=question',
                                  '--timeout=15'],
                                  stdin=PIPE, stdout=PIPE, stderr=PIPE)
                 output, error = confirm.communicate()
                 if confirm.returncode == 0:
-                    print('Keeping ' + new_wm)
+                    print('Keeping ' + self.current_wm)
                 elif confirm.returncode == 1 or confirm.returncode == 5:
-                    print('Reverting to ' + self.current_wm)
-                    notify = False
-                    new_wm = self.current_wm
+                    print('Reverting to fail-safe.')
+                    self.previous_wm = self.current_wm = 'marco'
                     self.set_string('org.mate.session.required-components', None, 'windowmanager', self.current_wm)
                     self.update_combobox('org.mate.session.required-components', 'windowmanager', 'combobox_window_manager')
-                    self.replace_windowmanager(self.current_wm, False)
+                    self.replace_windowmanager(self.previous_wm)
+                    return True
                 else:
                     print("Unknown")
 
-        if notify:
-            Notify.init(_('Window Manager Replaced'))
-            replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + new_wm),'dialog-information')
-            replace_windowmanager_notify.show()
-
-        # Update current_wm to the new one.
-        self.current_wm = new_wm
+        Notify.init(_('Window Manager Replaced'))
+        replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + self.current_wm),'dialog-information')
+        replace_windowmanager_notify.show()
 
     def remove_dock_autostart(self):
         # Old versions of MATE Tweak setup an autostart, these should
@@ -657,6 +664,44 @@ class MateTweak:
             self.software_rasterizer = False
             self.texture_from_pixmap = False
 
+    def update_windowmanager_widgets(self):
+        # Update the widget based on the current window manager.
+        if ('marco' in self.current_wm) or ('metacity' in self.current_wm):
+            self.builder.get_object('frame_performance').props.sensitive = True
+            self.builder.get_object('frame_behaviour').props.sensitive = True
+            if 'marco' in self.current_wm:
+                self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
+                self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
+                self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
+
+                # Make the Window Snapping checkbox inactive based if reduced resources is enabled
+                #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011
+                marco_reduced = self.get_bool('org.mate.Marco.general', None, 'reduced-resources')
+                if marco_reduced:
+                    self.builder.get_object('checkbox_snapping').props.sensitive = False
+            elif 'metacity' in self.current_wm:
+                self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
+                self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
+                self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
+                
+                # Make the Window Snapping checkbox inactive based if reduced resources is enabled
+                #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011                
+                metacity_reduced = self.get_bool('org.gnome.metacity', None, 'reduced-resources')
+                if metacity_reduced:
+                    self.builder.get_object('checkbox_snapping').props.sensitive = False
+        elif self.current_wm == 'mutter':
+            self.builder.get_object('frame_performance').props.sensitive = False
+            self.builder.get_object('frame_behaviour').props.sensitive = True
+            self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
+        else:
+            self.builder.get_object('frame_performance').props.sensitive = False
+            self.builder.get_object('frame_behaviour').props.sensitive = False
+
+        if self.current_wm == 'compiz':
+           self.builder.get_object('button_compiz_reset').show()
+        else:
+           self.builder.get_object('button_compiz_reset').hide()
+
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
             # If the button-layout is changed in MATE reflect that change
@@ -675,35 +720,11 @@ class MateTweak:
             self.set_bool('org.mate.interface', None, 'enable-aniations', value)
 
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
-            wm = value
-
             # If the window manager is being changed, replace it now!
-            self.replace_windowmanager(wm, True)
-
-            # Update the widget based on the selected window manager.
-            if ('marco' in wm) or ('metacity' in wm):
-                self.builder.get_object('frame_performance').props.sensitive = True
-                self.builder.get_object('frame_behaviour').props.sensitive = True
-                if 'marco' in wm:
-                    self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-                    self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
-                    self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
-                elif 'metacity' in wm:
-                    self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-                    self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
-                    self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
-            elif wm == 'mutter':
-                self.builder.get_object('frame_performance').props.sensitive = False
-                self.builder.get_object('frame_behaviour').props.sensitive = True
-                self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
-            else:
-                self.builder.get_object('frame_performance').props.sensitive = False
-                self.builder.get_object('frame_behaviour').props.sensitive = False
-
-            if wm == 'compiz':
-               self.builder.get_object('button_compiz_reset').show()
-            else:
-               self.builder.get_object('button_compiz_reset').hide()
+            wm = value
+            self.replace_windowmanager(wm)
+            self.confirm_windowmanager()
+            self.update_windowmanager_widgets()
 
         elif schema == "org.mate.panel" and key == "default-layout":
             # If the panel layout is being changed, replace it now!
@@ -887,7 +908,7 @@ class MateTweak:
 
     def compiz_reset(self, widget):
         # Switch to Marco. Purge all Compiz config and cache. Switch to Compiz.
-        self.replace_windowmanager('marco', False)
+        self.replace_windowmanager('marco')
         subprocess.call(['dconf', 'reset', '-f', '/org/compiz/'], stdout=DEVNULL, stderr=DEVNULL)
         config_compiz = os.path.join(GLib.get_user_config_dir(), 'compiz-1')
         cache_compiz = os.path.join(GLib.get_user_cache_dir(), 'compizconfg1')
@@ -895,7 +916,7 @@ class MateTweak:
             shutil.rmtree(config_compiz)
         if os.path.exists(cache_compiz):
             shutil.rmtree(cache_compiz)
-        self.replace_windowmanager('compiz', False)
+        self.replace_windowmanager('compiz')
         Notify.init(_('Compiz Reset'))
         compiz_reset_notify=Notify.Notification.new (_('Compiz Reset'),_('Your Compiz configuration has been reset to factory defaults.'),'dialog-information')
         compiz_reset_notify.show()
@@ -908,6 +929,7 @@ class MateTweak:
         self.check_launcher_features()
         self.check_panel_features()
         self.check_wm_features()
+        self.previous_wm = self.current_wm
 
         # Load the Glade UI file
         self.builder = Gtk.Builder()
@@ -1018,29 +1040,6 @@ class MateTweak:
         self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
         self.toggle_desktop_icons_sensitiveness()
 
-        # Window Manager page
-        if 'marco' in self.current_wm:
-            self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
-            self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
-        elif 'metacity' in self.current_wm:
-            self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
-            self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
-        elif self.current_wm == "mutter":
-            self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
-
-        # Make the Window Snapping checkbox inactive based if reduced resources is enabled
-        #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011
-        if ('marco' in self.current_wm):
-            marco_reduced = self.get_bool('org.mate.Marco.general', None, 'reduced-resources')
-            if marco_reduced:
-                self.builder.get_object('checkbox_snapping').props.sensitive = False
-        elif ('metacity' in self.current_wm):
-            metacity_reduced = self.get_bool('org.gnome.metacity', None, 'reduced-resources')
-            if metacity_reduced:
-                self.builder.get_object('checkbox_snapping').props.sensitive = False
-
         # interface page
         self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
         self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
@@ -1066,6 +1065,7 @@ class MateTweak:
         self.builder.get_object("combobox_window_manager").set_tooltip_text(_("The new window manager will be activated upon selection."))
         self.builder.get_object("caption_window_manager").set_markup("<small>" + _("Select a window manager.") + "</small>")
         self.init_combobox("org.mate.session.required-components", "windowmanager", "combobox_window_manager")
+        self.update_windowmanager_widgets()
 
         # Panel layouts
         self.make_list_of_panel_layouts()
