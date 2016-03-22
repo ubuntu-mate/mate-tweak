@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-22 08:32+0000\n"
+"POT-Creation-Date: 2016-03-17 11:19+0000\n"
 "PO-Revision-Date: 2015-11-03 16:33+0000\n"
 "Last-Translator: Gilberto Coutinho <gilberto.jsc@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/mate/MATE/"
@@ -22,256 +22,270 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../mate-tweak:681
-msgid "Cupertino"
-msgstr "Cupertino"
-
-#: ../mate-tweak:684
-msgid "Fedora"
-msgstr ""
-
-#: ../mate-tweak:687
-msgid "GNOME2"
-msgstr "GNOME2"
-
-#: ../mate-tweak:690
-msgid "Linux Mint"
-msgstr "Linux Mint"
-
-#: ../mate-tweak:693
-msgid "Mageia"
-msgstr ""
-
-#: ../mate-tweak:696
-msgid "Mutiny"
-msgstr ""
-
-#: ../mate-tweak:699
-msgid "Netbook"
-msgstr "Netbook"
-
-#: ../mate-tweak:702
-msgid "openSUSE"
-msgstr "openSUSE"
-
-#: ../mate-tweak:705
-msgid "Redmond"
-msgstr "Redmond"
-
-#: ../mate-tweak:708
-msgid "Ubuntu MATE"
-msgstr "Ubuntu MATE"
-
-#: ../mate-tweak:755
-msgid "Desktop"
-msgstr "Área de trabalho"
-
-#: ../mate-tweak:756
-msgid "Windows"
-msgstr "Janelas"
-
-#: ../mate-tweak:757
-msgid "Interface"
-msgstr "Interface"
-
-#: ../mate-tweak:800
-msgid "MATE Tweak"
-msgstr "Configuração do MATE"
-
-#: ../mate-tweak:803
-msgid "Desktop icons"
-msgstr "Ícones da área de trabalho"
-
-#: ../mate-tweak:804
-msgid "Performance"
-msgstr "Desempenho"
-
-#: ../mate-tweak:805
-msgid "Window Behaviour"
-msgstr "Comportamento de Janela"
-
-#: ../mate-tweak:806
-msgid "Appearance"
-msgstr "Aparência"
-
-#: ../mate-tweak:807
-msgid "Panels"
-msgstr ""
-
-#: ../mate-tweak:808
-msgid "Panel Features"
-msgstr ""
-
-#: ../mate-tweak:809
-msgid "Icons"
-msgstr "Ícones"
-
-#: ../mate-tweak:810
-msgid "Context menus"
-msgstr "Menus de contexto"
-
-#: ../mate-tweak:811
-msgid "Toolbars"
-msgstr "Barras de ferramentas"
-
-#: ../mate-tweak:812
-msgid "Window manager"
-msgstr "Gerenciador de Janela"
-
-#: ../mate-tweak:814
-msgid "Select the items you want to see on the desktop:"
-msgstr "Selecione os itens a serem expostos na área de trabalho:"
-
-#: ../mate-tweak:816
-msgid "Computer"
-msgstr "Computador"
-
-#: ../mate-tweak:817
-msgid "Home"
-msgstr "Pasta Pessoal"
-
-#: ../mate-tweak:818
-msgid "Network"
-msgstr "Rede"
-
-#: ../mate-tweak:819
-msgid "Trash"
-msgstr "Lixeira"
-
-#: ../mate-tweak:820
-msgid "Mounted Volumes"
-msgstr "Volumes Montados"
-
-#: ../mate-tweak:822
-msgid "Enable animations"
-msgstr ""
-
-#: ../mate-tweak:823
-msgid "Do not show window content when moving windows"
-msgstr ""
-
-#: ../mate-tweak:824
-msgid "Window manager performance tuning."
-msgstr ""
-
-#: ../mate-tweak:826
-msgid "Enable window snapping"
-msgstr ""
-
-#: ../mate-tweak:827
-msgid "Undecorate maximized windows"
-msgstr "Desdecorar as janelas maximizadas"
-
-#: ../mate-tweak:828
-msgid "Do not auto-maximize new windows"
-msgstr "Não maximizar automaticamente as novas janelas"
-
-#: ../mate-tweak:830
-msgid "Window control placement."
-msgstr "Controle de localidade de janela."
-
-#: ../mate-tweak:832
-msgid "Save Panel Layout"
+#: ../mate-tweak:831
+msgid "Marco (No compositor)"
 msgstr ""
 
 #: ../mate-tweak:833
-msgid "Enable indicators"
-msgstr ""
-
-#: ../mate-tweak:834
-msgid "Enable advanced menu"
+msgid "Marco (Software compositor)"
 msgstr ""
 
 #: ../mate-tweak:835
+msgid "Marco (Compton GPU compositor)"
+msgstr ""
+
+#: ../mate-tweak:837
+msgid "Metacity (No compositor)"
+msgstr ""
+
+#: ../mate-tweak:839
+msgid "Metacity (Software compositor)"
+msgstr ""
+
+#: ../mate-tweak:841
+msgid "Metacity (Compton GPU compositor)"
+msgstr ""
+
+#: ../mate-tweak:843
+msgid "Mutter (Elegant GPU accelerated desktop effects)"
+msgstr "Mutter (Elegante efeito da área de trabalho com aceleração de GPU)"
+
+#: ../mate-tweak:845
+msgid "Compiz (Advanced GPU accelerated desktop effects)"
+msgstr "Compiz (GPU avançada acelerada com efeitos de desktop)"
+
+#: ../mate-tweak:862
+msgid "Cupertino"
+msgstr "Cupertino"
+
+#: ../mate-tweak:865
+msgid "Fedora"
+msgstr ""
+
+#: ../mate-tweak:868
+msgid "GNOME2"
+msgstr "GNOME2"
+
+#: ../mate-tweak:871
+msgid "Linux Mint"
+msgstr "Linux Mint"
+
+#: ../mate-tweak:874
+msgid "Mageia"
+msgstr ""
+
+#: ../mate-tweak:879
+msgid "Mutiny"
+msgstr ""
+
+#: ../mate-tweak:882
+msgid "Netbook"
+msgstr "Netbook"
+
+#: ../mate-tweak:885
+msgid "openSUSE"
+msgstr "openSUSE"
+
+#: ../mate-tweak:888
+msgid "Redmond"
+msgstr "Redmond"
+
+#: ../mate-tweak:891
+msgid "Ubuntu MATE"
+msgstr "Ubuntu MATE"
+
+#: ../mate-tweak:894
+msgid "Wimpy"
+msgstr ""
+
+#: ../mate-tweak:944
+msgid "Desktop"
+msgstr "Área de trabalho"
+
+#: ../mate-tweak:945
+msgid "Windows"
+msgstr "Janelas"
+
+#: ../mate-tweak:946
+msgid "Interface"
+msgstr "Interface"
+
+#: ../mate-tweak:989
+msgid "MATE Tweak"
+msgstr "Configuração do MATE"
+
+#: ../mate-tweak:992
+msgid "Desktop icons"
+msgstr "Ícones da área de trabalho"
+
+#: ../mate-tweak:993
+msgid "Performance"
+msgstr "Desempenho"
+
+#: ../mate-tweak:994
+msgid "Window Behaviour"
+msgstr "Comportamento de Janela"
+
+#: ../mate-tweak:995
+msgid "Appearance"
+msgstr "Aparência"
+
+#: ../mate-tweak:996
+msgid "Panels"
+msgstr ""
+
+#: ../mate-tweak:997
+msgid "Panel Features"
+msgstr ""
+
+#: ../mate-tweak:998
+msgid "Icons"
+msgstr "Ícones"
+
+#: ../mate-tweak:999
+msgid "Context menus"
+msgstr "Menus de contexto"
+
+#: ../mate-tweak:1000
+msgid "Toolbars"
+msgstr "Barras de ferramentas"
+
+#: ../mate-tweak:1001
+msgid "Window manager"
+msgstr "Gerenciador de Janela"
+
+#: ../mate-tweak:1003
+#, fuzzy
+msgid "Select the Desktop Icons you want enabled:"
+msgstr "Selecione os itens a serem expostos na área de trabalho:"
+
+#: ../mate-tweak:1004
+#, fuzzy
+msgid "Show Desktop Icons"
+msgstr "Ícones da área de trabalho"
+
+#: ../mate-tweak:1005
+msgid "Computer"
+msgstr "Computador"
+
+#: ../mate-tweak:1006
+msgid "Home"
+msgstr "Pasta Pessoal"
+
+#: ../mate-tweak:1007
+msgid "Network"
+msgstr "Rede"
+
+#: ../mate-tweak:1008
+msgid "Trash"
+msgstr "Lixeira"
+
+#: ../mate-tweak:1009
+msgid "Mounted Volumes"
+msgstr "Volumes Montados"
+
+#: ../mate-tweak:1011
+msgid "Enable animations"
+msgstr ""
+
+#: ../mate-tweak:1012
+msgid "Do not show window content when moving windows"
+msgstr ""
+
+#: ../mate-tweak:1013
+msgid "Window manager performance tuning."
+msgstr ""
+
+#: ../mate-tweak:1015
+msgid "Enable window snapping"
+msgstr ""
+
+#: ../mate-tweak:1016
+msgid "Undecorate maximized windows"
+msgstr "Desdecorar as janelas maximizadas"
+
+#: ../mate-tweak:1017
+msgid "Do not auto-maximize new windows"
+msgstr "Não maximizar automaticamente as novas janelas"
+
+#: ../mate-tweak:1019
+msgid "Window control placement."
+msgstr "Controle de localidade de janela."
+
+#: ../mate-tweak:1021
+msgid "Save Panel Layout"
+msgstr ""
+
+#: ../mate-tweak:1022
+msgid "Enable indicators"
+msgstr ""
+
+#: ../mate-tweak:1023
+msgid "Enable advanced menu"
+msgstr ""
+
+#: ../mate-tweak:1024
 msgid "Enable keyboard LED"
 msgstr ""
 
-#: ../mate-tweak:836
+#: ../mate-tweak:1025
+msgid "Enable launcher"
+msgstr ""
+
+#: ../mate-tweak:1026
 msgid "Show icons on menus"
 msgstr "Mostrar ícones nos menus"
 
-#: ../mate-tweak:837
+#: ../mate-tweak:1027
 msgid "Show icons on buttons"
 msgstr "Mostrar ícones nos botões"
 
-#: ../mate-tweak:838
+#: ../mate-tweak:1028
 msgid "Show Input Methods menu in context menus"
 msgstr "Incluir o menu \"Métodos de Entrada\" nos menus de contexto"
 
-#: ../mate-tweak:839
+#: ../mate-tweak:1029
 msgid "Show Unicode Control Character menu in context menus"
 msgstr ""
 "Incluir o menu \"Controle de Caracteres Unicode\" nos menus de contexto"
 
-#: ../mate-tweak:841
+#: ../mate-tweak:1031
 msgid "Style:"
 msgstr "Estilo:"
 
-#: ../mate-tweak:842
+#: ../mate-tweak:1032
 msgid "Icon size:"
 msgstr "Tamanho dos ícones:"
 
-#: ../mate-tweak:871
+#: ../mate-tweak:1051
 msgid "Small"
 msgstr "Pequeno"
 
-#: ../mate-tweak:872
+#: ../mate-tweak:1052
 msgid "Large"
 msgstr "Grande"
 
-#: ../mate-tweak:878
+#: ../mate-tweak:1058
 msgid "Traditional (Right)"
 msgstr "Tradicional (direita)"
 
-#: ../mate-tweak:879
+#: ../mate-tweak:1059
 msgid "Contemporary (Left)"
 msgstr "Contemporâneo (esquerda)"
 
-#: ../mate-tweak:886
-msgid "Marco (No compositor)"
-msgstr ""
-
-#: ../mate-tweak:888
-msgid "Marco (Software compositor)"
-msgstr ""
-
-#: ../mate-tweak:890
-msgid "Marco (Compton GPU compositor)"
-msgstr ""
-
-#: ../mate-tweak:892
-msgid "Metacity (No compositor)"
-msgstr ""
-
-#: ../mate-tweak:894
-msgid "Metacity (Software compositor)"
-msgstr ""
-
-#: ../mate-tweak:896
-msgid "Metacity (Compton GPU compositor)"
-msgstr ""
-
-#: ../mate-tweak:898
-msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr "Mutter (Elegante efeito da área de trabalho com aceleração de GPU)"
-
-#: ../mate-tweak:900
-msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (GPU avançada acelerada com efeitos de desktop)"
-
-#: ../mate-tweak:903
+#: ../mate-tweak:1065
 msgid "The new window manager will be activated upon selection."
 msgstr "O novo gerenciador de janelas sera ativado após a seleção."
 
-#: ../mate-tweak:904
+#: ../mate-tweak:1066
 msgid "Select a window manager."
 msgstr "Selecionar gerenciador de janela."
 
-#: ../mate-tweak:909
+#: ../mate-tweak:1072
 msgid "Select a panel layout to change the user interface."
 msgstr "Selecione um painle de layout para mudar a interface do usuário."
 
-#: ../mate-tweak:910
+#: ../mate-tweak:1073
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
@@ -279,19 +293,19 @@ msgstr ""
 "O novo layout do painel será ativado na seleção e desfazer todas as "
 "personalizações que foi configurado."
 
-#: ../mate-tweak:917
+#: ../mate-tweak:1086
 msgid "Text below items"
 msgstr "Texto abaixo dos itens"
 
-#: ../mate-tweak:918
+#: ../mate-tweak:1087
 msgid "Text beside items"
 msgstr "Texto ao lado dos itens"
 
-#: ../mate-tweak:919
+#: ../mate-tweak:1088
 msgid "Icons only"
 msgstr "Somente ícones"
 
-#: ../mate-tweak:920
+#: ../mate-tweak:1089
 msgid "Text only"
 msgstr "Somente texto"
 
