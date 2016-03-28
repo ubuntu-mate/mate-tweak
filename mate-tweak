@@ -173,17 +173,23 @@ class MateTweak:
             settings.bind(key, widget, "active", Gio.SettingsBindFlags.DEFAULT)
             widget.connect("toggled", self.on_checkbox_toggled, schema_id, key)
 
-    def init_combobox(self, schema, key, name):
+    def init_combobox(self, schema, key, name, default = None):
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup(schema, True) != None:
             widget = self.builder.get_object(name)
             conf = self.get_string(schema, None, key)
             index = 0
+            default_index = None
             for row in widget.get_model():
-                if(conf == row[1]):
+                if default != None and default == row[1]:
+                    default_index = index
+                if conf == row[1]:
                     widget.set_active(index)
+                    default_index = None
                     break
                 index = index +1
+            if default_index != None:
+                widget.set_active(default_index)
             widget.connect("changed", self.combo_fallback, schema, key)
 
     def update_combobox(self, schema, key, name):
@@ -308,6 +314,9 @@ class MateTweak:
         subprocess.Popen(['xrdb', filename], stdout=DEVNULL, stderr=DEVNULL)
 
     def replace_windowmanager(self, new_wm):
+        if new_wm == 'Unknown':
+            return
+
         # Make sure Compiz, Metacity and Mutter use the same theme as
         # Marco to prevent theme/xcursor changes when switching themes.
 
@@ -683,9 +692,9 @@ class MateTweak:
                 self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
                 self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
                 self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
-                
+
                 # Make the Window Snapping checkbox inactive based if reduced resources is enabled
-                #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011                
+                #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011
                 metacity_reduced = self.get_bool('org.gnome.metacity', None, 'reduced-resources')
                 if metacity_reduced:
                     self.builder.get_object('checkbox_snapping').props.sensitive = False
@@ -843,6 +852,12 @@ class MateTweak:
             wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
+
+        if self.current_wm == 'Unknown':
+            wms.append([_("Unknown (Not yet supported)"), 'Unknown'])
+            self.builder.get_object("label_unknown_wm").set_markup('<span size="small" foreground="#cc0000">' + _("You are currently using an unknown and unsupported window manager. Thus we cannot guarantee that changes made here will be effective.") + '</span>')
+        else:
+            self.builder.get_object("label_unknown_wm").hide()
 
         self.builder.get_object("combobox_window_manager").set_model(wms)
 
