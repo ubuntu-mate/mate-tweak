@@ -199,15 +199,17 @@ class MateTweak:
                 index = index +1
 
     def process_running(self, process_name):
+        current_user = os.getuid()
         for process in psutil.process_iter():
-            if process.name() == process_name:
+            if process.name() == process_name and process.uids().real == current_user:
                 return True
 
         return False
 
     def kill_process(self, process_name):
+        current_user = os.getuid()
         for process in psutil.process_iter():
-            if process.name() == process_name:
+            if process.name() == process_name and process.uids().real == current_user:
                 #print('Killing ' + process.name())
                 process.kill()
 
