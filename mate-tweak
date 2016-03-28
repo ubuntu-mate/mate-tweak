@@ -307,14 +307,6 @@ class MateTweak:
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.mutter_capable = True
 
-    def update_cursor_theme(self, cursor_theme, cursor_size):
-        home_dir = GLib.get_home_dir()
-        filename = os.path.join(home_dir, '.Xdefaults')
-        with open(filename, 'w') as xdefaults:
-            xdefaults.write("Xcursor.theme: %s\n" % cursor_theme)
-            xdefaults.write("Xcursor.size: %s\n" % cursor_size)
-        subprocess.Popen(['xrdb', filename], stdout=DEVNULL, stderr=DEVNULL)
-
     def replace_windowmanager(self, new_wm):
         if new_wm == 'Unknown':
             return
@@ -346,8 +338,6 @@ class MateTweak:
             if metacity_schema:
                 self.set_string('org.gnome.metacity', None, 'theme', mate_theme)
 
-            self.update_cursor_theme(mate_cursor_theme, mate_cursor_size)
-
         # If switching away from a compton composited window manager,
         # kill compton.
         if 'compton' in self.current_wm:
@@ -376,6 +366,7 @@ class MateTweak:
         # Update current_wm to the new one.
         self.previous_wm = self.current_wm
         self.current_wm = new_wm
+        self.builder.get_object("label_unknown_wm").hide()
 
     def confirm_windowmanager(self):
         # Detect switch to "risky" window manager.
@@ -856,13 +847,11 @@ class MateTweak:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
         if self.current_wm == 'Unknown':
-            wms.append([_("Unknown (Not yet supported)"), 'Unknown'])
             self.builder.get_object("label_unknown_wm").set_markup('<span size="small" foreground="#cc0000">' + _("You are currently using an unknown and unsupported window manager. Thus we cannot guarantee that changes made here will be effective.") + '</span>')
         else:
             self.builder.get_object("label_unknown_wm").hide()
 
         self.builder.get_object("combobox_window_manager").set_model(wms)
-
 
     def make_list_of_panel_layouts(self):
         # Panel layouts
