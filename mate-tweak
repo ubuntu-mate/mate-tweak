@@ -557,6 +557,15 @@ class MateTweak:
             new_layout = panel_layout
 
         print('Switching to: ' + new_layout)
+        if ('fresh' in new_layout) or \
+           (new_layout.startswith('mutiny')) or \
+           (new_layout.startswith('netbook')) or \
+           (new_layout.startswith('opensuse')) or \
+           (new_layout.startswith('redmond')):
+            self.builder.get_object('box_menu_features').props.sensitive = False
+        else:
+            self.builder.get_object('box_menu_features').props.sensitive = True
+
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
         self.kill_process('mate-panel')
@@ -620,8 +629,10 @@ class MateTweak:
 
         if 'fresh' in self.current_layout:
             self.builder.get_object('checkbutton_advanced_menu').set_active(True)
+            self.builder.get_object('box_menu_features').props.sensitive = False
         else:
             self.builder.get_object('checkbutton_advanced_menu').set_active(False)
+            self.builder.get_object('box_menu_features').props.sensitive = True
 
         self.update_panel_layout_features(self.base_layout)
 
@@ -1031,7 +1042,6 @@ class MateTweak:
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
 
-        self.builder.get_object("checkbutton_show_icon").set_label(_("Show Icon"))
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
         self.builder.get_object("checkbutton_show_places").set_label(_("Show Places"))
         self.builder.get_object("checkbutton_show_system").set_label(_("Show System"))
@@ -1095,7 +1105,6 @@ class MateTweak:
             self.builder.get_object('checkbutton_launcher').props.sensitive = False
 
         # Panel Menu features
-        self.init_checkbox("org.mate.panel.menubar", "show-icon", "checkbutton_show_icon")
         self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
         self.init_checkbox("org.mate.panel.menubar", "show-places", "checkbutton_show_places")
         self.init_checkbox("org.mate.panel.menubar", "show-desktop", "checkbutton_show_system")
