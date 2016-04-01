@@ -948,15 +948,15 @@ class MateTweak:
         self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
 
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
-        side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
         side_interface = SidePage(2, _("Interface"), "preferences-desktop")
-        self.sidePages = [side_desktop_options, side_windows, side_interface]
+        side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
+        self.sidePages = [side_desktop_options, side_interface, side_windows]
 
         # create the backing store for the side nav-view.
         theme = Gtk.IconTheme.get_default()
         self.store = Gtk.ListStore(str, GdkPixbuf.Pixbuf)
         for sidePage in self.sidePages:
-            img = theme.load_icon(sidePage.icon, 36, 0)
+            img = theme.load_icon(sidePage.icon, 48, 0)
             self.store.append([sidePage.name, img])
 
         target = int(self.sidePages[0].notebook_index)
@@ -1001,6 +1001,7 @@ class MateTweak:
         self.builder.get_object("label_appearance").set_markup("<b>" + _("Appearance") + "</b>")
         self.builder.get_object("label_panels").set_markup("<b>" + _("Panels") + "</b>")
         self.builder.get_object("label_panel_features").set_markup("<b>" + _("Panel Features") + "</b>")
+        self.builder.get_object("label_menu_features").set_markup("<b>" + _("Panel Menu Features") + "</b>")
         self.builder.get_object("label_icons").set_markup("<b>" + _("Icons") + "</b>")
         self.builder.get_object("label_context_menus").set_markup("<b>" + _("Context menus") + "</b>")
         self.builder.get_object("label_toolbars").set_markup("<b>" + _("Toolbars") + "</b>")
@@ -1029,6 +1030,12 @@ class MateTweak:
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
+
+        self.builder.get_object("checkbutton_show_icon").set_label(_("Show Icon"))
+        self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
+        self.builder.get_object("checkbutton_show_places").set_label(_("Show Places"))
+        self.builder.get_object("checkbutton_show_system").set_label(_("Show System"))
+
         self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
         self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
         self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
@@ -1086,6 +1093,12 @@ class MateTweak:
         self.builder.get_object("checkbutton_launcher").set_active(self.launcher_enabled)
         if not self.launcher:
             self.builder.get_object('checkbutton_launcher').props.sensitive = False
+
+        # Panel Menu features
+        self.init_checkbox("org.mate.panel.menubar", "show-icon", "checkbutton_show_icon")
+        self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
+        self.init_checkbox("org.mate.panel.menubar", "show-places", "checkbutton_show_places")
+        self.init_checkbox("org.mate.panel.menubar", "show-desktop", "checkbutton_show_system")
 
         # toolbar icon styles
         iconStyles = Gtk.ListStore(str, str)
