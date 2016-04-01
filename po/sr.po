@@ -1,326 +1,325 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2015
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2015-2016
 # Саша Петровић <salepetronije@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-17 11:19+0000\n"
-"PO-Revision-Date: 2015-08-13 11:24+0000\n"
+"POT-Creation-Date: 2016-04-01 16:42+0100\n"
+"PO-Revision-Date: 2016-04-01 15:44+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/mate/MATE/language/sr/)\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../mate-tweak:831
+#: ../mate-tweak:844
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Марко (без састављача)"
 
-#: ../mate-tweak:833
+#: ../mate-tweak:846
 msgid "Marco (Software compositor)"
-msgstr ""
+msgstr "Марко (софтверски састављач)"
 
-#: ../mate-tweak:835
+#: ../mate-tweak:848
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Марко (Комптон графички састављач)"
 
-#: ../mate-tweak:837
+#: ../mate-tweak:850
 msgid "Metacity (No compositor)"
-msgstr ""
+msgstr "Метасити (без састављача)"
 
-#: ../mate-tweak:839
+#: ../mate-tweak:852
 msgid "Metacity (Software compositor)"
-msgstr ""
+msgstr "Метасити (софтверски састављач)"
 
-#: ../mate-tweak:841
+#: ../mate-tweak:854
 msgid "Metacity (Compton GPU compositor)"
-msgstr ""
+msgstr "Метасити (Комптон графички састављач)"
 
-#: ../mate-tweak:843
+#: ../mate-tweak:856
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Матер (елегантни ефекти радне површи убрзани графичким процесором)"
 
-#: ../mate-tweak:845
+#: ../mate-tweak:858
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Компиз (Напредни ефекти радне површи убрзани графичким процесором)"
+msgstr "Компиз (напредни ефекти радне површи убрзани графичким процесором)"
 
-#: ../mate-tweak:862
-msgid "Cupertino"
-msgstr ""
-
-#: ../mate-tweak:865
-msgid "Fedora"
-msgstr ""
-
-#: ../mate-tweak:868
-msgid "GNOME2"
-msgstr ""
-
-#: ../mate-tweak:871
-msgid "Linux Mint"
-msgstr "Линукс Минт"
-
-#: ../mate-tweak:874
-msgid "Mageia"
+#: ../mate-tweak:861
+msgid ""
+"You are currently using an unknown and unsupported window manager. Thus we "
+"cannot guarantee that changes made here will be effective."
 msgstr ""
 
 #: ../mate-tweak:879
-msgid "Mutiny"
-msgstr ""
+msgid "Cupertino"
+msgstr "Купертно"
 
 #: ../mate-tweak:882
-msgid "Netbook"
-msgstr ""
+msgid "Fedora"
+msgstr "Федора"
 
 #: ../mate-tweak:885
+msgid "GNOME2"
+msgstr "Гном 2"
+
+#: ../mate-tweak:888
+msgid "Linux Mint"
+msgstr "Линукс Минт"
+
+#: ../mate-tweak:891
+msgid "Mageia"
+msgstr "Магеја"
+
+#: ../mate-tweak:896
+msgid "Mutiny"
+msgstr "Мјутини"
+
+#: ../mate-tweak:899
+msgid "Netbook"
+msgstr "Нетбук"
+
+#: ../mate-tweak:902
 msgid "openSUSE"
 msgstr "опенСУСЕ"
 
-#: ../mate-tweak:888
+#: ../mate-tweak:905
 msgid "Redmond"
 msgstr "Редмонд"
 
-#: ../mate-tweak:891
+#: ../mate-tweak:908
 msgid "Ubuntu MATE"
 msgstr "Убунту Мејт"
 
-#: ../mate-tweak:894
+#: ../mate-tweak:911
 msgid "Wimpy"
-msgstr ""
+msgstr "Вимпи"
 
-#: ../mate-tweak:944
+#: ../mate-tweak:961
 msgid "Desktop"
 msgstr "Радна површ"
 
-#: ../mate-tweak:945
-msgid "Windows"
-msgstr "Прозори"
-
-#: ../mate-tweak:946
+#: ../mate-tweak:962
 msgid "Interface"
 msgstr "Сучеље"
 
-#: ../mate-tweak:989
-msgid "MATE Tweak"
-msgstr ""
+#: ../mate-tweak:963
+msgid "Windows"
+msgstr "Прозори"
 
-#: ../mate-tweak:992
+#: ../mate-tweak:1006
+msgid "MATE Tweak"
+msgstr "Мејтов лицко"
+
+#: ../mate-tweak:1009
 msgid "Desktop icons"
 msgstr "Иконице на радној површи"
 
-#: ../mate-tweak:993
+#: ../mate-tweak:1010
 msgid "Performance"
 msgstr "Учинак"
 
-#: ../mate-tweak:994
+#: ../mate-tweak:1011
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Понашање прозора"
 
-#: ../mate-tweak:995
+#: ../mate-tweak:1012
 msgid "Appearance"
 msgstr "Изглед"
 
-#: ../mate-tweak:996
-msgid "Panels"
-msgstr ""
-
-#: ../mate-tweak:997
-msgid "Panel Features"
-msgstr ""
-
-#: ../mate-tweak:998
-msgid "Icons"
-msgstr "Иконице"
-
-#: ../mate-tweak:999
-msgid "Context menus"
-msgstr "Приручни изборници"
-
-#: ../mate-tweak:1000
-msgid "Toolbars"
-msgstr "Траке са алатима"
-
-#: ../mate-tweak:1001
-msgid "Window manager"
-msgstr ""
-
-#: ../mate-tweak:1003
-#, fuzzy
-msgid "Select the Desktop Icons you want enabled:"
-msgstr "Изаберите ставке које ће бити видљиве на радној површи:"
-
-#: ../mate-tweak:1004
-#, fuzzy
-msgid "Show Desktop Icons"
-msgstr "Иконице на радној површи"
-
-#: ../mate-tweak:1005
-msgid "Computer"
-msgstr "Рачунар"
-
-#: ../mate-tweak:1006
-msgid "Home"
-msgstr "Лична фасцикла"
-
-#: ../mate-tweak:1007
-msgid "Network"
-msgstr "Мрежа"
-
-#: ../mate-tweak:1008
-msgid "Trash"
-msgstr "Смеће"
-
-#: ../mate-tweak:1009
-msgid "Mounted Volumes"
-msgstr "Прикачени уређаји"
-
-#: ../mate-tweak:1011
-msgid "Enable animations"
-msgstr ""
-
-#: ../mate-tweak:1012
-msgid "Do not show window content when moving windows"
-msgstr ""
-
 #: ../mate-tweak:1013
-msgid "Window manager performance tuning."
-msgstr ""
+msgid "Panels"
+msgstr "Панели"
+
+#: ../mate-tweak:1014
+msgid "Panel Features"
+msgstr "Функције панела"
 
 #: ../mate-tweak:1015
-msgid "Enable window snapping"
+msgid "Panel Menu Features"
 msgstr ""
 
 #: ../mate-tweak:1016
-msgid "Undecorate maximized windows"
-msgstr ""
+msgid "Icons"
+msgstr "Иконице"
 
 #: ../mate-tweak:1017
-msgid "Do not auto-maximize new windows"
-msgstr ""
+msgid "Context menus"
+msgstr "Приручни изборници"
+
+#: ../mate-tweak:1018
+msgid "Toolbars"
+msgstr "Траке са алатима"
 
 #: ../mate-tweak:1019
-msgid "Window control placement."
-msgstr ""
+msgid "Window manager"
+msgstr "Управник прозора"
 
 #: ../mate-tweak:1021
-msgid "Save Panel Layout"
-msgstr ""
+msgid "Select the Desktop Icons you want enabled:"
+msgstr "Изаберите иконице радне површи за укључивање:"
 
 #: ../mate-tweak:1022
-msgid "Enable indicators"
-msgstr ""
+msgid "Show Desktop Icons"
+msgstr "Прикажи иконице радне површи"
 
 #: ../mate-tweak:1023
-msgid "Enable advanced menu"
-msgstr ""
+msgid "Computer"
+msgstr "Рачунар"
 
 #: ../mate-tweak:1024
-msgid "Enable keyboard LED"
-msgstr ""
+msgid "Home"
+msgstr "Лична фасцикла"
 
 #: ../mate-tweak:1025
-msgid "Enable launcher"
-msgstr ""
+msgid "Network"
+msgstr "Мрежа"
 
 #: ../mate-tweak:1026
+msgid "Trash"
+msgstr "Смеће"
+
+#: ../mate-tweak:1027
+msgid "Mounted Volumes"
+msgstr "Прикачени уређаји"
+
+#: ../mate-tweak:1029
+msgid "Enable animations"
+msgstr "Укључи анимације"
+
+#: ../mate-tweak:1030
+msgid "Do not show window content when moving windows"
+msgstr "Не приказуј садржај прозора приликом премештања истог"
+
+#: ../mate-tweak:1031
+msgid "Window manager performance tuning."
+msgstr "Штеловање делотворности управника прозора."
+
+#: ../mate-tweak:1033
+msgid "Enable window snapping"
+msgstr "Укључи шкљоцање прозора"
+
+#: ../mate-tweak:1034
+msgid "Undecorate maximized windows"
+msgstr "Уклони украсе увећаних прозора"
+
+#: ../mate-tweak:1035
+msgid "Do not auto-maximize new windows"
+msgstr "Немој сам увећати нове прозоре"
+
+#: ../mate-tweak:1037
+msgid "Window control placement."
+msgstr "Положај дугмади прозора."
+
+#: ../mate-tweak:1039
+msgid "Save Panel Layout"
+msgstr "Сачувај распоред панела"
+
+#: ../mate-tweak:1040
+msgid "Enable indicators"
+msgstr "Укључи указиваче"
+
+#: ../mate-tweak:1041
+msgid "Enable advanced menu"
+msgstr "Укључи напредни изборник"
+
+#: ../mate-tweak:1042
+msgid "Enable keyboard LED"
+msgstr "Укључи лампицу тастатуре"
+
+#: ../mate-tweak:1043
+msgid "Enable launcher"
+msgstr "Укључи покретач"
+
+#: ../mate-tweak:1045
+msgid "Show Applications"
+msgstr ""
+
+#: ../mate-tweak:1046
+msgid "Show Places"
+msgstr ""
+
+#: ../mate-tweak:1047
+msgid "Show System"
+msgstr ""
+
+#: ../mate-tweak:1049
 msgid "Show icons on menus"
 msgstr "Прикажи иконице у изборницима"
 
-#: ../mate-tweak:1027
+#: ../mate-tweak:1050
 msgid "Show icons on buttons"
 msgstr "Прикажи иконице на дугмићима"
 
-#: ../mate-tweak:1028
+#: ../mate-tweak:1051
 msgid "Show Input Methods menu in context menus"
 msgstr "Приказуј начине уноса у приручним изборницима"
 
-#: ../mate-tweak:1029
+#: ../mate-tweak:1052
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Приказуј изборник управљања уникодним знацима у приручним изборницима"
 
-#: ../mate-tweak:1031
+#: ../mate-tweak:1054
 msgid "Style:"
-msgstr ""
+msgstr "Изглед:"
 
-#: ../mate-tweak:1032
+#: ../mate-tweak:1055
 msgid "Icon size:"
 msgstr "Величина иконица:"
 
-#: ../mate-tweak:1051
+#: ../mate-tweak:1074
 msgid "Small"
 msgstr "Мале"
 
-#: ../mate-tweak:1052
+#: ../mate-tweak:1075
 msgid "Large"
 msgstr "Велике"
 
-#: ../mate-tweak:1058
+#: ../mate-tweak:1081
 msgid "Traditional (Right)"
-msgstr "Традиционално (Десно)"
+msgstr "Традиционално (десно)"
 
-#: ../mate-tweak:1059
+#: ../mate-tweak:1082
 msgid "Contemporary (Left)"
-msgstr "Савремено (Лево)"
+msgstr "Савремено (лево)"
 
-#: ../mate-tweak:1065
+#: ../mate-tweak:1088
 msgid "The new window manager will be activated upon selection."
 msgstr "Нови управник прозора биће покренут након избора."
 
-#: ../mate-tweak:1066
+#: ../mate-tweak:1089
 msgid "Select a window manager."
-msgstr ""
+msgstr "Изаберите управника прозора."
 
-#: ../mate-tweak:1072
+#: ../mate-tweak:1095
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Изаберите распоред панела да измените корисничко сучеље."
 
-#: ../mate-tweak:1073
+#: ../mate-tweak:1096
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Нови распоред панела биће активиран при избору и уништиће сва прилагођавања "
-"која сте можда направили."
+msgstr "Нови распоред панела биће активиран при избору и уништиће сва прилагођавања која сте можда направили."
 
-#: ../mate-tweak:1086
+#: ../mate-tweak:1114
 msgid "Text below items"
 msgstr "Натписи испод иконица"
 
-#: ../mate-tweak:1087
+#: ../mate-tweak:1115
 msgid "Text beside items"
 msgstr "Натписи поред иконица"
 
-#: ../mate-tweak:1088
+#: ../mate-tweak:1116
 msgid "Icons only"
 msgstr "Само иконице"
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1117
 msgid "Text only"
 msgstr "Само натписи"
-
-#~ msgid "Use compositing"
-#~ msgstr "Користи слагање приказа"
-
-#~ msgid "Marco (Simple desktop effects)"
-#~ msgstr "Марко (Једноставни ефекти радне површи)"
-
-#, fuzzy
-#~ msgid "Marco (Simple GPU accelerated desktop effects)"
-#~ msgstr "Марко (Једноставни ефекти радне површи)"
-
-#, fuzzy
-#~ msgid "Metacity (Simple GPU accelerated desktop effects)"
-#~ msgstr "Компиз (Напредни ефекти радне површи убрзани графичким процесором)"
-
-#, fuzzy
-#~ msgid "Muffin (Elegant GPU accelerated desktop effects)"
-#~ msgstr "Компиз (Напредни ефекти радне површи убрзани графичким процесором)"

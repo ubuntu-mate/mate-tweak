@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
@@ -11,12 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2016-04-01 16:42+0100\n"
 "PO-Revision-Date: 2016-04-01 15:44+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
-"Language-Team: Irish (http://www.transifex.com/mate/MATE/language/ga/)\n"
+"Language-Team: Scots (http://www.transifex.com/mate/MATE/language/sco/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ga\n"
-"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);\n"
+"Language: sco\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:844
 msgid "Marco (No compositor)"
@@ -102,15 +101,15 @@ msgstr ""
 
 #: ../mate-tweak:961
 msgid "Desktop"
-msgstr "Deasc"
+msgstr ""
 
 #: ../mate-tweak:962
 msgid "Interface"
-msgstr "Comhéadan"
+msgstr ""
 
 #: ../mate-tweak:963
 msgid "Windows"
-msgstr "Fuinneoga"
+msgstr ""
 
 #: ../mate-tweak:1006
 msgid "MATE Tweak"
@@ -118,11 +117,11 @@ msgstr ""
 
 #: ../mate-tweak:1009
 msgid "Desktop icons"
-msgstr "Deilbhín deisce"
+msgstr ""
 
 #: ../mate-tweak:1010
 msgid "Performance"
-msgstr "Feidhmiúchán"
+msgstr ""
 
 #: ../mate-tweak:1011
 msgid "Window Behaviour"
@@ -130,7 +129,7 @@ msgstr ""
 
 #: ../mate-tweak:1012
 msgid "Appearance"
-msgstr "Cuma"
+msgstr ""
 
 #: ../mate-tweak:1013
 msgid "Panels"
@@ -146,15 +145,15 @@ msgstr ""
 
 #: ../mate-tweak:1016
 msgid "Icons"
-msgstr "Deilbhíní"
+msgstr ""
 
 #: ../mate-tweak:1017
 msgid "Context menus"
-msgstr "Roghchláir comthéacs"
+msgstr ""
 
 #: ../mate-tweak:1018
 msgid "Toolbars"
-msgstr "Barra Uirlisí"
+msgstr ""
 
 #: ../mate-tweak:1019
 msgid "Window manager"
@@ -170,23 +169,23 @@ msgstr ""
 
 #: ../mate-tweak:1023
 msgid "Computer"
-msgstr "Ríomhaire"
+msgstr ""
 
 #: ../mate-tweak:1024
 msgid "Home"
-msgstr "Baile"
+msgstr ""
 
 #: ../mate-tweak:1025
 msgid "Network"
-msgstr "Líonra"
+msgstr ""
 
 #: ../mate-tweak:1026
 msgid "Trash"
-msgstr "Bruscar"
+msgstr ""
 
 #: ../mate-tweak:1027
 msgid "Mounted Volumes"
-msgstr "Toirteanna Gléasta"
+msgstr ""
 
 #: ../mate-tweak:1029
 msgid "Enable animations"
@@ -250,19 +249,19 @@ msgstr ""
 
 #: ../mate-tweak:1049
 msgid "Show icons on menus"
-msgstr "Taipeáin deilbhíní ar roghchláir"
+msgstr ""
 
 #: ../mate-tweak:1050
 msgid "Show icons on buttons"
-msgstr "Taispeáin deilbhíní ar chnaipí"
+msgstr ""
 
 #: ../mate-tweak:1051
 msgid "Show Input Methods menu in context menus"
-msgstr "Taispeáin Roghchláir na Modhanna ionchuir sna roghchláir comhthéacs"
+msgstr ""
 
 #: ../mate-tweak:1052
 msgid "Show Unicode Control Character menu in context menus"
-msgstr "Thaispeáin carachtar rialiúcháin Unicode i roghchláir comhthéacs"
+msgstr ""
 
 #: ../mate-tweak:1054
 msgid "Style:"
@@ -270,15 +269,15 @@ msgstr ""
 
 #: ../mate-tweak:1055
 msgid "Icon size:"
-msgstr "Méid na ndeilbhíní:"
+msgstr ""
 
 #: ../mate-tweak:1074
 msgid "Small"
-msgstr "Beag"
+msgstr ""
 
 #: ../mate-tweak:1075
 msgid "Large"
-msgstr "Mór"
+msgstr ""
 
 #: ../mate-tweak:1081
 msgid "Traditional (Right)"
@@ -308,16 +307,16 @@ msgstr ""
 
 #: ../mate-tweak:1114
 msgid "Text below items"
-msgstr "Téacs faoi mhíreanna"
+msgstr ""
 
 #: ../mate-tweak:1115
 msgid "Text beside items"
-msgstr "Téacs ar thaobh míreanna"
+msgstr ""
 
 #: ../mate-tweak:1116
 msgid "Icons only"
-msgstr "Deilbhíní amháin"
+msgstr ""
 
 #: ../mate-tweak:1117
 msgid "Text only"
-msgstr "Téacs amháin"
+msgstr ""

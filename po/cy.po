@@ -1,307 +1,324 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# ciaran, 2015-2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-17 11:19+0000\n"
-"PO-Revision-Date: 2015-08-13 11:24+0000\n"
+"POT-Creation-Date: 2016-04-01 16:42+0100\n"
+"PO-Revision-Date: 2016-04-01 15:44+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Welsh (http://www.transifex.com/mate/MATE/language/cy/)\n"
-"Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != "
-"11) ? 2 : 3;\n"
+"Language: cy\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != 11) ? 2 : 3;\n"
 
-#: ../mate-tweak:831
+#: ../mate-tweak:844
 msgid "Marco (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:833
+#: ../mate-tweak:846
 msgid "Marco (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:835
+#: ../mate-tweak:848
 msgid "Marco (Compton GPU compositor)"
 msgstr ""
 
-#: ../mate-tweak:837
+#: ../mate-tweak:850
 msgid "Metacity (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:839
+#: ../mate-tweak:852
 msgid "Metacity (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:841
+#: ../mate-tweak:854
 msgid "Metacity (Compton GPU compositor)"
 msgstr ""
 
-#: ../mate-tweak:843
+#: ../mate-tweak:856
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Mutter (effeithiau GPU cain i'r bwrdd gwaith)"
 
-#: ../mate-tweak:845
+#: ../mate-tweak:858
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Compiz (effeithiau GPU uwch i'r bwrdd gwaith)"
 
-#: ../mate-tweak:862
-msgid "Cupertino"
-msgstr ""
-
-#: ../mate-tweak:865
-msgid "Fedora"
-msgstr ""
-
-#: ../mate-tweak:868
-msgid "GNOME2"
-msgstr ""
-
-#: ../mate-tweak:871
-msgid "Linux Mint"
-msgstr ""
-
-#: ../mate-tweak:874
-msgid "Mageia"
+#: ../mate-tweak:861
+msgid ""
+"You are currently using an unknown and unsupported window manager. Thus we "
+"cannot guarantee that changes made here will be effective."
 msgstr ""
 
 #: ../mate-tweak:879
-msgid "Mutiny"
-msgstr ""
+msgid "Cupertino"
+msgstr "Cupertino"
 
 #: ../mate-tweak:882
-msgid "Netbook"
+msgid "Fedora"
 msgstr ""
 
 #: ../mate-tweak:885
-msgid "openSUSE"
-msgstr ""
+msgid "GNOME2"
+msgstr "GNOME2"
 
 #: ../mate-tweak:888
-msgid "Redmond"
-msgstr ""
+msgid "Linux Mint"
+msgstr "Linux Mint"
 
 #: ../mate-tweak:891
-msgid "Ubuntu MATE"
+msgid "Mageia"
 msgstr ""
 
-#: ../mate-tweak:894
+#: ../mate-tweak:896
+msgid "Mutiny"
+msgstr ""
+
+#: ../mate-tweak:899
+msgid "Netbook"
+msgstr "Netbook"
+
+#: ../mate-tweak:902
+msgid "openSUSE"
+msgstr "openSUSE"
+
+#: ../mate-tweak:905
+msgid "Redmond"
+msgstr "Redmond"
+
+#: ../mate-tweak:908
+msgid "Ubuntu MATE"
+msgstr "Ubuntu MATE"
+
+#: ../mate-tweak:911
 msgid "Wimpy"
 msgstr ""
 
-#: ../mate-tweak:944
+#: ../mate-tweak:961
 msgid "Desktop"
-msgstr "Bwrdd Gwaith"
+msgstr "Bwrdd gwaith"
 
-#: ../mate-tweak:945
-msgid "Windows"
-msgstr "Ffenestri"
-
-#: ../mate-tweak:946
+#: ../mate-tweak:962
 msgid "Interface"
 msgstr "Rhyngwyneb"
 
-#: ../mate-tweak:989
+#: ../mate-tweak:963
+msgid "Windows"
+msgstr "Ffenestri"
+
+#: ../mate-tweak:1006
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
-#: ../mate-tweak:992
+#: ../mate-tweak:1009
 msgid "Desktop icons"
-msgstr "Eiconau penbwrdd"
+msgstr "Eiconau'r bwrdd gwaith"
 
-#: ../mate-tweak:993
+#: ../mate-tweak:1010
 msgid "Performance"
 msgstr "Perfformiad"
 
-#: ../mate-tweak:994
+#: ../mate-tweak:1011
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Ymddygiad ffenestri"
 
-#: ../mate-tweak:995
+#: ../mate-tweak:1012
 msgid "Appearance"
-msgstr "Tremiant"
+msgstr "Golwg"
 
-#: ../mate-tweak:996
+#: ../mate-tweak:1013
 msgid "Panels"
 msgstr ""
 
-#: ../mate-tweak:997
+#: ../mate-tweak:1014
 msgid "Panel Features"
 msgstr ""
 
-#: ../mate-tweak:998
-msgid "Icons"
-msgstr "Eiconau"
-
-#: ../mate-tweak:999
-msgid "Context menus"
-msgstr "Dewislenni cyd-destun"
-
-#: ../mate-tweak:1000
-msgid "Toolbars"
-msgstr "Barrau Offer"
-
-#: ../mate-tweak:1001
-msgid "Window manager"
-msgstr ""
-
-#: ../mate-tweak:1003
-#, fuzzy
-msgid "Select the Desktop Icons you want enabled:"
-msgstr "Dewiswch yr eitemau y hoffech chi weld ar y penbwrdd"
-
-#: ../mate-tweak:1004
-#, fuzzy
-msgid "Show Desktop Icons"
-msgstr "Eiconau penbwrdd"
-
-#: ../mate-tweak:1005
-msgid "Computer"
-msgstr "Cyfrifiadur"
-
-#: ../mate-tweak:1006
-msgid "Home"
-msgstr "Cartref"
-
-#: ../mate-tweak:1007
-msgid "Network"
-msgstr "Rhwydwaith"
-
-#: ../mate-tweak:1008
-msgid "Trash"
-msgstr "Sbwriel"
-
-#: ../mate-tweak:1009
-msgid "Mounted Volumes"
-msgstr "Cyfrolau Arosod"
-
-#: ../mate-tweak:1011
-msgid "Enable animations"
-msgstr ""
-
-#: ../mate-tweak:1012
-msgid "Do not show window content when moving windows"
-msgstr ""
-
-#: ../mate-tweak:1013
-msgid "Window manager performance tuning."
-msgstr ""
-
 #: ../mate-tweak:1015
-msgid "Enable window snapping"
+msgid "Panel Menu Features"
 msgstr ""
 
 #: ../mate-tweak:1016
-msgid "Undecorate maximized windows"
-msgstr ""
+msgid "Icons"
+msgstr "Eiconau"
 
 #: ../mate-tweak:1017
-msgid "Do not auto-maximize new windows"
-msgstr ""
+msgid "Context menus"
+msgstr "Dewislenni cyd-destun"
+
+#: ../mate-tweak:1018
+msgid "Toolbars"
+msgstr "Barrau offer"
 
 #: ../mate-tweak:1019
-msgid "Window control placement."
-msgstr ""
+msgid "Window manager"
+msgstr "Rheolydd ffenestri"
 
 #: ../mate-tweak:1021
-msgid "Save Panel Layout"
+msgid "Select the Desktop Icons you want enabled:"
 msgstr ""
 
 #: ../mate-tweak:1022
-msgid "Enable indicators"
+msgid "Show Desktop Icons"
 msgstr ""
 
 #: ../mate-tweak:1023
+msgid "Computer"
+msgstr "Cyfrifiadur"
+
+#: ../mate-tweak:1024
+msgid "Home"
+msgstr "Cartref"
+
+#: ../mate-tweak:1025
+msgid "Network"
+msgstr "Rhwydwaith"
+
+#: ../mate-tweak:1026
+msgid "Trash"
+msgstr "Bin sbwriel"
+
+#: ../mate-tweak:1027
+msgid "Mounted Volumes"
+msgstr "Cyfrolau Arosod"
+
+#: ../mate-tweak:1029
+msgid "Enable animations"
+msgstr ""
+
+#: ../mate-tweak:1030
+msgid "Do not show window content when moving windows"
+msgstr ""
+
+#: ../mate-tweak:1031
+msgid "Window manager performance tuning."
+msgstr ""
+
+#: ../mate-tweak:1033
+msgid "Enable window snapping"
+msgstr ""
+
+#: ../mate-tweak:1034
+msgid "Undecorate maximized windows"
+msgstr "Dadaddurno ffenestri wedi'u huchafu"
+
+#: ../mate-tweak:1035
+msgid "Do not auto-maximize new windows"
+msgstr "Peidio ag uchafu ffenestri newydd yn awtomatig"
+
+#: ../mate-tweak:1037
+msgid "Window control placement."
+msgstr ""
+
+#: ../mate-tweak:1039
+msgid "Save Panel Layout"
+msgstr ""
+
+#: ../mate-tweak:1040
+msgid "Enable indicators"
+msgstr ""
+
+#: ../mate-tweak:1041
 msgid "Enable advanced menu"
 msgstr ""
 
-#: ../mate-tweak:1024
+#: ../mate-tweak:1042
 msgid "Enable keyboard LED"
 msgstr ""
 
-#: ../mate-tweak:1025
+#: ../mate-tweak:1043
 msgid "Enable launcher"
 msgstr ""
 
-#: ../mate-tweak:1026
+#: ../mate-tweak:1045
+msgid "Show Applications"
+msgstr ""
+
+#: ../mate-tweak:1046
+msgid "Show Places"
+msgstr ""
+
+#: ../mate-tweak:1047
+msgid "Show System"
+msgstr ""
+
+#: ../mate-tweak:1049
 msgid "Show icons on menus"
 msgstr "Dangos eiconau ar ddewislenni"
 
-#: ../mate-tweak:1027
+#: ../mate-tweak:1050
 msgid "Show icons on buttons"
 msgstr "Dangos eiconau ar botwm"
 
-#: ../mate-tweak:1028
+#: ../mate-tweak:1051
 msgid "Show Input Methods menu in context menus"
 msgstr "Dangos Dulliau Mewnbynnu yn y ddewislen cyd-destyn"
 
-#: ../mate-tweak:1029
+#: ../mate-tweak:1052
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Dangos dewislen Rheoli Nodau Unicodeyn y dewislenni cyd-destyn"
 
-#: ../mate-tweak:1031
+#: ../mate-tweak:1054
 msgid "Style:"
-msgstr ""
+msgstr "Arddull:"
 
-#: ../mate-tweak:1032
+#: ../mate-tweak:1055
 msgid "Icon size:"
-msgstr "Maint eicon:"
+msgstr "Maint eiconau:"
 
-#: ../mate-tweak:1051
+#: ../mate-tweak:1074
 msgid "Small"
 msgstr "Bach"
 
-#: ../mate-tweak:1052
+#: ../mate-tweak:1075
 msgid "Large"
 msgstr "Mawr"
 
-#: ../mate-tweak:1058
+#: ../mate-tweak:1081
 msgid "Traditional (Right)"
-msgstr ""
+msgstr "Traddodiadol (dde)"
 
-#: ../mate-tweak:1059
+#: ../mate-tweak:1082
 msgid "Contemporary (Left)"
-msgstr ""
+msgstr "Cyfoes (chwith)"
 
-#: ../mate-tweak:1065
+#: ../mate-tweak:1088
 msgid "The new window manager will be activated upon selection."
 msgstr ""
 
-#: ../mate-tweak:1066
+#: ../mate-tweak:1089
 msgid "Select a window manager."
-msgstr ""
+msgstr "Dewiswch reolydd ffenestri."
 
-#: ../mate-tweak:1072
+#: ../mate-tweak:1095
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Dewiswch gynllun panel i newid rhyngwyneb y defnyddiwr."
 
-#: ../mate-tweak:1073
+#: ../mate-tweak:1096
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:1086
+#: ../mate-tweak:1114
 msgid "Text below items"
-msgstr "Testun islaw'r eitem"
+msgstr "Testun islaw eitemau"
 
-#: ../mate-tweak:1087
+#: ../mate-tweak:1115
 msgid "Text beside items"
-msgstr "Testun wrth ochr eitem"
+msgstr "Testun wrth ochr eitemau"
 
-#: ../mate-tweak:1088
+#: ../mate-tweak:1116
 msgid "Icons only"
 msgstr "Eiconau yn unig"
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1117
 msgid "Text only"
 msgstr "Testun yn unig"
-
-#~ msgid "Use compositing"
-#~ msgstr "Defnyddio cyfansoddi"

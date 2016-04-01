@@ -1,327 +1,325 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Dušan Kazik <prescott66@gmail.com>, 2015-2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
-# Ján Ďanovský <dagsoftware@yahoo.com>, 2015
+# Ján Ďanovský <dagsoftware@yahoo.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-17 11:19+0000\n"
-"PO-Revision-Date: 2015-12-10 14:26+0000\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
+"POT-Creation-Date: 2016-04-01 16:42+0100\n"
+"PO-Revision-Date: 2016-04-01 15:44+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/mate/MATE/language/sk/)\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../mate-tweak:831
+#: ../mate-tweak:844
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Marco (Bez kompozítora)"
 
-#: ../mate-tweak:833
+#: ../mate-tweak:846
 msgid "Marco (Software compositor)"
-msgstr ""
+msgstr "Marco (Softvérový kompozítor)"
 
-#: ../mate-tweak:835
+#: ../mate-tweak:848
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (Kompozítor Compton pomocou GPU)"
 
-#: ../mate-tweak:837
+#: ../mate-tweak:850
 msgid "Metacity (No compositor)"
-msgstr ""
+msgstr "Metacity (Bez kompozítora)"
 
-#: ../mate-tweak:839
+#: ../mate-tweak:852
 msgid "Metacity (Software compositor)"
-msgstr ""
+msgstr "Metacity (Softvérový kompozítor)"
 
-#: ../mate-tweak:841
+#: ../mate-tweak:854
 msgid "Metacity (Compton GPU compositor)"
-msgstr ""
+msgstr "Metacity (Kompozítor Compton pomocou GPU)"
 
-#: ../mate-tweak:843
+#: ../mate-tweak:856
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (elegantné efekty akcelerované grafickým procesorom)"
 
-#: ../mate-tweak:845
+#: ../mate-tweak:858
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (rozšírené efekty plochy akcelerované GPU)"
 
-#: ../mate-tweak:862
-msgid "Cupertino"
-msgstr "Cupertino"
-
-#: ../mate-tweak:865
-msgid "Fedora"
-msgstr ""
-
-#: ../mate-tweak:868
-msgid "GNOME2"
-msgstr "GNOME2"
-
-#: ../mate-tweak:871
-msgid "Linux Mint"
-msgstr "Linux Mint"
-
-#: ../mate-tweak:874
-msgid "Mageia"
+#: ../mate-tweak:861
+msgid ""
+"You are currently using an unknown and unsupported window manager. Thus we "
+"cannot guarantee that changes made here will be effective."
 msgstr ""
 
 #: ../mate-tweak:879
-msgid "Mutiny"
-msgstr ""
+msgid "Cupertino"
+msgstr "Cupertino"
 
 #: ../mate-tweak:882
+msgid "Fedora"
+msgstr "Fedora"
+
+#: ../mate-tweak:885
+msgid "GNOME2"
+msgstr "GNOME2"
+
+#: ../mate-tweak:888
+msgid "Linux Mint"
+msgstr "Linux Mint"
+
+#: ../mate-tweak:891
+msgid "Mageia"
+msgstr "Mageia"
+
+#: ../mate-tweak:896
+msgid "Mutiny"
+msgstr "Mutiny"
+
+#: ../mate-tweak:899
 msgid "Netbook"
 msgstr "Netbook"
 
-#: ../mate-tweak:885
+#: ../mate-tweak:902
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:888
+#: ../mate-tweak:905
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:891
+#: ../mate-tweak:908
 msgid "Ubuntu MATE"
 msgstr "Ubuntu MATE"
 
-#: ../mate-tweak:894
+#: ../mate-tweak:911
 msgid "Wimpy"
 msgstr ""
 
-#: ../mate-tweak:944
+#: ../mate-tweak:961
 msgid "Desktop"
 msgstr "Pracovná plocha"
 
-#: ../mate-tweak:945
-msgid "Windows"
-msgstr "Okná"
-
-#: ../mate-tweak:946
+#: ../mate-tweak:962
 msgid "Interface"
 msgstr "Rozhranie"
 
-#: ../mate-tweak:989
+#: ../mate-tweak:963
+msgid "Windows"
+msgstr "Okná"
+
+#: ../mate-tweak:1006
 msgid "MATE Tweak"
 msgstr "Vyladenie prostredia MATE"
 
-#: ../mate-tweak:992
+#: ../mate-tweak:1009
 msgid "Desktop icons"
 msgstr "Ikony plochy"
 
-#: ../mate-tweak:993
+#: ../mate-tweak:1010
 msgid "Performance"
 msgstr "Výkon"
 
-#: ../mate-tweak:994
+#: ../mate-tweak:1011
 msgid "Window Behaviour"
 msgstr "Správanie okien"
 
-#: ../mate-tweak:995
+#: ../mate-tweak:1012
 msgid "Appearance"
 msgstr "Vzhľad"
 
-#: ../mate-tweak:996
-msgid "Panels"
-msgstr ""
-
-#: ../mate-tweak:997
-msgid "Panel Features"
-msgstr ""
-
-#: ../mate-tweak:998
-msgid "Icons"
-msgstr "Ikony"
-
-#: ../mate-tweak:999
-msgid "Context menus"
-msgstr "Kontextové menu"
-
-#: ../mate-tweak:1000
-msgid "Toolbars"
-msgstr "Panely nástrojov"
-
-#: ../mate-tweak:1001
-msgid "Window manager"
-msgstr "Správca okien"
-
-#: ../mate-tweak:1003
-#, fuzzy
-msgid "Select the Desktop Icons you want enabled:"
-msgstr "Vyberte položky, ktoré chcete mať zobrazené na pracovnej ploche:"
-
-#: ../mate-tweak:1004
-#, fuzzy
-msgid "Show Desktop Icons"
-msgstr "Ikony plochy"
-
-#: ../mate-tweak:1005
-msgid "Computer"
-msgstr "Počítač"
-
-#: ../mate-tweak:1006
-msgid "Home"
-msgstr "Domov"
-
-#: ../mate-tweak:1007
-msgid "Network"
-msgstr "Sieť"
-
-#: ../mate-tweak:1008
-msgid "Trash"
-msgstr "Kôš"
-
-#: ../mate-tweak:1009
-msgid "Mounted Volumes"
-msgstr "Pripojené zväzky"
-
-#: ../mate-tweak:1011
-msgid "Enable animations"
-msgstr ""
-
-#: ../mate-tweak:1012
-msgid "Do not show window content when moving windows"
-msgstr ""
-
 #: ../mate-tweak:1013
-msgid "Window manager performance tuning."
-msgstr ""
+msgid "Panels"
+msgstr "Panely"
+
+#: ../mate-tweak:1014
+msgid "Panel Features"
+msgstr "Funkcie panelu"
 
 #: ../mate-tweak:1015
-msgid "Enable window snapping"
+msgid "Panel Menu Features"
 msgstr ""
 
 #: ../mate-tweak:1016
+msgid "Icons"
+msgstr "Ikony"
+
+#: ../mate-tweak:1017
+msgid "Context menus"
+msgstr "Kontextové menu"
+
+#: ../mate-tweak:1018
+msgid "Toolbars"
+msgstr "Panely nástrojov"
+
+#: ../mate-tweak:1019
+msgid "Window manager"
+msgstr "Správca okien"
+
+#: ../mate-tweak:1021
+msgid "Select the Desktop Icons you want enabled:"
+msgstr "Vyberte ikony, ktoré chcete mať zobrazené na pracovnej ploche:"
+
+#: ../mate-tweak:1022
+msgid "Show Desktop Icons"
+msgstr "Zobraziť ikony na ploche"
+
+#: ../mate-tweak:1023
+msgid "Computer"
+msgstr "Počítač"
+
+#: ../mate-tweak:1024
+msgid "Home"
+msgstr "Domov"
+
+#: ../mate-tweak:1025
+msgid "Network"
+msgstr "Sieť"
+
+#: ../mate-tweak:1026
+msgid "Trash"
+msgstr "Kôš"
+
+#: ../mate-tweak:1027
+msgid "Mounted Volumes"
+msgstr "Pripojené zväzky"
+
+#: ../mate-tweak:1029
+msgid "Enable animations"
+msgstr "Povoliť animácie"
+
+#: ../mate-tweak:1030
+msgid "Do not show window content when moving windows"
+msgstr "Nezobraziť obsah okna počas jeho presúvania"
+
+#: ../mate-tweak:1031
+msgid "Window manager performance tuning."
+msgstr "Ladenie výkonu správcu okien."
+
+#: ../mate-tweak:1033
+msgid "Enable window snapping"
+msgstr "Povoliť priťahovanie okien"
+
+#: ../mate-tweak:1034
 msgid "Undecorate maximized windows"
 msgstr "Zrušiť dekoráciu maximalizovaných okien"
 
-#: ../mate-tweak:1017
+#: ../mate-tweak:1035
 msgid "Do not auto-maximize new windows"
 msgstr "Nemaximalizovať automaticky nové okná"
 
-#: ../mate-tweak:1019
+#: ../mate-tweak:1037
 msgid "Window control placement."
 msgstr "Umiestnenie prvkov na ovládanie okna."
 
-#: ../mate-tweak:1021
+#: ../mate-tweak:1039
 msgid "Save Panel Layout"
-msgstr ""
+msgstr "Uložiť rozloženie panelu"
 
-#: ../mate-tweak:1022
+#: ../mate-tweak:1040
 msgid "Enable indicators"
-msgstr ""
+msgstr "Povoliť indikátory"
 
-#: ../mate-tweak:1023
+#: ../mate-tweak:1041
 msgid "Enable advanced menu"
-msgstr ""
+msgstr "Povoliť pokročilé menu"
 
-#: ../mate-tweak:1024
+#: ../mate-tweak:1042
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "Povoliť LED diódy na klávesnici"
 
-#: ../mate-tweak:1025
+#: ../mate-tweak:1043
 msgid "Enable launcher"
+msgstr "Povoliť spúšťač"
+
+#: ../mate-tweak:1045
+msgid "Show Applications"
 msgstr ""
 
-#: ../mate-tweak:1026
+#: ../mate-tweak:1046
+msgid "Show Places"
+msgstr ""
+
+#: ../mate-tweak:1047
+msgid "Show System"
+msgstr ""
+
+#: ../mate-tweak:1049
 msgid "Show icons on menus"
 msgstr "Zobraziť ikony v menu"
 
-#: ../mate-tweak:1027
+#: ../mate-tweak:1050
 msgid "Show icons on buttons"
 msgstr "Zobraziť ikony na tlačítkach"
 
-#: ../mate-tweak:1028
+#: ../mate-tweak:1051
 msgid "Show Input Methods menu in context menus"
 msgstr "Zobraziť menu Vstupných Metód v kontextových menu"
 
-#: ../mate-tweak:1029
+#: ../mate-tweak:1052
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Zobraziť menu Ovládania Unicode znakov v kontextových menu"
 
-#: ../mate-tweak:1031
+#: ../mate-tweak:1054
 msgid "Style:"
 msgstr "Štýl:"
 
-#: ../mate-tweak:1032
+#: ../mate-tweak:1055
 msgid "Icon size:"
 msgstr "Veľkosť ikony:"
 
-#: ../mate-tweak:1051
+#: ../mate-tweak:1074
 msgid "Small"
 msgstr "Malé"
 
-#: ../mate-tweak:1052
+#: ../mate-tweak:1075
 msgid "Large"
 msgstr "Veľké"
 
-#: ../mate-tweak:1058
+#: ../mate-tweak:1081
 msgid "Traditional (Right)"
 msgstr "Tradične (v pravo)"
 
-#: ../mate-tweak:1059
+#: ../mate-tweak:1082
 msgid "Contemporary (Left)"
 msgstr "Moderne (v ľavo)"
 
-#: ../mate-tweak:1065
+#: ../mate-tweak:1088
 msgid "The new window manager will be activated upon selection."
 msgstr "Nový správca okien bude aktivovaný po jeho výbere."
 
-#: ../mate-tweak:1066
+#: ../mate-tweak:1089
 msgid "Select a window manager."
 msgstr "Vyberte správcu okien."
 
-#: ../mate-tweak:1072
+#: ../mate-tweak:1095
 msgid "Select a panel layout to change the user interface."
 msgstr "Vyberte rozloženie panelov na zmenu používateľského rozhrania."
 
-#: ../mate-tweak:1073
+#: ../mate-tweak:1096
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Nové rozvrhnutie panelu bude aktivované výberom a zrušením všetkých úprav, "
-"ktoré ste možno spravili."
+msgstr "Nové rozvrhnutie panelu bude aktivované výberom a zrušením všetkých úprav, ktoré ste možno spravili."
 
-#: ../mate-tweak:1086
+#: ../mate-tweak:1114
 msgid "Text below items"
 msgstr "Text pod položkami"
 
-#: ../mate-tweak:1087
+#: ../mate-tweak:1115
 msgid "Text beside items"
 msgstr "Text vedľa položiek"
 
-#: ../mate-tweak:1088
+#: ../mate-tweak:1116
 msgid "Icons only"
 msgstr "Iba ikony"
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1117
 msgid "Text only"
 msgstr "Iba text"
-
-#~ msgid "Use compositing"
-#~ msgstr "Použiť kompozíciu"
-
-#~ msgid "Marco (Simple desktop effects)"
-#~ msgstr "Marco (jednoduché efekty plochy)"
-
-#, fuzzy
-#~ msgid "Marco (Simple GPU accelerated desktop effects)"
-#~ msgstr "Mutter (elegantné efekty akcelerované grafickým procesorom)"
-
-#~ msgid "Metacity (Simple desktop effects)"
-#~ msgstr "Metacity (jednoduché efekty prostredia)"
-
-#, fuzzy
-#~ msgid "Metacity (Simple GPU accelerated desktop effects)"
-#~ msgstr "Mutter (elegantné efekty akcelerované grafickým procesorom)"
-
-#, fuzzy
-#~ msgid "Muffin (Elegant GPU accelerated desktop effects)"
-#~ msgstr "Mutter (elegantné efekty akcelerované grafickým procesorom)"
