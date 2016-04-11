@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-01 16:42+0100\n"
-"PO-Revision-Date: 2016-04-01 15:44+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-04-04 14:52+0000\n"
+"Last-Translator: Mislav E. Lukšić <meluksic@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/mate/MATE/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +56,7 @@ msgstr "Compiz (napredni i grafičkim procesorom ubrzani efekti radne površine)
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "Trenutno koristiš nepoznati i nepodržani upravitelj prozora. Stoga ne možemo jamčiti da će ovdje učinjene promjene biti učinkovite."
 
 #: ../mate-tweak:879
 msgid "Cupertino"
@@ -144,7 +144,7 @@ msgstr "Značajke ploče"
 
 #: ../mate-tweak:1015
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "Značajke ploče izbornika"
 
 #: ../mate-tweak:1016
 msgid "Icons"
@@ -240,15 +240,15 @@ msgstr "Omogući pokretača"
 
 #: ../mate-tweak:1045
 msgid "Show Applications"
-msgstr ""
+msgstr "Prikaži aplikacije"
 
 #: ../mate-tweak:1046
 msgid "Show Places"
-msgstr ""
+msgstr "Prikaži mjesta"
 
 #: ../mate-tweak:1047
 msgid "Show System"
-msgstr ""
+msgstr "Prikaži sustav"
 
 #: ../mate-tweak:1049
 msgid "Show icons on menus"

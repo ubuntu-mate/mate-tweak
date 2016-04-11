@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-01 16:42+0100\n"
-"PO-Revision-Date: 2016-04-01 15:44+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-04-05 14:11+0000\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/mate/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,7 +55,7 @@ msgstr "Compiz（進階的顯示卡加速的桌面效果）"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "您目前正在使用未知且不支援的視窗管理員。所以我們無法保證做出的變更一定會生效。"
 
 #: ../mate-tweak:879
 msgid "Cupertino"
@@ -143,7 +143,7 @@ msgstr "面板特色"
 
 #: ../mate-tweak:1015
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "面板選單功能"
 
 #: ../mate-tweak:1016
 msgid "Icons"
@@ -239,15 +239,15 @@ msgstr "啟用啟動器"
 
 #: ../mate-tweak:1045
 msgid "Show Applications"
-msgstr ""
+msgstr "顯示應用程式"
 
 #: ../mate-tweak:1046
 msgid "Show Places"
-msgstr ""
+msgstr "顯示位置"
 
 #: ../mate-tweak:1047
 msgid "Show System"
-msgstr ""
+msgstr "顯示系統"
 
 #: ../mate-tweak:1049
 msgid "Show icons on menus"

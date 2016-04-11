@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-01 16:42+0100\n"
-"PO-Revision-Date: 2016-04-01 15:44+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-04-01 20:14+0000\n"
+"Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/mate/MATE/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +56,7 @@ msgstr "컴피즈 (GPU 가속 고급 데스크톱 효과)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "지금 사용하시는 창 관리자는 알려지지 않았거나 지원되지 않는 것입니다. 그러므로 우리는 적용하신 변경 사항에 대한 책임을 지지 않습니다."
 
 #: ../mate-tweak:879
 msgid "Cupertino"
@@ -144,7 +144,7 @@ msgstr "패널 기능"
 
 #: ../mate-tweak:1015
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "패널 메뉴 기능"
 
 #: ../mate-tweak:1016
 msgid "Icons"
@@ -212,7 +212,7 @@ msgstr "최대 크기 창은 꾸미지 않기"
 
 #: ../mate-tweak:1035
 msgid "Do not auto-maximize new windows"
-msgstr "새 창은 자동 - 최대화하지 않기"
+msgstr "새 창을 자동으로 최대화하지 않기"
 
 #: ../mate-tweak:1037
 msgid "Window control placement."
@@ -240,15 +240,15 @@ msgstr "실행 아이콘 사용"
 
 #: ../mate-tweak:1045
 msgid "Show Applications"
-msgstr ""
+msgstr "애플리케이션 표시"
 
 #: ../mate-tweak:1046
 msgid "Show Places"
-msgstr ""
+msgstr "위치 표시"
 
 #: ../mate-tweak:1047
 msgid "Show System"
-msgstr ""
+msgstr "시스템 표시"
 
 #: ../mate-tweak:1049
 msgid "Show icons on menus"
@@ -284,11 +284,11 @@ msgstr "크게"
 
 #: ../mate-tweak:1081
 msgid "Traditional (Right)"
-msgstr "옛 방식 (오른쪽)"
+msgstr "옛날 (오른쪽)"
 
 #: ../mate-tweak:1082
 msgid "Contemporary (Left)"
-msgstr "최근 방식 (왼쪽)"
+msgstr "요즘 (왼쪽)"
 
 #: ../mate-tweak:1088
 msgid "The new window manager will be activated upon selection."
