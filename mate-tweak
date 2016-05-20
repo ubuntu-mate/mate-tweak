@@ -67,6 +67,16 @@ X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true
 Icon=synapse"""
 
+__TILDA__ = """[Desktop Entry]
+Name=Tilda
+Exec=/usr/lib/ubuntu-mate/ubuntu-mate-tilda
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;System;Utility;TerminalEmulator;
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true"""
+
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
 
@@ -485,6 +495,32 @@ class MateTweak:
 
         self.launcher_enabled = False
 
+    def enable_pulldown_terminal(self):
+        config_dir = GLib.get_user_config_dir()
+        if self.pulldown_terminal == 'tilda':
+            tilda_autostart = __TILDA__
+
+            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+            if not os.path.exists(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop'):
+                with open(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop','w') as autostart:
+                    autostart.write(tilda_autostart)
+
+            # Launch tilda, if it is not already enabled.
+            if not self.pulldown_terminal_enabled:
+                subprocess.Popen([self.pulldown_terminal], stdout=DEVNULL, stderr=DEVNULL)
+                self.pulldown_terminal_enabled = True
+
+    def disable_pulldown_terminal(self):
+        config_dir = GLib.get_user_config_dir()
+        if self.pulldown_terminal == 'tilda':
+            if os.path.exists(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop'):
+                os.remove(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop')
+
+        if self.process_running(self.pulldown_terminal):
+            self.kill_process(self.pulldown_terminal)
+
+        self.pulldown_terminal_enabled = False
+
     def enable_mate_volume_applet(self):
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
@@ -657,6 +693,12 @@ class MateTweak:
         else:
             self.disable_launcher()
 
+    def toggle_pulldown_terminal(self, checkbutton):
+        if checkbutton.get_active():
+            self.enable_pulldown_terminal()
+        else:
+            self.disable_pulldown_terminal()
+
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
 
@@ -790,6 +832,19 @@ class MateTweak:
             self.launcher_enabled = True
         else:
             self.launcher_enabled = False
+
+    def check_pulldown_terminal_features(self):
+        config_dir = GLib.get_user_config_dir()
+
+        if self.find_on_path('tilda'):
+            self.pulldown_terminal = 'tilda'
+        else:
+            self.pulldown_terminal = None
+
+        if self.pulldown_terminal is not None and os.path.exists(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop'):
+            self.pulldown_terminal_enabled = True
+        else:
+            self.pulldown_terminal_enabled = False
 
     def check_panel_features(self):
         # Determine what panel features are available
@@ -944,6 +999,7 @@ class MateTweak:
         self.check_glx_features()
         self.check_dock_features()
         self.check_launcher_features()
+        self.check_pulldown_terminal_features()
         self.check_panel_features()
         self.check_wm_features()
         self.previous_wm = self.current_wm
@@ -1041,6 +1097,7 @@ class MateTweak:
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
+        self.builder.get_object("checkbutton_pulldown_terminal").set_label(_("Enable pull-down terminal"))
 
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
         self.builder.get_object("checkbutton_show_places").set_label(_("Show Places"))
@@ -1103,6 +1160,12 @@ class MateTweak:
         self.builder.get_object("checkbutton_launcher").set_active(self.launcher_enabled)
         if not self.launcher:
             self.builder.get_object('checkbutton_launcher').props.sensitive = False
+
+        # Pulldown Terminal
+        self.builder.get_object("checkbutton_pulldown_terminal").connect("toggled", self.toggle_pulldown_terminal)
+        self.builder.get_object("checkbutton_pulldown_terminal").set_active(self.pulldown_terminal_enabled)
+        if not self.pulldown_terminal:
+            self.builder.get_object('checkbutton_pulldown_terminal').props.sensitive = False
 
         # Panel Menu features
         self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
