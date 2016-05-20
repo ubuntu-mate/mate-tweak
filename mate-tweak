@@ -262,6 +262,8 @@ class MateTweak:
             composite_enabled = self.get_bool('org.mate.Marco.general', None, 'compositing-manager')
             if self.process_running('compton'):
                 self.current_wm += '-compton'
+            elif self.process_running('xcompmgr'):
+                self.current_wm += '-xcompmgr'
             elif not composite_enabled:
                 self.current_wm += '-no-composite'
         elif ('Metacity' in current_wm):
@@ -269,6 +271,8 @@ class MateTweak:
             composite_enabled = self.get_bool('org.gnome.metacity', None, 'compositing-manager')
             if self.process_running('compton'):
                 self.current_wm += '-compton'
+            elif self.process_running('xcompmgr'):
+                self.current_wm += '-xcompmgr'
             elif not composite_enabled:
                 self.current_wm += '-no-composite'
         elif ('Mutter' in current_wm):
@@ -283,9 +287,11 @@ class MateTweak:
         self.compiz_capable = False
         self.marco_capable = False
         self.marco_compton_capable = False
+        self.marco_xcompmgr_capable = False
         self.marco_no_composite_capable = False
         self.metacity_capable = False
         self.metacity_compton_capable = False
+        self.metacity_xcompmgr_capable = False
         self.metacity_no_composite_capable = False
         self.mutter_capable = False
 
@@ -297,6 +303,10 @@ class MateTweak:
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.marco_compton_capable = True
 
+        if self.find_on_path('marco-xcompmgr') and self.find_on_path('marco') and self.find_on_path('xcompmgr'):
+            if not self.software_rasterizer and self.texture_from_pixmap:
+                self.marco_xcompmgr_capable = True
+
         if self.find_on_path('marco-no-composite') and self.find_on_path('marco'):
             self.marco_no_composite_capable = True
 
@@ -306,6 +316,10 @@ class MateTweak:
         if self.find_on_path('metacity-compton') and self.find_on_path('metacity') and self.find_on_path('compton'):
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.metacity_compton_capable = True
+
+        if self.find_on_path('metacity-xcompmgr') and self.find_on_path('metacity') and self.find_on_path('xcompmgr'):
+            if not self.software_rasterizer and self.texture_from_pixmap:
+                self.metacity_xcompmgr_capable = True
 
         if self.find_on_path('metacity-no-composite') and self.find_on_path('metacity'):
             self.metacity_no_composite_capable = True
@@ -348,15 +362,17 @@ class MateTweak:
             if metacity_schema:
                 self.set_string('org.gnome.metacity', None, 'theme', mate_theme)
 
-        # If switching away from a compton composited window manager,
-        # kill compton.
+        # If switching away from a compton or xcompmgr composited window
+        # manager kill compton.
         if 'compton' in self.current_wm:
             self.kill_process('compton')
+        elif 'xcompmgr' in self.current_wm:
+            self.kill_process('xcompmgr')
 
         # Metacity has a habbit of leaving a process running.
         self.kill_process('metacity')
 
-        if ('compton' in new_wm) or ('no-composite' in new_wm):
+        if ('compton' in new_wm) or ('xcompmgr' in new_wm) or ('no-composite' in new_wm):
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
             subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL)
@@ -899,12 +915,16 @@ class MateTweak:
             wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
         if self.marco_capable:
             wms.append([_("Marco (Software compositor)"), 'marco'])
+        if self.marco_xcompmgr_capable and not self.software_rasterizer:
+            wms.append([_("Marco (No effects xcompmgr compositor)"), 'marco-xcompmgr'])
         if self.marco_compton_capable and not self.software_rasterizer:
             wms.append([_("Marco (Compton GPU compositor)"), 'marco-compton'])
         if self.metacity_no_composite_capable:
             wms.append([_("Metacity (No compositor)"), 'metacity-no-composite'])
         if self.metacity_capable:
             wms.append([_("Metacity (Software compositor)"), 'metacity'])
+        if self.metacity_xcompmgr_capable and not self.software_rasterizer:
+            wms.append([_("Metacity (No effects xcompmgr compositor)"), 'metacity-xcompmgr'])
         if self.metacity_compton_capable and not self.software_rasterizer:
             wms.append([_("Metacity (Compton GPU compositor)"), 'metacity-compton'])
         if self.mutter_capable:

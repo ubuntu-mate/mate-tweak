@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+WM=metacity
+
+if [ ! -x $(which ${WM}) ] && [ ! -x $(which xcompmgr) ]; then
+    echo "ERROR! Can't find required components for ${WM} and xcompmgr."
+    exit 1
+fi
+
+xcompmgr_PIDS=$(pidof xcompmgr)
+if [ $? -eq 0 ]; then
+    echo "Killing xcompmgr"
+    for PID in ${xcompmgr_PIDS}; do
+        kill -9 ${PID}
+    done
+fi
+
+# Replace window manager and force compositing off.
+${WM} --no-composite --replace &
+sleep 1
+
+xcompmgr -C -n -r 0 &
