@@ -1026,8 +1026,11 @@ class MateTweak:
 
         # Load the Glade UI file
         self.builder = Gtk.Builder()
-        self.builder.add_from_file('/usr/lib/mate-tweak/mate-tweak.ui')
-        # self.builder.add_from_file('./data/mate-tweak.ui')
+        if os.path.exists('./data/mate-tweak.ui'):
+            print('Development mode.')
+            self.builder.add_from_file('./data/mate-tweak.ui')
+        else:
+            self.builder.add_from_file('/usr/lib/mate-tweak/mate-tweak.ui')
 
         self.window = self.builder.get_object( "main_window" )
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
