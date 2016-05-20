@@ -1179,6 +1179,19 @@ class MateTweak:
         self.builder.get_object("checkbutton_indicators").connect("toggled", self.toggle_panel_features)
         self.builder.get_object("checkbutton_advanced_menu").connect("toggled", self.toggle_panel_features)
 
+        # Panel icon sizes
+        panel_icon_sizes = Gtk.ListStore(str, str)
+        panel_icon_sizes.append([_("Default"), "default"])
+        panel_icon_sizes.append([_("16px"), "16px"])
+        panel_icon_sizes.append([_("22px"), "22px"])
+        panel_icon_sizes.append([_("24px"), "24px"])
+        panel_icon_sizes.append([_("32px"), "32px"])
+        panel_icon_sizes.append([_("48px"), "48px"])
+        #self.builder.get_object("combobox_panel_icon_size").set_model(panel_icon_sizes)
+        #self.builder.get_object("combobox_panel_menu_icon_sizes").set_model(panel_icon_sizes)
+        #self.builder.get_object("caption_panel_icons").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
+        #self.builder.get_object("combobox_panel_icons").set_tooltip_text(_("The new panel icon size will be activated on selection."))
+
         # Launcher
         self.builder.get_object("checkbutton_launcher").connect("toggled", self.toggle_launcher)
         self.builder.get_object("checkbutton_launcher").set_active(self.launcher_enabled)
