@@ -1038,9 +1038,10 @@ class MateTweak:
         self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
 
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
-        side_interface = SidePage(2, _("Interface"), "preferences-desktop")
-        side_windows = SidePage(1, _("Windows"), "preferences-system-windows")
-        self.sidePages = [side_desktop_options, side_interface, side_windows]
+        side_interface = SidePage(1, _("Interface"), "preferences-desktop")
+        side_panel = SidePage(2, _("Panel"), "mate-panel")
+        side_windows = SidePage(3, _("Windows"), "preferences-system-windows")
+        self.sidePages = [side_desktop_options, side_interface, side_panel, side_windows]
 
         # create the backing store for the side nav-view.
         theme = Gtk.IconTheme.get_default()
