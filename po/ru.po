@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-01 16:42+0100\n"
-"PO-Revision-Date: 2016-04-01 18:55+0000\n"
-"Last-Translator: Дмитрий Михирев <bizdelnick@gmail.com>\n"
+"POT-Creation-Date: 2016-05-20 12:50+0100\n"
+"PO-Revision-Date: 2016-05-20 11:54+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Russian (http://www.transifex.com/mate/MATE/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,306 +27,310 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: ../mate-tweak:844
+#: ../mate-tweak:899
 msgid "Marco (No compositor)"
 msgstr "Marco (без композитного менеджера)"
 
-#: ../mate-tweak:846
+#: ../mate-tweak:901
 msgid "Marco (Software compositor)"
 msgstr "Marco (программный композитный менеджер)"
 
-#: ../mate-tweak:848
+#: ../mate-tweak:903
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (композитный менеджер Compton GPU)"
 
-#: ../mate-tweak:850
+#: ../mate-tweak:905
 msgid "Metacity (No compositor)"
 msgstr "Metacity (без композитного менеджера)"
 
-#: ../mate-tweak:852
+#: ../mate-tweak:907
 msgid "Metacity (Software compositor)"
 msgstr "Metacity (программный композитный менеджер)"
 
-#: ../mate-tweak:854
+#: ../mate-tweak:909
 msgid "Metacity (Compton GPU compositor)"
 msgstr "Metacity (композитный менеджер Compton GPU)"
 
-#: ../mate-tweak:856
+#: ../mate-tweak:911
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (ускоренные GPU изящные эффекты рабочего стола)"
 
-#: ../mate-tweak:858
+#: ../mate-tweak:913
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (ускоренные GPU продвинутые эффекты рабочего стола)"
 
-#: ../mate-tweak:861
+#: ../mate-tweak:916
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
 msgstr "Используется неизвестный и неподдерживаемый менеджер окон. Нет гарантии, что сделанные здесь изменения будут иметь эффект."
 
-#: ../mate-tweak:879
+#: ../mate-tweak:934
 msgid "Cupertino"
 msgstr "Купертино"
 
-#: ../mate-tweak:882
+#: ../mate-tweak:937
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:885
+#: ../mate-tweak:940
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:888
+#: ../mate-tweak:943
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:891
+#: ../mate-tweak:946
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:896
+#: ../mate-tweak:951
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:899
+#: ../mate-tweak:954
 msgid "Netbook"
 msgstr "Нетбук"
 
-#: ../mate-tweak:902
+#: ../mate-tweak:957
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:905
+#: ../mate-tweak:960
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:908
+#: ../mate-tweak:963
 msgid "Ubuntu MATE"
 msgstr "Ubuntu MATE"
 
-#: ../mate-tweak:911
+#: ../mate-tweak:966
 msgid "Wimpy"
 msgstr "Слабый"
 
-#: ../mate-tweak:961
+#: ../mate-tweak:1017
 msgid "Desktop"
 msgstr "Рабочий стол"
 
-#: ../mate-tweak:962
+#: ../mate-tweak:1018
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: ../mate-tweak:963
+#: ../mate-tweak:1019
 msgid "Windows"
 msgstr "Окна"
 
-#: ../mate-tweak:1006
+#: ../mate-tweak:1062
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:1009
+#: ../mate-tweak:1065
 msgid "Desktop icons"
 msgstr "Значки рабочего стола"
 
-#: ../mate-tweak:1010
+#: ../mate-tweak:1066
 msgid "Performance"
 msgstr "Быстродействие"
 
-#: ../mate-tweak:1011
+#: ../mate-tweak:1067
 msgid "Window Behaviour"
 msgstr "Поведение окна"
 
-#: ../mate-tweak:1012
+#: ../mate-tweak:1068
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: ../mate-tweak:1013
+#: ../mate-tweak:1069
 msgid "Panels"
 msgstr "Панели"
 
-#: ../mate-tweak:1014
+#: ../mate-tweak:1070
 msgid "Panel Features"
 msgstr "Свойства панели"
 
-#: ../mate-tweak:1015
+#: ../mate-tweak:1071
 msgid "Panel Menu Features"
 msgstr "Свойства меню панели"
 
-#: ../mate-tweak:1016
+#: ../mate-tweak:1072
 msgid "Icons"
 msgstr "Значки"
 
-#: ../mate-tweak:1017
+#: ../mate-tweak:1073
 msgid "Context menus"
 msgstr "Контекстные меню"
 
-#: ../mate-tweak:1018
+#: ../mate-tweak:1074
 msgid "Toolbars"
 msgstr "Панели инструментов"
 
-#: ../mate-tweak:1019
+#: ../mate-tweak:1075
 msgid "Window manager"
 msgstr "Менеджер окон"
 
-#: ../mate-tweak:1021
+#: ../mate-tweak:1077
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Выберите иконки, которые будут показаны на рабочем столе:"
 
-#: ../mate-tweak:1022
+#: ../mate-tweak:1078
 msgid "Show Desktop Icons"
 msgstr "Показать иконки рабочего стола"
 
-#: ../mate-tweak:1023
+#: ../mate-tweak:1079
 msgid "Computer"
 msgstr "Компьютер"
 
-#: ../mate-tweak:1024
+#: ../mate-tweak:1080
 msgid "Home"
 msgstr "Домашняя папка"
 
-#: ../mate-tweak:1025
+#: ../mate-tweak:1081
 msgid "Network"
 msgstr "Сеть"
 
-#: ../mate-tweak:1026
+#: ../mate-tweak:1082
 msgid "Trash"
 msgstr "Корзина"
 
-#: ../mate-tweak:1027
+#: ../mate-tweak:1083
 msgid "Mounted Volumes"
 msgstr "Подключенные тома"
 
-#: ../mate-tweak:1029
+#: ../mate-tweak:1085
 msgid "Enable animations"
 msgstr "Включить анимацию"
 
-#: ../mate-tweak:1030
+#: ../mate-tweak:1086
 msgid "Do not show window content when moving windows"
 msgstr "Не показывать содержимое окна при перетаскивании"
 
-#: ../mate-tweak:1031
+#: ../mate-tweak:1087
 msgid "Window manager performance tuning."
 msgstr "Настройки производительности менеджера окон."
 
-#: ../mate-tweak:1033
+#: ../mate-tweak:1089
 msgid "Enable window snapping"
 msgstr "Включить привязку окон"
 
-#: ../mate-tweak:1034
+#: ../mate-tweak:1090
 msgid "Undecorate maximized windows"
 msgstr "Убрать декорации с развернутых окон"
 
-#: ../mate-tweak:1035
+#: ../mate-tweak:1091
 msgid "Do not auto-maximize new windows"
 msgstr "Не развертывать на весь экран новые окна"
 
-#: ../mate-tweak:1037
+#: ../mate-tweak:1093
 msgid "Window control placement."
 msgstr "Управление расположением окон."
 
-#: ../mate-tweak:1039
+#: ../mate-tweak:1095
 msgid "Save Panel Layout"
 msgstr "Сохранить расположение панелей"
 
-#: ../mate-tweak:1040
+#: ../mate-tweak:1096
 msgid "Enable indicators"
 msgstr "Включить индикаторы"
 
-#: ../mate-tweak:1041
+#: ../mate-tweak:1097
 msgid "Enable advanced menu"
 msgstr "Включить расширенное меню"
 
-#: ../mate-tweak:1042
+#: ../mate-tweak:1098
 msgid "Enable keyboard LED"
 msgstr "Включить индикаторы клавиатуры"
 
-#: ../mate-tweak:1043
+#: ../mate-tweak:1099
 msgid "Enable launcher"
 msgstr "Включить лаунчер"
 
-#: ../mate-tweak:1045
+#: ../mate-tweak:1100
+msgid "Enable pull-down terminal"
+msgstr ""
+
+#: ../mate-tweak:1102
 msgid "Show Applications"
 msgstr "Показать приложения"
 
-#: ../mate-tweak:1046
+#: ../mate-tweak:1103
 msgid "Show Places"
 msgstr "Показать места"
 
-#: ../mate-tweak:1047
+#: ../mate-tweak:1104
 msgid "Show System"
 msgstr "Показать систему"
 
-#: ../mate-tweak:1049
+#: ../mate-tweak:1106
 msgid "Show icons on menus"
 msgstr "Показывать значки в меню"
 
-#: ../mate-tweak:1050
+#: ../mate-tweak:1107
 msgid "Show icons on buttons"
 msgstr "Показывать значки на кнопках"
 
-#: ../mate-tweak:1051
+#: ../mate-tweak:1108
 msgid "Show Input Methods menu in context menus"
 msgstr "Отображать меню способов ввода в контекстных меню"
 
-#: ../mate-tweak:1052
+#: ../mate-tweak:1109
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Отображать меню управляющих символов Unicode в контекстных меню"
 
-#: ../mate-tweak:1054
+#: ../mate-tweak:1111
 msgid "Style:"
 msgstr "Стиль:"
 
-#: ../mate-tweak:1055
+#: ../mate-tweak:1112
 msgid "Icon size:"
 msgstr "Размер значков:"
 
-#: ../mate-tweak:1074
+#: ../mate-tweak:1131
 msgid "Small"
 msgstr "Мелкий"
 
-#: ../mate-tweak:1075
+#: ../mate-tweak:1132
 msgid "Large"
 msgstr "Крупный"
 
-#: ../mate-tweak:1081
+#: ../mate-tweak:1138
 msgid "Traditional (Right)"
 msgstr "Традиционный стиль (справа)"
 
-#: ../mate-tweak:1082
+#: ../mate-tweak:1139
 msgid "Contemporary (Left)"
 msgstr "Современный стиль (слева)"
 
-#: ../mate-tweak:1088
+#: ../mate-tweak:1145
 msgid "The new window manager will be activated upon selection."
 msgstr "Оконный менеджер будет активирован сразу после выбора в списке."
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1146
 msgid "Select a window manager."
 msgstr "Выбор менеджера окон."
 
-#: ../mate-tweak:1095
+#: ../mate-tweak:1152
 msgid "Select a panel layout to change the user interface."
 msgstr "Выберите конфигурацию панелей, чтобы изменить интерфейс."
 
-#: ../mate-tweak:1096
+#: ../mate-tweak:1153
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr "Новая конфигурация панелей будет применена при выборе, после чего будут уничтожены все изменения, которые вы могли внести до этого."
 
-#: ../mate-tweak:1114
+#: ../mate-tweak:1177
 msgid "Text below items"
 msgstr "Текст под значками"
 
-#: ../mate-tweak:1115
+#: ../mate-tweak:1178
 msgid "Text beside items"
 msgstr "Текст рядом со значками"
 
-#: ../mate-tweak:1116
+#: ../mate-tweak:1179
 msgid "Icons only"
 msgstr "Только значки"
 
-#: ../mate-tweak:1117
+#: ../mate-tweak:1180
 msgid "Text only"
 msgstr "Только текст"
