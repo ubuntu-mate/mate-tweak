@@ -55,7 +55,6 @@ def datafilelist(installbase, sourcebase):
 data_files = [
     ('{prefix}/share/man/man1'.format(prefix=sys.prefix), glob('data/*.1')),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/mate-tweak.desktop',]),
-    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/mate-tweak.desktop',]),
     ('{prefix}/share/mate/applications'.format(prefix=sys.prefix), ['data/marco-compton.desktop',]),
     ('{prefix}/share/mate/applications'.format(prefix=sys.prefix), ['data/marco-xcompmgr.desktop',]),
     ('{prefix}/share/mate/applications'.format(prefix=sys.prefix), ['data/metacity-compton.desktop',]),
@@ -84,6 +83,6 @@ setup(
     package_dir = {'': '.'},
     data_files = data_files,
     install_requires = [ 'setuptools', ],
-    scripts = ['mate-tweak', 'marco-compton', 'marco-no-composite', 'metacity-compton', 'metacity-no-composite'],
+    scripts = ['mate-tweak', 'marco-compton', 'marco-xcompmgr', 'marco-no-composite', 'metacity-compton', 'metacity-xcompmgr', 'metacity-no-composite'],
     cmdclass = cmdclass,
 )
