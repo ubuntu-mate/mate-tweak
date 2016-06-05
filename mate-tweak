@@ -538,6 +538,8 @@ class MateTweak:
         self.pulldown_terminal_enabled = False
 
     def enable_mate_volume_applet(self):
+        return True # Temporarily do nothing.
+
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
         # If the system autostart is missing create a user autostart.
@@ -547,6 +549,8 @@ class MateTweak:
             shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
 
     def disable_mate_volume_applet(self):
+        return True # Temporarily do nothing.
+
         self.kill_process('mate-volume-control-applet')
 
         # If a system or user autostart exists, remove it.
@@ -877,8 +881,7 @@ class MateTweak:
         if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
             self.gnome_menu_available = True
 
-        if os.path.exists('/usr/lib/indicators/7/libapplication.so') and \
-           os.path.exists('/usr/lib/indicator-sound-gtk2/indicator-sound-service') and \
+        if os.path.exists('/usr/lib/indicators3/7/libapplication.so') and \
            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
             self.indicators_available = True
 
