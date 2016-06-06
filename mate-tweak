@@ -1189,9 +1189,11 @@ class MateTweak:
         panel_icon_sizes.append([_("22px"), "22px"])
         panel_icon_sizes.append([_("24px"), "24px"])
         panel_icon_sizes.append([_("32px"), "32px"])
-        panel_icon_sizes.append([_("48px"), "48px"])
+        panel_icon_sizes.append([_("48px"), "48px"])        
         #self.builder.get_object("combobox_panel_icon_size").set_model(panel_icon_sizes)
+        #self.init_combobox("org.mate.panel.menubar", "icon-size", "combobox_panel_icon_size")
         #self.builder.get_object("combobox_panel_menu_icon_sizes").set_model(panel_icon_sizes)
+        #self.init_combobox("org.mate.panel.menubar", "item-icon-size", "combobox_panel_menu_icon_sizes")
         #self.builder.get_object("caption_panel_icons").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
         #self.builder.get_object("combobox_panel_icons").set_tooltip_text(_("The new panel icon size will be activated on selection."))
 
