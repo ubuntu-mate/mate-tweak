@@ -806,6 +806,21 @@ class MateTweak:
             panel_layout = value
             self.replace_panel_layout(panel_layout)
 
+        elif schema == "org.mate.panel.menubar":
+            if key == "icon-size" or key == "item-icon-size":
+                leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
+                print(key + ': ' + value)
+                self.set_string("org.mate.panel.menubar", None, key, value)
+
+                if leds_enabled:
+                    self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
+
+                subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+
+                if leds_enabled:
+                    time.sleep(1)
+                    self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
+
     def combo_fallback(self, widget, schema, key):
         act = widget.get_active()
         value = widget.get_model()[act]
@@ -1190,10 +1205,10 @@ class MateTweak:
         panel_icon_sizes.append([_("24px"), "24px"])
         panel_icon_sizes.append([_("32px"), "32px"])
         panel_icon_sizes.append([_("48px"), "48px"])        
-        #self.builder.get_object("combobox_panel_icon_size").set_model(panel_icon_sizes)
-        #self.init_combobox("org.mate.panel.menubar", "icon-size", "combobox_panel_icon_size")
-        #self.builder.get_object("combobox_panel_menu_icon_sizes").set_model(panel_icon_sizes)
-        #self.init_combobox("org.mate.panel.menubar", "item-icon-size", "combobox_panel_menu_icon_sizes")
+        self.builder.get_object("combobox_panel_icon_size").set_model(panel_icon_sizes)
+        self.init_combobox("org.mate.panel.menubar", "icon-size", "combobox_panel_icon_size")
+        self.builder.get_object("combobox_panel_menu_icon_size").set_model(panel_icon_sizes)
+        self.init_combobox("org.mate.panel.menubar", "item-icon-size", "combobox_panel_menu_icon_size")
         #self.builder.get_object("caption_panel_icons").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
         #self.builder.get_object("combobox_panel_icons").set_tooltip_text(_("The new panel icon size will be activated on selection."))
 
