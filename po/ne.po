@@ -1,327 +1,363 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 12:50+0100\n"
+"POT-Creation-Date: 2016-05-20 18:24+0100\n"
 "PO-Revision-Date: 2016-05-20 11:54+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Nepali (http://www.transifex.com/mate/MATE/language/ne/)\n"
+"Language: ne\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ne\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:899
+#: ../mate-tweak:915
 msgid "Marco (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:901
+#: ../mate-tweak:917
 msgid "Marco (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:903
+#: ../mate-tweak:919
+msgid "Marco (No effects xcompmgr compositor)"
+msgstr ""
+
+#: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
 msgstr ""
 
-#: ../mate-tweak:905
+#: ../mate-tweak:923
 msgid "Metacity (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:907
+#: ../mate-tweak:925
 msgid "Metacity (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:909
+#: ../mate-tweak:927
+msgid "Metacity (No effects xcompmgr compositor)"
+msgstr ""
+
+#: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
 msgstr ""
 
-#: ../mate-tweak:911
+#: ../mate-tweak:931
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:913
+#: ../mate-tweak:933
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr ""
 
-#: ../mate-tweak:916
+#: ../mate-tweak:936
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
 msgstr ""
 
-#: ../mate-tweak:934
+#: ../mate-tweak:954
 msgid "Cupertino"
 msgstr ""
 
-#: ../mate-tweak:937
+#: ../mate-tweak:957
 msgid "Fedora"
 msgstr ""
 
-#: ../mate-tweak:940
+#: ../mate-tweak:960
 msgid "GNOME2"
 msgstr ""
 
-#: ../mate-tweak:943
+#: ../mate-tweak:963
 msgid "Linux Mint"
 msgstr ""
 
-#: ../mate-tweak:946
+#: ../mate-tweak:966
 msgid "Mageia"
 msgstr ""
 
-#: ../mate-tweak:951
+#: ../mate-tweak:971
 msgid "Mutiny"
 msgstr ""
 
-#: ../mate-tweak:954
+#: ../mate-tweak:974
 msgid "Netbook"
 msgstr ""
 
-#: ../mate-tweak:957
+#: ../mate-tweak:977
 msgid "openSUSE"
 msgstr ""
 
-#: ../mate-tweak:960
+#: ../mate-tweak:980
 msgid "Redmond"
 msgstr ""
 
-#: ../mate-tweak:963
+#: ../mate-tweak:983
 msgid "Ubuntu MATE"
 msgstr ""
 
-#: ../mate-tweak:966
+#: ../mate-tweak:986
 msgid "Wimpy"
 msgstr ""
 
-#: ../mate-tweak:1017
+#: ../mate-tweak:1040
 msgid "Desktop"
 msgstr "डेस्कटप"
 
-#: ../mate-tweak:1018
+#: ../mate-tweak:1041
 msgid "Interface"
 msgstr "इन्टरफेस"
 
-#: ../mate-tweak:1019
+#: ../mate-tweak:1042
+msgid "Panel"
+msgstr ""
+
+#: ../mate-tweak:1043
 msgid "Windows"
 msgstr "विन्डोज"
 
-#: ../mate-tweak:1062
+#: ../mate-tweak:1086
 msgid "MATE Tweak"
 msgstr ""
 
-#: ../mate-tweak:1065
+#: ../mate-tweak:1089
 msgid "Desktop icons"
 msgstr "डेस्कटप आइकनहरु"
 
-#: ../mate-tweak:1066
+#: ../mate-tweak:1090
 msgid "Performance"
 msgstr "कार्य प्रदर्शन"
 
-#: ../mate-tweak:1067
+#: ../mate-tweak:1091
 msgid "Window Behaviour"
 msgstr ""
 
-#: ../mate-tweak:1068
+#: ../mate-tweak:1092
 msgid "Appearance"
 msgstr "देखावट"
 
-#: ../mate-tweak:1069
+#: ../mate-tweak:1093
 msgid "Panels"
 msgstr ""
 
-#: ../mate-tweak:1070
+#: ../mate-tweak:1094
 msgid "Panel Features"
 msgstr ""
 
-#: ../mate-tweak:1071
+#: ../mate-tweak:1095
 msgid "Panel Menu Features"
 msgstr ""
 
-#: ../mate-tweak:1072
+#: ../mate-tweak:1096
 msgid "Icons"
 msgstr "आइकन्स"
 
-#: ../mate-tweak:1073
+#: ../mate-tweak:1097
 msgid "Context menus"
 msgstr "संदर्भ मेनुहरु"
 
-#: ../mate-tweak:1074
+#: ../mate-tweak:1098
 msgid "Toolbars"
 msgstr "औजारपट्टीहरू"
 
-#: ../mate-tweak:1075
+#: ../mate-tweak:1099
 msgid "Window manager"
 msgstr ""
 
-#: ../mate-tweak:1077
+#: ../mate-tweak:1101
 msgid "Select the Desktop Icons you want enabled:"
 msgstr ""
 
-#: ../mate-tweak:1078
+#: ../mate-tweak:1102
 msgid "Show Desktop Icons"
 msgstr ""
 
-#: ../mate-tweak:1079
+#: ../mate-tweak:1103
 msgid "Computer"
 msgstr "कम्प्युटर"
 
-#: ../mate-tweak:1080
+#: ../mate-tweak:1104
 msgid "Home"
 msgstr "गृह"
 
-#: ../mate-tweak:1081
+#: ../mate-tweak:1105
 msgid "Network"
 msgstr "नेटवर्क"
 
-#: ../mate-tweak:1082
+#: ../mate-tweak:1106
 msgid "Trash"
 msgstr "टोकरी"
 
-#: ../mate-tweak:1083
+#: ../mate-tweak:1107
 msgid "Mounted Volumes"
 msgstr "माउन्ट गरिएका भोलुमहरू"
 
-#: ../mate-tweak:1085
+#: ../mate-tweak:1109
 msgid "Enable animations"
 msgstr ""
 
-#: ../mate-tweak:1086
+#: ../mate-tweak:1110
 msgid "Do not show window content when moving windows"
 msgstr ""
 
-#: ../mate-tweak:1087
+#: ../mate-tweak:1111
 msgid "Window manager performance tuning."
 msgstr ""
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1113
 msgid "Enable window snapping"
 msgstr ""
 
-#: ../mate-tweak:1090
+#: ../mate-tweak:1114
 msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:1091
+#: ../mate-tweak:1115
 msgid "Do not auto-maximize new windows"
 msgstr ""
 
-#: ../mate-tweak:1093
+#: ../mate-tweak:1117
 msgid "Window control placement."
 msgstr ""
 
-#: ../mate-tweak:1095
+#: ../mate-tweak:1119
 msgid "Save Panel Layout"
 msgstr ""
 
-#: ../mate-tweak:1096
+#: ../mate-tweak:1120
 msgid "Enable indicators"
 msgstr ""
 
-#: ../mate-tweak:1097
+#: ../mate-tweak:1121
 msgid "Enable advanced menu"
 msgstr ""
 
-#: ../mate-tweak:1098
+#: ../mate-tweak:1122
 msgid "Enable keyboard LED"
 msgstr ""
 
-#: ../mate-tweak:1099
+#: ../mate-tweak:1123
 msgid "Enable launcher"
 msgstr ""
 
-#: ../mate-tweak:1100
+#: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
 msgstr ""
 
-#: ../mate-tweak:1102
+#: ../mate-tweak:1126
 msgid "Show Applications"
 msgstr ""
 
-#: ../mate-tweak:1103
+#: ../mate-tweak:1127
 msgid "Show Places"
 msgstr ""
 
-#: ../mate-tweak:1104
+#: ../mate-tweak:1128
 msgid "Show System"
 msgstr ""
 
-#: ../mate-tweak:1106
+#: ../mate-tweak:1130
 msgid "Show icons on menus"
 msgstr "मेनुहरुमा आइकनहरु देखाऊ"
 
-#: ../mate-tweak:1107
+#: ../mate-tweak:1131
 msgid "Show icons on buttons"
 msgstr "बटनहरुमा आइकनहरु देखाऊ"
 
-#: ../mate-tweak:1108
+#: ../mate-tweak:1132
 msgid "Show Input Methods menu in context menus"
 msgstr "सन्दर्भ मेनुमा इनपुट विधि मेनु देखाउनुहोस् !"
 
-#: ../mate-tweak:1109
+#: ../mate-tweak:1133
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "सन्दर्भ मेनुमा यूनिकोड नियन्त्रण क्यारेक्टर मेनु देखाउनुहोस् !"
 
-#: ../mate-tweak:1111
+#: ../mate-tweak:1135
 msgid "Style:"
 msgstr ""
 
-#: ../mate-tweak:1112
+#: ../mate-tweak:1136
 msgid "Icon size:"
 msgstr "आइकन आकार:"
 
-#: ../mate-tweak:1131
+#: ../mate-tweak:1155
 msgid "Small"
 msgstr "सानो"
 
-#: ../mate-tweak:1132
+#: ../mate-tweak:1156
 msgid "Large"
 msgstr "ठूलो"
 
-#: ../mate-tweak:1138
+#: ../mate-tweak:1162
 msgid "Traditional (Right)"
 msgstr ""
 
-#: ../mate-tweak:1139
+#: ../mate-tweak:1163
 msgid "Contemporary (Left)"
 msgstr ""
 
-#: ../mate-tweak:1145
+#: ../mate-tweak:1169
 msgid "The new window manager will be activated upon selection."
 msgstr ""
 
-#: ../mate-tweak:1146
+#: ../mate-tweak:1170
 msgid "Select a window manager."
 msgstr ""
 
-#: ../mate-tweak:1152
+#: ../mate-tweak:1176
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:1153
+#: ../mate-tweak:1177
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:1177
+#: ../mate-tweak:1184
+msgid "Default"
+msgstr ""
+
+#: ../mate-tweak:1185
+msgid "16px"
+msgstr ""
+
+#: ../mate-tweak:1186
+msgid "22px"
+msgstr ""
+
+#: ../mate-tweak:1187
+msgid "24px"
+msgstr ""
+
+#: ../mate-tweak:1188
+msgid "32px"
+msgstr ""
+
+#: ../mate-tweak:1189
+msgid "48px"
+msgstr ""
+
+#: ../mate-tweak:1214
 msgid "Text below items"
 msgstr "सामग्रीका तल अक्षर"
 
-#: ../mate-tweak:1178
+#: ../mate-tweak:1215
 msgid "Text beside items"
 msgstr "सामग्रीका संगै अक्षर"
 
-#: ../mate-tweak:1179
+#: ../mate-tweak:1216
 msgid "Icons only"
 msgstr "आइकनहरु मात्र"
 
-#: ../mate-tweak:1180
+#: ../mate-tweak:1217
 msgid "Text only"
 msgstr "अक्षरहरु मात्र"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Sveinn í Felli <sv1@fellsnet.is>, 2016
 # Sveinn í Felli <sveinki@nett.is>, 2009-2010
@@ -10,320 +10,357 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 12:50+0100\n"
+"POT-Creation-Date: 2016-05-20 18:24+0100\n"
 "PO-Revision-Date: 2016-05-20 11:54+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Icelandic (http://www.transifex.com/mate/MATE/language/is/)\n"
+"Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: is\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
 
-#: ../mate-tweak:899
+#: ../mate-tweak:915
 msgid "Marco (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:901
+#: ../mate-tweak:917
 msgid "Marco (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:903
+#: ../mate-tweak:919
+msgid "Marco (No effects xcompmgr compositor)"
+msgstr ""
+
+#: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
 msgstr ""
 
-#: ../mate-tweak:905
+#: ../mate-tweak:923
 msgid "Metacity (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:907
+#: ../mate-tweak:925
 msgid "Metacity (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:909
+#: ../mate-tweak:927
+msgid "Metacity (No effects xcompmgr compositor)"
+msgstr ""
+
+#: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
 msgstr ""
 
-#: ../mate-tweak:911
+#: ../mate-tweak:931
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (áferðarfallegar skjáborðsbrellur með GPU skjákortshröðun)"
 
-#: ../mate-tweak:913
+#: ../mate-tweak:933
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (þróaðar skjáborðsbrellur með GPU skjákortshröðun)"
 
-#: ../mate-tweak:916
+#: ../mate-tweak:936
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
 msgstr ""
 
-#: ../mate-tweak:934
+#: ../mate-tweak:954
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:937
+#: ../mate-tweak:957
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:940
+#: ../mate-tweak:960
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:943
+#: ../mate-tweak:963
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:946
+#: ../mate-tweak:966
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:951
+#: ../mate-tweak:971
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:954
+#: ../mate-tweak:974
 msgid "Netbook"
 msgstr "Fartölva"
 
-#: ../mate-tweak:957
+#: ../mate-tweak:977
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:960
+#: ../mate-tweak:980
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:963
+#: ../mate-tweak:983
 msgid "Ubuntu MATE"
 msgstr "Ubuntu MATE"
 
-#: ../mate-tweak:966
+#: ../mate-tweak:986
 msgid "Wimpy"
 msgstr ""
 
-#: ../mate-tweak:1017
+#: ../mate-tweak:1040
 msgid "Desktop"
 msgstr "Skjáborð"
 
-#: ../mate-tweak:1018
+#: ../mate-tweak:1041
 msgid "Interface"
 msgstr "Viðmót"
 
-#: ../mate-tweak:1019
+#: ../mate-tweak:1042
+#, fuzzy
+msgid "Panel"
+msgstr "Skjástikur"
+
+#: ../mate-tweak:1043
 msgid "Windows"
 msgstr "Gluggar"
 
-#: ../mate-tweak:1062
+#: ../mate-tweak:1086
 msgid "MATE Tweak"
 msgstr "MATE-fikt"
 
-#: ../mate-tweak:1065
+#: ../mate-tweak:1089
 msgid "Desktop icons"
 msgstr "Táknmyndir á skjáborði"
 
-#: ../mate-tweak:1066
+#: ../mate-tweak:1090
 msgid "Performance"
 msgstr "Afköst"
 
-#: ../mate-tweak:1067
+#: ../mate-tweak:1091
 msgid "Window Behaviour"
 msgstr "Hegðun glugga"
 
-#: ../mate-tweak:1068
+#: ../mate-tweak:1092
 msgid "Appearance"
 msgstr "Útlit"
 
-#: ../mate-tweak:1069
+#: ../mate-tweak:1093
 msgid "Panels"
 msgstr "Skjástikur"
 
-#: ../mate-tweak:1070
+#: ../mate-tweak:1094
 msgid "Panel Features"
 msgstr "Eiginleikar stiku"
 
-#: ../mate-tweak:1071
+#: ../mate-tweak:1095
 msgid "Panel Menu Features"
 msgstr ""
 
-#: ../mate-tweak:1072
+#: ../mate-tweak:1096
 msgid "Icons"
 msgstr "Táknmyndir"
 
-#: ../mate-tweak:1073
+#: ../mate-tweak:1097
 msgid "Context menus"
 msgstr "Samhengisvalmyndir"
 
-#: ../mate-tweak:1074
+#: ../mate-tweak:1098
 msgid "Toolbars"
 msgstr "Tækjaslár"
 
-#: ../mate-tweak:1075
+#: ../mate-tweak:1099
 msgid "Window manager"
 msgstr "Gluggastjóri"
 
-#: ../mate-tweak:1077
+#: ../mate-tweak:1101
 msgid "Select the Desktop Icons you want enabled:"
 msgstr ""
 
-#: ../mate-tweak:1078
+#: ../mate-tweak:1102
 msgid "Show Desktop Icons"
 msgstr ""
 
-#: ../mate-tweak:1079
+#: ../mate-tweak:1103
 msgid "Computer"
 msgstr "Tölva"
 
-#: ../mate-tweak:1080
+#: ../mate-tweak:1104
 msgid "Home"
 msgstr "Einkamappa"
 
-#: ../mate-tweak:1081
+#: ../mate-tweak:1105
 msgid "Network"
 msgstr "Netkerfi"
 
-#: ../mate-tweak:1082
+#: ../mate-tweak:1106
 msgid "Trash"
 msgstr "Rusl"
 
-#: ../mate-tweak:1083
+#: ../mate-tweak:1107
 msgid "Mounted Volumes"
 msgstr "Tengdar gagnahirslur"
 
-#: ../mate-tweak:1085
+#: ../mate-tweak:1109
 msgid "Enable animations"
 msgstr "Virkja hreyfingar"
 
-#: ../mate-tweak:1086
+#: ../mate-tweak:1110
 msgid "Do not show window content when moving windows"
 msgstr "Ekki sýna innihald glugga á meðan þeir eru dregnir"
 
-#: ../mate-tweak:1087
+#: ../mate-tweak:1111
 msgid "Window manager performance tuning."
 msgstr ""
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1113
 msgid "Enable window snapping"
 msgstr "Virkja grip glugga"
 
-#: ../mate-tweak:1090
+#: ../mate-tweak:1114
 msgid "Undecorate maximized windows"
 msgstr "Taka gluggaskreytingar af hámörkuðum gluggum"
 
-#: ../mate-tweak:1091
+#: ../mate-tweak:1115
 msgid "Do not auto-maximize new windows"
 msgstr "Ekki hámarka nýja glugga sjálfkrafa"
 
-#: ../mate-tweak:1093
+#: ../mate-tweak:1117
 msgid "Window control placement."
 msgstr "Staðsetning gluggastýringa."
 
-#: ../mate-tweak:1095
+#: ../mate-tweak:1119
 msgid "Save Panel Layout"
 msgstr "Vista framsetningu skjástiku"
 
-#: ../mate-tweak:1096
+#: ../mate-tweak:1120
 msgid "Enable indicators"
 msgstr ""
 
-#: ../mate-tweak:1097
+#: ../mate-tweak:1121
 msgid "Enable advanced menu"
 msgstr ""
 
-#: ../mate-tweak:1098
+#: ../mate-tweak:1122
 msgid "Enable keyboard LED"
 msgstr ""
 
-#: ../mate-tweak:1099
+#: ../mate-tweak:1123
 msgid "Enable launcher"
 msgstr ""
 
-#: ../mate-tweak:1100
+#: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
 msgstr ""
 
-#: ../mate-tweak:1102
+#: ../mate-tweak:1126
 msgid "Show Applications"
 msgstr ""
 
-#: ../mate-tweak:1103
+#: ../mate-tweak:1127
 msgid "Show Places"
 msgstr ""
 
-#: ../mate-tweak:1104
+#: ../mate-tweak:1128
 msgid "Show System"
 msgstr ""
 
-#: ../mate-tweak:1106
+#: ../mate-tweak:1130
 msgid "Show icons on menus"
 msgstr "Sýna táknmyndir í valmyndum"
 
-#: ../mate-tweak:1107
+#: ../mate-tweak:1131
 msgid "Show icons on buttons"
 msgstr "Sýnir táknmyndir á hnöppum"
 
-#: ../mate-tweak:1108
+#: ../mate-tweak:1132
 msgid "Show Input Methods menu in context menus"
 msgstr "Sýna inntaksaðferðavalmynd í samhengisvalmyndum"
 
-#: ../mate-tweak:1109
+#: ../mate-tweak:1133
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Sýna Unicode-stjórnstafavalmynd í samhengisvalmyndum"
 
-#: ../mate-tweak:1111
+#: ../mate-tweak:1135
 msgid "Style:"
 msgstr "Stíll:"
 
-#: ../mate-tweak:1112
+#: ../mate-tweak:1136
 msgid "Icon size:"
 msgstr "Stærð táknmynda:"
 
-#: ../mate-tweak:1131
+#: ../mate-tweak:1155
 msgid "Small"
 msgstr "Litlar"
 
-#: ../mate-tweak:1132
+#: ../mate-tweak:1156
 msgid "Large"
 msgstr "Stórar"
 
-#: ../mate-tweak:1138
+#: ../mate-tweak:1162
 msgid "Traditional (Right)"
 msgstr "Hefðbundinn stíll (hægra megin)"
 
-#: ../mate-tweak:1139
+#: ../mate-tweak:1163
 msgid "Contemporary (Left)"
 msgstr "Nútímalegur stíll (vinstra megin)"
 
-#: ../mate-tweak:1145
+#: ../mate-tweak:1169
 msgid "The new window manager will be activated upon selection."
 msgstr "Nýji gluggastjórinn verður notaður eftir næstu ræsingu."
 
-#: ../mate-tweak:1146
+#: ../mate-tweak:1170
 msgid "Select a window manager."
 msgstr "Veldu gluggastjóra."
 
-#: ../mate-tweak:1152
+#: ../mate-tweak:1176
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:1153
+#: ../mate-tweak:1177
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:1177
+#: ../mate-tweak:1184
+msgid "Default"
+msgstr ""
+
+#: ../mate-tweak:1185
+msgid "16px"
+msgstr ""
+
+#: ../mate-tweak:1186
+msgid "22px"
+msgstr ""
+
+#: ../mate-tweak:1187
+msgid "24px"
+msgstr ""
+
+#: ../mate-tweak:1188
+msgid "32px"
+msgstr ""
+
+#: ../mate-tweak:1189
+msgid "48px"
+msgstr ""
+
+#: ../mate-tweak:1214
 msgid "Text below items"
 msgstr "Texti fyrir neðan hluti"
 
-#: ../mate-tweak:1178
+#: ../mate-tweak:1215
 msgid "Text beside items"
 msgstr "Texti við hliðina á hlutum"
 
-#: ../mate-tweak:1179
+#: ../mate-tweak:1216
 msgid "Icons only"
 msgstr "Aðeins táknmyndir"
 
-#: ../mate-tweak:1180
+#: ../mate-tweak:1217
 msgid "Text only"
 msgstr "Bara texti"
