@@ -975,7 +975,7 @@
                           <object class="GtkComboBox" id="combobox_panel_menu_icon_size">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="tooltip_text" translatable="yes">The new panel layout will be activated on selection and destroy any customisations you might have made.</property>
+                            <property name="tooltip_text" translatable="yes">Set the icon size of menu items used in the panel.</property>
                             <property name="opacity">0.90196078431372551</property>
                             <property name="halign">start</property>
                             <property name="valign">center</property>
@@ -1105,7 +1105,7 @@
                           <object class="GtkComboBox" id="combobox_panel_icon_size">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="tooltip_text" translatable="yes">The new panel layout will be activated on selection and destroy any customisations you might have made.</property>
+                            <property name="tooltip_text" translatable="yes">Set the panel icon size.</property>
                             <property name="opacity">0.90196078431372551</property>
                             <property name="halign">start</property>
                             <property name="valign">center</property>
