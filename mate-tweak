@@ -621,8 +621,10 @@ class MateTweak:
            (new_layout.startswith('opensuse')) or \
            (new_layout.startswith('redmond')):
             self.builder.get_object('box_menu_features').props.sensitive = False
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
         else:
             self.builder.get_object('box_menu_features').props.sensitive = True
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
 
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
@@ -706,9 +708,11 @@ class MateTweak:
         if 'fresh' in self.current_layout:
             self.builder.get_object('checkbutton_advanced_menu').set_active(True)
             self.builder.get_object('box_menu_features').props.sensitive = False
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
         else:
             self.builder.get_object('checkbutton_advanced_menu').set_active(False)
             self.builder.get_object('box_menu_features').props.sensitive = True
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
 
         self.update_panel_layout_features(self.base_layout)
 
@@ -830,7 +834,8 @@ class MateTweak:
             if key == "icon-size" or key == "item-icon-size":
                 print(key + ': ' + value)
                 self.set_string("org.mate.panel.menubar", None, key, value)
-                self.replace_panel_layout(self.current_layout)
+                self.get_panel_layout()
+                self.replace_panel_layout(self.base_layout)
 
     def combo_fallback(self, widget, schema, key):
         act = widget.get_active()
@@ -1218,10 +1223,11 @@ class MateTweak:
         panel_icon_sizes.append([_("48px"), "48px"])        
         self.builder.get_object("combobox_panel_icon_size").set_model(panel_icon_sizes)
         self.init_combobox("org.mate.panel.menubar", "icon-size", "combobox_panel_icon_size")
+        self.builder.get_object("combobox_panel_icon_size").set_tooltip_text(_("Set the panel icon size."))
         self.builder.get_object("combobox_panel_menu_icon_size").set_model(panel_icon_sizes)
         self.init_combobox("org.mate.panel.menubar", "item-icon-size", "combobox_panel_menu_icon_size")
+        self.builder.get_object("combobox_panel_menu_icon_size").set_tooltip_text(_("Set the icon size of menu items used in the panel."))
         #self.builder.get_object("caption_panel_icons").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
-        #self.builder.get_object("combobox_panel_icons").set_tooltip_text(_("The new panel icon size will be activated on selection."))
 
         # Launcher
         self.builder.get_object("checkbutton_launcher").connect("toggled", self.toggle_launcher)
