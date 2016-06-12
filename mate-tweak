@@ -597,6 +597,8 @@ class MateTweak:
 
     def replace_panel_layout(self, panel_layout):
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
+        icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
+        item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
 
         self.update_panel_layout_features(panel_layout)
 
@@ -624,9 +626,13 @@ class MateTweak:
 
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
+
         self.kill_process('mate-panel')
+
+        # Reset the panel dconf tree.
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/toplevels/'], stdout=DEVNULL, stderr=DEVNULL)
+
         # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + new_layout)
@@ -634,6 +640,20 @@ class MateTweak:
             os.system(cmd)
         else:
             subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=DEVNULL, stderr=DEVNULL)
+
+        # Get the icon sizes now the new layout has been applied.
+        new_icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
+        new_item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
+
+        # If the new icon sizes are default and the icon sizes were
+        # previously set then restore the previous icon sizes.
+        if (new_icon_size == 'Default') and (icon_size != 'Default'):
+            print('Change icon-size')
+            self.set_string('org.mate.panel.menubar', None, 'icon-size', icon_size)
+
+        if (new_item_icon_size == 'Default') and (item_icon_size != 'Default'):
+            print('Change item-icon-size')
+            self.set_string('org.mate.panel.menubar', None, 'item-icon-size', item_icon_size)
 
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
@@ -808,18 +828,9 @@ class MateTweak:
 
         elif schema == "org.mate.panel.menubar":
             if key == "icon-size" or key == "item-icon-size":
-                leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
                 print(key + ': ' + value)
                 self.set_string("org.mate.panel.menubar", None, key, value)
-
-                if leds_enabled:
-                    self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
-
-                subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
-
-                if leds_enabled:
-                    time.sleep(1)
-                    self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
+                self.replace_panel_layout(self.current_layout)
 
     def combo_fallback(self, widget, schema, key):
         act = widget.get_active()
