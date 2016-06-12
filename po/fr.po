@@ -1,60 +1,58 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Nicolas Dobigeon <dobigeon@gmail.com>, 2015
 # Étienne Deparis <etienne@depar.is>, 2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # mauron, 2015-2016
-# Tubuntu <tubuntu@testimonium.be>, 2015
+# Tubuntu <tubuntu@testimonium.be>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-06-02 15:10+0000\n"
+"Last-Translator: Tubuntu <tubuntu@testimonium.be>\n"
 "Language-Team: French (http://www.transifex.com/mate/MATE/language/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../mate-tweak:915
 msgid "Marco (No compositor)"
-msgstr "Marco (sans composition)"
+msgstr "Marco (sans compositeur)"
 
 #: ../mate-tweak:917
 msgid "Marco (Software compositor)"
-msgstr "Marco (avec composition logicielle)"
+msgstr "Marco (avec compositeur logiciel)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (sans composition)"
+msgstr "Marco (sans compositeur d'effets Xcompmgr)"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
-msgstr "Marco (avec la composition GPU Compton)"
+msgstr "Marco (avec compositeur GPU Compton)"
 
 #: ../mate-tweak:923
 msgid "Metacity (No compositor)"
-msgstr "Metacity (sans composition)"
+msgstr "Metacity (sans compositeur)"
 
 #: ../mate-tweak:925
 msgid "Metacity (Software compositor)"
-msgstr "Metacity (avec composition logicielle)"
+msgstr "Metacity (avec compositeur logiciel)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (sans composition)"
+msgstr "Metacity (sans compositeur d'effets Xcompmgr)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
-msgstr "Metacity (avec la composition GPU Compton)"
+msgstr "Metacity (avec compositeur GPU Compton)"
 
 #: ../mate-tweak:931
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
@@ -68,10 +66,7 @@ msgstr "Compiz (effets de bureau avancés avec accélération graphique)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Vous utilisez actuellement un gestionnaire de fenêtres inconnu et non "
-"supporté. Aussi nous ne pouvons garantir que les changements effectués ici "
-"seront effectifs."
+msgstr "Vous utilisez actuellement un gestionnaire de fenêtres inconnu et non supporté. Aussi nous ne pouvons garantir que les changements effectués ici seront effectifs."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -126,9 +121,8 @@ msgid "Interface"
 msgstr "Interface"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Tableaux de bord"
+msgstr "Tableau de bord"
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -260,7 +254,7 @@ msgstr "Activer le lanceur"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Activer le terminal déroulant"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
@@ -324,41 +318,37 @@ msgstr "Choisir un gestionnaire des fenêtres."
 
 #: ../mate-tweak:1176
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Sélectionner une disposition de tableaux de bord pour modifier l'interface "
-"utilisateur."
+msgstr "Sélectionner une disposition de tableaux de bord pour modifier l'interface utilisateur."
 
 #: ../mate-tweak:1177
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"La nouvelle disposition du tableau de bord sera activée dès sélection et "
-"remplacera toutes les personnalisations que vous vous pourriez avoir faites."
+msgstr "La nouvelle disposition du tableau de bord sera activée dès sélection et remplacera toutes les personnalisations que vous vous pourriez avoir faites."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

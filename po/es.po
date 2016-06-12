@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Andres Sanchez <blackatze93@gmail.com>, 2015-2016
 # Angel Mireles <lamborghinilph710@gmail.com>, 2016
@@ -17,13 +17,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
+"PO-Revision-Date: 2016-05-20 17:25+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/mate/MATE/language/es/)\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:915
@@ -35,9 +35,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (Composición por software)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (Sin composición)"
+msgstr ""
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -52,9 +51,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity (Composición por software)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (Sin composición)"
+msgstr ""
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -72,10 +70,7 @@ msgstr "Compiz (efectos avanzados de escritorio acelerados por GPU)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Actualmente estas utilizando un gestor de ventanas desconocido y sin "
-"soporte. En consecuencia no podemos garantizar que los cambios realizados "
-"serán efectivos."
+msgstr "Actualmente estas utilizando un gestor de ventanas desconocido y sin soporte. En consecuencia no podemos garantizar que los cambios realizados serán efectivos."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -130,9 +125,8 @@ msgid "Interface"
 msgstr "Interfaz"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Paneles "
+msgstr ""
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -334,9 +328,7 @@ msgstr "Seleccione un diseño de panel para cambiar la interfaz de usuario."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"El nuevo diseño del panel se activará después de la selección y destruirá "
-"cualquier personalización que haya realizado."
+msgstr "El nuevo diseño del panel se activará después de la selección y destruirá cualquier personalización que haya realizado."
 
 #: ../mate-tweak:1184
 msgid "Default"

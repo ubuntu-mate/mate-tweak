@@ -1,25 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Hotellook, 2014
 # Ivica  Kolić <ikoli@yahoo.com>, 2015
+# Mislav E. Lukšić <meluksic@yahoo.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-05-29 12:13+0000\n"
+"Last-Translator: Mislav E. Lukšić <meluksic@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/mate/MATE/language/hr/)\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: ../mate-tweak:915
 msgid "Marco (No compositor)"
@@ -30,9 +30,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (softverski kompozitni upravitelj)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (bez kompozitnog upravitelja)"
+msgstr "Marco (kompozitni xcompmgr upravitelj bez efekata)"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -47,9 +46,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity (softverski kompozitni upravitelj)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (bez kompozitnog upravitelja)"
+msgstr "Metacity (kompozitni xcompmgr upravitelj bez efekata)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -57,8 +55,7 @@ msgstr "Metacity (kompozitni GPU upravitelj Compton)"
 
 #: ../mate-tweak:931
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
-"Mutter (elegantni i grafičkim procesorom ubrzani efekti radne površine)"
+msgstr "Mutter (elegantni i grafičkim procesorom ubrzani efekti radne površine)"
 
 #: ../mate-tweak:933
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
@@ -68,9 +65,7 @@ msgstr "Compiz (napredni i grafičkim procesorom ubrzani efekti radne površine)
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Trenutno koristiš nepoznati i nepodržani upravitelj prozora. Stoga ne možemo "
-"jamčiti da će ovdje učinjene promjene biti učinkovite."
+msgstr "Trenutno koristiš nepoznati i nepodržani upravitelj prozora. Stoga ne možemo jamčiti da će ovdje učinjene promjene biti učinkovite."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -125,9 +120,8 @@ msgid "Interface"
 msgstr "Sučelje"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Ploče"
+msgstr "Ploča"
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -259,7 +253,7 @@ msgstr "Omogući pokretača"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Omogući spuštajući terminal"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
@@ -329,33 +323,31 @@ msgstr "Odaberi izgled ploče za promjenu korisničkog sučelja."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Novi izgled ploče bit će pokrenut po odabiru i poništit će bilo kakve tvoje "
-"ranije poduzete prilagodbe."
+msgstr "Novi izgled ploče bit će pokrenut po odabiru i poništit će bilo kakve tvoje ranije poduzete prilagodbe."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Zadano"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16 tč"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22 tč"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24 tč"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32 tč"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48 tč"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

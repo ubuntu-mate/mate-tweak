@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Arif Budiman <arifpedia@gmail.com>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # hpiece 8 <hpiece8@gmail.com>, 2016
+# La Ode Muh. Fadlun Akbar <fadlun.net@gmail.com>, 2016
 # Willy Sudiarto Raharjo <willysr@slackware-id.org>, 2016
-# zk <zamani.karmana@gmail.com>, 2015
+# zk, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-06-04 19:03+0000\n"
+"Last-Translator: La Ode Muh. Fadlun Akbar <fadlun.net@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/mate/MATE/language/id/)\n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-tweak:915
@@ -31,9 +32,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (Software compositor)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (Tanpa compositor)"
+msgstr "Marco (Tanpa efek compositor xcompmgr)"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -48,9 +48,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity (Software compositor)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (Tanpa compositor)"
+msgstr "Metacity (Tanpa efek xcompmgr compositor)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -68,7 +67,7 @@ msgstr "Compiz (Efek desktop GPU terakselerasi tingkat lanjut)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "Anda sedang menggunakan pengelola jendela yang tidak diketahui dan tidak didukung. Jadi kami tidak dapat menjamin perubahan yang dilakukan di sini akan efektif."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -123,7 +122,6 @@ msgid "Interface"
 msgstr "Antarmuka"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
 msgstr "Panel"
 
@@ -161,7 +159,7 @@ msgstr "Fitur Panel"
 
 #: ../mate-tweak:1095
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "Fitur Menu Panel"
 
 #: ../mate-tweak:1096
 msgid "Icons"
@@ -177,7 +175,7 @@ msgstr "Batang Alat"
 
 #: ../mate-tweak:1099
 msgid "Window manager"
-msgstr "Manajer jendela"
+msgstr "Pengelola jendela"
 
 #: ../mate-tweak:1101
 msgid "Select the Desktop Icons you want enabled:"
@@ -217,7 +215,7 @@ msgstr "Sembunyikan konten jendela ketika memindahkan jendela"
 
 #: ../mate-tweak:1111
 msgid "Window manager performance tuning."
-msgstr "Tuning performa window manager."
+msgstr "Tuning performa pengelola jendela."
 
 #: ../mate-tweak:1113
 msgid "Enable window snapping"
@@ -253,23 +251,23 @@ msgstr "Aktifkan LED keyboard"
 
 #: ../mate-tweak:1123
 msgid "Enable launcher"
-msgstr "Aktifkan launcher"
+msgstr "Aktifkan peluncur"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Aktifkan terminal pull-down"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
-msgstr ""
+msgstr "Tampilkan Aplikasi"
 
 #: ../mate-tweak:1127
 msgid "Show Places"
-msgstr ""
+msgstr "Tampilkan Lokasi"
 
 #: ../mate-tweak:1128
 msgid "Show System"
-msgstr ""
+msgstr "Tampilkan Sistem"
 
 #: ../mate-tweak:1130
 msgid "Show icons on menus"
@@ -317,7 +315,7 @@ msgstr "Pengelola jendela yang baru akan diaktifkan ketika memilih"
 
 #: ../mate-tweak:1170
 msgid "Select a window manager."
-msgstr "Pilih manajer jendela."
+msgstr "Pilih pengelola jendela."
 
 #: ../mate-tweak:1176
 msgid "Select a panel layout to change the user interface."
@@ -327,33 +325,31 @@ msgstr "Pilih tata letak panel untuk mengubah antarmuka pengguna."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Tata letak panel yang baru akan diaktifkan ketika memilih dan menghancurkan "
-"semua penyesuaian yang mungkin telah anda buat."
+msgstr "Tata letak panel yang baru akan diaktifkan ketika memilih dan menghancurkan semua penyesuaian yang mungkin telah anda buat."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Standar"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

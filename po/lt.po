@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Moo, 2015-2016
@@ -10,15 +10,14 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-05-20 21:24+0000\n"
+"Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/mate/MATE/language/lt/)\n"
-"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../mate-tweak:915
 msgid "Marco (No compositor)"
@@ -29,9 +28,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (Programinės įrangos tvarkytojas)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (Be tvarkytojo)"
+msgstr "Marco (Be efektų xcompmgr tvarkytojas)"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -46,9 +44,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity (Programinės įrangos tvarkytojas)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (Be tvarkytojo)"
+msgstr "Metacity (Be efektų xcompmgr tvarkytojas)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -66,9 +63,7 @@ msgstr "Compiz (Išplėstiniai GPU paspartinami darbalaukio efektai)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Jūs šiuo metu naudojate nežinomą ir nepalaikomą langų tvarkytuvę. Dėl to, "
-"mes negalime garantuoti, kad čia atlikti pakeitimai ką nors įtakos."
+msgstr "Jūs šiuo metu naudojate nežinomą ir nepalaikomą langų tvarkytuvę. Dėl to, mes negalime garantuoti, kad čia atlikti pakeitimai ką nors įtakos."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -123,9 +118,8 @@ msgid "Interface"
 msgstr "Sąsaja"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Skydeliai"
+msgstr "Skydelis"
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -257,7 +251,7 @@ msgstr "Įjungti leistuką"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Įjungti išskleidžiamąjį terminalą"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
@@ -327,33 +321,31 @@ msgstr "Pasirinkite skydelio išdėstymą, kad pakeistumėte naudotojo sąsają.
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Naujas skydelio išdėstymas bus aktyvuojamas, pasirinkus, ir sunaikins bet "
-"kokį tinkinimą, kurį, galbūt, esate padarę."
+msgstr "Naujas skydelio išdėstymas bus aktyvuojamas, pasirinkus, ir sunaikins bet kokį tinkinimą, kurį, galbūt, esate padarę."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Numatytasis"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16tšk"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22tšk"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24tšk"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32tšk"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48tšk"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

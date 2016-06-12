@@ -1,24 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010,2015-2016
+# Mihail Varantsou <meequz@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-05-20 17:42+0000\n"
+"Last-Translator: Mihail Varantsou <meequz@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/mate/MATE/language/be/)\n"
-"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: be\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: ../mate-tweak:915
 msgid "Marco (No compositor)"
@@ -29,9 +28,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (праграмны кампазітынг)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (без кампазітынгу)"
+msgstr "Marco (без эфектаў, xcompmgr-кампазітынг)"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -46,9 +44,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity (праграмны кампазітынг)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (без кампазітынгу)"
+msgstr "Metacity (без эфектаў, xcompmgr-кампазітынг)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -66,9 +63,7 @@ msgstr "Compiz (багатыя эфекты на GPU)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Вы выкарыстоўваеце невядомы кіраўнік вокнаў. Ён не падтрымліваецца. Таму мы "
-"не можам гарантаваць, што змены, зробленыя тут, спрацуюць карэктна."
+msgstr "Вы выкарыстоўваеце невядомы кіраўнік вокнаў. Ён не падтрымліваецца. Таму мы не можам гарантаваць, што змены, зробленыя тут, спрацуюць карэктна."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -123,9 +118,8 @@ msgid "Interface"
 msgstr "Інтэрфейс"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Панэлі"
+msgstr "Панэль"
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -257,7 +251,7 @@ msgstr "Уключыць пускач"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Уключыць выпадны тэрмінал"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
@@ -327,33 +321,31 @@ msgstr "Выбар размяшчэння панэляў на стале"
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Новае размяшчэнне панэляў падзейнічае адразу пасля выбару і знішчыць усе "
-"ўласныя змены, што вы зрабілі."
+msgstr "Новае размяшчэнне панэляў падзейнічае адразу пасля выбару і знішчыць усе ўласныя змены, што вы зрабілі."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Стандартна"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16п"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22п"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24п"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32п"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48п"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

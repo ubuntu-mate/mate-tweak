@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # qazwsxedc <qazwsxedc@gmx.net>, 2016
@@ -11,13 +11,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-05-21 13:16+0000\n"
+"Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/mate/MATE/language/de/)\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:915
@@ -29,9 +29,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (Programmkomposit)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (kein Komposit)"
+msgstr "Marco (keine Effekte xcompmgr-Komposit)"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -46,32 +45,26 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity (Programmkomposit)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (kein Komposit)"
+msgstr "Metacity (keine Effekte xcompmgr-Komposit)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
-msgstr "Metacity (Compton-GPUKomposit)"
+msgstr "Metacity (Compton-GPU-Komposit)"
 
 #: ../mate-tweak:931
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
-"Mutter (anspruchsvolle Schreibtischeffekte mit Grafikkartenbeschleunigung)"
+msgstr "Mutter (anspruchsvolle Schreibtischeffekte mit Grafikkartenbeschleunigung)"
 
 #: ../mate-tweak:933
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
-"Compiz (anspruchsvolle Schreibtischeffekte mit Grafikkartenbeschleunigung)"
+msgstr "Compiz (anspruchsvolle Schreibtischeffekte mit Grafikkartenbeschleunigung)"
 
 #: ../mate-tweak:936
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Sie benutzen im Moment eine unbekannte und nicht unterstützte "
-"Fensterverwaltung. Deswegen können wir nicht garantieren, dass hier "
-"eingegebene Änderungen übernommen werden."
+msgstr "Sie benutzen im Moment eine unbekannte und nicht unterstützte Fensterverwaltung. Deswegen können wir nicht garantieren, dass hier eingegebene Änderungen übernommen werden."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -126,9 +119,8 @@ msgid "Interface"
 msgstr "Schnittstelle"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Leisten"
+msgstr "Leiste"
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -260,7 +252,7 @@ msgstr "Starter aktivieren"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Ausklapp-Terminal aktivieren"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
@@ -324,41 +316,37 @@ msgstr "Bitte eine Fensterverwaltung auswählen."
 
 #: ../mate-tweak:1176
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Bitte eine Leistenanordnung auswählen, um die Benutzerschnittstelle zu "
-"ändern."
+msgstr "Bitte eine Leistenanordnung auswählen, um die Benutzerschnittstelle zu ändern."
 
 #: ../mate-tweak:1177
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Die neue Leistenanordnung wird bei Auswahl aktiviert, alle eigenen "
-"Anpassungen werden verworfen."
+msgstr "Die neue Leistenanordnung wird bei Auswahl aktiviert, alle eigenen Anpassungen werden verworfen."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Vorgabe"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16 px"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22 px"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24 px"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32 px"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48 px"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

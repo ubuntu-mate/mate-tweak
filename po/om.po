@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013
 msgid ""
@@ -9,13 +9,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
+"PO-Revision-Date: 2016-05-20 17:25+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Oromo (http://www.transifex.com/mate/MATE/language/om/)\n"
-"Language: om\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: om\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:915
@@ -274,9 +274,7 @@ msgstr "Qabduurra sajoo agarsiisi"
 
 #: ../mate-tweak:1132
 msgid "Show Input Methods menu in context menus"
-msgstr ""
-"Tooftaalee galchaa baafatata halqara keessa agarsiisi (Show Input Methods "
-"menu in context menus)"
+msgstr "Tooftaalee galchaa baafatata halqara keessa agarsiisi (Show Input Methods menu in context menus)"
 
 #: ../mate-tweak:1133
 msgid "Show Unicode Control Character menu in context menus"

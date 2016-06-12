@@ -1,24 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Atilla Öntaş <tarakbumba@gmail.com>, 2016
 # Emre FIRAT <emrefirat93@gmail.com>, 2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # mauron, 2015-2016
+# Mehmet <mehmet337402@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-06-06 22:12+0000\n"
+"Last-Translator: Mehmet <mehmet337402@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/mate/MATE/language/tr/)\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../mate-tweak:915
@@ -30,9 +31,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (Yazılımsal kurgulama eklentisi)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (Kurgulama eklentisi yok)"
+msgstr "Marco (Xcompmgr efektleri kurgulama eklentisi yok) "
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -47,9 +47,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacitiy (Yazılımsal kurgulama eklentisi)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacitiy (Kurgulama eklentisi yok)"
+msgstr "Metacity (Xcompmgr efektleri kurgulama eklentisi yok)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -67,10 +66,7 @@ msgstr "Compiz (Gelişmiş, GPU ile hızlandırılmış masaüstü görgeleri)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Şu anda bilinmeyen ve desteklenmeyen bir pencere yöneticisi "
-"kullanmaktasınız. Bu nedenle burada yaptığınız değişikliklerin etkili "
-"olacağını garanti edemeyiz."
+msgstr "Şu anda bilinmeyen ve desteklenmeyen bir pencere yöneticisi kullanmaktasınız. Bu nedenle burada yaptığınız değişikliklerin etkili olacağını garanti edemeyiz."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -125,9 +121,8 @@ msgid "Interface"
 msgstr "Arayüz"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Paneller"
+msgstr "Panel"
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -259,7 +254,7 @@ msgstr "Başlatıcıyı etkinleştir"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Açılır uçbirimi etkinleştir"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
@@ -329,33 +324,31 @@ msgstr "Kullanıcı arayüzünü değiştirmek için panel düzeni seç."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Yeni panel düzeni seçimi üzerine devreye girecektir ve yapmış olduğunuz "
-"kişiselleştirmeleri yok edecektir."
+msgstr "Yeni panel düzeni seçimi üzerine devreye girecektir ve yapmış olduğunuz kişiselleştirmeleri yok edecektir."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Varsayılan"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

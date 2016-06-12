@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Oleksandr Blonskyi <olexandrb5@gmail.com>, 2016
 # Сергій Гаврилов <sergiovana@bigmir.net>, 2010
@@ -11,15 +11,14 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-05-28 05:24+0000\n"
+"Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/mate/MATE/language/uk/)\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../mate-tweak:915
 msgid "Marco (No compositor)"
@@ -30,9 +29,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (проґрамний керівник композитингом)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (без керівника композитингом)"
+msgstr "Marco („xcompmgr“ керівник композитингом без ефектів)"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -47,9 +45,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity (проґрамний керівник композитингом)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (без керівника композитингом)"
+msgstr "Metacity („xcompmgr“ керівник композитингом без ефектів)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -67,9 +64,7 @@ msgstr "Compiz (для потужних ГПП покращені ефекти �
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Ви використовуєте невідомий і непідтримуваний керівник вікнами. Немає "
-"запорук, що зміни, зроблені тут, будуть мати ефект."
+msgstr "Ви використовуєте невідомий і непідтримуваний керівник вікнами. Немає запорук, що зміни, зроблені тут, будуть мати ефект."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -124,9 +119,8 @@ msgid "Interface"
 msgstr "Інтерфейс"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Панелі"
+msgstr "Панель"
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -226,7 +220,7 @@ msgstr "Увімкнути прив'язку вікон"
 
 #: ../mate-tweak:1114
 msgid "Undecorate maximized windows"
-msgstr "Усунути декорації з розгорнутих вікон"
+msgstr "Усунути оздобу з розгорнутих вікон"
 
 #: ../mate-tweak:1115
 msgid "Do not auto-maximize new windows"
@@ -254,7 +248,7 @@ msgstr "Увімкнути підсвічування набірниці"
 
 #: ../mate-tweak:1123
 msgid "Enable launcher"
-msgstr "Увімкнути лаунчер"
+msgstr "Увімкнути пускача"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
@@ -328,33 +322,31 @@ msgstr "Оберіть конфігурацію панелів, щоб змін�
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Нове розташування панелів після їх активації знищить усі зміни які Ви внесли "
-"до цього."
+msgstr "Нове розташування панелів після їх активації знищить усі зміни які Ви внесли до цього."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Типово"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16пікс"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22пікс"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24пікс"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32пікс"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48пікс"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

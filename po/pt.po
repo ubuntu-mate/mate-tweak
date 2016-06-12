@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # crolidge, 2015
 # Diogo Oliveira <diogodesigns@gmail.com>, 2015
@@ -12,13 +12,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
+"PO-Revision-Date: 2016-05-20 17:25+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/mate/MATE/language/pt/)\n"
-"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:915
@@ -317,16 +317,13 @@ msgstr "Selecione um gestor de janelas."
 
 #: ../mate-tweak:1176
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Selecione uma disposição de painel para mudar a interface de utilizador."
+msgstr "Selecione uma disposição de painel para mudar a interface de utilizador."
 
 #: ../mate-tweak:1177
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"A nova disposição do painel será ativada na seleção e apagará qualquer "
-"personalização que tenha feito."
+msgstr "A nova disposição do painel será ativada na seleção e apagará qualquer personalização que tenha feito."
 
 #: ../mate-tweak:1184
 msgid "Default"

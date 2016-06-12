@@ -1,9 +1,10 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Falu, 2015
+# Falu <info@falu.me>, 2016
+# Falu <info@falu.me>, 2015
 # kami911 <kami911@gmail.com>, 2016
 # Rezső Páder <rezso@rezso.net>, 2015-2016
 msgid ""
@@ -11,13 +12,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-05-20 18:56+0000\n"
+"Last-Translator: Falu <info@falu.me>\n"
 "Language-Team: Hungarian (http://www.transifex.com/mate/MATE/language/hu/)\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:915
@@ -29,9 +30,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (szoftver kompozitáló)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (nincs kompozitáló)"
+msgstr "Marco (effektek nélküli xcompmgr kompozitáló)"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -46,9 +46,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity (szoftver kompozitáló)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (nincs kompozitáló)"
+msgstr "Metacity (effektek nélküli xcompmgr kompozitáló)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -66,9 +65,7 @@ msgstr "Compiz (bővített, GPU gyorsítást használó asztali effektusok)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Ismeretlen, nem támogatott ablakkezelő van használatban. Nem garantált, hogy "
-"az itt beállított módosítások működni fognak."
+msgstr "Ismeretlen, nem támogatott ablakkezelő van használatban. Nem garantált, hogy az itt beállított módosítások működni fognak."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -123,9 +120,8 @@ msgid "Interface"
 msgstr "Felület"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Panelek"
+msgstr "Panel"
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -257,7 +253,7 @@ msgstr "Indítóikon engedélyezése"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Legördülő terminál engedélyezése"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
@@ -321,40 +317,37 @@ msgstr "Ablakkezelő kiválasztása"
 
 #: ../mate-tweak:1176
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Válassza ki a panel elrendezését a felhasználói felület megváltoztatásához."
+msgstr "Válassza ki a panel elrendezését a felhasználói felület megváltoztatásához."
 
 #: ../mate-tweak:1177
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Az új panel elrendezés a kiválasztás után aktiválva lesz, ezzel elvesznek az "
-"eddigi testreszabások."
+msgstr "Az új panel elrendezés a kiválasztás után aktiválva lesz, ezzel elvesznek az eddigi testreszabások."
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "Alapértelmezett"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

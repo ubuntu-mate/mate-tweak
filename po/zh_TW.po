@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Jeff Huang <s8321414@gmail.com>, 2015-2016
@@ -10,14 +10,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/mate/MATE/language/"
-"zh_TW/)\n"
-"Language: zh_TW\n"
+"PO-Revision-Date: 2016-05-21 03:11+0000\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/mate/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-tweak:915
@@ -29,9 +28,8 @@ msgid "Marco (Software compositor)"
 msgstr "Marco（軟體合成器）"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco（無合成器）"
+msgstr "Marco（無特效的 xcompmgr 合成器）"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
@@ -46,9 +44,8 @@ msgid "Metacity (Software compositor)"
 msgstr "Metacity（軟體合成器）"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity（無合成器）"
+msgstr "Metacity（無特效的 xcompmgr 合成器）"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
@@ -66,9 +63,7 @@ msgstr "Compiz（進階的顯示卡加速的桌面效果）"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"您目前正在使用未知且不支援的視窗管理員。所以我們無法保證做出的變更一定會生"
-"效。"
+msgstr "您目前正在使用未知且不支援的視窗管理員。所以我們無法保證做出的變更一定會生效。"
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -123,7 +118,6 @@ msgid "Interface"
 msgstr "介面"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
 msgstr "面板"
 
@@ -257,7 +251,7 @@ msgstr "啟用啟動器"
 
 #: ../mate-tweak:1124
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "啟用下拉式終端機"
 
 #: ../mate-tweak:1126
 msgid "Show Applications"
@@ -331,27 +325,27 @@ msgstr "新的面板佈局將會在選取後啟用，並且會破壞任何您先
 
 #: ../mate-tweak:1184
 msgid "Default"
-msgstr ""
+msgstr "預設值"
 
 #: ../mate-tweak:1185
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1186
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1187
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1188
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1189
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1214
 msgid "Text below items"

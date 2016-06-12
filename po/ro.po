@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Daniel <danny34ever@yahoo.com>, 2015-2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Polihron Alexandru (APoliTech) <ppolihron@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 18:24+0100\n"
-"PO-Revision-Date: 2016-05-20 11:54+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-05-29 10:48+0000\n"
+"Last-Translator: Polihron Alexandru (APoliTech) <ppolihron@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/mate/MATE/language/ro/)\n"
-"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
-"2:1));\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #: ../mate-tweak:915
 msgid "Marco (No compositor)"
@@ -29,46 +29,42 @@ msgid "Marco (Software compositor)"
 msgstr "Marco (Compozitor software)"
 
 #: ../mate-tweak:919
-#, fuzzy
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (Fără compozitor)"
+msgstr "Marco (Fără efecte xcompmgr compozitor )"
 
 #: ../mate-tweak:921
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (Compton GPU compozitor)"
 
 #: ../mate-tweak:923
 msgid "Metacity (No compositor)"
-msgstr ""
+msgstr "Metacity (Fara compozitor)"
 
 #: ../mate-tweak:925
 msgid "Metacity (Software compositor)"
-msgstr ""
+msgstr "Metacity (Compozitor software)"
 
 #: ../mate-tweak:927
-#, fuzzy
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Marco (Compozitor software)"
+msgstr "Metacity (Fara efecte xcompmgr compozitor)"
 
 #: ../mate-tweak:929
 msgid "Metacity (Compton GPU compositor)"
-msgstr ""
+msgstr "Metacity (Compton GPU compozitor)"
 
 #: ../mate-tweak:931
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
-"Mutter (efecte elegante pentru spațiul de lucru, accelerate de placa video)"
+msgstr "Mutter (efecte elegante pentru spațiul de lucru, accelerate de placa video)"
 
 #: ../mate-tweak:933
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
-"Compiz (efecte avansate pentru spațiul de lucru, accelerate de placa video)"
+msgstr "Compiz (efecte avansate pentru spațiul de lucru, accelerate de placa video)"
 
 #: ../mate-tweak:936
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "În prezent, utilizați un manager de ferestre necunoscute și neacceptat. Astfel, nu putem garanta că modificările făcute aici vor fi eficiente."
 
 #: ../mate-tweak:954
 msgid "Cupertino"
@@ -123,9 +119,8 @@ msgid "Interface"
 msgstr "Interfață"
 
 #: ../mate-tweak:1042
-#, fuzzy
 msgid "Panel"
-msgstr "Panouri"
+msgstr ""
 
 #: ../mate-tweak:1043
 msgid "Windows"
@@ -321,17 +316,13 @@ msgstr "Selectați un administrator de ferestre."
 
 #: ../mate-tweak:1176
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Selectați un aranjament al panourilor pentru a schimba interfața cu "
-"utilizatorul."
+msgstr "Selectați un aranjament al panourilor pentru a schimba interfața cu utilizatorul."
 
 #: ../mate-tweak:1177
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Noul aranjament al panourilor va fi activat la selectare și va distruge "
-"orice personalizări ați fi făcut"
+msgstr "Noul aranjament al panourilor va fi activat la selectare și va distruge orice personalizări ați fi făcut"
 
 #: ../mate-tweak:1184
 msgid "Default"
