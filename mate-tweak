@@ -1220,14 +1220,17 @@ class MateTweak:
         panel_icon_sizes.append([_("22px"), "22px"])
         panel_icon_sizes.append([_("24px"), "24px"])
         panel_icon_sizes.append([_("32px"), "32px"])
-        panel_icon_sizes.append([_("48px"), "48px"])        
+        panel_icon_sizes.append([_("48px"), "48px"])
+
         self.builder.get_object("combobox_panel_icon_size").set_model(panel_icon_sizes)
         self.init_combobox("org.mate.panel.menubar", "icon-size", "combobox_panel_icon_size")
         self.builder.get_object("combobox_panel_icon_size").set_tooltip_text(_("Set the panel icon size."))
+        self.builder.get_object("caption_panel_icon_size").set_markup("<small>" + _("Select the icon size for panel icons.") + "</small>")
+
         self.builder.get_object("combobox_panel_menu_icon_size").set_model(panel_icon_sizes)
         self.init_combobox("org.mate.panel.menubar", "item-icon-size", "combobox_panel_menu_icon_size")
         self.builder.get_object("combobox_panel_menu_icon_size").set_tooltip_text(_("Set the icon size of menu items used in the panel."))
-        #self.builder.get_object("caption_panel_icons").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
+        self.builder.get_object("caption_panel_menu_icon_size").set_markup("<small>" + _("Select the icon size for menu items in the panel.") + "</small>")
 
         # Launcher
         self.builder.get_object("checkbutton_launcher").connect("toggled", self.toggle_launcher)
