@@ -29,6 +29,7 @@ import psutil
 import shutil
 import signal
 import subprocess
+import sysconfig
 import string
 import sys
 import time
@@ -76,6 +77,28 @@ Type=Application
 Categories=GNOME;GTK;System;Utility;TerminalEmulator;
 X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true"""
+
+__INDICATOR_APPLICATION__ = """[Desktop Entry]
+Type=Application
+Name=Indicator Application
+Exec=/usr/lib/MULTIARCH/indicator-application/indicator-application-service
+StartupNotify=false
+Terminal=false
+OnlyShowIn=MATE
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true
+"""
+
+__INDICATOR_SOUND__ = """[Desktop Entry]
+Type=Application
+Name=Indicator Sound
+Exec=/usr/lib/MULTIARCH/indicator-sound/indicator-sound-service
+StartupNotify=false
+Terminal=false
+OnlyShowIn=MATE
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true
+"""
 
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
@@ -537,28 +560,48 @@ class MateTweak:
 
         self.pulldown_terminal_enabled = False
 
-    def enable_mate_volume_applet(self):
-        return True # Temporarily do nothing.
-
+    def disable_indicators(self):
+        self.kill_process('indicator-sound-service')
+        self.kill_process('indicator-application-service')
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
-        # If the system autostart is missing create a user autostart.
+        # Create mate-volume-control-applet autostart.
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             config_dir = GLib.get_user_config_dir()
             self.mkdir_p(os.path.join(config_dir, 'autostart/'))
             shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
 
-    def disable_mate_volume_applet(self):
-        return True # Temporarily do nothing.
+        # Remove indicator autostart files
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-application.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + 'indicator-application.desktop')
 
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop')
+
+    def enable_indicators(self):
         self.kill_process('mate-volume-control-applet')
+        subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'], stdout=DEVNULL, stderr=DEVNULL)
 
-        # If a system or user autostart exists, remove it.
+        # Remove mate-volume-applet autostart.
         config_dir = GLib.get_user_config_dir()
         if os.path.exists(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop'):
             os.remove(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
+
+        # Create indicator autostart files
+        indicator_application_autostart = __INDICATOR_APPLICATION__.replace('MULTIARCH', self.multiarch)
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        if not os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-application.desktop'):
+            with open(os.path.join(config_dir, 'autostart/') + 'indicator-application.desktop','w') as autostart:
+                autostart.write(indicator_application_autostart)
+
+        indicator_sound_autostart = __INDICATOR_SOUND__.replace('MULTIARCH', self.multiarch)
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        if not os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop'):
+            with open(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop','w') as autostart:
+                autostart.write(indicator_sound_autostart)
 
     def toggle_desktop_icons_sensitiveness(self):
         sensitiveness = self.builder.get_object("checkbox_show_icons").get_active()
@@ -659,13 +702,13 @@ class MateTweak:
 
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
-        # Indicator enabled layouts auto-load the sound-indicator.
-        # Therefore, make sure mate-volume-control-applet is killed or
-        # started accordingly.
+        # If the panel layout is Indicator enabled
+        # indicator-application-service and indicator-sound-service need
+        # starting and mate-volume-control-applet must be stopped.
         if self.panel_layout_uses_indicators(new_layout):
-            self.disable_mate_volume_applet()
+            self.enable_indicators()
         else:
-            self.enable_mate_volume_applet()
+            self.disable_indicators()
 
         thumbnail_schema_id = "org.compiz.thumbnail"
         thumbnail_profile_path = '/org/compiz/profiles/mate/plugins/thumbnail/'
@@ -913,6 +956,8 @@ class MateTweak:
             self.gnome_menu_available = True
 
         if os.path.exists('/usr/lib/indicators3/7/libapplication.so') and \
+           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service') and \
+           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service') and \
            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
             self.indicators_available = True
 
@@ -1050,6 +1095,7 @@ class MateTweak:
     ''' Create the UI '''
     def __init__(self):
         # Check for glx, panel, dock and wm features
+        self.multiarch = sysconfig.get_config_var('MULTIARCH')
         self.check_glx_features()
         self.check_dock_features()
         self.check_launcher_features()
