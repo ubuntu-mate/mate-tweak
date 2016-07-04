@@ -101,6 +101,17 @@ X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true
 """
 
+__INDICATOR_MESSAGES__ = """[Desktop Entry]
+Type=Application
+Name=Indicator Sound
+Exec=/usr/lib/MULTIARCH/indicator-messages/indicator-messages-service
+StartupNotify=false
+Terminal=false
+OnlyShowIn=MATE
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true
+"""
+
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
 
@@ -546,6 +557,7 @@ class MateTweak:
         self.pulldown_terminal_enabled = False
 
     def disable_indicators(self):
+        self.kill_process('indicator-messages-service')
         self.kill_process('indicator-sound-service')
         self.kill_process('indicator-application-service')
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
@@ -563,10 +575,14 @@ class MateTweak:
         if os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop'):
             os.remove(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop')
 
+        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-messages.desktop'):
+            os.remove(os.path.join(config_dir, 'autostart/') + 'indicator-messages.desktop')
+
     def enable_indicators(self):
         self.kill_process('mate-volume-control-applet')
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Remove mate-volume-applet autostart.
         config_dir = GLib.get_user_config_dir()
@@ -587,6 +603,12 @@ class MateTweak:
         if not os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop'):
             with open(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop','w') as autostart:
                 autostart.write(indicator_sound_autostart)
+
+        indicator_messages_autostart = __INDICATOR_MESSAGES__.replace('MULTIARCH', self.multiarch)
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        if not os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-messages.desktop'):
+            with open(os.path.join(config_dir, 'autostart/') + 'indicator-messages.desktop','w') as autostart:
+                autostart.write(indicator_messages_autostart)
 
     def toggle_desktop_icons_sensitiveness(self):
         sensitiveness = self.builder.get_object("checkbox_show_icons").get_active()
@@ -943,6 +965,7 @@ class MateTweak:
         if os.path.exists('/usr/lib/indicators3/7/libapplication.so') and \
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service') and \
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service') and \
+           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service') and \
            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
             self.indicators_available = True
 
