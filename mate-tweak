@@ -70,7 +70,7 @@ Icon=synapse"""
 
 __TILDA__ = """[Desktop Entry]
 Name=Tilda
-Exec=/usr/lib/ubuntu-mate/ubuntu-mate-tilda
+Exec=tilda
 Icon=utilities-terminal
 Terminal=false
 Type=Application
