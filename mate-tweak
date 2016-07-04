@@ -58,7 +58,7 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '16.10.2'
+__VERSION__ = '16.10.3'
 
 __SYNAPSE__ = """[Desktop Entry]
 Name=Synapse
