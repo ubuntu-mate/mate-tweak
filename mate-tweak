@@ -572,9 +572,9 @@ class MateTweak:
         self.kill_process('indicator-application-service')
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
+        config_dir = GLib.get_user_config_dir()
         # Create mate-volume-control-applet autostart.
-        if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            config_dir = GLib.get_user_config_dir()
+        if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):            
             self.mkdir_p(os.path.join(config_dir, 'autostart/'))
             shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
 
