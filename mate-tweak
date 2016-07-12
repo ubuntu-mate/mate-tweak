@@ -461,6 +461,16 @@ class MateTweak:
         if os.path.exists(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop'):
             os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')
 
+    def enable_hud(self):
+        self.set_bool('org.mate.hud', None, 'enabled', True)
+        subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL)
+        self.hud_enabled = True
+
+    def disable_hud(self):
+        self.set_bool('org.mate.hud', None, 'enabled', False)
+        self.kill_process('mate-hud')
+        self.hud_enabled = False
+
     def enable_dock(self):
         self.set_string('org.mate.session.required-components', None, 'dock', self.dock)
         self.remove_dock_autostart()
@@ -793,6 +803,12 @@ class MateTweak:
         else:
             self.disable_pulldown_terminal()
 
+    def toggle_hud(self, checkbutton):
+        if checkbutton.get_active():
+            self.enable_hud()
+        else:
+            self.disable_hud()
+
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
 
@@ -946,6 +962,15 @@ class MateTweak:
             self.pulldown_terminal_enabled = True
         else:
             self.pulldown_terminal_enabled = False
+
+    def check_hud_features(self):
+        if os.path.exists('/usr/lib/mate-hud/mate-hud') and \
+           os.path.exists('/usr/lib/mate-hud/mate-hud-service'):
+            self.hud_available = True
+            self.hud_enabled = self.get_bool('org.mate.hud', None, 'enabled')
+        else:
+            self.hud_available = False
+            self.hud_enabled = False
 
     def check_panel_features(self):
         # Determine what panel features are available
@@ -1108,6 +1133,7 @@ class MateTweak:
         self.check_dock_features()
         self.check_launcher_features()
         self.check_pulldown_terminal_features()
+        self.check_hud_features()
         self.check_panel_features()
         self.check_wm_features()
         self.previous_wm = self.current_wm
@@ -1209,6 +1235,7 @@ class MateTweak:
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
+        self.builder.get_object("checkbutton_hud").set_label(_("Enable HUD"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_label(_("Enable pull-down terminal"))
 
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
@@ -1297,6 +1324,12 @@ class MateTweak:
         self.builder.get_object("checkbutton_pulldown_terminal").set_active(self.pulldown_terminal_enabled)
         if not self.pulldown_terminal:
             self.builder.get_object('checkbutton_pulldown_terminal').props.sensitive = False
+
+        # HUD
+        self.builder.get_object("checkbutton_hud").connect("toggled", self.toggle_hud)
+        self.builder.get_object("checkbutton_hud").set_active(self.hud_enabled)
+        if not self.hud_available:
+            self.builder.get_object('checkbutton_hud').props.sensitive = False
 
         # Panel Menu features
         self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
