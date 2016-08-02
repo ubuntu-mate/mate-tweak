@@ -8,3 +8,4 @@ Categories=GTK;Settings;DesktopSettings;
 StartupNotify=false
 OnlyShowIn=MATE;
 Keywords=MATE;desktop;marco;compiz;theming;customize;fine;tune;tweak;adapt;
+Comment=Customize desktop, panel, and window manager options
