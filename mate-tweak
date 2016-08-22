@@ -58,7 +58,7 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '16.10.4'
+__VERSION__ = '16.10.5'
 
 __SYNAPSE__ = """[Desktop Entry]
 Name=Synapse
@@ -376,10 +376,10 @@ class MateTweak:
                 self.set_string('org.gnome.desktop.interface', None, 'cursor-theme', mate_cursor_theme)
                 self.set_int('org.gnome.desktop.interface', None, 'cursor-size', mate_cursor_size)
 
-            # metacity >= 3.16 - this schema may not be installed
-            metacity_schema = schemasource.lookup('org.gnome.metacity', False)
+            # metacity >= 3.20 - this schema may not be installed
+            metacity_schema = schemasource.lookup('org.gnome.metacity.theme', False)
             if metacity_schema:
-                self.set_string('org.gnome.metacity', None, 'theme', mate_theme)
+                self.set_string('org.gnome.metacity.theme', None, 'name', mate_theme)
 
         # If switching away from a compton or xcompmgr composited window
         # manager kill compton.
