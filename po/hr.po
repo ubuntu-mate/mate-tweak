@@ -1,26 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Hotellook, 2014
-# Ivica  Kolić <ikoli@yahoo.com>, 2015
-# Mislav E. Lukšić <meluksic@yahoo.com>, 2016
+# Ivica  Kolić <ikoli@yahoo.com>, 2015-2016
+# Elvis M. Lukšić <meluksic@yahoo.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-29 12:13+0000\n"
-"Last-Translator: Mislav E. Lukšić <meluksic@yahoo.com>\n"
+"PO-Revision-Date: 2016-09-06 15:03+0000\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/mate/MATE/language/hr/)\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: ../mate-tweak:949
 msgid "Marco (No compositor)"
@@ -56,8 +55,7 @@ msgstr "Metacity (kompozitni GPU upravitelj Compton)"
 
 #: ../mate-tweak:965
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
-"Mutter (elegantni i grafičkim procesorom ubrzani efekti radne površine)"
+msgstr "Mutter (elegantni i grafičkim procesorom ubrzani efekti radne površine)"
 
 #: ../mate-tweak:967
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
@@ -67,9 +65,7 @@ msgstr "Compiz (napredni i grafičkim procesorom ubrzani efekti radne površine)
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Trenutno koristiš nepoznati i nepodržani upravitelj prozora. Stoga ne možemo "
-"jamčiti da će ovdje učinjene promjene biti učinkovite."
+msgstr "Trenutno koristiš nepoznati i nepodržani upravitelj prozora. Stoga ne možemo jamčiti da će ovdje učinjene promjene biti učinkovite."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -327,9 +323,7 @@ msgstr "Odaberi izgled ploče za promjenu korisničkog sučelja."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Novi izgled ploče bit će pokrenut po odabiru i poništit će bilo kakve tvoje "
-"ranije poduzete prilagodbe."
+msgstr "Novi izgled ploče bit će pokrenut po odabiru i poništit će bilo kakve tvoje ranije poduzete prilagodbe."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -357,19 +351,19 @@ msgstr "48 tč"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Postavi veličinu ikona ploče."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Izaberite veličinu ikona za ikone ploče."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Postavi veličinu ikona stavki izbornika korištenih na ploči."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Izaberite veličinu ikona za stavke izbornika na. ploči."
 
 #: ../mate-tweak:1254
 msgid "Text below items"

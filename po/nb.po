@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Allan Nordhøy <epost@anotheragency.no>, 2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Harald H. <haarektrans@gmail.com>, 2016
 # Kenneth Jenssen <kennethjenssen@yahoo.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
-"Language-Team: Norwegian Bokmål (http://www.transifex.com/mate/MATE/language/"
-"nb/)\n"
-"Language: nb\n"
+"PO-Revision-Date: 2016-11-19 14:45+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål (http://www.transifex.com/mate/MATE/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -31,7 +31,7 @@ msgstr "Marco (Vindubehandlingseffekter i programvare)"
 
 #: ../mate-tweak:953
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Marco (xcompmgr-vindushåndterer uten effekter)"
 
 #: ../mate-tweak:955
 msgid "Marco (Compton GPU compositor)"
@@ -47,7 +47,7 @@ msgstr "Metacity (Vindubehandlingseffekter i programvare)"
 
 #: ../mate-tweak:961
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Metacity (xcompmgr-vindushåndterer uten effekter)"
 
 #: ../mate-tweak:963
 msgid "Metacity (Compton GPU compositor)"
@@ -65,9 +65,7 @@ msgstr "Compiz (avanserte GPU-aksellererte skrivebordseffekter)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Du bruker nå en ukjent og ustøttet vindusbehandler. Det kan ikke garanteres "
-"at endringer gjort her vil trå i kraft."
+msgstr "Du bruker nå en ukjent og ustøttet vindusbehandler. Det kan ikke garanteres at endringer gjort her vil trå i kraft."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -123,7 +121,7 @@ msgstr "Grensesnitt"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../mate-tweak:1077
 msgid "Windows"
@@ -179,11 +177,11 @@ msgstr "Vindusbehandler"
 
 #: ../mate-tweak:1135
 msgid "Select the Desktop Icons you want enabled:"
-msgstr "Velg skrivebordsminiatyrbildene du ønsker å ha påslått:"
+msgstr "Velg skrivebordsikonene du ønsker å ha påslått:"
 
 #: ../mate-tweak:1136
 msgid "Show Desktop Icons"
-msgstr "Vis miniatyrbilder på skrivebordet"
+msgstr "Vis skrivebordsikoner"
 
 #: ../mate-tweak:1137
 msgid "Computer"
@@ -255,7 +253,7 @@ msgstr "Skru på oppstarter"
 
 #: ../mate-tweak:1158
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Aktiver nedfellbar terminal"
 
 #: ../mate-tweak:1160
 msgid "Show Applications"
@@ -325,49 +323,47 @@ msgstr "Velg et paneloppsett for å endre brukergrensesnittet."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Det nye paneloppsettet vil bli aktivert ved utvelgelse og ødelegge "
-"eventuelle tilpasninger du måtte ha gjort."
+msgstr "Det nye paneloppsettet vil bli aktivert ved utvelgelse og ødelegge eventuelle tilpasninger du måtte ha gjort."
 
 #: ../mate-tweak:1218
 msgid "Default"
-msgstr ""
+msgstr "Forvalgt"
 
 #: ../mate-tweak:1219
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1220
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1221
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1222
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1223
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Sett panelets ikonstørrelse."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Velg ikonstørrelsen for panelikoner."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Sett ikonstørrelsen for menyelementene som brukes i panelet."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Velg ikonstørrelsen for menyelementer i panelet."
 
 #: ../mate-tweak:1254
 msgid "Text below items"

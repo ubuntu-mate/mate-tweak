@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2015-2016
@@ -11,15 +11,14 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-24 20:11+0000\n"
+"PO-Revision-Date: 2016-06-14 12:41+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/mate/MATE/language/sr/)\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../mate-tweak:949
 msgid "Marco (No compositor)"
@@ -65,9 +64,7 @@ msgstr "Компиз (напредни ефекти радне површи уб
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Тренутно користите непознатог и неподржаног управника прозора. Стога вам не "
-"можемо гарантовати да ће измене које сте овде учинили бити делотворне."
+msgstr "Тренутно користите непознатог и неподржаног управника прозора. Стога вам не можемо гарантовати да ће измене које сте овде учинили бити делотворне."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -325,9 +322,7 @@ msgstr "Изаберите распоред панела да измените �
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Нови распоред панела биће активиран при избору и уништиће сва прилагођавања "
-"која сте можда направили."
+msgstr "Нови распоред панела биће активиран при избору и уништиће сва прилагођавања која сте можда направили."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -355,19 +350,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Поставите величину иконице на панелу."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Изаберите величину иконице за иконице на панелу."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Поставите величину иконице за ставке изборника које се користе на панелу."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Изаберите величину иконице за ставке изборника на панелу."
 
 #: ../mate-tweak:1254
 msgid "Text below items"

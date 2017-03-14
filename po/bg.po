@@ -1,23 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Georgi Georgiev <georgiev_1994@abv.bg>, 2015
 # Замфир Йончев <zamfir.yonchev@gmail.com>, 2016
+# Любомир Василев, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-11-09 06:40+0000\n"
+"Last-Translator: Любомир Василев\n"
 "Language-Team: Bulgarian (http://www.transifex.com/mate/MATE/language/bg/)\n"
-"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -30,11 +31,11 @@ msgstr "Marco (софтуерен обединител)"
 
 #: ../mate-tweak:953
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Marco (обединител „xcompmgr“, без ефекти)"
 
 #: ../mate-tweak:955
 msgid "Marco (Compton GPU compositor)"
-msgstr "Marco (обединител на Графичен процесор Compton)"
+msgstr "Marco (обединител на графичен процесор „Compton“)"
 
 #: ../mate-tweak:957
 msgid "Metacity (No compositor)"
@@ -46,7 +47,7 @@ msgstr "Metacity (софтуерен обединител)"
 
 #: ../mate-tweak:961
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Metacity (обединител „xcompmgr“, без ефекти)"
 
 #: ../mate-tweak:963
 msgid "Metacity (Compton GPU compositor)"
@@ -54,19 +55,17 @@ msgstr "Metacity (обединител на Графичен процесор Co
 
 #: ../mate-tweak:965
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr "Mutter (елегантни ефекти)"
+msgstr "Mutter (елегантни ефекти, с използване на графичната карта)"
 
 #: ../mate-tweak:967
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (разширени ефекти)"
+msgstr "Compiz (разширени ефекти, с използване на графичната карта)"
 
 #: ../mate-tweak:970
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"В момента използвате непонзат и неподдържан мениджър на прозорците. Затова "
-"не можем да гарантираме, че промените направени тук ще бъдат ефективни."
+msgstr "В момента използвате непознат и неподдържан мениджър на прозорците. Затова не можем да гарантираме, че промените, направени тук, ще имат смисъл."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -122,7 +121,7 @@ msgstr "Интерфейс"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr ""
+msgstr "Панел"
 
 #: ../mate-tweak:1077
 msgid "Windows"
@@ -130,7 +129,7 @@ msgstr "Прозорци"
 
 #: ../mate-tweak:1120
 msgid "MATE Tweak"
-msgstr "MATE Tweak"
+msgstr "Донастройка на MATE"
 
 #: ../mate-tweak:1123
 msgid "Desktop icons"
@@ -154,11 +153,11 @@ msgstr "Панели"
 
 #: ../mate-tweak:1128
 msgid "Panel Features"
-msgstr "Свойства на панела"
+msgstr "Функционалности на панела"
 
 #: ../mate-tweak:1129
 msgid "Panel Menu Features"
-msgstr "Свойства на менюто на панела"
+msgstr "Функционалности на менюто на панела"
 
 #: ../mate-tweak:1130
 msgid "Icons"
@@ -178,11 +177,11 @@ msgstr "Диспечер на прозорците"
 
 #: ../mate-tweak:1135
 msgid "Select the Desktop Icons you want enabled:"
-msgstr "Изберете иконите на работната среда, които искате да бъдат разрешени:"
+msgstr "Изберете иконките на работния плот, които искате да бъдат разрешени:"
 
 #: ../mate-tweak:1136
 msgid "Show Desktop Icons"
-msgstr "Показване на иконите на Работният плот"
+msgstr "Показване на иконките на работния плот"
 
 #: ../mate-tweak:1137
 msgid "Computer"
@@ -254,7 +253,7 @@ msgstr "Разрешаване на стартера"
 
 #: ../mate-tweak:1158
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Разрешаване на изтеглящия се надолу терминал"
 
 #: ../mate-tweak:1160
 msgid "Show Applications"
@@ -282,8 +281,7 @@ msgstr "Показване на менюто на Методи за въвежд
 
 #: ../mate-tweak:1167
 msgid "Show Unicode Control Character menu in context menus"
-msgstr ""
-"Показване на менюто на Контролните знаци в Уникод в контекстните менюта"
+msgstr "Показване на менюто на Контролните знаци в Уникод в контекстните менюта"
 
 #: ../mate-tweak:1169
 msgid "Style:"
@@ -325,49 +323,47 @@ msgstr "Избери оформление на панела за да проме
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Новото оформление на панела ще се активира при избор и ще премахне всички "
-"промени които сте направили по него."
+msgstr "Новото оформление на панела ще се активира при избор и ще премахне всички промени, които сте направили по него."
 
 #: ../mate-tweak:1218
 msgid "Default"
-msgstr ""
+msgstr "По подразбиране"
 
 #: ../mate-tweak:1219
 msgid "16px"
-msgstr ""
+msgstr "16 пиксела"
 
 #: ../mate-tweak:1220
 msgid "22px"
-msgstr ""
+msgstr "22 пиксела"
 
 #: ../mate-tweak:1221
 msgid "24px"
-msgstr ""
+msgstr "24 пиксела"
 
 #: ../mate-tweak:1222
 msgid "32px"
-msgstr ""
+msgstr "32 пиксела"
 
 #: ../mate-tweak:1223
 msgid "48px"
-msgstr ""
+msgstr "48 пиксела"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Задаване на размера на иконките на панела."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Изберете размера на иконките на панела."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Задаване на размера на иконките в менютата на панела."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Изберете размера на иконките в менютата на панела."
 
 #: ../mate-tweak:1254
 msgid "Text below items"

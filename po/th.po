@@ -1,8 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Aefgh Threenine <aefgh3962@gmail.com>, 2016
 # Akom <knight2000@gmail.com>, 2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Rockers <sumorock@hotmail.com>, 2016
@@ -12,22 +13,22 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-10-29 08:05+0000\n"
+"Last-Translator: Aefgh Threenine <aefgh3962@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/mate/MATE/language/th/)\n"
-"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-tweak:949
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "แมโคร (ไม่ใช้คอมโพสิเตอร์)"
 
 #: ../mate-tweak:951
 msgid "Marco (Software compositor)"
-msgstr ""
+msgstr "แมโคร (คอมโพสิเตอร์ซอฟต์แวร์)"
 
 #: ../mate-tweak:953
 msgid "Marco (No effects xcompmgr compositor)"

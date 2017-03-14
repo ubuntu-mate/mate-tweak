@@ -1,25 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Daniel <danny34ever@yahoo.com>, 2015-2016
+# corneliu.e <corneliueva@yahoo.com>, 2016
+# Daniel <danny3@tutanota.com>, 2015-2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Gabriel Gaman <gamgabriel25@gmail.com>, 2016
+# Inpresentia I., 2016
 # Polihron Alexandru (APoliTech) <ppolihron@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-29 10:48+0000\n"
-"Last-Translator: Polihron Alexandru (APoliTech) <ppolihron@gmail.com>\n"
+"PO-Revision-Date: 2016-09-10 20:33+0000\n"
+"Last-Translator: corneliu.e <corneliueva@yahoo.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/mate/MATE/language/ro/)\n"
-"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
-"2:1));\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #: ../mate-tweak:949
 msgid "Marco (No compositor)"
@@ -55,21 +57,17 @@ msgstr "Metacity (Compton GPU compozitor)"
 
 #: ../mate-tweak:965
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
-"Mutter (efecte elegante pentru spațiul de lucru, accelerate de placa video)"
+msgstr "Mutter (efecte elegante pentru spațiul de lucru, accelerate de placa video)"
 
 #: ../mate-tweak:967
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
-"Compiz (efecte avansate pentru spațiul de lucru, accelerate de placa video)"
+msgstr "Compiz (efecte avansate pentru spațiul de lucru, accelerate de placa video)"
 
 #: ../mate-tweak:970
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"În prezent, utilizați un manager de ferestre necunoscute și neacceptat. "
-"Astfel, nu putem garanta că modificările făcute aici vor fi eficiente."
+msgstr "În prezent, utilizați un manager de ferestre necunoscute și neacceptat. Astfel, nu putem garanta că modificările făcute aici vor fi eficiente."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -113,7 +111,7 @@ msgstr "Ubuntu MATE"
 
 #: ../mate-tweak:1020
 msgid "Wimpy"
-msgstr ""
+msgstr "Wimpy"
 
 #: ../mate-tweak:1074
 msgid "Desktop"
@@ -125,7 +123,7 @@ msgstr "Interfață"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr ""
+msgstr "Panou"
 
 #: ../mate-tweak:1077
 msgid "Windows"
@@ -161,7 +159,7 @@ msgstr "Abilități panou"
 
 #: ../mate-tweak:1129
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "Funcționalități ale meniului din panou"
 
 #: ../mate-tweak:1130
 msgid "Icons"
@@ -181,11 +179,11 @@ msgstr "Administrator de ferestre"
 
 #: ../mate-tweak:1135
 msgid "Select the Desktop Icons you want enabled:"
-msgstr ""
+msgstr "Selectaţi obiectele pe care le doriţi pe spaţiul de lucru:"
 
 #: ../mate-tweak:1136
 msgid "Show Desktop Icons"
-msgstr ""
+msgstr "Arată pictograme desktop"
 
 #: ../mate-tweak:1137
 msgid "Computer"
@@ -213,15 +211,15 @@ msgstr "Activează animațiile"
 
 #: ../mate-tweak:1144
 msgid "Do not show window content when moving windows"
-msgstr ""
+msgstr "Nu arăta conținutul ferestrelor când acestea sunt mutate"
 
 #: ../mate-tweak:1145
 msgid "Window manager performance tuning."
-msgstr ""
+msgstr "Ajustări de performanță pentru managerul de ferestre"
 
 #: ../mate-tweak:1147
 msgid "Enable window snapping"
-msgstr ""
+msgstr "Activează fixarea ferestrelor"
 
 #: ../mate-tweak:1148
 msgid "Undecorate maximized windows"
@@ -241,7 +239,7 @@ msgstr "Salvează aranjament panou"
 
 #: ../mate-tweak:1154
 msgid "Enable indicators"
-msgstr ""
+msgstr "Activează indicatorii"
 
 #: ../mate-tweak:1155
 msgid "Enable advanced menu"
@@ -253,23 +251,23 @@ msgstr "Activează LED tastatură"
 
 #: ../mate-tweak:1157
 msgid "Enable launcher"
-msgstr ""
+msgstr "Activează lansatorul"
 
 #: ../mate-tweak:1158
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Activează terminalul care apare din partea superioară a ecranului"
 
 #: ../mate-tweak:1160
 msgid "Show Applications"
-msgstr ""
+msgstr "Arată aplicațiile"
 
 #: ../mate-tweak:1161
 msgid "Show Places"
-msgstr ""
+msgstr "Arată locurile"
 
 #: ../mate-tweak:1162
 msgid "Show System"
-msgstr ""
+msgstr "Arată sistemul"
 
 #: ../mate-tweak:1164
 msgid "Show icons on menus"
@@ -321,57 +319,53 @@ msgstr "Selectați un administrator de ferestre."
 
 #: ../mate-tweak:1210
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Selectați un aranjament al panourilor pentru a schimba interfața cu "
-"utilizatorul."
+msgstr "Selectați un aranjament al panourilor pentru a schimba interfața cu utilizatorul."
 
 #: ../mate-tweak:1211
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Noul aranjament al panourilor va fi activat la selectare și va distruge "
-"orice personalizări ați fi făcut"
+msgstr "Noul aranjament al panourilor va fi activat la selectare și va distruge orice personalizări ați fi făcut"
 
 #: ../mate-tweak:1218
 msgid "Default"
-msgstr ""
+msgstr "Mod implicit"
 
 #: ../mate-tweak:1219
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1220
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1221
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1222
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1223
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Definire pictogramă panou"
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Alege mărimea pictogramelor din panou"
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Setează mărimea pictogramelor pentru meniurile folosite în panou"
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Alege mărimea pictogramelor pentru meniurile din panou"
 
 #: ../mate-tweak:1254
 msgid "Text below items"

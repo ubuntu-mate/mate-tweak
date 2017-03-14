@@ -1,9 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Ettore Atalan <atalanttore@googlemail.com>, 2015
+# Ettore Atalan <atalanttore@googlemail.com>, 2015-2016
 # qazwsxedc <qazwsxedc@gmx.net>, 2016
 # Tobias Bannert <tobannert@gmail.com>, 2015-2016
 msgid ""
@@ -11,13 +11,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-21 13:16+0000\n"
-"Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
+"PO-Revision-Date: 2016-06-12 17:40+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/mate/MATE/language/de/)\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -54,22 +54,17 @@ msgstr "Metacity (Compton-GPU-Komposit)"
 
 #: ../mate-tweak:965
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
-"Mutter (anspruchsvolle Schreibtischeffekte mit Grafikkartenbeschleunigung)"
+msgstr "Mutter (anspruchsvolle Schreibtischeffekte mit Grafikkartenbeschleunigung)"
 
 #: ../mate-tweak:967
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
-"Compiz (anspruchsvolle Schreibtischeffekte mit Grafikkartenbeschleunigung)"
+msgstr "Compiz (anspruchsvolle Schreibtischeffekte mit Grafikkartenbeschleunigung)"
 
 #: ../mate-tweak:970
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Sie benutzen im Moment eine unbekannte und nicht unterstützte "
-"Fensterverwaltung. Deswegen können wir nicht garantieren, dass hier "
-"eingegebene Änderungen übernommen werden."
+msgstr "Sie benutzen im Moment eine unbekannte und nicht unterstützte Fensterverwaltung. Deswegen können wir nicht garantieren, dass hier eingegebene Änderungen übernommen werden."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -321,17 +316,13 @@ msgstr "Bitte eine Fensterverwaltung auswählen."
 
 #: ../mate-tweak:1210
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Bitte eine Leistenanordnung auswählen, um die Benutzerschnittstelle zu "
-"ändern."
+msgstr "Bitte eine Leistenanordnung auswählen, um die Benutzerschnittstelle zu ändern."
 
 #: ../mate-tweak:1211
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Die neue Leistenanordnung wird bei Auswahl aktiviert, alle eigenen "
-"Anpassungen werden verworfen."
+msgstr "Die neue Leistenanordnung wird bei Auswahl aktiviert, alle eigenen Anpassungen werden verworfen."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -359,19 +350,19 @@ msgstr "48 px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Leistensymbolgröße festlegen."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Wählen Sie die Symbolgröße für Leistensymbole aus."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Legen Sie die Symbolgröße von in der Leiste verwendeten Menüeinträgen fest."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Wählen Sie die Symbolgröße für Menüeinträge in der Leiste aus."
 
 #: ../mate-tweak:1254
 msgid "Text below items"

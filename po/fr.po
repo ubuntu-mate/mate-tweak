@@ -1,8 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# brice nice <brice1024@yahoo.fr>, 2016
 # Nicolas Dobigeon <dobigeon@gmail.com>, 2015
 # Étienne Deparis <etienne@depar.is>, 2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
@@ -13,13 +14,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-06-02 15:10+0000\n"
-"Last-Translator: Tubuntu <tubuntu@testimonium.be>\n"
+"PO-Revision-Date: 2016-07-22 21:38+0000\n"
+"Last-Translator: brice nice <brice1024@yahoo.fr>\n"
 "Language-Team: French (http://www.transifex.com/mate/MATE/language/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../mate-tweak:949
@@ -66,10 +67,7 @@ msgstr "Compiz (effets de bureau avancés avec accélération graphique)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Vous utilisez actuellement un gestionnaire de fenêtres inconnu et non "
-"supporté. Aussi nous ne pouvons garantir que les changements effectués ici "
-"seront effectifs."
+msgstr "Vous utilisez actuellement un gestionnaire de fenêtres inconnu et non supporté. Aussi nous ne pouvons garantir que les changements effectués ici seront effectifs."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -321,17 +319,13 @@ msgstr "Choisir un gestionnaire des fenêtres."
 
 #: ../mate-tweak:1210
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Sélectionner une disposition de tableaux de bord pour modifier l'interface "
-"utilisateur."
+msgstr "Sélectionner une disposition de tableaux de bord pour modifier l'interface utilisateur."
 
 #: ../mate-tweak:1211
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"La nouvelle disposition du tableau de bord sera activée dès sélection et "
-"remplacera toutes les personnalisations que vous vous pourriez avoir faites."
+msgstr "La nouvelle disposition du tableau de bord sera activée dès sélection et remplacera toutes les personnalisations que vous vous pourriez avoir faites."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -359,19 +353,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Définit la taille des icônes du panneau de configuration"
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Selectionner la taille des icônes du panneau de configuration"
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Définit la taille des icônes des éléments utilisés au sein du panneau de configuration"
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Selectionne la taille des icônes des éléments utilisés au sein du panneau de configuration"
 
 #: ../mate-tweak:1254
 msgid "Text below items"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # muzaffar habibullayev <muzaffarlearner@gmail.com>, 2016
 msgid ""
@@ -9,13 +9,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-10-06 11:29+0000\n"
+"Last-Translator: muzaffar habibullayev <muzaffarlearner@gmail.com>\n"
 "Language-Team: Uzbek (http://www.transifex.com/mate/MATE/language/uz/)\n"
-"Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uz\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-tweak:949
@@ -28,7 +28,7 @@ msgstr "Marco (Dastur kompozitori)"
 
 #: ../mate-tweak:953
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Marco (Effektlarsiz xcompmgr compositori)"
 
 #: ../mate-tweak:955
 msgid "Marco (Compton GPU compositor)"
@@ -44,7 +44,7 @@ msgstr "Metacity (Dastur kompozitori)"
 
 #: ../mate-tweak:961
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Metacity (Effektlarsiz xcompmgr compositori)"
 
 #: ../mate-tweak:963
 msgid "Metacity (Compton GPU compositor)"
@@ -62,10 +62,7 @@ msgstr "Compiz (GPU tezlashtirilgan murakkab ish stoli effektlari)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Hozirda nom'alum va qo'llab quvvatlanmagan oyna boshqaruvchisidan "
-"foydalanmoqdasiz. Shu sabab bu yerdagi o'zgarishlar samarali bo'lishiga "
-"kafolat bermaymiz."
+msgstr "Hozirda nom'alum va qo'llab quvvatlanmagan oyna boshqaruvchisidan foydalanmoqdasiz. Shu sabab bu yerdagi o'zgarishlar samarali bo'lishiga kafolat bermaymiz."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -121,11 +118,11 @@ msgstr "Interfeys"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../mate-tweak:1077
 msgid "Windows"
-msgstr ""
+msgstr "Oynalar"
 
 #: ../mate-tweak:1120
 msgid "MATE Tweak"
@@ -327,31 +324,31 @@ msgstr ""
 
 #: ../mate-tweak:1218
 msgid "Default"
-msgstr ""
+msgstr "Andoza"
 
 #: ../mate-tweak:1219
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1220
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1221
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1222
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1223
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Panel nishoncha hajmini belgilash."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."

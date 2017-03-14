@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Rasti K5 <rasti.khdhr@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
-"Language-Team: Kurdish (Iraq) (http://www.transifex.com/mate/MATE/language/"
-"ku_IQ/)\n"
-"Language: ku_IQ\n"
+"PO-Revision-Date: 2016-11-20 16:39+0000\n"
+"Last-Translator: Rasti K5 <rasti.khdhr@gmail.com>\n"
+"Language-Team: Kurdish (Iraq) (http://www.transifex.com/mate/MATE/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ku_IQ\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -70,15 +70,15 @@ msgstr ""
 
 #: ../mate-tweak:991
 msgid "Fedora"
-msgstr ""
+msgstr "فێدۆرا"
 
 #: ../mate-tweak:994
 msgid "GNOME2"
-msgstr ""
+msgstr "گنوم2"
 
 #: ../mate-tweak:997
 msgid "Linux Mint"
-msgstr ""
+msgstr "لینوکس مینت"
 
 #: ../mate-tweak:1000
 msgid "Mageia"
@@ -94,7 +94,7 @@ msgstr ""
 
 #: ../mate-tweak:1011
 msgid "openSUSE"
-msgstr ""
+msgstr "ئۆپن سوسێ"
 
 #: ../mate-tweak:1014
 msgid "Redmond"
@@ -102,7 +102,7 @@ msgstr ""
 
 #: ../mate-tweak:1017
 msgid "Ubuntu MATE"
-msgstr ""
+msgstr "ئوبونتو مەیت"
 
 #: ../mate-tweak:1020
 msgid "Wimpy"
@@ -110,11 +110,11 @@ msgstr ""
 
 #: ../mate-tweak:1074
 msgid "Desktop"
-msgstr ""
+msgstr "ڕوومێز"
 
 #: ../mate-tweak:1075
 msgid "Interface"
-msgstr ""
+msgstr "ڕووکار"
 
 #: ../mate-tweak:1076
 msgid "Panel"
@@ -130,7 +130,7 @@ msgstr ""
 
 #: ../mate-tweak:1123
 msgid "Desktop icons"
-msgstr ""
+msgstr "وێنۆچکەکانی ڕوومێز"
 
 #: ../mate-tweak:1124
 msgid "Performance"
@@ -158,7 +158,7 @@ msgstr ""
 
 #: ../mate-tweak:1130
 msgid "Icons"
-msgstr ""
+msgstr "وێنۆچکەکان"
 
 #: ../mate-tweak:1131
 msgid "Context menus"
@@ -166,7 +166,7 @@ msgstr ""
 
 #: ../mate-tweak:1132
 msgid "Toolbars"
-msgstr ""
+msgstr "توولامرازەکان"
 
 #: ../mate-tweak:1133
 msgid "Window manager"
@@ -178,23 +178,23 @@ msgstr ""
 
 #: ../mate-tweak:1136
 msgid "Show Desktop Icons"
-msgstr ""
+msgstr "پیشاندانی وێنۆچکەکانی ڕوومێز"
 
 #: ../mate-tweak:1137
 msgid "Computer"
-msgstr ""
+msgstr "کۆمپیوتەر"
 
 #: ../mate-tweak:1138
 msgid "Home"
-msgstr ""
+msgstr "ماڵەوە"
 
 #: ../mate-tweak:1139
 msgid "Network"
-msgstr ""
+msgstr "ڕایەڵە"
 
 #: ../mate-tweak:1140
 msgid "Trash"
-msgstr ""
+msgstr "گڵیشدان"
 
 #: ../mate-tweak:1141
 msgid "Mounted Volumes"
@@ -254,7 +254,7 @@ msgstr ""
 
 #: ../mate-tweak:1160
 msgid "Show Applications"
-msgstr ""
+msgstr "پیشاندانی نەرمەواڵەکان"
 
 #: ../mate-tweak:1161
 msgid "Show Places"
@@ -270,7 +270,7 @@ msgstr ""
 
 #: ../mate-tweak:1165
 msgid "Show icons on buttons"
-msgstr ""
+msgstr "پیشاندانی وێنۆچکە لەسەر دوگمەکان"
 
 #: ../mate-tweak:1166
 msgid "Show Input Methods menu in context menus"
@@ -282,19 +282,19 @@ msgstr ""
 
 #: ../mate-tweak:1169
 msgid "Style:"
-msgstr ""
+msgstr "شێواز:"
 
 #: ../mate-tweak:1170
 msgid "Icon size:"
-msgstr ""
+msgstr "قەبارەی وێنۆچکە:"
 
 #: ../mate-tweak:1189
 msgid "Small"
-msgstr ""
+msgstr "بچووک"
 
 #: ../mate-tweak:1190
 msgid "Large"
-msgstr ""
+msgstr "گەورە"
 
 #: ../mate-tweak:1196
 msgid "Traditional (Right)"
@@ -324,7 +324,7 @@ msgstr ""
 
 #: ../mate-tweak:1218
 msgid "Default"
-msgstr ""
+msgstr "بنەڕەت"
 
 #: ../mate-tweak:1219
 msgid "16px"
@@ -372,8 +372,8 @@ msgstr ""
 
 #: ../mate-tweak:1256
 msgid "Icons only"
-msgstr ""
+msgstr "تەنیا وێنۆچکەکان"
 
 #: ../mate-tweak:1257
 msgid "Text only"
-msgstr ""
+msgstr "تەنیا دەق"

@@ -1,22 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# hrexen <mdavit@student.ethz.ch>, 2016
 # Siranush <ss.m.95@mail.ru>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-07-23 09:55+0000\n"
+"Last-Translator: hrexen <mdavit@student.ethz.ch>\n"
 "Language-Team: Armenian (http://www.transifex.com/mate/MATE/language/hy/)\n"
-"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hy\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -103,7 +104,7 @@ msgstr "Ռեդմոնդ"
 
 #: ../mate-tweak:1017
 msgid "Ubuntu MATE"
-msgstr "Ubuntu Գնոմ"
+msgstr "Ubuntu Մաթե"
 
 #: ../mate-tweak:1020
 msgid "Wimpy"
@@ -119,11 +120,11 @@ msgstr "Ինտերֆեյս"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr ""
+msgstr "Վահանակ"
 
 #: ../mate-tweak:1077
 msgid "Windows"
-msgstr "Windows "
+msgstr "Windows"
 
 #: ../mate-tweak:1120
 msgid "MATE Tweak"
@@ -279,9 +280,7 @@ msgstr "Ցույց տալ Ներածման Մեթոդների մենյուն հ�
 
 #: ../mate-tweak:1167
 msgid "Show Unicode Control Character menu in context menus"
-msgstr ""
-"Ցույց տալ Յունիկոդի Վերահսկիչ Սիմվոլների ընտրացանկը համատեքստի ընտրացանկերի "
-"մեջ"
+msgstr "Ցույց տալ Յունիկոդի Վերահսկիչ Սիմվոլների ընտրացանկը համատեքստի ընտրացանկերի մեջ"
 
 #: ../mate-tweak:1169
 msgid "Style:"
@@ -323,9 +322,7 @@ msgstr "Ընտրված վահանակի դասավորությունը փոխո�
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Նոր վահանակի դասավորությունն ընտրության վրա է ակտիվացվելու և ոչնչացնելու "
-"ցանկացած ընտրակայումները, որոնք դուք կարող եք կատարել:"
+msgstr "Նոր վահանակի դասավորությունն ընտրության վրա է ակտիվացվելու և ոչնչացնելու ցանկացած ընտրակայումները, որոնք դուք կարող եք կատարել:"
 
 #: ../mate-tweak:1218
 msgid "Default"

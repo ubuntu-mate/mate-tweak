@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Atilla Öntaş <tarakbumba@gmail.com>, 2016
+# tarakbumba <tarakbumba@gmail.com>, 2016
 # Emre FIRAT <emrefirat93@gmail.com>, 2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # mauron, 2015-2016
 # Mehmet <mehmet337402@gmail.com>, 2016
+# Yasin Uysal <yasinuysal22@outlook.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-06-06 22:12+0000\n"
-"Last-Translator: Mehmet <mehmet337402@gmail.com>\n"
+"PO-Revision-Date: 2016-06-13 21:58+0000\n"
+"Last-Translator: Yasin Uysal <yasinuysal22@outlook.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/mate/MATE/language/tr/)\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../mate-tweak:949
@@ -66,10 +67,7 @@ msgstr "Compiz (Gelişmiş, GPU ile hızlandırılmış masaüstü görgeleri)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Şu anda bilinmeyen ve desteklenmeyen bir pencere yöneticisi "
-"kullanmaktasınız. Bu nedenle burada yaptığınız değişikliklerin etkili "
-"olacağını garanti edemeyiz."
+msgstr "Şu anda bilinmeyen ve desteklenmeyen bir pencere yöneticisi kullanmaktasınız. Bu nedenle burada yaptığınız değişikliklerin etkili olacağını garanti edemeyiz."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -327,9 +325,7 @@ msgstr "Kullanıcı arayüzünü değiştirmek için panel düzeni seç."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Yeni panel düzeni seçimi üzerine devreye girecektir ve yapmış olduğunuz "
-"kişiselleştirmeleri yok edecektir."
+msgstr "Yeni panel düzeni seçimi üzerine devreye girecektir ve yapmış olduğunuz kişiselleştirmeleri yok edecektir."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -357,19 +353,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Panel simge boyutunu ayarla"
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Panel simgelerini boyutlandırın"
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Panelde kullanılan simgeleri boyutlandırın"
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Paneldeki menü simgelerinin boyutunu seçin"
 
 #: ../mate-tweak:1254
 msgid "Text below items"

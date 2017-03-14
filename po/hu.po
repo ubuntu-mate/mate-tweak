@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Falu <info@falu.me>, 2016
 # Falu <info@falu.me>, 2015
@@ -12,13 +12,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 18:56+0000\n"
-"Last-Translator: Falu <info@falu.me>\n"
+"PO-Revision-Date: 2016-06-12 17:46+0000\n"
+"Last-Translator: Rezső Páder <rezso@rezso.net>\n"
 "Language-Team: Hungarian (http://www.transifex.com/mate/MATE/language/hu/)\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -65,9 +65,7 @@ msgstr "Compiz (bővített, GPU gyorsítást használó asztali effektusok)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Ismeretlen, nem támogatott ablakkezelő van használatban. Nem garantált, hogy "
-"az itt beállított módosítások működni fognak."
+msgstr "Ismeretlen, nem támogatott ablakkezelő van használatban. Nem garantált, hogy az itt beállított módosítások működni fognak."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -319,16 +317,13 @@ msgstr "Ablakkezelő kiválasztása"
 
 #: ../mate-tweak:1210
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Válassza ki a panel elrendezését a felhasználói felület megváltoztatásához."
+msgstr "Válassza ki a panel elrendezését a felhasználói felület megváltoztatásához."
 
 #: ../mate-tweak:1211
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Az új panel elrendezés a kiválasztás után aktiválva lesz, ezzel elvesznek az "
-"eddigi testreszabások."
+msgstr "Az új panel elrendezés a kiválasztás után aktiválva lesz, ezzel elvesznek az eddigi testreszabások."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -356,19 +351,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Panel ikonok méretének beállítása"
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Panel ikonok méretének kiválasztása"
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "A panelen használt menüelemek ikon méretének beállítása"
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "A panelen használt menüelemek ikon méretének kiválasztása"
 
 #: ../mate-tweak:1254
 msgid "Text below items"

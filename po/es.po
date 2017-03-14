@@ -1,29 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Andres Sanchez <blackatze93@gmail.com>, 2015-2016
 # Angel Mireles <lamborghinilph710@gmail.com>, 2016
+# Daniel Aranda <dwarandae@gmail.com>, 2016
 # ebray187 <ebray187@gmail.com>, 2016
 # Emiliano Fascetti, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
-# Francisco B.G. <franchulo021@gmail.com>, 2016
+# Francisco B.G. <inactive+franchulo@transifex.com>, 2016
 # Gustavo Mellado <gfmellado@gmail.com>, 2015
 # Ivan Nieto <ivan.n.s@tuta.io>, 2016
 # luismiguex <luismiguex@gmail.com>, 2016
+# Mario Verdin <jmvl1303@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-07-24 23:24+0000\n"
+"Last-Translator: Daniel Aranda <dwarandae@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/mate/MATE/language/es/)\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -36,7 +38,7 @@ msgstr "Marco (Composición por software)"
 
 #: ../mate-tweak:953
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Marco (Sin efector del compositor xcompmgr)"
 
 #: ../mate-tweak:955
 msgid "Marco (Compton GPU compositor)"
@@ -52,7 +54,7 @@ msgstr "Metacity (Composición por software)"
 
 #: ../mate-tweak:961
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Metacity (Sin efectos del compositor xcompmgr)"
 
 #: ../mate-tweak:963
 msgid "Metacity (Compton GPU compositor)"
@@ -64,16 +66,13 @@ msgstr "Mutter (Efectos elegantes acelerados por GPU)"
 
 #: ../mate-tweak:967
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (efectos avanzados de escritorio acelerados por GPU)"
+msgstr "Compiz (Efectos avanzados de escritorio acelerados por GPU)"
 
 #: ../mate-tweak:970
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Actualmente estas utilizando un gestor de ventanas desconocido y sin "
-"soporte. En consecuencia no podemos garantizar que los cambios realizados "
-"serán efectivos."
+msgstr "Actualmente estas utilizando un gestor de ventanas desconocido y sin soporte. En consecuencia no podemos garantizar que los cambios realizados serán efectivos."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -129,7 +128,7 @@ msgstr "Interfaz"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../mate-tweak:1077
 msgid "Windows"
@@ -261,7 +260,7 @@ msgstr "Activar lanzador"
 
 #: ../mate-tweak:1158
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Activar terminal desplegable"
 
 #: ../mate-tweak:1160
 msgid "Show Applications"
@@ -331,49 +330,47 @@ msgstr "Seleccione un diseño de panel para cambiar la interfaz de usuario."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"El nuevo diseño del panel se activará después de la selección y destruirá "
-"cualquier personalización que haya realizado."
+msgstr "El nuevo diseño del panel se activará después de la selección y destruirá cualquier personalización que haya realizado."
 
 #: ../mate-tweak:1218
 msgid "Default"
-msgstr ""
+msgstr "Predeterminado"
 
 #: ../mate-tweak:1219
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1220
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1221
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1222
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1223
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Establezca el tamaño del ícono del panel"
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Seleccione el tamaño del ícono para los íconos del panel"
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Establezca el tamaño del ícono de los elementos del menú usados en el panel"
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Seleccione el tamaño del ícono para los elementos del menú en el panel"
 
 #: ../mate-tweak:1254
 msgid "Text below items"

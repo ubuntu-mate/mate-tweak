@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # dragnadh <dragnadh@gmail.com>, 2015
 # Kees Lijkendijk <clkndk@gmail.com>, 2016
@@ -11,18 +11,19 @@
 # Nathan Follens, 2015
 # René Devers <rene.devers@gmail.com>, 2015
 # Robbie Deighton <deightonrobbie@gmail.com>, 2016
+# Volluta <volluta@tutanota.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-06-07 09:29+0000\n"
-"Last-Translator: Kees Lijkendijk <clkndk@gmail.com>\n"
+"PO-Revision-Date: 2016-06-29 21:19+0000\n"
+"Last-Translator: Volluta <volluta@tutanota.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/mate/MATE/language/nl/)\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -69,10 +70,7 @@ msgstr "Compiz (Geavanceerde GPU versnelde bureaublad effecten)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Je gebruikt momenteel een ongekende en niet ondersteunde window manager. "
-"Daarom kunnen we niet garanderen dat wijzigingen die hier gemaakt worden "
-"effectief zijn."
+msgstr "Je gebruikt momenteel een ongekende en niet ondersteunde window manager. Daarom kunnen we niet garanderen dat wijzigingen die hier gemaakt worden effectief zijn."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -330,9 +328,7 @@ msgstr "Kies een vensteropmaak om de gebruikersinterface aan te passen"
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"De nieuwe panel-opmaak wordt geactiveerd bij selectie en zal alle voorgaande "
-"aanpassingen definitief verwijderen."
+msgstr "De nieuwe panel-opmaak wordt geactiveerd bij selectie en zal alle voorgaande aanpassingen definitief verwijderen."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -360,19 +356,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Stel de grootte van het icoon in."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Selecteer de icoongrootte voor paneeliconen."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Stel de icoongrootte in van menu items in het paneel"
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Selecteer icoongrootte voor menu items in het paneel"
 
 #: ../mate-tweak:1254
 msgid "Text below items"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Jeff Huang <s8321414@gmail.com>, 2015-2016
@@ -10,14 +10,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-21 03:11+0000\n"
+"PO-Revision-Date: 2016-06-13 00:45+0000\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/mate/MATE/language/"
-"zh_TW/)\n"
-"Language: zh_TW\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/mate/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-tweak:949
@@ -64,9 +63,7 @@ msgstr "Compiz（進階的顯示卡加速的桌面效果）"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"您目前正在使用未知且不支援的視窗管理員。所以我們無法保證做出的變更一定會生"
-"效。"
+msgstr "您目前正在使用未知且不支援的視窗管理員。所以我們無法保證做出的變更一定會生效。"
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -352,19 +349,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "設定面板圖示大小"
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "選取面板圖示的圖示大小。"
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "設定用在面板中的選單項目圖示大小"
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "選取在面板中的選單項目圖示大小。"
 
 #: ../mate-tweak:1254
 msgid "Text below items"

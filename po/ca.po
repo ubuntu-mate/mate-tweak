@@ -1,23 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Francesc Famadas <kiski97@gmail.com>, 2015
-# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2015-2016
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-23 19:31+0000\n"
-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
+"PO-Revision-Date: 2016-08-17 02:28+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/mate/MATE/language/ca/)\n"
-"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -64,10 +65,7 @@ msgstr "Compiz (efectes avançats d'escriptori amb acceleració de GPU)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"En aquest moment esteu utilitzant un gestor de finestres desconegut i sense "
-"suport. Per tant, no podem garantir que els canvis realitzats siguin "
-"eficaços."
+msgstr "En aquest moment esteu utilitzant un gestor de finestres desconegut i sense suport. Per tant, no podem garantir que els canvis realitzats siguin eficaços."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -123,7 +121,7 @@ msgstr "Interfície"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr "Taulell"
+msgstr "Tauler"
 
 #: ../mate-tweak:1077
 msgid "Windows"
@@ -151,15 +149,15 @@ msgstr "Aparença"
 
 #: ../mate-tweak:1127
 msgid "Panels"
-msgstr "Taulells"
+msgstr "Taulers"
 
 #: ../mate-tweak:1128
 msgid "Panel Features"
-msgstr "Funcionalitats del taulell"
+msgstr "Funcionalitats del tauler"
 
 #: ../mate-tweak:1129
 msgid "Panel Menu Features"
-msgstr "Funcionalitats del menú del taulell"
+msgstr "Funcionalitats del menú del tauler"
 
 #: ../mate-tweak:1130
 msgid "Icons"
@@ -211,8 +209,7 @@ msgstr "Habilita les animacions"
 
 #: ../mate-tweak:1144
 msgid "Do not show window content when moving windows"
-msgstr ""
-"No mostris el contingut de les finestres mentre es moguin les finestres "
+msgstr "No mostris el contingut de les finestres mentre es moguin les finestres "
 
 #: ../mate-tweak:1145
 msgid "Window manager performance tuning."
@@ -236,7 +233,7 @@ msgstr "Col·locació del control de la finestra."
 
 #: ../mate-tweak:1153
 msgid "Save Panel Layout"
-msgstr "Desa la disposició del taulell"
+msgstr "Desa la disposició del tauler"
 
 #: ../mate-tweak:1154
 msgid "Enable indicators"
@@ -280,11 +277,11 @@ msgstr "Mostra les icones als botons"
 
 #: ../mate-tweak:1166
 msgid "Show Input Methods menu in context menus"
-msgstr "Mostra el menú de Mètodes d'Entrada als menús contextuals"
+msgstr "Mostra el menú mètodes d'entrada als menús contextuals"
 
 #: ../mate-tweak:1167
 msgid "Show Unicode Control Character menu in context menus"
-msgstr "Mostra el menú de Caràcter de Control d'Unicode als menús contextuals"
+msgstr "Mostra el menú caràcter de control Unicode als menús contextuals"
 
 #: ../mate-tweak:1169
 msgid "Style:"
@@ -312,7 +309,7 @@ msgstr "Contemporani (esquerre)"
 
 #: ../mate-tweak:1203
 msgid "The new window manager will be activated upon selection."
-msgstr "El nou gestor de finestres s'activarà un cop se seleccioni."
+msgstr "El gestor nou de finestres s'activarà un cop se seleccioni."
 
 #: ../mate-tweak:1204
 msgid "Select a window manager."
@@ -320,15 +317,13 @@ msgstr "Selecciona un gestor de finestres."
 
 #: ../mate-tweak:1210
 msgid "Select a panel layout to change the user interface."
-msgstr "Seleccioneu un disseny de taulell per canviar la interfície d'usuari."
+msgstr "Seleccioneu un disseny de tauler per canviar la interfície d'usuari."
 
 #: ../mate-tweak:1211
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"El nou disseny de taulell s'activarà quan se seleccioni i destruirà "
-"qualsevol personalització que s'hagi realitzat."
+msgstr "El disseny nou de tauler s'activarà quan se seleccioni i destruirà qualsevol personalització que s'hagi realitzat."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -356,19 +351,19 @@ msgstr "48 px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Estableix la mida de la icona del tauler."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Selecciona la mida de la icona per a les icones del tauler."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Estableix la mida de la icona dels elements del menú utilitzats al tauler."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Selecciona la mida de la icona per als elements del menú al tauler."
 
 #: ../mate-tweak:1254
 msgid "Text below items"

@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2015
+# Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2015-2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-12-12 20:44+0000\n"
+"Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/mate/MATE/language/eu/)\n"
-"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -67,15 +67,15 @@ msgstr ""
 
 #: ../mate-tweak:988
 msgid "Cupertino"
-msgstr ""
+msgstr "Cupertino"
 
 #: ../mate-tweak:991
 msgid "Fedora"
-msgstr ""
+msgstr "Fedora"
 
 #: ../mate-tweak:994
 msgid "GNOME2"
-msgstr ""
+msgstr "GNOME2"
 
 #: ../mate-tweak:997
 msgid "Linux Mint"
@@ -83,11 +83,11 @@ msgstr "Linux Mint"
 
 #: ../mate-tweak:1000
 msgid "Mageia"
-msgstr ""
+msgstr "Mageia"
 
 #: ../mate-tweak:1005
 msgid "Mutiny"
-msgstr ""
+msgstr "Mutiny"
 
 #: ../mate-tweak:1008
 msgid "Netbook"
@@ -119,7 +119,7 @@ msgstr "Interfazea"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr ""
+msgstr "Panela"
 
 #: ../mate-tweak:1077
 msgid "Windows"
@@ -127,7 +127,7 @@ msgstr "Leihoak"
 
 #: ../mate-tweak:1120
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: ../mate-tweak:1123
 msgid "Desktop icons"
@@ -139,7 +139,7 @@ msgstr "Errendimendua"
 
 #: ../mate-tweak:1125
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Leihoaren portaera"
 
 #: ../mate-tweak:1126
 msgid "Appearance"
@@ -147,15 +147,15 @@ msgstr "Itxura"
 
 #: ../mate-tweak:1127
 msgid "Panels"
-msgstr ""
+msgstr "Panelak"
 
 #: ../mate-tweak:1128
 msgid "Panel Features"
-msgstr ""
+msgstr "Panelaren ezaugarriak"
 
 #: ../mate-tweak:1129
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "Panelaren menuaren ezaugarriak"
 
 #: ../mate-tweak:1130
 msgid "Icons"
@@ -171,15 +171,15 @@ msgstr "Tresna-barrak"
 
 #: ../mate-tweak:1133
 msgid "Window manager"
-msgstr ""
+msgstr "Leiho-kudeatzailea"
 
 #: ../mate-tweak:1135
 msgid "Select the Desktop Icons you want enabled:"
-msgstr ""
+msgstr "Hautatu gaitu nahi dituzun mahaigaineko ikonoak:"
 
 #: ../mate-tweak:1136
 msgid "Show Desktop Icons"
-msgstr ""
+msgstr "Erakutsi mahaigaineko ikonoak"
 
 #: ../mate-tweak:1137
 msgid "Computer"
@@ -203,7 +203,7 @@ msgstr "Muntatutako bolumenak"
 
 #: ../mate-tweak:1143
 msgid "Enable animations"
-msgstr ""
+msgstr "Gaitu animazioak"
 
 #: ../mate-tweak:1144
 msgid "Do not show window content when moving windows"
@@ -255,15 +255,15 @@ msgstr ""
 
 #: ../mate-tweak:1160
 msgid "Show Applications"
-msgstr ""
+msgstr "Erakutsi Aplikazioak"
 
 #: ../mate-tweak:1161
 msgid "Show Places"
-msgstr ""
+msgstr "Erakutsi Lekuak"
 
 #: ../mate-tweak:1162
 msgid "Show System"
-msgstr ""
+msgstr "Erakutsi Sistema"
 
 #: ../mate-tweak:1164
 msgid "Show icons on menus"
@@ -283,7 +283,7 @@ msgstr "Erakutsi Unicode Kontrol Karaktereen menua testuinguru menuetan"
 
 #: ../mate-tweak:1169
 msgid "Style:"
-msgstr ""
+msgstr "Estiloa:"
 
 #: ../mate-tweak:1170
 msgid "Icon size:"
@@ -311,7 +311,7 @@ msgstr "Hautatutakoan aktibatuko da leiho kudeatzaile berria."
 
 #: ../mate-tweak:1204
 msgid "Select a window manager."
-msgstr ""
+msgstr "Hautatu leiho-kudeatzailea."
 
 #: ../mate-tweak:1210
 msgid "Select a panel layout to change the user interface."
@@ -321,33 +321,31 @@ msgstr ""
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Panel diseinu berria hautatutakoan aktibatuko da eta aurretik egin dituzun "
-"pertsonalizazio guztiak desegingo ditu."
+msgstr "Panel diseinu berria hautatutakoan aktibatuko da eta aurretik egin dituzun pertsonalizazio guztiak desegingo ditu."
 
 #: ../mate-tweak:1218
 msgid "Default"
-msgstr ""
+msgstr "Lehenetsia"
 
 #: ../mate-tweak:1219
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1220
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1221
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1222
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1223
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."

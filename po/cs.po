@@ -1,11 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Jaroslav Lichtblau <dragonlord@seznam.cz>, 2016
-# Martin Kříž <liberte.czech@gmail.com>, 2016
+# Martin Kříž <liberte.czech@gmail.com>, 2015-2016
 # Martin Kříž <liberte.czech@gmail.com>, 2015
 # Milan Milzou <vonfsro@gmail.com>, 2015-2016
 # Robin Kriebel <kriebel.robin@gmail.com>, 2016
@@ -14,13 +14,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-22 08:49+0000\n"
-"Last-Translator: Jaroslav Lichtblau <dragonlord@seznam.cz>\n"
+"PO-Revision-Date: 2016-06-21 16:22+0000\n"
+"Last-Translator: ToMáš Marný\n"
 "Language-Team: Czech (http://www.transifex.com/mate/MATE/language/cs/)\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../mate-tweak:949
@@ -67,9 +67,7 @@ msgstr "Compiz (Pokročilejší efekty plochy s GPU akcelerací)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Právě používáte neznámý a nepodporovaný okenní manažer. Negarantujeme, že se "
-"projeví provedené změny."
+msgstr "Právě používáte neznámý a nepodporovaný okenní manažer. Negarantujeme, že se projeví provedené změny."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -327,9 +325,7 @@ msgstr "Zvolte rozvržení panelu pro změnu uživatelského rozhraní."
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"Nové rozložení panelů se aktivuje při výběru a zničí veškeré úpravy, které "
-"jste provedli."
+msgstr "Nové rozložení panelů se aktivuje při výběru a zničí veškeré úpravy, které jste provedli."
 
 #: ../mate-tweak:1218
 msgid "Default"
@@ -357,19 +353,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Nastavit velikost ikon panelu."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Vyberte velikost ikon pro ikony panelu."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Nastavit velikost ikon položek menu používaných v panelu."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Vyberte velikost ikon pro položky menu v panelu."
 
 #: ../mate-tweak:1254
 msgid "Text below items"

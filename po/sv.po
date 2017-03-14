@@ -1,10 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Henrik Mattsson-Mårn <h@reglage.net>, 2016
+# Jonatan Nyberg <jonatan@autistici.org>, 2016
 # Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2015-2016
 # Urban Berggren <pudberggren@icloud.com>, 2016
 msgid ""
@@ -12,13 +13,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-22 19:57+0000\n"
-"Last-Translator: Urban Berggren <pudberggren@icloud.com>\n"
+"PO-Revision-Date: 2016-11-29 09:06+0000\n"
+"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
 "Language-Team: Swedish (http://www.transifex.com/mate/MATE/language/sv/)\n"
-"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:949
@@ -65,7 +66,7 @@ msgstr ""
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "Du använder för närvarande en okänd och ostödd fönsterhanterare. Vi kan alltså inte garantera att ändringar som görs här kommer att vara effektiva."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -129,7 +130,7 @@ msgstr "Fönster"
 
 #: ../mate-tweak:1120
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE justering"
 
 #: ../mate-tweak:1123
 msgid "Desktop icons"
@@ -245,7 +246,7 @@ msgstr "Aktivera avancerad meny"
 
 #: ../mate-tweak:1156
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "Aktivera tangentbord LED"
 
 #: ../mate-tweak:1157
 msgid "Enable launcher"
@@ -331,23 +332,23 @@ msgstr "Standard"
 
 #: ../mate-tweak:1219
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1220
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1221
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1222
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1223
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
@@ -359,11 +360,11 @@ msgstr ""
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Ställ in ikonstorlek på menyobjekt som används i panelen."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Välj ikonstorleken för menyobjekten i panelen."
 
 #: ../mate-tweak:1254
 msgid "Text below items"

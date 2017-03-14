@@ -1,31 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Sky Lion <xskylionx@gmail.com>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2017-01-15 13:16+0000\n"
+"Last-Translator: Sky Lion <xskylionx@gmail.com>\n"
 "Language-Team: Bosnian (http://www.transifex.com/mate/MATE/language/bs/)\n"
-"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: bs\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../mate-tweak:949
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Marco (Nijedan kompozitor)"
 
 #: ../mate-tweak:951
 msgid "Marco (Software compositor)"
-msgstr ""
+msgstr "Marco (Softver kompozitor)"
 
 #: ../mate-tweak:953
 msgid "Marco (No effects xcompmgr compositor)"
@@ -33,15 +33,15 @@ msgstr ""
 
 #: ../mate-tweak:955
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (Compton GPU kompozitor)"
 
 #: ../mate-tweak:957
 msgid "Metacity (No compositor)"
-msgstr ""
+msgstr "Metacity (Nijedan kompozitor)"
 
 #: ../mate-tweak:959
 msgid "Metacity (Software compositor)"
-msgstr ""
+msgstr "Metacity (Softver kompozitor)"
 
 #: ../mate-tweak:961
 msgid "Metacity (No effects xcompmgr compositor)"
@@ -49,65 +49,65 @@ msgstr ""
 
 #: ../mate-tweak:963
 msgid "Metacity (Compton GPU compositor)"
-msgstr ""
+msgstr "Metacity (Compton GPU kompozitor)"
 
 #: ../mate-tweak:965
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Mutter (Elegantni GPU ubrzani desktop efekti)"
 
 #: ../mate-tweak:967
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Compiz (Napredni GPU ubrzani desktop efekti)"
 
 #: ../mate-tweak:970
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "Koristite nepoznati i ne podržani prozorni menadžer. Ne možemo garantirati da ću promijene biti efektivne."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
-msgstr ""
+msgstr "Cupertino"
 
 #: ../mate-tweak:991
 msgid "Fedora"
-msgstr ""
+msgstr "Fedora"
 
 #: ../mate-tweak:994
 msgid "GNOME2"
-msgstr ""
+msgstr "GNOME2"
 
 #: ../mate-tweak:997
 msgid "Linux Mint"
-msgstr ""
+msgstr "Linux Mint"
 
 #: ../mate-tweak:1000
 msgid "Mageia"
-msgstr ""
+msgstr "Mageia"
 
 #: ../mate-tweak:1005
 msgid "Mutiny"
-msgstr ""
+msgstr "Mutiny"
 
 #: ../mate-tweak:1008
 msgid "Netbook"
-msgstr ""
+msgstr "Netbook"
 
 #: ../mate-tweak:1011
 msgid "openSUSE"
-msgstr ""
+msgstr "openSUSE"
 
 #: ../mate-tweak:1014
 msgid "Redmond"
-msgstr ""
+msgstr "Redmond"
 
 #: ../mate-tweak:1017
 msgid "Ubuntu MATE"
-msgstr ""
+msgstr "Ubuntu MATE"
 
 #: ../mate-tweak:1020
 msgid "Wimpy"
-msgstr ""
+msgstr "Wimpy"
 
 #: ../mate-tweak:1074
 msgid "Desktop"
@@ -119,7 +119,7 @@ msgstr "Interfejs"
 
 #: ../mate-tweak:1076
 msgid "Panel"
-msgstr ""
+msgstr "Ploča"
 
 #: ../mate-tweak:1077
 msgid "Windows"
@@ -127,7 +127,7 @@ msgstr "Prozori"
 
 #: ../mate-tweak:1120
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: ../mate-tweak:1123
 msgid "Desktop icons"
@@ -139,7 +139,7 @@ msgstr "Performanse"
 
 #: ../mate-tweak:1125
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Ponašanje prozora"
 
 #: ../mate-tweak:1126
 msgid "Appearance"
@@ -147,7 +147,7 @@ msgstr "Izgled"
 
 #: ../mate-tweak:1127
 msgid "Panels"
-msgstr ""
+msgstr "Ploče"
 
 #: ../mate-tweak:1128
 msgid "Panel Features"
@@ -171,15 +171,15 @@ msgstr "Alatne trake"
 
 #: ../mate-tweak:1133
 msgid "Window manager"
-msgstr ""
+msgstr "Prozorni menadžer"
 
 #: ../mate-tweak:1135
 msgid "Select the Desktop Icons you want enabled:"
-msgstr ""
+msgstr "Odaberite ikone koje želite omogućiti:"
 
 #: ../mate-tweak:1136
 msgid "Show Desktop Icons"
-msgstr ""
+msgstr "Prikaži Ikone Radne površine"
 
 #: ../mate-tweak:1137
 msgid "Computer"
@@ -203,11 +203,11 @@ msgstr "Učitani diskovi"
 
 #: ../mate-tweak:1143
 msgid "Enable animations"
-msgstr ""
+msgstr "Uključi animacije"
 
 #: ../mate-tweak:1144
 msgid "Do not show window content when moving windows"
-msgstr ""
+msgstr "Ne prikazuj sadržaj prozora prilikom prevlačenja"
 
 #: ../mate-tweak:1145
 msgid "Window manager performance tuning."
@@ -223,7 +223,7 @@ msgstr ""
 
 #: ../mate-tweak:1149
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "Ne automatski maksimizirati nove prozore"
 
 #: ../mate-tweak:1151
 msgid "Window control placement."
@@ -231,39 +231,39 @@ msgstr ""
 
 #: ../mate-tweak:1153
 msgid "Save Panel Layout"
-msgstr ""
+msgstr "Sačuvaj raspored panela"
 
 #: ../mate-tweak:1154
 msgid "Enable indicators"
-msgstr ""
+msgstr "Uključi indikatore"
 
 #: ../mate-tweak:1155
 msgid "Enable advanced menu"
-msgstr ""
+msgstr "Uključi unapredni meni"
 
 #: ../mate-tweak:1156
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "Omogućite LED tastature"
 
 #: ../mate-tweak:1157
 msgid "Enable launcher"
-msgstr ""
+msgstr "Omogućite pokretač"
 
 #: ../mate-tweak:1158
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Omogućite padajući terminal"
 
 #: ../mate-tweak:1160
 msgid "Show Applications"
-msgstr ""
+msgstr "Prikaži aplikacije"
 
 #: ../mate-tweak:1161
 msgid "Show Places"
-msgstr ""
+msgstr "Prikaži mjesta"
 
 #: ../mate-tweak:1162
 msgid "Show System"
-msgstr ""
+msgstr "Prikaži Sistem"
 
 #: ../mate-tweak:1164
 msgid "Show icons on menus"
@@ -283,7 +283,7 @@ msgstr "Prikaži unikodni kontrolni znak u dodatnim menijima"
 
 #: ../mate-tweak:1169
 msgid "Style:"
-msgstr ""
+msgstr "Stil:"
 
 #: ../mate-tweak:1170
 msgid "Icon size:"
@@ -299,7 +299,7 @@ msgstr "Velika"
 
 #: ../mate-tweak:1196
 msgid "Traditional (Right)"
-msgstr ""
+msgstr "Tradicionalno (Desno)"
 
 #: ../mate-tweak:1197
 msgid "Contemporary (Left)"
@@ -307,15 +307,15 @@ msgstr ""
 
 #: ../mate-tweak:1203
 msgid "The new window manager will be activated upon selection."
-msgstr ""
+msgstr "Novi prozorni menadžer će biti aktiviran nakon odabira."
 
 #: ../mate-tweak:1204
 msgid "Select a window manager."
-msgstr ""
+msgstr "Odaberite prozorni menadžer."
 
 #: ../mate-tweak:1210
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Odaberite raspored panela da promijenite korisnički interfejs."
 
 #: ../mate-tweak:1211
 msgid ""
@@ -325,27 +325,27 @@ msgstr ""
 
 #: ../mate-tweak:1218
 msgid "Default"
-msgstr ""
+msgstr "Uobičajeno"
 
 #: ../mate-tweak:1219
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1220
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1221
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1222
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1223
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1227
 msgid "Set the panel icon size."
@@ -353,7 +353,7 @@ msgstr ""
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Postavite veličinu ikona za ikone na panelu."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
