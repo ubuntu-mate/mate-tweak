@@ -479,12 +479,14 @@ class MateTweak:
         self.remove_dock_autostart()
 
         # Docks require compositing
+        schema = None
         if self.current_wm == 'marco':
             schema = 'org.mate.Marco.general'
         elif self.current_wm == 'metacity':
             schema = 'org.gnome.metacity'
-        else:
-            schema = None
+        elif 'compiz' in self.current_wm:
+            # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
+            self.set_bool('org.compiz.thumbnail', '/org/compiz/profiles/mate/plugins/thumbnail/', 'current-viewport', False)
 
         if schema is not None:
             self.set_bool(schema, None, 'compositing-manager', True)
@@ -496,6 +498,10 @@ class MateTweak:
             self.dock_enabled = True
 
     def disable_dock(self):
+        if 'compiz' in self.current_wm:
+            # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
+            self.set_bool('org.compiz.thumbnail', '/org/compiz/profiles/mate/plugins/thumbnail/', 'current-viewport', True)
+
         self.set_string('org.mate.session.required-components', None, 'dock', '')
         self.remove_dock_autostart()
         self.kill_process(self.dock)
@@ -747,25 +753,12 @@ class MateTweak:
         else:
             self.disable_indicators()
 
-        thumbnail_schema_id = "org.compiz.thumbnail"
-        thumbnail_profile_path = '/org/compiz/profiles/mate/plugins/thumbnail/'
-
         # Determine if the dock should be enabled
         if (new_layout.startswith('eleven') and self.dock is not None) or \
            (new_layout.startswith('pantheon') and self.dock is not None):
-            if 'compiz' in self.current_wm:
-                # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
-                self.set_bool(thumbnail_schema_id, thumbnail_profile_path, 'current-viewport', False)
             self.enable_dock()
-        elif new_layout.find('-tweak') != -1 and self.dock_enabled:
-            if 'compiz' in self.current_wm:
-                # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
-                self.set_bool(thumbnail_schema_id, thumbnail_profile_path, 'current-viewport', False)
         elif not new_layout.startswith('eleven') or \
              not new_layout.startswith('pantheon'):
-            if 'compiz' in self.current_wm:
-                # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
-                self.set_bool(thumbnail_schema_id, thumbnail_profile_path, 'current-viewport', True)
             self.disable_dock()
 
         if leds_enabled:
