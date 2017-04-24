@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # samson <sambelet@yahoo.com>, 2015-2017
@@ -9,372 +9,387 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-12 16:49+0100\n"
+"POT-Creation-Date: 2017-04-24 17:45+0100\n"
 "PO-Revision-Date: 2017-02-04 17:35+0000\n"
 "Last-Translator: samson <sambelet@yahoo.com>\n"
 "Language-Team: Amharic (http://www.transifex.com/mate/MATE/language/am/)\n"
+"Language: am\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: am\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../mate-tweak:949
+#: ../mate-tweak:1078
+msgid "Traditional (Right)"
+msgstr "ባህላዊ (በ ቀኝ)"
+
+#: ../mate-tweak:1079
+msgid "Contemporary (Left)"
+msgstr "ዘመናዊ (በ ግራ)"
+
+#: ../mate-tweak:1087
 msgid "Marco (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:951
+#: ../mate-tweak:1089
 msgid "Marco (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:953
+#: ../mate-tweak:1091
 msgid "Marco (No effects xcompmgr compositor)"
 msgstr ""
 
-#: ../mate-tweak:955
+#: ../mate-tweak:1093
 msgid "Marco (Compton GPU compositor)"
 msgstr ""
 
-#: ../mate-tweak:957
+#: ../mate-tweak:1095
 msgid "Metacity (No compositor)"
 msgstr ""
 
-#: ../mate-tweak:959
+#: ../mate-tweak:1097
 msgid "Metacity (Software compositor)"
 msgstr ""
 
-#: ../mate-tweak:961
+#: ../mate-tweak:1099
 msgid "Metacity (No effects xcompmgr compositor)"
 msgstr ""
 
-#: ../mate-tweak:963
+#: ../mate-tweak:1101
 msgid "Metacity (Compton GPU compositor)"
 msgstr ""
 
-#: ../mate-tweak:965
+#: ../mate-tweak:1103
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (Elegant GPU accelerated የ ዴስክቶፕ ውጤቶች)"
 
-#: ../mate-tweak:967
+#: ../mate-tweak:1105
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "ኮምፒዝ (Advanced GPU accelerated የ ዴስክቶፕ ውጤቶች)"
 
-#: ../mate-tweak:970
+#: ../mate-tweak:1108
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
 msgstr ""
 
-#: ../mate-tweak:988
+#: ../mate-tweak:1126
 msgid "Cupertino"
 msgstr "ኩፔርቲኖ"
 
-#: ../mate-tweak:991
+#: ../mate-tweak:1129
 msgid "Fedora"
 msgstr "ፌዶራ"
 
-#: ../mate-tweak:994
+#: ../mate-tweak:1132
 msgid "GNOME2"
 msgstr "ኖም2"
 
-#: ../mate-tweak:997
+#: ../mate-tweak:1135
 msgid "Linux Mint"
 msgstr "ሊነክስ ሚንት"
 
-#: ../mate-tweak:1000
+#: ../mate-tweak:1138
 msgid "Mageia"
 msgstr "ማጄያ"
 
-#: ../mate-tweak:1005
+#: ../mate-tweak:1142
 msgid "Mutiny"
 msgstr "ሙትኒ"
 
-#: ../mate-tweak:1008
+#: ../mate-tweak:1145
 msgid "Netbook"
 msgstr "ኔትቡክ"
 
-#: ../mate-tweak:1011
+#: ../mate-tweak:1148
 msgid "openSUSE"
 msgstr "ኦፕን ሱሴ"
 
-#: ../mate-tweak:1014
+#: ../mate-tweak:1152
+msgid "Pantheon"
+msgstr ""
+
+#: ../mate-tweak:1155
 msgid "Redmond"
 msgstr "ሬድሞንድ"
 
-#: ../mate-tweak:1017
+#: ../mate-tweak:1158
 msgid "Ubuntu MATE"
 msgstr "ኡቡንቱ ሜት"
 
-#: ../mate-tweak:1020
-msgid "Wimpy"
-msgstr "ዊምፒዪ"
-
-#: ../mate-tweak:1074
+#: ../mate-tweak:1219
 msgid "Desktop"
 msgstr "ዴስክቶፕ"
 
-#: ../mate-tweak:1075
+#: ../mate-tweak:1220
 msgid "Interface"
 msgstr "ግንኙነት"
 
-#: ../mate-tweak:1076
+#: ../mate-tweak:1221
 msgid "Panel"
 msgstr "ክፍል"
 
-#: ../mate-tweak:1077
+#: ../mate-tweak:1222
 msgid "Windows"
 msgstr "መስኮቶች"
 
-#: ../mate-tweak:1120
+#: ../mate-tweak:1266
 msgid "MATE Tweak"
 msgstr "የ ሜት ማዋቀሪያ"
 
-#: ../mate-tweak:1123
+#: ../mate-tweak:1269
 msgid "Desktop icons"
 msgstr "የዴስክቶፕ ምልክቶች"
 
-#: ../mate-tweak:1124
+#: ../mate-tweak:1270
 msgid "Performance"
 msgstr "አፈጻጸም"
 
-#: ../mate-tweak:1125
+#: ../mate-tweak:1271
 msgid "Window Behaviour"
 msgstr "የ መስኮት ባህሪ"
 
-#: ../mate-tweak:1126
+#: ../mate-tweak:1272
 msgid "Appearance"
 msgstr "አቀራረብ"
 
-#: ../mate-tweak:1127
+#: ../mate-tweak:1273
 msgid "Panels"
 msgstr "ክፍሎች"
 
-#: ../mate-tweak:1128
+#: ../mate-tweak:1274
 msgid "Panel Features"
 msgstr "የ ክፍሎች ገጽታ"
 
-#: ../mate-tweak:1129
+#: ../mate-tweak:1275
 msgid "Panel Menu Features"
 msgstr "የ ክፍል ዝርዝር ገጽታ"
 
-#: ../mate-tweak:1130
+#: ../mate-tweak:1276
 msgid "Icons"
 msgstr "ምልክቶች"
 
-#: ../mate-tweak:1131
+#: ../mate-tweak:1277
 msgid "Context menus"
 msgstr "የዝርዝሮች አገባብ"
 
-#: ../mate-tweak:1132
+#: ../mate-tweak:1278
 msgid "Toolbars"
 msgstr "ቱልባሮች"
 
-#: ../mate-tweak:1133
+#: ../mate-tweak:1279
 msgid "Window manager"
 msgstr "የመስኮት አስተዳዳሪ:"
 
-#: ../mate-tweak:1135
+#: ../mate-tweak:1281
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "ዴስክቶፕ ላይ ማጣበቅ የሚፈልጉትን ምልክት ይምረጡ"
 
-#: ../mate-tweak:1136
+#: ../mate-tweak:1282
 msgid "Show Desktop Icons"
 msgstr "የ ዴስክቶፕ ምልክቶች ማሳያ"
 
-#: ../mate-tweak:1137
+#: ../mate-tweak:1283
 msgid "Computer"
 msgstr "ኮምፒዩተር"
 
-#: ../mate-tweak:1138
+#: ../mate-tweak:1284
 msgid "Home"
 msgstr "ቤት"
 
-#: ../mate-tweak:1139
+#: ../mate-tweak:1285
 msgid "Network"
 msgstr "ኔትዎርክ"
 
-#: ../mate-tweak:1140
+#: ../mate-tweak:1286
 msgid "Trash"
 msgstr "ቆሻሻ"
 
-#: ../mate-tweak:1141
+#: ../mate-tweak:1287
 msgid "Mounted Volumes"
 msgstr "የተጨመሩ መጠኖች"
 
-#: ../mate-tweak:1143
+#: ../mate-tweak:1289
 msgid "Enable animations"
 msgstr "እንቅስቃሴ ማስቻያ "
 
-#: ../mate-tweak:1144
+#: ../mate-tweak:1290
 msgid "Do not show window content when moving windows"
 msgstr ""
 
-#: ../mate-tweak:1145
+#: ../mate-tweak:1291
 msgid "Window manager performance tuning."
 msgstr ""
 
-#: ../mate-tweak:1147
+#: ../mate-tweak:1293
 msgid "Enable window snapping"
 msgstr ""
 
-#: ../mate-tweak:1148
+#: ../mate-tweak:1294
 msgid "Undecorate maximized windows"
 msgstr "ያደጉ መስኮቶችን አታስጊጥ"
 
-#: ../mate-tweak:1149
+#: ../mate-tweak:1295
 msgid "Do not auto-maximize new windows"
 msgstr "አዲስ መስኮቶችን በራሱ-አታሳድግ"
 
-#: ../mate-tweak:1151
+#: ../mate-tweak:1297
 msgid "Window control placement."
 msgstr "የ መስኮት መቆጣጠሪያ መቀየሪያ"
 
-#: ../mate-tweak:1153
+#: ../mate-tweak:1299
 msgid "Save Panel Layout"
 msgstr "የ ክፍል እቅድ ማስቀመጫ"
 
-#: ../mate-tweak:1154
+#: ../mate-tweak:1300
+msgid "Open CCSM"
+msgstr ""
+
+#: ../mate-tweak:1301
+msgid "Reset Compiz"
+msgstr ""
+
+#: ../mate-tweak:1303
 msgid "Enable indicators"
 msgstr "መጠቆሚያ ማስቻያ"
 
-#: ../mate-tweak:1155
+#: ../mate-tweak:1304
 msgid "Enable advanced menu"
 msgstr "የ ረቀቀ ዝርዝር ማስቻያ"
 
-#: ../mate-tweak:1156
+#: ../mate-tweak:1305
 msgid "Enable keyboard LED"
 msgstr "የ ፊደል ገበታ LED ማሰናጃ"
 
-#: ../mate-tweak:1157
+#: ../mate-tweak:1306
 msgid "Enable launcher"
 msgstr "ማስጀመሪያ ማስቻያ"
 
-#: ../mate-tweak:1158
+#: ../mate-tweak:1307
+msgid "Enable HUD"
+msgstr ""
+
+#: ../mate-tweak:1308
 msgid "Enable pull-down terminal"
 msgstr "ተርሚናል ወደ-ታች መጎተቻ ማስቻያ"
 
-#: ../mate-tweak:1160
+#: ../mate-tweak:1310
 msgid "Show Applications"
 msgstr "መተግበሪያ ማሳያ"
 
-#: ../mate-tweak:1161
+#: ../mate-tweak:1311
 msgid "Show Places"
 msgstr "ቦታዎች ማሳያ"
 
-#: ../mate-tweak:1162
+#: ../mate-tweak:1312
 msgid "Show System"
 msgstr "ስርአቱን ማሳያ"
 
-#: ../mate-tweak:1164
+#: ../mate-tweak:1314
 msgid "Show icons on menus"
 msgstr "ምልክቶችን በዝርዝር ውስጥ ማሳየት"
 
-#: ../mate-tweak:1165
+#: ../mate-tweak:1315
 msgid "Show icons on buttons"
 msgstr "ምልክቶችን በቁልፍ ላይ አሳይ"
 
-#: ../mate-tweak:1166
+#: ../mate-tweak:1316
 msgid "Show Input Methods menu in context menus"
 msgstr "የማስገቢያ ዝርዝር ዘዴዎችን አገባብ በዝርዝር አገባብ ላይ አሳይ"
 
-#: ../mate-tweak:1167
+#: ../mate-tweak:1317
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "የዩኒኮድ ባህሪ ዝርዝር መቆጣጠሪያን በዝርዝር አገባብ ላይ አሳይ"
 
-#: ../mate-tweak:1169
+#: ../mate-tweak:1319
 msgid "Style:"
 msgstr "ዘዴ:"
 
-#: ../mate-tweak:1170
+#: ../mate-tweak:1320
 msgid "Icon size:"
 msgstr "የ ምልክት መጠን:"
 
-#: ../mate-tweak:1189
+#: ../mate-tweak:1339
 msgid "Small"
 msgstr "ትንሽ"
 
-#: ../mate-tweak:1190
+#: ../mate-tweak:1340
 msgid "Large"
 msgstr "ትልቅ"
 
-#: ../mate-tweak:1196
-msgid "Traditional (Right)"
-msgstr "ባህላዊ (በ ቀኝ)"
-
-#: ../mate-tweak:1197
-msgid "Contemporary (Left)"
-msgstr "ዘመናዊ (በ ግራ)"
-
-#: ../mate-tweak:1203
+#: ../mate-tweak:1349
 msgid "The new window manager will be activated upon selection."
 msgstr "በሚመርጡ ጊዜ አዲሱ የ መስኮት አስተዳዳሪ ይጀምራል"
 
-#: ../mate-tweak:1204
+#: ../mate-tweak:1350
 msgid "Select a window manager."
 msgstr "የ መስኮት አስተዳዳሪ ይምረጡ:"
 
-#: ../mate-tweak:1210
+#: ../mate-tweak:1356
 msgid "Select a panel layout to change the user interface."
 msgstr "የ ተጠቃሚውን ገጽታ ለመቀየር የ ክፍል እቅድ ይምረጡ"
 
-#: ../mate-tweak:1211
+#: ../mate-tweak:1357
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr "የ አዲሱ ክፍል እቅድ ምርጫ አሁን ይጀምራል እና ቀደም ብሎ የነበውን በ አዲሱ ይቀይረዋል"
 
-#: ../mate-tweak:1218
+#: ../mate-tweak:1364
 msgid "Default"
 msgstr "ነባር "
 
-#: ../mate-tweak:1219
+#: ../mate-tweak:1365
 msgid "16px"
 msgstr "16ፒክስል"
 
-#: ../mate-tweak:1220
+#: ../mate-tweak:1366
 msgid "22px"
 msgstr "22ፒክስል"
 
-#: ../mate-tweak:1221
+#: ../mate-tweak:1367
 msgid "24px"
 msgstr "24ፒክስል"
 
-#: ../mate-tweak:1222
+#: ../mate-tweak:1368
 msgid "32px"
 msgstr "32ፒክስል"
 
-#: ../mate-tweak:1223
+#: ../mate-tweak:1369
 msgid "48px"
 msgstr "48ፒክስል"
 
-#: ../mate-tweak:1227
+#: ../mate-tweak:1373
 msgid "Set the panel icon size."
 msgstr "የ ክፍል ምልክት መጠን ማሰናጃ"
 
-#: ../mate-tweak:1228
+#: ../mate-tweak:1374
 msgid "Select the icon size for panel icons."
 msgstr "ለ ክፍል ምልክት መጠን ማሰናጃ ይምረጡ"
 
-#: ../mate-tweak:1232
+#: ../mate-tweak:1378
 msgid "Set the icon size of menu items used in the panel."
 msgstr ""
 
-#: ../mate-tweak:1233
+#: ../mate-tweak:1379
 msgid "Select the icon size for menu items in the panel."
 msgstr ""
 
-#: ../mate-tweak:1254
+#: ../mate-tweak:1408
 msgid "Text below items"
 msgstr "ጽሁፍ ከእቃው ስር"
 
-#: ../mate-tweak:1255
+#: ../mate-tweak:1409
 msgid "Text beside items"
 msgstr "ጽሁፍ ከእቃው አጠገብ"
 
-#: ../mate-tweak:1256
+#: ../mate-tweak:1410
 msgid "Icons only"
 msgstr "ምልክቶች ብቻ"
 
-#: ../mate-tweak:1257
+#: ../mate-tweak:1411
 msgid "Text only"
 msgstr "ጽሁፍ ብቻ"
+
+#~ msgid "Wimpy"
+#~ msgstr "ዊምፒዪ"
