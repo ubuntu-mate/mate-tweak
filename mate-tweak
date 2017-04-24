@@ -1031,6 +1031,7 @@ class MateTweak:
         self.mint_menu_available = False
         self.volume_applet_enabled = False
         self.brisk_menu_available = False
+        self.appmenu_applet_available = False
 
         if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
             self.gnome_menu_available = True
@@ -1054,6 +1055,10 @@ class MateTweak:
         if os.path.exists('/usr/lib/' + self.multiarch + '/brisk-menu/brisk-menu') and \
             os.path.exists('/usr/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
             self.brisk_menu_available = True
+
+        if os.path.exists('/usr/lib/' + self.multiarch + '/mate-panel/appmenu-mate') and \
+            os.path.exists('/usr/share/mate-panel/applets/org.vala-panel.appmenu.mate-panel-applet'):
+            self.appmenu_applet_available = True
 
         if os.path.exists('/usr/bin/mate-maximus') and \
            os.path.exists('/usr/lib/mate-netbook/mate-window-picker-applet'):
