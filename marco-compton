@@ -32,14 +32,25 @@ else
         --backend ${BACKEND} \
         --vsync ${VSYNC} \
         --detect-rounded-corners \
+        --detect-client-leader \
+        --detect-transient \
+        --detect-client-opacity \
         --paint-on-overlay \
         --glx-no-stencil \
         --glx-swap-method undefined \
         --unredir-if-possible \
+        --unredir-if-possible-exclude "class_g = 'Mate-screensaver'" \
         --inactive-opacity-override \
         --mark-wmwin-focused \
+        --mark-ovredir-focused \
+        --use-ewmh-active-win \
         -r 10 -o 0.225 -l -12 -t -12 \
         -c -C -G \
+        --clear-shadow \
+        --fading \
+        --fade-delta=4 \
+        --fade-in-step=0.03 \
+        --fade-out-step=0.03 \
         --shadow-exclude "! name~=''" \
         --shadow-exclude "name = 'Notification'" \
         --shadow-exclude "name = 'Plank'" \
