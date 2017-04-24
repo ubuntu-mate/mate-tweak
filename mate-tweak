@@ -1131,7 +1131,7 @@ class MateTweak:
             current_layout = layout.replace('.layout', '').replace('/usr/share/mate-panel/layouts/', '');
             panels.append([_('Custom: ') + current_layout, current_layout])
 
-        if self.dock is not None:
+        if self.dock is not None and self.appmenu_applet_available:
             if self.panel_layout_exists('eleven'):
                 panels.append([_("Cupertino"), "eleven"])
 
@@ -1148,7 +1148,8 @@ class MateTweak:
             panels.append([_("Mageia"), "mageia"])
 
         if self.panel_layout_exists('mutiny') and \
-           self.mate_dock_available:
+           self.mate_dock_available and \
+           self.appmenu_applet_available:
             panels.append([_("Mutiny"), "mutiny"])
 
         if self.panel_layout_exists('netbook') and self.maximus_available:
