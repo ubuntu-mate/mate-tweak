@@ -3,18 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# crolidge, 2015
+# Carlos Moreira, 2015,2017
 # Diogo Oliveira <diogodesigns@gmail.com>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Hugo Carvalho <hugokarvalho@hotmail.com>, 2015
+# José Vieira <jvieira33@sapo.pt>, 2017
 # Manuela Silva <manuela.silva@sky.com>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-12 16:49+0100\n"
-"PO-Revision-Date: 2017-01-13 02:19+0000\n"
-"Last-Translator: Manuela Silva <manuela.silva@sky.com>\n"
+"PO-Revision-Date: 2017-04-23 14:55+0000\n"
+"Last-Translator: José Vieira <jvieira33@sapo.pt>\n"
 "Language-Team: Portuguese (http://www.transifex.com/mate/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,35 +25,35 @@ msgstr ""
 
 #: ../mate-tweak:949
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Marco (Sem compositor)"
 
 #: ../mate-tweak:951
 msgid "Marco (Software compositor)"
-msgstr ""
+msgstr "Marco (Compositor de software)"
 
 #: ../mate-tweak:953
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Marco (Sem efeitos do compositor xcompmgr)"
 
 #: ../mate-tweak:955
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (Compositor Compton GPU)"
 
 #: ../mate-tweak:957
 msgid "Metacity (No compositor)"
-msgstr ""
+msgstr "Metacity (Sem compositor)"
 
 #: ../mate-tweak:959
 msgid "Metacity (Software compositor)"
-msgstr ""
+msgstr "Metacity (Compositor de software)"
 
 #: ../mate-tweak:961
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Metacity (Sem efeitos do compositor xcompmgr)"
 
 #: ../mate-tweak:963
 msgid "Metacity (Compton GPU compositor)"
-msgstr ""
+msgstr "Metacity (Compositor Compton GPU)"
 
 #: ../mate-tweak:965
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
@@ -60,13 +61,13 @@ msgstr "Mutter (efeitos acelerados do ambiente de trabalho Elegant GPU)"
 
 #: ../mate-tweak:967
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (Efeitos de desktop avançados por aceleração de GPU)"
+msgstr "Mutter (efeitos acelerados do ambiente de trabalho avançado GPU)"
 
 #: ../mate-tweak:970
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "Presentemente está a usar um gestor de janelas desconhecido e não aceite. Por isso, não há garantia de que as alterações feitas aqui se tornem efectivas."
 
 #: ../mate-tweak:988
 msgid "Cupertino"
@@ -90,7 +91,7 @@ msgstr "Mageia"
 
 #: ../mate-tweak:1005
 msgid "Mutiny"
-msgstr ""
+msgstr "Mutiny"
 
 #: ../mate-tweak:1008
 msgid "Netbook"
@@ -110,7 +111,7 @@ msgstr "Ubuntu MATE"
 
 #: ../mate-tweak:1020
 msgid "Wimpy"
-msgstr ""
+msgstr "Wimpy"
 
 #: ../mate-tweak:1074
 msgid "Desktop"
@@ -178,7 +179,7 @@ msgstr "Gestor de janelas"
 
 #: ../mate-tweak:1135
 msgid "Select the Desktop Icons you want enabled:"
-msgstr ""
+msgstr "Selecione os ícones a ativar no ambiente de trabalho:"
 
 #: ../mate-tweak:1136
 msgid "Show Desktop Icons"
@@ -214,11 +215,11 @@ msgstr "Não mostrar o conteúdo da janela ao mover janelas"
 
 #: ../mate-tweak:1145
 msgid "Window manager performance tuning."
-msgstr ""
+msgstr "Afinação do desempenho do gestor de janelas. "
 
 #: ../mate-tweak:1147
 msgid "Enable window snapping"
-msgstr ""
+msgstr "Ativar alinhamento de janelas"
 
 #: ../mate-tweak:1148
 msgid "Undecorate maximized windows"
@@ -254,7 +255,7 @@ msgstr "Ativar iniciador"
 
 #: ../mate-tweak:1158
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Activar terminal suspenso"
 
 #: ../mate-tweak:1160
 msgid "Show Applications"
@@ -356,7 +357,7 @@ msgstr "Defina o tamanho do ícone do painel."
 
 #: ../mate-tweak:1228
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Seleccionar o tamanho dos ícones no painel."
 
 #: ../mate-tweak:1232
 msgid "Set the icon size of menu items used in the panel."
@@ -364,7 +365,7 @@ msgstr "Defina o tamanho ícone dos itens de menu utilizados no painel."
 
 #: ../mate-tweak:1233
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Seleccionar o tamanho dos itens de menu no painel."
 
 #: ../mate-tweak:1254
 msgid "Text below items"
