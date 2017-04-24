@@ -735,15 +735,18 @@ class MateTweak:
         elif self.current_layout.startswith('pantheon') and not show_applications:
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', True)
 
-        # If we're switching to Cupertino or Mutiny to move window controls to the left.
+        # If we're switching to Cupertino or Mutiny to move window
+        # controls to the left and enable Global Menu.
         if new_layout.startswith('eleven') or new_layout.startswith('mutiny'):
-            self.set_string("org.mate.Marco.general", None, "button-layout", "close,minimize,maximize:menu")
-            self.set_string("org.mate.interface", None, "gtk-decoration-layout", "close,minimize,maximize:menu")
-            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", "close,minimize,maximize:menu")
+            self.set_string("org.mate.Marco.general", None, "button-layout", __CONTEMPORARY_BUTTONS__)
+            self.set_string("org.mate.interface", None, "gtk-decoration-layout", __CONTEMPORARY_BUTTONS__)
+            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __CONTEMPORARY_BUTTONS__)
+            self.set_bool("org.mate.interface", None, 'gtk-shell-shows-menubar', True)
         else:
-            self.set_string("org.mate.Marco.general", None, "button-layout", "menu:minimize,maximize,close")
-            self.set_string("org.mate.interface", None, "gtk-decoration-layout", "menu:minimize,maximize,close")
-            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", "menu:minimize,maximize,close")
+            self.set_string("org.mate.Marco.general", None, "button-layout", __TRADITIONAL_BUTTONS__)
+            self.set_string("org.mate.interface", None, "gtk-decoration-layout", __TRADITIONAL_BUTTONS__)
+            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __TRADITIONAL_BUTTONS__)
+            self.set_bool("org.mate.interface", None, 'gtk-shell-shows-menubar', False)
 
         # Update window controls
         self.update_window_controls()
