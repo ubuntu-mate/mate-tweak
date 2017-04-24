@@ -17,6 +17,6 @@ fi
 
 # Replace window manager and force compositing off.
 ${WM} --no-composite --replace &
-sleep 1
+sleep 0.3
 
 xcompmgr -C -n -r 0 &

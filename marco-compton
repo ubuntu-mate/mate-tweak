@@ -19,7 +19,7 @@ fi
 
 # Replace window manager and force compositing off.
 ${WM} --no-composite --replace &
-sleep 1
+sleep 0.3
 
 # Allow users to override the defaults by creating their own config
 # for this wrapper.
