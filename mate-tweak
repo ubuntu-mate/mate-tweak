@@ -249,7 +249,10 @@ class MateTweak:
         for process in psutil.process_iter():
             if process.name() == process_name and process.uids().real == current_user:
                 #print('Killing ' + process.name())
-                process.kill()
+                try:
+                    process.kill()
+                except:
+                    print('Attempted to kill ' + process.name() + ', but could not.')
 
     def find_on_path(self, command):
         """Is command on the executable search path?"""
@@ -644,11 +647,14 @@ class MateTweak:
         self.builder.get_object("checkbox_volumes").set_sensitive(sensitiveness)
 
     def panel_layout_uses_indicators(self, panel_layout):
-        with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as file, \
-            mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
-            if s.find(b'IndicatorApplet') != -1:
-                return True
-        return False
+        try:
+            with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
+                mmap.mmap(layout.fileno(), 0, access=mmap.ACCESS_READ) as data:
+                if data.find(b'IndicatorApplet') != -1:
+                    return True
+            return False
+        except:
+            return False
 
     def update_panel_layout_features(self, panel_layout):
         # If the selected panel layout has MATE Menu and Indicators then
@@ -719,6 +725,28 @@ class MateTweak:
         else:
             self.builder.get_object('box_menu_features').props.sensitive = True
             self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
+
+        # Change show-applications state when changing to/from Pantheon.
+        show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
+
+        if new_layout.startswith('pantheon'):
+            self.set_bool('org.mate.panel.menubar', None, 'show-applications', False)
+        # If we're switching from Pantheon, and show-applications is disabled then enable it.
+        elif self.current_layout.startswith('pantheon') and not show_applications:
+            self.set_bool('org.mate.panel.menubar', None, 'show-applications', True)
+
+        # If we're switching to Cupertino or Mutiny to move window controls to the left.
+        if new_layout.startswith('eleven') or new_layout.startswith('mutiny'):
+            self.set_string("org.mate.Marco.general", None, "button-layout", "close,minimize,maximize:menu")
+            self.set_string("org.mate.interface", None, "gtk-decoration-layout", "close,minimize,maximize:menu")
+            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", "close,minimize,maximize:menu")
+        else:
+            self.set_string("org.mate.Marco.general", None, "button-layout", "menu:minimize,maximize,close")
+            self.set_string("org.mate.interface", None, "gtk-decoration-layout", "menu:minimize,maximize,close")
+            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", "menu:minimize,maximize,close")
+
+        # Update window controls
+        self.update_window_controls()
 
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
@@ -923,28 +951,6 @@ class MateTweak:
         elif schema == "org.mate.panel" and key == "default-layout":
             # If the panel layout is being changed, replace it now!
             panel_layout = value
-            show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
-
-            # If we're switching to Pantheon, do disable show-applications.
-            if panel_layout.startswith('pantheon'):
-                self.set_bool('org.mate.panel.menubar', None, 'show-applications', False)
-            # If we're switching from Pantheon, and show-applications is disabled then enable it.
-            elif self.current_layout.startswith('pantheon') and not show_applications:
-                self.set_bool('org.mate.panel.menubar', None, 'show-applications', True)
-
-            # If we're switching to Cupertino or Mutiny to move window controls to the left.
-            if panel_layout.startswith('eleven') or panel_layout.startswith('mutiny'):
-                self.set_string("org.mate.Marco.general", None, "button-layout", "close,minimize,maximize:menu")
-                self.set_string("org.mate.interface", None, "gtk-decoration-layout", "close,minimize,maximize:menu")
-                self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", "close,minimize,maximize:menu")
-            else:
-                self.set_string("org.mate.Marco.general", None, "button-layout", "menu:minimize,maximize,close")
-                self.set_string("org.mate.interface", None, "gtk-decoration-layout", "menu:minimize,maximize,close")
-                self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", "menu:minimize,maximize,close")
-
-            # Update window controls
-            self.update_window_controls()
-
             self.replace_panel_layout(panel_layout)
 
 
