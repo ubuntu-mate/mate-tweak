@@ -307,6 +307,7 @@ class MateTweak:
         print('Window Manager is: ' + self.current_wm)
 
         self.compiz_capable = False
+        self.ccsm_capable = False
         self.marco_capable = False
         self.marco_compton_capable = False
         self.marco_xcompmgr_capable = False
@@ -320,6 +321,9 @@ class MateTweak:
         if self.find_on_path('compiz'):
             if not self.software_rasterizer and self.texture_from_pixmap:
                  self.compiz_capable = True
+
+        if self.find_on_path('ccsm'):
+            self.ccsm_capable = True
 
         if self.find_on_path('marco-compton') and self.find_on_path('marco') and self.find_on_path('compton'):
             if not self.software_rasterizer and self.texture_from_pixmap:
@@ -880,8 +884,13 @@ class MateTweak:
 
         if self.current_wm == 'compiz':
            self.builder.get_object('button_compiz_reset').show()
+           if self.ccsm_capable:
+               self.builder.get_object('button_ccsm').show()
+           else:
+               self.builder.get_object('button_ccsm').hide()
         else:
            self.builder.get_object('button_compiz_reset').hide()
+           self.builder.get_object('button_ccsm').hide()
 
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
@@ -1171,6 +1180,10 @@ class MateTweak:
         compiz_reset_notify=Notify.Notification.new (_('Compiz Reset'),_('Your Compiz configuration has been reset to factory defaults.'),'dialog-information')
         compiz_reset_notify.show()
 
+    def launch_ccsm(self, widget):
+        # Launch Compiz Config Settings Manager
+        subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL)
+
     ''' Create the UI '''
     def __init__(self):
         # Check for glx, panel, dock and wm features
@@ -1196,6 +1209,7 @@ class MateTweak:
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
         self.builder.get_object("button_save_panels").connect("clicked", self.save_panels)
         self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
+        self.builder.get_object("button_ccsm").connect("clicked", self.launch_ccsm)
 
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_interface = SidePage(1, _("Interface"), "preferences-desktop")
@@ -1227,6 +1241,7 @@ class MateTweak:
 
         if not self.current_wm == "compiz":
             self.builder.get_object('button_compiz_reset').hide()
+            self.builder.get_object('button_ccsm').hide()
 
         if not self.maximus_available:
             self.builder.get_object('checkbox_undecorate').props.sensitive = False
@@ -1277,6 +1292,9 @@ class MateTweak:
         self.builder.get_object("label_window_control").set_markup("<small>" + _("Window control placement.") + "</small>")
 
         self.builder.get_object("button_save_panels").set_label(_("Save Panel Layout"))
+        self.builder.get_object("button_ccsm").set_label(_("Open CCSM"))
+        self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
+
         self.builder.get_object("checkbutton_indicators").set_label(_("Enable indicators"))
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
