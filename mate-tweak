@@ -705,7 +705,11 @@ class MateTweak:
             new_layout = panel_layout
 
         print('Switching to: ' + new_layout)
+
+        # Make Menu Bar configuration insensitive for layouts that don't
+        # feature the menu bar.
         if ('fresh' in new_layout) or \
+           (new_layout.startswith('eleven')) or \
            (new_layout.startswith('mutiny')) or \
            (new_layout.startswith('netbook')) or \
            (new_layout.startswith('opensuse')) or \
