@@ -1,11 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Antonio Gschossmann <gschossmannantonio@gmail.com>, 2016
 # Emanuele Antonio Faraone (FaraOne) <emanueleant03@gmail.com>, 2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Giuseppe Pignataro (Fasbyte01) <rogepix@gmail.com>, 2017
 # Giuseppe Pignataro (Fasbyte01) <rogepix@gmail.com>, 2016
 # Dario Di Nucci <linkin88mail@gmail.com>, 2015
 # Marco Bartolucci <nap.84@live.it>, 2016
@@ -16,14 +17,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-24 17:45+0100\n"
-"PO-Revision-Date: 2016-08-30 18:59+0000\n"
-"Last-Translator: Emanuele Antonio Faraone (FaraOne) <emanueleant03@gmail."
-"com>\n"
+"PO-Revision-Date: 2017-05-03 20:46+0000\n"
+"Last-Translator: Giuseppe Pignataro (Fasbyte01) <rogepix@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/mate/MATE/language/it/)\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:1078
@@ -78,9 +78,7 @@ msgstr "Compiz (Effetti desktop avanzati accelerati da GPU)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Stai utilizzando un window manager sconosciuto e non supportato. Così non "
-"possiamo garantire che le modifiche apportate saranno efficaci ."
+msgstr "Stai utilizzando un window manager sconosciuto e non supportato. Così non possiamo garantire che le modifiche apportate saranno efficaci ."
 
 #: ../mate-tweak:1126
 msgid "Cupertino"
@@ -116,7 +114,7 @@ msgstr "openSUSE"
 
 #: ../mate-tweak:1152
 msgid "Pantheon"
-msgstr ""
+msgstr "Pantheon"
 
 #: ../mate-tweak:1155
 msgid "Redmond"
@@ -252,11 +250,11 @@ msgstr "Salva Configurazione Pannello"
 
 #: ../mate-tweak:1300
 msgid "Open CCSM"
-msgstr ""
+msgstr "Apri CCSM"
 
 #: ../mate-tweak:1301
 msgid "Reset Compiz"
-msgstr ""
+msgstr "Azzera Compiz"
 
 #: ../mate-tweak:1303
 msgid "Enable indicators"
@@ -276,7 +274,7 @@ msgstr "Abilita lanciatore"
 
 #: ../mate-tweak:1307
 msgid "Enable HUD"
-msgstr ""
+msgstr "Abilita HUD"
 
 #: ../mate-tweak:1308
 msgid "Enable pull-down terminal"
@@ -336,16 +334,13 @@ msgstr "Seleziona un gestore delle finestre."
 
 #: ../mate-tweak:1356
 msgid "Select a panel layout to change the user interface."
-msgstr ""
-"Seleziona una disposizione dei pannelli per modificare l'interfaccia grafica."
+msgstr "Seleziona una disposizione dei pannelli per modificare l'interfaccia grafica."
 
 #: ../mate-tweak:1357
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
-msgstr ""
-"La configurazione del nuovo pannello sarà attivata alla selezione e "
-"rimuoverà qualsiasi personalizzazione potresti aver fatto."
+msgstr "La configurazione del nuovo pannello sarà attivata alla selezione e rimuoverà qualsiasi personalizzazione potresti aver fatto."
 
 #: ../mate-tweak:1364
 msgid "Default"
@@ -402,6 +397,3 @@ msgstr "Solo icone"
 #: ../mate-tweak:1411
 msgid "Text only"
 msgstr "Solo testo"
-
-#~ msgid "Wimpy"
-#~ msgstr "Wimpy"
