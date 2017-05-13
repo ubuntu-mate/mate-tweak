@@ -657,36 +657,20 @@ class MateTweak:
             return False
 
     def update_panel_layout_features(self, panel_layout):
-        # If the selected panel layout has MATE Menu and Indicators then
-        # make those options visible.
-        if self.panel_layout_exists(panel_layout + '-fresh') and \
-           self.panel_layout_exists(panel_layout + '-indicators') and \
-           self.panel_layout_exists(panel_layout + '-indicators-fresh'):
-            if not self.indicators_available:
-                self.builder.get_object('checkbutton_indicators').props.sensitive = False
-            else:
-                self.builder.get_object('checkbutton_indicators').props.sensitive = True
+        # If the selected panel layout has MATE Menu then make the
+        # Advanced Menu option visible.
+        if self.panel_layout_exists(panel_layout + '-fresh'):
             if not self.mate_menu_available:
                 self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
             else:
                 self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
-        # If this layout (Pantheon) only has the base panel and an
-        # Indicators version make sure Indicators can enabled and
-        # toggling the advanced menu is insensitive.
-        elif not self.panel_layout_exists(panel_layout + '-fresh') and \
-             self.panel_layout_exists(panel_layout + '-indicators'):
-            if not self.indicators_available:
-                self.builder.get_object('checkbutton_indicators').props.sensitive = False
-            else:
-                self.builder.get_object('checkbutton_indicators').props.sensitive = True
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
         else:
-            self.builder.get_object('checkbutton_indicators').props.sensitive = False
             self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
 
         # Make show-applications insesitive we're using the Pantheon layout.
         if panel_layout.startswith('pantheon'):
             self.builder.get_object('checkbutton_show_applications').props.sensitive = False
+            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
         else:
             self.builder.get_object('checkbutton_show_applications').props.sensitive = True
 
@@ -699,12 +683,7 @@ class MateTweak:
         self.update_panel_layout_features(panel_layout)
 
         new_layout = panel_layout
-        if self.builder.get_object('checkbutton_indicators').get_active() and \
-           self.builder.get_object('checkbutton_advanced_menu').get_active():
-            new_layout += '-indicators-fresh'
-        elif self.builder.get_object('checkbutton_indicators').get_active():
-            new_layout += '-indicators'
-        elif self.builder.get_object('checkbutton_advanced_menu').get_active():
+        if self.builder.get_object('checkbutton_advanced_menu').get_active():
             new_layout += '-fresh'
 
         if not self.panel_layout_exists(new_layout):
@@ -808,17 +787,13 @@ class MateTweak:
 
     def get_panel_layout(self):
         self.current_layout = self.get_string('org.mate.panel', None, 'default-layout')
-        self.base_layout = self.current_layout.replace('-indicators','').replace('-fresh','')
+        #self.base_layout = self.current_layout.replace('-indicators','').replace('-fresh','')
+        self.base_layout = self.current_layout.replace('-fresh','')
 
     def init_panel_features(self):
         self.get_panel_layout()
         print('Base layout: ' + self.base_layout)
         print ('Current layout: ' + self.current_layout)
-
-        if 'indicators' in self.current_layout:
-            self.builder.get_object('checkbutton_indicators').set_active(True)
-        else:
-            self.builder.get_object('checkbutton_indicators').set_active(False)
 
         if 'fresh' in self.current_layout:
             self.builder.get_object('checkbutton_advanced_menu').set_active(True)
@@ -1314,7 +1289,6 @@ class MateTweak:
         self.builder.get_object("button_ccsm").set_label(_("Open CCSM"))
         self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
 
-        self.builder.get_object("checkbutton_indicators").set_label(_("Enable indicators"))
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
@@ -1370,7 +1344,6 @@ class MateTweak:
         self.builder.get_object("caption_panels").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
         self.builder.get_object("combobox_panels").set_tooltip_text(_("The new panel layout will be activated on selection and destroy any customisations you might have made."))
         self.init_panel_features()
-        self.builder.get_object("checkbutton_indicators").connect("toggled", self.toggle_panel_features)
         self.builder.get_object("checkbutton_advanced_menu").connect("toggled", self.toggle_panel_features)
 
         # Panel icon sizes
