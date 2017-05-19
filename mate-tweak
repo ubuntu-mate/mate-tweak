@@ -1140,6 +1140,9 @@ class MateTweak:
             if self.panel_layout_exists('pantheon'):
                 panels.append([_("Pantheon"), "pantheon"])
 
+        if self.panel_layout_exists('solus') and self.brisk_menu_available:
+            panels.append([_("Solus"), "solus"])
+
         if self.panel_layout_exists('redmond'):
             panels.append([_("Redmond"), "redmond"])
 
