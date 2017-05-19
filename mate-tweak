@@ -698,7 +698,8 @@ class MateTweak:
            (new_layout.startswith('mutiny')) or \
            (new_layout.startswith('netbook')) or \
            (new_layout.startswith('opensuse')) or \
-           (new_layout.startswith('redmond')):
+           (new_layout.startswith('redmond')) or \
+           (new_layout.startswith('solus')):
             self.builder.get_object('box_menu_features').props.sensitive = False
             self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
         else:
@@ -931,7 +932,6 @@ class MateTweak:
             panel_layout = value
             self.replace_panel_layout(panel_layout)
 
-
         elif schema == "org.mate.panel.menubar":
             if key == "icon-size" or key == "item-icon-size":
                 print(key + ': ' + value)
@@ -1140,11 +1140,11 @@ class MateTweak:
             if self.panel_layout_exists('pantheon'):
                 panels.append([_("Pantheon"), "pantheon"])
 
-        if self.panel_layout_exists('solus') and self.brisk_menu_available:
-            panels.append([_("Solus"), "solus"])
-
         if self.panel_layout_exists('redmond'):
             panels.append([_("Redmond"), "redmond"])
+
+        if self.panel_layout_exists('solus') and self.brisk_menu_available:
+            panels.append([_("Solus"), "solus"])
 
         if self.panel_layout_exists('ubuntu-mate'):
             panels.append([_("Ubuntu MATE"), "ubuntu-mate"])
