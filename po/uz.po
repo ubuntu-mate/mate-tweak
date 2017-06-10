@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-13 14:39+0100\n"
+"POT-Creation-Date: 2017-06-10 14:22+0100\n"
 "PO-Revision-Date: 2016-10-06 11:29+0000\n"
 "Last-Translator: muzaffar habibullayev <muzaffarlearner@gmail.com>\n"
 "Language-Team: Uzbek (http://www.transifex.com/mate/MATE/language/uz/)\n"
@@ -18,55 +18,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../mate-tweak:1066
+#: ../mate-tweak:1074
 msgid "Traditional (Right)"
 msgstr "An'anaviy (O'ng)"
 
-#: ../mate-tweak:1067
+#: ../mate-tweak:1075
 msgid "Contemporary (Left)"
 msgstr "Zamonaviy (Chap)"
 
-#: ../mate-tweak:1075
+#: ../mate-tweak:1083
 msgid "Marco (No compositor)"
 msgstr "Marco (Kompozitorsiz)"
 
-#: ../mate-tweak:1077
+#: ../mate-tweak:1085
 msgid "Marco (Software compositor)"
 msgstr "Marco (Dastur kompozitori)"
 
-#: ../mate-tweak:1079
+#: ../mate-tweak:1087
 msgid "Marco (No effects xcompmgr compositor)"
 msgstr "Marco (Effektlarsiz xcompmgr compositori)"
 
-#: ../mate-tweak:1081
+#: ../mate-tweak:1089
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (Compton GPU kompozitori)"
 
-#: ../mate-tweak:1083
+#: ../mate-tweak:1091
 msgid "Metacity (No compositor)"
 msgstr "Metacity (Kompozitorsiz)"
 
-#: ../mate-tweak:1085
+#: ../mate-tweak:1093
 msgid "Metacity (Software compositor)"
 msgstr "Metacity (Dastur kompozitori)"
 
-#: ../mate-tweak:1087
+#: ../mate-tweak:1095
 msgid "Metacity (No effects xcompmgr compositor)"
 msgstr "Metacity (Effektlarsiz xcompmgr compositori)"
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1097
 msgid "Metacity (Compton GPU compositor)"
 msgstr "Metacity (Compton GPU kompozitori)"
 
-#: ../mate-tweak:1091
+#: ../mate-tweak:1099
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (GPU tezlashtirilgan xushbichim ish stoli effektlari)"
 
-#: ../mate-tweak:1093
+#: ../mate-tweak:1101
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (GPU tezlashtirilgan murakkab ish stoli effektlari)"
 
-#: ../mate-tweak:1096
+#: ../mate-tweak:1104
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -75,317 +75,321 @@ msgstr ""
 "foydalanmoqdasiz. Shu sabab bu yerdagi o'zgarishlar samarali bo'lishiga "
 "kafolat bermaymiz."
 
-#: ../mate-tweak:1114
+#: ../mate-tweak:1122
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1117
+#: ../mate-tweak:1125
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1120
+#: ../mate-tweak:1128
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1123
+#: ../mate-tweak:1131
 msgid "Linux Mint"
 msgstr "Linuks Mint"
 
-#: ../mate-tweak:1126
+#: ../mate-tweak:1134
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1131
+#: ../mate-tweak:1139
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1134
+#: ../mate-tweak:1142
 msgid "Netbook"
 msgstr "Netbook"
 
-#: ../mate-tweak:1137
+#: ../mate-tweak:1145
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1141
+#: ../mate-tweak:1149
 msgid "Pantheon"
 msgstr ""
 
-#: ../mate-tweak:1144
+#: ../mate-tweak:1152
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1147
+#: ../mate-tweak:1155
+msgid "Solus"
+msgstr ""
+
+#: ../mate-tweak:1158
 msgid "Ubuntu MATE"
 msgstr "Ubuntu MATE"
 
-#: ../mate-tweak:1208
+#: ../mate-tweak:1219
 msgid "Desktop"
 msgstr "Ish stoli"
 
-#: ../mate-tweak:1209
+#: ../mate-tweak:1220
 msgid "Interface"
 msgstr "Interfeys"
 
-#: ../mate-tweak:1210
+#: ../mate-tweak:1221
 msgid "Panel"
 msgstr "Panel"
 
-#: ../mate-tweak:1211
+#: ../mate-tweak:1222
 msgid "Windows"
 msgstr "Oynalar"
 
-#: ../mate-tweak:1255
+#: ../mate-tweak:1266
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:1258
+#: ../mate-tweak:1269
 msgid "Desktop icons"
 msgstr "Ish stoli nishonchalari"
 
-#: ../mate-tweak:1259
+#: ../mate-tweak:1270
 msgid "Performance"
 msgstr ""
 
-#: ../mate-tweak:1260
+#: ../mate-tweak:1271
 msgid "Window Behaviour"
 msgstr "Oynanig o'zini tutishi"
 
-#: ../mate-tweak:1261
+#: ../mate-tweak:1272
 msgid "Appearance"
 msgstr "Tashqi koʻrinish"
 
-#: ../mate-tweak:1262
+#: ../mate-tweak:1273
 msgid "Panels"
 msgstr "Panellar"
 
-#: ../mate-tweak:1263
+#: ../mate-tweak:1274
 msgid "Panel Features"
 msgstr "Panel Xususiyatlari"
 
-#: ../mate-tweak:1264
+#: ../mate-tweak:1275
 msgid "Panel Menu Features"
 msgstr "Panel Menu Xususiyatlari"
 
-#: ../mate-tweak:1265
+#: ../mate-tweak:1276
 msgid "Icons"
 msgstr "Nishonchalar"
 
-#: ../mate-tweak:1266
+#: ../mate-tweak:1277
 msgid "Context menus"
 msgstr "Kontekst menyular"
 
-#: ../mate-tweak:1267
+#: ../mate-tweak:1278
 msgid "Toolbars"
 msgstr "Asboblar panellari"
 
-#: ../mate-tweak:1268
+#: ../mate-tweak:1279
 msgid "Window manager"
 msgstr "Oyna boshqaruvchisi"
 
-#: ../mate-tweak:1270
+#: ../mate-tweak:1281
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Siz yoqmoqchi bo'lgan Ish stoli Nishonchalarini tanlang:"
 
-#: ../mate-tweak:1271
+#: ../mate-tweak:1282
 msgid "Show Desktop Icons"
 msgstr "Ish stoli Nishonchalarini Ko'rsatish"
 
-#: ../mate-tweak:1272
+#: ../mate-tweak:1283
 msgid "Computer"
 msgstr "Kompyuter"
 
-#: ../mate-tweak:1273
+#: ../mate-tweak:1284
 msgid "Home"
 msgstr "Uy"
 
-#: ../mate-tweak:1274
+#: ../mate-tweak:1285
 msgid "Network"
 msgstr "Tarmoq"
 
-#: ../mate-tweak:1275
+#: ../mate-tweak:1286
 msgid "Trash"
 msgstr "Chiqindilar qutisi"
 
-#: ../mate-tweak:1276
+#: ../mate-tweak:1287
 msgid "Mounted Volumes"
 msgstr "Ulangan Jildlar"
 
-#: ../mate-tweak:1278
+#: ../mate-tweak:1289
 msgid "Enable animations"
 msgstr "Animatsiyalarni Yoqish"
 
-#: ../mate-tweak:1279
+#: ../mate-tweak:1290
 msgid "Do not show window content when moving windows"
 msgstr "Oynalarni ko'chirish chog'i oynalar tarkibi ko'rsatilmasin"
 
-#: ../mate-tweak:1280
+#: ../mate-tweak:1291
 msgid "Window manager performance tuning."
 msgstr ""
 
-#: ../mate-tweak:1282
+#: ../mate-tweak:1293
 msgid "Enable window snapping"
 msgstr ""
 
-#: ../mate-tweak:1283
+#: ../mate-tweak:1294
 msgid "Undecorate maximized windows"
 msgstr ""
 
-#: ../mate-tweak:1284
+#: ../mate-tweak:1295
 msgid "Do not auto-maximize new windows"
 msgstr "Yangi oynalar avto-yoyilmasin"
 
-#: ../mate-tweak:1286
+#: ../mate-tweak:1297
 msgid "Window control placement."
 msgstr "Oyna boshqaruvi joylashuvi"
 
-#: ../mate-tweak:1288
+#: ../mate-tweak:1299
 msgid "Save Panel Layout"
 msgstr "Panel Tartibini Saqlash"
 
-#: ../mate-tweak:1289
+#: ../mate-tweak:1300
 msgid "Open CCSM"
 msgstr ""
 
-#: ../mate-tweak:1290
+#: ../mate-tweak:1301
 msgid "Reset Compiz"
 msgstr ""
 
-#: ../mate-tweak:1292
+#: ../mate-tweak:1303
 msgid "Enable advanced menu"
 msgstr "Ilg'or menyuni yoqish"
 
-#: ../mate-tweak:1293
+#: ../mate-tweak:1304
 msgid "Enable keyboard LED"
 msgstr "Klaviatura LED ni yoqish"
 
-#: ../mate-tweak:1294
+#: ../mate-tweak:1305
 msgid "Enable launcher"
 msgstr "Ishga tushirgichni yoqish"
 
-#: ../mate-tweak:1295
+#: ../mate-tweak:1306
 msgid "Enable HUD"
 msgstr ""
 
-#: ../mate-tweak:1296
+#: ../mate-tweak:1307
 msgid "Enable pull-down terminal"
 msgstr ""
 
-#: ../mate-tweak:1298
+#: ../mate-tweak:1309
 msgid "Show Applications"
 msgstr "Dasturlarni Ko'rsatish"
 
-#: ../mate-tweak:1299
+#: ../mate-tweak:1310
 msgid "Show Places"
 msgstr "Joylarni Koʻrsatish"
 
-#: ../mate-tweak:1300
+#: ../mate-tweak:1311
 msgid "Show System"
 msgstr "Tizimni Ko'rsatish"
 
-#: ../mate-tweak:1302
+#: ../mate-tweak:1313
 msgid "Show icons on menus"
 msgstr "Nishonchalarni menyularda ko'rsatish"
 
-#: ../mate-tweak:1303
+#: ../mate-tweak:1314
 msgid "Show icons on buttons"
 msgstr "Nishonchalarni tugmalarda ko'rsatish"
 
-#: ../mate-tweak:1304
+#: ../mate-tweak:1315
 msgid "Show Input Methods menu in context menus"
 msgstr ""
 
-#: ../mate-tweak:1305
+#: ../mate-tweak:1316
 msgid "Show Unicode Control Character menu in context menus"
 msgstr ""
 
-#: ../mate-tweak:1307
+#: ../mate-tweak:1318
 msgid "Style:"
 msgstr "Uslub:"
 
-#: ../mate-tweak:1308
+#: ../mate-tweak:1319
 msgid "Icon size:"
 msgstr "Nishoncha hajmi:"
 
-#: ../mate-tweak:1327
+#: ../mate-tweak:1338
 msgid "Small"
 msgstr "Kichkina"
 
-#: ../mate-tweak:1328
+#: ../mate-tweak:1339
 msgid "Large"
 msgstr "Katta"
 
-#: ../mate-tweak:1337
+#: ../mate-tweak:1348
 msgid "The new window manager will be activated upon selection."
 msgstr "Yangi oyna boshqaruvchisi tanlanganda faollashadi."
 
-#: ../mate-tweak:1338
+#: ../mate-tweak:1349
 msgid "Select a window manager."
 msgstr "Oyna boshqaruvchisini tanlang."
 
-#: ../mate-tweak:1344
+#: ../mate-tweak:1355
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 
-#: ../mate-tweak:1345
+#: ../mate-tweak:1356
 msgid ""
 "The new panel layout will be activated on selection and destroy any "
 "customisations you might have made."
 msgstr ""
 
-#: ../mate-tweak:1351
+#: ../mate-tweak:1362
 msgid "Default"
 msgstr "Andoza"
 
-#: ../mate-tweak:1352
+#: ../mate-tweak:1363
 msgid "16px"
 msgstr "16px"
 
-#: ../mate-tweak:1353
+#: ../mate-tweak:1364
 msgid "22px"
 msgstr "22px"
 
-#: ../mate-tweak:1354
+#: ../mate-tweak:1365
 msgid "24px"
 msgstr "24px"
 
-#: ../mate-tweak:1355
+#: ../mate-tweak:1366
 msgid "32px"
 msgstr "32px"
 
-#: ../mate-tweak:1356
+#: ../mate-tweak:1367
 msgid "48px"
 msgstr "48px"
 
-#: ../mate-tweak:1360
+#: ../mate-tweak:1371
 msgid "Set the panel icon size."
 msgstr "Panel nishoncha hajmini belgilash."
 
-#: ../mate-tweak:1361
+#: ../mate-tweak:1372
 msgid "Select the icon size for panel icons."
 msgstr ""
 
-#: ../mate-tweak:1365
+#: ../mate-tweak:1376
 msgid "Set the icon size of menu items used in the panel."
 msgstr ""
 
-#: ../mate-tweak:1366
+#: ../mate-tweak:1377
 msgid "Select the icon size for menu items in the panel."
 msgstr ""
 
-#: ../mate-tweak:1395
+#: ../mate-tweak:1406
 msgid "Text below items"
 msgstr "Elementlar ostida matn"
 
-#: ../mate-tweak:1396
+#: ../mate-tweak:1407
 msgid "Text beside items"
 msgstr "Elementlar yonida matn"
 
-#: ../mate-tweak:1397
+#: ../mate-tweak:1408
 msgid "Icons only"
 msgstr "Faqat nishonchalar"
 
-#: ../mate-tweak:1398
+#: ../mate-tweak:1409
 msgid "Text only"
 msgstr "Faqat matn"
 
