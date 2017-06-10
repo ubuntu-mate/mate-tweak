@@ -708,12 +708,20 @@ class MateTweak:
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
+        # Change Brisk Menu label-visible state when changing to/from Cupertino.
+        label_visible = self.get_bool('com.solus-project.brisk-menu', None, 'label-visible')
 
         if new_layout.startswith('pantheon'):
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', False)
         # If we're switching from Pantheon, and show-applications is disabled then enable it.
         elif self.current_layout.startswith('pantheon') and not show_applications:
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', True)
+
+        if new_layout.startswith('eleven'):
+            self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', False)
+        # If we're switching from Eleven, and Brisk Menu label-visible is disabled then enable it.
+        elif self.current_layout.startswith('eleven') and not label_visible:
+            self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
