@@ -60,6 +60,16 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 __VERSION__ = '17.10.3'
 
+__HUD__ = """[Desktop Entry]
+Type=Application
+Name=HUD
+Exec=/usr/lib/mate-hud/mate-hud
+StartupNotify=false
+Terminal=false
+OnlyShowIn=MATE
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true"""
+
 __SYNAPSE__ = """[Desktop Entry]
 Name=Synapse
 Exec=synapse --startup
@@ -472,14 +482,19 @@ class MateTweak:
             os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')
 
     def enable_hud(self):
-        self.set_bool('org.mate.hud', None, 'enabled', True)
+        hud_autostart = __HUD__
+        config_dir = GLib.get_user_config_dir()
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        if not os.path.exists(os.path.join(config_dir, 'autostart','mate-hud.desktop')):
+            with open(os.path.join(config_dir, 'autostart', 'mate-hud.desktop'),'w') as autostart:
+                autostart.write(hud_autostart)
         subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL)
-        self.hud_enabled = True
 
     def disable_hud(self):
-        self.set_bool('org.mate.hud', None, 'enabled', False)
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists(os.path.join(config_dir, 'autostart','mate-hud.desktop')):
+            os.remove(os.path.join(config_dir, 'autostart','mate-hud.desktop'))
         self.kill_process('mate-hud')
-        self.hud_enabled = False
 
     def enable_dock(self):
         self.set_string('org.mate.session.required-components', None, 'dock', self.dock)
@@ -723,6 +738,14 @@ class MateTweak:
         elif self.current_layout.startswith('eleven') and not label_visible:
             self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
+        if (new_layout.startswith('mutiny') or new_layout.startswith('eleven')) \
+           and ((self.hud_available and self.appmenu_applet_available)):
+            if not self.process_running('mate-hud'):
+                self.enable_hud()
+        # If we're switching from Mutiny or Cupertino then disable the HUD.
+        elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven'):
+            self.disable_hud()
+
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
         if new_layout.startswith('eleven') or new_layout.startswith('mutiny'):
@@ -841,12 +864,6 @@ class MateTweak:
             self.enable_pulldown_terminal()
         else:
             self.disable_pulldown_terminal()
-
-    def toggle_hud(self, checkbutton):
-        if checkbutton.get_active():
-            self.enable_hud()
-        else:
-            self.disable_hud()
 
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
@@ -1008,13 +1025,10 @@ class MateTweak:
             self.pulldown_terminal_enabled = False
 
     def check_hud_features(self):
-        if os.path.exists('/usr/lib/mate-hud/mate-hud') and \
-           os.path.exists('/usr/lib/mate-hud/mate-hud-service'):
+        if os.path.exists('/usr/lib/mate-hud/mate-hud'):
             self.hud_available = True
-            self.hud_enabled = self.get_bool('org.mate.hud', None, 'enabled')
         else:
             self.hud_available = False
-            self.hud_enabled = False
 
     def check_panel_features(self):
         # Determine what panel features are available
@@ -1303,7 +1317,6 @@ class MateTweak:
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
-        self.builder.get_object("checkbutton_hud").set_label(_("Enable HUD"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_label(_("Enable pull-down terminal"))
 
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
@@ -1387,12 +1400,6 @@ class MateTweak:
         self.builder.get_object("checkbutton_pulldown_terminal").set_active(self.pulldown_terminal_enabled)
         if not self.pulldown_terminal:
             self.builder.get_object('checkbutton_pulldown_terminal').props.sensitive = False
-
-        # HUD
-        self.builder.get_object("checkbutton_hud").connect("toggled", self.toggle_hud)
-        self.builder.get_object("checkbutton_hud").set_active(self.hud_enabled)
-        if not self.hud_available:
-            self.builder.get_object('checkbutton_hud').props.sensitive = False
 
         # Panel Menu features
         self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
