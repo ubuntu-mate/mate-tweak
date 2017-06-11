@@ -286,6 +286,18 @@ class MateTweak:
             else:
                 raise
 
+    def create_autostart(self, filename, content):
+        config_dir = GLib.get_user_config_dir()
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        if not os.path.exists(os.path.join(config_dir, 'autostart',filename)):
+            with open(os.path.join(config_dir, 'autostart', filename),'w') as autostart:
+                autostart.write(content)
+
+    def remove_autostart(self, filename):
+        config_dir = GLib.get_user_config_dir()
+        if os.path.exists(os.path.join(config_dir, 'autostart', filename)):
+            os.remove(os.path.join(config_dir, 'autostart', filename))
+
     def check_wm_features(self):
         screen = Gdk.Screen.get_default()
         current_wm = GdkX11.X11Screen.get_window_manager_name(screen)
@@ -482,18 +494,11 @@ class MateTweak:
             os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')
 
     def enable_hud(self):
-        hud_autostart = __HUD__
-        config_dir = GLib.get_user_config_dir()
-        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-        if not os.path.exists(os.path.join(config_dir, 'autostart','mate-hud.desktop')):
-            with open(os.path.join(config_dir, 'autostart', 'mate-hud.desktop'),'w') as autostart:
-                autostart.write(hud_autostart)
+        self.create_autostart('mate-hud.desktop', __HUD__)
         subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL)
 
     def disable_hud(self):
-        config_dir = GLib.get_user_config_dir()
-        if os.path.exists(os.path.join(config_dir, 'autostart','mate-hud.desktop')):
-            os.remove(os.path.join(config_dir, 'autostart','mate-hud.desktop'))
+        self.remove_autostart('mate-hud.desktop')
         self.kill_process('mate-hud')
 
     def enable_dock(self):
@@ -533,12 +538,7 @@ class MateTweak:
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         config_dir = GLib.get_user_config_dir()
         if self.launcher == 'synapse':
-            synapse_autostart = __SYNAPSE__
-
-            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-            if not os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
-                with open(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop','w') as autostart:
-                    autostart.write(synapse_autostart)
+            self.create_autostart(self.launcher + '.desktop', __SYNAPSE__)
 
             # Launch synapse, if it is not already enabled.
             if not self.launcher_enabled:
@@ -554,10 +554,8 @@ class MateTweak:
 
     def disable_launcher(self):
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
-        config_dir = GLib.get_user_config_dir()
         if self.launcher == 'synapse':
-            if os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
-                os.remove(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop')
+            self.remove_autostart(self.launcher + '.desktop')
 
         if self.process_running(self.launcher):
             if leds_enabled:
@@ -572,14 +570,8 @@ class MateTweak:
         self.launcher_enabled = False
 
     def enable_pulldown_terminal(self):
-        config_dir = GLib.get_user_config_dir()
         if self.pulldown_terminal == 'tilda':
-            tilda_autostart = __TILDA__
-
-            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-            if not os.path.exists(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop'):
-                with open(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop','w') as autostart:
-                    autostart.write(tilda_autostart)
+            self.create_autostart(self.pulldown_terminal + '.desktop', __TILDA__)
 
             # Launch tilda, if it is not already enabled.
             if not self.pulldown_terminal_enabled:
@@ -587,10 +579,8 @@ class MateTweak:
                 self.pulldown_terminal_enabled = True
 
     def disable_pulldown_terminal(self):
-        config_dir = GLib.get_user_config_dir()
         if self.pulldown_terminal == 'tilda':
-            if os.path.exists(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop'):
-                os.remove(os.path.join(config_dir, 'autostart/') + self.pulldown_terminal + '.desktop')
+            self.remove_autostart(self.pulldown_terminal + '.desktop')
 
         if self.process_running(self.pulldown_terminal):
             self.kill_process(self.pulldown_terminal)
@@ -603,21 +593,16 @@ class MateTweak:
         self.kill_process('indicator-application-service')
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
-        config_dir = GLib.get_user_config_dir()
         # Create mate-volume-control-applet autostart.
+        config_dir = GLib.get_user_config_dir()
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             self.mkdir_p(os.path.join(config_dir, 'autostart/'))
             shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
 
         # Remove indicator autostart files
-        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-application.desktop'):
-            os.remove(os.path.join(config_dir, 'autostart/') + 'indicator-application.desktop')
-
-        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop'):
-            os.remove(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop')
-
-        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-messages.desktop'):
-            os.remove(os.path.join(config_dir, 'autostart/') + 'indicator-messages.desktop')
+        self.remove_autostart('indicator-application.desktop')
+        self.remove_autostart('indicator-sound.desktop')
+        self.remove_autostart('indicator-messages.desktop')
 
     def enable_indicators(self):
         self.kill_process('mate-volume-control-applet')
@@ -626,30 +611,19 @@ class MateTweak:
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Remove mate-volume-applet autostart.
-        config_dir = GLib.get_user_config_dir()
-        if os.path.exists(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop'):
-            os.remove(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop')
+        self.remove_autostart('mate-volume-control-applet.desktop')
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Create indicator autostart files
         indicator_application_autostart = __INDICATOR_APPLICATION__.replace('MULTIARCH', self.multiarch)
-        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-        if not os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-application.desktop'):
-            with open(os.path.join(config_dir, 'autostart/') + 'indicator-application.desktop','w') as autostart:
-                autostart.write(indicator_application_autostart)
+        self.create_autostart('indicator-application.desktop', indicator_application_autostart)
 
         indicator_sound_autostart = __INDICATOR_SOUND__.replace('MULTIARCH', self.multiarch)
-        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-        if not os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop'):
-            with open(os.path.join(config_dir, 'autostart/') + 'indicator-sound.desktop','w') as autostart:
-                autostart.write(indicator_sound_autostart)
+        self.create_autostart('indicator-sound.desktop', indicator_sound_autostart)
 
         indicator_messages_autostart = __INDICATOR_MESSAGES__.replace('MULTIARCH', self.multiarch)
-        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-        if not os.path.exists(os.path.join(config_dir, 'autostart/') + 'indicator-messages.desktop'):
-            with open(os.path.join(config_dir, 'autostart/') + 'indicator-messages.desktop','w') as autostart:
-                autostart.write(indicator_messages_autostart)
+        self.create_autostart('indicator-messages.desktop', indicator_messages_autostart)
 
     def toggle_desktop_icons_sensitiveness(self):
         sensitiveness = self.builder.get_object("checkbox_show_icons").get_active()
