@@ -35,7 +35,6 @@ import string
 import sys
 import time
 
-from ctypes import cdll, byref, create_string_buffer
 from subprocess import DEVNULL, PIPE
 
 gi.require_version('Gdk', '3.0')
