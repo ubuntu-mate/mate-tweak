@@ -712,6 +712,7 @@ class MateTweak:
 
         self.update_panel_layout_features(panel_layout)
 
+        # If 'Enable advanced menu is checked make sure the setting persists.'
         new_layout = panel_layout
         if self.builder.get_object('checkbutton_advanced_menu').get_active():
             new_layout += '-fresh'
@@ -843,7 +844,7 @@ class MateTweak:
         print('Base layout: ' + self.base_layout)
         print ('Current layout: ' + self.current_layout)
 
-        if 'fresh' in self.current_layout:
+        if self.panel_layout_uses('mate-menu', self.current_layout):
             self.builder.get_object('checkbutton_advanced_menu').set_active(True)
             self.builder.get_object('box_menu_features').props.sensitive = False
             self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
