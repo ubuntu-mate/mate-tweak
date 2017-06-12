@@ -786,7 +786,10 @@ class MateTweak:
         if self.panel_layout_uses('BriskMenu', self.current_layout):
             self.kill_process('brisk-menu')
 
+        # Kill the panel and related processes
         self.kill_process('mate-panel')
+        self.kill_process('mate-indicator-applet-complete')
+        self.kill_process('notification-area-applet')
 
         # Reset the panel dconf tree.
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
@@ -817,9 +820,7 @@ class MateTweak:
         # If the panel layout is Indicator enabled the appropriate
         # indicators and applets need to be stopped/started
         if self.panel_layout_uses('IndicatorApplet', new_layout):
-            # Disable and then enable indicators to ensure they are loaded correctly
             self.disable_applets()
-            self.disable_indicators()
             self.enable_indicators()
         else:
             self.disable_indicators()
