@@ -686,7 +686,7 @@ class MateTweak:
         except:
             return False
 
-    def update_panel_layout_features(self, panel_layout, full_layout):
+    def update_panel_layout_ui(self, panel_layout, full_layout):
         if self.panel_layout_uses('Object mate-menu', full_layout):
             self.builder.get_object('checkbutton_advanced_menu').set_active(True)
         else:
@@ -735,7 +735,7 @@ class MateTweak:
                 self.builder.get_object('checkbutton_advanced_menu').set_active(False)
 
         print('Switching to: ' + new_layout)
-        self.update_panel_layout_features(panel_layout, new_layout)
+        self.update_panel_layout_ui(panel_layout, new_layout)
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
@@ -850,7 +850,7 @@ class MateTweak:
         print('Base layout: ' + self.base_layout)
         print ('Current layout: ' + self.current_layout)
 
-        self.update_panel_layout_features(self.base_layout, self.current_layout)
+        self.update_panel_layout_ui(self.base_layout, self.current_layout)
 
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup('org.mate.panel', True) != None:
