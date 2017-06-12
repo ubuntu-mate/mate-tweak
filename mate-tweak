@@ -788,6 +788,7 @@ class MateTweak:
 
         # Kill the panel and related processes
         self.kill_process('mate-panel')
+        self.kill_process('clock-applet')
         self.kill_process('mate-indicator-applet-complete')
         self.kill_process('notification-area-applet')
 
