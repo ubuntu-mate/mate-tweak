@@ -688,24 +688,9 @@ class MateTweak:
 
     def update_panel_layout_features(self, panel_layout, full_layout):
         if self.panel_layout_uses('Object mate-menu', full_layout):
-            # MATE Menu - aka Advanced Menu
             self.builder.get_object('checkbutton_advanced_menu').set_active(True)
-            self.builder.get_object('box_menu_features').props.sensitive = False
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
-        elif self.panel_layout_uses('Object menu-bar', full_layout):
-            # Application Place System
-            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
-            self.builder.get_object('box_menu_features').props.sensitive = True
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
-        elif self.panel_layout_uses('Object menu', full_layout):
-            # Single icon menu
-            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
-            self.builder.get_object('box_menu_features').props.sensitive = False
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
         else:
             self.builder.get_object('checkbutton_advanced_menu').set_active(False)
-            self.builder.get_object('box_menu_features').props.sensitive = True
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
 
         # If the selected panel layout has MATE Menu option then make
         # the Advanced Menu option visible.
@@ -720,10 +705,19 @@ class MateTweak:
         # Make show-applications insesitive we're using the Pantheon layout.
         if panel_layout.startswith('pantheon'):
             self.builder.get_object('checkbutton_show_applications').props.sensitive = False
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
         else:
             self.builder.get_object('checkbutton_show_applications').props.sensitive = True
 
+        # Make Menu Bar configuration insensitive for layouts that don't
+        # feature the menu bar.
+        if self.panel_layout_uses('Object menu-bar', full_layout):
+            self.builder.get_object('box_menu_features').props.sensitive = True
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
+            self.builder.get_object('combobox_panel_menu_icon_size').props.sensitive = True
+        else:
+            self.builder.get_object('box_menu_features').props.sensitive = False
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
+            self.builder.get_object('combobox_panel_menu_icon_size').props.sensitive = False
 
     def replace_panel_layout(self, panel_layout):
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
@@ -742,15 +736,6 @@ class MateTweak:
 
         print('Switching to: ' + new_layout)
         self.update_panel_layout_features(panel_layout, new_layout)
-
-        # Make Menu Bar configuration insensitive for layouts that don't
-        # feature the menu bar.
-        if self.panel_layout_uses('Object menu-bar', new_layout):
-            self.builder.get_object('box_menu_features').props.sensitive = True
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
-        else:
-            self.builder.get_object('box_menu_features').props.sensitive = False
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
