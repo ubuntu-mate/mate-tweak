@@ -779,7 +779,7 @@ class MateTweak:
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
 
-        self.kill_process('mate-panel')
+        #self.kill_process('mate-panel')
 
         # Reset the panel dconf tree.
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
