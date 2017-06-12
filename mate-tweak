@@ -686,10 +686,30 @@ class MateTweak:
         except:
             return False
 
-    def update_panel_layout_features(self, panel_layout):
-        # If the selected panel layout has MATE Menu then make the
-        # Advanced Menu option visible.
-        if self.panel_layout_uses('mate-menu', panel_layout + '-fresh'):
+    def update_panel_layout_features(self, panel_layout, full_layout):
+        if self.panel_layout_uses('Object mate-menu', full_layout):
+            # MATE Menu - aka Advanced Menu
+            self.builder.get_object('checkbutton_advanced_menu').set_active(True)
+            self.builder.get_object('box_menu_features').props.sensitive = False
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
+        elif self.panel_layout_uses('Object menu-bar', full_layout):
+            # Application Place System
+            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
+            self.builder.get_object('box_menu_features').props.sensitive = True
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
+        elif self.panel_layout_uses('Object menu', full_layout):
+            # Single icon menu
+            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
+            self.builder.get_object('box_menu_features').props.sensitive = False
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
+        else:
+            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
+            self.builder.get_object('box_menu_features').props.sensitive = True
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
+
+        # If the selected panel layout has MATE Menu option then make
+        # the Advanced Menu option visible.
+        if self.panel_layout_uses('Object mate-menu', panel_layout + '-fresh'):
             if not self.mate_menu_available:
                 self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
             else:
@@ -710,8 +730,6 @@ class MateTweak:
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
         item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
 
-        self.update_panel_layout_features(panel_layout)
-
         # If 'Enable advanced menu is checked make sure the setting persists.'
         new_layout = panel_layout
         if self.builder.get_object('checkbutton_advanced_menu').get_active():
@@ -723,10 +741,11 @@ class MateTweak:
                 self.builder.get_object('checkbutton_advanced_menu').set_active(False)
 
         print('Switching to: ' + new_layout)
+        self.update_panel_layout_features(panel_layout, new_layout)
 
         # Make Menu Bar configuration insensitive for layouts that don't
         # feature the menu bar.
-        if self.panel_layout_uses('menu-bar', new_layout):
+        if self.panel_layout_uses('Object menu-bar', new_layout):
             self.builder.get_object('box_menu_features').props.sensitive = True
             self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
         else:
@@ -846,16 +865,7 @@ class MateTweak:
         print('Base layout: ' + self.base_layout)
         print ('Current layout: ' + self.current_layout)
 
-        if self.panel_layout_uses('mate-menu', self.current_layout):
-            self.builder.get_object('checkbutton_advanced_menu').set_active(True)
-            self.builder.get_object('box_menu_features').props.sensitive = False
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
-        else:
-            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
-            self.builder.get_object('box_menu_features').props.sensitive = True
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
-
-        self.update_panel_layout_features(self.base_layout)
+        self.update_panel_layout_features(self.base_layout, self.current_layout)
 
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup('org.mate.panel', True) != None:
