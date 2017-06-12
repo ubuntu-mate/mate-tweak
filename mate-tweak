@@ -689,7 +689,7 @@ class MateTweak:
     def update_panel_layout_features(self, panel_layout):
         # If the selected panel layout has MATE Menu then make the
         # Advanced Menu option visible.
-        if self.panel_layout_exists(panel_layout + '-fresh'):
+        if self.panel_layout_uses('mate-menu', panel_layout + '-fresh'):
             if not self.mate_menu_available:
                 self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
             else:
