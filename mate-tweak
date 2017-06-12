@@ -521,13 +521,6 @@ class MateTweak:
         replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + self.current_wm),'dialog-information')
         replace_windowmanager_notify.show()
 
-    def remove_dock_autostart(self):
-        # Old versions of MATE Tweak setup an autostart, these should
-        # be removed.
-        config_dir = GLib.get_user_config_dir()
-        if os.path.exists(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop'):
-            os.remove(os.path.join(config_dir, 'autostart/') + self.dock + '.desktop')
-
     def enable_hud(self):
         self.create_autostart('mate-hud.desktop', __HUD__)
         subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL)
@@ -538,7 +531,8 @@ class MateTweak:
 
     def enable_dock(self):
         self.set_string('org.mate.session.required-components', None, 'dock', self.dock)
-        self.remove_dock_autostart()
+        if self.dock:
+            self.remove_autostart(self.dock + '.desktop')
 
         # Docks require compositing
         schema = None
@@ -565,7 +559,8 @@ class MateTweak:
             self.set_bool('org.compiz.thumbnail', '/org/compiz/profiles/mate/plugins/thumbnail/', 'current-viewport', True)
 
         self.set_string('org.mate.session.required-components', None, 'dock', '')
-        self.remove_dock_autostart()
+        if self.dock:
+            self.remove_autostart(self.dock + '.desktop')
         self.kill_process(self.dock)
         self.dock_enabled = False
 
