@@ -715,10 +715,8 @@ class MateTweak:
         # If 'Enable advanced menu is checked make sure the setting persists.'
         new_layout = panel_layout
         if self.builder.get_object('checkbutton_advanced_menu').get_active():
-            new_layout += '-fresh'
-
-        if not self.panel_layout_exists(new_layout):
-            new_layout = panel_layout
+            if self.panel_layout_exists(panel_layout + '-fresh') and self.panel_layout_uses('mate-menu', panel_layout + '-fresh'):
+                new_layout = panel_layout + '-fresh'
 
         print('Switching to: ' + new_layout)
 
