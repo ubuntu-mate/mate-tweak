@@ -737,20 +737,20 @@ class MateTweak:
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
-        # Change Brisk Menu label-visible state when changing to/from Cupertino.
-        label_visible = self.get_bool('com.solus-project.brisk-menu', None, 'label-visible')
-
         if new_layout.startswith('pantheon'):
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', False)
         # If we're switching from Pantheon, and show-applications is disabled then enable it.
         elif self.current_layout.startswith('pantheon') and not show_applications:
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', True)
 
-        if new_layout.startswith('eleven'):
-            self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', False)
-        # If we're switching from Eleven, and Brisk Menu label-visible is disabled then enable it.
-        elif self.current_layout.startswith('eleven') and not label_visible:
-            self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
+        # Change Brisk Menu label-visible state when changing to/from Cupertino.
+        if self.brisk_menu_available:
+            label_visible = self.get_bool('com.solus-project.brisk-menu', None, 'label-visible')
+            if new_layout.startswith('eleven'):
+                self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', False)
+            # If we're switching from Eleven, and Brisk Menu label-visible is disabled then enable it.
+            elif self.current_layout.startswith('eleven') and not label_visible:
+                self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
         if (new_layout.startswith('mutiny') or new_layout.startswith('eleven')) \
            and ((self.hud_available and self.appmenu_applet_available)):
@@ -805,9 +805,7 @@ class MateTweak:
 
         if (new_item_icon_size == 'Default') and (item_icon_size != 'Default'):
             print('Change item-icon-size')
-            self.set_string('org.mate.panel.menubar', None, 'item-icon-size', item_icon_size)
-
-        subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+            self.set_string('org.mate.panel.menubar', None, 'item-icon-size', item_icon_size)       
 
         # If the panel layout is Indicator enabled the appropriate
         # indicators and applets need to be stopped/started
@@ -819,6 +817,8 @@ class MateTweak:
         else:
             self.disable_indicators()
             self.enable_applets()
+
+        subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Determine if the dock should be enabled
         if (new_layout.startswith('eleven') and self.dock is not None) or \
@@ -1148,7 +1148,7 @@ class MateTweak:
             current_layout = layout.replace('.layout', '').replace('/usr/share/mate-panel/layouts/', '');
             panels.append([_('Custom: ') + current_layout, current_layout])
 
-        if self.dock is not None and self.appmenu_applet_available:
+        if self.dock is not None and self.appmenu_applet_available and self.brisk_menu_available:
             if self.panel_layout_exists('eleven'):
                 panels.append([_("Cupertino"), "eleven"])
 
