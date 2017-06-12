@@ -675,6 +675,16 @@ class MateTweak:
         self.builder.get_object("checkbox_trash").set_sensitive(sensitiveness)
         self.builder.get_object("checkbox_volumes").set_sensitive(sensitiveness)
 
+    def panel_layout_uses_briskmenu(self, panel_layout):
+        try:
+            with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
+                mmap.mmap(layout.fileno(), 0, access=mmap.ACCESS_READ) as data:
+                if data.find(b'BriskMenu') != -1:
+                    return True
+            return False
+        except:
+            return False
+
     def panel_layout_uses_indicators(self, panel_layout):
         try:
             with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
@@ -782,6 +792,10 @@ class MateTweak:
 
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
+
+        # Brisk Menu remains running, so if Brisk is in the layout being switched away from, kill it.
+        if self.panel_layout_uses_briskmenu(self.current_layout):
+            self.kill_process('brisk-menu')
 
         self.kill_process('mate-panel')
 
