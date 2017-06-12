@@ -685,6 +685,16 @@ class MateTweak:
         except:
             return False
 
+    def panel_layout_uses_menubar(self, panel_layout):
+        try:
+            with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
+                mmap.mmap(layout.fileno(), 0, access=mmap.ACCESS_READ) as data:
+                if data.find(b'menu-bar') != -1:
+                    return True
+            return False
+        except:
+            return False
+
     def update_panel_layout_features(self, panel_layout):
         # If the selected panel layout has MATE Menu then make the
         # Advanced Menu option visible.
@@ -722,18 +732,12 @@ class MateTweak:
 
         # Make Menu Bar configuration insensitive for layouts that don't
         # feature the menu bar.
-        if ('fresh' in new_layout) or \
-           (new_layout.startswith('eleven')) or \
-           (new_layout.startswith('mutiny')) or \
-           (new_layout.startswith('netbook')) or \
-           (new_layout.startswith('opensuse')) or \
-           (new_layout.startswith('redmond')) or \
-           (new_layout.startswith('solus')):
-            self.builder.get_object('box_menu_features').props.sensitive = False
-            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
-        else:
+        if self.panel_layout_uses_menubar(new_layout):
             self.builder.get_object('box_menu_features').props.sensitive = True
             self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
+        else:
+            self.builder.get_object('box_menu_features').props.sensitive = False
+            self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
