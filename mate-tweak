@@ -789,7 +789,7 @@ class MateTweak:
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + new_layout)
             cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
-            os.system(cmd)
+            subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
         else:
             subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=DEVNULL, stderr=DEVNULL)
 
