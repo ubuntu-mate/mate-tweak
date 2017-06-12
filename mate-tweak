@@ -676,13 +676,13 @@ class MateTweak:
         self.builder.get_object("checkbox_volumes").set_sensitive(sensitiveness)
 
     def panel_layout_uses(self, applet, panel_layout):
-        applet_expr = "b'" + applet + "'"
         try:
             with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
                 mmap.mmap(layout.fileno(), 0, access=mmap.ACCESS_READ) as data:
-                if data.find(applet_expr) != -1:
+                if data.find(applet.encode('utf-8')) != -1:
                     return True
             return False
+
         except:
             return False
 
@@ -810,8 +810,8 @@ class MateTweak:
         # If the panel layout is Indicator enabled the appropriate
         # indicators and applets need to be stopped/started
         if self.panel_layout_uses('IndicatorApplet', new_layout):
-            self.disable_applets()
             # Disable and then enable indicators to ensure they are loaded correctly
+            self.disable_applets()
             self.disable_indicators()
             self.enable_indicators()
         else:
