@@ -88,6 +88,25 @@ Categories=GNOME;GTK;System;Utility;TerminalEmulator;
 X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true"""
 
+__APPLET_SOUND__ = """[Desktop Entry]
+Name=Volume Control
+Comment=Show desktop volume control
+Icon=multimedia-volume-control
+Exec=mate-volume-control-applet
+Terminal=false
+Type=Application
+Categories=AudioVideo;Mixer;Settings;HardwareSettings;
+Keywords=MATE;volume;control;mixer;settings;sound;
+NoDisplay=true
+OnlyShowIn=MATE;
+X-MATE-Bugzilla-Bugzilla=MATE
+X-MATE-Bugzilla-Product=mate-media
+X-MATE-Bugzilla-Component=mate-volume-control
+# See http://bugzilla.mate.org/show_bug.cgi?id=568320
+#X-MATE-Autostart-Phase=Panel
+X-MATE-Autostart-Notify=true
+"""
+
 __INDICATOR_APPLICATION__ = """[Desktop Entry]
 Type=Application
 Name=Indicator Application
@@ -114,6 +133,17 @@ __INDICATOR_MESSAGES__ = """[Desktop Entry]
 Type=Application
 Name=Indicator Sound
 Exec=/usr/lib/MULTIARCH/indicator-messages/indicator-messages-service
+StartupNotify=false
+Terminal=false
+OnlyShowIn=MATE
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true
+"""
+
+__INDICATOR_POWER__ = """[Desktop Entry]
+Type=Application
+Name=Indicator Power
+Exec=/usr/lib/MULTIARCH/indicator-power/indicator-power-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
@@ -296,6 +326,12 @@ class MateTweak:
         config_dir = GLib.get_user_config_dir()
         if os.path.exists(os.path.join(config_dir, 'autostart', filename)):
             os.remove(os.path.join(config_dir, 'autostart', filename))
+
+        # Special case for removing the system autostart file for
+        # mate-volume-control-applet.desktop if it exists.
+        if filename == 'mate-volume-control-applet.desktop':
+            if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
+                subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
 
     def check_wm_features(self):
         screen = Gdk.Screen.get_default()
@@ -586,33 +622,40 @@ class MateTweak:
 
         self.pulldown_terminal_enabled = False
 
+    def disable_applets(self):
+        """
+        When indicators are enabled some MATE applets need disabling
+        or hiding.
+        """
+        self.kill_process('mate-volume-control-applet')
+        self.remove_autostart('mate-volume-control-applet.desktop')
+        self.set_string('org.mate.power-manager', None, 'icon-policy', 'never')
+
+    def enable_applets(self):
+        """
+        When indicators are disabled some MATE applets need enabling
+        or showing.
+        """
+        subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
+        if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
+            self.create_autostart('mate-volume-control-applet.desktop.desktop', __APPLET_SOUND__)
+        self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
+
     def disable_indicators(self):
+        self.kill_process('indicator-power-service')
         self.kill_process('indicator-messages-service')
         self.kill_process('indicator-sound-service')
         self.kill_process('indicator-application-service')
-        subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
-
-        # Create mate-volume-control-applet autostart.
-        config_dir = GLib.get_user_config_dir()
-        if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-            shutil.copy2('/usr/share/mate-tweak/mate-volume-control-applet.desktop', os.path.join(config_dir, 'autostart/'))
-
-        # Remove indicator autostart files
         self.remove_autostart('indicator-application.desktop')
         self.remove_autostart('indicator-sound.desktop')
         self.remove_autostart('indicator-messages.desktop')
+        self.remove_autostart('indicator-power.desktop')
 
     def enable_indicators(self):
-        self.kill_process('mate-volume-control-applet')
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'], stdout=DEVNULL, stderr=DEVNULL)
-
-        # Remove mate-volume-applet autostart.
-        self.remove_autostart('mate-volume-control-applet.desktop')
-        if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Create indicator autostart files
         indicator_application_autostart = __INDICATOR_APPLICATION__.replace('MULTIARCH', self.multiarch)
@@ -623,6 +666,9 @@ class MateTweak:
 
         indicator_messages_autostart = __INDICATOR_MESSAGES__.replace('MULTIARCH', self.multiarch)
         self.create_autostart('indicator-messages.desktop', indicator_messages_autostart)
+
+        indicator_power_autostart = __INDICATOR_POWER__.replace('MULTIARCH', self.multiarch)
+        self.create_autostart('indicator-power.desktop', indicator_power_autostart)
 
     def toggle_desktop_icons_sensitiveness(self):
         sensitiveness = self.builder.get_object("checkbox_show_icons").get_active()
@@ -768,13 +814,16 @@ class MateTweak:
 
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
-        # If the panel layout is Indicator enabled
-        # indicator-application-service and indicator-sound-service need
-        # starting and mate-volume-control-applet must be stopped.
+        # If the panel layout is Indicator enabled the appropriate
+        # indicators and applets need to be stopped/started
         if self.panel_layout_uses_indicators(new_layout):
+            self.disable_applets()
+            # Disable and then enable indicators to ensure they are loaded correctly
+            self.disable_indicators()
             self.enable_indicators()
         else:
             self.disable_indicators()
+            self.enable_applets()
 
         # Determine if the dock should be enabled
         if (new_layout.startswith('eleven') and self.dock is not None) or \
@@ -792,7 +841,6 @@ class MateTweak:
 
     def get_panel_layout(self):
         self.current_layout = self.get_string('org.mate.panel', None, 'default-layout')
-        #self.base_layout = self.current_layout.replace('-indicators','').replace('-fresh','')
         self.base_layout = self.current_layout.replace('-fresh','')
 
     def init_panel_features(self):
@@ -1023,6 +1071,7 @@ class MateTweak:
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service') and \
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service') and \
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service') and \
+           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service') and \
            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
             self.indicators_available = True
 
