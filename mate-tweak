@@ -274,15 +274,21 @@ class MateTweak:
 
         return False
 
-    def kill_process(self, process_name):
-        current_user = os.getuid()
+    def kill_process(self, name):
+        uid = os.getuid()
         for process in psutil.process_iter():
             try:
-                if process.name() == process_name and process.uids().real == current_user:
-                    #print('Killing ' + process.name())
-                    process.kill()
-            except:
-                print('Attempted to kill ' + process.name() + ', but could not.')
+                proc = process.as_dict(attrs=['name', 'pid', 'uids'])
+            except psutil.NoSuchProcess:
+                pass
+            else:
+                if name == proc['name'] and uid == proc['uids'].real:
+                    print
+                    try:
+                        target = psutil.Process(proc['pid'])
+                        target.kill()
+                    except psutil.NoSuchProcess:
+                        pass
 
     def find_on_path(self, command):
         """Is command on the executable search path?"""
@@ -745,11 +751,11 @@ class MateTweak:
             self.kill_process('brisk-menu')
 
         # Kill the panel and related processes
+        self.kill_process('mate-panel')
         self.kill_process('clock-applet')
         self.kill_process('mate-indicator-applet-complete')
         self.kill_process('notification-area-applet')
         self.kill_process('wnck-applet')
-        self.kill_process('mate-panel')
 
         # Reset the panel dconf tree.
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
