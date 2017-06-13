@@ -69,15 +69,6 @@ OnlyShowIn=MATE
 X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true"""
 
-__SYNAPSE__ = """[Desktop Entry]
-Name=Synapse
-Exec=synapse --startup
-Encoding=UTF-8
-Type=Application
-X-GNOME-Autostart-enabled=true
-X-MATE-Autostart-enabled=true
-Icon=synapse"""
-
 __TILDA__ = """[Desktop Entry]
 Name=Tilda
 Exec=tilda
@@ -566,41 +557,6 @@ class MateTweak:
         self.kill_process(self.dock)
         self.dock_enabled = False
 
-    def enable_launcher(self):
-        leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
-        config_dir = GLib.get_user_config_dir()
-        if self.launcher == 'synapse':
-            self.create_autostart(self.launcher + '.desktop', __SYNAPSE__)
-
-            # Launch synapse, if it is not already enabled.
-            if not self.launcher_enabled:
-                if leds_enabled:
-                    self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
-
-                subprocess.Popen([self.launcher, '--startup'], stdout=DEVNULL, stderr=DEVNULL)
-                self.launcher_enabled = True
-
-                if leds_enabled:
-                    time.sleep(1)
-                    self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
-
-    def disable_launcher(self):
-        leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
-        if self.launcher == 'synapse':
-            self.remove_autostart(self.launcher + '.desktop')
-
-        if self.process_running(self.launcher):
-            if leds_enabled:
-                self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
-
-            self.kill_process(self.launcher)
-
-            if leds_enabled:
-                time.sleep(1)
-                self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
-
-        self.launcher_enabled = False
-
     def enable_pulldown_terminal(self):
         if self.pulldown_terminal == 'tilda':
             self.create_autostart(self.pulldown_terminal + '.desktop', __TILDA__)
@@ -872,12 +828,6 @@ class MateTweak:
         self.get_panel_layout()
         self.replace_panel_layout(self.base_layout)
 
-    def toggle_launcher(self, checkbutton):
-        if checkbutton.get_active():
-            self.enable_launcher()
-        else:
-            self.disable_launcher()
-
     def toggle_pulldown_terminal(self, checkbutton):
         if checkbutton.get_active():
             self.enable_pulldown_terminal()
@@ -1015,20 +965,6 @@ class MateTweak:
             self.dock_enabled = True
         else:
             self.dock_enabled = False
-
-    def check_launcher_features(self):
-        config_dir = GLib.get_user_config_dir()
-
-        if self.find_on_path('synapse') and \
-            os.path.exists(os.path.join('/','usr','share','applications', 'synapse.desktop')):
-            self.launcher = 'synapse'
-        else:
-            self.launcher = None
-
-        if self.launcher is not None and os.path.exists(os.path.join(config_dir, 'autostart/') + self.launcher + '.desktop'):
-            self.launcher_enabled = True
-        else:
-            self.launcher_enabled = False
 
     def check_pulldown_terminal_features(self):
         config_dir = GLib.get_user_config_dir()
@@ -1229,7 +1165,6 @@ class MateTweak:
         self.multiarch = sysconfig.get_config_var('MULTIARCH')
         self.check_glx_features()
         self.check_dock_features()
-        self.check_launcher_features()
         self.check_pulldown_terminal_features()
         self.check_hud_features()
         self.check_panel_features()
@@ -1336,7 +1271,6 @@ class MateTweak:
 
         self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
-        self.builder.get_object("checkbutton_launcher").set_label(_("Enable launcher"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_label(_("Enable pull-down terminal"))
 
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
@@ -1408,12 +1342,6 @@ class MateTweak:
         self.init_combobox("org.mate.panel.menubar", "item-icon-size", "combobox_panel_menu_icon_size")
         self.builder.get_object("combobox_panel_menu_icon_size").set_tooltip_text(_("Set the icon size of menu items used in the panel."))
         self.builder.get_object("caption_panel_menu_icon_size").set_markup("<small>" + _("Select the icon size for menu items in the panel.") + "</small>")
-
-        # Launcher
-        self.builder.get_object("checkbutton_launcher").connect("toggled", self.toggle_launcher)
-        self.builder.get_object("checkbutton_launcher").set_active(self.launcher_enabled)
-        if not self.launcher:
-            self.builder.get_object('checkbutton_launcher').props.sensitive = False
 
         # Pulldown Terminal
         self.builder.get_object("checkbutton_pulldown_terminal").connect("toggled", self.toggle_pulldown_terminal)
