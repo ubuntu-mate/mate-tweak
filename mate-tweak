@@ -286,12 +286,12 @@ class MateTweak:
     def kill_process(self, process_name):
         current_user = os.getuid()
         for process in psutil.process_iter():
-            if process.name() == process_name and process.uids().real == current_user:
-                #print('Killing ' + process.name())
-                try:
+            try:
+                if process.name() == process_name and process.uids().real == current_user:
+                    #print('Killing ' + process.name())
                     process.kill()
-                except:
-                    print('Attempted to kill ' + process.name() + ', but could not.')
+            except:
+                print('Attempted to kill ' + process.name() + ', but could not.')
 
     def find_on_path(self, command):
         """Is command on the executable search path?"""
