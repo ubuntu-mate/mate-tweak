@@ -791,6 +791,7 @@ class MateTweak:
         self.kill_process('clock-applet')
         self.kill_process('mate-indicator-applet-complete')
         self.kill_process('notification-area-applet')
+        self.kill_process('wnck-applet')
 
         # Reset the panel dconf tree.
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
@@ -816,7 +817,7 @@ class MateTweak:
 
         if (new_item_icon_size == 'Default') and (item_icon_size != 'Default'):
             print('Change item-icon-size')
-            self.set_string('org.mate.panel.menubar', None, 'item-icon-size', item_icon_size)       
+            self.set_string('org.mate.panel.menubar', None, 'item-icon-size', item_icon_size)
 
         # If the panel layout is Indicator enabled the appropriate
         # indicators and applets need to be stopped/started
