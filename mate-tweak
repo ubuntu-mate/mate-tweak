@@ -545,8 +545,10 @@ class MateTweak:
             self.set_bool('org.compiz.thumbnail', '/org/compiz/profiles/mate/plugins/thumbnail/', 'current-viewport', False)
 
         if schema is not None:
-            self.set_bool(schema, None, 'compositing-manager', True)
-            subprocess.Popen([self.current_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+            compositor_enabled = self.get_bool(schema, None, 'compositing-manager')
+            if not compositor_enabled:
+                self.set_bool(schema, None, 'compositing-manager', True)
+                subprocess.Popen([self.current_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Launch the dock, if it is not already enabled.
         if not self.dock_enabled:
