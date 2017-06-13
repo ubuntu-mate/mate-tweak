@@ -789,11 +789,11 @@ class MateTweak:
             self.kill_process('brisk-menu')
 
         # Kill the panel and related processes
-        self.kill_process('mate-panel')
         self.kill_process('clock-applet')
         self.kill_process('mate-indicator-applet-complete')
         self.kill_process('notification-area-applet')
         self.kill_process('wnck-applet')
+        self.kill_process('mate-panel')
 
         # Reset the panel dconf tree.
         subprocess.call(['dconf', 'reset', '-f', '/org/mate/panel/objects/'], stdout=DEVNULL, stderr=DEVNULL)
