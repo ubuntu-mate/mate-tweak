@@ -734,17 +734,19 @@ class MateTweak:
             elif self.current_layout.startswith('eleven') and not label_visible:
                 self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
-        if (new_layout.startswith('mutiny') or new_layout.startswith('eleven')) \
+        if (new_layout.startswith('mutiny') or new_layout.startswith('eleven') or new_layout.startswith('ubuntu-mate-contemporary')) \
            and ((self.hud_available and self.appmenu_applet_available)):
             if not self.process_running('mate-hud'):
                 self.enable_hud()
         # If we're switching from Mutiny or Cupertino then disable the HUD.
-        elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven'):
+        elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven') or new_layout.startswith('ubuntu-mate-contemporary'):
             self.disable_hud()
 
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
-        if new_layout.startswith('eleven') or new_layout.startswith('mutiny'):
+        if new_layout.startswith('eleven') or \
+           new_layout.startswith('mutiny') or \
+           new_layout.startswith('ubuntu-mate-contemporary'):
             self.set_string("org.mate.Marco.general", None, "button-layout", __CONTEMPORARY_BUTTONS__)
             self.set_string("org.mate.interface", None, "gtk-decoration-layout", __CONTEMPORARY_BUTTONS__)
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __CONTEMPORARY_BUTTONS__)
@@ -1028,7 +1030,7 @@ class MateTweak:
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service') and \
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service') and \
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service') and \
-           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-session-service') and \
+           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service') and \
            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
             self.indicators_available = True
 
@@ -1110,45 +1112,65 @@ class MateTweak:
             current_layout = layout.replace('.layout', '').replace('/usr/share/mate-panel/layouts/', '');
             panels.append([_('Custom: ') + current_layout, current_layout])
 
-        if self.dock is not None and self.appmenu_applet_available and self.brisk_menu_available:
+        if self.panel_layout_exists('ubuntu-mate-contemporary') and \
+           self.appmenu_applet_available and \
+           self.brisk_menu_available and \
+           self.hud_available:
+            panels.append([_("Contemporary"), "ubuntu-mate-contemporary"])
+
+        if self.dock is not None and \
+           self.appmenu_applet_available and \
+           self.brisk_menu_available and \
+           self.indicators_available:
             if self.panel_layout_exists('eleven'):
                 panels.append([_("Cupertino"), "eleven"])
 
         if self.panel_layout_exists('fedora'):
             panels.append([_("Fedora"), "fedora"])
 
-        if self.panel_layout_exists('default'):
+        if self.panel_layout_exists('default') and \
+           not self.indicators_available:
             panels.append([_("GNOME2"), "default"])
 
-        if self.panel_layout_exists('linuxmint') and self.mint_menu_available:
+        if self.panel_layout_exists('linuxmint') and \
+           self.mint_menu_available:
             panels.append([_("Linux Mint"), "linuxmint"])
 
-        if self.panel_layout_exists('mageia') and self.mageia_cc_available:
+        if self.panel_layout_exists('mageia') and \
+           self.mageia_cc_available:
             panels.append([_("Mageia"), "mageia"])
 
         if self.panel_layout_exists('mutiny') and \
            self.mate_dock_available and \
-           self.appmenu_applet_available:
+           self.appmenu_applet_available and \
+           self.indicators_available:
             panels.append([_("Mutiny"), "mutiny"])
 
-        if self.panel_layout_exists('netbook') and self.maximus_available:
+        if self.panel_layout_exists('netbook') and \
+           self.maximus_available and \
+           self.indicators_available:
             panels.append([_("Netbook"), "netbook"])
 
-        if self.panel_layout_exists('opensuse') and self.gnome_menu_available:
+        if self.panel_layout_exists('opensuse') and \
+           self.gnome_menu_available:
             panels.append([_("openSUSE"), "opensuse"])
 
-        if self.dock is not None and self.brisk_menu_available:
+        if self.dock is not None and \
+           self.brisk_menu_available and \
+           self.hud_available:
             if self.panel_layout_exists('pantheon'):
                 panels.append([_("Pantheon"), "pantheon"])
 
-        if self.panel_layout_exists('redmond'):
+        if self.panel_layout_exists('redmond') and \
+           self.indicators_available:
             panels.append([_("Redmond"), "redmond"])
 
-        if self.panel_layout_exists('solus') and self.brisk_menu_available:
+        if self.panel_layout_exists('solus') and \
+           self.brisk_menu_available:
             panels.append([_("Solus"), "solus"])
 
         if self.panel_layout_exists('ubuntu-mate'):
-            panels.append([_("Ubuntu MATE"), "ubuntu-mate"])
+            panels.append([_("Traditional"), "ubuntu-mate"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
 
