@@ -734,19 +734,19 @@ class MateTweak:
             elif self.current_layout.startswith('eleven') and not label_visible:
                 self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
-        if (new_layout.startswith('mutiny') or new_layout.startswith('eleven') or new_layout.startswith('ubuntu-mate-contemporary')) \
+        if (new_layout.startswith('mutiny') or new_layout.startswith('eleven') or new_layout.startswith('contemporary')) \
            and ((self.hud_available and self.appmenu_applet_available)):
             if not self.process_running('mate-hud'):
                 self.enable_hud()
         # If we're switching from Mutiny or Cupertino then disable the HUD.
-        elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven') or new_layout.startswith('ubuntu-mate-contemporary'):
+        elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven') or new_layout.startswith('contemporary'):
             self.disable_hud()
 
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
         if new_layout.startswith('eleven') or \
            new_layout.startswith('mutiny') or \
-           new_layout.startswith('ubuntu-mate-contemporary'):
+           new_layout.startswith('contemporary'):
             self.set_string("org.mate.Marco.general", None, "button-layout", __CONTEMPORARY_BUTTONS__)
             self.set_string("org.mate.interface", None, "gtk-decoration-layout", __CONTEMPORARY_BUTTONS__)
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __CONTEMPORARY_BUTTONS__)
@@ -1112,11 +1112,11 @@ class MateTweak:
             current_layout = layout.replace('.layout', '').replace('/usr/share/mate-panel/layouts/', '');
             panels.append([_('Custom: ') + current_layout, current_layout])
 
-        if self.panel_layout_exists('ubuntu-mate-contemporary') and \
+        if self.panel_layout_exists('contemporary') and \
            self.appmenu_applet_available and \
            self.brisk_menu_available and \
            self.hud_available:
-            panels.append([_("Contemporary"), "ubuntu-mate-contemporary"])
+            panels.append([_("Contemporary"), "contemporary"])
 
         if self.dock is not None and \
            self.appmenu_applet_available and \
