@@ -459,6 +459,21 @@ class MateTweak:
             if metacity_schema:
                 self.set_string('org.gnome.metacity.theme', None, 'name', mate_theme)
 
+        # Work around an issue what a transparent panel will crash when
+        # the compsitor is changed.
+        # TODO: Do this for all panels regardless of layout used and
+        # and only flip solid/transparent where required.
+        if self.current_layout == 'mutiny':
+            dconf_type = subprocess.Popen(['dconf', 'read', '/org/mate/panel/toplevels/left/background/type'], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+            type_output, type_error = dconf_type.communicate()
+            background_type = type_output.decode().strip()
+
+            dconf_color = subprocess.Popen(['dconf', 'read', '/org/mate/panel/toplevels/left/background/color'], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+            color_output, color_error = dconf_color.communicate()
+            background_color = color_output.decode().strip()
+
+            subprocess.call(['dconf', 'write', '/org/mate/panel/toplevels/left/background/type', "'none'"], stdout=DEVNULL, stderr=DEVNULL)
+
         # If switching away from a compton or xcompmgr composited window
         # manager kill compton.
         if 'compton' in self.current_wm:
@@ -466,67 +481,20 @@ class MateTweak:
         elif 'xcompmgr' in self.current_wm:
             self.kill_process('xcompmgr')
 
-        # Metacity has a habbit of leaving a process running.
-        self.kill_process('metacity')
-
         if ('compton' in new_wm) or ('xcompmgr' in new_wm) or ('no-composite' in new_wm):
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
             subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL)
 
-        # Sometimes gtk-window-manager is left behind.
-        if self.current_wm == 'compiz':
-            self.kill_process('gtk-window-decorator')
-
-        # Replace mate-panel and dock when switching Compiz to avoid strut issues.
-        if new_wm == 'compiz':
-            if self.dock_enabled:
-                self.kill_process(self.dock)
-                time.sleep(1)
-                subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL)
-            subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+        if self.current_layout == 'mutiny':
+            time.sleep(0.5)
+            subprocess.call(['dconf', 'write', '/org/mate/panel/toplevels/left/background/type', background_type], stdout=DEVNULL, stderr=DEVNULL)
+            subprocess.call(['dconf', 'write', '/org/mate/panel/toplevels/left/background/color', background_color], stdout=DEVNULL, stderr=DEVNULL)
 
         # Update current_wm to the new one.
         self.previous_wm = self.current_wm
         self.current_wm = new_wm
         self.builder.get_object("label_unknown_wm").hide()
-
-    def confirm_windowmanager(self):
-        # Detect switch to "risky" window manager.
-        if ('compiz' in self.current_wm) or ('compton' in self.current_wm):
-            # Should we prompt for confirmation after switching window manager.
-            if 'compton' in self.previous_wm and 'compton' in self.current_wm:
-                confirm = False
-            else:
-                confirm = True
-
-            if confirm:
-                time.sleep(2)
-                confirm_text = _('<b>Does this window manager look OK?</b>\n\nThe window manager will be restored to the fail-safe configuration in 15 seconds.')
-                title_text = _('Switching to ')
-                ok_label = _('Keep This Window Manager')
-                cancel_label = ('Restore Fail-safe Window Manager')
-                confirm = subprocess.Popen(['zenity',
-                                 '--question',
-                                 "--title=" + title_text + self.current_wm,
-                                 "--text=" + confirm_text,
-                                 "--ok-label=" + ok_label,
-                                 "--cancel-label=" + cancel_label,
-                                 '--window-icon=question',
-                                 '--timeout=15'],
-                                 stdin=PIPE, stdout=PIPE, stderr=PIPE)
-                output, error = confirm.communicate()
-                if confirm.returncode == 0:
-                    print('Keeping ' + self.current_wm)
-                elif confirm.returncode == 1 or confirm.returncode == 5:
-                    print('Reverting to fail-safe.')
-                    self.previous_wm = self.current_wm = 'marco'
-                    self.set_string('org.mate.session.required-components', None, 'windowmanager', self.current_wm)
-                    self.update_combobox('org.mate.session.required-components', 'windowmanager', 'combobox_window_manager')
-                    self.replace_windowmanager(self.previous_wm)
-                    return True
-                else:
-                    print("Unknown")
 
         Notify.init(_('Window Manager Replaced'))
         replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + self.current_wm),'dialog-information')
@@ -945,7 +913,6 @@ class MateTweak:
             # If the window manager is being changed, replace it now!
             wm = value
             self.replace_windowmanager(wm)
-            self.confirm_windowmanager()
             self.update_windowmanager_widgets()
 
         elif schema == "org.mate.panel" and key == "default-layout":
