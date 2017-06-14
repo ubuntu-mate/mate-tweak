@@ -142,6 +142,17 @@ X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true
 """
 
+__INDICATOR_SESSION__ = """[Desktop Entry]
+Type=Application
+Name=Indicator Session
+Exec=/usr/lib/MULTIARCH/indicator-session/indicator-session-service
+StartupNotify=false
+Terminal=false
+OnlyShowIn=MATE
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true
+"""
+
 __TRADITIONAL_BUTTONS__ = "menu:minimize,maximize,close"
 __CONTEMPORARY_BUTTONS__ = "close,minimize,maximize:menu"
 
@@ -601,6 +612,7 @@ class MateTweak:
         self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
 
     def disable_indicators(self):
+        self.kill_process('indicator-session-service')
         self.kill_process('indicator-power-service')
         self.kill_process('indicator-messages-service')
         self.kill_process('indicator-sound-service')
@@ -615,6 +627,7 @@ class MateTweak:
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Create indicator autostart files
         indicator_application_autostart = __INDICATOR_APPLICATION__.replace('MULTIARCH', self.multiarch)
@@ -628,6 +641,9 @@ class MateTweak:
 
         indicator_power_autostart = __INDICATOR_POWER__.replace('MULTIARCH', self.multiarch)
         self.create_autostart('indicator-power.desktop', indicator_power_autostart)
+
+        indicator_session_autostart = __INDICATOR_SESSION__.replace('MULTIARCH', self.multiarch)
+        self.create_autostart('indicator-session.desktop', indicator_session_autostart)
 
     def toggle_desktop_icons_sensitiveness(self):
         sensitiveness = self.builder.get_object("checkbox_show_icons").get_active()
@@ -1012,6 +1028,7 @@ class MateTweak:
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service') and \
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service') and \
            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service') and \
+           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-session-service') and \
            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
             self.indicators_available = True
 
