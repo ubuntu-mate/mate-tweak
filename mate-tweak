@@ -277,12 +277,16 @@ class MateTweak:
                     break
                 index = index +1
 
-    def process_running(self, process_name):
-        current_user = os.getuid()
+    def process_running(self, name):
+        uid = os.getuid()
         for process in psutil.process_iter():
-            if process.name() == process_name and process.uids().real == current_user:
-                return True
-
+            try:
+                proc = process.as_dict(attrs=['name', 'uids'])
+            except psutil.NoSuchProcess:
+                pass
+            else:
+                if name == proc['name'] and uid == proc['uids'].real:
+                    return True
         return False
 
     def kill_process(self, name):
@@ -294,7 +298,6 @@ class MateTweak:
                 pass
             else:
                 if name == proc['name'] and uid == proc['uids'].real:
-                    print
                     try:
                         target = psutil.Process(proc['pid'])
                         target.kill()
