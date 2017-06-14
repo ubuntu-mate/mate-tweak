@@ -442,7 +442,16 @@ class MateTweak:
         else:
             wm_params = ''
 
-        if (new_wm == 'compiz') or (new_wm == 'mutter') or ('metacity' in new_wm):
+        # FIXME
+        # Push workspace names and vert horiz size from the current wm
+        # into the new wm using gschema or dconf for Compiz
+        # using dconf.
+        # /org/compiz/profiles/mate/plugins/core/hsize 1
+        # /org/compiz/profiles/mate/plugins/core/vsize 4
+        # /org/compiz/profiles/mate/plugins/core/workspacenames/name ['One','Two']
+        # Only migrate from Compiz/Metacity to Marco if the defaults have been changed.
+
+        if (new_wm == 'compiz') or (new_wm == 'mutter') or ('metacity' in new_wm):           
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
             mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', None, 'cursor-theme')
             mate_cursor_size = self.get_int('org.mate.peripherals-mouse', None, 'cursor-size')
