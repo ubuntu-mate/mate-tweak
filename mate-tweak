@@ -93,7 +93,7 @@ OnlyShowIn=MATE;
 X-MATE-Bugzilla-Bugzilla=MATE
 X-MATE-Bugzilla-Product=mate-media
 X-MATE-Bugzilla-Component=mate-volume-control
-# See http://bugzilla.mate.org/show_bug.cgi?id=568320
+# See http://bugzilla.gnome.org/show_bug.cgi?id=568320
 #X-MATE-Autostart-Phase=Panel
 X-MATE-Autostart-Notify=true
 """
