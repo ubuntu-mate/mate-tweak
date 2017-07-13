@@ -122,7 +122,7 @@ X-MATE-Autostart-enabled=true
 
 __INDICATOR_MESSAGES__ = """[Desktop Entry]
 Type=Application
-Name=Indicator Sound
+Name=Indicator Messages
 Exec=/usr/lib/MULTIARCH/indicator-messages/indicator-messages-service
 StartupNotify=false
 Terminal=false
