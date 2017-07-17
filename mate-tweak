@@ -684,6 +684,17 @@ class MateTweak:
             self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
             self.builder.get_object('combobox_panel_menu_icon_size').props.sensitive = False
 
+    def confirm_layout_switch(self):
+        confirm_text = _('<b>Replacing the panel layout is a destructive operation!</b> Are you sure you want to replace the panel layout and lose any customisations you might have made?')
+        title_text = _('Replace the panel layout?')
+        confirm = subprocess.call(['zenity',
+                                    '--question',
+                                    "--title={}".format(title_text),
+                                    "--text={}".format(confirm_text),
+                                    '--window-icon=question'],
+                                    stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        return confirm
+
     def replace_panel_layout(self, panel_layout):
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
