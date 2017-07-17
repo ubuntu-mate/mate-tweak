@@ -2,6 +2,21 @@
 <!-- Generated with glade 3.20.0 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
+  <object class="GtkImage" id="Preferences">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-preferences</property>
+  </object>
+  <object class="GtkImage" id="Reset">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-revert-to-saved</property>
+  </object>
+  <object class="GtkImage" id="Save">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-save</property>
+  </object>
   <object class="GtkWindow" id="main_window">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -34,7 +49,7 @@
                 <property name="item_padding">3</property>
               </object>
             </child>
-            <child type="label_item">
+            <child>
               <placeholder/>
             </child>
           </object>
@@ -781,6 +796,7 @@
                             <property name="halign">start</property>
                             <property name="valign">start</property>
                             <property name="margin_top">12</property>
+                            <property name="image">Preferences</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -798,6 +814,7 @@
                             <property name="halign">start</property>
                             <property name="valign">start</property>
                             <property name="margin_top">12</property>
+                            <property name="image">Reset</property>
                             <signal name="clicked" handler="compiz_reset" swapped="no"/>
                           </object>
                           <packing>
@@ -903,6 +920,7 @@
                             <property name="halign">start</property>
                             <property name="valign">start</property>
                             <property name="margin_top">12</property>
+                            <property name="image">Save</property>
                             <property name="always_show_image">True</property>
                           </object>
                           <packing>
