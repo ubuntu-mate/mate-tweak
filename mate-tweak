@@ -1224,6 +1224,9 @@ class MateTweak:
         # Launch Compiz Config Settings Manager
         subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL)
 
+    def close_tweak(self, widget):
+        Gtk.main_quit()
+
     ''' Create the UI '''
     def __init__(self):
         # Check for glx, panel, dock and wm features
@@ -1385,7 +1388,7 @@ class MateTweak:
         # Panel layouts
         self.make_list_of_panel_layouts()
         self.builder.get_object("caption_panels").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
-        self.builder.get_object("combobox_panels").set_tooltip_text(_("The new panel layout will be activated on selection and destroy any customisations you might have made."))
+        self.builder.get_object("combobox_panels").set_tooltip_text(_("Select a panel layout."))
         self.init_panel_features()
         self.builder.get_object("checkbutton_advanced_menu").connect("toggled", self.toggle_panel_features)
 
@@ -1429,6 +1432,7 @@ class MateTweak:
         iconStyles.append([_("Text only"), "text"])
         self.builder.get_object("combobox_toolbar_style").set_model(iconStyles)
         self.init_combobox("org.mate.interface", "toolbar-style", "combobox_toolbar_style")
+        self.builder.get_object("close_tweak").connect("clicked", self.close_tweak)
         self.builder.get_object("main_window").show()
 
 if __name__ == "__main__":
