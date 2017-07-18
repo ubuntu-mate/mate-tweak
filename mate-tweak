@@ -696,6 +696,9 @@ class MateTweak:
                                     stdin=PIPE, stdout=PIPE, stderr=PIPE)
         return confirm
 
+    def reload_panel(self):
+        subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+
     def replace_panel_layout(self, panel_layout):
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
@@ -851,8 +854,7 @@ class MateTweak:
             widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
     def toggle_panel_features(self, widget):
-        self.get_panel_layout()
-        self.replace_panel_layout(self.base_layout)
+        self.reload_panel()
 
     def toggle_pulldown_terminal(self, checkbutton):
         if checkbutton.get_active():
@@ -953,10 +955,8 @@ class MateTweak:
 
         elif schema == "org.mate.panel.menubar":
             if key == "icon-size" or key == "item-icon-size":
-                print(key + ': ' + value)
                 self.set_string("org.mate.panel.menubar", None, key, value)
-                self.get_panel_layout()
-                self.replace_panel_layout(self.base_layout)
+                self.reload_panel()
 
     def combo_fallback(self, widget, schema, key):
         act = widget.get_active()
