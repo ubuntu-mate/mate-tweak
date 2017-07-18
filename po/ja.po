@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-16 12:40+0100\n"
+"POT-Creation-Date: 2017-07-19 00:38+0100\n"
 "PO-Revision-Date: 2017-06-10 13:23+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/mate/MATE/language/ja/)\n"
@@ -24,55 +24,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../mate-tweak:1048
+#: ../mate-tweak:1089
 msgid "Traditional (Right)"
 msgstr "伝統的 (右)"
 
-#: ../mate-tweak:1049
+#: ../mate-tweak:1090
 msgid "Contemporary (Left)"
 msgstr "現代的 (左)"
 
-#: ../mate-tweak:1057
+#: ../mate-tweak:1098
 msgid "Marco (No compositor)"
 msgstr "Marco (コンポジットなし)"
 
-#: ../mate-tweak:1059
+#: ../mate-tweak:1100
 msgid "Marco (Software compositor)"
 msgstr "Marco (ソフトウェアコンポジット)"
 
-#: ../mate-tweak:1061
+#: ../mate-tweak:1102
 msgid "Marco (No effects xcompmgr compositor)"
 msgstr "Marco ( xcompmgr コンポジタ効果なし)"
 
-#: ../mate-tweak:1063
+#: ../mate-tweak:1104
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (Compton GPU コンポジット)"
 
-#: ../mate-tweak:1065
+#: ../mate-tweak:1106
 msgid "Metacity (No compositor)"
 msgstr "Metacity (コンポジットなし)"
 
-#: ../mate-tweak:1067
+#: ../mate-tweak:1108
 msgid "Metacity (Software compositor)"
 msgstr "Metacity (ソフトウェアコンポジット)"
 
-#: ../mate-tweak:1069
+#: ../mate-tweak:1110
 msgid "Metacity (No effects xcompmgr compositor)"
 msgstr "Metacity ( xcompmgr コンポジタ効果なし)"
 
-#: ../mate-tweak:1071
+#: ../mate-tweak:1112
 msgid "Metacity (Compton GPU compositor)"
 msgstr "Metacity (Compton GPU コンポジット)"
 
-#: ../mate-tweak:1073
+#: ../mate-tweak:1114
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (GPU を利用したエレガントなデスクトップ効果)"
 
-#: ../mate-tweak:1075
+#: ../mate-tweak:1116
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (GPU アクセラレーションを利用したデスクトップ効果)"
 
-#: ../mate-tweak:1078
+#: ../mate-tweak:1119
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -80,323 +80,327 @@ msgstr ""
 "不明な・非対応のウィンドウマネージャーが使用されています。そのためここで行っ"
 "た設定変更が有効になるかは不明です。"
 
-#: ../mate-tweak:1098
+#: ../mate-tweak:1139
 #, fuzzy
 msgid "Contemporary"
 msgstr "現代的 (左)"
 
-#: ../mate-tweak:1105
+#: ../mate-tweak:1146
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1108
+#: ../mate-tweak:1149
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1112
+#: ../mate-tweak:1153
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1116
+#: ../mate-tweak:1157
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1120
+#: ../mate-tweak:1161
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1126
+#: ../mate-tweak:1167
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1131
+#: ../mate-tweak:1172
 msgid "Netbook"
 msgstr "ネットブック"
 
-#: ../mate-tweak:1135
+#: ../mate-tweak:1176
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1141
+#: ../mate-tweak:1182
 msgid "Pantheon"
 msgstr ""
 
-#: ../mate-tweak:1145
+#: ../mate-tweak:1186
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1149
+#: ../mate-tweak:1190
 msgid "Solus"
 msgstr ""
 
-#: ../mate-tweak:1152
+#: ../mate-tweak:1193
 #, fuzzy
 msgid "Traditional"
 msgstr "伝統的 (右)"
 
-#: ../mate-tweak:1212
+#: ../mate-tweak:1256
 msgid "Desktop"
 msgstr "デスクトップ"
 
-#: ../mate-tweak:1213
+#: ../mate-tweak:1257
 msgid "Interface"
 msgstr "インターフェイス"
 
-#: ../mate-tweak:1214
+#: ../mate-tweak:1258
 msgid "Panel"
 msgstr "パネル"
 
-#: ../mate-tweak:1215
+#: ../mate-tweak:1259
 msgid "Windows"
 msgstr "ウィンドウ"
 
-#: ../mate-tweak:1259
+#: ../mate-tweak:1303
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:1262
+#: ../mate-tweak:1306
 msgid "Desktop icons"
 msgstr "デスクトップアイコン"
 
-#: ../mate-tweak:1263
+#: ../mate-tweak:1307
 msgid "Performance"
 msgstr "パフォーマンス"
 
-#: ../mate-tweak:1264
+#: ../mate-tweak:1308
 msgid "Window Behaviour"
 msgstr "ウィンドウの挙動"
 
-#: ../mate-tweak:1265
+#: ../mate-tweak:1309
 msgid "Appearance"
 msgstr "外観"
 
-#: ../mate-tweak:1266
+#: ../mate-tweak:1310
 msgid "Panels"
 msgstr "パネル"
 
-#: ../mate-tweak:1267
+#: ../mate-tweak:1311
 msgid "Panel Features"
 msgstr "パネルの機能"
 
-#: ../mate-tweak:1268
+#: ../mate-tweak:1312
 msgid "Panel Menu Features"
 msgstr "パネルメニューの機能"
 
-#: ../mate-tweak:1269
+#: ../mate-tweak:1313
 msgid "Icons"
 msgstr "アイコン"
 
-#: ../mate-tweak:1270
+#: ../mate-tweak:1314
 msgid "Context menus"
 msgstr "コンテキストメニュー"
 
-#: ../mate-tweak:1271
+#: ../mate-tweak:1315
 msgid "Toolbars"
 msgstr "ツールバー"
 
-#: ../mate-tweak:1272
+#: ../mate-tweak:1316
 msgid "Window manager"
 msgstr "ウィンドウマネージャー"
 
-#: ../mate-tweak:1274
+#: ../mate-tweak:1318
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "有効にしたいデスクトップアイコンの選択"
 
-#: ../mate-tweak:1275
+#: ../mate-tweak:1319
 msgid "Show Desktop Icons"
 msgstr "デスクトップのアイコンを表示する"
 
-#: ../mate-tweak:1276
+#: ../mate-tweak:1320
 msgid "Computer"
 msgstr "コンピューター"
 
-#: ../mate-tweak:1277
+#: ../mate-tweak:1321
 msgid "Home"
 msgstr "ホーム"
 
-#: ../mate-tweak:1278
+#: ../mate-tweak:1322
 msgid "Network"
 msgstr "ネットワーク"
 
-#: ../mate-tweak:1279
+#: ../mate-tweak:1323
 msgid "Trash"
 msgstr "ゴミ箱"
 
-#: ../mate-tweak:1280
+#: ../mate-tweak:1324
 msgid "Mounted Volumes"
 msgstr "マウントされたボリューム"
 
-#: ../mate-tweak:1282
+#: ../mate-tweak:1326
 msgid "Enable animations"
 msgstr "アニメーションを有効にする"
 
-#: ../mate-tweak:1283
+#: ../mate-tweak:1327
 msgid "Do not show window content when moving windows"
 msgstr "ウィンドウの移動中に内容を表示しない"
 
-#: ../mate-tweak:1284
+#: ../mate-tweak:1328
 msgid "Window manager performance tuning."
 msgstr "ウィンドウマネージャーのパフォーマンスの調整。"
 
-#: ../mate-tweak:1286
+#: ../mate-tweak:1330
 msgid "Enable window snapping"
 msgstr "ウィンドウスナップを有効にする"
 
-#: ../mate-tweak:1287
+#: ../mate-tweak:1331
 msgid "Undecorate maximized windows"
 msgstr "最大化されたウィンドウを装飾しない"
 
-#: ../mate-tweak:1288
+#: ../mate-tweak:1332
 msgid "Do not auto-maximize new windows"
 msgstr "新しいウィンドウを自動で最大化しない"
 
-#: ../mate-tweak:1290
+#: ../mate-tweak:1334
 msgid "Window control placement."
 msgstr "ウィンドウコントロールの配置。"
 
-#: ../mate-tweak:1292
+#: ../mate-tweak:1336
 msgid "Save Panel Layout"
 msgstr "パネルレイアウトを保存"
 
-#: ../mate-tweak:1293
+#: ../mate-tweak:1337
 msgid "Open CCSM"
 msgstr ""
 
-#: ../mate-tweak:1294
+#: ../mate-tweak:1338
 msgid "Reset Compiz"
 msgstr ""
 
-#: ../mate-tweak:1296
+#: ../mate-tweak:1340
 msgid "Enable advanced menu"
 msgstr "高度なメニューを有効にする"
 
-#: ../mate-tweak:1297
+#: ../mate-tweak:1341
 msgid "Enable keyboard LED"
 msgstr "キーボード LED を有効にする"
 
-#: ../mate-tweak:1298
+#: ../mate-tweak:1342
 msgid "Enable pull-down terminal"
 msgstr "プルダウン端末を有効化"
 
-#: ../mate-tweak:1300
+#: ../mate-tweak:1344
 msgid "Show Applications"
 msgstr "アプリケーションを表示"
 
-#: ../mate-tweak:1301
+#: ../mate-tweak:1345
 msgid "Show Places"
 msgstr "場所の表示"
 
-#: ../mate-tweak:1302
+#: ../mate-tweak:1346
 msgid "Show System"
 msgstr "システムを表示"
 
-#: ../mate-tweak:1304
+#: ../mate-tweak:1348
 msgid "Show icons on menus"
 msgstr "メニューにアイコンを表示"
 
-#: ../mate-tweak:1305
+#: ../mate-tweak:1349
 msgid "Show icons on buttons"
 msgstr "ボタンにアイコンを表示"
 
-#: ../mate-tweak:1306
+#: ../mate-tweak:1350
 msgid "Show Input Methods menu in context menus"
 msgstr "コンテキストメニューにインプットメソッドのメニューを表示"
 
-#: ../mate-tweak:1307
+#: ../mate-tweak:1351
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "コンテキストメニューに Unicode 制御文字のメニューを表示"
 
-#: ../mate-tweak:1309
+#: ../mate-tweak:1353
 msgid "Style:"
 msgstr "スタイル:"
 
-#: ../mate-tweak:1310
+#: ../mate-tweak:1354
 msgid "Icon size:"
 msgstr "アイコンサイズ:"
 
-#: ../mate-tweak:1329
+#: ../mate-tweak:1373
 msgid "Small"
 msgstr "小"
 
-#: ../mate-tweak:1330
+#: ../mate-tweak:1374
 msgid "Large"
 msgstr "大"
 
-#: ../mate-tweak:1339
+#: ../mate-tweak:1383
 msgid "The new window manager will be activated upon selection."
 msgstr "新しいウィンドウマネージャーは選択時に動作するようになります。"
 
-#: ../mate-tweak:1340
+#: ../mate-tweak:1384
 msgid "Select a window manager."
 msgstr "ウィンドウマネージャーを選択してください。"
 
-#: ../mate-tweak:1346
+#: ../mate-tweak:1390
 msgid "Select a panel layout to change the user interface."
 msgstr "パネルのレイアウトを選択してください。"
 
-#: ../mate-tweak:1347
-msgid ""
-"The new panel layout will be activated on selection and destroy any "
-"customisations you might have made."
-msgstr ""
-"新しいパネルレイアウトは選択とともに動作し、これまでに施したカスタマイズは完"
-"全になくなります。"
+#: ../mate-tweak:1391
+#, fuzzy
+msgid "Select a panel layout."
+msgstr "パネルレイアウトを保存"
 
-#: ../mate-tweak:1353
+#: ../mate-tweak:1397
 msgid "Default"
 msgstr "デフォルト"
 
-#: ../mate-tweak:1354
+#: ../mate-tweak:1398
 msgid "16px"
 msgstr "16ピクセル"
 
-#: ../mate-tweak:1355
+#: ../mate-tweak:1399
 msgid "22px"
 msgstr "22ピクセル"
 
-#: ../mate-tweak:1356
+#: ../mate-tweak:1400
 msgid "24px"
 msgstr "24ピクセル"
 
-#: ../mate-tweak:1357
+#: ../mate-tweak:1401
 msgid "32px"
 msgstr "32ピクセル"
 
-#: ../mate-tweak:1358
+#: ../mate-tweak:1402
 msgid "48px"
 msgstr "48ピクセル"
 
-#: ../mate-tweak:1362
+#: ../mate-tweak:1406
 msgid "Set the panel icon size."
 msgstr "パネルアイコンサイズの設定"
 
-#: ../mate-tweak:1363
+#: ../mate-tweak:1407
 msgid "Select the icon size for panel icons."
 msgstr "パネルアイコンのサイズを選択"
 
-#: ../mate-tweak:1367
+#: ../mate-tweak:1411
 msgid "Set the icon size of menu items used in the panel."
 msgstr "パネル内のメニューアイテムのアイコンサイズの設定"
 
-#: ../mate-tweak:1368
+#: ../mate-tweak:1412
 msgid "Select the icon size for menu items in the panel."
 msgstr "パネル内のメニューアイテムのアイコンサイズの選択"
 
-#: ../mate-tweak:1385
+#: ../mate-tweak:1429
 msgid "Text below items"
 msgstr "アイコンの下にラベル"
 
-#: ../mate-tweak:1386
+#: ../mate-tweak:1430
 msgid "Text beside items"
 msgstr "アイコンの横にラベル"
 
-#: ../mate-tweak:1387
+#: ../mate-tweak:1431
 msgid "Icons only"
 msgstr "アイコンのみ"
 
-#: ../mate-tweak:1388
+#: ../mate-tweak:1432
 msgid "Text only"
 msgstr "ラベルのみ"
+
+#~ msgid ""
+#~ "The new panel layout will be activated on selection and destroy any "
+#~ "customisations you might have made."
+#~ msgstr ""
+#~ "新しいパネルレイアウトは選択とともに動作し、これまでに施したカスタマイズは"
+#~ "完全になくなります。"
 
 #~ msgid "Ubuntu MATE"
 #~ msgstr "Ubuntu MATE"
