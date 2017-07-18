@@ -686,13 +686,15 @@ class MateTweak:
             self.builder.get_object('combobox_panel_menu_icon_size').props.sensitive = False
 
     def confirm_layout_switch(self):
-        confirm_text = _('<b>Replacing the panel layout is a destructive operation!</b> Are you sure you want to replace the panel layout and lose any customisations you might have made?')
+        confirm_text = _('<b>Replacing the panel layout is a destructive operation!</b>\n\nAre you sure you want to replace the panel layout and lose any customisations you might have made?')
         title_text = _('Replace the panel layout?')
         confirm = subprocess.call(['zenity',
                                     '--question',
                                     "--title={}".format(title_text),
                                     "--text={}".format(confirm_text),
-                                    '--window-icon=question'],
+                                    '--window-icon=question',
+                                    '--width=500',
+                                    '--height=160'],
                                     stdin=PIPE, stdout=PIPE, stderr=PIPE)
         return confirm
 
@@ -700,6 +702,23 @@ class MateTweak:
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
     def replace_panel_layout(self, panel_layout):
+        # Ask for confirmation.
+        if self.confirm_layout_switch() == 1:
+            # Revert the change that the signal already caught
+            source = Gio.SettingsSchemaSource.get_default()
+            if source.lookup('org.mate.panel', True) != None:
+                widget = self.builder.get_object('combobox_panels')
+                widget.disconnect(self.combobox_panels_handler)
+                self.set_string("org.mate.panel", None, "default-layout", self.current_layout)
+                index = 0
+                for row in widget.get_model():
+                    if(self.base_layout == row[1]):
+                        widget.set_active(index)
+                        break
+                    index = index +1
+                self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
+            return
+
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
         item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
@@ -851,7 +870,7 @@ class MateTweak:
                     widget.set_active(index)
                     break
                 index = index +1
-            widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
+            self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
     def toggle_panel_features(self, widget):
         self.reload_panel()
