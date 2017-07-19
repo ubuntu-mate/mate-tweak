@@ -706,7 +706,7 @@ class MateTweak:
     def reload_panel(self):
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
-    def replace_panel_layout(self, panel_layout):
+    def confirm_panel_layout_replacement(self):
         # Ask for confirmation.
         dialog = PanelReplaceDialog(None)
         response = dialog.run()
@@ -732,8 +732,9 @@ class MateTweak:
                         break
                     index = index +1
                 self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
-            return
+        return confirmed
 
+    def replace_panel_layout(self, panel_layout):
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
         item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
@@ -983,9 +984,10 @@ class MateTweak:
             self.update_windowmanager_widgets()
 
         elif schema == "org.mate.panel" and key == "default-layout":
-            # If the panel layout is being changed, replace it now!
-            panel_layout = value
-            self.replace_panel_layout(panel_layout)
+            if self.confirm_panel_layout_replacement():
+                # If the panel layout is being changed, replace it now!
+                panel_layout = value
+                self.replace_panel_layout(panel_layout)
 
         elif schema == "org.mate.panel.menubar":
             if key == "icon-size" or key == "item-icon-size":
