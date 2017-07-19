@@ -679,7 +679,7 @@ class MateTweak:
 
         # Make Menu Bar configuration insensitive for layouts that don't
         # feature the menu bar.
-        if self.panel_layout_uses('Object menu-bar', full_layout):
+        if self.panel_layout_uses('Object menu-bar', panel_layout):
             self.builder.get_object('box_menu_features').props.sensitive = True
             self.builder.get_object('combobox_panel_icon_size').props.sensitive = True
             self.builder.get_object('combobox_panel_menu_icon_size').props.sensitive = True
@@ -719,16 +719,13 @@ class MateTweak:
                 self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
         return confirmed
 
-    def replace_panel_layout(self, panel_layout):
+    def replace_panel_layout(self, new_layout):
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
         item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
 
-        # If 'Enable advanced menu is checked make sure the setting persists.'
-        new_layout = panel_layout
-
         print('Switching to: ' + new_layout)
-        self.update_panel_layout_ui(panel_layout, new_layout)
+        self.update_panel_layout_ui(new_layout)
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
@@ -850,7 +847,6 @@ class MateTweak:
     def init_panel_features(self):
         self.get_panel_layout()
         print ('Current layout: ' + self.current_layout)
-
         self.update_panel_layout_ui(self.current_layout)
 
         source = Gio.SettingsSchemaSource.get_default()
@@ -861,7 +857,7 @@ class MateTweak:
                 if(self.current_layout == row[1]):
                     widget.set_active(index)
                     break
-                index = index +1
+                index += 1
             self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
     def toggle_panel_features(self, widget):
