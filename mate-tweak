@@ -173,6 +173,7 @@ class PanelReplaceDialog(Gtk.Dialog):
         label.set_use_markup(True)
 
         box = self.get_content_area()
+        box.set_border_width(8)
         box.add(label)
         self.show_all()
 
