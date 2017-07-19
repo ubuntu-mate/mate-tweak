@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 01:25+0100\n"
+"POT-Creation-Date: 2017-07-19 22:24+0100\n"
 "PO-Revision-Date: 2017-06-16 04:20+0000\n"
 "Last-Translator: Микола Ткач <znadibnyk@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/mate/MATE/language/uk/)\n"
@@ -22,55 +22,55 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../mate-tweak:1104
+#: ../mate-tweak:1078
 msgid "Traditional (Right)"
 msgstr "Традиційний стиль (праворуч)"
 
-#: ../mate-tweak:1105
+#: ../mate-tweak:1079
 msgid "Contemporary (Left)"
 msgstr "Сучасний стиль (ліворуч)"
 
-#: ../mate-tweak:1113
+#: ../mate-tweak:1087
 msgid "Marco (No compositor)"
 msgstr "Marco (без керівника композитингом)"
 
-#: ../mate-tweak:1115
+#: ../mate-tweak:1089
 msgid "Marco (Software compositor)"
 msgstr "Marco (проґрамний керівник композитингом)"
 
-#: ../mate-tweak:1117
+#: ../mate-tweak:1091
 msgid "Marco (No effects xcompmgr compositor)"
 msgstr "Marco („xcompmgr“ керівник композитингом без ефектів)"
 
-#: ../mate-tweak:1119
+#: ../mate-tweak:1093
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (керівник композитингом Compton GPU)"
 
-#: ../mate-tweak:1121
+#: ../mate-tweak:1095
 msgid "Metacity (No compositor)"
 msgstr "Metacity (без керівника композитингом)"
 
-#: ../mate-tweak:1123
+#: ../mate-tweak:1097
 msgid "Metacity (Software compositor)"
 msgstr "Metacity (проґрамний керівник композитингом)"
 
-#: ../mate-tweak:1125
+#: ../mate-tweak:1099
 msgid "Metacity (No effects xcompmgr compositor)"
 msgstr "Metacity („xcompmgr“ керівник композитингом без ефектів)"
 
-#: ../mate-tweak:1127
+#: ../mate-tweak:1101
 msgid "Metacity (Compton GPU compositor)"
 msgstr "Metacity (керівник композитингом Compton GPU)"
 
-#: ../mate-tweak:1129
+#: ../mate-tweak:1103
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (пришвидшені ГПП витончені ефекти стільниці)"
 
-#: ../mate-tweak:1131
+#: ../mate-tweak:1105
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (для потужних ГПП покращені ефекти стільниці)"
 
-#: ../mate-tweak:1134
+#: ../mate-tweak:1108
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -78,321 +78,320 @@ msgstr ""
 "Ви використовуєте невідомий і непідтримуваний керівник вікнами. Немає "
 "запорук, що зміни, зроблені тут, будуть мати ефект."
 
-#: ../mate-tweak:1154
+#: ../mate-tweak:1128
 #, fuzzy
 msgid "Contemporary"
 msgstr "Сучасний стиль (ліворуч)"
 
-#: ../mate-tweak:1161
+#: ../mate-tweak:1135
 msgid "Cupertino"
 msgstr "Купертіно"
 
-#: ../mate-tweak:1164
+#: ../mate-tweak:1138
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1168
+#: ../mate-tweak:1142
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1172
+#: ../mate-tweak:1146
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1176
+#: ../mate-tweak:1150
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1182
+#: ../mate-tweak:1156
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1187
+#: ../mate-tweak:1161
 msgid "Netbook"
 msgstr "Нетбук"
 
-#: ../mate-tweak:1191
+#: ../mate-tweak:1165
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1197
+#: ../mate-tweak:1171
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: ../mate-tweak:1201
+#: ../mate-tweak:1175
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1205
+#: ../mate-tweak:1179
 msgid "Solus"
 msgstr "Solus"
 
-#: ../mate-tweak:1208
+#: ../mate-tweak:1182
 #, fuzzy
 msgid "Traditional"
 msgstr "Традиційний стиль (праворуч)"
 
-#: ../mate-tweak:1271
+#: ../mate-tweak:1294
 msgid "Desktop"
 msgstr "Стільниця"
 
-#: ../mate-tweak:1272
+#: ../mate-tweak:1295
 msgid "Interface"
 msgstr "Інтерфейс"
 
-#: ../mate-tweak:1273
+#: ../mate-tweak:1296
 msgid "Panel"
 msgstr "Панель"
 
-#: ../mate-tweak:1274
+#: ../mate-tweak:1297
 msgid "Windows"
 msgstr "Вікна"
 
-#: ../mate-tweak:1318
+#: ../mate-tweak:1341
 msgid "MATE Tweak"
 msgstr "Налаштування MATE"
 
-#: ../mate-tweak:1321
+#: ../mate-tweak:1344
 msgid "Desktop icons"
 msgstr "Піктограми стільниці"
 
-#: ../mate-tweak:1322
+#: ../mate-tweak:1345
 msgid "Performance"
 msgstr "Продуктивність"
 
-#: ../mate-tweak:1323
+#: ../mate-tweak:1346
 msgid "Window Behaviour"
 msgstr "Поведінка вікна"
 
-#: ../mate-tweak:1324
+#: ../mate-tweak:1347
 msgid "Appearance"
 msgstr "Вигляд"
 
-#: ../mate-tweak:1325
+#: ../mate-tweak:1348
 msgid "Panels"
 msgstr "Панелі"
 
-#: ../mate-tweak:1326
+#: ../mate-tweak:1349
 msgid "Panel Features"
 msgstr "Ціхи панелі"
 
-#: ../mate-tweak:1327
+#: ../mate-tweak:1350
 msgid "Panel Menu Features"
 msgstr "Властивости меню панелі"
 
-#: ../mate-tweak:1328
+#: ../mate-tweak:1351
 msgid "Icons"
 msgstr "Піктограми"
 
-#: ../mate-tweak:1329
+#: ../mate-tweak:1352
 msgid "Context menus"
 msgstr "Контекстні меню"
 
-#: ../mate-tweak:1330
+#: ../mate-tweak:1353
 msgid "Toolbars"
 msgstr "Панелі знарядь"
 
-#: ../mate-tweak:1331
+#: ../mate-tweak:1354
 msgid "Window manager"
 msgstr "Керування вікнами"
 
-#: ../mate-tweak:1333
+#: ../mate-tweak:1356
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Оберіть піктограми, які будуть показані на стільниці:"
 
-#: ../mate-tweak:1334
+#: ../mate-tweak:1357
 msgid "Show Desktop Icons"
 msgstr "Показати піктограми стільниці"
 
-#: ../mate-tweak:1335
+#: ../mate-tweak:1358
 msgid "Computer"
 msgstr "Комп'ютер"
 
-#: ../mate-tweak:1336
+#: ../mate-tweak:1359
 msgid "Home"
 msgstr "Домівка"
 
-#: ../mate-tweak:1337
+#: ../mate-tweak:1360
 msgid "Network"
 msgstr "Мережа"
 
-#: ../mate-tweak:1338
+#: ../mate-tweak:1361
 msgid "Trash"
 msgstr "Смітник"
 
-#: ../mate-tweak:1339
+#: ../mate-tweak:1362
 msgid "Mounted Volumes"
 msgstr "Під'єднані носії"
 
-#: ../mate-tweak:1341
+#: ../mate-tweak:1364
 msgid "Enable animations"
 msgstr "Увімкнути анімацію"
 
-#: ../mate-tweak:1342
+#: ../mate-tweak:1365
 msgid "Do not show window content when moving windows"
 msgstr "Не відображати вміст вікна при переміщенні вікон"
 
-#: ../mate-tweak:1343
+#: ../mate-tweak:1366
 msgid "Window manager performance tuning."
 msgstr "Налаштування продуктивности керівника вікнами."
 
-#: ../mate-tweak:1345
+#: ../mate-tweak:1368
 msgid "Enable window snapping"
 msgstr "Увімкнути прив'язку вікон"
 
-#: ../mate-tweak:1346
+#: ../mate-tweak:1369
 msgid "Undecorate maximized windows"
 msgstr "Усунути оздобу з розгорнутих вікон"
 
-#: ../mate-tweak:1347
+#: ../mate-tweak:1370
 msgid "Do not auto-maximize new windows"
 msgstr "Не розгортати на увесь екран нові вікна"
 
-#: ../mate-tweak:1349
+#: ../mate-tweak:1372
 msgid "Window control placement."
 msgstr "Керування розташуванням вікон."
 
-#: ../mate-tweak:1351
+#: ../mate-tweak:1374
 msgid "Save Panel Layout"
 msgstr "Зберегти розташування панелі"
 
-#: ../mate-tweak:1352
+#: ../mate-tweak:1375
 msgid "Open CCSM"
 msgstr "Відкрити CCSM"
 
-#: ../mate-tweak:1353
+#: ../mate-tweak:1376
 msgid "Reset Compiz"
 msgstr "Скинути Compiz"
 
-#: ../mate-tweak:1355
-msgid "Enable advanced menu"
-msgstr "Увімкнути розширене меню"
-
-#: ../mate-tweak:1356
+#: ../mate-tweak:1378
 msgid "Enable keyboard LED"
 msgstr "Увімкнути підсвічування набірниці"
 
-#: ../mate-tweak:1357
+#: ../mate-tweak:1379
 msgid "Enable pull-down terminal"
 msgstr "Увімкнути випадний термінал"
 
-#: ../mate-tweak:1359
+#: ../mate-tweak:1381
 msgid "Show Applications"
 msgstr "Показати додатки"
 
-#: ../mate-tweak:1360
+#: ../mate-tweak:1382
 msgid "Show Places"
 msgstr "Показати місця"
 
-#: ../mate-tweak:1361
+#: ../mate-tweak:1383
 msgid "Show System"
 msgstr "Показати систему"
 
-#: ../mate-tweak:1363
+#: ../mate-tweak:1385
 msgid "Show icons on menus"
 msgstr "Показувати піктограми в меню"
 
-#: ../mate-tweak:1364
+#: ../mate-tweak:1386
 msgid "Show icons on buttons"
 msgstr "Показувати піктограми на кнопках"
 
-#: ../mate-tweak:1365
+#: ../mate-tweak:1387
 msgid "Show Input Methods menu in context menus"
 msgstr "Показувати меню методів уведення в контекстних меню"
 
-#: ../mate-tweak:1366
+#: ../mate-tweak:1388
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Показувати керівні символи Юнікоду в контекстних меню"
 
-#: ../mate-tweak:1368
+#: ../mate-tweak:1390
 msgid "Style:"
 msgstr "Стиль:"
 
-#: ../mate-tweak:1369
+#: ../mate-tweak:1391
 msgid "Icon size:"
 msgstr "Розмір піктограм:"
 
-#: ../mate-tweak:1388
+#: ../mate-tweak:1410
 msgid "Small"
 msgstr "Маленькі"
 
-#: ../mate-tweak:1389
+#: ../mate-tweak:1411
 msgid "Large"
 msgstr "Великі"
 
-#: ../mate-tweak:1398
+#: ../mate-tweak:1420
 msgid "The new window manager will be activated upon selection."
 msgstr "Керівник вікнами буде активований вибором у переліку."
 
-#: ../mate-tweak:1399
+#: ../mate-tweak:1421
 msgid "Select a window manager."
 msgstr "Вибір керівника вікнами"
 
-#: ../mate-tweak:1405
+#: ../mate-tweak:1427
 msgid "Select a panel layout to change the user interface."
 msgstr "Оберіть конфігурацію панелів, щоб змінити інтерфейс."
 
-#: ../mate-tweak:1406
+#: ../mate-tweak:1428
 #, fuzzy
 msgid "Select a panel layout."
 msgstr "Зберегти розташування панелі"
 
-#: ../mate-tweak:1412
+#: ../mate-tweak:1433
 msgid "Default"
 msgstr "Типово"
 
-#: ../mate-tweak:1413
+#: ../mate-tweak:1434
 msgid "16px"
 msgstr "16пікс"
 
-#: ../mate-tweak:1414
+#: ../mate-tweak:1435
 msgid "22px"
 msgstr "22пікс"
 
-#: ../mate-tweak:1415
+#: ../mate-tweak:1436
 msgid "24px"
 msgstr "24пікс"
 
-#: ../mate-tweak:1416
+#: ../mate-tweak:1437
 msgid "32px"
 msgstr "32пікс"
 
-#: ../mate-tweak:1417
+#: ../mate-tweak:1438
 msgid "48px"
 msgstr "48пікс"
 
-#: ../mate-tweak:1421
+#: ../mate-tweak:1442
 msgid "Set the panel icon size."
 msgstr "Встановити розмір піктограм панелі."
 
-#: ../mate-tweak:1422
+#: ../mate-tweak:1443
 msgid "Select the icon size for panel icons."
 msgstr "Виберіть розмір піктограм для піктограм панелі."
 
-#: ../mate-tweak:1426
+#: ../mate-tweak:1447
 msgid "Set the icon size of menu items used in the panel."
 msgstr ""
 "Встановити розмір піктограм пунктів меню, які використовуються в панелі."
 
-#: ../mate-tweak:1427
+#: ../mate-tweak:1448
 msgid "Select the icon size for menu items in the panel."
 msgstr "Виберіть розмір піктограм для пунктів меню в панелі."
 
-#: ../mate-tweak:1444
+#: ../mate-tweak:1465
 msgid "Text below items"
 msgstr "Текст під піктограмами"
 
-#: ../mate-tweak:1445
+#: ../mate-tweak:1466
 msgid "Text beside items"
 msgstr "Текст поруч із піктограмами"
 
-#: ../mate-tweak:1446
+#: ../mate-tweak:1467
 msgid "Icons only"
 msgstr "Лише піктограми"
 
-#: ../mate-tweak:1447
+#: ../mate-tweak:1468
 msgid "Text only"
 msgstr "Лише текст"
+
+#~ msgid "Enable advanced menu"
+#~ msgstr "Увімкнути розширене меню"
 
 #~ msgid ""
 #~ "The new panel layout will be activated on selection and destroy any "

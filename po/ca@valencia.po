@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 01:25+0100\n"
+"POT-Creation-Date: 2017-07-19 22:24+0100\n"
 "PO-Revision-Date: 2017-06-10 13:23+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Catalan (Valencian) (http://www.transifex.com/mate/MATE/"
@@ -19,55 +19,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:1104
+#: ../mate-tweak:1078
 msgid "Traditional (Right)"
 msgstr "Tradicional (dret)"
 
-#: ../mate-tweak:1105
+#: ../mate-tweak:1079
 msgid "Contemporary (Left)"
 msgstr "Contemporani (esquerre)"
 
-#: ../mate-tweak:1113
+#: ../mate-tweak:1087
 msgid "Marco (No compositor)"
 msgstr "Marco (sense compositor)"
 
-#: ../mate-tweak:1115
+#: ../mate-tweak:1089
 msgid "Marco (Software compositor)"
 msgstr "Marco (compositor de programari)"
 
-#: ../mate-tweak:1117
+#: ../mate-tweak:1091
 msgid "Marco (No effects xcompmgr compositor)"
 msgstr "Marco (sense efectes del compositor xcompmgr)"
 
-#: ../mate-tweak:1119
+#: ../mate-tweak:1093
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (compositor de GPU Compton)"
 
-#: ../mate-tweak:1121
+#: ../mate-tweak:1095
 msgid "Metacity (No compositor)"
 msgstr "Metacity (sense compositor)"
 
-#: ../mate-tweak:1123
+#: ../mate-tweak:1097
 msgid "Metacity (Software compositor)"
 msgstr "Metacity (compositor de programari)"
 
-#: ../mate-tweak:1125
+#: ../mate-tweak:1099
 msgid "Metacity (No effects xcompmgr compositor)"
 msgstr "Metacity (sense efectes del compositor xcompmgr)"
 
-#: ../mate-tweak:1127
+#: ../mate-tweak:1101
 msgid "Metacity (Compton GPU compositor)"
 msgstr "Metacity (compositor de GPU Compton)"
 
-#: ../mate-tweak:1129
+#: ../mate-tweak:1103
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (efectes elegants d'escriptori amb acceleració de GPU)"
 
-#: ../mate-tweak:1131
+#: ../mate-tweak:1105
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (efectes avançats d'escriptori amb acceleració de GPU)"
 
-#: ../mate-tweak:1134
+#: ../mate-tweak:1108
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -76,322 +76,321 @@ msgstr ""
 "suport. Per tant, no podem garantir que els canvis realitzats siguen "
 "eficaços."
 
-#: ../mate-tweak:1154
+#: ../mate-tweak:1128
 #, fuzzy
 msgid "Contemporary"
 msgstr "Contemporani (esquerre)"
 
-#: ../mate-tweak:1161
+#: ../mate-tweak:1135
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1164
+#: ../mate-tweak:1138
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1168
+#: ../mate-tweak:1142
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1172
+#: ../mate-tweak:1146
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1176
+#: ../mate-tweak:1150
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1182
+#: ../mate-tweak:1156
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1187
+#: ../mate-tweak:1161
 msgid "Netbook"
 msgstr "Ordinador portàtil"
 
-#: ../mate-tweak:1191
+#: ../mate-tweak:1165
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1197
+#: ../mate-tweak:1171
 msgid "Pantheon"
 msgstr ""
 
-#: ../mate-tweak:1201
+#: ../mate-tweak:1175
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1205
+#: ../mate-tweak:1179
 msgid "Solus"
 msgstr ""
 
-#: ../mate-tweak:1208
+#: ../mate-tweak:1182
 #, fuzzy
 msgid "Traditional"
 msgstr "Tradicional (dret)"
 
-#: ../mate-tweak:1271
+#: ../mate-tweak:1294
 msgid "Desktop"
 msgstr "Escriptori"
 
-#: ../mate-tweak:1272
+#: ../mate-tweak:1295
 msgid "Interface"
 msgstr "Interfície"
 
-#: ../mate-tweak:1273
+#: ../mate-tweak:1296
 msgid "Panel"
 msgstr "Tauler"
 
-#: ../mate-tweak:1274
+#: ../mate-tweak:1297
 msgid "Windows"
 msgstr "Finestres"
 
-#: ../mate-tweak:1318
+#: ../mate-tweak:1341
 msgid "MATE Tweak"
 msgstr "Retocs del MATE"
 
-#: ../mate-tweak:1321
+#: ../mate-tweak:1344
 msgid "Desktop icons"
 msgstr "Icones de l'escriptori"
 
-#: ../mate-tweak:1322
+#: ../mate-tweak:1345
 msgid "Performance"
 msgstr "Rendiment"
 
-#: ../mate-tweak:1323
+#: ../mate-tweak:1346
 msgid "Window Behaviour"
 msgstr "Comportament de la finestra"
 
-#: ../mate-tweak:1324
+#: ../mate-tweak:1347
 msgid "Appearance"
 msgstr "Aparença"
 
-#: ../mate-tweak:1325
+#: ../mate-tweak:1348
 msgid "Panels"
 msgstr "Taulers"
 
-#: ../mate-tweak:1326
+#: ../mate-tweak:1349
 msgid "Panel Features"
 msgstr "Funcionalitats del tauler"
 
-#: ../mate-tweak:1327
+#: ../mate-tweak:1350
 msgid "Panel Menu Features"
 msgstr "Funcionalitats del menú del tauler"
 
-#: ../mate-tweak:1328
+#: ../mate-tweak:1351
 msgid "Icons"
 msgstr "Icones"
 
-#: ../mate-tweak:1329
+#: ../mate-tweak:1352
 msgid "Context menus"
 msgstr "Menús contextuals"
 
-#: ../mate-tweak:1330
+#: ../mate-tweak:1353
 msgid "Toolbars"
 msgstr "Barres d'eines"
 
-#: ../mate-tweak:1331
+#: ../mate-tweak:1354
 msgid "Window manager"
 msgstr "Gestor de finestres"
 
-#: ../mate-tweak:1333
+#: ../mate-tweak:1356
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Seleccioneu les icones de l'escriptori que vulgueu habilitar:"
 
-#: ../mate-tweak:1334
+#: ../mate-tweak:1357
 msgid "Show Desktop Icons"
 msgstr "Mostra les icones de l'escriptori"
 
-#: ../mate-tweak:1335
+#: ../mate-tweak:1358
 msgid "Computer"
 msgstr "Ordinador"
 
-#: ../mate-tweak:1336
+#: ../mate-tweak:1359
 msgid "Home"
 msgstr "Inici"
 
-#: ../mate-tweak:1337
+#: ../mate-tweak:1360
 msgid "Network"
 msgstr "Xarxa"
 
-#: ../mate-tweak:1338
+#: ../mate-tweak:1361
 msgid "Trash"
 msgstr "Paperera"
 
-#: ../mate-tweak:1339
+#: ../mate-tweak:1362
 msgid "Mounted Volumes"
 msgstr "Volums muntats"
 
-#: ../mate-tweak:1341
+#: ../mate-tweak:1364
 msgid "Enable animations"
 msgstr "Habilita les animacions"
 
-#: ../mate-tweak:1342
+#: ../mate-tweak:1365
 msgid "Do not show window content when moving windows"
 msgstr ""
 "No mostres el contingut de les finestres mentre es moguen les finestres "
 
-#: ../mate-tweak:1343
+#: ../mate-tweak:1366
 msgid "Window manager performance tuning."
 msgstr "Afinament del rendiment del gestor de finestres."
 
-#: ../mate-tweak:1345
+#: ../mate-tweak:1368
 msgid "Enable window snapping"
 msgstr "Habilita l'encaixament de la finestra"
 
-#: ../mate-tweak:1346
+#: ../mate-tweak:1369
 msgid "Undecorate maximized windows"
 msgstr "No decores les finestres maximitzades"
 
-#: ../mate-tweak:1347
+#: ../mate-tweak:1370
 msgid "Do not auto-maximize new windows"
 msgstr "No maximitzes automàticament les finestres noves"
 
-#: ../mate-tweak:1349
+#: ../mate-tweak:1372
 msgid "Window control placement."
 msgstr "Col·locació del control de la finestra."
 
-#: ../mate-tweak:1351
+#: ../mate-tweak:1374
 msgid "Save Panel Layout"
 msgstr "Guarda la disposició del tauler"
 
-#: ../mate-tweak:1352
+#: ../mate-tweak:1375
 msgid "Open CCSM"
 msgstr ""
 
-#: ../mate-tweak:1353
+#: ../mate-tweak:1376
 msgid "Reset Compiz"
 msgstr ""
 
-#: ../mate-tweak:1355
-msgid "Enable advanced menu"
-msgstr "Habilita el menú avançat"
-
-#: ../mate-tweak:1356
+#: ../mate-tweak:1378
 msgid "Enable keyboard LED"
 msgstr "Habilita el led del teclat"
 
-#: ../mate-tweak:1357
+#: ../mate-tweak:1379
 msgid "Enable pull-down terminal"
 msgstr "Habilita el terminal desplegable"
 
-#: ../mate-tweak:1359
+#: ../mate-tweak:1381
 msgid "Show Applications"
 msgstr "Mostra les aplicacions"
 
-#: ../mate-tweak:1360
+#: ../mate-tweak:1382
 msgid "Show Places"
 msgstr "Mostra els llocs"
 
-#: ../mate-tweak:1361
+#: ../mate-tweak:1383
 msgid "Show System"
 msgstr "Mostra el sistema"
 
-#: ../mate-tweak:1363
+#: ../mate-tweak:1385
 msgid "Show icons on menus"
 msgstr "Mostra les icones als menús"
 
-#: ../mate-tweak:1364
+#: ../mate-tweak:1386
 msgid "Show icons on buttons"
 msgstr "Mostra les icones als botons"
 
-#: ../mate-tweak:1365
+#: ../mate-tweak:1387
 msgid "Show Input Methods menu in context menus"
 msgstr "Mostra el menú mètodes d'entrada als menús contextuals"
 
-#: ../mate-tweak:1366
+#: ../mate-tweak:1388
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Mostra el menú caràcter de control Unicode als menús contextuals"
 
-#: ../mate-tweak:1368
+#: ../mate-tweak:1390
 msgid "Style:"
 msgstr "Estil:"
 
-#: ../mate-tweak:1369
+#: ../mate-tweak:1391
 msgid "Icon size:"
 msgstr "Mida de la icona:"
 
-#: ../mate-tweak:1388
+#: ../mate-tweak:1410
 msgid "Small"
 msgstr "Xicoteta"
 
-#: ../mate-tweak:1389
+#: ../mate-tweak:1411
 msgid "Large"
 msgstr "Gran"
 
-#: ../mate-tweak:1398
+#: ../mate-tweak:1420
 msgid "The new window manager will be activated upon selection."
 msgstr "El gestor nou de finestres s'activarà una vegada se seleccione."
 
-#: ../mate-tweak:1399
+#: ../mate-tweak:1421
 msgid "Select a window manager."
 msgstr "Selecciona un gestor de finestres"
 
-#: ../mate-tweak:1405
+#: ../mate-tweak:1427
 msgid "Select a panel layout to change the user interface."
 msgstr "Seleccioneu un disseny de tauler per a canviar la interfície d'usuari."
 
-#: ../mate-tweak:1406
+#: ../mate-tweak:1428
 #, fuzzy
 msgid "Select a panel layout."
 msgstr "Guarda la disposició del tauler"
 
-#: ../mate-tweak:1412
+#: ../mate-tweak:1433
 msgid "Default"
 msgstr "Predeterminat"
 
-#: ../mate-tweak:1413
+#: ../mate-tweak:1434
 msgid "16px"
 msgstr "16 px"
 
-#: ../mate-tweak:1414
+#: ../mate-tweak:1435
 msgid "22px"
 msgstr "22 px"
 
-#: ../mate-tweak:1415
+#: ../mate-tweak:1436
 msgid "24px"
 msgstr "24 px"
 
-#: ../mate-tweak:1416
+#: ../mate-tweak:1437
 msgid "32px"
 msgstr "32 px"
 
-#: ../mate-tweak:1417
+#: ../mate-tweak:1438
 msgid "48px"
 msgstr "48 px"
 
-#: ../mate-tweak:1421
+#: ../mate-tweak:1442
 msgid "Set the panel icon size."
 msgstr "Estableix la mida de la icona del tauler."
 
-#: ../mate-tweak:1422
+#: ../mate-tweak:1443
 msgid "Select the icon size for panel icons."
 msgstr "Selecciona la mida de la icona per a les icones del tauler."
 
-#: ../mate-tweak:1426
+#: ../mate-tweak:1447
 msgid "Set the icon size of menu items used in the panel."
 msgstr ""
 "Estableix la mida de la icona dels elements del menú utilitzats al tauler."
 
-#: ../mate-tweak:1427
+#: ../mate-tweak:1448
 msgid "Select the icon size for menu items in the panel."
 msgstr "Selecciona la mida de la icona per als elements del menú al tauler."
 
-#: ../mate-tweak:1444
+#: ../mate-tweak:1465
 msgid "Text below items"
 msgstr "Text davall dels elements"
 
-#: ../mate-tweak:1445
+#: ../mate-tweak:1466
 msgid "Text beside items"
 msgstr "Text al costat dels elements"
 
-#: ../mate-tweak:1446
+#: ../mate-tweak:1467
 msgid "Icons only"
 msgstr "Només les icones"
 
-#: ../mate-tweak:1447
+#: ../mate-tweak:1468
 msgid "Text only"
 msgstr "Només text"
+
+#~ msgid "Enable advanced menu"
+#~ msgstr "Habilita el menú avançat"
 
 #~ msgid ""
 #~ "The new panel layout will be activated on selection and destroy any "

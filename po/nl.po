@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 01:25+0100\n"
-"PO-Revision-Date: 2017-06-12 17:28+0000\n"
+"POT-Creation-Date: 2017-07-19 22:24+0100\n"
+"PO-Revision-Date: 2017-07-19 07:44+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/mate/MATE/language/nl/)\n"
 "Language: nl\n"
@@ -27,390 +27,370 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:1104
+#: ../mate-tweak:1078
 msgid "Traditional (Right)"
 msgstr "Traditioneel (Rechts)"
 
-#: ../mate-tweak:1105
+#: ../mate-tweak:1079
 msgid "Contemporary (Left)"
-msgstr "Huidig (Links)"
+msgstr "Modern (Links)"
 
-#: ../mate-tweak:1113
+#: ../mate-tweak:1087
 msgid "Marco (No compositor)"
-msgstr "Marco (Geen compositor)"
+msgstr "Marco (Geen beeldsamenstelling)"
 
-#: ../mate-tweak:1115
+#: ../mate-tweak:1089
 msgid "Marco (Software compositor)"
-msgstr "Marco (Software compositor)"
+msgstr "Marco (Beeldsamenstelling)"
 
-#: ../mate-tweak:1117
+#: ../mate-tweak:1091
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr "Marco (Geen effecten xcompmgr compositor)"
+msgstr "Marco (Geen effecten xcompmgr beeldsamenstelling)"
 
-#: ../mate-tweak:1119
+#: ../mate-tweak:1093
 msgid "Marco (Compton GPU compositor)"
-msgstr "Marco (Compton GPU compositor)"
+msgstr "Marco (Compton GPU beeldsamenstelling)"
 
-#: ../mate-tweak:1121
+#: ../mate-tweak:1095
 msgid "Metacity (No compositor)"
-msgstr "Metacity (Geen compositor)"
+msgstr "Metacity (Geen beeldsamenstelling)"
 
-#: ../mate-tweak:1123
+#: ../mate-tweak:1097
 msgid "Metacity (Software compositor)"
-msgstr "Metacity (Software compositor)"
+msgstr "Metacity (Beeldsamenstelling)"
 
-#: ../mate-tweak:1125
+#: ../mate-tweak:1099
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr "Metacity (Geen effecten xcompmgr compositor)"
+msgstr "Metacity (Geen effecten xcompmgr beeldsamenstelling)"
 
-#: ../mate-tweak:1127
+#: ../mate-tweak:1101
 msgid "Metacity (Compton GPU compositor)"
-msgstr "Metacity (Compton GPU compositor)"
+msgstr "Metacity (Compton GPU beeldsamenstelling)"
 
-#: ../mate-tweak:1129
+#: ../mate-tweak:1103
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr "Mutter (Elegante GPU-versnelde bureaublad effecten)"
+msgstr "Mutter (Elegante GPU-versnelde visuele effecten)"
 
-#: ../mate-tweak:1131
+#: ../mate-tweak:1105
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr "Compiz (Geavanceerde GPU versnelde bureaublad effecten)"
+msgstr "Compiz (Geavanceerde GPU-versnelde visuele effecten)"
 
-#: ../mate-tweak:1134
+#: ../mate-tweak:1108
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
 msgstr ""
-"Je gebruikt momenteel een ongekende en niet ondersteunde window manager. "
-"Daarom kunnen we niet garanderen dat wijzigingen die hier gemaakt worden "
-"effectief zijn."
+"U gebruikt momenteel een onbekende en niet-ondersteunde vensterbeheerder. "
+"Daarom kunnen we niet garanderen dat wijzigingen die hier gemaakt worden ook "
+"effect hebben."
 
-#: ../mate-tweak:1154
-#, fuzzy
+#: ../mate-tweak:1128
 msgid "Contemporary"
-msgstr "Huidig (Links)"
+msgstr "Modern"
 
-#: ../mate-tweak:1161
+#: ../mate-tweak:1135
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1164
+#: ../mate-tweak:1138
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1168
+#: ../mate-tweak:1142
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1172
+#: ../mate-tweak:1146
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1176
+#: ../mate-tweak:1150
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1182
+#: ../mate-tweak:1156
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1187
+#: ../mate-tweak:1161
 msgid "Netbook"
 msgstr "Netbook"
 
-#: ../mate-tweak:1191
+#: ../mate-tweak:1165
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1197
+#: ../mate-tweak:1171
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: ../mate-tweak:1201
+#: ../mate-tweak:1175
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1205
+#: ../mate-tweak:1179
 msgid "Solus"
 msgstr "Solus"
 
-#: ../mate-tweak:1208
-#, fuzzy
+#: ../mate-tweak:1182
 msgid "Traditional"
-msgstr "Traditioneel (Rechts)"
+msgstr "Traditioneel"
 
-#: ../mate-tweak:1271
+#: ../mate-tweak:1294
 msgid "Desktop"
 msgstr "Bureaublad"
 
-#: ../mate-tweak:1272
+#: ../mate-tweak:1295
 msgid "Interface"
-msgstr "Interface"
+msgstr "Gebruikersschil"
 
-#: ../mate-tweak:1273
+#: ../mate-tweak:1296
 msgid "Panel"
-msgstr "Panel"
+msgstr "Paneel"
 
-#: ../mate-tweak:1274
+#: ../mate-tweak:1297
 msgid "Windows"
 msgstr "Vensters"
 
-#: ../mate-tweak:1318
+#: ../mate-tweak:1341
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:1321
+#: ../mate-tweak:1344
 msgid "Desktop icons"
 msgstr "Bureaubladpictogrammen"
 
-#: ../mate-tweak:1322
+#: ../mate-tweak:1345
 msgid "Performance"
 msgstr "Prestatie"
 
-#: ../mate-tweak:1323
+#: ../mate-tweak:1346
 msgid "Window Behaviour"
-msgstr "Venster Gedrag"
+msgstr "Venstergedrag"
 
-#: ../mate-tweak:1324
+#: ../mate-tweak:1347
 msgid "Appearance"
 msgstr "Uiterlijk"
 
-#: ../mate-tweak:1325
+#: ../mate-tweak:1348
 msgid "Panels"
 msgstr "Panelen"
 
-#: ../mate-tweak:1326
+#: ../mate-tweak:1349
 msgid "Panel Features"
-msgstr "Paneelmogelijkheden"
+msgstr "Paneelfuncties"
 
-#: ../mate-tweak:1327
+#: ../mate-tweak:1350
 msgid "Panel Menu Features"
-msgstr "Paneel Menu Kenmerken"
+msgstr "Functies van paneelmenu"
 
-#: ../mate-tweak:1328
+#: ../mate-tweak:1351
 msgid "Icons"
 msgstr "Pictogrammen"
 
-#: ../mate-tweak:1329
+#: ../mate-tweak:1352
 msgid "Context menus"
-msgstr "Context-menu's"
+msgstr "Contextmenu's"
 
-#: ../mate-tweak:1330
+#: ../mate-tweak:1353
 msgid "Toolbars"
 msgstr "Werkbalken"
 
-#: ../mate-tweak:1331
+#: ../mate-tweak:1354
 msgid "Window manager"
-msgstr "Window manager"
+msgstr "Vensterbeheerder"
 
-#: ../mate-tweak:1333
+#: ../mate-tweak:1356
 msgid "Select the Desktop Icons you want enabled:"
-msgstr "Selecteer de bureaublad pictogrammen die je ingeschakeld wil:"
+msgstr "Kies de bureaubladpictogrammen die u wilt inschakelen:"
 
-#: ../mate-tweak:1334
+#: ../mate-tweak:1357
 msgid "Show Desktop Icons"
-msgstr "Toon Bureaublad pictogrammen"
+msgstr "Toon bureaubladpictogrammen"
 
-#: ../mate-tweak:1335
+#: ../mate-tweak:1358
 msgid "Computer"
 msgstr "Computer"
 
-#: ../mate-tweak:1336
+#: ../mate-tweak:1359
 msgid "Home"
 msgstr "Persoonlijke map"
 
-#: ../mate-tweak:1337
+#: ../mate-tweak:1360
 msgid "Network"
 msgstr "Netwerk"
 
-#: ../mate-tweak:1338
+#: ../mate-tweak:1361
 msgid "Trash"
 msgstr "Prullenbak"
 
-#: ../mate-tweak:1339
+#: ../mate-tweak:1362
 msgid "Mounted Volumes"
-msgstr "Aangekoppelde volumes"
+msgstr "Aangekoppelde media"
 
-#: ../mate-tweak:1341
+#: ../mate-tweak:1364
 msgid "Enable animations"
 msgstr "Animaties inschakelen"
 
-#: ../mate-tweak:1342
+#: ../mate-tweak:1365
 msgid "Do not show window content when moving windows"
-msgstr "Toon de vensterinhoud niet tijdens het verplaatsten van vensters"
+msgstr "Toon geen vensterinhoud tijdens het verplaatsen van vensters"
 
-#: ../mate-tweak:1343
+#: ../mate-tweak:1366
 msgid "Window manager performance tuning."
-msgstr "Windowmanager prestatie tuning."
+msgstr "Instellen van prestatievermogen van vensterbeheerder."
 
-#: ../mate-tweak:1345
+#: ../mate-tweak:1368
 msgid "Enable window snapping"
 msgstr "Schakel vastklikken vensters in"
 
-#: ../mate-tweak:1346
+#: ../mate-tweak:1369
 msgid "Undecorate maximized windows"
-msgstr "Gemaximaliseerde vensters eenvoudig weergeven"
+msgstr "Gemaximaliseerde vensters ontdoen van versiering"
 
-#: ../mate-tweak:1347
+#: ../mate-tweak:1370
 msgid "Do not auto-maximize new windows"
 msgstr "Nieuwe vensters niet automatisch maximaliseren"
 
-#: ../mate-tweak:1349
+#: ../mate-tweak:1372
 msgid "Window control placement."
-msgstr "Plaatsing vensterknoppen"
+msgstr "Plaatsing van vensterknoppen."
 
-#: ../mate-tweak:1351
+#: ../mate-tweak:1374
 msgid "Save Panel Layout"
-msgstr "Bewaar panelindeling"
+msgstr "Paneelopmaak opslaan"
 
-#: ../mate-tweak:1352
+#: ../mate-tweak:1375
 msgid "Open CCSM"
 msgstr "CCSM openen"
 
-#: ../mate-tweak:1353
+#: ../mate-tweak:1376
 msgid "Reset Compiz"
-msgstr "Compiz herinitialiseren"
+msgstr "Compiz terugzetten op standaard"
 
-#: ../mate-tweak:1355
-msgid "Enable advanced menu"
-msgstr "Activeer geavanceerd menu"
-
-#: ../mate-tweak:1356
+#: ../mate-tweak:1378
 msgid "Enable keyboard LED"
 msgstr "Activeer toetsenbord-LED"
 
-#: ../mate-tweak:1357
+#: ../mate-tweak:1379
 msgid "Enable pull-down terminal"
-msgstr "Activeer pull-down terminal"
+msgstr "Activeer uittrekbaar terminalvenster"
 
-#: ../mate-tweak:1359
+#: ../mate-tweak:1381
 msgid "Show Applications"
-msgstr "Toon Applicaties"
+msgstr "Toon Toepassingen"
 
-#: ../mate-tweak:1360
+#: ../mate-tweak:1382
 msgid "Show Places"
-msgstr "Toon Plaatsen"
+msgstr "Toon Locaties"
 
-#: ../mate-tweak:1361
+#: ../mate-tweak:1383
 msgid "Show System"
 msgstr "Toon Systeem"
 
-#: ../mate-tweak:1363
+#: ../mate-tweak:1385
 msgid "Show icons on menus"
-msgstr "Toon pictogrammen op menu's"
+msgstr "Toon pictogrammen in menu's"
 
-#: ../mate-tweak:1364
+#: ../mate-tweak:1386
 msgid "Show icons on buttons"
 msgstr "Toon pictogrammen op knoppen"
 
-#: ../mate-tweak:1365
+#: ../mate-tweak:1387
 msgid "Show Input Methods menu in context menus"
-msgstr "Toon invoermethodemenu in contextmenu's"
-
-#: ../mate-tweak:1366
-msgid "Show Unicode Control Character menu in context menus"
-msgstr "'Unicode-controleteken'-menu in contextmenu's tonen"
-
-#: ../mate-tweak:1368
-msgid "Style:"
-msgstr "Opmaak:"
-
-#: ../mate-tweak:1369
-msgid "Icon size:"
-msgstr "Pictogram grote:"
+msgstr "Toon menu voor invoermethoden in contextmenu's"
 
 #: ../mate-tweak:1388
+msgid "Show Unicode Control Character menu in context menus"
+msgstr "Toon 'Unicode-controleteken'-menu in contextmenu's"
+
+#: ../mate-tweak:1390
+msgid "Style:"
+msgstr "Stijl:"
+
+#: ../mate-tweak:1391
+msgid "Icon size:"
+msgstr "Pictogramgrootte:"
+
+#: ../mate-tweak:1410
 msgid "Small"
 msgstr "Klein"
 
-#: ../mate-tweak:1389
+#: ../mate-tweak:1411
 msgid "Large"
 msgstr "Groot"
 
-#: ../mate-tweak:1398
+#: ../mate-tweak:1420
 msgid "The new window manager will be activated upon selection."
 msgstr "De nieuwe vensterbeheerder zal geactiveerd worden na selectie."
 
-#: ../mate-tweak:1399
+#: ../mate-tweak:1421
 msgid "Select a window manager."
-msgstr "Kies een window manager"
+msgstr "Kies een vensterbeheerder."
 
-#: ../mate-tweak:1405
+#: ../mate-tweak:1427
 msgid "Select a panel layout to change the user interface."
-msgstr "Kies een vensteropmaak om de gebruikersinterface aan te passen"
+msgstr "Kies een paneelopmaak om de gebruikersomgeving aan te passen."
 
-#: ../mate-tweak:1406
-#, fuzzy
+#: ../mate-tweak:1428
 msgid "Select a panel layout."
-msgstr "Bewaar panelindeling"
+msgstr "Kies de opmaak van het paneel."
 
-#: ../mate-tweak:1412
+#: ../mate-tweak:1433
 msgid "Default"
-msgstr "Default"
+msgstr "Standaard"
 
-#: ../mate-tweak:1413
+#: ../mate-tweak:1434
 msgid "16px"
 msgstr "16px"
 
-#: ../mate-tweak:1414
+#: ../mate-tweak:1435
 msgid "22px"
 msgstr "22px"
 
-#: ../mate-tweak:1415
+#: ../mate-tweak:1436
 msgid "24px"
 msgstr "24px"
 
-#: ../mate-tweak:1416
+#: ../mate-tweak:1437
 msgid "32px"
 msgstr "32px"
 
-#: ../mate-tweak:1417
+#: ../mate-tweak:1438
 msgid "48px"
 msgstr "48px"
 
-#: ../mate-tweak:1421
+#: ../mate-tweak:1442
 msgid "Set the panel icon size."
-msgstr "Stel de grootte van het icoon in."
+msgstr "Stel de grootte in van het paneelpictogram."
 
-#: ../mate-tweak:1422
+#: ../mate-tweak:1443
 msgid "Select the icon size for panel icons."
-msgstr "Selecteer de icoongrootte voor paneeliconen."
+msgstr "Kies de grootte van paneelpictogrammen."
 
-#: ../mate-tweak:1426
+#: ../mate-tweak:1447
 msgid "Set the icon size of menu items used in the panel."
-msgstr "Stel de icoongrootte in van menu items in het paneel"
+msgstr "Stel de pictogramgrootte in van menu-elementen in het paneel"
 
-#: ../mate-tweak:1427
+#: ../mate-tweak:1448
 msgid "Select the icon size for menu items in the panel."
-msgstr "Selecteer icoongrootte voor menu items in het paneel"
+msgstr "Kies de pictogramgrootte voor menu-elementen in het paneel."
 
-#: ../mate-tweak:1444
+#: ../mate-tweak:1465
 msgid "Text below items"
-msgstr "Tekst onder items"
+msgstr "Tekst onder elementen"
 
-#: ../mate-tweak:1445
+#: ../mate-tweak:1466
 msgid "Text beside items"
-msgstr "Tekst naast items"
+msgstr "Tekst naast elementen"
 
-#: ../mate-tweak:1446
+#: ../mate-tweak:1467
 msgid "Icons only"
 msgstr "Alleen pictogrammen"
 
-#: ../mate-tweak:1447
+#: ../mate-tweak:1468
 msgid "Text only"
 msgstr "Alleen tekst"
 
-#~ msgid ""
-#~ "The new panel layout will be activated on selection and destroy any "
-#~ "customisations you might have made."
-#~ msgstr ""
-#~ "De nieuwe panel-opmaak wordt geactiveerd bij selectie en zal alle "
-#~ "voorgaande aanpassingen definitief verwijderen."
-
-#~ msgid "Ubuntu MATE"
-#~ msgstr "Ubuntu MATE"
-
-#~ msgid "Enable launcher"
-#~ msgstr "starter inschakelen"
-
-#~ msgid "Enable HUD"
-#~ msgstr "HUD inschakelen"
+#~ msgid "Enable advanced menu"
+#~ msgstr "Activeer geavanceerd menu"
