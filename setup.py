@@ -29,7 +29,7 @@ import DistUtilsExtra.command.build_i18n
 import DistUtilsExtra.command.clean_i18n
 
 # to update i18n .mo files (and merge .pot file into .po files) run on Linux:
-#   tx pull -a
+#   tx pull -a --minimum-perc=5
 #   python3 setup.py build_i18n -m
 #   tx push -s
 
