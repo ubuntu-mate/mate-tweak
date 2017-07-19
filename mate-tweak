@@ -670,22 +670,7 @@ class MateTweak:
         except:
             return False
 
-    def update_panel_layout_ui(self, panel_layout, full_layout):
-        if self.panel_layout_uses('Object mate-menu', full_layout):
-            self.builder.get_object('checkbutton_advanced_menu').set_active(True)
-        else:
-            self.builder.get_object('checkbutton_advanced_menu').set_active(False)
-
-        # If the selected panel layout has MATE Menu option then make
-        # the Advanced Menu option visible.
-        if self.panel_layout_uses('Object mate-menu', panel_layout + '-fresh'):
-            if not self.mate_menu_available:
-                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
-            else:
-                self.builder.get_object('checkbutton_advanced_menu').props.sensitive = True
-        else:
-            self.builder.get_object('checkbutton_advanced_menu').props.sensitive = False
-
+    def update_panel_layout_ui(self, panel_layout):
         # Make show-applications insesitive we're using the Pantheon layout.
         if panel_layout.startswith('pantheon'):
             self.builder.get_object('checkbutton_show_applications').props.sensitive = False
@@ -730,7 +715,7 @@ class MateTweak:
                     if(self.base_layout == row[1]):
                         widget.set_active(index)
                         break
-                    index = index +1
+                    index += 1
                 self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
         return confirmed
 
@@ -741,13 +726,6 @@ class MateTweak:
 
         # If 'Enable advanced menu is checked make sure the setting persists.'
         new_layout = panel_layout
-        if self.builder.get_object('checkbutton_advanced_menu').get_active():
-            if self.panel_layout_exists(panel_layout + '-fresh') and \
-               self.panel_layout_uses('mate-menu', panel_layout + '-fresh') and \
-               self.mate_menu_available:
-                new_layout = panel_layout + '-fresh'
-            else:
-                self.builder.get_object('checkbutton_advanced_menu').set_active(False)
 
         print('Switching to: ' + new_layout)
         self.update_panel_layout_ui(panel_layout, new_layout)
@@ -803,11 +781,6 @@ class MateTweak:
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
 
-        # Brisk Menu remains running.
-        # So if Brisk is in the layout being switched away from, kill it.
-        if self.panel_layout_uses('BriskMenu', self.current_layout):
-            self.kill_process('brisk-menu')
-
         # Kill the panel and related processes
         self.kill_process('mate-panel')
         self.kill_process('clock-applet')
@@ -860,6 +833,11 @@ class MateTweak:
              not new_layout.startswith('pantheon'):
             self.disable_dock()
 
+        # Brisk Menu remains running.
+        # So if Brisk is in the layout being switched away from, kill it.
+        if not self.panel_layout_uses('BriskMenu', self.current_layout) and self.process_running('brisk-menu'):
+            self.kill_process('brisk-menu')
+
         if leds_enabled:
             time.sleep(1)
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
@@ -868,21 +846,19 @@ class MateTweak:
 
     def get_panel_layout(self):
         self.current_layout = self.get_string('org.mate.panel', None, 'default-layout')
-        self.base_layout = self.current_layout.replace('-fresh','')
 
     def init_panel_features(self):
         self.get_panel_layout()
-        print('Base layout: ' + self.base_layout)
         print ('Current layout: ' + self.current_layout)
 
-        self.update_panel_layout_ui(self.base_layout, self.current_layout)
+        self.update_panel_layout_ui(self.current_layout)
 
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup('org.mate.panel', True) != None:
             widget = self.builder.get_object('combobox_panels')
             index = 0
             for row in widget.get_model():
-                if(self.base_layout == row[1]):
+                if(self.current_layout == row[1]):
                     widget.set_active(index)
                     break
                 index = index +1
@@ -1354,7 +1330,6 @@ class MateTweak:
         self.builder.get_object("button_ccsm").set_label(_("Open CCSM"))
         self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
 
-        self.builder.get_object("checkbutton_advanced_menu").set_label(_("Enable advanced menu"))
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_label(_("Enable pull-down terminal"))
 
@@ -1407,7 +1382,6 @@ class MateTweak:
         self.builder.get_object("caption_panels").set_markup("<small>" + _("Select a panel layout to change the user interface.") + "</small>")
         self.builder.get_object("combobox_panels").set_tooltip_text(_("Select a panel layout."))
         self.init_panel_features()
-        self.builder.get_object("checkbutton_advanced_menu").connect("toggled", self.toggle_panel_features)
 
         # Panel icon sizes
         panel_icon_sizes = Gtk.ListStore(str, str)
