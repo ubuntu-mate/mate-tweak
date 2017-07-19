@@ -22,20 +22,20 @@ import os
 import shutil
 import sys
 
-def install_layout(filename, filename_suffix):
-    if os.path.exists(os.path.join('/','tmp',filename + filename_suffix)):
-        shutil.copy2(os.path.join('/','tmp',filename + filename_suffix),
-                     os.path.join('/','usr','share','mate-panel','layouts',filename + filename_suffix))
-        os.remove(os.path.join('/','tmp',filename + filename_suffix))
+def install_layout(filename):
+    if os.path.exists(os.path.join('/','tmp',filename)):
+        shutil.copy2(os.path.join('/','tmp',filename),
+                     os.path.join('/','usr','share','mate-panel','layouts',filename))
+        os.remove(os.path.join('/','tmp',filename))
     else:
-        print('ERROR! Unable to find ' + os.path.join('/','tmp',filename + filename_suffix))
+        print('ERROR! Unable to find ' + os.path.join('/','tmp',filename))
         sys.exit(1)
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         filename = sys.argv[1]
-        install_layout(filename,'-tweak.layout')
-        install_layout(filename,'-tweak.panel')
+        install_layout(filename + '.layout')
+        install_layout(filename + '.panel')
     else:
         print("ERORR! No name supplied.")
         sys.exit(1)

@@ -1123,7 +1123,7 @@ class MateTweak:
         layouts = os.path.join('/','usr','share','mate-panel','layouts','*-tweak.layout')
         for layout in glob.glob(layouts):
             current_layout = layout.replace('.layout', '').replace('/usr/share/mate-panel/layouts/', '');
-            panels.append([_('Custom: ') + current_layout, current_layout])
+            panels.append([_('Custom: ') + current_layout.replace('-tweak', ''), current_layout])
 
         if self.panel_layout_exists('contemporary') and \
            self.appmenu_applet_available and \
@@ -1187,16 +1187,65 @@ class MateTweak:
 
         self.builder.get_object("combobox_panels").set_model(panels)
 
+    def ask_for_layout_name(self):
+        # Returns user input as a string or None
+        title = _('Panel layout name')
+        text = _('Enter the name for your panel layout.')
+
+        dialog = Gtk.Dialog(title, None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+            (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+             Gtk.STOCK_OK, Gtk.ResponseType.OK))
+
+        dialog.set_default_size(250, 120)
+
+        label = Gtk.Label(text)
+        label.set_use_markup(True)
+
+        box = dialog.get_content_area()
+        box.set_border_width(8)
+        box.add(label)
+
+        entry = Gtk.Entry()
+        box.pack_end(entry, False, False, 0)
+
+        dialog.show_all()
+        response = dialog.run()
+        dialog.destroy()
+
+        name = entry.get_text().strip().replace(' ', '-')
+
+        if (response == Gtk.ResponseType.OK) and (name is not ''):
+            return name
+        else:
+            return None
+
     def save_panels(self, widget):
-        layoutname = getpass.getuser()
-        self.set_string('org.mate.panel', None, 'default-layout', layoutname + '-tweak')
-        subprocess.call(['/usr/lib/mate-tweak/mate-panel-backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
-        subprocess.call(['pkexec', '/usr/lib/mate-tweak/install-mate-panel-layout', layoutname], stdout=DEVNULL, stderr=DEVNULL)
-        Notify.init(_('Panel Layout Saved'))
-        save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as /usr/share/mate-panel/layouts/' + layoutname +'-tweak.layout'),'dialog-information')
-        save_panels_notify.show()
-        self.make_list_of_panel_layouts()
-        self.update_combobox('org.mate.panel', 'default-layout', 'combobox_panels')
+        layoutname = self.ask_for_layout_name()
+        if layoutname is not None:
+            layoutname += '-tweak'
+            print('Saving ' + layoutname)
+            if self.panel_layout_exists(layoutname):
+                print('Layout exists. Ignoring that for now and over writting it.')
+
+            a = subprocess.call(['/usr/lib/mate-tweak/mate-panel-backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
+            b = subprocess.call(['pkexec', '/usr/lib/mate-tweak/install-mate-panel-layout', layoutname], stdout=DEVNULL, stderr=DEVNULL)
+            Notify.init(_('Panel Layout Saved'))
+            save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as ') + layoutname.replace('-tweak',''), 'dialog-information')
+            save_panels_notify.show()
+
+            # Update the currently selected layout.
+            self.make_list_of_panel_layouts()
+
+            widget = self.builder.get_object('combobox_panels')
+            widget.disconnect(self.combobox_panels_handler)
+            self.set_string('org.mate.panel', None, 'default-layout', layoutname)
+            index = 0
+            for row in widget.get_model():
+                if(layoutname == row[1]):
+                    widget.set_active(index)
+                    break
+                index += 1
+            self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
     def compiz_reset(self, widget):
         # Switch to Marco. Purge all Compiz config and cache. Switch to Compiz.

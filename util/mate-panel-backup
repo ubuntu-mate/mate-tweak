@@ -100,11 +100,11 @@ def panel_dump(filename):
         layout.append("\n")
 
     #print(layout)
-    with open(os.path.join('/','tmp', filename + '-tweak.layout'), 'w') as f:
+    with open(os.path.join('/','tmp', filename + '.layout'), 'w') as f:
         f.writelines(layout)
 
     # Dump dconf panel
-    dconf_dump('/org/mate/panel/', filename + '-tweak.panel')
+    dconf_dump('/org/mate/panel/', filename + '.panel')
 
 
 if __name__ == '__main__':
