@@ -712,7 +712,7 @@ class MateTweak:
                 self.set_string("org.mate.panel", None, "default-layout", self.current_layout)
                 index = 0
                 for row in widget.get_model():
-                    if(self.base_layout == row[1]):
+                    if(self.current_layout == row[1]):
                         widget.set_active(index)
                         break
                     index += 1
@@ -729,10 +729,14 @@ class MateTweak:
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
-        if new_layout.startswith('pantheon'):
+        if new_layout.startswith('pantheon') and self.panel_layout_uses('BriskMenu', new_layout):
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', False)
-        # If we're switching from Pantheon, and show-applications is disabled then enable it.
-        elif self.current_layout.startswith('pantheon') and not show_applications:
+        # If we're switching to a layout use the menu-bar, but not Brisk
+        # and Applications is disabled in the menu-bar, it probably make
+        # sense to enable Applications.
+        elif self.panel_layout_uses('menu-bar', new_layout) and \
+             not self.panel_layout_uses('BriskMenu', new_layout) and \
+             not show_applications:
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', True)
 
         # Change Brisk Menu label-visible state when changing to/from Cupertino.
