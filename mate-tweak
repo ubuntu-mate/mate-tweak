@@ -480,15 +480,6 @@ class MateTweak:
             if metacity_schema:
                 self.set_string('org.gnome.metacity.theme', None, 'name', mate_theme)
 
-        # Work around an issue what a transparent panel will crash when
-        # the compsitor is changed.
-        # TODO: Do this for all panels regardless of layout used and
-        # and only flip solid/transparent where required.
-        if self.current_layout == 'mutiny':
-            background_type = self.get_dconf_value('/org/mate/panel/toplevels/left/background/type')
-            background_color = self.get_dconf_value('/org/mate/panel/toplevels/left/background/color')
-            self.set_dconf_value('/org/mate/panel/toplevels/left/background/type',"'none'")
-
         # If switching away from a compton or xcompmgr composited window
         # manager kill compton.
         if 'compton' in self.current_wm:
@@ -500,11 +491,6 @@ class MateTweak:
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
             subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL)
-
-        if self.current_layout == 'mutiny':
-            time.sleep(0.5)
-            self.set_dconf_value('/org/mate/panel/toplevels/left/background/type', background_type)
-            self.set_dconf_value('/org/mate/panel/toplevels/left/background/color', background_color)
 
         # Update current_wm to the new one.
         self.previous_wm = self.current_wm
