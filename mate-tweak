@@ -1163,6 +1163,9 @@ class MateTweak:
         if self.panel_layout_exists('solus') and \
            self.brisk_menu_available:
             panels.append([_("Solus"), "solus"])
+            
+        if self.panel_layout_exists('manjaro'):
+            panels.append([_("Manjaro"), "manjaro"])
 
         if self.panel_layout_exists('ubuntu-mate'):
             panels.append([_("Traditional"), "ubuntu-mate"])
