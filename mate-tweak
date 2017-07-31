@@ -1161,10 +1161,6 @@ class MateTweak:
            self.indicators_available:
             panels.append([_("Redmond"), "redmond"])
 
-        if self.panel_layout_exists('redmond-no-indicators') and \
-           not self.indicators_available:
-            panels.append([_("Redmond (No indicators)"), "redmond-no-indicators"])
-
         if self.panel_layout_exists('solus') and \
            self.brisk_menu_available:
             panels.append([_("Solus"), "solus"])
