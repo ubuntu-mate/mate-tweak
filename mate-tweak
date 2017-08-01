@@ -1181,6 +1181,19 @@ class MateTweak:
            not self.indicators_available:
             panels.append([_("Netbook (no indicators)"), "netbook-no-indicators"])
 
+        if self.panel_layout_exists('mutiny-no-indicators') and \
+           self.mate_dock_available and \
+           self.appmenu_applet_available and \
+           not self.indicators_available:
+            panels.append([_("Mutiny"), "mutiny-no-indicators"])
+
+        if self.dock is not None and \
+           self.appmenu_applet_available and \
+           self.brisk_menu_available and \
+           not self.indicators_available:
+            if self.panel_layout_exists('eleven-no-indicators'):
+                panels.append([_("Cupertino (no indicators)"), "eleven-no-indicators"])
+
         self.builder.get_object("combobox_panels").set_model(panels)
 
     def ask_for_layout_name(self):
