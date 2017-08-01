@@ -1185,7 +1185,7 @@ class MateTweak:
            self.mate_dock_available and \
            self.appmenu_applet_available and \
            not self.indicators_available:
-            panels.append([_("Mutiny"), "mutiny-no-indicators"])
+            panels.append([_("Mutiny (no indicators)"), "mutiny-no-indicators"])
 
         if self.dock is not None and \
            self.appmenu_applet_available and \
