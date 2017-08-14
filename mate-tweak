@@ -1038,9 +1038,10 @@ class MateTweak:
         if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
             self.mate_menu_available = True
 
-        if os.path.exists('/usr/lib/' + self.multiarch + '/brisk-menu/brisk-menu') and \
-            os.path.exists('/usr/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
-            self.brisk_menu_available = True
+        if os.path.exists('/usr/lib/' + self.multiarch + '/brisk-menu/brisk-menu') or \
+            os.path.exists('/usr/lib/' + '/brisk-menu/brisk-menu'):
+            if os.path.exists('/usr/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
+             self.brisk_menu_available = True
 
         if os.path.exists('/usr/lib/mate-panel/appmenu-mate') and \
             os.path.exists('/usr/share/mate-panel/applets/org.vala-panel.appmenu.mate-panel-applet'):
@@ -1166,6 +1167,32 @@ class MateTweak:
 
         if self.panel_layout_exists('ubuntu-mate'):
             panels.append([_("Traditional"), "ubuntu-mate"])
+
+        if self.panel_layout_exists('manjaro') and \
+           self.brisk_menu_available:
+            panels.append([_("Manjaro"), "manjaro"])
+
+        if self.panel_layout_exists('redmond-no-indicators') and \
+           not self.indicators_available:
+            panels.append([_("Redmond (no indicators)"), "redmond-no-indicators"])
+
+        if self.panel_layout_exists('netbook-no-indicators') and \
+           self.maximus_available and \
+           not self.indicators_available:
+            panels.append([_("Netbook (no indicators)"), "netbook-no-indicators"])
+
+        if self.panel_layout_exists('mutiny-no-indicators') and \
+           self.mate_dock_available and \
+           self.appmenu_applet_available and \
+           not self.indicators_available:
+            panels.append([_("Mutiny (no indicators)"), "mutiny-no-indicators"])
+
+        if self.dock is not None and \
+           self.appmenu_applet_available and \
+           self.brisk_menu_available and \
+           not self.indicators_available:
+            if self.panel_layout_exists('eleven-no-indicators'):
+                panels.append([_("Cupertino (no indicators)"), "eleven-no-indicators"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
 
