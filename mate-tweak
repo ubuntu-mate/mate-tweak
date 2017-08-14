@@ -1192,9 +1192,8 @@ class MateTweak:
 
         dialog.show_all()
         response = dialog.run()
-        dialog.destroy()
-
         name = entry.get_text().strip().replace(' ', '-')
+        dialog.destroy()
 
         if (response == Gtk.ResponseType.OK) and (name is not ''):
             return name
