@@ -57,7 +57,7 @@ from gi.repository import GLib
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '17.10.9'
+__VERSION__ = '17.10.10'
 
 __HUD__ = """[Desktop Entry]
 Type=Application
@@ -1038,9 +1038,10 @@ class MateTweak:
         if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
             self.mate_menu_available = True
 
-        if os.path.exists('/usr/lib/' + self.multiarch + '/brisk-menu/brisk-menu') and \
-            os.path.exists('/usr/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
-            self.brisk_menu_available = True
+        if os.path.exists('/usr/lib/' + self.multiarch + '/brisk-menu/brisk-menu') or \
+            os.path.exists('/usr/lib/brisk-menu/brisk-menu'):
+            if os.path.exists('/usr/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
+             self.brisk_menu_available = True
 
         if os.path.exists('/usr/lib/mate-panel/appmenu-mate') and \
             os.path.exists('/usr/share/mate-panel/applets/org.vala-panel.appmenu.mate-panel-applet'):
@@ -1113,12 +1114,19 @@ class MateTweak:
            self.hud_available:
             panels.append([_("Contemporary"), "contemporary"])
 
+        # Prefer Indicator enabled Cupertino layout and fallback to non-Indicator version.
         if self.dock is not None and \
            self.appmenu_applet_available and \
            self.brisk_menu_available and \
            self.indicators_available:
             if self.panel_layout_exists('eleven'):
                 panels.append([_("Cupertino"), "eleven"])
+        elif self.dock is not None and \
+           self.appmenu_applet_available and \
+           self.brisk_menu_available and \
+           not self.indicators_available:
+            if self.panel_layout_exists('eleven-no-indicators'):
+                panels.append([_("Cupertino"), "eleven-no-indicators"])
 
         if self.panel_layout_exists('fedora'):
             panels.append([_("Fedora"), "fedora"])
@@ -1135,16 +1143,31 @@ class MateTweak:
            self.mageia_cc_available:
             panels.append([_("Mageia"), "mageia"])
 
+        if self.panel_layout_exists('manjaro') and \
+           self.brisk_menu_available:
+            panels.append([_("Manjaro"), "manjaro"])
+
+        # Prefer Indicator enabled Mutiny layout and fallback to non-Indicator version.
         if self.panel_layout_exists('mutiny') and \
            self.mate_dock_available and \
            self.appmenu_applet_available and \
            self.indicators_available:
             panels.append([_("Mutiny"), "mutiny"])
+        elif self.panel_layout_exists('mutiny-no-indicators') and \
+           self.mate_dock_available and \
+           self.appmenu_applet_available and \
+           not self.indicators_available:
+            panels.append([_("Mutiny"), "mutiny-no-indicators"])
 
+        # Prefer Indicator enabled Netbook layout and fallback to non-Indicator version.
         if self.panel_layout_exists('netbook') and \
            self.maximus_available and \
            self.indicators_available:
             panels.append([_("Netbook"), "netbook"])
+        elif self.panel_layout_exists('netbook-no-indicators') and \
+           self.maximus_available and \
+           not self.indicators_available:
+            panels.append([_("Netbook"), "netbook-no-indicators"])
 
         if self.panel_layout_exists('opensuse') and \
            self.gnome_menu_available:
@@ -1156,9 +1179,13 @@ class MateTweak:
             if self.panel_layout_exists('pantheon'):
                 panels.append([_("Pantheon"), "pantheon"])
 
+        # Prefer Indicator enabled Redmond layout and fallback to non-Indicator version.
         if self.panel_layout_exists('redmond') and \
            self.indicators_available:
             panels.append([_("Redmond"), "redmond"])
+        elif self.panel_layout_exists('redmond-no-indicators') and \
+           not self.indicators_available:
+            panels.append([_("Redmond"), "redmond-no-indicators"])
 
         if self.panel_layout_exists('solus') and \
            self.brisk_menu_available:
@@ -1192,9 +1219,8 @@ class MateTweak:
 
         dialog.show_all()
         response = dialog.run()
-        dialog.destroy()
-
         name = entry.get_text().strip().replace(' ', '-')
+        dialog.destroy()
 
         if (response == Gtk.ResponseType.OK) and (name is not ''):
             return name
