@@ -19,8 +19,11 @@
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 import os
+import subprocess
 import shutil
 import sys
+from gi.repository import Gio
+from subprocess import PIPE
 
 def install_layout(filename):
     if os.path.exists(os.path.join('/','tmp',filename)):
@@ -29,6 +32,7 @@ def install_layout(filename):
         os.remove(os.path.join('/','tmp',filename))
     else:
         print('ERROR! Unable to find ' + os.path.join('/','tmp',filename))
+
 
 def delete_layout(filename):
     if 'tweak' in filename:
@@ -40,17 +44,101 @@ def delete_layout(filename):
     else:
         print('WARNING! I will only delete custom layouts. Skipping ' + layout)
 
+
+def backup_layout(filename):
+    VALID = {'toplevel': ('expand', 'size', 'orientation'),
+             'launcher': ('object-type', 'launcher-location', 'menu-path', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
+             'applet': ('object-type', 'applet-iid', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
+             'drawer': ('object-type', 'attached-toplevel-id', 'toplvel-id', 'position', 'panel-right-stick', 'use-custom-icon'),
+             'menu-bar': ('object-type', 'applet-iid', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
+             'menu': ('object-type', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
+             'action': ('object-type', 'action-type', 'position', 'toplevel-id', 'panel-right-stick', 'locked'),
+             'separator': ('object-type', 'toplevel-id', 'position', 'panel-right-stick', 'locked')}
+
+    schemas = {'panel': 'org.mate.panel',
+               'object': 'org.mate.panel.object',
+               'toplevel':'org.mate.panel.toplevel'}
+
+    paths = {'object': '/org/mate/panel/objects/',
+             'toplevel': '/org/mate/panel/toplevels/'}
+
+    general_settings = Gio.Settings.new(schemas['panel'])
+
+    toplevel_ids = general_settings['toplevel-id-list']
+    object_ids = general_settings['object-id-list']
+
+    layout = []
+
+    for toplevel in toplevel_ids:
+        settings = Gio.Settings.new_with_path(
+            schemas['toplevel'],
+            paths['toplevel'] + toplevel + '/')
+
+        layout.append("[Toplevel %s]\n" % toplevel)
+
+        for key in settings.keys():
+            val = settings[key]
+            if str(val) == "True" or str(val) == "False":
+                val = str(val).lower()
+
+            if key in VALID['toplevel']:
+                layout.append("%s=%s\n" % (key, val))
+        layout.append("\n")
+
+    for obj in object_ids:
+        settings = Gio.Settings.new_with_path(
+            schemas['object'],
+            paths['object'] + obj + '/')
+
+        obj_toplevel = settings['toplevel-id']
+        obj_type = settings['object-type']
+        obj_name = ""
+        if obj_type == "applet":
+            obj_name = settings['applet-iid'].split(":")[-1]
+        elif obj_type == "action":
+            obj_name = settings['action-type']
+        else:
+            obj_name = obj_type
+
+        if not obj_toplevel in toplevel_ids:
+            print("WARNING! object \"%s\" references unknown toplevel... skipped" % obj_name)
+            continue
+
+        layout.append("[Object %s]\n" % obj_name.lower())
+        for key in settings.keys():
+            if key in VALID[obj_type]:
+                val = settings[key]
+                if str(val) == "True" or str(val) == "False":
+                    val = str(val).lower()
+
+                layout.append("%s=%s\n" % (key, val))
+        layout.append("\n")
+
+    #print(layout)
+    with open(os.path.join('/','tmp', filename + '.layout'), 'w') as f:
+        f.writelines(layout)
+
+    # Dump dconf panel
+    dconf_process = subprocess.Popen(['dconf', 'dump', '/org/mate/panel/'], stdout=PIPE)
+    dump = dconf_process.communicate()[0].decode("UTF-8")
+    with open(os.path.join('/','tmp',filename + '.panel'), 'w') as f:
+        f.writelines(dump)
+
+
 if __name__ == '__main__':
     if len(sys.argv) == 3:
         action = sys.argv[1]
-        if action == 'install':
+        if action == 'backup':
             filename = sys.argv[2]
-            install_layout(filename + '.layout')
-            install_layout(filename + '.panel')
+            backup_layout(filename)
         elif action == 'delete':
             filename = sys.argv[2]
             delete_layout(filename + '.layout')
             delete_layout(filename + '.panel')
+        elif action == 'install':
+            filename = sys.argv[2]
+            install_layout(filename + '.layout')
+            install_layout(filename + '.panel')
     else:
         print("ERROR! No action supplied.")
         sys.exit(1)
