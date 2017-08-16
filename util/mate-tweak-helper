@@ -22,16 +22,17 @@ import os
 import subprocess
 import shutil
 import sys
+import tempfile
 from gi.repository import Gio
 from subprocess import PIPE
 
 def install_layout(filename):
-    if os.path.exists(os.path.join('/','tmp',filename)):
-        shutil.copy2(os.path.join('/','tmp',filename),
+    if os.path.exists(os.path.join(tempfile.gettempdir(),filename)):
+        shutil.copy2(os.path.join(tempfile.gettempdir(),filename),
                      os.path.join('/','usr','share','mate-panel','layouts',filename))
-        os.remove(os.path.join('/','tmp',filename))
+        os.remove(os.path.join(tempfile.gettempdir(),filename))
     else:
-        print('ERROR! Unable to find ' + os.path.join('/','tmp',filename))
+        print('ERROR! Unable to find ' + os.path.join(tempfile.gettempdir(),filename))
 
 
 def delete_layout(filename):
@@ -115,13 +116,13 @@ def backup_layout(filename):
         layout.append("\n")
 
     #print(layout)
-    with open(os.path.join('/','tmp', filename + '.layout'), 'w') as f:
+    with open(os.path.join(tempfile.gettempdir(), filename + '.layout'), 'w') as f:
         f.writelines(layout)
 
     # Dump dconf panel
     dconf_process = subprocess.Popen(['dconf', 'dump', '/org/mate/panel/'], stdout=PIPE)
     dump = dconf_process.communicate()[0].decode("UTF-8")
-    with open(os.path.join('/','tmp',filename + '.panel'), 'w') as f:
+    with open(os.path.join(tempfile.gettempdir(),filename + '.panel'), 'w') as f:
         f.writelines(dump)
 
 
