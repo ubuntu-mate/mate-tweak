@@ -54,8 +54,6 @@ from gi.repository import Gtk
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify
 
-from gi.repository import GLib
-
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
@@ -1351,8 +1349,9 @@ class MateTweak:
             if self.panel_layout_exists(layoutname):
                 print('Layout exists. Ignoring that for now and over writting it.')
 
-            a = subprocess.call(['/usr/lib/mate-tweak/mate-panel-backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
-            b = subprocess.call(['pkexec', '/usr/lib/mate-tweak/mate-tweak-helper', 'install', layoutname], stdout=DEVNULL, stderr=DEVNULL)
+            mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
+            backup = subprocess.call([mate_tweak_helper, 'backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
+            install = subprocess.call(['pkexec', mate_tweak_helper, 'install', layoutname], stdout=DEVNULL, stderr=DEVNULL)
             Notify.init(_('Panel Layout Saved'))
             save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as ') + layoutname.replace('-tweak',''), 'dialog-information')
             save_panels_notify.show()
