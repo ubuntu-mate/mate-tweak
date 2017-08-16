@@ -1229,9 +1229,4 @@
       </object>
     </child>
   </object>
-  <object class="GtkImage" id="Save">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-save</property>
-  </object>
 </interface>
