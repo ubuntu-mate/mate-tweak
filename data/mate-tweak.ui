@@ -12,11 +12,6 @@
     <property name="can_focus">False</property>
     <property name="stock">gtk-revert-to-saved</property>
   </object>
-  <object class="GtkImage" id="Save">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-save</property>
-  </object>
   <object class="GtkWindow" id="main_window">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -922,12 +917,13 @@
                       <object class="GtkButtonBox" id="buttonbox_panel_layout">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="halign">start</property>
+                        <property name="layout_style">spread</property>
                         <child>
                           <object class="GtkComboBox" id="combobox_panels">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Select a panel layout.</property>
-                            <property name="opacity">0.90196078431372551</property>
                             <child>
                               <object class="GtkCellRendererText" id="renderer_panels_new"/>
                               <attributes>
@@ -943,18 +939,33 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="button_save_panels">
-                            <property name="label" translatable="yes">Save Panel Layout</property>
+                            <property name="label">gtk-save-as</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Save your current panel layout.</property>
-                            <property name="halign">end</property>
-                            <property name="image">Save</property>
+                            <property name="use_stock">True</property>
+                            <property name="always_show_image">True</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
                             <property name="fill">True</property>
                             <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="button_delete_panel">
+                            <property name="label">gtk-delete</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="receives_default">False</property>
+                            <property name="tooltip_text" translatable="yes">Delete the currently selected  panel layout.</property>
+                            <property name="use_stock">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
                           </packing>
                         </child>
                       </object>
@@ -1217,5 +1228,10 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkImage" id="Save">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-save</property>
   </object>
 </interface>
