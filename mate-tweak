@@ -37,6 +37,8 @@ import time
 
 from subprocess import DEVNULL, PIPE
 
+from gi.repository import GLib
+
 gi.require_version('Gdk', '3.0')
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
@@ -689,8 +691,41 @@ class MateTweak:
             self.builder.get_object('combobox_panel_icon_size').props.sensitive = False
             self.builder.get_object('combobox_panel_menu_icon_size').props.sensitive = False
 
+        if 'tweak' in panel_layout:
+            self.builder.get_object('button_delete_panel').props.sensitive = True
+        else:
+            self.builder.get_object('button_delete_panel').props.sensitive = False
+
     def reload_panel(self):
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+
+    def confirm_panel_layout_delete(self):
+        # Ask for confirmation.
+        title = _('Delete this panel layout?')
+        text = _('<b>Deleting this custom panel layout will also replace the layout with the default.</b>\n\nAre you sure you want to permenately delete this layout?')
+        dialog = Gtk.Dialog(title, None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+            (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+             Gtk.STOCK_OK, Gtk.ResponseType.OK))
+
+        dialog.set_default_size(500, 160)
+
+        label = Gtk.Label(text)
+        label.set_use_markup(True)
+
+        box = dialog.get_content_area()
+        box.set_border_width(8)
+        box.add(label)
+        dialog.show_all()
+
+        response = dialog.run()
+        dialog.destroy()
+
+        if response == Gtk.ResponseType.OK:
+            confirmed = True
+        elif response == Gtk.ResponseType.CANCEL:
+            confirmed = False
+
+        return confirmed
 
     def confirm_panel_layout_replacement(self):
         # Ask for confirmation.
@@ -869,6 +904,12 @@ class MateTweak:
         if leds_enabled:
             time.sleep(1)
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
+
+        # Make sure the correct panel name is set
+        widget = self.builder.get_object('combobox_panels')
+        widget.disconnect(self.combobox_panels_handler)
+        self.set_string("org.mate.panel", None, "default-layout", new_layout)
+        self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
         self.current_layout = new_layout
 
@@ -1272,6 +1313,36 @@ class MateTweak:
         else:
             return None
 
+    def delete_panel(self, widget):
+        # Make certain we don't delete a system installed layout
+        if 'tweak' in self.current_layout:
+            # Get default layout
+            settings = Gio.Settings.new('org.mate.panel')
+            default_layout = GLib.Variant.get_string(settings.get_default_value('default-layout'))
+            old_layout = self.current_layout
+
+            if self.confirm_panel_layout_delete():
+                delete = subprocess.call(['pkexec', '/usr/lib/mate-tweak/mate-tweak-helper', 'delete', old_layout], stdout=DEVNULL, stderr=DEVNULL)
+                Notify.init(_('Panel Layout Deleted'))
+                delete_panel_notify=Notify.Notification.new (_('Panel Layout Deleted'),_('Your panel layout has been deleted: ') + old_layout.replace('-tweak','') , 'dialog-information')
+                delete_panel_notify.show()
+
+                self.make_list_of_panel_layouts()
+                self.replace_panel_layout(default_layout)
+
+                source = Gio.SettingsSchemaSource.get_default()
+                if source.lookup('org.mate.panel', True) != None:
+                    widget = self.builder.get_object('combobox_panels')
+                    widget.disconnect(self.combobox_panels_handler)
+                    self.set_string("org.mate.panel", None, "default-layout", default_layout)
+                    index = 0
+                    for row in widget.get_model():
+                        if(self.current_layout == row[1]):
+                            widget.set_active(index)
+                            break
+                        index += 1
+                    self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
+
     def save_panels(self, widget):
         layoutname = self.ask_for_layout_name()
         if layoutname is not None:
@@ -1281,7 +1352,7 @@ class MateTweak:
                 print('Layout exists. Ignoring that for now and over writting it.')
 
             a = subprocess.call(['/usr/lib/mate-tweak/mate-panel-backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
-            b = subprocess.call(['pkexec', '/usr/lib/mate-tweak/install-mate-panel-layout', layoutname], stdout=DEVNULL, stderr=DEVNULL)
+            b = subprocess.call(['pkexec', '/usr/lib/mate-tweak/mate-tweak-helper', 'install', layoutname], stdout=DEVNULL, stderr=DEVNULL)
             Notify.init(_('Panel Layout Saved'))
             save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as ') + layoutname.replace('-tweak',''), 'dialog-information')
             save_panels_notify.show()
@@ -1345,6 +1416,7 @@ class MateTweak:
         self.window = self.builder.get_object( "main_window" )
         self.builder.get_object("main_window").connect("destroy", Gtk.main_quit)
         self.builder.get_object("button_save_panels").connect("clicked", self.save_panels)
+        self.builder.get_object("button_delete_panel").connect("clicked", self.delete_panel)
         self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
         self.builder.get_object("button_ccsm").connect("clicked", self.launch_ccsm)
 
@@ -1428,7 +1500,8 @@ class MateTweak:
 
         self.builder.get_object("label_window_control").set_markup("<small>" + _("Window control placement.") + "</small>")
 
-        self.builder.get_object("button_save_panels").set_label(_("Save Panel Layout"))
+        self.builder.get_object("button_save_panels").set_tooltip_text(_("Save Panel Layout"))
+        self.builder.get_object("button_delete_panel").set_tooltip_text(_("Delete the currently selected panel layout"))
         self.builder.get_object("button_ccsm").set_label(_("Open CCSM"))
         self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
 
