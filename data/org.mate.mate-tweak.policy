@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE policyconfig PUBLIC 
- "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN" 
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
 <policyconfig>
   <vendor>ubuntu-mate</vendor>
@@ -20,17 +20,17 @@
     <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/mate-tweak/disable-mate-volume-applet</annotate>
   </action>
 
-  <action id="org.mate.mate-tweak.install-mate-panel-layout">
+  <action id="org.mate.mate-tweak.helper">
     <description>MATE Tweak Authentication dialogue</description>
-    <message>This will backup your MATE panel layout to
-    /usr/share/mate-panel/layouts.</message>
+    <message>This is a helper to install and remove custom panel
+    layouts.</message>
     <icon_name>mate-panel</icon_name>
     <defaults>
       <allow_any>no</allow_any>
       <allow_inactive>no</allow_inactive>
       <allow_active>yes</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/mate-tweak/install-mate-panel-layout</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/mate-tweak/mate-tweak-helper</annotate>
   </action>
 
 </policyconfig>

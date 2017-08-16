@@ -29,13 +29,28 @@ def install_layout(filename):
         os.remove(os.path.join('/','tmp',filename))
     else:
         print('ERROR! Unable to find ' + os.path.join('/','tmp',filename))
-        sys.exit(1)
+
+def delete_layout(filename):
+    if 'tweak' in filename:
+        layout = os.path.join('/','usr','share','mate-panel','layouts',filename)
+        if os.path.exists(layout):
+            os.remove(layout)
+        else:
+            print('ERROR! Unable to find ' + layout)
+    else:
+        print('WARNING! I will only delete custom layouts. Skipping ' + layout)
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        filename = sys.argv[1]
-        install_layout(filename + '.layout')
-        install_layout(filename + '.panel')
+    if len(sys.argv) == 3:
+        action = sys.argv[1]
+        if action == 'install':
+            filename = sys.argv[2]
+            install_layout(filename + '.layout')
+            install_layout(filename + '.panel')
+        elif action == 'delete':
+            filename = sys.argv[2]
+            delete_layout(filename + '.layout')
+            delete_layout(filename + '.panel')
     else:
-        print("ERORR! No name supplied.")
+        print("ERROR! No action supplied.")
         sys.exit(1)
