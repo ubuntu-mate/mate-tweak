@@ -439,6 +439,23 @@ class MateTweak:
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.mutter_capable = True
 
+    def get_num_workspaces(self):
+        # Get the number of virtual workspaces from the current window manager
+        if 'marco' in self.current_wm:
+            num_workspaces = self.get_int('org.mate.Marco.general', None, 'num-workspaces')
+        elif 'metacity' in self.current_wm or 'mutter' in self.current_wm:
+            num_workspaces = self.get_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces')
+        elif 'compiz' in self.current_wm:
+            hsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize'))
+            vsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize'))
+            # Guess what the num_workspaces should be
+            if vsize > hsize:
+                num_workspaces = vsize
+            else:
+                num_workspaces = hsize
+        print('Got ' + str(num_workspaces) + ' workspaces from ' + self.current_wm)
+        return num_workspaces
+
     def replace_windowmanager(self, new_wm):
         if new_wm == 'Unknown':
             return
@@ -453,15 +470,21 @@ class MateTweak:
         else:
             wm_params = ''
 
-        # FIXME
-        # Push workspace names and vert horiz size from the current wm
-        # into the new wm using gschema or dconf for Compiz
-        # using dconf.
-        # /org/compiz/profiles/mate/plugins/core/hsize 1
-        # /org/compiz/profiles/mate/plugins/core/vsize 4
-        # /org/compiz/profiles/mate/plugins/core/workspacenames/name ['One','Two']
-        # org.mate.Marco.general -> num-worksapces
-        # org.gnome.desktop.wm.preferences -> num-workspaces
+        num_workspaces = self.get_num_workspaces()
+        # Set the number of virtual workspaces for the new window manager
+        if 'marco' in new_wm:
+            self.set_int('org.mate.Marco.general', None, 'num-workspaces', num_workspaces)
+        elif 'metacity' in new_wm or 'mutter' in new_wm:
+            self.set_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces', num_workspaces)
+        elif 'compiz' in new_wm:
+            # FIXME, this is a very crude guess
+            if self.current_layout.startswith('mutiny'):
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', '1')
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', str(num_workspaces))
+            else:
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', str(num_workspaces))
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
+        print('Set ' + str(num_workspaces) + ' workspaces for ' + new_wm)
 
         if (new_wm == 'compiz') or (new_wm == 'mutter') or ('metacity' in new_wm):
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
@@ -830,6 +853,18 @@ class MateTweak:
         # So if Brisk is in the layout being switched away from, kill it.
         if not self.panel_layout_uses('BriskMenu', self.current_layout) and self.process_running('brisk-menu'):
             self.kill_process('brisk-menu')
+
+        # Update the number and orientation of virtual workspaces for Compiz
+        if 'compiz' in self.current_wm:
+            num_workspaces = self.get_num_workspaces()
+            # FIXME, this is a very crude guess
+            if new_layout.startswith('mutiny'):
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', '1')
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', str(num_workspaces))
+            else:
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', str(num_workspaces))
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
+            print('Set ' + str(num_workspaces) + ' workspaces for ' + self.current_wm)
 
         if leds_enabled:
             time.sleep(1)
