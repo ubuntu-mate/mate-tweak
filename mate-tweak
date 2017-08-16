@@ -572,6 +572,7 @@ class MateTweak:
         self.kill_process('mate-volume-control-applet')
         self.remove_autostart('mate-volume-control-applet.desktop')
         self.set_string('org.mate.power-manager', None, 'icon-policy', 'never')
+        self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', False)
 
     def enable_applets(self):
         """
@@ -582,6 +583,7 @@ class MateTweak:
         if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
             self.create_autostart('mate-volume-control-applet.desktop.desktop', __APPLET_SOUND__)
         self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
+        self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', True)
 
     def disable_indicators(self):
         self.kill_process('indicator-session-service')
