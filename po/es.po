@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 22:24+0100\n"
-"PO-Revision-Date: 2017-06-10 13:23+0000\n"
+"POT-Creation-Date: 2017-08-16 23:59+0100\n"
+"PO-Revision-Date: 2017-07-19 21:25+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/mate/MATE/language/es/)\n"
 "Language: es\n"
@@ -28,55 +28,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:1078
+#: ../mate-tweak:1121
 msgid "Traditional (Right)"
 msgstr "Tradicional (derecha)"
 
-#: ../mate-tweak:1079
+#: ../mate-tweak:1122
 msgid "Contemporary (Left)"
 msgstr "Contemporáneo (izquierda)"
 
-#: ../mate-tweak:1087
+#: ../mate-tweak:1130
 msgid "Marco (No compositor)"
 msgstr "Marco (Sin composición)"
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1132
 msgid "Marco (Software compositor)"
 msgstr "Marco (Composición por software)"
 
-#: ../mate-tweak:1091
+#: ../mate-tweak:1134
 msgid "Marco (No effects xcompmgr compositor)"
 msgstr "Marco (Sin efector del compositor xcompmgr)"
 
-#: ../mate-tweak:1093
+#: ../mate-tweak:1136
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (Composición GPU con Compton)"
 
-#: ../mate-tweak:1095
+#: ../mate-tweak:1138
 msgid "Metacity (No compositor)"
 msgstr "Metacity (Sin composición)"
 
-#: ../mate-tweak:1097
+#: ../mate-tweak:1140
 msgid "Metacity (Software compositor)"
 msgstr "Metacity (Composición por software)"
 
-#: ../mate-tweak:1099
+#: ../mate-tweak:1142
 msgid "Metacity (No effects xcompmgr compositor)"
 msgstr "Metacity (Sin efectos del compositor xcompmgr)"
 
-#: ../mate-tweak:1101
+#: ../mate-tweak:1144
 msgid "Metacity (Compton GPU compositor)"
 msgstr "Metacity (Composición GPU con Compton)"
 
-#: ../mate-tweak:1103
+#: ../mate-tweak:1146
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
 msgstr "Mutter (Efectos elegantes acelerados por GPU)"
 
-#: ../mate-tweak:1105
+#: ../mate-tweak:1148
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (Efectos avanzados de escritorio acelerados por GPU)"
 
-#: ../mate-tweak:1108
+#: ../mate-tweak:1151
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -85,330 +85,319 @@ msgstr ""
 "soporte. En consecuencia no podemos garantizar que los cambios realizados "
 "serán efectivos."
 
-#: ../mate-tweak:1128
-#, fuzzy
+#: ../mate-tweak:1171
 msgid "Contemporary"
-msgstr "Contemporáneo (izquierda)"
+msgstr ""
 
-#: ../mate-tweak:1135
+#: ../mate-tweak:1179 ../mate-tweak:1185
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1138
+#: ../mate-tweak:1189
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1142
+#: ../mate-tweak:1193
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1146
+#: ../mate-tweak:1197
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1150
+#: ../mate-tweak:1201
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1156
+#: ../mate-tweak:1205
+msgid "Manjaro"
+msgstr ""
+
+#: ../mate-tweak:1212 ../mate-tweak:1217
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1161
+#: ../mate-tweak:1223 ../mate-tweak:1227
 msgid "Netbook"
 msgstr "Netbook"
 
-#: ../mate-tweak:1165
+#: ../mate-tweak:1231
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1171
+#: ../mate-tweak:1237
 msgid "Pantheon"
 msgstr ""
 
-#: ../mate-tweak:1175
+#: ../mate-tweak:1242 ../mate-tweak:1245
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1179
+#: ../mate-tweak:1249
 msgid "Solus"
 msgstr ""
 
-#: ../mate-tweak:1182
-#, fuzzy
+#: ../mate-tweak:1252
 msgid "Traditional"
-msgstr "Tradicional (derecha)"
+msgstr ""
 
-#: ../mate-tweak:1294
+#: ../mate-tweak:1398
 msgid "Desktop"
 msgstr "Escritorio"
 
-#: ../mate-tweak:1295
+#: ../mate-tweak:1399
 msgid "Interface"
 msgstr "Interfaz"
 
-#: ../mate-tweak:1296
+#: ../mate-tweak:1400
 msgid "Panel"
 msgstr "Panel"
 
-#: ../mate-tweak:1297
+#: ../mate-tweak:1401
 msgid "Windows"
 msgstr "Ventanas"
 
-#: ../mate-tweak:1341
+#: ../mate-tweak:1445
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:1344
+#: ../mate-tweak:1448
 msgid "Desktop icons"
 msgstr "Iconos de escritorio"
 
-#: ../mate-tweak:1345
+#: ../mate-tweak:1449
 msgid "Performance"
 msgstr "Rendimiento"
 
-#: ../mate-tweak:1346
+#: ../mate-tweak:1450
 msgid "Window Behaviour"
 msgstr "Comportamiento de las ventanas"
 
-#: ../mate-tweak:1347
+#: ../mate-tweak:1451
 msgid "Appearance"
 msgstr "Apariencia"
 
-#: ../mate-tweak:1348
+#: ../mate-tweak:1452
 msgid "Panels"
 msgstr "Paneles "
 
-#: ../mate-tweak:1349
+#: ../mate-tweak:1453
 msgid "Panel Features"
 msgstr "Características del Panel"
 
-#: ../mate-tweak:1350
+#: ../mate-tweak:1454
 msgid "Panel Menu Features"
 msgstr "Características del menú del Panel"
 
-#: ../mate-tweak:1351
+#: ../mate-tweak:1455
 msgid "Icons"
 msgstr "Iconos"
 
-#: ../mate-tweak:1352
+#: ../mate-tweak:1456
 msgid "Context menus"
 msgstr "Menús contextuales"
 
-#: ../mate-tweak:1353
+#: ../mate-tweak:1457
 msgid "Toolbars"
 msgstr "Barras de herramientas"
 
-#: ../mate-tweak:1354
+#: ../mate-tweak:1458
 msgid "Window manager"
 msgstr "Gestor de ventanas"
 
-#: ../mate-tweak:1356
+#: ../mate-tweak:1460
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Selecciona los Iconos de Escritorio que quieres activados:"
 
-#: ../mate-tweak:1357
+#: ../mate-tweak:1461
 msgid "Show Desktop Icons"
 msgstr "Mostrar Iconos de Escritorio"
 
-#: ../mate-tweak:1358
+#: ../mate-tweak:1462
 msgid "Computer"
 msgstr "Equipo"
 
-#: ../mate-tweak:1359
+#: ../mate-tweak:1463
 msgid "Home"
 msgstr "Carpeta personal"
 
-#: ../mate-tweak:1360
+#: ../mate-tweak:1464
 msgid "Network"
 msgstr "Red"
 
-#: ../mate-tweak:1361
+#: ../mate-tweak:1465
 msgid "Trash"
 msgstr "Papelera"
 
-#: ../mate-tweak:1362
+#: ../mate-tweak:1466
 msgid "Mounted Volumes"
 msgstr "Volúmenes montados"
 
-#: ../mate-tweak:1364
+#: ../mate-tweak:1468
 msgid "Enable animations"
 msgstr "Activar animaciones"
 
-#: ../mate-tweak:1365
+#: ../mate-tweak:1469
 msgid "Do not show window content when moving windows"
 msgstr "No mostrar el contenido cuando se mueven las ventanas"
 
-#: ../mate-tweak:1366
+#: ../mate-tweak:1470
 msgid "Window manager performance tuning."
 msgstr "Ajuste del rendimiento del gestor de ventanas."
 
-#: ../mate-tweak:1368
+#: ../mate-tweak:1472
 msgid "Enable window snapping"
 msgstr "Activar el ajustado de ventanas"
 
-#: ../mate-tweak:1369
+#: ../mate-tweak:1473
 msgid "Undecorate maximized windows"
 msgstr "Quitar decoración a las ventanas maximizadas"
 
-#: ../mate-tweak:1370
+#: ../mate-tweak:1474
 msgid "Do not auto-maximize new windows"
 msgstr "No auto-maximizar nuevas ventanas"
 
-#: ../mate-tweak:1372
+#: ../mate-tweak:1476
 msgid "Window control placement."
 msgstr "Colocación de la ventana de control."
 
-#: ../mate-tweak:1374
+#: ../mate-tweak:1478
 msgid "Save Panel Layout"
 msgstr "Guarda el diseño del panel"
 
-#: ../mate-tweak:1375
+#: ../mate-tweak:1479
+msgid "Delete the currently selected panel layout"
+msgstr ""
+
+#: ../mate-tweak:1480
 msgid "Open CCSM"
 msgstr ""
 
-#: ../mate-tweak:1376
+#: ../mate-tweak:1481
 msgid "Reset Compiz"
 msgstr ""
 
-#: ../mate-tweak:1378
+#: ../mate-tweak:1483
 msgid "Enable keyboard LED"
 msgstr "Activa el LED del teclado"
 
-#: ../mate-tweak:1379
+#: ../mate-tweak:1484
 msgid "Enable pull-down terminal"
 msgstr "Activar terminal desplegable"
 
-#: ../mate-tweak:1381
+#: ../mate-tweak:1486
 msgid "Show Applications"
 msgstr "Mostrar Aplicaciones"
 
-#: ../mate-tweak:1382
+#: ../mate-tweak:1487
 msgid "Show Places"
 msgstr "Mostrar Lugares"
 
-#: ../mate-tweak:1383
+#: ../mate-tweak:1488
 msgid "Show System"
 msgstr "Mostrar Sistema"
 
-#: ../mate-tweak:1385
+#: ../mate-tweak:1490
 msgid "Show icons on menus"
 msgstr "Mostrar iconos en los menús"
 
-#: ../mate-tweak:1386
+#: ../mate-tweak:1491
 msgid "Show icons on buttons"
 msgstr "Mostrar iconos en los botones"
 
-#: ../mate-tweak:1387
+#: ../mate-tweak:1492
 msgid "Show Input Methods menu in context menus"
 msgstr "Mostrar menú de métodos de entrada en menús contextuales"
 
-#: ../mate-tweak:1388
+#: ../mate-tweak:1493
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Mostrar menú de caracteres de control Unicode  en menús contextuales"
 
-#: ../mate-tweak:1390
+#: ../mate-tweak:1495
 msgid "Style:"
 msgstr "Estilo:"
 
-#: ../mate-tweak:1391
+#: ../mate-tweak:1496
 msgid "Icon size:"
 msgstr "Tamaño de los iconos:"
 
-#: ../mate-tweak:1410
+#: ../mate-tweak:1515
 msgid "Small"
 msgstr "Pequeño"
 
-#: ../mate-tweak:1411
+#: ../mate-tweak:1516
 msgid "Large"
 msgstr "Grande"
 
-#: ../mate-tweak:1420
+#: ../mate-tweak:1525
 msgid "The new window manager will be activated upon selection."
 msgstr "El nuevo gestor de ventanas se activará al seleccionar."
 
-#: ../mate-tweak:1421
+#: ../mate-tweak:1526
 msgid "Select a window manager."
 msgstr "Seleccione un gestor de ventanas"
 
-#: ../mate-tweak:1427
+#: ../mate-tweak:1532
 msgid "Select a panel layout to change the user interface."
 msgstr "Seleccione un diseño de panel para cambiar la interfaz de usuario."
 
-#: ../mate-tweak:1428
-#, fuzzy
+#: ../mate-tweak:1533
 msgid "Select a panel layout."
-msgstr "Guarda el diseño del panel"
+msgstr ""
 
-#: ../mate-tweak:1433
+#: ../mate-tweak:1538
 msgid "Default"
 msgstr "Predeterminado"
 
-#: ../mate-tweak:1434
+#: ../mate-tweak:1539
 msgid "16px"
 msgstr "16px"
 
-#: ../mate-tweak:1435
+#: ../mate-tweak:1540
 msgid "22px"
 msgstr "22px"
 
-#: ../mate-tweak:1436
+#: ../mate-tweak:1541
 msgid "24px"
 msgstr "24px"
 
-#: ../mate-tweak:1437
+#: ../mate-tweak:1542
 msgid "32px"
 msgstr "32px"
 
-#: ../mate-tweak:1438
+#: ../mate-tweak:1543
 msgid "48px"
 msgstr "48px"
 
-#: ../mate-tweak:1442
+#: ../mate-tweak:1547
 msgid "Set the panel icon size."
 msgstr "Establezca el tamaño del ícono del panel"
 
-#: ../mate-tweak:1443
+#: ../mate-tweak:1548
 msgid "Select the icon size for panel icons."
 msgstr "Seleccione el tamaño del ícono para los íconos del panel"
 
-#: ../mate-tweak:1447
+#: ../mate-tweak:1552
 msgid "Set the icon size of menu items used in the panel."
 msgstr ""
 "Establezca el tamaño del ícono de los elementos del menú usados en el panel"
 
-#: ../mate-tweak:1448
+#: ../mate-tweak:1553
 msgid "Select the icon size for menu items in the panel."
 msgstr "Seleccione el tamaño del ícono para los elementos del menú en el panel"
 
-#: ../mate-tweak:1465
+#: ../mate-tweak:1570
 msgid "Text below items"
 msgstr "Texto debajo de los elementos"
 
-#: ../mate-tweak:1466
+#: ../mate-tweak:1571
 msgid "Text beside items"
 msgstr "Texto al lado de los elementos"
 
-#: ../mate-tweak:1467
+#: ../mate-tweak:1572
 msgid "Icons only"
 msgstr "Sólo iconos"
 
-#: ../mate-tweak:1468
+#: ../mate-tweak:1573
 msgid "Text only"
 msgstr "Sólo texto"
-
-#~ msgid "Enable advanced menu"
-#~ msgstr "Habilita el menú avanzado"
-
-#~ msgid ""
-#~ "The new panel layout will be activated on selection and destroy any "
-#~ "customisations you might have made."
-#~ msgstr ""
-#~ "El nuevo diseño del panel se activará después de la selección y destruirá "
-#~ "cualquier personalización que haya realizado."
-
-#~ msgid "Ubuntu MATE"
-#~ msgstr "Ubuntu MATE"
-
-#~ msgid "Enable launcher"
-#~ msgstr "Activar lanzador"

@@ -7,14 +7,15 @@
 # Henrik Mattsson-Mårn <h@reglage.net>, 2016
 # Jonatan Nyberg, 2016
 # Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2015-2016
+# Tobias Lekare <lekare@linux.com>, 2017
 # Urban Berggren <pudberggren@icloud.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 22:24+0100\n"
-"PO-Revision-Date: 2017-06-10 13:23+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"POT-Creation-Date: 2017-08-16 23:59+0100\n"
+"PO-Revision-Date: 2017-08-09 19:08+0000\n"
+"Last-Translator: Tobias Lekare <lekare@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/mate/MATE/language/sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -22,55 +23,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:1078
+#: ../mate-tweak:1121
 msgid "Traditional (Right)"
 msgstr "Traditionell (Höger)"
 
-#: ../mate-tweak:1079
+#: ../mate-tweak:1122
 msgid "Contemporary (Left)"
 msgstr "Samtida (Vänster)"
 
-#: ../mate-tweak:1087
+#: ../mate-tweak:1130
 msgid "Marco (No compositor)"
 msgstr "Marco (Ingen kompositör)"
 
-#: ../mate-tweak:1089
+#: ../mate-tweak:1132
 msgid "Marco (Software compositor)"
 msgstr "Marco (Mjukvaru-kompositör)"
 
-#: ../mate-tweak:1091
+#: ../mate-tweak:1134
 msgid "Marco (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Marco (Inga effekter xcompmgr-komposition)"
 
-#: ../mate-tweak:1093
+#: ../mate-tweak:1136
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (Compton GPU-komposition)"
 
-#: ../mate-tweak:1095
+#: ../mate-tweak:1138
 msgid "Metacity (No compositor)"
 msgstr "Metacity (Ingen kompositör)"
 
-#: ../mate-tweak:1097
+#: ../mate-tweak:1140
 msgid "Metacity (Software compositor)"
 msgstr "Metacity (Mjukvaru-kompositör)"
 
-#: ../mate-tweak:1099
+#: ../mate-tweak:1142
 msgid "Metacity (No effects xcompmgr compositor)"
-msgstr ""
+msgstr "Metacity (Inga effekter xcompmgr-komposition)"
 
-#: ../mate-tweak:1101
+#: ../mate-tweak:1144
 msgid "Metacity (Compton GPU compositor)"
-msgstr ""
+msgstr "Metacity (Compton GPU-komposition)"
 
-#: ../mate-tweak:1103
+#: ../mate-tweak:1146
 msgid "Mutter (Elegant GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Mutter (Eleganta GPU-accelererade skrivbordseffekter)"
 
-#: ../mate-tweak:1105
+#: ../mate-tweak:1148
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Compiz (Avancerade GPU accelererade skrivbordseffekter)"
 
-#: ../mate-tweak:1108
+#: ../mate-tweak:1151
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -78,319 +79,318 @@ msgstr ""
 "Du använder för närvarande en okänd och ostödd fönsterhanterare. Vi kan "
 "alltså inte garantera att ändringar som görs här kommer att vara effektiva."
 
-#: ../mate-tweak:1128
-#, fuzzy
+#: ../mate-tweak:1171
 msgid "Contemporary"
-msgstr "Samtida (Vänster)"
+msgstr "Samtida"
 
-#: ../mate-tweak:1135
+#: ../mate-tweak:1179 ../mate-tweak:1185
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1138
+#: ../mate-tweak:1189
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1142
+#: ../mate-tweak:1193
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1146
+#: ../mate-tweak:1197
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1150
+#: ../mate-tweak:1201
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1156
+#: ../mate-tweak:1205
+msgid "Manjaro"
+msgstr ""
+
+#: ../mate-tweak:1212 ../mate-tweak:1217
 msgid "Mutiny"
 msgstr "Myteri"
 
-#: ../mate-tweak:1161
+#: ../mate-tweak:1223 ../mate-tweak:1227
 msgid "Netbook"
 msgstr "Netbook"
 
-#: ../mate-tweak:1165
+#: ../mate-tweak:1231
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1171
+#: ../mate-tweak:1237
 msgid "Pantheon"
-msgstr ""
+msgstr "Pantheon"
 
-#: ../mate-tweak:1175
+#: ../mate-tweak:1242 ../mate-tweak:1245
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1179
+#: ../mate-tweak:1249
 msgid "Solus"
-msgstr ""
+msgstr "Solus"
 
-#: ../mate-tweak:1182
-#, fuzzy
+#: ../mate-tweak:1252
 msgid "Traditional"
-msgstr "Traditionell (Höger)"
+msgstr "Traditionell"
 
-#: ../mate-tweak:1294
+#: ../mate-tweak:1398
 msgid "Desktop"
 msgstr "Skrivbord"
 
-#: ../mate-tweak:1295
+#: ../mate-tweak:1399
 msgid "Interface"
 msgstr "Gränssnitt"
 
-#: ../mate-tweak:1296
+#: ../mate-tweak:1400
 msgid "Panel"
 msgstr "Panel"
 
-#: ../mate-tweak:1297
+#: ../mate-tweak:1401
 msgid "Windows"
 msgstr "Fönster"
 
-#: ../mate-tweak:1341
+#: ../mate-tweak:1445
 msgid "MATE Tweak"
 msgstr "MATE justering"
 
-#: ../mate-tweak:1344
+#: ../mate-tweak:1448
 msgid "Desktop icons"
 msgstr "Skrivbordsikoner"
 
-#: ../mate-tweak:1345
+#: ../mate-tweak:1449
 msgid "Performance"
 msgstr "Prestanda"
 
-#: ../mate-tweak:1346
+#: ../mate-tweak:1450
 msgid "Window Behaviour"
 msgstr "Fönsterbeteende"
 
-#: ../mate-tweak:1347
+#: ../mate-tweak:1451
 msgid "Appearance"
 msgstr "Utseende"
 
-#: ../mate-tweak:1348
+#: ../mate-tweak:1452
 msgid "Panels"
 msgstr "Paneler"
 
-#: ../mate-tweak:1349
+#: ../mate-tweak:1453
 msgid "Panel Features"
 msgstr "Panelfunktioner"
 
-#: ../mate-tweak:1350
+#: ../mate-tweak:1454
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "Panelmeny Funktioner"
 
-#: ../mate-tweak:1351
+#: ../mate-tweak:1455
 msgid "Icons"
 msgstr "Ikoner"
 
-#: ../mate-tweak:1352
+#: ../mate-tweak:1456
 msgid "Context menus"
 msgstr "Snabbmenyer"
 
-#: ../mate-tweak:1353
+#: ../mate-tweak:1457
 msgid "Toolbars"
 msgstr "Verktygsfält"
 
-#: ../mate-tweak:1354
+#: ../mate-tweak:1458
 msgid "Window manager"
 msgstr "Fönsterhanterare"
 
-#: ../mate-tweak:1356
+#: ../mate-tweak:1460
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Välj de skrivbordsikoner som du vill ha aktiverade:"
 
-#: ../mate-tweak:1357
+#: ../mate-tweak:1461
 msgid "Show Desktop Icons"
 msgstr "Visa skrivbordsikoner"
 
-#: ../mate-tweak:1358
+#: ../mate-tweak:1462
 msgid "Computer"
 msgstr "Dator"
 
-#: ../mate-tweak:1359
+#: ../mate-tweak:1463
 msgid "Home"
 msgstr "Hem"
 
-#: ../mate-tweak:1360
+#: ../mate-tweak:1464
 msgid "Network"
 msgstr "Nätverk"
 
-#: ../mate-tweak:1361
+#: ../mate-tweak:1465
 msgid "Trash"
 msgstr "Papperskorg"
 
-#: ../mate-tweak:1362
+#: ../mate-tweak:1466
 msgid "Mounted Volumes"
 msgstr "Monterade volymer"
 
-#: ../mate-tweak:1364
+#: ../mate-tweak:1468
 msgid "Enable animations"
 msgstr "Aktivera animationer"
 
-#: ../mate-tweak:1365
+#: ../mate-tweak:1469
 msgid "Do not show window content when moving windows"
 msgstr "Visa inte fönsterinnehåll vid förflyttning"
 
-#: ../mate-tweak:1366
+#: ../mate-tweak:1470
 msgid "Window manager performance tuning."
-msgstr ""
+msgstr "Prestandajustering av fönsterhanterare."
 
-#: ../mate-tweak:1368
+#: ../mate-tweak:1472
 msgid "Enable window snapping"
-msgstr ""
+msgstr "Aktivera fönstersnäppning"
 
-#: ../mate-tweak:1369
+#: ../mate-tweak:1473
 msgid "Undecorate maximized windows"
-msgstr ""
+msgstr "Avdekorera maximerade fönster."
 
-#: ../mate-tweak:1370
+#: ../mate-tweak:1474
 msgid "Do not auto-maximize new windows"
 msgstr "Maximera inte fönster automatiskt"
 
-#: ../mate-tweak:1372
+#: ../mate-tweak:1476
 msgid "Window control placement."
-msgstr ""
+msgstr "Fönsterkontrollsplacering."
 
-#: ../mate-tweak:1374
+#: ../mate-tweak:1478
 msgid "Save Panel Layout"
 msgstr "Spara Panel-layout"
 
-#: ../mate-tweak:1375
+#: ../mate-tweak:1479
+msgid "Delete the currently selected panel layout"
+msgstr ""
+
+#: ../mate-tweak:1480
 msgid "Open CCSM"
-msgstr ""
+msgstr "Öppna CCSM"
 
-#: ../mate-tweak:1376
+#: ../mate-tweak:1481
 msgid "Reset Compiz"
-msgstr ""
+msgstr "Återställ Compiz"
 
-#: ../mate-tweak:1378
+#: ../mate-tweak:1483
 msgid "Enable keyboard LED"
 msgstr "Aktivera tangentbord LED"
 
-#: ../mate-tweak:1379
+#: ../mate-tweak:1484
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Aktivera dra-ner terminal"
 
-#: ../mate-tweak:1381
+#: ../mate-tweak:1486
 msgid "Show Applications"
 msgstr "Visa applikationer"
 
-#: ../mate-tweak:1382
+#: ../mate-tweak:1487
 msgid "Show Places"
 msgstr "Visa platser"
 
-#: ../mate-tweak:1383
+#: ../mate-tweak:1488
 msgid "Show System"
 msgstr "Visa system"
 
-#: ../mate-tweak:1385
+#: ../mate-tweak:1490
 msgid "Show icons on menus"
 msgstr "Visa ikoner i menyer"
 
-#: ../mate-tweak:1386
+#: ../mate-tweak:1491
 msgid "Show icons on buttons"
 msgstr "Visa ikoner på knappar"
 
-#: ../mate-tweak:1387
+#: ../mate-tweak:1492
 msgid "Show Input Methods menu in context menus"
 msgstr "Visa inmatningsmeny i snabbmenyer"
 
-#: ../mate-tweak:1388
+#: ../mate-tweak:1493
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Visa Unicode kontrollteckenmeny i snabbmenyer"
 
-#: ../mate-tweak:1390
+#: ../mate-tweak:1495
 msgid "Style:"
 msgstr "Stil:"
 
-#: ../mate-tweak:1391
+#: ../mate-tweak:1496
 msgid "Icon size:"
 msgstr "Ikonstorlek:"
 
-#: ../mate-tweak:1410
+#: ../mate-tweak:1515
 msgid "Small"
 msgstr "Liten"
 
-#: ../mate-tweak:1411
+#: ../mate-tweak:1516
 msgid "Large"
 msgstr "Stor"
 
-#: ../mate-tweak:1420
+#: ../mate-tweak:1525
 msgid "The new window manager will be activated upon selection."
 msgstr "Den nya fönsterhanteraren kommer att aktiveras om det blir valt."
 
-#: ../mate-tweak:1421
+#: ../mate-tweak:1526
 msgid "Select a window manager."
 msgstr "Välj en fönsterhanterare."
 
-#: ../mate-tweak:1427
+#: ../mate-tweak:1532
 msgid "Select a panel layout to change the user interface."
 msgstr "Välj en panel-layout för att ändra användargränssnittet"
 
-#: ../mate-tweak:1428
-#, fuzzy
+#: ../mate-tweak:1533
 msgid "Select a panel layout."
-msgstr "Spara Panel-layout"
+msgstr "Välj en panellayout."
 
-#: ../mate-tweak:1433
+#: ../mate-tweak:1538
 msgid "Default"
 msgstr "Standard"
 
-#: ../mate-tweak:1434
+#: ../mate-tweak:1539
 msgid "16px"
 msgstr "16px"
 
-#: ../mate-tweak:1435
+#: ../mate-tweak:1540
 msgid "22px"
 msgstr "22px"
 
-#: ../mate-tweak:1436
+#: ../mate-tweak:1541
 msgid "24px"
 msgstr "24px"
 
-#: ../mate-tweak:1437
+#: ../mate-tweak:1542
 msgid "32px"
 msgstr "32px"
 
-#: ../mate-tweak:1438
+#: ../mate-tweak:1543
 msgid "48px"
 msgstr "48px"
 
-#: ../mate-tweak:1442
+#: ../mate-tweak:1547
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Sätt panelens ikonstorlek."
 
-#: ../mate-tweak:1443
+#: ../mate-tweak:1548
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Välj ikonstorleken för panelikoner."
 
-#: ../mate-tweak:1447
+#: ../mate-tweak:1552
 msgid "Set the icon size of menu items used in the panel."
 msgstr "Ställ in ikonstorlek på menyobjekt som används i panelen."
 
-#: ../mate-tweak:1448
+#: ../mate-tweak:1553
 msgid "Select the icon size for menu items in the panel."
 msgstr "Välj ikonstorleken för menyobjekten i panelen."
 
-#: ../mate-tweak:1465
+#: ../mate-tweak:1570
 msgid "Text below items"
 msgstr "Text under objekt"
 
-#: ../mate-tweak:1466
+#: ../mate-tweak:1571
 msgid "Text beside items"
 msgstr "Text bredvid objekt"
 
-#: ../mate-tweak:1467
+#: ../mate-tweak:1572
 msgid "Icons only"
 msgstr "Endast ikoner"
 
-#: ../mate-tweak:1468
+#: ../mate-tweak:1573
 msgid "Text only"
 msgstr "Endast text"
-
-#~ msgid "Enable advanced menu"
-#~ msgstr "Aktivera avancerad meny"
-
-#~ msgid "Ubuntu MATE"
-#~ msgstr "MATE för Ubuntu"
