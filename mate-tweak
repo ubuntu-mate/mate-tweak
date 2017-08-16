@@ -697,10 +697,7 @@ class MateTweak:
     def reload_panel(self):
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
-    def confirm_panel_layout_delete(self):
-        # Ask for confirmation.
-        title = _('Delete this panel layout?')
-        text = _('<b>Deleting this custom panel layout will also replace the layout with the default.</b>\n\nAre you sure you want to permenately delete this layout?')
+    def confirm_dialog(self, title, text):
         dialog = Gtk.Dialog(title, None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
             (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
              Gtk.STOCK_OK, Gtk.ResponseType.OK))
@@ -723,48 +720,6 @@ class MateTweak:
         elif response == Gtk.ResponseType.CANCEL:
             confirmed = False
 
-        return confirmed
-
-    def confirm_panel_layout_replacement(self):
-        # Ask for confirmation.
-        title = _('Replace the panel layout?')
-        text = _('<b>Replacing the panel layout is a destructive operation!</b>\n\nAre you sure you want to replace the panel layout and lose any customisations you might have made?')
-        dialog = Gtk.Dialog(title, None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-            (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-             Gtk.STOCK_OK, Gtk.ResponseType.OK))
-
-        dialog.set_default_size(500, 160)
-
-        label = Gtk.Label(text)
-        label.set_use_markup(True)
-
-        box = dialog.get_content_area()
-        box.set_border_width(8)
-        box.add(label)
-        dialog.show_all()
-
-        response = dialog.run()
-        dialog.destroy()
-
-        if response == Gtk.ResponseType.OK:
-            confirmed = True
-        elif response == Gtk.ResponseType.CANCEL:
-            confirmed = False
-
-        if not confirmed:
-            # Revert the change that the signal already caught
-            source = Gio.SettingsSchemaSource.get_default()
-            if source.lookup('org.mate.panel', True) != None:
-                widget = self.builder.get_object('combobox_panels')
-                widget.disconnect(self.combobox_panels_handler)
-                self.set_string("org.mate.panel", None, "default-layout", self.current_layout)
-                index = 0
-                for row in widget.get_model():
-                    if(self.current_layout == row[1]):
-                        widget.set_active(index)
-                        break
-                    index += 1
-                self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
         return confirmed
 
     def replace_panel_layout(self, new_layout):
@@ -1026,9 +981,25 @@ class MateTweak:
             self.update_windowmanager_widgets()
 
         elif schema == "org.mate.panel" and key == "default-layout":
-            if self.confirm_panel_layout_replacement():
+            panel_layout = value
+            title = _('Change the layout?')
+            text = _('<b>Changing the layout will completely replace and reset the current configuration!</b>\n\nAre you sure you want to replace this layout and potentially lose any customizations you might have made?')
+            if not self.confirm_dialog(title, text):
+                # Revert the change that the signal already caught
+                source = Gio.SettingsSchemaSource.get_default()
+                if source.lookup('org.mate.panel', True) != None:
+                    widget = self.builder.get_object('combobox_panels')
+                    widget.disconnect(self.combobox_panels_handler)
+                    self.set_string("org.mate.panel", None, "default-layout", self.current_layout)
+                    index = 0
+                    for row in widget.get_model():
+                        if(self.current_layout == row[1]):
+                            widget.set_active(index)
+                            break
+                        index += 1
+                    self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
+            else:
                 # If the panel layout is being changed, replace it now!
-                panel_layout = value
                 self.replace_panel_layout(panel_layout)
 
         elif schema == "org.mate.panel.menubar":
@@ -1319,7 +1290,10 @@ class MateTweak:
             default_layout = GLib.Variant.get_string(settings.get_default_value('default-layout'))
             old_layout = self.current_layout
 
-            if self.confirm_panel_layout_delete():
+            title = _('Delete this custom layout?')
+            text = _('<b>Deleting this custom layout will also return your layout to the system default.</b>\n\nAre you sure you want to permanently delete this custom layout?')
+
+            if self.confirm_dialog(title, text):
                 delete = subprocess.call(['pkexec', '/usr/lib/mate-tweak/mate-tweak-helper', 'delete', old_layout], stdout=DEVNULL, stderr=DEVNULL)
                 Notify.init(_('Panel Layout Deleted'))
                 delete_panel_notify=Notify.Notification.new (_('Panel Layout Deleted'),_('Your panel layout has been deleted: ') + old_layout.replace('-tweak','') , 'dialog-information')
