@@ -25,6 +25,7 @@ import gi
 import glob
 import mmap
 import os
+import platform
 import psutil
 import setproctitle
 import shutil
@@ -1183,7 +1184,8 @@ class MateTweak:
             if self.panel_layout_exists('eleven-no-indicators'):
                 panels.append([_("Cupertino"), "eleven-no-indicators"])
 
-        if self.panel_layout_exists('fedora'):
+        if platform.linux_distribution()[0] != 'Ubuntu' and \
+            self.panel_layout_exists('fedora'):
             panels.append([_("Fedora"), "fedora"])
 
         if self.panel_layout_exists('default') and \
