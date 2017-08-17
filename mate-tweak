@@ -380,8 +380,6 @@ class MateTweak:
                 self.current_wm += '-xcompmgr'
             elif not composite_enabled:
                 self.current_wm += '-no-composite'
-        elif ('Mutter' in current_wm):
-            self.current_wm = current_wm.lower()
         elif ('Compiz' in current_wm):
             self.current_wm = current_wm.lower()
         else:
@@ -399,7 +397,6 @@ class MateTweak:
         self.metacity_compton_capable = False
         self.metacity_xcompmgr_capable = False
         self.metacity_no_composite_capable = False
-        self.mutter_capable = False
 
         if self.find_on_path('compiz'):
             if not self.software_rasterizer and self.texture_from_pixmap:
@@ -436,15 +433,11 @@ class MateTweak:
         if self.find_on_path('metacity'):
             self.metacity_capable = True
 
-        if self.find_on_path('mutter'):
-            if not self.software_rasterizer and self.texture_from_pixmap:
-                self.mutter_capable = True
-
     def get_num_workspaces(self):
         # Get the number of virtual workspaces from the current window manager
         if 'marco' in self.current_wm:
             num_workspaces = self.get_int('org.mate.Marco.general', None, 'num-workspaces')
-        elif 'metacity' in self.current_wm or 'mutter' in self.current_wm:
+        elif 'metacity' in self.current_wm:
             num_workspaces = self.get_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces')
         elif 'compiz' in self.current_wm:
             try:
@@ -465,9 +458,6 @@ class MateTweak:
         if new_wm == 'Unknown':
             return
 
-        # Make sure Compiz, Metacity and Mutter use the same theme as
-        # Marco to prevent theme/xcursor changes when switching themes.
-
         if new_wm == 'marco' or new_wm == 'metacity':
             wm_params = '--composite'
         elif new_wm == 'compiz':
@@ -481,7 +471,7 @@ class MateTweak:
             # Set the number of virtual workspaces for the new window manager
             if 'marco' in new_wm:
                 self.set_int('org.mate.Marco.general', None, 'num-workspaces', num_workspaces)
-            elif 'metacity' in new_wm or 'mutter' in new_wm:
+            elif 'metacity' in new_wm:
                 self.set_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces', num_workspaces)
             elif 'compiz' in new_wm:
                 # FIXME, this is a very crude guess
@@ -493,7 +483,9 @@ class MateTweak:
                     self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
             print('Set ' + str(num_workspaces) + ' workspaces for ' + new_wm)
 
-        if (new_wm == 'compiz') or (new_wm == 'mutter') or ('metacity' in new_wm):
+        # Make sure Compiz and Metacity use the same theme as Marco to
+        # prevent theme/xcursor changes when switching themes.
+        if (new_wm == 'compiz') or ('metacity' in new_wm):
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
             mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', None, 'cursor-theme')
             mate_cursor_size = self.get_int('org.mate.peripherals-mouse', None, 'cursor-size')
@@ -948,10 +940,6 @@ class MateTweak:
                 metacity_reduced = self.get_bool('org.gnome.metacity', None, 'reduced-resources')
                 if metacity_reduced:
                     self.builder.get_object('checkbox_snapping').props.sensitive = False
-        elif self.current_wm == 'mutter':
-            self.builder.get_object('frame_performance').props.sensitive = False
-            self.builder.get_object('frame_behaviour').props.sensitive = True
-            self.init_checkbox('org.gnome.mutter', 'edge-tiling', 'checkbox_snapping')
         else:
             self.builder.get_object('frame_performance').props.sensitive = False
             self.builder.get_object('frame_behaviour').props.sensitive = False
@@ -1150,8 +1138,6 @@ class MateTweak:
             wms.append([_("Metacity (No effects xcompmgr compositor)"), 'metacity-xcompmgr'])
         if self.metacity_compton_capable and not self.software_rasterizer:
             wms.append([_("Metacity (Compton GPU compositor)"), 'metacity-compton'])
-        if self.mutter_capable:
-            wms.append([_("Mutter (Elegant GPU accelerated desktop effects)"), 'mutter'])
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
@@ -1423,9 +1409,6 @@ class MateTweak:
         # options when Marco or Metacity are not currently running.
         if 'marco' in self.current_wm or 'metacity' in self.current_wm:
             self.builder.get_object('frame_performance').props.sensitive = True
-            self.builder.get_object('checkbox_snapping').props.sensitive = True
-        elif self.current_wm == 'mutter':
-            self.builder.get_object('frame_performance').props.sensitive = False
             self.builder.get_object('checkbox_snapping').props.sensitive = True
         else:
             self.builder.get_object('frame_performance').props.sensitive = False
