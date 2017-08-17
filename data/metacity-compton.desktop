@@ -7,16 +7,15 @@ NoDisplay=true
 X-GNOME-WMSettingsModule=metacity
 # name we put on the WM spec check window
 X-GNOME-WMName=Metacity
-# back compat only 
+# back compat only
 X-GnomeWMSettingsLibrary=metacity
 X-GNOME-Bugzilla-Bugzilla=GNOME
 X-GNOME-Bugzilla-Product=metacity
 X-GNOME-Bugzilla-Component=general
-X-GNOME-Autostart-Phase=Applications
-X-MATE-Autostart-Phase=Applications
+X-GNOME-Autostart-Phase=WindowManager
+X-MATE-Autostart-Phase=WindowManager
 X-GNOME-Provides=windowmanager
+X-MATE-Provides=windowmanager
 X-GNOME-Autostart-Notify=true
+X-MATE-Autostart-Notify=true
 X-Ubuntu-Gettext-Domain=metacity
-X-GNOME-Autostart-Delay=2
-X-MATE-Autostart-Delay=2
-
