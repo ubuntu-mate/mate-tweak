@@ -512,7 +512,9 @@ class MateTweak:
 
         # If switching away from a compton or xcompmgr composited window
         # manager kill compton.
-        if 'compton' in self.current_wm:
+        if 'compiz' in self.current_wm:
+            self.kill_process('compiz')
+        elif 'compton' in self.current_wm:
             self.kill_process('compton')
         elif 'xcompmgr' in self.current_wm:
             self.kill_process('xcompmgr')
