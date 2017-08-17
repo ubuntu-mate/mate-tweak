@@ -451,6 +451,10 @@ class MateTweak:
                 num_workspaces = vsize
             else:
                 num_workspaces = hsize
+        else:
+            # If we can't detect the window manager assume 0 workspaces
+            num_workspaces = 0
+
         print('Got ' + str(num_workspaces) + ' workspaces from ' + self.current_wm)
         return num_workspaces
 
