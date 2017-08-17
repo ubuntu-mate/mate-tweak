@@ -447,8 +447,12 @@ class MateTweak:
         elif 'metacity' in self.current_wm or 'mutter' in self.current_wm:
             num_workspaces = self.get_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces')
         elif 'compiz' in self.current_wm:
-            hsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize'))
-            vsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize'))
+            try:
+                hsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize'))
+                vsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize'))
+            except:
+                hsize = 0
+                vsize = 0
             # Guess what the num_workspaces should be
             if vsize > hsize:
                 num_workspaces = vsize
@@ -472,20 +476,22 @@ class MateTweak:
             wm_params = ''
 
         num_workspaces = self.get_num_workspaces()
-        # Set the number of virtual workspaces for the new window manager
-        if 'marco' in new_wm:
-            self.set_int('org.mate.Marco.general', None, 'num-workspaces', num_workspaces)
-        elif 'metacity' in new_wm or 'mutter' in new_wm:
-            self.set_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces', num_workspaces)
-        elif 'compiz' in new_wm:
-            # FIXME, this is a very crude guess
-            if self.current_layout.startswith('mutiny'):
-                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', '1')
-                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', str(num_workspaces))
-            else:
-                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', str(num_workspaces))
-                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
-        print('Set ' + str(num_workspaces) + ' workspaces for ' + new_wm)
+        # Don't make any change if workspaces is zero.
+        if num_workspaces != 0:
+            # Set the number of virtual workspaces for the new window manager
+            if 'marco' in new_wm:
+                self.set_int('org.mate.Marco.general', None, 'num-workspaces', num_workspaces)
+            elif 'metacity' in new_wm or 'mutter' in new_wm:
+                self.set_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces', num_workspaces)
+            elif 'compiz' in new_wm:
+                # FIXME, this is a very crude guess
+                if self.current_layout.startswith('mutiny'):
+                    self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', '1')
+                    self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', str(num_workspaces))
+                else:
+                    self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', str(num_workspaces))
+                    self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
+            print('Set ' + str(num_workspaces) + ' workspaces for ' + new_wm)
 
         if (new_wm == 'compiz') or (new_wm == 'mutter') or ('metacity' in new_wm):
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
