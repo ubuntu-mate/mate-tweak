@@ -1454,6 +1454,7 @@ class MateTweak:
 
         self.builder.get_object("caption_desktop_icons").set_markup("<small>" + _("Select the Desktop Icons you want enabled:") + "</small>")
         self.builder.get_object("checkbox_show_icons").set_label(_("Show Desktop Icons"))
+        self.builder.get_object("checkbox_show_icons").set_tooltip_text(_("When disabled the desktop will be unmanaged with no icons or file manager access"))
         self.builder.get_object("checkbox_computer").set_label(_("Computer"))
         self.builder.get_object("checkbox_home").set_label(_("Home"))
         self.builder.get_object("checkbox_network").set_label(_("Network"))
@@ -1461,31 +1462,47 @@ class MateTweak:
         self.builder.get_object("checkbox_volumes").set_label(_("Mounted Volumes"))
 
         self.builder.get_object("checkbox_animations").set_label(_("Enable animations"))
+        self.builder.get_object("checkbox_animations").set_tooltip_text(_("Whether animations should be displayed by the window manager and panel"))
         self.builder.get_object("checkbox_resources").set_label(_("Do not show window content when moving windows"))
+        self.builder.get_object("checkbox_resources").set_tooltip_text(_("Provide less feedback when moving windows by using wireframes"))
         self.builder.get_object("label_performance_tuning").set_markup("<small>" + _("Window manager performance tuning.") + "</small>")
 
         self.builder.get_object("checkbox_snapping").set_label(_("Enable window snapping"))
+        self.builder.get_object("checkbox_snapping").set_tooltip_text(_("Dropping windows on screen edges maximizes them vertically and resizes them horizontally to cover half the available area"))
         self.builder.get_object("checkbox_undecorate").set_label(_("Undecorate maximized windows"))
+        self.builder.get_object("checkbox_undecorate").set_tooltip_text(_("Undecorate windows when maximized"))
         self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
+        self.builder.get_object("checkbox_always_maximize").set_tooltip_text(_("Do not automatically maximize newly opened windows"))
 
         self.builder.get_object("label_window_control").set_markup("<small>" + _("Window control placement.") + "</small>")
 
-        self.builder.get_object("button_save_panels").set_tooltip_text(_("Save Panel Layout"))
+        self.builder.get_object("button_save_panels").set_tooltip_text(_("Save the current panel layout as your own custom version"))
         self.builder.get_object("button_delete_panel").set_tooltip_text(_("Delete the currently selected panel layout"))
         self.builder.get_object("button_ccsm").set_label(_("Open CCSM"))
+        self.builder.get_object("button_ccsm").set_tooltip_text(_("Open the Compiz configuration and settings manager"))
         self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
+        self.builder.get_object("button_compiz_reset").set_tooltip_text(_("Reset the current Compiz configuration to factory defaults"))
 
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
+        self.builder.get_object("checkbutton_keyboard_led").set_tooltip_text(_("Show keyboard LED indicators in the notifcation tray"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_label(_("Enable pull-down terminal"))
+        self.builder.get_object("checkbutton_pulldown_terminal").set_tooltip_text(_("When enabled press F12 to pull down terminal"))
 
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
+        self.builder.get_object("checkbutton_show_applications").set_tooltip_text(_("Show Applications item in the menu bar"))
         self.builder.get_object("checkbutton_show_places").set_label(_("Show Places"))
+        self.builder.get_object("checkbutton_show_places").set_tooltip_text(_("Show Places item in the menu bar"))
         self.builder.get_object("checkbutton_show_system").set_label(_("Show System"))
+        self.builder.get_object("checkbutton_show_system").set_tooltip_text(_("Show System item in the menu bar"))
 
         self.builder.get_object("checkbutton_menuicon").set_label(_("Show icons on menus"))
+        self.builder.get_object("checkbutton_menuicon").set_tooltip_text(_("Whether menus may display an icon next to a menu entry"))
         self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
+        self.builder.get_object("checkbutton_button_icons").set_tooltip_text(_("Whether buttons may display an icon in addition to the button text"))
         self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
+        self.builder.get_object("checkbutton_im_menu").set_tooltip_text(_("Whether the context menus of entries and text views should offer to change the input method"))
         self.builder.get_object("checkbutton_unicode").set_label(_("Show Unicode Control Character menu in context menus"))
+        self.builder.get_object("checkbutton_unicode").set_tooltip_text(_("Whether the context menu of entries and text views should offer the insert control characters"))
 
         self.builder.get_object("label_toolbar_style").set_text(_("Style:"))
         self.builder.get_object("label_toolbar_icon_size").set_text(_("Icon size:"))
