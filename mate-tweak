@@ -761,7 +761,7 @@ class MateTweak:
             if not self.process_running('mate-hud'):
                 self.enable_hud()
         # If we're switching from Mutiny or Cupertino then disable the HUD.
-        elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven') or new_layout.startswith('contemporary'):
+        elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven') or self.current_layout.startswith('contemporary'):
             self.disable_hud()
 
         # If we're switching to Cupertino or Mutiny to move window
