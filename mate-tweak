@@ -1117,8 +1117,8 @@ class MateTweak:
 
     def update_window_controls(self):
         layouts = Gtk.ListStore(str, str)
-        layouts.append([_("Traditional (Right)"), __TRADITIONAL_BUTTONS__])
-        layouts.append([_("Contemporary (Left)"), __CONTEMPORARY_BUTTONS__])
+        layouts.append([_("Right"), __TRADITIONAL_BUTTONS__])
+        layouts.append([_("Left"), __CONTEMPORARY_BUTTONS__])
         self.builder.get_object("combobox_window_control").set_model(layouts)
         self.init_combobox("org.mate.Marco.general", "button-layout", "combobox_window_control")
 
