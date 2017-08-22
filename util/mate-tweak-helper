@@ -26,6 +26,13 @@ import tempfile
 from gi.repository import Gio
 from subprocess import PIPE
 
+
+def autostop(filename):
+    desktopfile = os.path.join('/','etc','xdg','autostart', filename)
+    if os.path.exists(desktopfile):
+        os.remove(desktopfile)
+
+
 def install_layout(filename):
     if os.path.exists(os.path.join(tempfile.gettempdir(),filename)):
         shutil.copy2(os.path.join(tempfile.gettempdir(),filename),
@@ -129,15 +136,15 @@ def backup_layout(filename):
 if __name__ == '__main__':
     if len(sys.argv) == 3:
         action = sys.argv[1]
-        if action == 'backup':
-            filename = sys.argv[2]
+        filename = sys.argv[2]
+        if action == 'autostop':
+            autostop(filename)
+        elif action == 'backup':
             backup_layout(filename)
         elif action == 'delete':
-            filename = sys.argv[2]
             delete_layout(filename + '.layout')
             delete_layout(filename + '.panel')
         elif action == 'install':
-            filename = sys.argv[2]
             install_layout(filename + '.layout')
             install_layout(filename + '.panel')
     else:

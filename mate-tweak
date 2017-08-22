@@ -351,10 +351,9 @@ class MateTweak:
         if os.path.exists(autostart_file):
             os.remove(autostart_file)
 
-        # Special case for removing the system autostart file for
-        # mate-volume-control-applet.desktop if it exists.
-        if filename == 'mate-volume-control-applet.desktop':
-            subprocess.call(['pkexec', '/usr/lib/mate-tweak/disable-mate-volume-applet'], stdout=DEVNULL, stderr=DEVNULL)
+        # Make sure any system desktop files are also removed
+        mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
+        subprocess.call(['pkexec', mate_tweak_helper, 'autostop', filename], stdout=DEVNULL, stderr=DEVNULL)
 
     def check_wm_features(self):
         screen = Gdk.Screen.get_default()
@@ -612,8 +611,8 @@ class MateTweak:
         or showing.
         """
         subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
-        if not os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop'):
-            self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
+        self.remove_autostart('mate-volume-control-applet.desktop')
+        self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
         self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
         self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', True)
 
@@ -1294,7 +1293,8 @@ class MateTweak:
             text = _('<b>Deleting this custom layout will also return your layout to the system default.</b>\n\nAre you sure you want to permanently delete this custom layout?')
 
             if self.confirm_dialog(title, text):
-                delete = subprocess.call(['pkexec', '/usr/lib/mate-tweak/mate-tweak-helper', 'delete', old_layout], stdout=DEVNULL, stderr=DEVNULL)
+                mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
+                delete = subprocess.call(['pkexec', mate_tweak_helper, 'delete', old_layout], stdout=DEVNULL, stderr=DEVNULL)
                 Notify.init(_('Panel Layout Deleted'))
                 delete_panel_notify=Notify.Notification.new (_('Panel Layout Deleted'),_('Your panel layout has been deleted: ') + old_layout.replace('-tweak','') , 'dialog-information')
                 delete_panel_notify.show()
