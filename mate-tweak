@@ -1245,8 +1245,9 @@ class MateTweak:
            self.brisk_menu_available:
             panels.append([_("Solus"), "solus"])
 
-        if self.panel_layout_exists('ubuntu-mate'):
-            panels.append([_("Traditional"), "ubuntu-mate"])
+        if self.panel_layout_exists('traditional') and \
+           self.indicators_available:
+            panels.append([_("Traditional"), "traditional"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
 
