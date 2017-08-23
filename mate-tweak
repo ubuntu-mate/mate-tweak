@@ -209,13 +209,6 @@ class MateTweak:
             settings = Gio.Settings.new(schema)
         return settings.get_string(key)
 
-    def set_bool(self, schema, path, key, value):
-        if path:
-            settings = Gio.Settings.new_with_path(schema, path)
-        else:
-            settings = Gio.Settings.new(schema)
-        settings.set_boolean(key, value)
-
     def get_int(self, schema, path, key):
         if path:
             settings = Gio.Settings.new_with_path(schema, path)
@@ -230,12 +223,34 @@ class MateTweak:
             settings = Gio.Settings.new(schema)
         settings.set_int(key, value)
 
+    def get_enum(self, schema, path, key):
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
+        return settings.get_enum(key)
+
+    def set_enum(self, schema, path, key, value):
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
+        settings.set_enum(key, value)
+
     def get_bool(self, schema, path, key):
         if path:
             settings = Gio.Settings.new_with_path(schema, path)
         else:
             settings = Gio.Settings.new(schema)
         return settings.get_boolean(key)
+
+    def set_bool(self, schema, path, key, value):
+        if path:
+            settings = Gio.Settings.new_with_path(schema, path)
+        else:
+            settings = Gio.Settings.new(schema)
+        settings.set_boolean(key, value)
+
 
     def reset_dconf_path(self, path):
         subprocess.call(['dconf', 'reset', '-f', path], stdout=DEVNULL, stderr=DEVNULL)
@@ -504,6 +519,8 @@ class MateTweak:
             metacity_schema = schemasource.lookup('org.gnome.metacity.theme', False)
             if metacity_schema:
                 self.set_string('org.gnome.metacity.theme', None, 'name', mate_theme)
+                # FIXME! Don't assume 'metacity' is 1
+                self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
 
         # If switching away from a compton or xcompmgr composited window
         # manager kill compton.
