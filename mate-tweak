@@ -68,7 +68,9 @@ StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
 X-GNOME-Autostart-enabled=true
-X-MATE-Autostart-enabled=true"""
+X-MATE-Autostart-enabled=true
+X-GNOME-Autostart-Phase=Applications
+X-MATE-Autostart-Phase=Applications"""
 
 __TILDA__ = """[Desktop Entry]
 Name=Tilda
