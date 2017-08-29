@@ -1360,8 +1360,8 @@ class MateTweak:
             self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
     def compiz_reset(self, widget):
-        # Switch to Marco. Purge all Compiz config and cache. Switch to Compiz.
-        self.replace_windowmanager('marco')
+        # Kill compiz. Purge all Compiz config and cache. Switch to Compiz.
+        self.kill_process('compiz')
         self.reset_dconf_path('/org/compiz/')
         config_compiz = os.path.join(GLib.get_user_config_dir(), 'compiz-1')
         cache_compiz = os.path.join(GLib.get_user_cache_dir(), 'compizconfg1')
