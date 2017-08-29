@@ -774,14 +774,6 @@ class MateTweak:
             elif self.current_layout.startswith('eleven') and not label_visible:
                 self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
-        if (new_layout.startswith('mutiny') or new_layout.startswith('eleven') or new_layout.startswith('contemporary')) \
-           and ((self.hud_available and self.appmenu_applet_available)):
-            if not self.process_running('mate-hud'):
-                self.enable_hud()
-        # If we're switching from Mutiny or Cupertino then disable the HUD.
-        elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven') or self.current_layout.startswith('contemporary'):
-            self.disable_hud()
-
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
         if new_layout.startswith('eleven') or \
@@ -796,11 +788,15 @@ class MateTweak:
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __TRADITIONAL_BUTTONS__)
 
         # If we're switching to a layout that uses the AppMenu applet toggle
-        # global menu accordingly.
-        if self.panel_layout_uses('AppmenuApplet', new_layout):
+        # global menu and HUD accordingly.
+        if self.panel_layout_uses('AppmenuApplet', new_layout) and \
+           self.appmenu_applet_available:
             self.set_bool("org.mate.interface", None, 'gtk-shell-shows-menubar', True)
+            if (self.hud_available and not self.process_running('mate-hud')):
+                self.enable_hud()
         else:
             self.set_bool("org.mate.interface", None, 'gtk-shell-shows-menubar', False)
+            self.disable_hud()
 
         # Update window controls
         self.update_window_controls()
