@@ -649,6 +649,7 @@ class MateTweak:
         self.remove_autostart('indicator-sound.desktop')
         self.remove_autostart('indicator-messages.desktop')
         self.remove_autostart('indicator-power.desktop')
+        self.remove_autostart('indicator-session.desktop')
 
     def enable_indicators(self):
         subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'], stdout=DEVNULL, stderr=DEVNULL)
