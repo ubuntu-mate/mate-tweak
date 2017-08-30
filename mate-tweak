@@ -805,13 +805,6 @@ class MateTweak:
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
 
-        # Kill the panel and related processes
-        self.kill_process('mate-panel')
-        self.kill_process('clock-applet')
-        self.kill_process('mate-indicator-applet-complete')
-        self.kill_process('notification-area-applet')
-        self.kill_process('wnck-applet')
-
         # Reset the panel dconf tree.
         self.reset_dconf_path('/org/mate/panel/objects/')
         self.reset_dconf_path('/org/mate/panel/toplevels/')
@@ -856,11 +849,6 @@ class MateTweak:
         elif not new_layout.startswith('eleven') or \
              not new_layout.startswith('pantheon'):
             self.disable_dock()
-
-        # Brisk Menu remains running.
-        # So if Brisk is in the layout being switched away from, kill it.
-        if not self.panel_layout_uses('BriskMenu', self.current_layout) and self.process_running('brisk-menu'):
-            self.kill_process('brisk-menu')
 
         # Update the number and orientation of virtual workspaces for Compiz
         if 'compiz' in self.current_wm:
