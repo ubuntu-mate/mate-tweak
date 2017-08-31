@@ -58,7 +58,7 @@ from gi.repository import Notify
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '17.10.14'
+__VERSION__ = '17.10.15'
 
 __HUD__ = """[Desktop Entry]
 Type=Application
