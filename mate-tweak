@@ -840,6 +840,11 @@ class MateTweak:
             self.disable_indicators()
             self.enable_applets()
 
+        # Brisk Menu remains running.
+        # So if Brisk is in the layout being switched away from, kill it.
+        if not self.panel_layout_uses('BriskMenu', self.current_layout) and self.process_running('brisk-menu'):
+            self.kill_process('brisk-menu')
+
         subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Determine if the dock should be enabled
