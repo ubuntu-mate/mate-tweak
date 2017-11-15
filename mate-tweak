@@ -805,17 +805,21 @@ class MateTweak:
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
 
+        # Set the new layout
+        subprocess.call(['mate-panel', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
+
         # Reset the panel dconf tree.
         self.reset_dconf_path('/org/mate/panel/objects/')
         self.reset_dconf_path('/org/mate/panel/toplevels/')
+
+        # Make the new layout active.
+        subprocess.call(['mate-panel', '--reset'], stdout=DEVNULL, stderr=DEVNULL)
 
         # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + new_layout)
             cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
             subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
-        else:
-            subprocess.call(['mate-panel', '--layout', new_layout, '--reset'], stdout=DEVNULL, stderr=DEVNULL)
 
         # Get the icon sizes now the new layout has been applied.
         new_icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
@@ -842,10 +846,11 @@ class MateTweak:
 
         # Brisk Menu remains running.
         # So if Brisk is in the layout being switched away from, kill it.
-        if not self.panel_layout_uses('BriskMenu', self.current_layout) and self.process_running('brisk-menu'):
+        if not self.panel_layout_uses('BriskMenu', self.current_layout) and \
+           self.process_running('brisk-menu'):
             self.kill_process('brisk-menu')
 
-        subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+        self.reload_panel()
 
         # Determine if the dock should be enabled
         if (new_layout.startswith('eleven') and self.dock is not None) or \
