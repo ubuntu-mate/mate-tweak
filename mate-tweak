@@ -861,6 +861,9 @@ class MateTweak:
              not new_layout.startswith('pantheon'):
             self.disable_dock()
 
+        # Update the Dock checkbutton UI
+        self.builder.get_object("checkbutton_dock").set_active(self.dock_enabled)
+
         # Update the number and orientation of virtual workspaces for Compiz
         if 'compiz' in self.current_wm:
             num_workspaces = self.get_num_workspaces()
@@ -912,6 +915,12 @@ class MateTweak:
             self.enable_pulldown_terminal()
         else:
             self.disable_pulldown_terminal()
+
+    def toggle_dock(self, checkbutton):
+        if checkbutton.get_active():
+            self.enable_dock()
+        else:
+            self.disable_dock()
 
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
@@ -1502,6 +1511,8 @@ class MateTweak:
         self.builder.get_object("checkbutton_keyboard_led").set_tooltip_text(_("Show keyboard LED indicators in the notifcation tray"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_label(_("Enable pull-down terminal"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_tooltip_text(_("When enabled press F12 to pull down terminal"))
+        self.builder.get_object("checkbutton_dock").set_label(_("Enable Dock"))
+        self.builder.get_object("checkbutton_dock").set_tooltip_text(_("When checked the Dock will be enabled."))
 
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
         self.builder.get_object("checkbutton_show_applications").set_tooltip_text(_("Show Applications item in the menu bar"))
@@ -1584,6 +1595,12 @@ class MateTweak:
         self.builder.get_object("checkbutton_pulldown_terminal").set_active(self.pulldown_terminal_enabled)
         if not self.pulldown_terminal:
             self.builder.get_object('checkbutton_pulldown_terminal').props.sensitive = False
+
+        # Dock
+        self.builder.get_object("checkbutton_dock").connect("toggled", self.toggle_dock)
+        self.builder.get_object("checkbutton_dock").set_active(self.dock_enabled)
+        if self.dock is None:
+            self.builder.get_object('checkbutton_dock').props.sensitive = False
 
         # Panel Menu features
         self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
