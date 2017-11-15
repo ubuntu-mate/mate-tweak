@@ -743,10 +743,9 @@ class MateTweak:
         response = dialog.run()
         dialog.destroy()
 
+        confirmed = False
         if response == Gtk.ResponseType.OK:
             confirmed = True
-        elif response == Gtk.ResponseType.CANCEL:
-            confirmed = False
 
         return confirmed
 
