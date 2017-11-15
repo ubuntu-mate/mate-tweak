@@ -18,6 +18,7 @@
 # Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
+import argparse
 import errno
 import gettext
 import getpass
@@ -1604,5 +1605,18 @@ class MateTweak:
 
 if __name__ == "__main__":
     setproctitle.setproctitle('mate-tweak')
-    MateTweak()
-    Gtk.main()
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--layout', help="Switch to a panel layout")
+    args = parser.parse_args()
+
+    # If we've been given a layout then attempt to switch layouts.
+    if args.layout:
+        mt = MateTweak()
+        if mt.panel_layout_exists(args.layout):
+            mt.replace_panel_layout(args.layout)
+        else:
+            print("ERROR! Unable to find layout: " + args.layout)
+    else:
+        MateTweak()
+        Gtk.main()
