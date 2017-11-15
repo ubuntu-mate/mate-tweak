@@ -57,6 +57,7 @@ else
         --shadow-exclude "name = 'Docky'" \
         --shadow-exclude "name = 'Kupfer'" \
         --shadow-exclude "name *= 'compton'" \
+        --shadow-exclude "class_g = 'albert'" \
         --shadow-exclude "class_g = 'Conky'" \
         --shadow-exclude "class_g = 'Kupfer'" \
         --shadow-exclude "class_g = 'Synapse'" \
