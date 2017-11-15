@@ -1105,13 +1105,13 @@ class MateTweak:
             self.gnome_menu_available = True
 
         if os.path.exists('/usr/lib/indicators3/7/libapplication.so') and \
-           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service') and \
-           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service') and \
-           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service') and \
-           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service') and \
-           os.path.exists('/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service') and \
-           os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
-            self.indicators_available = True
+            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service') and \
+            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service') and \
+            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service') and \
+            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service') and \
+            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service') and \
+            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
+                self.indicators_available = True
 
         if os.path.exists('/usr/share/applications/mageia-drakconf.desktop'):
             self.mageia_cc_available = True
