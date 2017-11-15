@@ -171,11 +171,7 @@ class SidePage:
 
 class MateTweak:
     def on_checkbox_toggled(self, widget, schema_id, key):
-        # If Maximus is being tweaked, replace it to make the settings effective.
-        if schema_id == "org.mate.maximus" and (key == "undecorate" or key == "no-maximize"):
-            subprocess.Popen(['mate-maximus', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
-
-        elif (key == "reduced-resources"):
+        if (key == "reduced-resources"):
             if ('marco' in self.current_wm):
                 marco_reduced = self.get_bool('org.mate.Marco.general', None, key)
                 self.set_bool('org.mate.Marco.general', None, 'side-by-side-tiling', marco_reduced)
@@ -551,6 +547,18 @@ class MateTweak:
         self.remove_autostart('mate-hud.desktop')
         self.kill_process('mate-hud')
 
+    def maximus_decorate(self):
+        # Only decorate if currently undecorated
+        if self.get_bool('org.mate.maximus', None, 'undecorate'):
+            print('Decorating')
+            self.set_bool('org.mate.maximus', None, 'undecorate', False)
+
+    def maximus_undecorate(self):
+        # On undecorate if currently decorated
+        if not self.get_bool('org.mate.maximus', None, 'undecorate'):
+            print('Undecorating')
+            self.set_bool('org.mate.maximus', None, 'undecorate', True)
+
     def enable_dock(self):
         self.set_string('org.mate.session.required-components', None, 'dock', self.dock)
         if self.dock:
@@ -802,20 +810,9 @@ class MateTweak:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
 
         # Set the new layout
-        subprocess.call(['mate-panel', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
-
-        # Reset the panel dconf tree.
+        subprocess.call(['mate-panel', '--reset', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
         self.reset_dconf_path('/org/mate/panel/objects/')
         self.reset_dconf_path('/org/mate/panel/toplevels/')
-
-        # Make the new layout active.
-        subprocess.call(['mate-panel', '--reset'], stdout=DEVNULL, stderr=DEVNULL)
-
-        # If we have a custom panel layout just replace the dconf dump.
-        if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
-            print('Loading additional panel configuration for ' + new_layout)
-            cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
-            subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
 
         # Get the icon sizes now the new layout has been applied.
         new_icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
@@ -848,6 +845,12 @@ class MateTweak:
 
         self.reload_panel()
 
+        # If we have a custom panel layout just replace the dconf dump.
+        if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
+            print('Loading additional panel configuration for ' + new_layout)
+            cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
+            subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
+
         # Determine if the dock should be enabled
         if (new_layout.startswith('eleven') and self.dock is not None) or \
            (new_layout.startswith('pantheon') and self.dock is not None):
@@ -855,6 +858,15 @@ class MateTweak:
         elif not new_layout.startswith('eleven') or \
              not new_layout.startswith('pantheon'):
             self.disable_dock()
+
+        # Determine if maximised windows should be undecorated
+        if self.maximus_available:
+            if new_layout.startswith('mutiny') or \
+                new_layout.startswith('netbook'):
+                    self.maximus_undecorate()
+            elif not new_layout.startswith('mutiny') or \
+                not new_layout.startswith('netbook'):
+                    self.maximus_decorate()
 
         # Update the Dock checkbutton UI
         self.builder.get_object("checkbutton_dock").set_active(self.dock_enabled)
