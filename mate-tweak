@@ -61,18 +61,6 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 __VERSION__ = '18.04.0'
 
-__HUD__ = """[Desktop Entry]
-Type=Application
-Name=HUD
-Exec=/usr/lib/mate-hud/mate-hud
-StartupNotify=false
-Terminal=false
-OnlyShowIn=MATE
-X-GNOME-Autostart-enabled=true
-X-MATE-Autostart-enabled=true
-X-GNOME-Autostart-Phase=Applications
-X-MATE-Autostart-Phase=Applications"""
-
 __TILDA__ = """[Desktop Entry]
 Name=Tilda
 Exec=tilda
@@ -540,12 +528,25 @@ class MateTweak:
         replace_windowmanager_notify.show()
 
     def enable_hud(self):
-        self.create_autostart('mate-hud.desktop', __HUD__)
-        subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL)
+        # Remove old-style autostart .desktop file for mate-hud
+        self.remove_autostart('mate-hud.desktop')
+        if (self.hud_available and not self.process_running('mate-hud')):
+            self.set_bool('org.mate.hud', None, 'enabled', True)
+            subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL)
+            self.hud_enabled = True
 
     def disable_hud(self):
+        # Remove old-style autostart .desktop file for mate-hud
         self.remove_autostart('mate-hud.desktop')
+        self.set_bool('org.mate.hud', None, 'enabled', False)
         self.kill_process('mate-hud')
+        self.hud_enabled = True
+
+    def toggle_hud(self, checkbutton):
+        if checkbutton.get_active():
+            self.enable_hud()
+        else:
+            self.disable_hud()
 
     def maximus_decorate(self):
         # Only decorate if currently undecorated
@@ -797,15 +798,12 @@ class MateTweak:
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __TRADITIONAL_BUTTONS__)
 
         # If we're switching to a layout that uses the AppMenu applet toggle
-        # global menu and HUD accordingly.
+        # global menu.
         if self.panel_layout_uses('AppmenuApplet', new_layout) and \
            self.appmenu_applet_available:
             self.set_bool("org.mate.interface", None, 'gtk-shell-shows-menubar', True)
-            if (self.hud_available and not self.process_running('mate-hud')):
-                self.enable_hud()
         else:
             self.set_bool("org.mate.interface", None, 'gtk-shell-shows-menubar', False)
-            self.disable_hud()
 
         # Update window controls
         self.update_window_controls()
@@ -1090,8 +1088,10 @@ class MateTweak:
     def check_hud_features(self):
         if os.path.exists('/usr/lib/mate-hud/mate-hud'):
             self.hud_available = True
+            self.hud_enabled = self.get_bool('org.mate.hud', None, 'enabled')
         else:
             self.hud_available = False
+            self.hud_enabled = False
 
     def check_panel_features(self):
         # Determine what panel features are available
@@ -1523,6 +1523,8 @@ class MateTweak:
         self.builder.get_object("checkbutton_pulldown_terminal").set_tooltip_text(_("When enabled press F12 to pull down terminal"))
         self.builder.get_object("checkbutton_dock").set_label(_("Enable Dock"))
         self.builder.get_object("checkbutton_dock").set_tooltip_text(_("When checked the Dock will be enabled."))
+        self.builder.get_object("checkbutton_hud").set_label(_("Enable HUD"))
+        self.builder.get_object("checkbutton_hud").set_tooltip_text(_("When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to search application menus."))
 
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
         self.builder.get_object("checkbutton_show_applications").set_tooltip_text(_("Show Applications item in the menu bar"))
@@ -1611,6 +1613,12 @@ class MateTweak:
         self.builder.get_object("checkbutton_dock").set_active(self.dock_enabled)
         if self.dock is None:
             self.builder.get_object('checkbutton_dock').props.sensitive = False
+
+        # HUD
+        self.builder.get_object("checkbutton_hud").connect("toggled", self.toggle_hud)
+        self.builder.get_object("checkbutton_hud").set_active(self.hud_enabled)
+        if not self.hud_available:
+          self.builder.get_object('checkbutton_hud').props.sensitive = False
 
         # Panel Menu features
         self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
