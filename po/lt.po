@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-15 16:00+0000\n"
-"PO-Revision-Date: 2017-09-22 02:09+0000\n"
+"POT-Creation-Date: 2018-01-18 01:24+0000\n"
+"PO-Revision-Date: 2017-11-15 20:27+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/mate/MATE/language/lt/)\n"
 "Language: lt\n"
@@ -20,51 +20,51 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../mate-tweak:1150
+#: ../mate-tweak:1162
 msgid "Right"
 msgstr "Dešinėje"
 
-#: ../mate-tweak:1151
+#: ../mate-tweak:1163
 msgid "Left"
 msgstr "Kairėje"
 
-#: ../mate-tweak:1159
+#: ../mate-tweak:1171
 msgid "Marco (No compositor)"
 msgstr "Marco (Be tvarkytojo)"
 
-#: ../mate-tweak:1161
+#: ../mate-tweak:1173
 msgid "Marco (Software compositor)"
 msgstr "Marco (Programinės įrangos tvarkytojas)"
 
-#: ../mate-tweak:1163
+#: ../mate-tweak:1175
 msgid "Marco (No effects xcompmgr compositor)"
 msgstr "Marco (Be efektų xcompmgr tvarkytojas)"
 
-#: ../mate-tweak:1165
+#: ../mate-tweak:1177
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (Compton GPU tvarkytojas)"
 
-#: ../mate-tweak:1167
+#: ../mate-tweak:1179
 msgid "Metacity (No compositor)"
 msgstr "Metacity (Be tvarkytojo)"
 
-#: ../mate-tweak:1169
+#: ../mate-tweak:1181
 msgid "Metacity (Software compositor)"
 msgstr "Metacity (Programinės įrangos tvarkytojas)"
 
-#: ../mate-tweak:1171
+#: ../mate-tweak:1183
 msgid "Metacity (No effects xcompmgr compositor)"
 msgstr "Metacity (Be efektų xcompmgr tvarkytojas)"
 
-#: ../mate-tweak:1173
+#: ../mate-tweak:1185
 msgid "Metacity (Compton GPU compositor)"
 msgstr "Metacity (Compton GPU tvarkytojas)"
 
-#: ../mate-tweak:1175
+#: ../mate-tweak:1187
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (Išplėstiniai GPU paspartinami darbalaukio efektai)"
 
-#: ../mate-tweak:1178
+#: ../mate-tweak:1190
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -72,135 +72,135 @@ msgstr ""
 "Jūs šiuo metu naudojate nežinomą ir nepalaikomą langų tvarkytuvę. Dėl to, "
 "mes negalime garantuoti, kad čia atlikti pakeitimai ką nors įtakos."
 
-#: ../mate-tweak:1198
+#: ../mate-tweak:1210
 msgid "Contemporary"
 msgstr "Šiuolaikinė"
 
-#: ../mate-tweak:1206 ../mate-tweak:1212
+#: ../mate-tweak:1218 ../mate-tweak:1224
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1216
+#: ../mate-tweak:1228
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1220
+#: ../mate-tweak:1232
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1224
+#: ../mate-tweak:1236
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1228
+#: ../mate-tweak:1240
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1232
+#: ../mate-tweak:1244
 msgid "Manjaro"
 msgstr "Manjaro"
 
-#: ../mate-tweak:1239 ../mate-tweak:1244
+#: ../mate-tweak:1251 ../mate-tweak:1256
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1250 ../mate-tweak:1254
+#: ../mate-tweak:1262 ../mate-tweak:1266
 msgid "Netbook"
 msgstr "Tinklinukas"
 
-#: ../mate-tweak:1258
+#: ../mate-tweak:1270
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1264
+#: ../mate-tweak:1276
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: ../mate-tweak:1269 ../mate-tweak:1272
+#: ../mate-tweak:1281 ../mate-tweak:1284
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1276
+#: ../mate-tweak:1288
 msgid "Solus"
 msgstr "Solus"
 
-#: ../mate-tweak:1279
+#: ../mate-tweak:1291
 msgid "Traditional"
 msgstr "Tradicinė"
 
-#: ../mate-tweak:1426
+#: ../mate-tweak:1438
 msgid "Desktop"
 msgstr "Darbalaukis"
 
-#: ../mate-tweak:1427
+#: ../mate-tweak:1439
 msgid "Interface"
 msgstr "Sąsaja"
 
-#: ../mate-tweak:1428
+#: ../mate-tweak:1440
 msgid "Panel"
 msgstr "Skydelis"
 
-#: ../mate-tweak:1429
+#: ../mate-tweak:1441
 msgid "Windows"
 msgstr "Langai"
 
-#: ../mate-tweak:1470
+#: ../mate-tweak:1482
 msgid "MATE Tweak"
 msgstr "MATE papildomi nustatymai"
 
-#: ../mate-tweak:1473
+#: ../mate-tweak:1485
 msgid "Desktop icons"
 msgstr "Darbalaukio piktogramos"
 
-#: ../mate-tweak:1474
+#: ../mate-tweak:1486
 msgid "Performance"
 msgstr "Našumas"
 
-#: ../mate-tweak:1475
+#: ../mate-tweak:1487
 msgid "Window Behaviour"
 msgstr "Langų elgsena"
 
-#: ../mate-tweak:1476
+#: ../mate-tweak:1488
 msgid "Appearance"
 msgstr "Išvaizda"
 
-#: ../mate-tweak:1477
+#: ../mate-tweak:1489
 msgid "Panels"
 msgstr "Skydeliai"
 
-#: ../mate-tweak:1478
+#: ../mate-tweak:1490
 msgid "Panel Features"
 msgstr "Skydelio ypatybės"
 
-#: ../mate-tweak:1479
+#: ../mate-tweak:1491
 msgid "Panel Menu Features"
 msgstr "Skydelio meniu ypatybės"
 
-#: ../mate-tweak:1480
+#: ../mate-tweak:1492
 msgid "Icons"
 msgstr "Piktogramos"
 
-#: ../mate-tweak:1481
+#: ../mate-tweak:1493
 msgid "Context menus"
 msgstr "Kontekstiniai meniu"
 
-#: ../mate-tweak:1482
+#: ../mate-tweak:1494
 msgid "Toolbars"
 msgstr "Įrankių juostos"
 
-#: ../mate-tweak:1483
+#: ../mate-tweak:1495
 msgid "Window manager"
 msgstr "Langų tvarkytuvė"
 
-#: ../mate-tweak:1485
+#: ../mate-tweak:1497
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Pasirinkite darbalaukio elementus, kuriuos norite įjungti:"
 
-#: ../mate-tweak:1486
+#: ../mate-tweak:1498
 msgid "Show Desktop Icons"
 msgstr "Rodyti darbalaukio piktogramas"
 
-#: ../mate-tweak:1487
+#: ../mate-tweak:1499
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
@@ -208,53 +208,53 @@ msgstr ""
 "Išjungus, darbalaukis bus netvarkomas, be piktogramų ar failų tvarkytuvės "
 "prieigos"
 
-#: ../mate-tweak:1488
+#: ../mate-tweak:1500
 msgid "Computer"
 msgstr "Kompiuteris"
 
-#: ../mate-tweak:1489
+#: ../mate-tweak:1501
 msgid "Home"
 msgstr "Namai"
 
-#: ../mate-tweak:1490
+#: ../mate-tweak:1502
 msgid "Network"
 msgstr "Tinklas"
 
-#: ../mate-tweak:1491
+#: ../mate-tweak:1503
 msgid "Trash"
 msgstr "Šiukšlinė"
 
-#: ../mate-tweak:1492
+#: ../mate-tweak:1504
 msgid "Mounted Volumes"
 msgstr "Prijungti tomai"
 
-#: ../mate-tweak:1494
+#: ../mate-tweak:1506
 msgid "Enable animations"
 msgstr "Įjungti animacijas"
 
-#: ../mate-tweak:1495
+#: ../mate-tweak:1507
 msgid "Whether animations should be displayed by the window manager and panel"
 msgstr "Ar langų tvarkytuvė ir skydelis turėtų rodyti animacijas"
 
-#: ../mate-tweak:1496
+#: ../mate-tweak:1508
 msgid "Do not show window content when moving windows"
 msgstr "Perkeliant langus, nerodyti jų turinio"
 
-#: ../mate-tweak:1497
+#: ../mate-tweak:1509
 msgid "Provide less feedback when moving windows by using wireframes"
 msgstr ""
 "Pateikti mažiau grįžtamojo ryšio, kai langų perkėlimui naudojamas kontūrinis "
 "vaizdo rėmelis"
 
-#: ../mate-tweak:1498
+#: ../mate-tweak:1510
 msgid "Window manager performance tuning."
 msgstr "Langų tvarkytuvės našumo derinimas."
 
-#: ../mate-tweak:1500
+#: ../mate-tweak:1512
 msgid "Enable window snapping"
 msgstr "Įjungti langų pritraukimą"
 
-#: ../mate-tweak:1501
+#: ../mate-tweak:1513
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
@@ -262,120 +262,141 @@ msgstr ""
 "Langų vilkimas į ekrano kraštus išskleidžia juos vertikaliai ir keičia jų "
 "dydį horizontaliai taip, kad jie užimtų pusę prieinamo ploto"
 
-#: ../mate-tweak:1502
+#: ../mate-tweak:1514
 msgid "Undecorate maximized windows"
 msgstr "Nuimti dekoravimą nuo išskleistų langų"
 
-#: ../mate-tweak:1503
+#: ../mate-tweak:1515
 msgid "Undecorate windows when maximized"
 msgstr "Panaikinti dekoravimą, išskleidus langus"
 
-#: ../mate-tweak:1504
+#: ../mate-tweak:1516
 msgid "Do not auto-maximize new windows"
 msgstr "Automatiškai neišskleisti naujų langų"
 
-#: ../mate-tweak:1505
+#: ../mate-tweak:1517
 msgid "Do not automatically maximize newly opened windows"
 msgstr "Automatiškai neišskleisti naujai atvertų langų"
 
-#: ../mate-tweak:1507
+#: ../mate-tweak:1518
+msgid "Enable locally integrated menus"
+msgstr ""
+
+#: ../mate-tweak:1519
+msgid ""
+"Display application menus in the application window. When local menus are "
+"disabled, add the Global Menu applet to a panel to see them."
+msgstr ""
+
+#: ../mate-tweak:1522
 msgid "Window control placement."
 msgstr "Lango valdiklių vieta."
 
-#: ../mate-tweak:1509
+#: ../mate-tweak:1524
 msgid "Save the current panel layout as your own custom version"
 msgstr "Įrašyti esamą skydelio išdėstymą kaip asmeninę tinkintą versiją"
 
-#: ../mate-tweak:1510
+#: ../mate-tweak:1525
 msgid "Delete the currently selected panel layout"
 msgstr "Ištrinti šiuo metu pasirinktą skydelio išdėstymą"
 
-#: ../mate-tweak:1511
+#: ../mate-tweak:1526
 msgid "Open CCSM"
 msgstr "Atverti CCSM"
 
-#: ../mate-tweak:1512
+#: ../mate-tweak:1527
 msgid "Open the Compiz configuration and settings manager"
 msgstr "Atverti Compiz konfigūracijos ir nustatymų tvarkytuvę"
 
-#: ../mate-tweak:1513
+#: ../mate-tweak:1528
 msgid "Reset Compiz"
 msgstr "Atstatyti Compiz"
 
-#: ../mate-tweak:1514
+#: ../mate-tweak:1529
 msgid "Reset the current Compiz configuration to factory defaults"
 msgstr "Atstatyti esamą Compiz konfigūraciją į pradines numatytąsias reikšmes"
 
-#: ../mate-tweak:1516
+#: ../mate-tweak:1531
 msgid "Enable keyboard LED"
 msgstr "Įjungti klaviatūros šviesos diodus"
 
-#: ../mate-tweak:1517
+#: ../mate-tweak:1532
 msgid "Show keyboard LED indicators in the notifcation tray"
 msgstr "Rodyti pranešimų dėkle klaviatūros šviesos diodų indikatorius"
 
-#: ../mate-tweak:1518
+#: ../mate-tweak:1533
 msgid "Enable pull-down terminal"
 msgstr "Įjungti išskleidžiamąjį terminalą"
 
-#: ../mate-tweak:1519
+#: ../mate-tweak:1534
 msgid "When enabled press F12 to pull down terminal"
 msgstr ""
 "Kai įjungta, paspauskite F12, norėdami atverti išskleidžiamąjį terminalą"
 
-#: ../mate-tweak:1520
+#: ../mate-tweak:1535
 msgid "Enable Dock"
-msgstr ""
+msgstr "Įjungti doką"
 
-#: ../mate-tweak:1521
+#: ../mate-tweak:1536
 msgid "When checked the Dock will be enabled."
+msgstr "Kai pažymėta, bus įjungtas dokas."
+
+#: ../mate-tweak:1537
+#, fuzzy
+msgid "Enable HUD"
+msgstr "Įjungti doką"
+
+#: ../mate-tweak:1538
+msgid ""
+"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
+"search application menus."
 msgstr ""
 
-#: ../mate-tweak:1523
+#: ../mate-tweak:1540
 msgid "Show Applications"
 msgstr "Rodyti programas"
 
-#: ../mate-tweak:1524
+#: ../mate-tweak:1541
 msgid "Show Applications item in the menu bar"
 msgstr "Rodyti meniu juostoje elementą \"Programos\""
 
-#: ../mate-tweak:1525
+#: ../mate-tweak:1542
 msgid "Show Places"
 msgstr "Rodyti vietas"
 
-#: ../mate-tweak:1526
+#: ../mate-tweak:1543
 msgid "Show Places item in the menu bar"
 msgstr "Rodyti meniu juostoje elementą \"Vietos\""
 
-#: ../mate-tweak:1527
+#: ../mate-tweak:1544
 msgid "Show System"
 msgstr "Rodyti sistemą"
 
-#: ../mate-tweak:1528
+#: ../mate-tweak:1545
 msgid "Show System item in the menu bar"
 msgstr "Rodyti meniu juostoje elementą \"Sistema\""
 
-#: ../mate-tweak:1530
+#: ../mate-tweak:1547
 msgid "Show icons on menus"
 msgstr "Rodyti piktogramas ant meniu punktų"
 
-#: ../mate-tweak:1531
+#: ../mate-tweak:1548
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Ar meniu gali rodyti piktogramas šalia meniu įrašų"
 
-#: ../mate-tweak:1532
+#: ../mate-tweak:1549
 msgid "Show icons on buttons"
 msgstr "Rodyti piktogramas ant mygtukų"
 
-#: ../mate-tweak:1533
+#: ../mate-tweak:1550
 msgid "Whether buttons may display an icon in addition to the button text"
 msgstr "Ar mygtukuose rodyti piktogramas šalia mygtuko užrašo"
 
-#: ../mate-tweak:1534
+#: ../mate-tweak:1551
 msgid "Show Input Methods menu in context menus"
 msgstr "Kontekstiniuose meniu rodyti įvesties būdus"
 
-#: ../mate-tweak:1535
+#: ../mate-tweak:1552
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
@@ -383,11 +404,11 @@ msgstr ""
 "Ar įrašų kontekstiniuose meniu ir teksto rodiniuose turėtų būti siūloma "
 "pakeisti įvesties metodą"
 
-#: ../mate-tweak:1536
+#: ../mate-tweak:1553
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Kontekstiniuose meniu rodyti Unikodo valdymo simbolio pasirinkimą"
 
-#: ../mate-tweak:1537
+#: ../mate-tweak:1554
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
@@ -395,90 +416,90 @@ msgstr ""
 "Ar įrašų kontekstiniuose meniu ir teksto rodiniuose turėtų būti siūlomas "
 "valdymo simbolių įterpimas"
 
-#: ../mate-tweak:1539
+#: ../mate-tweak:1556
 msgid "Style:"
 msgstr "Stilius:"
 
-#: ../mate-tweak:1540
+#: ../mate-tweak:1557
 msgid "Icon size:"
 msgstr "Piktogramų dydis:"
 
-#: ../mate-tweak:1559
+#: ../mate-tweak:1576
 msgid "Small"
 msgstr "Mažas"
 
-#: ../mate-tweak:1560
+#: ../mate-tweak:1577
 msgid "Large"
 msgstr "Didelis"
 
-#: ../mate-tweak:1569
+#: ../mate-tweak:1586
 msgid "The new window manager will be activated upon selection."
 msgstr "Nauja langų tvarkytuvė bus aktyvuota, pasirinkus."
 
-#: ../mate-tweak:1570
+#: ../mate-tweak:1587
 msgid "Select a window manager."
 msgstr "Pasirinkite langų tvarkytuvę."
 
-#: ../mate-tweak:1576
+#: ../mate-tweak:1593
 msgid "Select a panel layout to change the user interface."
 msgstr "Norėdami pakeisti naudotojo sąsają, pasirinkite skydelio išdėstymą."
 
-#: ../mate-tweak:1577
+#: ../mate-tweak:1594
 msgid "Select a panel layout."
 msgstr "Pasirinkite skydelio išdėstymą."
 
-#: ../mate-tweak:1582
+#: ../mate-tweak:1599
 msgid "Default"
 msgstr "Numatytasis"
 
-#: ../mate-tweak:1583
+#: ../mate-tweak:1600
 msgid "16px"
 msgstr "16tšk"
 
-#: ../mate-tweak:1584
+#: ../mate-tweak:1601
 msgid "22px"
 msgstr "22tšk"
 
-#: ../mate-tweak:1585
+#: ../mate-tweak:1602
 msgid "24px"
 msgstr "24tšk"
 
-#: ../mate-tweak:1586
+#: ../mate-tweak:1603
 msgid "32px"
 msgstr "32tšk"
 
-#: ../mate-tweak:1587
+#: ../mate-tweak:1604
 msgid "48px"
 msgstr "48tšk"
 
-#: ../mate-tweak:1591
+#: ../mate-tweak:1608
 msgid "Set the panel icon size."
 msgstr "Nustatyti skydelio piktogramų dydį."
 
-#: ../mate-tweak:1592
+#: ../mate-tweak:1609
 msgid "Select the icon size for panel icons."
 msgstr "Pasirinkite piktogramų dydį skydelio piktogramoms."
 
-#: ../mate-tweak:1596
+#: ../mate-tweak:1613
 msgid "Set the icon size of menu items used in the panel."
 msgstr "Nustatyti skydelyje naudojamų meniu elementų piktogramų dydį."
 
-#: ../mate-tweak:1597
+#: ../mate-tweak:1614
 msgid "Select the icon size for menu items in the panel."
 msgstr "Pasirinkite skydelyje esančių meniu elementų piktogramų dydį."
 
-#: ../mate-tweak:1620
+#: ../mate-tweak:1643
 msgid "Text below items"
 msgstr "Tekstas po elementais"
 
-#: ../mate-tweak:1621
+#: ../mate-tweak:1644
 msgid "Text beside items"
 msgstr "Tekstas šalia elementų"
 
-#: ../mate-tweak:1622
+#: ../mate-tweak:1645
 msgid "Icons only"
 msgstr "Tik piktogramos"
 
-#: ../mate-tweak:1623
+#: ../mate-tweak:1646
 msgid "Text only"
 msgstr "Tik tekstas"
