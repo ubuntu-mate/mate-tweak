@@ -81,7 +81,7 @@
                             <property name="margin_left">12</property>
                             <property name="border_width">6</property>
                             <property name="orientation">vertical</property>
-                            <property name="spacing">6</property>
+                            <property name="spacing">2</property>
                             <child>
                               <object class="GtkCheckButton" id="checkbox_show_icons">
                                 <property name="label" translatable="yes">Show Desktop Icons</property>
@@ -223,7 +223,6 @@
                     <property name="opacity">0.94999999999999996</property>
                     <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
-                    <property name="spacing">6</property>
                     <child>
                       <object class="GtkFrame" id="frame_icons">
                         <property name="visible">True</property>
@@ -237,7 +236,6 @@
                             <property name="margin_left">12</property>
                             <property name="border_width">6</property>
                             <property name="orientation">vertical</property>
-                            <property name="spacing">6</property>
                             <child>
                               <object class="GtkCheckButton" id="checkbutton_menuicon">
                                 <property name="label" translatable="yes">Show icons on menus</property>
@@ -298,7 +296,6 @@
                             <property name="margin_left">12</property>
                             <property name="border_width">6</property>
                             <property name="orientation">vertical</property>
-                            <property name="spacing">6</property>
                             <child>
                               <object class="GtkCheckButton" id="checkbutton_im_menu">
                                 <property name="label" translatable="yes">"Input Methods" menu</property>
@@ -475,7 +472,6 @@
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
-                    <property name="spacing">6</property>
                     <child>
                       <object class="GtkFrame" id="frame_performance">
                         <property name="visible">True</property>
@@ -575,8 +571,7 @@
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">True</property>
-                                <property name="padding">5</property>
-                                <property name="position">0</property>
+                                <property name="position">1</property>
                               </packing>
                             </child>
                             <child>
@@ -591,7 +586,7 @@
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">True</property>
-                                <property name="position">1</property>
+                                <property name="position">2</property>
                               </packing>
                             </child>
                             <child>
@@ -607,8 +602,7 @@
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">True</property>
-                                <property name="padding">5</property>
-                                <property name="position">2</property>
+                                <property name="position">3</property>
                               </packing>
                             </child>
                           </object>
@@ -642,6 +636,21 @@
                             <property name="border_width">6</property>
                             <property name="orientation">vertical</property>
                             <child>
+                              <object class="GtkCheckButton" id="checkbox_localmenu">
+                                <property name="label" translatable="yes">Enable locally integrated menus</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="halign">start</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
                               <object class="GtkLabel" id="label_window_control">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
@@ -652,7 +661,7 @@
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">False</property>
-                                <property name="position">0</property>
+                                <property name="position">1</property>
                               </packing>
                             </child>
                             <child>
@@ -839,7 +848,6 @@
                     <property name="opacity">0.94901960784313721</property>
                     <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
-                    <property name="spacing">6</property>
                     <child>
                       <object class="GtkFrame" id="frame_panels">
                         <property name="visible">True</property>
@@ -962,7 +970,6 @@
                             <property name="can_focus">False</property>
                             <property name="border_width">6</property>
                             <property name="orientation">vertical</property>
-                            <property name="spacing">6</property>
                             <child>
                               <object class="GtkCheckButton" id="checkbutton_show_applications">
                                 <property name="label" translatable="yes">Show Applications</property>
@@ -1077,10 +1084,9 @@
                             <property name="can_focus">False</property>
                             <property name="border_width">6</property>
                             <property name="orientation">vertical</property>
-                            <property name="spacing">6</property>
                             <child>
-                              <object class="GtkCheckButton" id="checkbutton_pulldown_terminal">
-                                <property name="label" translatable="yes">Enable pull-down terminal</property>
+                              <object class="GtkCheckButton" id="checkbutton_dock">
+                                <property name="label" translatable="yes">Enable Dock</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
@@ -1094,8 +1100,8 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkCheckButton" id="checkbutton_dock">
-                                <property name="label" translatable="yes">Enable Dock</property>
+                              <object class="GtkCheckButton" id="checkbutton_hud">
+                                <property name="label" translatable="yes">Enable HUD</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
@@ -1109,8 +1115,8 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkCheckButton" id="checkbutton_keyboard_led">
-                                <property name="label" translatable="yes">Enable keyboard LED</property>
+                              <object class="GtkCheckButton" id="checkbutton_pulldown_terminal">
+                                <property name="label" translatable="yes">Enable pull-down terminal</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
@@ -1124,8 +1130,8 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkCheckButton" id="checkbutton_hud">
-                                <property name="label" translatable="yes">Enable HUD</property>
+                              <object class="GtkCheckButton" id="checkbutton_keyboard_led">
+                                <property name="label" translatable="yes">Enable keyboard LED</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
