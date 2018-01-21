@@ -56,7 +56,6 @@ data_files = [
     ('{prefix}/share/man/man1'.format(prefix=sys.prefix), glob('data/*.1')),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/mate-tweak.desktop',]),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-compton.desktop',]),
-    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-xcompmgr.desktop',]),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-no-composite.desktop',]),
     ('{prefix}/share/polkit-1/actions'.format(prefix=sys.prefix), ['data/org.mate.mate-tweak.policy',]),
     ('{prefix}/lib/mate-tweak'.format(prefix=sys.prefix), ['data/mate-tweak.ui', 'util/mate-tweak-helper']),
