@@ -1090,9 +1090,6 @@ class MateTweak:
         if self.find_on_path('plank') and \
             os.path.exists(os.path.join('/','usr','share','applications', 'plank.desktop')):
             self.dock = 'plank'
-        elif self.find_on_path('docky') and \
-            os.path.exists(os.path.join('/','usr','share','applications', 'docky.desktop')):
-            self.dock = 'docky'
         else:
             self.dock = None
 
