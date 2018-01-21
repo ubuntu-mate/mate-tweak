@@ -57,10 +57,7 @@ data_files = [
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/mate-tweak.desktop',]),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-compton.desktop',]),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-xcompmgr.desktop',]),
-    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/metacity-compton.desktop',]),
-    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/metacity-xcompmgr.desktop',]),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-no-composite.desktop',]),
-    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/metacity-no-composite.desktop',]),
     ('{prefix}/share/polkit-1/actions'.format(prefix=sys.prefix), ['data/org.mate.mate-tweak.policy',]),
     ('{prefix}/lib/mate-tweak'.format(prefix=sys.prefix), ['data/mate-tweak.ui', 'util/mate-tweak-helper']),
 ]
@@ -82,6 +79,6 @@ setup(
     package_dir = {'': '.'},
     data_files = data_files,
     install_requires = [ 'setuptools', ],
-    scripts = ['mate-tweak', 'marco-compton', 'marco-xcompmgr', 'marco-no-composite', 'metacity-compton', 'metacity-xcompmgr', 'metacity-no-composite'],
+    scripts = ['mate-tweak', 'marco-compton', 'marco-xcompmgr', 'marco-no-composite'],
     cmdclass = cmdclass,
 )

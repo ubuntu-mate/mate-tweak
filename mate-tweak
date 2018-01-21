@@ -164,10 +164,6 @@ class MateTweak:
                 marco_reduced = self.get_bool('org.mate.Marco.general', None, key)
                 self.set_bool('org.mate.Marco.general', None, 'side-by-side-tiling', marco_reduced)
                 self.builder.get_object('checkbox_snapping').props.sensitive = marco_reduced
-            elif ('metacity' in self.current_wm):
-                metacity_reduced = self.get_bool('org.gnome.metacity', None, key)
-                self.set_bool('org.gnome.metacity', None, 'edge-tiling', metacity_reduced)
-                self.builder.get_object('checkbox_snapping').props.sensitive = metacity_reduced
 
         # If desktop icons are shown or hidden, enable or not further modifications
         elif schema_id == "org.mate.background":
@@ -362,20 +358,9 @@ class MateTweak:
         screen = Gdk.Screen.get_default()
         current_wm = GdkX11.X11Screen.get_window_manager_name(screen)
 
-        # Order is important because Marco actually advertises itself
-        # as 'Marco (Metacity)'.
         if ('Marco' in current_wm):
             self.current_wm = 'marco'
             composite_enabled = self.get_bool('org.mate.Marco.general', None, 'compositing-manager')
-            if self.process_running('compton'):
-                self.current_wm += '-compton'
-            elif self.process_running('xcompmgr'):
-                self.current_wm += '-xcompmgr'
-            elif not composite_enabled:
-                self.current_wm += '-no-composite'
-        elif ('Metacity' in current_wm):
-            self.current_wm = current_wm.lower()
-            composite_enabled = self.get_bool('org.gnome.metacity', None, 'compositing-manager')
             if self.process_running('compton'):
                 self.current_wm += '-compton'
             elif self.process_running('xcompmgr'):
@@ -395,10 +380,6 @@ class MateTweak:
         self.marco_compton_capable = False
         self.marco_xcompmgr_capable = False
         self.marco_no_composite_capable = False
-        self.metacity_capable = False
-        self.metacity_compton_capable = False
-        self.metacity_xcompmgr_capable = False
-        self.metacity_no_composite_capable = False
 
         if self.find_on_path('compiz'):
             if not self.software_rasterizer and self.texture_from_pixmap:
@@ -421,26 +402,10 @@ class MateTweak:
         if self.find_on_path('marco'):
             self.marco_capable = True
 
-        if self.find_on_path('metacity-compton') and self.find_on_path('metacity') and self.find_on_path('compton'):
-            if not self.software_rasterizer and self.texture_from_pixmap:
-                self.metacity_compton_capable = True
-
-        if self.find_on_path('metacity-xcompmgr') and self.find_on_path('metacity') and self.find_on_path('xcompmgr'):
-            if not self.software_rasterizer and self.texture_from_pixmap:
-                self.metacity_xcompmgr_capable = True
-
-        if self.find_on_path('metacity-no-composite') and self.find_on_path('metacity'):
-            self.metacity_no_composite_capable = True
-
-        if self.find_on_path('metacity'):
-            self.metacity_capable = True
-
     def get_num_workspaces(self):
         # Get the number of virtual workspaces from the current window manager
         if 'marco' in self.current_wm:
             num_workspaces = self.get_int('org.mate.Marco.general', None, 'num-workspaces')
-        elif 'metacity' in self.current_wm:
-            num_workspaces = self.get_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces')
         elif 'compiz' in self.current_wm:
             try:
                 hsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize'))
@@ -464,7 +429,7 @@ class MateTweak:
         if new_wm == 'Unknown':
             return
 
-        if new_wm == 'marco' or new_wm == 'metacity':
+        if new_wm == 'marco':
             wm_params = '--composite'
         elif new_wm == 'compiz':
             wm_params = 'ccp'
@@ -477,8 +442,6 @@ class MateTweak:
             # Set the number of virtual workspaces for the new window manager
             if 'marco' in new_wm:
                 self.set_int('org.mate.Marco.general', None, 'num-workspaces', num_workspaces)
-            elif 'metacity' in new_wm:
-                self.set_int('org.gnome.desktop.wm.preferences', None, 'num-workspaces', num_workspaces)
             elif 'compiz' in new_wm:
                 # FIXME, this is a very crude guess
                 if self.current_layout.startswith('mutiny'):
@@ -489,9 +452,9 @@ class MateTweak:
                     self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
             print('Set ' + str(num_workspaces) + ' workspaces for ' + new_wm)
 
-        # Make sure Compiz and Metacity use the same theme as Marco to
+        # Make sure Compiz use the same theme as Marco to
         # prevent theme/xcursor changes when switching themes.
-        if (new_wm == 'compiz') or ('metacity' in new_wm):
+        if (new_wm == 'compiz'):
             mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
             mate_cursor_theme = self.get_string('org.mate.peripherals-mouse', None, 'cursor-theme')
             mate_cursor_size = self.get_int('org.mate.peripherals-mouse', None, 'cursor-size')
@@ -502,13 +465,6 @@ class MateTweak:
                 self.set_string('org.gnome.desktop.wm.preferences', None, 'theme', mate_theme)
                 self.set_string('org.gnome.desktop.interface', None, 'cursor-theme', mate_cursor_theme)
                 self.set_int('org.gnome.desktop.interface', None, 'cursor-size', mate_cursor_size)
-
-            # metacity >= 3.20 - this schema may not be installed
-            metacity_schema = schemasource.lookup('org.gnome.metacity.theme', False)
-            if metacity_schema:
-                self.set_string('org.gnome.metacity.theme', None, 'name', mate_theme)
-                # FIXME! Don't assume 'metacity' is 1
-                self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
 
         # If switching away from a compton or xcompmgr composited window
         # manager kill compton.
@@ -581,8 +537,6 @@ class MateTweak:
         schema = None
         if self.current_wm == 'marco':
             schema = 'org.mate.Marco.general'
-        elif self.current_wm == 'metacity':
-            schema = 'org.gnome.metacity'
         elif 'compiz' in self.current_wm:
             # https://bugs.launchpad.net/ubuntu-mate/+bug/1437611
             self.set_bool('org.compiz.thumbnail', '/org/compiz/profiles/mate/plugins/thumbnail/', 'current-viewport', False)
@@ -982,29 +936,18 @@ class MateTweak:
 
     def update_windowmanager_widgets(self):
         # Update the widget based on the current window manager.
-        if ('marco' in self.current_wm) or ('metacity' in self.current_wm):
+        if ('marco' in self.current_wm):
             self.builder.get_object('frame_performance').props.sensitive = True
 
-            if 'marco' in self.current_wm:
-                self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-                self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
-                self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
+            self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
+            self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
+            self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
 
-                # Make the Window Snapping checkbox inactive based if reduced resources is enabled
-                #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011
-                marco_reduced = self.get_bool('org.mate.Marco.general', None, 'reduced-resources')
-                if marco_reduced:
-                    self.builder.get_object('checkbox_snapping').props.sensitive = False
-            elif 'metacity' in self.current_wm:
-                self.init_checkbox('org.gnome.metacity', 'reduced-resources', 'checkbox_resources')
-                self.init_checkbox('org.gnome.metacity', 'edge-tiling', 'checkbox_snapping')
-                self.init_checkbox('org.gnome.desktop.interface', 'enable-animations', 'checkbox_animations')
-
-                # Make the Window Snapping checkbox inactive based if reduced resources is enabled
-                #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011
-                metacity_reduced = self.get_bool('org.gnome.metacity', None, 'reduced-resources')
-                if metacity_reduced:
-                    self.builder.get_object('checkbox_snapping').props.sensitive = False
+            # Make the Window Snapping checkbox inactive based if reduced resources is enabled
+            #  - https://bugs.launchpad.net/ubuntu-mate/+bug/1548011
+            marco_reduced = self.get_bool('org.mate.Marco.general', None, 'reduced-resources')
+            if marco_reduced:
+                self.builder.get_object('checkbox_snapping').props.sensitive = False
         else:
             self.builder.get_object('frame_performance').props.sensitive = False
 
@@ -1193,14 +1136,6 @@ class MateTweak:
             wms.append([_("Marco (No effects xcompmgr compositor)"), 'marco-xcompmgr'])
         if self.marco_compton_capable and not self.software_rasterizer:
             wms.append([_("Marco (Compton GPU compositor)"), 'marco-compton'])
-        if self.metacity_no_composite_capable:
-            wms.append([_("Metacity (No compositor)"), 'metacity-no-composite'])
-        if self.metacity_capable:
-            wms.append([_("Metacity (Software compositor)"), 'metacity'])
-        if self.metacity_xcompmgr_capable and not self.software_rasterizer:
-            wms.append([_("Metacity (No effects xcompmgr compositor)"), 'metacity-xcompmgr'])
-        if self.metacity_compton_capable and not self.software_rasterizer:
-            wms.append([_("Metacity (Compton GPU compositor)"), 'metacity-compton'])
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
@@ -1470,8 +1405,8 @@ class MateTweak:
         self.builder.get_object("main_notebook").set_current_page(target)
 
         # Do not show Performance or Window behaviour configuration
-        # options when Marco or Metacity are not currently running.
-        if 'marco' in self.current_wm or 'metacity' in self.current_wm:
+        # options when Marco is not currently running.
+        if 'marco' in self.current_wm:
             self.builder.get_object('frame_performance').props.sensitive = True
             self.builder.get_object('checkbox_snapping').props.sensitive = True
         else:
