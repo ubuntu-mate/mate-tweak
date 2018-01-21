@@ -173,6 +173,11 @@ class MateTweak:
         elif schema_id == "org.mate.background":
             self.toggle_desktop_icons_sensitiveness()
 
+    def schema_has_key(self, schema, key):
+        settings=Gio.Settings.new(schema)
+        schema = settings.get_property('settings-schema')
+        return schema.has_key(key)
+
     def set_string(self, schema, path, key, value):
         if path:
             settings = Gio.Settings.new_with_path(schema, path)
@@ -232,7 +237,6 @@ class MateTweak:
         else:
             settings = Gio.Settings.new(schema)
         settings.set_boolean(key, value)
-
 
     def reset_dconf_path(self, path):
         subprocess.call(['dconf', 'reset', '-f', path], stdout=DEVNULL, stderr=DEVNULL)
@@ -1644,10 +1648,11 @@ class MateTweak:
             self.builder.get_object('checkbutton_dock').props.sensitive = False
 
         # HUD
-        self.builder.get_object("checkbutton_hud").connect("toggled", self.toggle_hud)
-        self.builder.get_object("checkbutton_hud").set_active(self.hud_enabled)
-        if not self.hud_available:
-          self.builder.get_object('checkbutton_hud').props.sensitive = False
+        if self.hud_available and self.schema_has_key('org.mate.hud', 'enabled'):
+            self.builder.get_object("checkbutton_hud").connect("toggled", self.toggle_hud)
+            self.builder.get_object("checkbutton_hud").set_active(self.hud_enabled)
+        else:
+            self.builder.get_object('checkbutton_hud').props.sensitive = False
 
         # Panel Menu features
         self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
