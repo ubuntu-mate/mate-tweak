@@ -1538,7 +1538,10 @@ class MateTweak:
         self.builder.get_object("checkbox_always_maximize").set_tooltip_text(_("Do not automatically maximize newly opened windows"))
         self.builder.get_object("checkbox_localmenu").set_label(_("Enable locally integrated menus"))
         self.builder.get_object("checkbox_localmenu").set_tooltip_text(_("Display application menus in the application window. When local menus are disabled, add the Global Menu applet to a panel to see them."))
-        self.init_checkbox('org.mate.interface', 'gtk-shell-shows-menubar', 'checkbox_localmenu')
+        if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar'):
+            self.init_checkbox('org.mate.interface', 'gtk-shell-shows-menubar', 'checkbox_localmenu')
+        else:
+            self.builder.get_object('checkbox_localmenu').props.sensitive = False
 
         self.builder.get_object("label_window_control").set_markup("<small>" + _("Window control placement.") + "</small>")
 
