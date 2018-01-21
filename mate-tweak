@@ -788,7 +788,7 @@ class MateTweak:
              not show_applications:
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', True)
 
-        # Change Brisk Menu label-visible state when changing to/from Cupertino.
+        # Change Brisk Menu label-visible state when changing to/from Cupertino and Mutiny.
         if self.brisk_menu_available:
             label_visible = self.get_bool('com.solus-project.brisk-menu', None, 'label-visible')
             if (new_layout.startswith('eleven') or new_layout.startswith('mutiny')):
@@ -798,7 +798,7 @@ class MateTweak:
                 self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
         # Change Brisk Menu window-type when changing to/from Mutiny.
-        if self.brisk_menu_available:
+        if self.brisk_menu_available and self.schema_has_key('com.solus-project.brisk-menu', 'window-type'):
             #label_visible = self.get_bool('com.solus-project.brisk-menu', None, 'label-visible')
             if new_layout.startswith('mutiny'):
                 # If we're switching to Mutiny, and Brisk Menu change the window-type to dash.
