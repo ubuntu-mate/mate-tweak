@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
-# Copyright (C) 2015-2017 Martin Wimpress <code@ubuntu-mate.org>
+# Copyright (C) 2015-2018 Martin Wimpress <code@ubuntu-mate.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -425,7 +425,7 @@ class MateTweak:
         if new_wm == 'marco':
             wm_params = '--composite'
         elif new_wm == 'compiz':
-            wm_params = 'ccp'
+            wm_params = '--keep-desktop-hints'
         else:
             wm_params = ''
 
@@ -459,6 +459,13 @@ class MateTweak:
                 self.set_string('org.gnome.desktop.interface', None, 'cursor-theme', mate_cursor_theme)
                 self.set_int('org.gnome.desktop.interface', None, 'cursor-size', mate_cursor_size)
 
+            # metacity >= 3.20 - this schema may not be installed
+            metacity_schema = schemasource.lookup('org.gnome.metacity.theme', False)
+            if metacity_schema:
+                self.set_string('org.gnome.metacity.theme', None, 'name', mate_theme)
+                # FIXME! Don't assume 'metacity' is 1
+                self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
+
         # If switching away from a compton composited window manager
         # kill compton.
         if 'compiz' in self.current_wm:
@@ -469,7 +476,8 @@ class MateTweak:
         if ('compton' in new_wm) or ('no-composite' in new_wm):
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
-            subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL)
+            wm_pid = subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL).pid
+            print(new_wm + ' is PID: ' + str(wm_pid))
 
         # Update current_wm to the new one.
         self.previous_wm = self.current_wm
@@ -485,7 +493,7 @@ class MateTweak:
         self.remove_autostart('mate-hud.desktop')
         if (self.hud_available and not self.process_running('mate-hud')):
             self.set_bool('org.mate.hud', None, 'enabled', True)
-            subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL)
+            pid = subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL).pid
             self.hud_enabled = True
 
     def disable_hud(self):
@@ -536,11 +544,11 @@ class MateTweak:
             compositor_enabled = self.get_bool(schema, None, 'compositing-manager')
             if not compositor_enabled:
                 self.set_bool(schema, None, 'compositing-manager', True)
-                subprocess.Popen([self.current_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+                pid = subprocess.Popen([self.current_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL).pid
 
         # Launch the dock, if it is not already enabled.
         if not self.dock_enabled:
-            subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL)
+            pid = subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL).pid
             self.dock_enabled = True
 
     def disable_dock(self):
@@ -560,7 +568,7 @@ class MateTweak:
 
             # Launch tilda, if it is not already enabled.
             if not self.pulldown_terminal_enabled:
-                subprocess.Popen([self.pulldown_terminal], stdout=DEVNULL, stderr=DEVNULL)
+                pid = subprocess.Popen([self.pulldown_terminal], stdout=DEVNULL, stderr=DEVNULL).pid
                 self.pulldown_terminal_enabled = True
 
     def disable_pulldown_terminal(self):
@@ -592,7 +600,7 @@ class MateTweak:
         When indicators are disabled some MATE applets need enabling
         or showing.
         """
-        subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL)
+        pid = subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
         self.remove_autostart('mate-volume-control-applet.desktop')
         self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
@@ -617,27 +625,27 @@ class MateTweak:
 
     def enable_indicators(self):
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'):
-            subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'], stdout=DEVNULL, stderr=DEVNULL)
+            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_application_autostart = __INDICATOR_APPLICATION__.replace('MULTIARCH', self.multiarch)
             self.create_autostart('indicator-application.desktop', indicator_application_autostart)
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'):
-            subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'], stdout=DEVNULL, stderr=DEVNULL)
+            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_sound_autostart = __INDICATOR_SOUND__.replace('MULTIARCH', self.multiarch)
             self.create_autostart('indicator-sound.desktop', indicator_sound_autostart)
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'):
-            subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'], stdout=DEVNULL, stderr=DEVNULL)
+            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_messages_autostart = __INDICATOR_MESSAGES__.replace('MULTIARCH', self.multiarch)
             self.create_autostart('indicator-messages.desktop', indicator_messages_autostart)
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
-            subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'], stdout=DEVNULL, stderr=DEVNULL)
+            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_power_autostart = __INDICATOR_POWER__.replace('MULTIARCH', self.multiarch)
             self.create_autostart('indicator-power.desktop', indicator_power_autostart)
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service'):
-            subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service'], stdout=DEVNULL, stderr=DEVNULL)
+            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_session_autostart = __INDICATOR_SESSION__.replace('MULTIARCH', self.multiarch)
             self.create_autostart('indicator-session.desktop', indicator_session_autostart)
 
@@ -686,7 +694,7 @@ class MateTweak:
             self.builder.get_object('button_delete_panel').props.sensitive = False
 
     def reload_panel(self):
-        subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL)
+        pid = subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL).pid
 
     def confirm_dialog(self, title, text):
         dialog = Gtk.Dialog(title, None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
@@ -723,7 +731,7 @@ class MateTweak:
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
-        if new_layout.startswith('pantheon') and self.panel_layout_uses('BriskMenu', new_layout):
+        if (new_layout.startswith('pantheon') or new_layout.startswith('ubuntu-mate')) and self.panel_layout_uses('BriskMenu', new_layout):
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', False)
         # If we're switching to a layout use the menu-bar, but not Brisk
         # and Applications is disabled in the menu-bar, it probably make
@@ -1345,7 +1353,7 @@ class MateTweak:
 
     def launch_ccsm(self, widget):
         # Launch Compiz Config Settings Manager
-        subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL)
+        pid = subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL).pid
 
     def close_tweak(self, widget):
         Gtk.main_quit()
