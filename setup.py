@@ -78,6 +78,6 @@ setup(
     package_dir = {'': '.'},
     data_files = data_files,
     install_requires = [ 'setuptools', ],
-    scripts = ['mate-tweak', 'marco-compton', 'marco-xcompmgr', 'marco-no-composite'],
+    scripts = ['mate-tweak', 'marco-compton', 'marco-no-composite'],
     cmdclass = cmdclass,
 )
