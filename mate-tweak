@@ -338,11 +338,13 @@ class MateTweak:
                 raise
 
     def create_autostart(self, filename, content):
-        config_dir = GLib.get_user_config_dir()
-        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
-        if not os.path.exists(os.path.join(config_dir, 'autostart',filename)):
-            with open(os.path.join(config_dir, 'autostart', filename),'w') as autostart:
-                autostart.write(content)
+        # Create a local autostart only if it is missing from the system path.
+        if not os.path.exists(os.path.join('usr','share','mate','autostart',filename)):
+            config_dir = GLib.get_user_config_dir()
+            self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+            if not os.path.exists(os.path.join(config_dir, 'autostart',filename)):
+                with open(os.path.join(config_dir, 'autostart', filename),'w') as autostart:
+                    autostart.write(content)
 
     def remove_autostart(self, filename):
         config_dir = GLib.get_user_config_dir()
