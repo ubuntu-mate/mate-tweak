@@ -493,15 +493,17 @@ class MateTweak:
     def enable_hud(self):
         # Remove old-style autostart .desktop file for mate-hud
         self.remove_autostart('mate-hud.desktop')
-        if (self.hud_available and not self.process_running('mate-hud')):
-            self.set_bool('org.mate.hud', None, 'enabled', True)
+        if self.hud_available and not self.process_running('mate-hud'):
+            if self.schema_has_key('org.mate.hud', 'enabled'):
+                self.set_bool('org.mate.hud', None, 'enabled', True)
             pid = subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL).pid
             self.hud_enabled = True
 
     def disable_hud(self):
         # Remove old-style autostart .desktop file for mate-hud
         self.remove_autostart('mate-hud.desktop')
-        self.set_bool('org.mate.hud', None, 'enabled', False)
+        if self.schema_has_key('org.mate.hud', 'enabled'):
+            self.set_bool('org.mate.hud', None, 'enabled', False)
         self.kill_process('mate-hud')
         self.hud_enabled = False
 
@@ -1058,7 +1060,10 @@ class MateTweak:
     def check_hud_features(self):
         if os.path.exists('/usr/lib/mate-hud/mate-hud'):
             self.hud_available = True
-            self.hud_enabled = self.get_bool('org.mate.hud', None, 'enabled')
+            if self.schema_has_key('org.mate.hud', 'enabled'):
+                self.hud_enabled = self.get_bool('org.mate.hud', None, 'enabled')
+            else:
+                self.hud_enabled = False
         else:
             self.hud_available = False
             self.hud_enabled = False
