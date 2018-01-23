@@ -796,8 +796,7 @@ class MateTweak:
         # controls to the left and enable Global Menu.
         if new_layout.startswith('eleven') or \
            new_layout.startswith('mutiny') or \
-           new_layout.startswith('contemporary') and \
-           not self.is_hidpi_enabled():
+           new_layout.startswith('contemporary'):
             self.set_string("org.mate.Marco.general", None, "button-layout", __CONTEMPORARY_BUTTONS__)
             self.set_string("org.mate.interface", None, "gtk-decoration-layout", __CONTEMPORARY_BUTTONS__)
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __CONTEMPORARY_BUTTONS__)
@@ -986,11 +985,9 @@ class MateTweak:
                self.builder.get_object('button_ccsm').show()
            else:
                self.builder.get_object('button_ccsm').hide()
-           self.builder.get_object('checkbox_hidpi_scaling').show()
         else:
            self.builder.get_object('button_compiz_reset').hide()
            self.builder.get_object('button_ccsm').hide()
-           self.builder.get_object('checkbox_hidpi_scaling').hide()
 
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
@@ -1399,15 +1396,8 @@ class MateTweak:
     def update_hidpi(self):
         if self.is_hidpi_enabled():
             self.builder.get_object("checkbox_hidpi_scaling").set_active(True)
-            # There's currently a bug that crashes gtk-window-decorator when HiDPI scaling is
-            # enabled and the window controls are on the left on Compiz.
-            # @see https://bugs.launchpad.net/ubuntu/+source/compiz/+bug/1705060
-            if self.current_wm == "compiz":
-                self.builder.get_object("combobox_window_control").set_active(0)
-                self.builder.get_object("combobox_window_control").set_sensitive(False)
         else:
             self.builder.get_object("checkbox_hidpi_scaling").set_active(False)
-            self.builder.get_object("combobox_window_control").set_sensitive(True)
 
     def enable_hidpi(self):
         envvars = 'export GDK_SCALE=2\nexport GDK_DPI_SCALE=0.5\nexport QT_AUTO_SCREEN_SCALE_FACTOR=0\nexport QT_SCALE_FACTOR=2.0\nexport ELM_SCALE=2.0\n'
@@ -1416,6 +1406,7 @@ class MateTweak:
             xsessionrc.write(envvars)
             xsessionrc.close()
         os.environ['GDK_SCALE'] = '2'
+        self.set_string('org.mate.session.required-components', None, 'windowmanager', 'compiz')
 
     def disable_hidpi(self):
         envvars = ['export GDK_SCALE', 'export GDK_DPI_SCALE', 'export QT_AUTO_SCREEN_SCALE_FACTOR', 'export QT_SCALE_FACTOR', 'export ELM_SCALE']
@@ -1510,7 +1501,6 @@ class MateTweak:
         if not self.current_wm == "compiz":
             self.builder.get_object('button_compiz_reset').hide()
             self.builder.get_object('button_ccsm').hide()
-            self.builder.get_object('checkbox_hidpi_scaling').hide()
 
         if not self.maximus_available:
             self.builder.get_object('checkbox_undecorate').props.sensitive = False
@@ -1518,6 +1508,12 @@ class MateTweak:
         else:
             self.init_checkbox("org.mate.maximus", "undecorate", "checkbox_undecorate")
             self.init_checkbox("org.mate.maximus", "no-maximize", "checkbox_always_maximize")
+
+        # Restrict HiDPI to Compiz capable computers until Marco fully supports HiDPI
+        if self.compiz_capable:
+            self.builder.get_object('checkbox_hidpi_scaling').props.sensitive = True
+        else:
+            self.builder.get_object('checkbox_hidpi_scaling').props.sensitive = False
 
         # set up the side view - navigation.
         self.builder.get_object("side_view").set_text_column(0)
