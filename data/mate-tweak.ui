@@ -815,6 +815,35 @@
                                 <property name="position">5</property>
                               </packing>
                             </child>
+                            <child>
+                              <object class="GtkCheckButton" id="checkbox_hidpi_scaling">
+                                <property name="label" translatable="yes">Scale windows for HiDPI displays</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="halign">start</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">False</property>
+                                <property name="position">6</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label_hidpi_scaling_notice">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">&lt;span size="small" foreground="#cc0000"&gt;Logout or restart for the settings to take effect.&lt;/span&gt;</property>
+                                <property name="use_markup">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">7</property>
+                              </packing>
+                            </child>
                           </object>
                         </child>
                         <child type="label">
