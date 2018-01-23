@@ -468,6 +468,7 @@ class MateTweak:
                 self.set_string('org.gnome.metacity.theme', None, 'name', mate_theme)
                 # FIXME! Don't assume 'metacity' is 1
                 self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
+            self.update_hidpi()
 
         # If switching away from a compton composited window manager
         # kill compton.
@@ -795,7 +796,8 @@ class MateTweak:
         # controls to the left and enable Global Menu.
         if new_layout.startswith('eleven') or \
            new_layout.startswith('mutiny') or \
-           new_layout.startswith('contemporary'):
+           new_layout.startswith('contemporary') and \
+           not self.is_hidpi_enabled():
             self.set_string("org.mate.Marco.general", None, "button-layout", __CONTEMPORARY_BUTTONS__)
             self.set_string("org.mate.interface", None, "gtk-decoration-layout", __CONTEMPORARY_BUTTONS__)
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __CONTEMPORARY_BUTTONS__)
@@ -984,9 +986,11 @@ class MateTweak:
                self.builder.get_object('button_ccsm').show()
            else:
                self.builder.get_object('button_ccsm').hide()
+           self.builder.get_object('checkbox_hidpi_scaling').show()
         else:
            self.builder.get_object('button_compiz_reset').hide()
            self.builder.get_object('button_ccsm').hide()
+           self.builder.get_object('checkbox_hidpi_scaling').hide()
 
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
@@ -1386,6 +1390,66 @@ class MateTweak:
         # Launch Compiz Config Settings Manager
         pid = subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL).pid
 
+    def is_hidpi_enabled(self):
+        if 'GDK_SCALE' not in os.environ:
+            return False
+        gdk_scale = int(os.environ['GDK_SCALE'])
+        return gdk_scale > 1
+
+    def update_hidpi(self):
+        if self.is_hidpi_enabled():
+            self.builder.get_object("checkbox_hidpi_scaling").set_active(True)
+            # There's currently a bug that crashes gtk-window-decorator when HiDPI scaling is
+            # enabled and the window controls are on the left on Compiz.
+            # @see https://bugs.launchpad.net/ubuntu/+source/compiz/+bug/1705060
+            if self.current_wm == "compiz":
+                self.builder.get_object("combobox_window_control").set_active(0)
+                self.builder.get_object("combobox_window_control").set_sensitive(False)
+        else:
+            self.builder.get_object("checkbox_hidpi_scaling").set_active(False)
+            self.builder.get_object("combobox_window_control").set_sensitive(True)
+
+    def enable_hidpi(self):
+        envvars = 'export GDK_SCALE=2\nexport GDK_DPI_SCALE=0.5\nexport QT_AUTO_SCREEN_SCALE_FACTOR=0\nexport QT_SCALE_FACTOR=2.0\nexport ELM_SCALE=2.0\n'
+        config_dir = GLib.get_home_dir()
+        with open(os.path.join(config_dir, '.xsessionrc'), 'a') as xsessionrc:
+            xsessionrc.write(envvars)
+            xsessionrc.close()
+        os.environ['GDK_SCALE'] = '2'
+
+    def disable_hidpi(self):
+        envvars = ['export GDK_SCALE', 'export GDK_DPI_SCALE', 'export QT_AUTO_SCREEN_SCALE_FACTOR', 'export QT_SCALE_FACTOR', 'export ELM_SCALE']
+        config_dir = GLib.get_home_dir()
+        xsessionrc_path = os.path.join(config_dir, '.xsessionrc')
+
+        # Read contents of .xsessionrc
+        xsessionrc = open(xsessionrc_path, 'r')
+        xsessionrc_contents = xsessionrc.readlines()
+        xsessionrc.close()
+
+        # Write contents back to .xsessionrc without the scaling lines
+        with open(xsessionrc_path, 'w') as xsessionrc:
+            for line in xsessionrc_contents:
+                include_line = True
+                for envvar in envvars:
+                    if envvar in line:
+                        include_line = False
+                if include_line:
+                    xsessionrc.write(line)
+            xsessionrc.close()
+
+        os.environ['GDK_SCALE'] = '1'
+
+    def toggle_hidpi(self, checkbutton):
+        hidpi_enabled = self.is_hidpi_enabled()
+        if checkbutton.get_active():
+            self.enable_hidpi()
+        else:
+            self.disable_hidpi()
+        if hidpi_enabled != self.is_hidpi_enabled():
+            self.builder.get_object('label_hidpi_scaling_notice').show()
+        self.update_hidpi()
+
     def close_tweak(self, widget):
         Gtk.main_quit()
 
@@ -1416,6 +1480,7 @@ class MateTweak:
         self.builder.get_object("button_delete_panel").connect("clicked", self.delete_panel)
         self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
         self.builder.get_object("button_ccsm").connect("clicked", self.launch_ccsm)
+        self.builder.get_object("checkbox_hidpi_scaling").connect("clicked", self.toggle_hidpi)
 
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_interface = SidePage(1, _("Interface"), "preferences-desktop")
@@ -1445,6 +1510,7 @@ class MateTweak:
         if not self.current_wm == "compiz":
             self.builder.get_object('button_compiz_reset').hide()
             self.builder.get_object('button_ccsm').hide()
+            self.builder.get_object('checkbox_hidpi_scaling').hide()
 
         if not self.maximus_available:
             self.builder.get_object('checkbox_undecorate').props.sensitive = False
@@ -1515,6 +1581,10 @@ class MateTweak:
         self.builder.get_object("button_ccsm").set_tooltip_text(_("Open the Compiz configuration and settings manager"))
         self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
         self.builder.get_object("button_compiz_reset").set_tooltip_text(_("Reset the current Compiz configuration to factory defaults"))
+        self.builder.get_object("checkbox_hidpi_scaling").set_label(_("Scale windows for HiDPI displays"))
+        self.builder.get_object("checkbox_hidpi_scaling").set_tooltip_text(_("Double the size of all windows, panels, widgets, fonts, etc. for HiDPI displays."))
+        self.builder.get_object("label_hidpi_scaling_notice").set_markup('<span size="small" foreground="#cc0000">' + _('Logout or restart for the settings to take effect.') + '</span>')
+        self.builder.get_object("label_hidpi_scaling_notice").hide()
 
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_keyboard_led").set_tooltip_text(_("Show keyboard LED indicators in the notifcation tray"))
@@ -1568,6 +1638,7 @@ class MateTweak:
 
         # Window control button
         self.update_window_controls()
+        self.update_hidpi()
 
         # Window manager
         self.make_list_of_window_managers()
