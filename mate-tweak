@@ -170,9 +170,13 @@ class MateTweak:
             self.toggle_desktop_icons_sensitiveness()
 
     def schema_has_key(self, schema, key):
-        settings=Gio.Settings.new(schema)
-        schema = settings.get_property('settings-schema')
-        return schema.has_key(key)
+        source = Gio.SettingsSchemaSource.get_default()
+        if source.lookup(schema, True):
+            settings=Gio.Settings.new(schema)
+            schema = settings.get_property('settings-schema')
+            return schema.has_key(key)
+        else:
+            return False
 
     def set_string(self, schema, path, key, value):
         if path:
@@ -251,10 +255,7 @@ class MateTweak:
         if schema:
             settings = Gio.Settings.new_full(schema)
             widget = self.builder.get_object(name)
-            if key == 'gtk-shell-shows-menubar':
-                settings.bind(key, widget, "active", Gio.SettingsBindFlags.INVERT_BOOLEAN)
-            else:
-                settings.bind(key, widget, "active", Gio.SettingsBindFlags.DEFAULT)
+            settings.bind(key, widget, "active", Gio.SettingsBindFlags.DEFAULT)
             widget.connect("toggled", self.on_checkbox_toggled, schema_id, key)
 
     def init_combobox(self, schema, key, name, default = None):
@@ -514,10 +515,33 @@ class MateTweak:
             self.disable_hud()
 
     def enable_localmenu(self):
-        self.set_bool("org.mate.interface", None, 'gtk-shell-shows-menubar', False)
+        if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar'):
+            self.set_bool('org.mate.interface', None, 'gtk-shell-shows-menubar', False)
+        if self.schema_has_key('org.valapanel.appmenu-gtk-module', 'gtk2-shell-shows-menubar'):
+            self.set_bool('org.valapanel.appmenu-gtk-module', None, 'gtk2-shell-shows-menubar', False)
+        #self.kill_process('appmenu-registrar')
 
     def disable_localmenu(self):
-        self.set_bool("org.mate.interface", None, 'gtk-shell-shows-menubar', True)
+        if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar'):
+            self.set_bool('org.mate.interface', None, 'gtk-shell-shows-menubar', True)
+        if self.schema_has_key('org.valapanel.appmenu-gtk-module', 'gtk2-shell-shows-menubar'):
+            self.set_bool('org.valapanel.appmenu-gtk-module', None, 'gtk2-shell-shows-menubar', True)
+        #self.kill_process('appmenu-registrar')
+
+    def toggle_localmenu(self, checkbutton):
+        if checkbutton.get_active():
+            self.enable_localmenu()
+        else:
+            self.disable_localmenu()
+
+    def check_appmenu(self):
+        self.appmenu_available = False
+        if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar') \
+          and (self.schema_has_key('com.canonical.unity-gtk-module','blacklist') or self.schema_has_key('org.valapanel.appmenu-gtk-module','blacklist')):
+            self.appmenu_available = True
+            self.show_localmenu = not self.get_bool('org.mate.interface', None, 'gtk-shell-shows-menubar')
+            if self.schema_has_key('org.valapanel.appmenu-gtk-module', 'gtk2-shell-shows-menubar'):
+                self.set_bool('org.valapanel.appmenu-gtk-module', None, 'gtk2-shell-shows-menubar', self.show_localmenu)
 
     def maximus_decorate(self):
         # Only decorate if currently undecorated
@@ -1375,6 +1399,7 @@ class MateTweak:
         self.check_hud_features()
         self.check_panel_features()
         self.check_wm_features()
+        self.check_appmenu()
         self.previous_wm = self.current_wm
 
         # Load the Glade UI file
@@ -1474,8 +1499,11 @@ class MateTweak:
         self.builder.get_object("checkbox_always_maximize").set_tooltip_text(_("Do not automatically maximize newly opened windows"))
         self.builder.get_object("checkbox_localmenu").set_label(_("Enable locally integrated menus"))
         self.builder.get_object("checkbox_localmenu").set_tooltip_text(_("Display application menus in the application window. When local menus are disabled, add the Global Menu applet to a panel to see them."))
+
+        # Locally integrated menus
         if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar'):
-            self.init_checkbox('org.mate.interface', 'gtk-shell-shows-menubar', 'checkbox_localmenu')
+            self.builder.get_object("checkbox_localmenu").connect("toggled", self.toggle_localmenu)
+            self.builder.get_object("checkbox_localmenu").set_active(self.show_localmenu)
         else:
             self.builder.get_object('checkbox_localmenu').props.sensitive = False
 
