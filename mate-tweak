@@ -258,11 +258,14 @@ class MateTweak:
             settings.bind(key, widget, "active", Gio.SettingsBindFlags.DEFAULT)
             widget.connect("toggled", self.on_checkbox_toggled, schema_id, key)
 
-    def init_combobox(self, schema, key, name, default = None):
+    def init_combobox(self, schema, key, name, default = False, data_type = str):
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup(schema, True) != None:
             widget = self.builder.get_object(name)
-            conf = self.get_string(schema, None, key)
+            if data_type is int:
+                conf = self.get_int(schema, None, key)
+            else:
+                conf = self.get_string(schema, None, key)
             index = 0
             default_index = None
             for row in widget.get_model():
@@ -275,7 +278,7 @@ class MateTweak:
                 index = index +1
             if default_index != None:
                 widget.set_active(default_index)
-            widget.connect("changed", self.combo_fallback, schema, key)
+            widget.connect("changed", self.combo_fallback, schema, key, data_type)
 
     def update_combobox(self, schema, key, name):
         source = Gio.SettingsSchemaSource.get_default()
@@ -468,7 +471,6 @@ class MateTweak:
                 self.set_string('org.gnome.metacity.theme', None, 'name', mate_theme)
                 # FIXME! Don't assume 'metacity' is 1
                 self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
-            self.update_hidpi()
 
         # If switching away from a compton composited window manager
         # kill compton.
@@ -1039,10 +1041,13 @@ class MateTweak:
                 self.set_string("org.mate.panel.menubar", None, key, value)
                 self.reload_panel()
 
-    def combo_fallback(self, widget, schema, key):
+    def combo_fallback(self, widget, schema, key, data_type = str):
         act = widget.get_active()
         value = widget.get_model()[act]
-        self.set_string(schema, None, key, value[1])
+        if data_type is int:
+            self.set_int(schema, None, key, value[1])
+        else:
+            self.set_string(schema, None, key, value[1])
 
         # Process any additional changes required for the schema and key
         self.additional_tweaks(schema, key, value[1])
@@ -1387,59 +1392,10 @@ class MateTweak:
         # Launch Compiz Config Settings Manager
         pid = subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL).pid
 
-    def is_hidpi_enabled(self):
-        if 'GDK_SCALE' not in os.environ:
-            return False
-        gdk_scale = int(os.environ['GDK_SCALE'])
-        return gdk_scale > 1
-
-    def update_hidpi(self):
-        if self.is_hidpi_enabled():
-            self.builder.get_object("checkbox_hidpi_scaling").set_active(True)
-        else:
-            self.builder.get_object("checkbox_hidpi_scaling").set_active(False)
-
-    def enable_hidpi(self):
-        envvars = 'export GDK_SCALE=2\nexport GDK_DPI_SCALE=0.5\nexport QT_AUTO_SCREEN_SCALE_FACTOR=0\nexport QT_SCALE_FACTOR=2.0\nexport ELM_SCALE=2.0\n'
-        config_dir = GLib.get_home_dir()
-        with open(os.path.join(config_dir, '.xsessionrc'), 'a') as xsessionrc:
-            xsessionrc.write(envvars)
-            xsessionrc.close()
-        os.environ['GDK_SCALE'] = '2'
-        self.set_string('org.mate.session.required-components', None, 'windowmanager', 'compiz')
-
-    def disable_hidpi(self):
-        envvars = ['export GDK_SCALE', 'export GDK_DPI_SCALE', 'export QT_AUTO_SCREEN_SCALE_FACTOR', 'export QT_SCALE_FACTOR', 'export ELM_SCALE']
-        config_dir = GLib.get_home_dir()
-        xsessionrc_path = os.path.join(config_dir, '.xsessionrc')
-
-        # Read contents of .xsessionrc
-        xsessionrc = open(xsessionrc_path, 'r')
-        xsessionrc_contents = xsessionrc.readlines()
-        xsessionrc.close()
-
-        # Write contents back to .xsessionrc without the scaling lines
-        with open(xsessionrc_path, 'w') as xsessionrc:
-            for line in xsessionrc_contents:
-                include_line = True
-                for envvar in envvars:
-                    if envvar in line:
-                        include_line = False
-                if include_line:
-                    xsessionrc.write(line)
-            xsessionrc.close()
-
-        os.environ['GDK_SCALE'] = '1'
-
-    def toggle_hidpi(self, checkbutton):
-        hidpi_enabled = self.is_hidpi_enabled()
-        if checkbutton.get_active():
-            self.enable_hidpi()
-        else:
-            self.disable_hidpi()
-        if hidpi_enabled != self.is_hidpi_enabled():
-            self.builder.get_object('label_hidpi_scaling_notice').show()
-        self.update_hidpi()
+    def toggle_hidpi(self, widget):
+        if 'compiz' not in self.current_wm:
+            self.replace_windowmanager(self.current_wm)
+        self.reload_panel()
 
     def close_tweak(self, widget):
         Gtk.main_quit()
@@ -1471,7 +1427,6 @@ class MateTweak:
         self.builder.get_object("button_delete_panel").connect("clicked", self.delete_panel)
         self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
         self.builder.get_object("button_ccsm").connect("clicked", self.launch_ccsm)
-        self.builder.get_object("checkbox_hidpi_scaling").connect("clicked", self.toggle_hidpi)
 
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_interface = SidePage(1, _("Interface"), "preferences-desktop")
@@ -1508,12 +1463,6 @@ class MateTweak:
         else:
             self.init_checkbox("org.mate.maximus", "undecorate", "checkbox_undecorate")
             self.init_checkbox("org.mate.maximus", "no-maximize", "checkbox_always_maximize")
-
-        # Restrict HiDPI to Compiz capable computers until Marco fully supports HiDPI
-        if self.compiz_capable:
-            self.builder.get_object('checkbox_hidpi_scaling').props.sensitive = True
-        else:
-            self.builder.get_object('checkbox_hidpi_scaling').props.sensitive = False
 
         # set up the side view - navigation.
         self.builder.get_object("side_view").set_text_column(0)
@@ -1577,8 +1526,17 @@ class MateTweak:
         self.builder.get_object("button_ccsm").set_tooltip_text(_("Open the Compiz configuration and settings manager"))
         self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
         self.builder.get_object("button_compiz_reset").set_tooltip_text(_("Reset the current Compiz configuration to factory defaults"))
-        self.builder.get_object("checkbox_hidpi_scaling").set_label(_("Scale windows for HiDPI displays"))
-        self.builder.get_object("checkbox_hidpi_scaling").set_tooltip_text(_("Double the size of all windows, panels, widgets, fonts, etc. for HiDPI displays."))
+
+        self.builder.get_object("label_hidpi_scaling").set_markup("<small>" + _("Select a window scaling factor.") + "</small>")
+        windowScalingFactors = Gtk.ListStore(str, int)
+        windowScalingFactors.append([_("Auto-detect"), 0])
+        windowScalingFactors.append([_("Regular"), 1])
+        windowScalingFactors.append([_("HiDPI"), 2])
+        self.builder.get_object("combobox_hidpi_scaling").set_model(windowScalingFactors)
+        self.init_combobox("org.mate.interface", "window-scaling-factor", "combobox_hidpi_scaling", False, int)
+        self.builder.get_object("combobox_hidpi_scaling").set_tooltip_text(_("Double the size of all windows, panels, widgets, fonts, etc. for HiDPI displays."))
+        self.builder.get_object("combobox_hidpi_scaling").connect("changed", self.toggle_hidpi)
+
         self.builder.get_object("label_hidpi_scaling_notice").set_markup('<span size="small" foreground="#cc0000">' + _('Logout or restart for the settings to take effect.') + '</span>')
         self.builder.get_object("label_hidpi_scaling_notice").hide()
 
@@ -1634,7 +1592,6 @@ class MateTweak:
 
         # Window control button
         self.update_window_controls()
-        self.update_hidpi()
 
         # Window manager
         self.make_list_of_window_managers()
