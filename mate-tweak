@@ -1392,11 +1392,6 @@ class MateTweak:
         # Launch Compiz Config Settings Manager
         pid = subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL).pid
 
-    def toggle_hidpi(self, widget):
-        if 'compiz' not in self.current_wm:
-            self.replace_windowmanager(self.current_wm)
-        self.reload_panel()
-
     def close_tweak(self, widget):
         Gtk.main_quit()
 
@@ -1535,7 +1530,6 @@ class MateTweak:
         self.builder.get_object("combobox_hidpi_scaling").set_model(windowScalingFactors)
         self.init_combobox("org.mate.interface", "window-scaling-factor", "combobox_hidpi_scaling", False, int)
         self.builder.get_object("combobox_hidpi_scaling").set_tooltip_text(_("Double the size of all windows, panels, widgets, fonts, etc. for HiDPI displays."))
-        self.builder.get_object("combobox_hidpi_scaling").connect("changed", self.toggle_hidpi)
 
         self.builder.get_object("label_hidpi_scaling_notice").set_markup('<span size="small" foreground="#cc0000">' + _('Logout or restart for the settings to take effect.') + '</span>')
         self.builder.get_object("label_hidpi_scaling_notice").hide()
