@@ -162,7 +162,10 @@ class MateTweak:
         if (key == "reduced-resources"):
             if ('marco' in self.current_wm):
                 marco_reduced = self.get_bool('org.mate.Marco.general', None, key)
-                self.set_bool('org.mate.Marco.general', None, 'side-by-side-tiling', marco_reduced)
+                if self.schema_has_key('org.mate.Marco.general','side-by-side-tiling'):
+                    self.set_bool('org.mate.Marco.general', None, 'side-by-side-tiling', marco_reduced)
+                elif self.schema_has_key('org.mate.Marco.general','allow-tiling'):
+                    self.set_bool('org.mate.Marco.general', None, 'allow-tiling', marco_reduced)
                 self.builder.get_object('checkbox_snapping').props.sensitive = marco_reduced
 
         # If desktop icons are shown or hidden, enable or not further modifications
@@ -970,7 +973,10 @@ class MateTweak:
             self.builder.get_object('frame_performance').props.sensitive = True
 
             self.init_checkbox('org.mate.Marco.general', 'reduced-resources', 'checkbox_resources')
-            self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
+            if self.schema_has_key('org.mate.Marco.general','side-by-side-tiling'):
+                self.init_checkbox('org.mate.Marco.general', 'side-by-side-tiling', 'checkbox_snapping')
+            elif self.schema_has_key('org.mate.Marco.general','allow-tiling'):
+                self.init_checkbox('org.mate.Marco.general', 'allow-tiling', 'checkbox_snapping')
             self.init_checkbox('org.mate.interface', 'enable-animations', 'checkbox_animations')
 
             # Make the Window Snapping checkbox inactive based if reduced resources is enabled
