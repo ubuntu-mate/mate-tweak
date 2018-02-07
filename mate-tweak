@@ -1528,17 +1528,19 @@ class MateTweak:
         self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
         self.builder.get_object("button_compiz_reset").set_tooltip_text(_("Reset the current Compiz configuration to factory defaults"))
 
-        self.builder.get_object("label_hidpi_scaling").set_markup("<small>" + _("Select a window scaling factor.") + "</small>")
-        windowScalingFactors = Gtk.ListStore(str, int)
-        windowScalingFactors.append([_("Auto-detect"), 0])
-        windowScalingFactors.append([_("Regular"), 1])
-        windowScalingFactors.append([_("HiDPI"), 2])
-        self.builder.get_object("combobox_hidpi_scaling").set_model(windowScalingFactors)
-        self.init_combobox("org.mate.interface", "window-scaling-factor", "combobox_hidpi_scaling", False, int)
-        self.builder.get_object("combobox_hidpi_scaling").set_tooltip_text(_("Double the size of all windows, panels, widgets, fonts, etc. for HiDPI displays."))
-
-        self.builder.get_object("label_hidpi_scaling_notice").set_markup('<span size="small" foreground="#cc0000">' + _('Logout or restart for the settings to take effect.') + '</span>')
-        self.builder.get_object("label_hidpi_scaling_notice").hide()
+        if self.schema_has_key('org.mate.interface', 'window-scaling-factor'):
+            self.builder.get_object("label_hidpi_scaling").set_markup("<small>" + _("Select a window scaling factor.") + "</small>")
+            windowScalingFactors = Gtk.ListStore(str, int)
+            windowScalingFactors.append([_("Auto-detect"), 0])
+            windowScalingFactors.append([_("Regular"), 1])
+            windowScalingFactors.append([_("HiDPI"), 2])
+            self.builder.get_object("combobox_hidpi_scaling").set_model(windowScalingFactors)
+            self.init_combobox("org.mate.interface", "window-scaling-factor", "combobox_hidpi_scaling", False, int)
+            self.builder.get_object("combobox_hidpi_scaling").set_tooltip_text(_("Double the size of all windows, panels, widgets, fonts, etc. for HiDPI displays."))
+            self.builder.get_object("label_hidpi_scaling_notice").set_markup('<span size="small" foreground="#cc0000">' + _('Logout or restart for the settings to take effect.') + '</span>')
+            self.builder.get_object("label_hidpi_scaling_notice").hide()
+        else:
+            self.builder.get_object('frame_hidpi').hide()
 
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_keyboard_led").set_tooltip_text(_("Show keyboard LED indicators in the notifcation tray"))
