@@ -525,14 +525,13 @@ class MateTweak:
             self.set_bool('org.mate.interface', None, 'gtk-shell-shows-menubar', False)
         if self.schema_has_key('org.valapanel.appmenu-gtk-module', 'gtk2-shell-shows-menubar'):
             self.set_bool('org.valapanel.appmenu-gtk-module', None, 'gtk2-shell-shows-menubar', False)
-        #self.kill_process('appmenu-registrar')
+        self.kill_process('appmenu-registrar')
 
     def disable_localmenu(self):
         if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar'):
             self.set_bool('org.mate.interface', None, 'gtk-shell-shows-menubar', True)
         if self.schema_has_key('org.valapanel.appmenu-gtk-module', 'gtk2-shell-shows-menubar'):
             self.set_bool('org.valapanel.appmenu-gtk-module', None, 'gtk2-shell-shows-menubar', True)
-        #self.kill_process('appmenu-registrar')
 
     def toggle_localmenu(self, checkbutton):
         if checkbutton.get_active():
