@@ -764,7 +764,7 @@ class MateTweak:
 
         # Change show-applications state when changing to/from Pantheon.
         show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
-        if (new_layout.startswith('pantheon') or new_layout.startswith('ubuntu-mate')) and self.panel_layout_uses('BriskMenu', new_layout):
+        if new_layout.startswith('pantheon') and self.panel_layout_uses('BriskMenu', new_layout):
             self.set_bool('org.mate.panel.menubar', None, 'show-applications', False)
         # If we're switching to a layout use the menu-bar, but not Brisk
         # and Applications is disabled in the menu-bar, it probably make
