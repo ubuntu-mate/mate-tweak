@@ -1438,7 +1438,10 @@ class MateTweak:
         theme = Gtk.IconTheme.get_default()
         self.store = Gtk.ListStore(str, GdkPixbuf.Pixbuf)
         for sidePage in self.sidePages:
-            img = theme.load_icon(sidePage.icon, 48, 0)
+            if theme.has_icon(sidePage.icon):
+                img = theme.load_icon(sidePage.icon, 48, Gtk.IconLookupFlags.FORCE_SVG)
+            else:
+                img = theme.load_icon("image-missing", 48, Gtk.IconLookupFlags.FORCE_SVG)
             self.store.append([sidePage.name, img])
 
         target = int(self.sidePages[0].notebook_index)
