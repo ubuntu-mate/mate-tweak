@@ -636,21 +636,6 @@
                             <property name="border_width">6</property>
                             <property name="orientation">vertical</property>
                             <child>
-                              <object class="GtkCheckButton" id="checkbox_localmenu">
-                                <property name="label" translatable="yes">Enable locally integrated menus</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">False</property>
-                                <property name="halign">start</property>
-                                <property name="draw_indicator">True</property>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
                               <object class="GtkLabel" id="label_window_control">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
