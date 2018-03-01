@@ -410,16 +410,9 @@ class MateTweak:
             num_workspaces = self.get_int('org.mate.Marco.general', None, 'num-workspaces')
         elif 'compiz' in self.current_wm:
             try:
-                hsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize'))
-                vsize = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize'))
+                num_workspaces = int(self.get_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize'))
             except:
-                hsize = 0
-                vsize = 0
-            # Guess what the num_workspaces should be
-            if vsize > hsize:
-                num_workspaces = vsize
-            else:
-                num_workspaces = hsize
+                num_workspaces = 0
         else:
             # If we can't detect the window manager assume 0 workspaces
             num_workspaces = 0
@@ -445,13 +438,8 @@ class MateTweak:
             if 'marco' in new_wm:
                 self.set_int('org.mate.Marco.general', None, 'num-workspaces', num_workspaces)
             elif 'compiz' in new_wm:
-                # FIXME, this is a very crude guess
-                if self.current_layout.startswith('mutiny'):
-                    self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', '1')
-                    self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', str(num_workspaces))
-                else:
-                    self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', str(num_workspaces))
-                    self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', str(num_workspaces))
+                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
             print('Set ' + str(num_workspaces) + ' workspaces for ' + new_wm)
 
         # Make sure Compiz use the same theme as Marco to
@@ -891,14 +879,11 @@ class MateTweak:
         # Update the number and orientation of virtual workspaces for Compiz
         if 'compiz' in self.current_wm:
             num_workspaces = self.get_num_workspaces()
-            # FIXME, this is a very crude guess
-            if new_layout.startswith('mutiny'):
-                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', '1')
-                self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', str(num_workspaces))
-            else:
+            # Don't make any change if workspaces is zero.
+            if num_workspaces != 0:
                 self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', str(num_workspaces))
                 self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
-            print('Set ' + str(num_workspaces) + ' workspaces for ' + self.current_wm)
+                print('Set ' + str(num_workspaces) + ' workspaces for ' + self.current_wm)
 
         if leds_enabled:
             time.sleep(1)
