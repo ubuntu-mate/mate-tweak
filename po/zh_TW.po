@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-07 23:41+0000\n"
-"PO-Revision-Date: 2018-01-18 02:07+0000\n"
+"POT-Creation-Date: 2018-03-01 02:16+0000\n"
+"PO-Revision-Date: 2018-02-08 01:30+0000\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/mate/MATE/language/"
 "zh_TW/)\n"
@@ -20,31 +20,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../mate-tweak:1165
+#: ../mate-tweak:1119
 msgid "Right"
 msgstr "右邊"
 
-#: ../mate-tweak:1166
+#: ../mate-tweak:1120
 msgid "Left"
 msgstr "左邊"
 
-#: ../mate-tweak:1174
+#: ../mate-tweak:1128
 msgid "Marco (No compositor)"
 msgstr "Marco（無合成器）"
 
-#: ../mate-tweak:1176
+#: ../mate-tweak:1130
 msgid "Marco (Software compositor)"
 msgstr "Marco（軟體合成器）"
 
-#: ../mate-tweak:1178
+#: ../mate-tweak:1132
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco（Compton 顯示卡合成器）"
 
-#: ../mate-tweak:1180
+#: ../mate-tweak:1134
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz（進階的顯示卡加速的桌面效果）"
 
-#: ../mate-tweak:1183
+#: ../mate-tweak:1137
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -52,185 +52,185 @@ msgstr ""
 "您目前正在使用未知且不支援的視窗管理員。所以我們無法保證做出的變更一定會生"
 "效。"
 
-#: ../mate-tweak:1203
+#: ../mate-tweak:1157
 msgid "Contemporary"
 msgstr "現代"
 
-#: ../mate-tweak:1211 ../mate-tweak:1217
+#: ../mate-tweak:1165 ../mate-tweak:1171
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1221
+#: ../mate-tweak:1175
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1225
+#: ../mate-tweak:1179
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1229
+#: ../mate-tweak:1183
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1233
+#: ../mate-tweak:1187
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1237
+#: ../mate-tweak:1191
 msgid "Manjaro"
 msgstr "Manjaro"
 
-#: ../mate-tweak:1244 ../mate-tweak:1249
+#: ../mate-tweak:1198 ../mate-tweak:1203
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1255 ../mate-tweak:1259
+#: ../mate-tweak:1209 ../mate-tweak:1213
 msgid "Netbook"
 msgstr "小筆電"
 
-#: ../mate-tweak:1263
+#: ../mate-tweak:1217
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1269
+#: ../mate-tweak:1223
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: ../mate-tweak:1274 ../mate-tweak:1277
+#: ../mate-tweak:1228 ../mate-tweak:1231
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1281
+#: ../mate-tweak:1235
 msgid "Solus"
 msgstr "Solus"
 
-#: ../mate-tweak:1284
+#: ../mate-tweak:1238
 msgid "Traditional"
 msgstr "傳統"
 
-#: ../mate-tweak:1432
+#: ../mate-tweak:1386
 msgid "Desktop"
 msgstr "桌面"
 
-#: ../mate-tweak:1433
+#: ../mate-tweak:1387
 msgid "Interface"
 msgstr "介面"
 
-#: ../mate-tweak:1434
+#: ../mate-tweak:1388
 msgid "Panel"
 msgstr "面板"
 
-#: ../mate-tweak:1435
+#: ../mate-tweak:1389
 msgid "Windows"
 msgstr "視窗"
 
-#: ../mate-tweak:1476
+#: ../mate-tweak:1438
 msgid "MATE Tweak"
 msgstr "MATE 調校"
 
-#: ../mate-tweak:1479
+#: ../mate-tweak:1441
 msgid "Desktop icons"
 msgstr "桌面圖示"
 
-#: ../mate-tweak:1480
+#: ../mate-tweak:1442
 msgid "Performance"
 msgstr "效能"
 
-#: ../mate-tweak:1481
+#: ../mate-tweak:1443
 msgid "Window Behaviour"
 msgstr "視窗行為"
 
-#: ../mate-tweak:1482
+#: ../mate-tweak:1444
 msgid "Appearance"
 msgstr "外觀"
 
-#: ../mate-tweak:1483
+#: ../mate-tweak:1445
 msgid "Panels"
 msgstr "面板"
 
-#: ../mate-tweak:1484
+#: ../mate-tweak:1446
 msgid "Panel Features"
 msgstr "面板特色"
 
-#: ../mate-tweak:1485
+#: ../mate-tweak:1447
 msgid "Panel Menu Features"
 msgstr "面板選單功能"
 
-#: ../mate-tweak:1486
+#: ../mate-tweak:1448
 msgid "Icons"
 msgstr "圖示"
 
-#: ../mate-tweak:1487
+#: ../mate-tweak:1449
 msgid "Context menus"
 msgstr "右鍵選單"
 
-#: ../mate-tweak:1488
+#: ../mate-tweak:1450
 msgid "Toolbars"
 msgstr "工具列"
 
-#: ../mate-tweak:1489
+#: ../mate-tweak:1451
 msgid "Window manager"
 msgstr "視窗管理員"
 
-#: ../mate-tweak:1491
+#: ../mate-tweak:1453
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "選擇您想要啟用的桌面圖示："
 
-#: ../mate-tweak:1492
+#: ../mate-tweak:1454
 msgid "Show Desktop Icons"
 msgstr "顯示桌面圖示"
 
-#: ../mate-tweak:1493
+#: ../mate-tweak:1455
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
 msgstr "停用時，桌面將會無法管理，無法存取圖示或檔案管理員"
 
-#: ../mate-tweak:1494
+#: ../mate-tweak:1456
 msgid "Computer"
 msgstr "電腦"
 
-#: ../mate-tweak:1495
+#: ../mate-tweak:1457
 msgid "Home"
 msgstr "家"
 
-#: ../mate-tweak:1496
+#: ../mate-tweak:1458
 msgid "Network"
 msgstr "網路"
 
-#: ../mate-tweak:1497
+#: ../mate-tweak:1459
 msgid "Trash"
 msgstr "回收筒"
 
-#: ../mate-tweak:1498
+#: ../mate-tweak:1460
 msgid "Mounted Volumes"
 msgstr "已掛載儲存區"
 
-#: ../mate-tweak:1500
+#: ../mate-tweak:1462
 msgid "Enable animations"
 msgstr "啟用動畫"
 
-#: ../mate-tweak:1501
+#: ../mate-tweak:1463
 msgid "Whether animations should be displayed by the window manager and panel"
 msgstr "動畫是否應該顯示在視窗管理員與面板旁"
 
-#: ../mate-tweak:1502
+#: ../mate-tweak:1464
 msgid "Do not show window content when moving windows"
 msgstr "移動視窗時不要顯示視窗內容"
 
-#: ../mate-tweak:1503
+#: ../mate-tweak:1465
 msgid "Provide less feedback when moving windows by using wireframes"
 msgstr "在使用線框移動視窗時給予較少的回饋"
 
-#: ../mate-tweak:1504
+#: ../mate-tweak:1466
 msgid "Window manager performance tuning."
 msgstr "視窗管理員效能調校。"
 
-#: ../mate-tweak:1506
+#: ../mate-tweak:1468
 msgid "Enable window snapping"
 msgstr "啟用視窗平鋪"
 
-#: ../mate-tweak:1507
+#: ../mate-tweak:1469
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
@@ -238,278 +238,260 @@ msgstr ""
 "在螢幕邊緣放下視窗將會將它們垂直最大化，並將它們水平調整大小使其佔據一半的可"
 "用區域"
 
-#: ../mate-tweak:1508
+#: ../mate-tweak:1470
 msgid "Undecorate maximized windows"
 msgstr "未裝飾的最大化視窗"
 
-#: ../mate-tweak:1509
+#: ../mate-tweak:1471
 msgid "Undecorate windows when maximized"
 msgstr "當最大化時不裝飾視窗"
 
-#: ../mate-tweak:1510
+#: ../mate-tweak:1472
 msgid "Do not auto-maximize new windows"
 msgstr "不要自動最大化新視窗"
 
-#: ../mate-tweak:1511
+#: ../mate-tweak:1473
 msgid "Do not automatically maximize newly opened windows"
 msgstr "不要自動最大化新開啟的視窗"
 
-#: ../mate-tweak:1512
-msgid "Enable locally integrated menus"
-msgstr "啟用區域型整合選單"
-
-#: ../mate-tweak:1513
-msgid ""
-"Display application menus in the application window. When local menus are "
-"disabled, add the Global Menu applet to a panel to see them."
-msgstr ""
-"在應用程式視窗中顯示應用程式選單。當區域型選單停用時，新增全域選單小工具到面"
-"板以檢視它們。"
-
-#: ../mate-tweak:1522
+#: ../mate-tweak:1474
 msgid "Window control placement."
 msgstr "視窗控制元件位置。"
 
-#: ../mate-tweak:1524
+#: ../mate-tweak:1476
 msgid "Save the current panel layout as your own custom version"
 msgstr "儲存目前的面板佈局為您的自訂版本"
 
-#: ../mate-tweak:1525
+#: ../mate-tweak:1477
 msgid "Delete the currently selected panel layout"
 msgstr "刪除目前選取的面板佈局"
 
-#: ../mate-tweak:1526
+#: ../mate-tweak:1478
 msgid "Open CCSM"
 msgstr "開啟 CCSM"
 
-#: ../mate-tweak:1527
+#: ../mate-tweak:1479
 msgid "Open the Compiz configuration and settings manager"
 msgstr "開啟 Compiz 設定管理員"
 
-#: ../mate-tweak:1528
+#: ../mate-tweak:1480
 msgid "Reset Compiz"
 msgstr "重設 Compiz"
 
-#: ../mate-tweak:1529
+#: ../mate-tweak:1481
 msgid "Reset the current Compiz configuration to factory defaults"
 msgstr "重設目前的 Compiz 設定回出廠預設值"
 
-#: ../mate-tweak:1532
-#, fuzzy
+#: ../mate-tweak:1484
 msgid "Select a window scaling factor."
-msgstr "選取一個視窗管理員。"
+msgstr "選取視窗縮放係數。"
 
-#: ../mate-tweak:1534
+#: ../mate-tweak:1486
 msgid "Auto-detect"
-msgstr ""
+msgstr "自動偵測"
 
-#: ../mate-tweak:1535
+#: ../mate-tweak:1487
 msgid "Regular"
-msgstr ""
+msgstr "一般"
 
-#: ../mate-tweak:1536
+#: ../mate-tweak:1488
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
-#: ../mate-tweak:1539
+#: ../mate-tweak:1491
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
-msgstr ""
+msgstr "將所有視窗、面板、小工具、字型等等的大小在 HiDPI 的顯示器上變為兩倍。"
 
-#: ../mate-tweak:1545
+#: ../mate-tweak:1497
 msgid "Enable keyboard LED"
 msgstr "啟用鍵盤 LED"
 
-#: ../mate-tweak:1546
+#: ../mate-tweak:1498
 msgid "Show keyboard LED indicators in the notifcation tray"
 msgstr "在通知區域顯示鍵盤 LED 指示器"
 
-#: ../mate-tweak:1547
+#: ../mate-tweak:1499
 msgid "Enable pull-down terminal"
 msgstr "啟用下拉式終端機"
 
-#: ../mate-tweak:1548
+#: ../mate-tweak:1500
 msgid "When enabled press F12 to pull down terminal"
 msgstr "當啟用時按下 F12 開啟下拉式終端機"
 
-#: ../mate-tweak:1549
+#: ../mate-tweak:1501
 msgid "Enable Dock"
 msgstr "啟用 Dock"
 
-#: ../mate-tweak:1550
+#: ../mate-tweak:1502
 msgid "When checked the Dock will be enabled."
 msgstr "當勾選時，Dock 將會被啟用。"
 
-#: ../mate-tweak:1551
+#: ../mate-tweak:1503
 msgid "Enable HUD"
 msgstr "啟用 HUD"
 
-#: ../mate-tweak:1552
+#: ../mate-tweak:1504
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
 msgstr "當勾選抬頭式顯示 (HUD) 時將會啟用。按下 Alt_L 以搜尋應用程式選單。"
 
-#: ../mate-tweak:1554
+#: ../mate-tweak:1506
 msgid "Show Applications"
 msgstr "顯示應用程式"
 
-#: ../mate-tweak:1555
+#: ../mate-tweak:1507
 msgid "Show Applications item in the menu bar"
 msgstr "在選單列中顯示應用程式項目"
 
-#: ../mate-tweak:1556
+#: ../mate-tweak:1508
 msgid "Show Places"
 msgstr "顯示位置"
 
-#: ../mate-tweak:1557
+#: ../mate-tweak:1509
 msgid "Show Places item in the menu bar"
 msgstr "在選單列中顯示位置項目"
 
-#: ../mate-tweak:1558
+#: ../mate-tweak:1510
 msgid "Show System"
 msgstr "顯示系統"
 
-#: ../mate-tweak:1559
+#: ../mate-tweak:1511
 msgid "Show System item in the menu bar"
 msgstr "在選單列中顯示系統項目"
 
-#: ../mate-tweak:1561
+#: ../mate-tweak:1513
 msgid "Show icons on menus"
 msgstr "在選單顯示圖示"
 
-#: ../mate-tweak:1562
+#: ../mate-tweak:1514
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "選單是否要在選單項目旁顯示圖示"
 
-#: ../mate-tweak:1563
+#: ../mate-tweak:1515
 msgid "Show icons on buttons"
 msgstr "在按鍵顯示圖示"
 
-#: ../mate-tweak:1564
+#: ../mate-tweak:1516
 msgid "Whether buttons may display an icon in addition to the button text"
 msgstr "按鈕是否應該在按鈕文字外顯示圖示"
 
-#: ../mate-tweak:1565
+#: ../mate-tweak:1517
 msgid "Show Input Methods menu in context menus"
 msgstr "在右鍵選單顯示輸入法選單"
 
-#: ../mate-tweak:1566
+#: ../mate-tweak:1518
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr "項目和文字檢視的右鍵選單中應否顯示輸入法選擇"
 
-#: ../mate-tweak:1567
+#: ../mate-tweak:1519
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "在右鍵選單顯示萬國碼控制字元"
 
-#: ../mate-tweak:1568
+#: ../mate-tweak:1520
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
 msgstr "是否條目和文字檢視應該提供可插入控制字元的右鍵選單"
 
-#: ../mate-tweak:1570
+#: ../mate-tweak:1522
 msgid "Style:"
 msgstr "風格："
 
-#: ../mate-tweak:1571
+#: ../mate-tweak:1523
 msgid "Icon size:"
 msgstr "圖示尺寸:"
 
-#: ../mate-tweak:1590
+#: ../mate-tweak:1542
 msgid "Small"
 msgstr "小"
 
-#: ../mate-tweak:1591
+#: ../mate-tweak:1543
 msgid "Large"
 msgstr "大"
 
-#: ../mate-tweak:1600
+#: ../mate-tweak:1552
 msgid "The new window manager will be activated upon selection."
 msgstr "新的視窗管理員將在選取後被啟動。"
 
-#: ../mate-tweak:1601
+#: ../mate-tweak:1553
 msgid "Select a window manager."
 msgstr "選取一個視窗管理員。"
 
-#: ../mate-tweak:1607
+#: ../mate-tweak:1559
 msgid "Select a panel layout to change the user interface."
 msgstr "選取一個面板佈局來變更您的使用者介面。"
 
-#: ../mate-tweak:1608
+#: ../mate-tweak:1560
 msgid "Select a panel layout."
 msgstr "選取一種面板佈局。"
 
-#: ../mate-tweak:1613
+#: ../mate-tweak:1565
 msgid "Default"
 msgstr "預設值"
 
-#: ../mate-tweak:1614
+#: ../mate-tweak:1566
 msgid "16px"
 msgstr "16px"
 
-#: ../mate-tweak:1615
+#: ../mate-tweak:1567
 msgid "22px"
 msgstr "22px"
 
-#: ../mate-tweak:1616
+#: ../mate-tweak:1568
 msgid "24px"
 msgstr "24px"
 
-#: ../mate-tweak:1617
+#: ../mate-tweak:1569
 msgid "32px"
 msgstr "32px"
 
-#: ../mate-tweak:1618
+#: ../mate-tweak:1570
 msgid "48px"
 msgstr "48px"
 
-#: ../mate-tweak:1622
+#: ../mate-tweak:1574
 msgid "Set the panel icon size."
 msgstr "設定面板圖示大小"
 
-#: ../mate-tweak:1623
+#: ../mate-tweak:1575
 msgid "Select the icon size for panel icons."
 msgstr "選取面板圖示的圖示大小。"
 
-#: ../mate-tweak:1627
+#: ../mate-tweak:1579
 msgid "Set the icon size of menu items used in the panel."
 msgstr "設定用在面板中的選單項目圖示大小"
 
-#: ../mate-tweak:1628
+#: ../mate-tweak:1580
 msgid "Select the icon size for menu items in the panel."
 msgstr "選取在面板中的選單項目圖示大小。"
 
-#: ../mate-tweak:1658
+#: ../mate-tweak:1610
 msgid "Text below items"
 msgstr "文字在項目下"
 
-#: ../mate-tweak:1659
+#: ../mate-tweak:1611
 msgid "Text beside items"
 msgstr "文字在項目旁"
 
-#: ../mate-tweak:1660
+#: ../mate-tweak:1612
 msgid "Icons only"
 msgstr "僅圖示"
 
-#: ../mate-tweak:1661
+#: ../mate-tweak:1613
 msgid "Text only"
 msgstr "僅文字"
 
-#~ msgid "Marco (No effects xcompmgr compositor)"
-#~ msgstr "Marco（無特效的 xcompmgr 合成器）"
+#~ msgid "Enable locally integrated menus"
+#~ msgstr "啟用區域型整合選單"
 
-#~ msgid "Metacity (No compositor)"
-#~ msgstr "Metacity（無合成器）"
-
-#~ msgid "Metacity (Software compositor)"
-#~ msgstr "Metacity（軟體合成器）"
-
-#~ msgid "Metacity (No effects xcompmgr compositor)"
-#~ msgstr "Metacity（無特效的 xcompmgr 合成器）"
-
-#~ msgid "Metacity (Compton GPU compositor)"
-#~ msgstr "Metacity（Compton 顯示卡合成器）"
+#~ msgid ""
+#~ "Display application menus in the application window. When local menus are "
+#~ "disabled, add the Global Menu applet to a panel to see them."
+#~ msgstr ""
+#~ "在應用程式視窗中顯示應用程式選單。當區域型選單停用時，新增全域選單小工具到"
+#~ "面板以檢視它們。"
