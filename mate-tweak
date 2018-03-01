@@ -508,33 +508,11 @@ class MateTweak:
         else:
             self.disable_hud()
 
-    def enable_localmenu(self):
-        if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar'):
-            self.set_bool('org.mate.interface', None, 'gtk-shell-shows-menubar', False)
-        if self.schema_has_key('org.valapanel.appmenu-gtk-module', 'gtk2-shell-shows-menubar'):
-            self.set_bool('org.valapanel.appmenu-gtk-module', None, 'gtk2-shell-shows-menubar', False)
-        self.kill_process('appmenu-registrar')
-
-    def disable_localmenu(self):
-        if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar'):
-            self.set_bool('org.mate.interface', None, 'gtk-shell-shows-menubar', True)
-        if self.schema_has_key('org.valapanel.appmenu-gtk-module', 'gtk2-shell-shows-menubar'):
-            self.set_bool('org.valapanel.appmenu-gtk-module', None, 'gtk2-shell-shows-menubar', True)
-
-    def toggle_localmenu(self, checkbutton):
-        if checkbutton.get_active():
-            self.enable_localmenu()
-        else:
-            self.disable_localmenu()
-
     def check_appmenu(self):
         self.appmenu_available = False
         if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar') \
-          and (self.schema_has_key('com.canonical.unity-gtk-module','blacklist') or self.schema_has_key('org.valapanel.appmenu-gtk-module','blacklist')):
+            and self.schema_has_key('org.appmenu.gtk-module','blacklist'):
             self.appmenu_available = True
-            self.show_localmenu = not self.get_bool('org.mate.interface', None, 'gtk-shell-shows-menubar')
-            if self.schema_has_key('org.valapanel.appmenu-gtk-module', 'gtk2-shell-shows-menubar'):
-                self.set_bool('org.valapanel.appmenu-gtk-module', None, 'gtk2-shell-shows-menubar', self.show_localmenu)
 
     def maximus_decorate(self):
         # Only decorate if currently undecorated
@@ -796,14 +774,6 @@ class MateTweak:
             self.set_string("org.mate.Marco.general", None, "button-layout", __TRADITIONAL_BUTTONS__)
             self.set_string("org.mate.interface", None, "gtk-decoration-layout", __TRADITIONAL_BUTTONS__)
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __TRADITIONAL_BUTTONS__)
-
-        # If we're switching to a layout that uses the AppMenu applet toggle
-        # global menu.
-        if self.panel_layout_uses('AppmenuApplet', new_layout) and \
-           self.appmenu_applet_available:
-            self.disable_localmenu()
-        else:
-            self.enable_localmenu()
 
         # Update window controls
         self.update_window_controls()
@@ -1501,16 +1471,6 @@ class MateTweak:
         self.builder.get_object("checkbox_undecorate").set_tooltip_text(_("Undecorate windows when maximized"))
         self.builder.get_object("checkbox_always_maximize").set_label(_("Do not auto-maximize new windows"))
         self.builder.get_object("checkbox_always_maximize").set_tooltip_text(_("Do not automatically maximize newly opened windows"))
-        self.builder.get_object("checkbox_localmenu").set_label(_("Enable locally integrated menus"))
-        self.builder.get_object("checkbox_localmenu").set_tooltip_text(_("Display application menus in the application window. When local menus are disabled, add the Global Menu applet to a panel to see them."))
-
-        # Locally integrated menus
-        if self.schema_has_key('org.mate.interface', 'gtk-shell-shows-menubar') and self.appmenu_available:
-            self.builder.get_object("checkbox_localmenu").connect("toggled", self.toggle_localmenu)
-            self.builder.get_object("checkbox_localmenu").set_active(self.show_localmenu)
-        else:
-            self.builder.get_object('checkbox_localmenu').props.sensitive = False
-
         self.builder.get_object("label_window_control").set_markup("<small>" + _("Window control placement.") + "</small>")
 
         self.builder.get_object("button_save_panels").set_tooltip_text(_("Save the current panel layout as your own custom version"))
