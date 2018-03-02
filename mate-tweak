@@ -775,6 +775,12 @@ class MateTweak:
             self.set_string("org.mate.interface", None, "gtk-decoration-layout", __TRADITIONAL_BUTTONS__)
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __TRADITIONAL_BUTTONS__)
 
+        # If we're switching away from a layout that uses the AppMenu applet
+        # terminate the registrar.
+        if self.panel_layout_uses('AppmenuApplet', self.current_layout) and \
+           self.process_running('appmenu-registrar'):
+            self.kill_process('appmenu-registrar')
+
         # Update window controls
         self.update_window_controls()
 
