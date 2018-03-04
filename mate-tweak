@@ -749,14 +749,14 @@ class MateTweak:
             elif (self.current_layout.startswith('eleven') or self.current_layout.startswith('mutiny')) and not label_visible:
                 self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
-        # Change Brisk Menu window-type when changing to/from Mutiny.
+        # Change Brisk Menu window-type when changing to/from Mutiny or Cupertino.
         if self.brisk_menu_available and self.schema_has_key('com.solus-project.brisk-menu', 'window-type'):
-            if new_layout.startswith('mutiny'):
-                # If we're switching to Mutiny, and Brisk Menu change the window-type to dash.
+            if new_layout.startswith('mutiny') or new_layout.startswith('eleven'):
+                # If we're switching to Mutiny or Cupertino, and Brisk Menu change the window-type to dash.
                 # FIXME! Do not hardcode this.
                 self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 2)
                 kill_brisk = True
-            elif self.current_layout.startswith('mutiny'):
+            elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven'):
                 # If we're switching from Mutiny, and Brisk Menu change the window-type to classic.
                 # FIXME! Do not hardcode this.
                 self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 1)
