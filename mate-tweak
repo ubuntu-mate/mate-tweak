@@ -1133,7 +1133,7 @@ class MateTweak:
         if self.marco_no_composite_capable:
             wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
         if self.marco_capable:
-            wms.append([_("Marco (Software compositor)"), 'marco'])
+            wms.append([_("Marco (Adaptive compositor)"), 'marco'])
         if self.marco_compton_capable and not self.software_rasterizer:
             wms.append([_("Marco (Compton GPU compositor)"), 'marco-compton'])
         if self.compiz_capable:
