@@ -1176,6 +1176,10 @@ class MateTweak:
             if self.panel_layout_exists('eleven-no-indicators'):
                 panels.append([_("Cupertino"), "eleven-no-indicators"])
 
+        if self.panel_layout_exists('familiar') and \
+           self.brisk_menu_available:
+            panels.append([_("Familiar"), "familiar"])
+
         if platform.linux_distribution()[0] != 'Ubuntu' and \
             self.panel_layout_exists('fedora'):
             panels.append([_("Fedora"), "fedora"])
