@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-01 02:16+0000\n"
-"PO-Revision-Date: 2018-02-05 15:27+0000\n"
+"POT-Creation-Date: 2018-03-17 17:43+0000\n"
+"PO-Revision-Date: 2018-03-15 15:52+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>\n"
 "Language-Team: Malay (http://www.transifex.com/mate/MATE/language/ms/)\n"
 "Language: ms\n"
@@ -19,31 +19,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../mate-tweak:1119
+#: ../mate-tweak:1125
 msgid "Right"
 msgstr "Kanan"
 
-#: ../mate-tweak:1120
+#: ../mate-tweak:1126
 msgid "Left"
 msgstr "Kiri"
 
-#: ../mate-tweak:1128
+#: ../mate-tweak:1134
 msgid "Marco (No compositor)"
 msgstr "Marko (Tiada penggubah)"
 
-#: ../mate-tweak:1130
-msgid "Marco (Software compositor)"
-msgstr "Marko (Penggubah perisian)"
+#: ../mate-tweak:1136
+#, fuzzy
+msgid "Marco (Adaptive compositor)"
+msgstr "Marko (Tiada penggubah)"
 
-#: ../mate-tweak:1132
+#: ../mate-tweak:1138
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marko (Penggubah GPU Compton)"
 
-#: ../mate-tweak:1134
+#: ../mate-tweak:1140
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (Kesan desktop terpecut GPU termaju)"
 
-#: ../mate-tweak:1137
+#: ../mate-tweak:1143
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -52,188 +53,192 @@ msgstr ""
 "disokong. Maka kami tidak dapat memberi jaminan perubahan yang telah dibuat "
 "akan berkesan."
 
-#: ../mate-tweak:1157
+#: ../mate-tweak:1163
 msgid "Contemporary"
 msgstr "Kontemporari"
 
-#: ../mate-tweak:1165 ../mate-tweak:1171
+#: ../mate-tweak:1171 ../mate-tweak:1177
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1175
+#: ../mate-tweak:1181
+msgid "Familiar"
+msgstr ""
+
+#: ../mate-tweak:1185
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1179
+#: ../mate-tweak:1189
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1183
+#: ../mate-tweak:1193
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1187
+#: ../mate-tweak:1197
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1191
+#: ../mate-tweak:1201
 msgid "Manjaro"
 msgstr "Manjaro"
 
-#: ../mate-tweak:1198 ../mate-tweak:1203
+#: ../mate-tweak:1208 ../mate-tweak:1213
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1209 ../mate-tweak:1213
+#: ../mate-tweak:1219 ../mate-tweak:1223
 msgid "Netbook"
 msgstr "Netbook"
 
-#: ../mate-tweak:1217
+#: ../mate-tweak:1227
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1223
+#: ../mate-tweak:1233
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: ../mate-tweak:1228 ../mate-tweak:1231
+#: ../mate-tweak:1238 ../mate-tweak:1241
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1235
+#: ../mate-tweak:1245
 msgid "Solus"
 msgstr "Solus"
 
-#: ../mate-tweak:1238
+#: ../mate-tweak:1248
 msgid "Traditional"
 msgstr "Tradisional"
 
-#: ../mate-tweak:1386
+#: ../mate-tweak:1396
 msgid "Desktop"
 msgstr "Desktop"
 
-#: ../mate-tweak:1387
+#: ../mate-tweak:1397
 msgid "Interface"
 msgstr "Antaramuka"
 
-#: ../mate-tweak:1388
+#: ../mate-tweak:1398
 msgid "Panel"
 msgstr "Panel"
 
-#: ../mate-tweak:1389
+#: ../mate-tweak:1399
 msgid "Windows"
 msgstr "Tetingkap"
 
-#: ../mate-tweak:1438
+#: ../mate-tweak:1448
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:1441
+#: ../mate-tweak:1451
 msgid "Desktop icons"
 msgstr "Ikon Desktop"
 
-#: ../mate-tweak:1442
+#: ../mate-tweak:1452
 msgid "Performance"
 msgstr "Prestasi"
 
-#: ../mate-tweak:1443
+#: ../mate-tweak:1453
 msgid "Window Behaviour"
 msgstr "Kelakuan Tetingkap"
 
-#: ../mate-tweak:1444
+#: ../mate-tweak:1454
 msgid "Appearance"
 msgstr "Penampilan"
 
-#: ../mate-tweak:1445
+#: ../mate-tweak:1455
 msgid "Panels"
 msgstr "Panel"
 
-#: ../mate-tweak:1446
+#: ../mate-tweak:1456
 msgid "Panel Features"
 msgstr "Fitur Panel"
 
-#: ../mate-tweak:1447
+#: ../mate-tweak:1457
 msgid "Panel Menu Features"
 msgstr "Fitur Menu Panel"
 
-#: ../mate-tweak:1448
+#: ../mate-tweak:1458
 msgid "Icons"
 msgstr "Ikon"
 
-#: ../mate-tweak:1449
+#: ../mate-tweak:1459
 msgid "Context menus"
 msgstr "Konteks menu"
 
-#: ../mate-tweak:1450
+#: ../mate-tweak:1460
 msgid "Toolbars"
 msgstr "Palang Alat"
 
-#: ../mate-tweak:1451
+#: ../mate-tweak:1461
 msgid "Window manager"
 msgstr "Pengurus tetingkap"
 
-#: ../mate-tweak:1453
+#: ../mate-tweak:1463
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Pilih Ikon Desktop yang mahu dibenarkan:"
 
-#: ../mate-tweak:1454
+#: ../mate-tweak:1464
 msgid "Show Desktop Icons"
 msgstr "Tunjuk Ikon Desktop"
 
-#: ../mate-tweak:1455
+#: ../mate-tweak:1465
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
 msgstr ""
 "Bila dilumpuhkan desktop tidak diurus dengan ikon atau capaian pengurus fail"
 
-#: ../mate-tweak:1456
+#: ../mate-tweak:1466
 msgid "Computer"
 msgstr "Komputer"
 
-#: ../mate-tweak:1457
+#: ../mate-tweak:1467
 msgid "Home"
 msgstr "Laman Utama"
 
-#: ../mate-tweak:1458
+#: ../mate-tweak:1468
 msgid "Network"
 msgstr "Rangkaian"
 
-#: ../mate-tweak:1459
+#: ../mate-tweak:1469
 msgid "Trash"
 msgstr "Tong Sampah"
 
-#: ../mate-tweak:1460
+#: ../mate-tweak:1470
 msgid "Mounted Volumes"
 msgstr "Volum Terlekap"
 
-#: ../mate-tweak:1462
+#: ../mate-tweak:1472
 msgid "Enable animations"
 msgstr "Benarkan animasi"
 
-#: ../mate-tweak:1463
+#: ../mate-tweak:1473
 msgid "Whether animations should be displayed by the window manager and panel"
 msgstr "Sama ada animasi patut dipaparkan oleh pengurus tetingkap dan panel"
 
-#: ../mate-tweak:1464
+#: ../mate-tweak:1474
 msgid "Do not show window content when moving windows"
 msgstr "Jangan tunjuk kandungan tetingkap semasa mengalih tetingkap"
 
-#: ../mate-tweak:1465
+#: ../mate-tweak:1475
 msgid "Provide less feedback when moving windows by using wireframes"
 msgstr ""
 "Kurang sediakan maklumbalas ketika mengalih tetingkap menggunakan bingkai "
 "wayar"
 
-#: ../mate-tweak:1466
+#: ../mate-tweak:1476
 msgid "Window manager performance tuning."
 msgstr "Penalaan prestasi pengurus tetingkap."
 
-#: ../mate-tweak:1468
+#: ../mate-tweak:1478
 msgid "Enable window snapping"
 msgstr "Bwenarkan pelekatan tetingkap"
 
-#: ../mate-tweak:1469
+#: ../mate-tweak:1479
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
@@ -242,102 +247,103 @@ msgstr ""
 "saizkan semula ia secara mengufuk untuk melitupi separuh dari kawasan yang "
 "ada"
 
-#: ../mate-tweak:1470
+#: ../mate-tweak:1480
 msgid "Undecorate maximized windows"
 msgstr "Nyah-hias tetingkap dimaksimumkan"
 
-#: ../mate-tweak:1471
+#: ../mate-tweak:1481
 msgid "Undecorate windows when maximized"
 msgstr "Nyah-hias tetingkap bila dimaksimumkan"
 
-#: ../mate-tweak:1472
+#: ../mate-tweak:1482
 msgid "Do not auto-maximize new windows"
 msgstr "Jangan auto-maksimum tetingkap baharu"
 
-#: ../mate-tweak:1473
+#: ../mate-tweak:1483
 msgid "Do not automatically maximize newly opened windows"
 msgstr "Jangan auto-maksimum tetingkap yang baru dibuka"
 
-#: ../mate-tweak:1474
+#: ../mate-tweak:1484
 msgid "Window control placement."
 msgstr "Peletakan kawalan tetingkap"
 
-#: ../mate-tweak:1476
+#: ../mate-tweak:1486
 msgid "Save the current panel layout as your own custom version"
 msgstr "Simpan bentangan panel semasa sebagai versi suai anda sendiri"
 
-#: ../mate-tweak:1477
+#: ../mate-tweak:1487
 msgid "Delete the currently selected panel layout"
 msgstr "Padam bentangan panel terpilih semasa"
 
-#: ../mate-tweak:1478
+#: ../mate-tweak:1488
 msgid "Open CCSM"
 msgstr "Buka CCSM"
 
-#: ../mate-tweak:1479
+#: ../mate-tweak:1489
 msgid "Open the Compiz configuration and settings manager"
 msgstr "Buka pengurus tetapan dan konfigurasi Compiz"
 
-#: ../mate-tweak:1480
+#: ../mate-tweak:1490
 msgid "Reset Compiz"
 msgstr "Tetap Semula Compiz"
 
-#: ../mate-tweak:1481
+#: ../mate-tweak:1491
 msgid "Reset the current Compiz configuration to factory defaults"
 msgstr "Tetap semula konfigurasi Compiz semasa ke lalai kilang"
 
-#: ../mate-tweak:1484
-#, fuzzy
+#: ../mate-tweak:1494
 msgid "Select a window scaling factor."
-msgstr "Pilih pengurus tetingkap"
+msgstr "Pilih satu faktor penskalaan tetingkap."
 
-#: ../mate-tweak:1486
+#: ../mate-tweak:1496
 msgid "Auto-detect"
-msgstr ""
+msgstr "Auto-kesan"
 
-#: ../mate-tweak:1487
+#: ../mate-tweak:1497
 msgid "Regular"
-msgstr ""
+msgstr "Biasa"
 
-#: ../mate-tweak:1488
+#: ../mate-tweak:1498
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
-#: ../mate-tweak:1491
+#: ../mate-tweak:1501
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
 msgstr ""
+"Ganda duakan saiz bagi semua tetingkap, panel, widjet, fon, dll untuk "
+"paparan HiDPI."
 
-#: ../mate-tweak:1497
+#: ../mate-tweak:1507
 msgid "Enable keyboard LED"
 msgstr "Benarkan LED papan kekunci"
 
-#: ../mate-tweak:1498
+#: ../mate-tweak:1508
 msgid "Show keyboard LED indicators in the notifcation tray"
 msgstr "Tunjuk penunjuk LED papan kekunci dalam talam pemberitahuan"
 
-#: ../mate-tweak:1499
+#: ../mate-tweak:1509
 msgid "Enable pull-down terminal"
 msgstr "Benarkan terminal tarik-turun"
 
-#: ../mate-tweak:1500
+#: ../mate-tweak:1510
 msgid "When enabled press F12 to pull down terminal"
 msgstr "Bila dibenarkan ketik F12 untuk menarik-turun terminal"
 
-#: ../mate-tweak:1501
+#: ../mate-tweak:1511
 msgid "Enable Dock"
 msgstr "Benarkan Labuh"
 
-#: ../mate-tweak:1502
+#: ../mate-tweak:1512
 msgid "When checked the Dock will be enabled."
 msgstr "Bila ditanda Labuh akan dibenarkan."
 
-#: ../mate-tweak:1503
+#: ../mate-tweak:1513
 msgid "Enable HUD"
 msgstr "Benarkan HUD"
 
-#: ../mate-tweak:1504
+#: ../mate-tweak:1514
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
@@ -345,51 +351,51 @@ msgstr ""
 "Bila ditanda Paparan Pemuka (HUD) akan dibenarkan. Ketika Atl_L untuk "
 "menggelintar menu aplikasi."
 
-#: ../mate-tweak:1506
+#: ../mate-tweak:1516
 msgid "Show Applications"
 msgstr "Tunjuk Aplikasi"
 
-#: ../mate-tweak:1507
+#: ../mate-tweak:1517
 msgid "Show Applications item in the menu bar"
 msgstr "Tunjuk item Aplikasi dalam palang menu"
 
-#: ../mate-tweak:1508
+#: ../mate-tweak:1518
 msgid "Show Places"
 msgstr "Tunjuk Tempat"
 
-#: ../mate-tweak:1509
+#: ../mate-tweak:1519
 msgid "Show Places item in the menu bar"
 msgstr "Tunjuk item Tempat dalam palang menu"
 
-#: ../mate-tweak:1510
+#: ../mate-tweak:1520
 msgid "Show System"
 msgstr "Tunjuk Sistem"
 
-#: ../mate-tweak:1511
+#: ../mate-tweak:1521
 msgid "Show System item in the menu bar"
 msgstr "Tunjuk item Sistem dalam palang menu"
 
-#: ../mate-tweak:1513
+#: ../mate-tweak:1523
 msgid "Show icons on menus"
 msgstr "Papar ikon pada menu"
 
-#: ../mate-tweak:1514
+#: ../mate-tweak:1524
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Sama ada menu dapat paparkan ikon bersebelahan masukan menu"
 
-#: ../mate-tweak:1515
+#: ../mate-tweak:1525
 msgid "Show icons on buttons"
 msgstr "Papar ikon pada butang"
 
-#: ../mate-tweak:1516
+#: ../mate-tweak:1526
 msgid "Whether buttons may display an icon in addition to the button text"
 msgstr "Sama ada butang dapat paparkan ikon selain dari teks butang"
 
-#: ../mate-tweak:1517
+#: ../mate-tweak:1527
 msgid "Show Input Methods menu in context menus"
 msgstr "Papar menu Kaedah Input dalam menu konteks"
 
-#: ../mate-tweak:1518
+#: ../mate-tweak:1528
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
@@ -397,11 +403,11 @@ msgstr ""
 "Sama ada menu konteks menu masukan dan paparan teks patut menawarkan "
 "perubahan kaedah input"
 
-#: ../mate-tweak:1519
+#: ../mate-tweak:1529
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Papar menu Aksara Kawalan Unikod dalam menu konteks"
 
-#: ../mate-tweak:1520
+#: ../mate-tweak:1530
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
@@ -409,115 +415,93 @@ msgstr ""
 "Sama ada menu konteks masukan dan paparan teks patut menawarkan aksara "
 "kawalan sisip"
 
-#: ../mate-tweak:1522
+#: ../mate-tweak:1532
 msgid "Style:"
 msgstr "Gaya:"
 
-#: ../mate-tweak:1523
+#: ../mate-tweak:1533
 msgid "Icon size:"
 msgstr "Saiz ikon:"
 
-#: ../mate-tweak:1542
+#: ../mate-tweak:1552
 msgid "Small"
 msgstr "Kecil"
 
-#: ../mate-tweak:1543
+#: ../mate-tweak:1553
 msgid "Large"
 msgstr "Besar"
 
-#: ../mate-tweak:1552
+#: ../mate-tweak:1562
 msgid "The new window manager will be activated upon selection."
 msgstr "Pengurus tetingkap baharu akan diaktifkan ketika pemilihan."
 
-#: ../mate-tweak:1553
+#: ../mate-tweak:1563
 msgid "Select a window manager."
 msgstr "Pilih pengurus tetingkap"
 
-#: ../mate-tweak:1559
+#: ../mate-tweak:1569
 msgid "Select a panel layout to change the user interface."
 msgstr "Pilih bentangan panel untuk mengubah antaramuka pengguna."
 
-#: ../mate-tweak:1560
+#: ../mate-tweak:1570
 msgid "Select a panel layout."
 msgstr "Pilih satu bentangan panel"
 
-#: ../mate-tweak:1565
+#: ../mate-tweak:1575
 msgid "Default"
 msgstr "Lalai"
 
-#: ../mate-tweak:1566
+#: ../mate-tweak:1576
 msgid "16px"
 msgstr "16px"
 
-#: ../mate-tweak:1567
+#: ../mate-tweak:1577
 msgid "22px"
 msgstr "22px"
 
-#: ../mate-tweak:1568
+#: ../mate-tweak:1578
 msgid "24px"
 msgstr "24px"
 
-#: ../mate-tweak:1569
+#: ../mate-tweak:1579
 msgid "32px"
 msgstr "32px"
 
-#: ../mate-tweak:1570
+#: ../mate-tweak:1580
 msgid "48px"
 msgstr "48px"
 
-#: ../mate-tweak:1574
+#: ../mate-tweak:1584
 msgid "Set the panel icon size."
 msgstr "Tetapkan saiz ikon panel."
 
-#: ../mate-tweak:1575
+#: ../mate-tweak:1585
 msgid "Select the icon size for panel icons."
 msgstr "Pilih saiz ikon untuk ikon panel."
 
-#: ../mate-tweak:1579
+#: ../mate-tweak:1589
 msgid "Set the icon size of menu items used in the panel."
 msgstr "Tetapkan saiz ikon item menu yang digunakan dalam panel."
 
-#: ../mate-tweak:1580
+#: ../mate-tweak:1590
 msgid "Select the icon size for menu items in the panel."
 msgstr "Pilih saiz ikon untuk item menu di dalam panel."
 
-#: ../mate-tweak:1610
+#: ../mate-tweak:1620
 msgid "Text below items"
 msgstr "Teks dibawah item"
 
-#: ../mate-tweak:1611
+#: ../mate-tweak:1621
 msgid "Text beside items"
 msgstr "Teks bersebelahan item"
 
-#: ../mate-tweak:1612
+#: ../mate-tweak:1622
 msgid "Icons only"
 msgstr "Ikon sahaja"
 
-#: ../mate-tweak:1613
+#: ../mate-tweak:1623
 msgid "Text only"
 msgstr "Teks sahaja"
 
-#~ msgid "Enable locally integrated menus"
-#~ msgstr "Benarkan menu disepadu secara setempat"
-
-#~ msgid ""
-#~ "Display application menus in the application window. When local menus are "
-#~ "disabled, add the Global Menu applet to a panel to see them."
-#~ msgstr ""
-#~ "Papar menu aplikasi dalam tetingkap aplikasi. Bila menu setempat "
-#~ "dilumpuhkan, tambah aplet menu Sejagat ke dalam panel untuk melihatnya."
-
-#~ msgid "Marco (No effects xcompmgr compositor)"
-#~ msgstr "Marko (Tiada kesan penggubah xcompmgr )"
-
-#~ msgid "Metacity (No compositor)"
-#~ msgstr "Metacity (Tiada penggubah)"
-
-#~ msgid "Metacity (Software compositor)"
-#~ msgstr "Metacity (Penggubah perisian)"
-
-#~ msgid "Metacity (No effects xcompmgr compositor)"
-#~ msgstr "Metacity (Tiada kesan penggubah xcompmgr)"
-
-#~ msgid "Metacity (Compton GPU compositor)"
-#~ msgstr "Metacity (Penggubah GPU Compton)"
+#~ msgid "Marco (Software compositor)"
+#~ msgstr "Marko (Penggubah perisian)"

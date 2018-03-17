@@ -6,6 +6,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # Jaroslav Lichtblau <dragonlord@seznam.cz>, 2016
 # LiberteCzech <liberte.czech@gmail.com>, 2015
+# Lucas Lommer <drom@kdyne.net>, 2018
 # LiberteCzech <liberte.czech@gmail.com>, 2015-2016
 # LiberteCzech <liberte.czech@gmail.com>, 2015
 # Milan Milzou <vonfsro@gmail.com>, 2015-2016
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-01 02:16+0000\n"
-"PO-Revision-Date: 2018-01-19 14:45+0000\n"
-"Last-Translator: ToMáš Marný\n"
+"POT-Creation-Date: 2018-03-17 17:43+0000\n"
+"PO-Revision-Date: 2018-03-12 01:52+0000\n"
+"Last-Translator: Lucas Lommer <drom@kdyne.net>\n"
 "Language-Team: Czech (http://www.transifex.com/mate/MATE/language/cs/)\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -26,31 +27,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../mate-tweak:1119
+#: ../mate-tweak:1125
 msgid "Right"
 msgstr "Vpravo"
 
-#: ../mate-tweak:1120
+#: ../mate-tweak:1126
 msgid "Left"
 msgstr "Vlevo"
 
-#: ../mate-tweak:1128
+#: ../mate-tweak:1134
 msgid "Marco (No compositor)"
 msgstr "Marco (bez kompozitoru)"
 
-#: ../mate-tweak:1130
-msgid "Marco (Software compositor)"
-msgstr "Marco (softwarový kompozitor)"
+#: ../mate-tweak:1136
+#, fuzzy
+msgid "Marco (Adaptive compositor)"
+msgstr "Marco (bez kompozitoru)"
 
-#: ../mate-tweak:1132
+#: ../mate-tweak:1138
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (Compton GPU kompozitor)"
 
-#: ../mate-tweak:1134
+#: ../mate-tweak:1140
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (pokročilejší efekty plochy s GPU akcelerací)"
 
-#: ../mate-tweak:1137
+#: ../mate-tweak:1143
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -58,135 +60,139 @@ msgstr ""
 "V současné době používáte neznámého a nepodporovaného správce oken. Nemůžeme "
 "tedy zaručit, že zde provedené změny budou účinné."
 
-#: ../mate-tweak:1157
+#: ../mate-tweak:1163
 msgid "Contemporary"
 msgstr "Současné"
 
-#: ../mate-tweak:1165 ../mate-tweak:1171
+#: ../mate-tweak:1171 ../mate-tweak:1177
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1175
+#: ../mate-tweak:1181
+msgid "Familiar"
+msgstr ""
+
+#: ../mate-tweak:1185
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1179
+#: ../mate-tweak:1189
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1183
+#: ../mate-tweak:1193
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1187
+#: ../mate-tweak:1197
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1191
+#: ../mate-tweak:1201
 msgid "Manjaro"
 msgstr "Manjaro"
 
-#: ../mate-tweak:1198 ../mate-tweak:1203
+#: ../mate-tweak:1208 ../mate-tweak:1213
 msgid "Mutiny"
 msgstr "Mutiny"
 
-#: ../mate-tweak:1209 ../mate-tweak:1213
+#: ../mate-tweak:1219 ../mate-tweak:1223
 msgid "Netbook"
 msgstr "Netbook"
 
-#: ../mate-tweak:1217
+#: ../mate-tweak:1227
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1223
+#: ../mate-tweak:1233
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: ../mate-tweak:1228 ../mate-tweak:1231
+#: ../mate-tweak:1238 ../mate-tweak:1241
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1235
+#: ../mate-tweak:1245
 msgid "Solus"
 msgstr "Solus"
 
-#: ../mate-tweak:1238
+#: ../mate-tweak:1248
 msgid "Traditional"
 msgstr "Tradiční"
 
-#: ../mate-tweak:1386
+#: ../mate-tweak:1396
 msgid "Desktop"
 msgstr "Plocha"
 
-#: ../mate-tweak:1387
+#: ../mate-tweak:1397
 msgid "Interface"
 msgstr "Rozhraní"
 
-#: ../mate-tweak:1388
+#: ../mate-tweak:1398
 msgid "Panel"
 msgstr "Panel"
 
-#: ../mate-tweak:1389
+#: ../mate-tweak:1399
 msgid "Windows"
 msgstr "Okna"
 
-#: ../mate-tweak:1438
+#: ../mate-tweak:1448
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:1441
+#: ../mate-tweak:1451
 msgid "Desktop icons"
 msgstr "Ikony na ploše"
 
-#: ../mate-tweak:1442
+#: ../mate-tweak:1452
 msgid "Performance"
 msgstr "Výkon"
 
-#: ../mate-tweak:1443
+#: ../mate-tweak:1453
 msgid "Window Behaviour"
 msgstr "Chování okna"
 
-#: ../mate-tweak:1444
+#: ../mate-tweak:1454
 msgid "Appearance"
 msgstr "Vzhled"
 
-#: ../mate-tweak:1445
+#: ../mate-tweak:1455
 msgid "Panels"
 msgstr "Panely"
 
-#: ../mate-tweak:1446
+#: ../mate-tweak:1456
 msgid "Panel Features"
 msgstr "Funkce panelu"
 
-#: ../mate-tweak:1447
+#: ../mate-tweak:1457
 msgid "Panel Menu Features"
 msgstr "Funkce nabídky panelu"
 
-#: ../mate-tweak:1448
+#: ../mate-tweak:1458
 msgid "Icons"
 msgstr "Ikony"
 
-#: ../mate-tweak:1449
+#: ../mate-tweak:1459
 msgid "Context menus"
 msgstr "Kontextové nabídky"
 
-#: ../mate-tweak:1450
+#: ../mate-tweak:1460
 msgid "Toolbars"
 msgstr "Nástrojové lišty"
 
-#: ../mate-tweak:1451
+#: ../mate-tweak:1461
 msgid "Window manager"
 msgstr "Správce oken"
 
-#: ../mate-tweak:1453
+#: ../mate-tweak:1463
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Vyberte položky, které chcete zobrazovat na ploše:"
 
-#: ../mate-tweak:1454
+#: ../mate-tweak:1464
 msgid "Show Desktop Icons"
 msgstr "Zobrazovat ikony na ploše"
 
-#: ../mate-tweak:1455
+#: ../mate-tweak:1465
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
@@ -194,51 +200,51 @@ msgstr ""
 "Pokud bude odškrtnuto, pracovní plocha bude spravována bez přístupu k ikonám "
 "nebo správci souborů"
 
-#: ../mate-tweak:1456
+#: ../mate-tweak:1466
 msgid "Computer"
 msgstr "Počítač"
 
-#: ../mate-tweak:1457
+#: ../mate-tweak:1467
 msgid "Home"
 msgstr "Domovská složka"
 
-#: ../mate-tweak:1458
+#: ../mate-tweak:1468
 msgid "Network"
 msgstr "Síť"
 
-#: ../mate-tweak:1459
+#: ../mate-tweak:1469
 msgid "Trash"
 msgstr "Koš"
 
-#: ../mate-tweak:1460
+#: ../mate-tweak:1470
 msgid "Mounted Volumes"
 msgstr "Připojené disky"
 
-#: ../mate-tweak:1462
+#: ../mate-tweak:1472
 msgid "Enable animations"
 msgstr "Povolit animace"
 
-#: ../mate-tweak:1463
+#: ../mate-tweak:1473
 msgid "Whether animations should be displayed by the window manager and panel"
 msgstr "Zda mají být zobrazovány animace správce oken nebo animace na panelu"
 
-#: ../mate-tweak:1464
+#: ../mate-tweak:1474
 msgid "Do not show window content when moving windows"
 msgstr "Nezobrazovat obsah okna při přesunu oken"
 
-#: ../mate-tweak:1465
+#: ../mate-tweak:1475
 msgid "Provide less feedback when moving windows by using wireframes"
 msgstr "Poskytne méně zpětné vazby při přesunu oken použitím drátových rámů"
 
-#: ../mate-tweak:1466
+#: ../mate-tweak:1476
 msgid "Window manager performance tuning."
 msgstr "Ladění výkonu správce oken."
 
-#: ../mate-tweak:1468
+#: ../mate-tweak:1478
 msgid "Enable window snapping"
 msgstr "Povolit přichytávání oken"
 
-#: ../mate-tweak:1469
+#: ../mate-tweak:1479
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
@@ -246,102 +252,103 @@ msgstr ""
 "Upuštění oken na okrajích obrazovky je svisle maximálně zvětší a změní "
 "jejich velikost vodorovně tak, aby pokryla polovinu dostupné plochy"
 
-#: ../mate-tweak:1470
+#: ../mate-tweak:1480
 msgid "Undecorate maximized windows"
 msgstr "Nedekorovat maximalizovaná okna"
 
-#: ../mate-tweak:1471
+#: ../mate-tweak:1481
 msgid "Undecorate windows when maximized"
 msgstr "Nebudou dekorována okna, pokud budou maximalizovaná"
 
-#: ../mate-tweak:1472
+#: ../mate-tweak:1482
 msgid "Do not auto-maximize new windows"
 msgstr "Nemaximalizovat automaticky nová okna"
 
-#: ../mate-tweak:1473
+#: ../mate-tweak:1483
 msgid "Do not automatically maximize newly opened windows"
 msgstr "Automaticky nemaximalizuje nově otevřená okna"
 
-#: ../mate-tweak:1474
+#: ../mate-tweak:1484
 msgid "Window control placement."
 msgstr "Umístění ovládacího prvku okna."
 
-#: ../mate-tweak:1476
+#: ../mate-tweak:1486
 msgid "Save the current panel layout as your own custom version"
 msgstr "Uloží aktuální uspořádání panelu jako vaši vlastní verzi"
 
-#: ../mate-tweak:1477
+#: ../mate-tweak:1487
 msgid "Delete the currently selected panel layout"
 msgstr "Odstraní aktuálně vybrané rozvržení panelu"
 
-#: ../mate-tweak:1478
+#: ../mate-tweak:1488
 msgid "Open CCSM"
 msgstr "Otevřít CCSM"
 
-#: ../mate-tweak:1479
+#: ../mate-tweak:1489
 msgid "Open the Compiz configuration and settings manager"
 msgstr "Otevře správce konfigurace a nastavení Compiz"
 
-#: ../mate-tweak:1480
+#: ../mate-tweak:1490
 msgid "Reset Compiz"
 msgstr "Resetovat Compiz"
 
-#: ../mate-tweak:1481
+#: ../mate-tweak:1491
 msgid "Reset the current Compiz configuration to factory defaults"
 msgstr "Obnoví aktuální konfiguraci Compiz na tovární nastavení"
 
-#: ../mate-tweak:1484
-#, fuzzy
+#: ../mate-tweak:1494
 msgid "Select a window scaling factor."
-msgstr "Zvolte správce oken."
+msgstr "Zvolte faktor škálování oken."
 
-#: ../mate-tweak:1486
+#: ../mate-tweak:1496
 msgid "Auto-detect"
-msgstr ""
+msgstr "Automaticky detekované"
 
-#: ../mate-tweak:1487
+#: ../mate-tweak:1497
 msgid "Regular"
-msgstr ""
+msgstr "Normální"
 
-#: ../mate-tweak:1488
+#: ../mate-tweak:1498
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
-#: ../mate-tweak:1491
+#: ../mate-tweak:1501
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
 msgstr ""
+"Dvojnásobná velikost všech oken, panelů, elementů, písem a podobně pro "
+"použití s displeji HiDPI."
 
-#: ../mate-tweak:1497
+#: ../mate-tweak:1507
 msgid "Enable keyboard LED"
 msgstr "Zapnout LED diody klávesnice"
 
-#: ../mate-tweak:1498
+#: ../mate-tweak:1508
 msgid "Show keyboard LED indicators in the notifcation tray"
 msgstr "Zobrazí indikátory LED klávesnice v oznamovací liště"
 
-#: ../mate-tweak:1499
+#: ../mate-tweak:1509
 msgid "Enable pull-down terminal"
 msgstr "Povolit vysouvací terminál"
 
-#: ../mate-tweak:1500
+#: ../mate-tweak:1510
 msgid "When enabled press F12 to pull down terminal"
 msgstr "Pokud je povoleno, stisknutí klávesy F12 rozvine terminál"
 
-#: ../mate-tweak:1501
+#: ../mate-tweak:1511
 msgid "Enable Dock"
 msgstr "Povolit dok"
 
-#: ../mate-tweak:1502
+#: ../mate-tweak:1512
 msgid "When checked the Dock will be enabled."
 msgstr "Pokud je zaškrtnuto, bude dok povolen."
 
-#: ../mate-tweak:1503
+#: ../mate-tweak:1513
 msgid "Enable HUD"
 msgstr "Povolit HUD"
 
-#: ../mate-tweak:1504
+#: ../mate-tweak:1514
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
@@ -349,51 +356,51 @@ msgstr ""
 "Pokud je zaškrtnuto, bude aktivován Heads-Up Display (HUD). Stiskněte Alt_L "
 "pro vyhledání nabídek aplikací."
 
-#: ../mate-tweak:1506
+#: ../mate-tweak:1516
 msgid "Show Applications"
 msgstr "Zobrazovat Aplikace"
 
-#: ../mate-tweak:1507
+#: ../mate-tweak:1517
 msgid "Show Applications item in the menu bar"
 msgstr "Zobrazí na panelu položku \"Aplikace\""
 
-#: ../mate-tweak:1508
+#: ../mate-tweak:1518
 msgid "Show Places"
 msgstr "Zobrazovat Místa"
 
-#: ../mate-tweak:1509
+#: ../mate-tweak:1519
 msgid "Show Places item in the menu bar"
 msgstr "Zobrazí na panelu položku \"Místa\""
 
-#: ../mate-tweak:1510
+#: ../mate-tweak:1520
 msgid "Show System"
 msgstr "Zobrazovat Systém"
 
-#: ../mate-tweak:1511
+#: ../mate-tweak:1521
 msgid "Show System item in the menu bar"
 msgstr "Zobrazí na panelu položku \"Systém\""
 
-#: ../mate-tweak:1513
+#: ../mate-tweak:1523
 msgid "Show icons on menus"
 msgstr "Zobrazovat ikony v nabídkách"
 
-#: ../mate-tweak:1514
+#: ../mate-tweak:1524
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "Zda se v menu bude zobrazovat ikona vedle položky nabídky"
 
-#: ../mate-tweak:1515
+#: ../mate-tweak:1525
 msgid "Show icons on buttons"
 msgstr "Zobrazovat ikony na tlačítkách"
 
-#: ../mate-tweak:1516
+#: ../mate-tweak:1526
 msgid "Whether buttons may display an icon in addition to the button text"
 msgstr "Zda se na tlačítkách bude zobrazovat kromě textu tlačítka i ikona"
 
-#: ../mate-tweak:1517
+#: ../mate-tweak:1527
 msgid "Show Input Methods menu in context menus"
 msgstr "V kontextových nabídkách zobrazovat metody vstupu"
 
-#: ../mate-tweak:1518
+#: ../mate-tweak:1528
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
@@ -401,11 +408,11 @@ msgstr ""
 "Zda by měly kontextové nabídky vstupních polí a textových polí nabízet změnu "
 "vstupní metody"
 
-#: ../mate-tweak:1519
+#: ../mate-tweak:1529
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "V kontextových nabídkách zobrazovat řídící znaky Unicode"
 
-#: ../mate-tweak:1520
+#: ../mate-tweak:1530
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
@@ -413,115 +420,93 @@ msgstr ""
 "Zda by měly kontextové nabídky vstupních polí a textových polí nabízet "
 "vložení řídicích znaků"
 
-#: ../mate-tweak:1522
+#: ../mate-tweak:1532
 msgid "Style:"
 msgstr "Styl:"
 
-#: ../mate-tweak:1523
+#: ../mate-tweak:1533
 msgid "Icon size:"
 msgstr "Velikost ikon:"
 
-#: ../mate-tweak:1542
+#: ../mate-tweak:1552
 msgid "Small"
 msgstr "Malé"
 
-#: ../mate-tweak:1543
+#: ../mate-tweak:1553
 msgid "Large"
 msgstr "Velké"
 
-#: ../mate-tweak:1552
+#: ../mate-tweak:1562
 msgid "The new window manager will be activated upon selection."
 msgstr "Nový správce oken bude aktivován při výběru."
 
-#: ../mate-tweak:1553
+#: ../mate-tweak:1563
 msgid "Select a window manager."
 msgstr "Zvolte správce oken."
 
-#: ../mate-tweak:1559
+#: ../mate-tweak:1569
 msgid "Select a panel layout to change the user interface."
 msgstr "Zvolte rozvržení panelu pro změnu uživatelského rozhraní."
 
-#: ../mate-tweak:1560
+#: ../mate-tweak:1570
 msgid "Select a panel layout."
 msgstr "Výběr rozvržení panelu."
 
-#: ../mate-tweak:1565
+#: ../mate-tweak:1575
 msgid "Default"
 msgstr "Výchozí"
 
-#: ../mate-tweak:1566
+#: ../mate-tweak:1576
 msgid "16px"
 msgstr "16px"
 
-#: ../mate-tweak:1567
+#: ../mate-tweak:1577
 msgid "22px"
 msgstr "22px"
 
-#: ../mate-tweak:1568
+#: ../mate-tweak:1578
 msgid "24px"
 msgstr "24px"
 
-#: ../mate-tweak:1569
+#: ../mate-tweak:1579
 msgid "32px"
 msgstr "32px"
 
-#: ../mate-tweak:1570
+#: ../mate-tweak:1580
 msgid "48px"
 msgstr "48px"
 
-#: ../mate-tweak:1574
+#: ../mate-tweak:1584
 msgid "Set the panel icon size."
 msgstr "Nastaví velikost ikon panelu."
 
-#: ../mate-tweak:1575
+#: ../mate-tweak:1585
 msgid "Select the icon size for panel icons."
 msgstr "Vyberte velikost ikon pro ikony panelu."
 
-#: ../mate-tweak:1579
+#: ../mate-tweak:1589
 msgid "Set the icon size of menu items used in the panel."
 msgstr "Nastaví velikost ikon položek menu používaných v panelu."
 
-#: ../mate-tweak:1580
+#: ../mate-tweak:1590
 msgid "Select the icon size for menu items in the panel."
 msgstr "Vyberte velikost ikon pro položky menu v panelu."
 
-#: ../mate-tweak:1610
+#: ../mate-tweak:1620
 msgid "Text below items"
 msgstr "Text pod položkami"
 
-#: ../mate-tweak:1611
+#: ../mate-tweak:1621
 msgid "Text beside items"
 msgstr "Text vedle položek"
 
-#: ../mate-tweak:1612
+#: ../mate-tweak:1622
 msgid "Icons only"
 msgstr "Pouze ikony"
 
-#: ../mate-tweak:1613
+#: ../mate-tweak:1623
 msgid "Text only"
 msgstr "Pouze text"
 
-#~ msgid "Enable locally integrated menus"
-#~ msgstr "Povolit lokálně integrované nabídky"
-
-#~ msgid ""
-#~ "Display application menus in the application window. When local menus are "
-#~ "disabled, add the Global Menu applet to a panel to see them."
-#~ msgstr ""
-#~ "Zobrazí nabídky aplikací v okně aplikace. Pokud jsou místní nabídky "
-#~ "vypnuty, přidejte na panel applet s globálními nabídkami a zobrazíte je."
-
-#~ msgid "Marco (No effects xcompmgr compositor)"
-#~ msgstr "Marco (žádné efekty xcompmgr kompozitoru)"
-
-#~ msgid "Metacity (No compositor)"
-#~ msgstr "Metacity (bez kompozitoru)"
-
-#~ msgid "Metacity (Software compositor)"
-#~ msgstr "Metacity (softwarový kompozitor)"
-
-#~ msgid "Metacity (No effects xcompmgr compositor)"
-#~ msgstr "Metacity (žádné efekty xcompmgr kompozitoru)"
-
-#~ msgid "Metacity (Compton GPU compositor)"
-#~ msgstr "Metacity (Compton GPU kompozitor)"
+#~ msgid "Marco (Software compositor)"
+#~ msgstr "Marco (softwarový kompozitor)"
