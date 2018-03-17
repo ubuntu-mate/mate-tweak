@@ -1158,8 +1158,7 @@ class MateTweak:
 
         if self.panel_layout_exists('contemporary') and \
            self.appmenu_applet_available and \
-           self.brisk_menu_available and \
-           self.hud_available:
+           self.brisk_menu_available:
             panels.append([_("Contemporary"), "contemporary"])
 
         # Prefer Indicator enabled Cupertino layout and fallback to non-Indicator version.
@@ -1227,8 +1226,7 @@ class MateTweak:
             panels.append([_("openSUSE"), "opensuse"])
 
         if self.dock is not None and \
-           self.brisk_menu_available and \
-           self.hud_available:
+           self.brisk_menu_available:
             if self.panel_layout_exists('pantheon'):
                 panels.append([_("Pantheon"), "pantheon"])
 
