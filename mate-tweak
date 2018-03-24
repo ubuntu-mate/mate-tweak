@@ -833,11 +833,10 @@ class MateTweak:
             subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
 
         # Determine if the dock should be enabled
-        if (new_layout.startswith('eleven') and self.dock is not None) or \
-           (new_layout.startswith('pantheon') and self.dock is not None):
+        if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.dock')) and self.dock is not None:
+            print('Found dock hint for ' + new_layout)
             self.enable_dock()
-        elif not new_layout.startswith('eleven') or \
-             not new_layout.startswith('pantheon'):
+        else:
             self.disable_dock()
 
         # Determine if maximised windows should be undecorated
@@ -1328,6 +1327,8 @@ class MateTweak:
 
             mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
             backup = subprocess.call([mate_tweak_helper, 'backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
+            if self.dock_enabled:
+                dock = subprocess.call([mate_tweak_helper, 'dock', layoutname], stdout=DEVNULL, stderr=DEVNULL)
             install = subprocess.call(['pkexec', mate_tweak_helper, 'install', layoutname], stdout=DEVNULL, stderr=DEVNULL)
             Notify.init(_('Panel Layout Saved'))
             save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as ') + layoutname.replace('-tweak',''), 'dialog-information')

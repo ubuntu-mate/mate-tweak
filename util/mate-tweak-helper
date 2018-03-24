@@ -133,6 +133,10 @@ def backup_layout(filename):
         f.writelines(dump)
 
 
+def backup_dock(filename):
+    with open(os.path.join(tempfile.gettempdir(), filename + '.dock'), 'w') as f:
+        f.writelines('plank')
+
 if __name__ == '__main__':
     if len(sys.argv) == 3:
         action = sys.argv[1]
@@ -141,10 +145,14 @@ if __name__ == '__main__':
             autostop(filename)
         elif action == 'backup':
             backup_layout(filename)
+        elif action == 'dock':
+            backup_dock(filename)
         elif action == 'delete':
+            delete_layout(filename + '.dock')
             delete_layout(filename + '.layout')
             delete_layout(filename + '.panel')
         elif action == 'install':
+            install_layout(filename + '.dock')
             install_layout(filename + '.layout')
             install_layout(filename + '.panel')
     else:
