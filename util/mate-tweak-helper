@@ -39,7 +39,10 @@ def install_layout(filename):
                      os.path.join('/','usr','share','mate-panel','layouts',filename))
         os.remove(os.path.join(tempfile.gettempdir(),filename))
     else:
-        print('ERROR! Unable to find ' + os.path.join(tempfile.gettempdir(),filename))
+        # If a .dock hint is not found but is installed, remove it.
+        if filename.endswith('dock') and os.path.exists(os.path.join('/','usr','share','mate-panel','layouts',filename)):
+            os.remove(os.path.join('/','usr','share','mate-panel','layouts',filename))
+        print('Unable to find ' + os.path.join(tempfile.gettempdir(),filename))
 
 
 def delete_layout(filename):
@@ -48,7 +51,7 @@ def delete_layout(filename):
         if os.path.exists(layout):
             os.remove(layout)
         else:
-            print('ERROR! Unable to find ' + layout)
+            print('Unable to find ' + layout)
     else:
         print('WARNING! I will only delete custom layouts. Skipping ' + layout)
 
