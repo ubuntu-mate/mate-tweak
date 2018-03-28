@@ -670,12 +670,6 @@ class MateTweak:
             return False
 
     def update_panel_layout_ui(self, panel_layout):
-        # Make show-applications insesitive we're using the Pantheon layout.
-        if panel_layout.startswith('pantheon'):
-            self.builder.get_object('checkbutton_show_applications').props.sensitive = False
-        else:
-            self.builder.get_object('checkbutton_show_applications').props.sensitive = True
-
         # Make Menu Bar configuration insensitive for layouts that don't
         # feature the menu bar.
         if self.panel_layout_uses('Object menu-bar', panel_layout):
@@ -727,18 +721,6 @@ class MateTweak:
 
         print('Switching to: ' + new_layout)
         self.update_panel_layout_ui(new_layout)
-
-        # Change show-applications state when changing to/from Pantheon.
-        show_applications = self.get_bool('org.mate.panel.menubar', None, 'show-applications')
-        if new_layout.startswith('pantheon') and self.panel_layout_uses('BriskMenu', new_layout):
-            self.set_bool('org.mate.panel.menubar', None, 'show-applications', False)
-        # If we're switching to a layout use the menu-bar, but not Brisk
-        # and Applications is disabled in the menu-bar, it probably make
-        # sense to enable Applications.
-        elif self.panel_layout_uses('menu-bar', new_layout) and \
-             not self.panel_layout_uses('BriskMenu', new_layout) and \
-             not show_applications:
-            self.set_bool('org.mate.panel.menubar', None, 'show-applications', True)
 
         # Change Brisk Menu label-visible state when changing to/from Cupertino, Mutiny and Netbook.
         if self.brisk_menu_available:
@@ -1628,8 +1610,6 @@ class MateTweak:
         self.init_checkbox("org.mate.panel.menubar", "show-applications", "checkbutton_show_applications")
         self.init_checkbox("org.mate.panel.menubar", "show-places", "checkbutton_show_places")
         self.init_checkbox("org.mate.panel.menubar", "show-desktop", "checkbutton_show_system")
-        if self.current_layout.startswith('pantheon'):
-            self.builder.get_object('checkbutton_show_applications').props.sensitive = False
 
         # toolbar icon styles
         iconStyles = Gtk.ListStore(str, str)
