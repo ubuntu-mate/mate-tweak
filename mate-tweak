@@ -1647,6 +1647,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--layout', help="Switch to a panel layout")
+    parser.add_argument('--get-layout', action='store_true', help="Get the current panel layout")
     args = parser.parse_args()
 
     # If we've been given a layout then attempt to switch layouts.
@@ -1656,6 +1657,8 @@ if __name__ == "__main__":
             mt.replace_panel_layout(args.layout)
         else:
             print("ERROR! Unable to find layout: " + args.layout)
+    elif args.get_layout:
+        mt = MateTweak()
     else:
         MateTweak()
         Gtk.main()
