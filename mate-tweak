@@ -1145,7 +1145,8 @@ class MateTweak:
 
         if self.panel_layout_exists('contemporary') and \
            self.appmenu_applet_available and \
-           self.brisk_menu_available:
+           self.brisk_menu_available and \
+           self.indicators_available:
             panels.append([_("Contemporary"), "contemporary"])
 
         # Prefer Indicator enabled Cupertino layout and fallback to non-Indicator version.
@@ -1163,7 +1164,8 @@ class MateTweak:
                 panels.append([_("Cupertino"), "eleven-no-indicators"])
 
         if self.panel_layout_exists('familiar') and \
-           self.brisk_menu_available:
+           self.brisk_menu_available and \
+           self.indicators_available:
             panels.append([_("Familiar"), "familiar"])
 
         if platform.linux_distribution()[0] != 'Ubuntu' and \
@@ -1190,7 +1192,8 @@ class MateTweak:
         if self.panel_layout_exists('mutiny') and \
            self.mate_dock_available and \
            self.appmenu_applet_available and \
-           self.indicators_available:
+           self.indicators_available and \
+           self.brisk_menu_available:
             panels.append([_("Mutiny"), "mutiny"])
         elif self.panel_layout_exists('mutiny-no-indicators') and \
            self.mate_dock_available and \
@@ -1201,7 +1204,9 @@ class MateTweak:
         # Prefer Indicator enabled Netbook layout and fallback to non-Indicator version.
         if self.panel_layout_exists('netbook') and \
            self.maximus_available and \
-           self.indicators_available:
+           self.indicators_available and \
+           self.brisk_menu_available and \
+           self.mate_dock_available:
             panels.append([_("Netbook"), "netbook"])
         elif self.panel_layout_exists('netbook-no-indicators') and \
            self.maximus_available and \
@@ -1213,15 +1218,18 @@ class MateTweak:
             panels.append([_("openSUSE"), "opensuse"])
 
         if self.dock is not None and \
-           self.brisk_menu_available:
+           self.brisk_menu_available and \
+           self.indicators_available:
             if self.panel_layout_exists('pantheon'):
                 panels.append([_("Pantheon"), "pantheon"])
 
         # Prefer Indicator enabled Redmond layout and fallback to non-Indicator version.
         if self.panel_layout_exists('redmond') and \
-           self.indicators_available:
+           self.indicators_available and \
+           self.mate_menu_available:
             panels.append([_("Redmond"), "redmond"])
         elif self.panel_layout_exists('redmond-no-indicators') and \
+           self.mate_menu_available and \
            not self.indicators_available:
             panels.append([_("Redmond"), "redmond-no-indicators"])
 
@@ -1229,7 +1237,8 @@ class MateTweak:
            self.brisk_menu_available:
             panels.append([_("Solus"), "solus"])
 
-        if self.panel_layout_exists('ubuntu-mate'):
+        if self.panel_layout_exists('ubuntu-mate') and \
+           self.indicators_available:
             panels.append([_("Traditional"), "ubuntu-mate"])
 
         self.builder.get_object("combobox_panels").set_model(panels)
