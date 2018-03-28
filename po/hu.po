@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-17 17:43+0000\n"
+"POT-Creation-Date: 2018-03-28 01:44+0100\n"
 "PO-Revision-Date: 2018-03-08 09:18+0000\n"
 "Last-Translator: Janos Tech <janostech@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/mate/MATE/language/hu/)\n"
@@ -25,32 +25,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:1125
+#: ../mate-tweak:1130
 msgid "Right"
 msgstr "Jobb"
 
-#: ../mate-tweak:1126
+#: ../mate-tweak:1131
 msgid "Left"
 msgstr "Bal"
 
-#: ../mate-tweak:1134
+#: ../mate-tweak:1139
 msgid "Marco (No compositor)"
 msgstr "Marco (nincs kompozitáló)"
 
-#: ../mate-tweak:1136
+#: ../mate-tweak:1141
 #, fuzzy
 msgid "Marco (Adaptive compositor)"
 msgstr "Marco (nincs kompozitáló)"
 
-#: ../mate-tweak:1138
+#: ../mate-tweak:1143
 msgid "Marco (Compton GPU compositor)"
 msgstr "Marco (Compton GPU kompozitáló)"
 
-#: ../mate-tweak:1140
+#: ../mate-tweak:1145
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
 msgstr "Compiz (bővített, GPU gyorsítást használó asztali effektusok)"
 
-#: ../mate-tweak:1143
+#: ../mate-tweak:1148
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
@@ -58,139 +58,139 @@ msgstr ""
 "Ismeretlen, nem támogatott ablakkezelő van használatban. Nem garantált, hogy "
 "az itt beállított módosítások működni fognak."
 
-#: ../mate-tweak:1163
+#: ../mate-tweak:1167
 msgid "Contemporary"
 msgstr "Modern"
 
-#: ../mate-tweak:1171 ../mate-tweak:1177
+#: ../mate-tweak:1175 ../mate-tweak:1181
 msgid "Cupertino"
 msgstr "Cupertino"
 
-#: ../mate-tweak:1181
+#: ../mate-tweak:1185
 msgid "Familiar"
 msgstr ""
 
-#: ../mate-tweak:1185
+#: ../mate-tweak:1189
 msgid "Fedora"
 msgstr "Fedora"
 
-#: ../mate-tweak:1189
+#: ../mate-tweak:1193
 msgid "GNOME2"
 msgstr "GNOME2"
 
-#: ../mate-tweak:1193
+#: ../mate-tweak:1197
 msgid "Linux Mint"
 msgstr "Linux Mint"
 
-#: ../mate-tweak:1197
+#: ../mate-tweak:1201
 msgid "Mageia"
 msgstr "Mageia"
 
-#: ../mate-tweak:1201
+#: ../mate-tweak:1205
 msgid "Manjaro"
 msgstr "Manjaro"
 
-#: ../mate-tweak:1208 ../mate-tweak:1213
+#: ../mate-tweak:1212 ../mate-tweak:1217
 msgid "Mutiny"
 msgstr "Figyelemfelkeltés"
 
-#: ../mate-tweak:1219 ../mate-tweak:1223
+#: ../mate-tweak:1223 ../mate-tweak:1227
 msgid "Netbook"
 msgstr "Netbook"
 
-#: ../mate-tweak:1227
+#: ../mate-tweak:1231
 msgid "openSUSE"
 msgstr "openSUSE"
 
-#: ../mate-tweak:1233
+#: ../mate-tweak:1236
 msgid "Pantheon"
 msgstr "Pantheon"
 
-#: ../mate-tweak:1238 ../mate-tweak:1241
+#: ../mate-tweak:1241 ../mate-tweak:1244
 msgid "Redmond"
 msgstr "Redmond"
 
-#: ../mate-tweak:1245
+#: ../mate-tweak:1248
 msgid "Solus"
 msgstr "Solus"
 
-#: ../mate-tweak:1248
+#: ../mate-tweak:1251
 msgid "Traditional"
 msgstr "Hagyományos"
 
-#: ../mate-tweak:1396
+#: ../mate-tweak:1406
 msgid "Desktop"
 msgstr "Asztal"
 
-#: ../mate-tweak:1397
+#: ../mate-tweak:1407
 msgid "Interface"
 msgstr "Felület"
 
-#: ../mate-tweak:1398
+#: ../mate-tweak:1408
 msgid "Panel"
 msgstr "Panel"
 
-#: ../mate-tweak:1399
+#: ../mate-tweak:1409
 msgid "Windows"
 msgstr "Ablakok"
 
-#: ../mate-tweak:1448
+#: ../mate-tweak:1458
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: ../mate-tweak:1451
+#: ../mate-tweak:1461
 msgid "Desktop icons"
 msgstr "Asztali ikonok"
 
-#: ../mate-tweak:1452
+#: ../mate-tweak:1462
 msgid "Performance"
 msgstr "Teljesítmény"
 
-#: ../mate-tweak:1453
+#: ../mate-tweak:1463
 msgid "Window Behaviour"
 msgstr "Ablak viselkedése"
 
-#: ../mate-tweak:1454
+#: ../mate-tweak:1464
 msgid "Appearance"
 msgstr "Megjelenés"
 
-#: ../mate-tweak:1455
+#: ../mate-tweak:1465
 msgid "Panels"
 msgstr "Panelek"
 
-#: ../mate-tweak:1456
+#: ../mate-tweak:1466
 msgid "Panel Features"
 msgstr "Panel szolgáltatások"
 
-#: ../mate-tweak:1457
+#: ../mate-tweak:1467
 msgid "Panel Menu Features"
 msgstr "Panel menü lehetőségek"
 
-#: ../mate-tweak:1458
+#: ../mate-tweak:1468
 msgid "Icons"
 msgstr "Ikonok"
 
-#: ../mate-tweak:1459
+#: ../mate-tweak:1469
 msgid "Context menus"
 msgstr "Helyi menük"
 
-#: ../mate-tweak:1460
+#: ../mate-tweak:1470
 msgid "Toolbars"
 msgstr "Eszköztárak"
 
-#: ../mate-tweak:1461
+#: ../mate-tweak:1471
 msgid "Window manager"
 msgstr "Ablakkezelő"
 
-#: ../mate-tweak:1463
+#: ../mate-tweak:1473
 msgid "Select the Desktop Icons you want enabled:"
 msgstr "Válassza ki az engedélyezett asztali ikonokat:"
 
-#: ../mate-tweak:1464
+#: ../mate-tweak:1474
 msgid "Show Desktop Icons"
 msgstr "Asztal ikonok megjelenítése"
 
-#: ../mate-tweak:1465
+#: ../mate-tweak:1475
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
@@ -198,51 +198,51 @@ msgstr ""
 "Kikapcsolva, az asztalon nem jelennek meg ikonok, és a fájlkezelőhöz sem "
 "lehet hozzáférni"
 
-#: ../mate-tweak:1466
+#: ../mate-tweak:1476
 msgid "Computer"
 msgstr "Számítógép"
 
-#: ../mate-tweak:1467
+#: ../mate-tweak:1477
 msgid "Home"
 msgstr "Saját mappa"
 
-#: ../mate-tweak:1468
+#: ../mate-tweak:1478
 msgid "Network"
 msgstr "Hálózat"
 
-#: ../mate-tweak:1469
+#: ../mate-tweak:1479
 msgid "Trash"
 msgstr "Kuka"
 
-#: ../mate-tweak:1470
+#: ../mate-tweak:1480
 msgid "Mounted Volumes"
 msgstr "Csatlakoztatott kötetek"
 
-#: ../mate-tweak:1472
+#: ../mate-tweak:1482
 msgid "Enable animations"
 msgstr "Animációk engedélyezése"
 
-#: ../mate-tweak:1473
+#: ../mate-tweak:1483
 msgid "Whether animations should be displayed by the window manager and panel"
 msgstr "Megjelenjenek-e az ablakkezelő és panel animációk"
 
-#: ../mate-tweak:1474
+#: ../mate-tweak:1484
 msgid "Do not show window content when moving windows"
 msgstr "Ne mutassa az ablak tartalmát mozgatás közben"
 
-#: ../mate-tweak:1475
+#: ../mate-tweak:1485
 msgid "Provide less feedback when moving windows by using wireframes"
 msgstr "Csak az ablakkeret megjelenítése az ablak mozgatásakor"
 
-#: ../mate-tweak:1476
+#: ../mate-tweak:1486
 msgid "Window manager performance tuning."
 msgstr "Ablakkezelő teljesítmény fokozás."
 
-#: ../mate-tweak:1478
+#: ../mate-tweak:1488
 msgid "Enable window snapping"
 msgstr "Ablakigazítás engedélyezés"
 
-#: ../mate-tweak:1479
+#: ../mate-tweak:1489
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
@@ -250,67 +250,67 @@ msgstr ""
 "A képernyőélekre húzott ablakok függőlegesen maximalizálva lesznek, "
 "vízszintesen pedig az elérhető terület felét fogják elfoglalni."
 
-#: ../mate-tweak:1480
+#: ../mate-tweak:1490
 msgid "Undecorate maximized windows"
 msgstr "Maximalizált ablakok dekorációjának megszüntetése"
 
-#: ../mate-tweak:1481
+#: ../mate-tweak:1491
 msgid "Undecorate windows when maximized"
 msgstr "Maximalizált ablak dekoráció nélkül"
 
-#: ../mate-tweak:1482
+#: ../mate-tweak:1492
 msgid "Do not auto-maximize new windows"
 msgstr "Ne maximalizálja automatikusan az új ablakokat"
 
-#: ../mate-tweak:1483
+#: ../mate-tweak:1493
 msgid "Do not automatically maximize newly opened windows"
 msgstr "Ne maximalizálja automatikusan az újonnan megnyitott ablakokat"
 
-#: ../mate-tweak:1484
+#: ../mate-tweak:1494
 msgid "Window control placement."
 msgstr "Ablakkezelő elhelyezése."
 
-#: ../mate-tweak:1486
+#: ../mate-tweak:1496
 msgid "Save the current panel layout as your own custom version"
 msgstr "A jelenlegi panel elrendezés mentése saját elrendezésként"
 
-#: ../mate-tweak:1487
+#: ../mate-tweak:1497
 msgid "Delete the currently selected panel layout"
 msgstr "A jelenleg kijelölt panel elrendezés törlése"
 
-#: ../mate-tweak:1488
+#: ../mate-tweak:1498
 msgid "Open CCSM"
 msgstr "CCSM megnyitása"
 
-#: ../mate-tweak:1489
+#: ../mate-tweak:1499
 msgid "Open the Compiz configuration and settings manager"
 msgstr "Compiz beállítások megnyitása"
 
-#: ../mate-tweak:1490
+#: ../mate-tweak:1500
 msgid "Reset Compiz"
 msgstr "Compiz visszaállítása"
 
-#: ../mate-tweak:1491
+#: ../mate-tweak:1501
 msgid "Reset the current Compiz configuration to factory defaults"
 msgstr "Compiz beállítások visszaállítása az alapértelmezésre"
 
-#: ../mate-tweak:1494
-msgid "Select a window scaling factor."
-msgstr "Válasszon ablak méretezést."
-
-#: ../mate-tweak:1496
-msgid "Auto-detect"
-msgstr "Automatikus felismerés."
-
-#: ../mate-tweak:1497
-msgid "Regular"
-msgstr "Szabályos"
-
-#: ../mate-tweak:1498
+#: ../mate-tweak:1504 ../mate-tweak:1509
 msgid "HiDPI"
 msgstr "HiDPI"
 
-#: ../mate-tweak:1501
+#: ../mate-tweak:1505
+msgid "Select a window scaling factor."
+msgstr "Válasszon ablak méretezést."
+
+#: ../mate-tweak:1507
+msgid "Auto-detect"
+msgstr "Automatikus felismerés."
+
+#: ../mate-tweak:1508
+msgid "Regular"
+msgstr "Szabályos"
+
+#: ../mate-tweak:1512
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
@@ -318,35 +318,47 @@ msgstr ""
 "Duplára méretezi az összes ablakot, panelt, kütyüt, betűtípust stb, a HiDPI "
 "kijelzőkhöz."
 
-#: ../mate-tweak:1507
+#: ../mate-tweak:1518
+msgid "Open Font preferences"
+msgstr ""
+
+#: ../mate-tweak:1519 ../mate-tweak:1521
+msgid "Fonts"
+msgstr ""
+
+#: ../mate-tweak:1520
+msgid "Open Font preferences and click Details... to fine tune the font DPI."
+msgstr ""
+
+#: ../mate-tweak:1523
 msgid "Enable keyboard LED"
 msgstr "Billentyűzet LED engedélyezése"
 
-#: ../mate-tweak:1508
+#: ../mate-tweak:1524
 msgid "Show keyboard LED indicators in the notifcation tray"
 msgstr "Billentyűzet LED jelző megjelenítése az értesítési területen"
 
-#: ../mate-tweak:1509
+#: ../mate-tweak:1525
 msgid "Enable pull-down terminal"
 msgstr "Legördülő terminál engedélyezése"
 
-#: ../mate-tweak:1510
+#: ../mate-tweak:1526
 msgid "When enabled press F12 to pull down terminal"
 msgstr "Ha engedélyezve van, a legördülő terminál elérhető az F12 billentyűvel"
 
-#: ../mate-tweak:1511
+#: ../mate-tweak:1527
 msgid "Enable Dock"
 msgstr "Dock engedélyezése"
 
-#: ../mate-tweak:1512
+#: ../mate-tweak:1528
 msgid "When checked the Dock will be enabled."
 msgstr "Ha be van jelölve, a Dock engedélyezve lesz."
 
-#: ../mate-tweak:1513
+#: ../mate-tweak:1529
 msgid "Enable HUD"
 msgstr "HUD engedélyezése"
 
-#: ../mate-tweak:1514
+#: ../mate-tweak:1530
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
@@ -354,51 +366,51 @@ msgstr ""
 "Ha be van kapcsolva, akkor a heads-up megjelenítő (HUD) engedélyezve lesz. "
 "Kattintson az Alt_L-re az alkalmazásmenükben kereséshez."
 
-#: ../mate-tweak:1516
+#: ../mate-tweak:1532
 msgid "Show Applications"
 msgstr "Alkalmazások megjelenítése"
 
-#: ../mate-tweak:1517
+#: ../mate-tweak:1533
 msgid "Show Applications item in the menu bar"
 msgstr "Alkalmazások elem megjelenítése a menüsorban"
 
-#: ../mate-tweak:1518
+#: ../mate-tweak:1534
 msgid "Show Places"
 msgstr "Helyek megjelenítése"
 
-#: ../mate-tweak:1519
+#: ../mate-tweak:1535
 msgid "Show Places item in the menu bar"
 msgstr "Helyek elem megjelenítése a menüsorban"
 
-#: ../mate-tweak:1520
+#: ../mate-tweak:1536
 msgid "Show System"
 msgstr "Rendszer megjelenítése"
 
-#: ../mate-tweak:1521
+#: ../mate-tweak:1537
 msgid "Show System item in the menu bar"
 msgstr "Rendszer elem megjelenítése a menüsorban"
 
-#: ../mate-tweak:1523
+#: ../mate-tweak:1539
 msgid "Show icons on menus"
 msgstr "Ikonok megjelenítése a menükben"
 
-#: ../mate-tweak:1524
+#: ../mate-tweak:1540
 msgid "Whether menus may display an icon next to a menu entry"
 msgstr "A menükben megjelenjenek-e ikonok a menüelemek mellett"
 
-#: ../mate-tweak:1525
+#: ../mate-tweak:1541
 msgid "Show icons on buttons"
 msgstr "Ikonok megjelenítése a gombokon"
 
-#: ../mate-tweak:1526
+#: ../mate-tweak:1542
 msgid "Whether buttons may display an icon in addition to the button text"
 msgstr "A gombokon megjelenjenek-e ikonok a gombok szövege mellett"
 
-#: ../mate-tweak:1527
+#: ../mate-tweak:1543
 msgid "Show Input Methods menu in context menus"
 msgstr "Beviteli módok menü megjelenítése a helyi menükben"
 
-#: ../mate-tweak:1528
+#: ../mate-tweak:1544
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
@@ -406,103 +418,103 @@ msgstr ""
 "A beviteli mezők és szövegnézetek helyi menüi felajánlják-e a beviteli "
 "módszer megváltoztatását"
 
-#: ../mate-tweak:1529
+#: ../mate-tweak:1545
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Unicode vezérlőkarakterek menü megjelenítése a helyi menükben"
 
-#: ../mate-tweak:1530
+#: ../mate-tweak:1546
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
 msgstr ""
 "A beviteli mezők és szövegnézetek felajánlják-e vezérlőkarakterek beszúrását"
 
-#: ../mate-tweak:1532
+#: ../mate-tweak:1548
 msgid "Style:"
 msgstr "Stílus:"
 
-#: ../mate-tweak:1533
+#: ../mate-tweak:1549
 msgid "Icon size:"
 msgstr "Ikonméret:"
 
-#: ../mate-tweak:1552
+#: ../mate-tweak:1568
 msgid "Small"
 msgstr "Kicsi"
 
-#: ../mate-tweak:1553
+#: ../mate-tweak:1569
 msgid "Large"
 msgstr "Nagy"
 
-#: ../mate-tweak:1562
+#: ../mate-tweak:1578
 msgid "The new window manager will be activated upon selection."
 msgstr "Az új ablakkezelő kiválasztás után lesz aktiválva."
 
-#: ../mate-tweak:1563
+#: ../mate-tweak:1579
 msgid "Select a window manager."
 msgstr "Ablakkezelő kiválasztása"
 
-#: ../mate-tweak:1569
+#: ../mate-tweak:1585
 msgid "Select a panel layout to change the user interface."
 msgstr ""
 "Válassza ki a panel elrendezését a felhasználói felület megváltoztatásához."
 
-#: ../mate-tweak:1570
+#: ../mate-tweak:1586
 msgid "Select a panel layout."
 msgstr "Panel elrendezés kiválasztása."
 
-#: ../mate-tweak:1575
+#: ../mate-tweak:1591
 msgid "Default"
 msgstr "Alapértelmezett"
 
-#: ../mate-tweak:1576
+#: ../mate-tweak:1592
 msgid "16px"
 msgstr "16px"
 
-#: ../mate-tweak:1577
+#: ../mate-tweak:1593
 msgid "22px"
 msgstr "22px"
 
-#: ../mate-tweak:1578
+#: ../mate-tweak:1594
 msgid "24px"
 msgstr "24px"
 
-#: ../mate-tweak:1579
+#: ../mate-tweak:1595
 msgid "32px"
 msgstr "32px"
 
-#: ../mate-tweak:1580
+#: ../mate-tweak:1596
 msgid "48px"
 msgstr "48px"
 
-#: ../mate-tweak:1584
+#: ../mate-tweak:1600
 msgid "Set the panel icon size."
 msgstr "Panel ikonok méretének beállítása"
 
-#: ../mate-tweak:1585
+#: ../mate-tweak:1601
 msgid "Select the icon size for panel icons."
 msgstr "Panel ikonok méretének kiválasztása"
 
-#: ../mate-tweak:1589
+#: ../mate-tweak:1605
 msgid "Set the icon size of menu items used in the panel."
 msgstr "A panelen használt menüelemek ikon méretének beállítása"
 
-#: ../mate-tweak:1590
+#: ../mate-tweak:1606
 msgid "Select the icon size for menu items in the panel."
 msgstr "A panelen használt menüelemek ikon méretének kiválasztása"
 
-#: ../mate-tweak:1620
+#: ../mate-tweak:1636
 msgid "Text below items"
 msgstr "Szöveg az elemek alatt"
 
-#: ../mate-tweak:1621
+#: ../mate-tweak:1637
 msgid "Text beside items"
 msgstr "Szöveg az elemek mellett"
 
-#: ../mate-tweak:1622
+#: ../mate-tweak:1638
 msgid "Icons only"
 msgstr "Csak ikonok"
 
-#: ../mate-tweak:1623
+#: ../mate-tweak:1639
 msgid "Text only"
 msgstr "Csak szöveg"
 
