@@ -1367,6 +1367,10 @@ class MateTweak:
         # Launch Compiz Config Settings Manager
         pid = subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL).pid
 
+    def launch_fonts(self, widget):
+        # Launch Fonts Appearance Preferences
+        pid = subprocess.Popen(['mate-appearance-properties', '--show-page', 'fonts'], stdout=DEVNULL, stderr=DEVNULL).pid
+
     def close_tweak(self, widget):
         Gtk.main_quit()
 
@@ -1397,6 +1401,7 @@ class MateTweak:
         self.builder.get_object("button_delete_panel").connect("clicked", self.delete_panel)
         self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
         self.builder.get_object("button_ccsm").connect("clicked", self.launch_ccsm)
+        self.builder.get_object("button_fonts").connect("clicked", self.launch_fonts)
 
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
         side_interface = SidePage(1, _("Interface"), "preferences-desktop")
@@ -1496,6 +1501,7 @@ class MateTweak:
         self.builder.get_object("button_compiz_reset").set_tooltip_text(_("Reset the current Compiz configuration to factory defaults"))
 
         if self.schema_has_key('org.mate.interface', 'window-scaling-factor'):
+            self.builder.get_object("label_hidpi").set_markup("<b>" + _("HiDPI") + "</b>")
             self.builder.get_object("label_hidpi_scaling").set_markup("<small>" + _("Select a window scaling factor.") + "</small>")
             windowScalingFactors = Gtk.ListStore(str, int)
             windowScalingFactors.append([_("Auto-detect"), 0])
@@ -1508,6 +1514,11 @@ class MateTweak:
             self.builder.get_object("label_hidpi_scaling_notice").hide()
         else:
             self.builder.get_object('frame_hidpi').hide()
+
+        self.builder.get_object("button_fonts").set_tooltip_text(_("Open Font preferences"))
+        self.builder.get_object("button_fonts").set_label(_("Fonts"))
+        self.builder.get_object("label_fonts").set_markup("<small>" + _("Open Font preferences and click Details... to fine tune the font DPI.") + "</small>")
+        self.builder.get_object("label_font").set_markup("<b>" + _("Fonts") + "</b>")
 
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
         self.builder.get_object("checkbutton_keyboard_led").set_tooltip_text(_("Show keyboard LED indicators in the notifcation tray"))
