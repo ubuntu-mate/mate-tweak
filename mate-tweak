@@ -713,14 +713,16 @@ class MateTweak:
 
         return confirmed
 
-    def replace_panel_layout(self, new_layout):
+    def replace_panel_layout(self, new_layout, called_from_api=False):
         kill_brisk = False
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
         item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
 
         print('Switching to: ' + new_layout)
-        self.update_panel_layout_ui(new_layout)
+
+        if not called_from_api:
+            self.update_panel_layout_ui(new_layout)
 
         # Change Brisk Menu label-visible state when changing to/from Cupertino, Mutiny and Netbook.
         if self.brisk_menu_available:
@@ -764,7 +766,8 @@ class MateTweak:
             self.kill_process('appmenu-registrar')
 
         # Update window controls
-        self.update_window_controls()
+        if not called_from_api:
+            self.update_window_controls()
 
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
@@ -831,7 +834,8 @@ class MateTweak:
                     self.maximus_decorate()
 
         # Update the Dock checkbutton UI
-        self.builder.get_object("checkbutton_dock").set_active(self.dock_enabled)
+        if not called_from_api:
+            self.builder.get_object("checkbutton_dock").set_active(self.dock_enabled)
 
         # Update the number and orientation of virtual workspaces for Compiz
         if 'compiz' in self.current_wm:
@@ -847,10 +851,11 @@ class MateTweak:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
 
         # Make sure the correct panel name is set
-        widget = self.builder.get_object('combobox_panels')
-        widget.disconnect(self.combobox_panels_handler)
-        self.set_string("org.mate.panel", None, "default-layout", new_layout)
-        self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
+        if not called_from_api:
+            widget = self.builder.get_object('combobox_panels')
+            widget.disconnect(self.combobox_panels_handler)
+            self.set_string("org.mate.panel", None, "default-layout", new_layout)
+            self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
         self.current_layout = new_layout
 
@@ -1643,7 +1648,7 @@ if __name__ == "__main__":
     if args.layout:
         mt = MateTweak()
         if mt.panel_layout_exists(args.layout):
-            mt.replace_panel_layout(args.layout)
+            mt.replace_panel_layout(args.layout, True)
         else:
             print("ERROR! Unable to find layout: " + args.layout)
     elif args.get_layout:
