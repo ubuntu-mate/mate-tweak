@@ -1349,7 +1349,7 @@ class MateTweak:
         self.kill_process('compiz')
         self.reset_dconf_path('/org/compiz/')
         config_compiz = os.path.join(GLib.get_user_config_dir(), 'compiz-1')
-        cache_compiz = os.path.join(GLib.get_user_cache_dir(), 'compizconfg1')
+        cache_compiz = os.path.join(GLib.get_user_cache_dir(), 'compizconfig-1')
         if os.path.exists(config_compiz):
             shutil.rmtree(config_compiz)
         if os.path.exists(cache_compiz):
