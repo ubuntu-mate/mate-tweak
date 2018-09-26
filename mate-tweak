@@ -669,6 +669,27 @@ class MateTweak:
         except:
             return False
 
+    def get_panel_layout_settings(self, panel_layout, section, target_keys):
+        use_targets = len(target_keys) > 0
+        settings = {}
+
+        if use_targets:
+            for key in target_keys:
+                settings{key: None}
+
+        if self.panel_layout_uses(panel_layout, section):
+            try:
+                with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
+                    mmap.mmap(layout.fileno(), 0, access=mmap.ACCESS_READ) as data:
+                    
+                    section_pos = data.find(section.encode('utf-8'))
+                    if section_pos != -1:
+                        data.seek(section_pos)
+
+                        
+                        
+        return settings
+
     def update_panel_layout_ui(self, panel_layout):
         # Make Menu Bar configuration insensitive for layouts that don't
         # feature the menu bar.
@@ -748,16 +769,21 @@ class MateTweak:
 
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
-        if new_layout.startswith('eleven') or \
-           new_layout.startswith('mutiny') or \
-           new_layout.startswith('contemporary'):
-            self.set_string("org.mate.Marco.general", None, "button-layout", __CONTEMPORARY_BUTTONS__)
-            self.set_string("org.mate.interface", None, "gtk-decoration-layout", __CONTEMPORARY_BUTTONS__)
-            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __CONTEMPORARY_BUTTONS__)
-        else:
-            self.set_string("org.mate.Marco.general", None, "button-layout", __TRADITIONAL_BUTTONS__)
-            self.set_string("org.mate.interface", None, "gtk-decoration-layout", __TRADITIONAL_BUTTONS__)
-            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __TRADITIONAL_BUTTONS__)
+        is_layout_name_special = new_layout.startswith('eleven') or \
+                                    new_layout.startswith('mutiny') or \
+                                    new_layout.startswith('contemporary')
+
+        custom_settings = self.get_panel_layout_settings(new_layout, 'Window control layout', \
+                                                        ['mate-general','mate-interface','gnome-wm-preferences'])
+
+        # If there is a custom setting, use that first
+        self.set_string("org.mate.Macro.general", None, "button-layout", \
+                        custom_settings['mate-general'] or (__CONTEMPORARY_BUTTONS__ if is_layout_name_special else __TRADITIONAL_BUTTONS__))
+        self.set_string("org.mate.interface", None, "gtk-decoration-layout", \
+                        custom_settings['mate-interface'] or (__CONTEMPORARY_BUTTONS__ if is_layout_name_special else __TRADITIONAL_BUTTONS__))
+        self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", \
+                        custom_settings['gnome-wm-preferences'] or (__CONTEMPORARY_BUTTONS__ if is_layout_name_special else __TRADITIONAL_BUTTONS__))
+
 
         # If we're switching away from a layout that uses the AppMenu applet
         # terminate the registrar.

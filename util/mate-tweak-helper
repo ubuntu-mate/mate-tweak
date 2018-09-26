@@ -125,6 +125,8 @@ def backup_layout(filename):
                 layout.append("%s=%s\n" % (key, val))
         layout.append("\n")
 
+    layout.extend(get_window_control_layout())
+
     #print(layout)
     with open(os.path.join(tempfile.gettempdir(), filename + '.layout'), 'w') as f:
         f.writelines(layout)
@@ -134,6 +136,34 @@ def backup_layout(filename):
     dump = dconf_process.communicate()[0].decode("UTF-8")
     with open(os.path.join(tempfile.gettempdir(),filename + '.panel'), 'w') as f:
         f.writelines(dump)
+
+def get_window_control_layout():
+    VALID = {'mate-general': 'button-layout',
+             'mate-interface': 'gtk-decoration-layout',
+             'gnome-wm-preferences': 'button-layout'}
+
+    schemas = {'mate-general': 'org.mate.Marco.general',
+               'mate-interface': 'org.mate.interface',
+               'gnome-wm-preferences': 'org.gnome.desktop.wm.preferences'}
+
+    paths = {'mate-general': '/org/mate/Macro/general/',
+             'mate-interface': '/org/mate/interface/',
+             'gnome-wm-preferences': '/org/gnome/desktop/wm/preferences/'}
+
+    layout = []
+
+    layout.append('[Window control layout]\n')
+
+    for setting in schemas.keys():
+        settings = Gio.Settings.new(schemas[setting])
+
+        for key in settings.keys():
+            if key == VALID[setting]:
+                val = settings[key]
+                layout.append(f'{setting}={val}\n')
+
+    layout.append('\n')
+    return layout
 
 
 def backup_dock(filename):
