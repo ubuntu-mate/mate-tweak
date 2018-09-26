@@ -1,0 +1,15 @@
+[layout config]
+button-layout=close,minimize,maximize:menu
+gtk-decoration-layout=close,minimize,maximize:menu
+
+#When setting values from file, make sure that the
+#   associated functionality can exist. Example:
+#   Don't enable Dock if dock.py is not on the system
+
+#Window controls
+org.mate.Macro.general,none,button-layout=close,minimize,maximize:menu
+org.mate.interface,none,gtk-decoration-layout=close,minimize,maximize:menu
+org.gnome.desktop.wm.preferences,none,button-layout=close,minimize,maximize:menu
+
+
+
