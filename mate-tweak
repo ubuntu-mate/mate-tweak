@@ -669,26 +669,65 @@ class MateTweak:
         except:
             return False
 
-    def get_panel_layout_settings(self, panel_layout, section, target_keys):
-        use_targets = len(target_keys) > 0
+    def get_panel_layout_section_settings(self, panel_layout,section,target_keys):
+        settings = self.get_panel_layout_section_all_settings(panel_layout, section)
+
+        if len(settings.keys()) > 0 and len(target_keys) > 0:
+            section_keys = set(settings.keys())
+            ignore_keys = list(section_keys - set(target_keys))
+            
+            for key in ignore_keys:
+                del settings[key]
+
+        # need to make sure that our targets, if any, at least
+        # exist in the dictionary to avoid exception
+        for key in target_keys:
+            if key not in settings:
+                settings[key] = None
+
+        return settings
+
+    def get_panel_layout_section_all_settings(self, panel_layout, section):
         settings = {}
-
-        if use_targets:
-            for key in target_keys:
-                settings{key: None}
-
-        if self.panel_layout_uses(panel_layout, section):
+        # TODO clean up debug printing
+        if self.panel_layout_uses(section, panel_layout):
             try:
                 with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
                     mmap.mmap(layout.fileno(), 0, access=mmap.ACCESS_READ) as data:
                     
                     section_pos = data.find(section.encode('utf-8'))
+                    print("Section position: %i" % section_pos)
                     if section_pos != -1:
                         data.seek(section_pos)
 
-                        
-                        
+                        done = False
+                        while not done:
+                            line = data.readline().strip().decode('utf-8')
+                            done = (not line or line.isspace())
+                            
+                            if not done:
+                                if line.find("=") > 0:
+                                    setting = line.split("=", 1)
+                                    settings[setting[0]] = setting[1]
+                            
+            except:
+                print("Trouble reading file. ", sys.exc_info()[0])
+        else:
+            print("Could not find section %s" % section)
+
+        print(f"Settings from layout file...\n{settings}")
         return settings
+
+    def is_panel_layout_name_special(self, panel_layout, name_tags):
+        # Legacy versions used the begining of the file name to determine
+        # if the specified layout was special in some way. This is the
+        # same check, but less verbose for callers
+
+        for tag in name_tags:
+            if panel_layout.startswith(tag):
+                return True
+        
+        return False
 
     def update_panel_layout_ui(self, panel_layout):
         # Make Menu Bar configuration insensitive for layouts that don't
@@ -769,20 +808,21 @@ class MateTweak:
 
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
-        is_layout_name_special = new_layout.startswith('eleven') or \
-                                    new_layout.startswith('mutiny') or \
-                                    new_layout.startswith('contemporary')
+        # If there is a custom setting, use that first
+        layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['eleven','mutiny','contemporary'])
 
-        custom_settings = self.get_panel_layout_settings(new_layout, 'Window control layout', \
+        custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting windowcontrollayout', \
                                                         ['mate-general','mate-interface','gnome-wm-preferences'])
 
-        # If there is a custom setting, use that first
-        self.set_string("org.mate.Macro.general", None, "button-layout", \
-                        custom_settings['mate-general'] or (__CONTEMPORARY_BUTTONS__ if is_layout_name_special else __TRADITIONAL_BUTTONS__))
+        self.set_string("org.mate.Marco.general", None, "button-layout", \
+                        custom_settings['mate-general'] or \
+                        (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
         self.set_string("org.mate.interface", None, "gtk-decoration-layout", \
-                        custom_settings['mate-interface'] or (__CONTEMPORARY_BUTTONS__ if is_layout_name_special else __TRADITIONAL_BUTTONS__))
+                        custom_settings['mate-interface'] or \
+                        (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
         self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", \
-                        custom_settings['gnome-wm-preferences'] or (__CONTEMPORARY_BUTTONS__ if is_layout_name_special else __TRADITIONAL_BUTTONS__))
+                        custom_settings['gnome-wm-preferences'] or \
+                        (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
 
 
         # If we're switching away from a layout that uses the AppMenu applet
@@ -852,12 +892,19 @@ class MateTweak:
 
         # Determine if maximised windows should be undecorated
         if self.maximus_available:
-            if new_layout.startswith('mutiny') or \
-                new_layout.startswith('netbook'):
-                    self.maximus_undecorate()
-            elif not new_layout.startswith('mutiny') or \
-                not new_layout.startswith('netbook'):
-                    self.maximus_decorate()
+            layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['mutiny','netbook'])
+            custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting maximusdecoration', [])
+            
+            # Use custom settings first
+            # TODO add "maximus-undecorate-recorded" to .layout file
+            if custom_settings['mate-maximus-undecorate']:
+                self.maximus_undecorate()
+            elif not custom_settings['mate-maximus-undecorate'] and custom_settings['mate-maximus-recorded']:
+                self.maximus_decorate()
+            elif layout_name_is_special:
+                self.maximus_undecorate()
+            else:
+                self.maximus_decorate()
 
         # Update the Dock checkbutton UI
         if not called_from_api:
@@ -1347,7 +1394,10 @@ class MateTweak:
             if self.panel_layout_exists(layoutname):
                 print('Layout exists. Ignoring that for now and over writting it.')
 
-            mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
+            # HACK set these back. Ask Martin how he does dev work!?!?!
+            # mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
+            mate_tweak_helper = os.path.join('/','home','erik','Documents','mate-tweak','util','mate-tweak-helper')
+            print("Tweak-helper path: " + mate_tweak_helper)
             backup = subprocess.call([mate_tweak_helper, 'backup', layoutname], stdout=DEVNULL, stderr=DEVNULL)
             if self.dock_enabled:
                 dock = subprocess.call([mate_tweak_helper, 'dock', layoutname], stdout=DEVNULL, stderr=DEVNULL)
