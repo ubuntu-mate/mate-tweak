@@ -125,7 +125,7 @@ def backup_layout(filename):
                 layout.append("%s=%s\n" % (key, val))
         layout.append("\n")
 
-    layout.extend(get_non_panel_settings)
+    layout.extend(get_non_panel_settings())
 
     #print(layout)
     with open(os.path.join(tempfile.gettempdir(), filename + '.layout'), 'w') as f:
@@ -140,12 +140,12 @@ def backup_layout(filename):
 def get_non_panel_settings():
     layout = []
 
-    layout.extend(get_maximus_undecorated)
-    layout.extend(get_window_control_layout)
+    layout.extend(get_maximus_undecorate())
+    layout.extend(get_window_control_layout())
 
     return layout
 
-def get_maximus_undecorated():
+def get_maximus_undecorate():
     VALID = {'mate-maximus-undecorate': 'undecorate'}
 
     schemas = {'mate-maximus-undecorate': 'org.mate.maximus'}
@@ -154,14 +154,16 @@ def get_maximus_undecorated():
 
     layout = []
     layout.append('[Customsetting maximusdecoration]\n')
-    laytout.extend(collect_settings(VALID, schemas, paths))
+    layout.extend(collect_simple_settings(VALID, schemas, paths, False))
 
     # We needed a way to determine if the user chose a different
     # maximus undecorated setting as opposed to the setting not
     # being present (old version of mate-tweak or just not in
     # dconf)
-    if 'mate-maximus-undecorate' in layout.keys():
-        layout['mate-maximus-recorded'] = True
+    if any('mate-maximus-undecorate' in entry for entry in layout):
+        layout.append('mate-maximus-recorded=True\n')
+    else:
+        layout.append('mate-maximus-recorded=False\n')
 
     layout.append('\n')
     return layout
@@ -182,22 +184,22 @@ def get_window_control_layout():
 
     layout = []
     layout.append('[Customsetting windowcontrollayout]\n')
-    layout.extend(collect_settings(VALID, schemas, paths))
+    layout.extend(collect_simple_settings(VALID, schemas, paths, True))
     
-    layout.append('\n')
     return layout
 
-def collect_settings(valid_keys, schemas, paths):
+def collect_simple_settings(valid_keys, schemas, paths, append_final_newline):
     layout = []
     for setting in schemas.keys():
         settings = Gio.Settings.new(schemas[setting])
 
         for key in settings.keys():
-            if key == VALID[setting]:
+            if key == valid_keys[setting]:
                 val = settings[key]
                 layout.append(f"{setting}={val}\n")
 
-    layout.append('\n')
+    if append_final_newline:
+        layout.append('\n')
     return layout
 
 

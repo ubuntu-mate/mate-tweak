@@ -669,7 +669,7 @@ class MateTweak:
         except:
             return False
 
-    def get_panel_layout_section_settings(self, panel_layout,section,target_keys):
+    def get_panel_layout_section_settings(self, panel_layout, section, target_keys):
         settings = self.get_panel_layout_section_all_settings(panel_layout, section)
 
         if len(settings.keys()) > 0 and len(target_keys) > 0:
@@ -815,13 +815,13 @@ class MateTweak:
                                                         ['mate-general','mate-interface','gnome-wm-preferences'])
 
         self.set_string("org.mate.Marco.general", None, "button-layout", \
-                        custom_settings['mate-general'] or \
+                        custom_settings.get('mate-general') or \
                         (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
         self.set_string("org.mate.interface", None, "gtk-decoration-layout", \
-                        custom_settings['mate-interface'] or \
+                        custom_settings.get('mate-interface') or \
                         (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
         self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", \
-                        custom_settings['gnome-wm-preferences'] or \
+                        custom_settings.get('gnome-wm-preferences') or \
                         (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
 
 
@@ -895,11 +895,11 @@ class MateTweak:
             layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['mutiny','netbook'])
             custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting maximusdecoration', [])
             
-            # Use custom settings first
-            # TODO add "maximus-undecorate-recorded" to .layout file
-            if custom_settings['mate-maximus-undecorate']:
+            # Prefer custom settings
+            #if custom_settings.get('mate-maximus-undecorate').upper() == 'TRUE':
+            if custom_settings.get('mate-maximus-undecorate') and custom_settings.get('mate-maximus-undecorate').upper() == 'TRUE':
                 self.maximus_undecorate()
-            elif not custom_settings['mate-maximus-undecorate'] and custom_settings['mate-maximus-recorded']:
+            elif custom_settings.get('mate-maximus-recorded') and custom_settings.get('mate-maximus-undecorate').upper() == 'FALSE':
                 self.maximus_decorate()
             elif layout_name_is_special:
                 self.maximus_undecorate()
