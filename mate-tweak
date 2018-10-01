@@ -158,6 +158,8 @@ class SidePage:
         self.icon = icon
 
 class MateTweak:
+    system_installed_panel_layouts = []
+
     def on_checkbox_toggled(self, widget, schema_id, key):
         if (key == "reduced-resources"):
             if ('marco' in self.current_wm):
@@ -669,6 +671,62 @@ class MateTweak:
         except:
             return False
 
+    def get_panel_layout_section_settings(self, panel_layout, section, target_keys):
+        settings = self.get_panel_layout_section_all_settings(panel_layout, section)
+
+        if len(settings.keys()) > 0 and len(target_keys) > 0:
+            section_keys = set(settings.keys())
+            ignore_keys = list(section_keys - set(target_keys))
+            
+            for key in ignore_keys:
+                del settings[key]
+
+        # need to make sure that our targets, if any, at least
+        # exist in the dictionary to avoid exception
+        for key in target_keys:
+            if key not in settings:
+                settings[key] = None
+
+        return settings
+
+    def get_panel_layout_section_all_settings(self, panel_layout, section):
+        settings = {}
+        if self.panel_layout_uses(section, panel_layout):
+            try:
+                with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
+                    mmap.mmap(layout.fileno(), 0, access=mmap.ACCESS_READ) as data:
+                    
+                    section_pos = data.find(section.encode('utf-8'))
+                    if section_pos != -1:
+                        data.seek(section_pos)
+                        print("Found section %s" % section)
+
+                        done = False
+                        while not done:
+                            line = data.readline().strip().decode('utf-8')
+                            done = (not line or line.isspace())
+                            
+                            if not done:
+                                if line.find("=") > 0:
+                                    setting = line.split("=", 1)
+                                    settings[setting[0]] = setting[1]
+                            
+            except:
+                print("ERROR!! Reading file %s" % panel_layout + '.layout', sys.exc_info()[0])
+
+        return settings
+
+    def is_panel_layout_name_special(self, panel_layout, name_tags):
+        # Legacy versions used the begining of the file name to determine
+        # if the specified layout was special in some way. This is the
+        # same check, but less verbose for callers
+
+        for tag in name_tags:
+            if panel_layout.startswith(tag):
+                return True
+        
+        return False
+
     def update_panel_layout_ui(self, panel_layout):
         # Make Menu Bar configuration insensitive for layouts that don't
         # feature the menu bar.
@@ -748,16 +806,22 @@ class MateTweak:
 
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
-        if new_layout.startswith('eleven') or \
-           new_layout.startswith('mutiny') or \
-           new_layout.startswith('contemporary'):
-            self.set_string("org.mate.Marco.general", None, "button-layout", __CONTEMPORARY_BUTTONS__)
-            self.set_string("org.mate.interface", None, "gtk-decoration-layout", __CONTEMPORARY_BUTTONS__)
-            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __CONTEMPORARY_BUTTONS__)
-        else:
-            self.set_string("org.mate.Marco.general", None, "button-layout", __TRADITIONAL_BUTTONS__)
-            self.set_string("org.mate.interface", None, "gtk-decoration-layout", __TRADITIONAL_BUTTONS__)
-            self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", __TRADITIONAL_BUTTONS__)
+        # If there is a custom setting, use that first
+        layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['eleven','mutiny','contemporary'])
+
+        custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting windowcontrollayout', \
+                                                        ['mate-general','mate-interface','gnome-wm-preferences'])
+
+        self.set_string("org.mate.Marco.general", None, "button-layout", \
+                        custom_settings.get('mate-general') or \
+                        (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
+        self.set_string("org.mate.interface", None, "gtk-decoration-layout", \
+                        custom_settings.get('mate-interface') or \
+                        (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
+        self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", \
+                        custom_settings.get('gnome-wm-preferences') or \
+                        (__CONTEMPORARY_BUTTONS__ if layout_name_is_special else __TRADITIONAL_BUTTONS__))
+
 
         # If we're switching away from a layout that uses the AppMenu applet
         # terminate the registrar.
@@ -826,12 +890,18 @@ class MateTweak:
 
         # Determine if maximised windows should be undecorated
         if self.maximus_available:
-            if new_layout.startswith('mutiny') or \
-                new_layout.startswith('netbook'):
-                    self.maximus_undecorate()
-            elif not new_layout.startswith('mutiny') or \
-                not new_layout.startswith('netbook'):
-                    self.maximus_decorate()
+            layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['mutiny','netbook'])
+            custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting maximusdecoration', [])
+            
+            # Prefer custom settings
+            if custom_settings.get('mate-maximus-undecorate') and custom_settings.get('mate-maximus-undecorate').upper() == 'TRUE':
+                self.maximus_undecorate()
+            elif custom_settings.get('mate-maximus-recorded') and custom_settings.get('mate-maximus-undecorate').upper() == 'FALSE':
+                self.maximus_decorate()
+            elif layout_name_is_special:
+                self.maximus_undecorate()
+            else:
+                self.maximus_decorate()
 
         # Update the Dock checkbutton UI
         if not called_from_api:
@@ -1142,17 +1212,11 @@ class MateTweak:
         # Panel layouts
         panels = Gtk.ListStore(str, str)
 
-        # Add any saved panel layouts first.
-        layouts = os.path.join('/','usr','share','mate-panel','layouts','*-tweak.layout')
-        for layout in glob.glob(layouts):
-            current_layout = layout.replace('.layout', '').replace('/usr/share/mate-panel/layouts/', '');
-            panels.append([_('Custom: ') + current_layout.replace('-tweak', ''), current_layout])
-
         if self.panel_layout_exists('contemporary') and \
            self.appmenu_applet_available and \
            self.brisk_menu_available and \
            self.indicators_available:
-            panels.append([_("Contemporary"), "contemporary"])
+            self.add_to_panel_list(panels, "Contemporary", "contemporary")
 
         # Prefer Indicator enabled Cupertino layout and fallback to non-Indicator version.
         if self.dock is not None and \
@@ -1160,38 +1224,38 @@ class MateTweak:
            self.brisk_menu_available and \
            self.indicators_available:
             if self.panel_layout_exists('eleven'):
-                panels.append([_("Cupertino"), "eleven"])
+                self.add_to_panel_list(panels, "Cupertino", "eleven")
         elif self.dock is not None and \
            self.appmenu_applet_available and \
            self.brisk_menu_available and \
            not self.indicators_available:
             if self.panel_layout_exists('eleven-no-indicators'):
-                panels.append([_("Cupertino"), "eleven-no-indicators"])
+                self.add_to_panel_list(panels, "Cupertino", "eleven-no-indicators")
 
         if self.panel_layout_exists('familiar') and \
            self.brisk_menu_available and \
            self.indicators_available:
-            panels.append([_("Familiar"), "familiar"])
+            self.add_to_panel_list(panels, "Familiar", "familiar")
 
         if platform.linux_distribution()[0] != 'Ubuntu' and \
             self.panel_layout_exists('fedora'):
-            panels.append([_("Fedora"), "fedora"])
+            self.add_to_panel_list(panels, "Fedora", "fedora")
 
         if self.panel_layout_exists('default') and \
            not self.indicators_available:
-            panels.append([_("GNOME2"), "default"])
+            self.add_to_panel_list(panels, "GNOME2", "default")
 
         if self.panel_layout_exists('linuxmint') and \
            self.mint_menu_available:
-            panels.append([_("Linux Mint"), "linuxmint"])
+            self.add_to_panel_list(panels, "Linux Mint", "linuxmint")
 
         if self.panel_layout_exists('mageia') and \
            self.mageia_cc_available:
-            panels.append([_("Mageia"), "mageia"])
+            self.add_to_panel_list(panels, "Mageia", "mageia")
 
         if self.panel_layout_exists('manjaro') and \
            self.brisk_menu_available:
-            panels.append([_("Manjaro"), "manjaro"])
+            self.add_to_panel_list(panels, "Manjaro", "manjaro")
 
         # Prefer Indicator enabled Mutiny layout and fallback to non-Indicator version.
         if self.panel_layout_exists('mutiny') and \
@@ -1199,12 +1263,12 @@ class MateTweak:
            self.appmenu_applet_available and \
            self.indicators_available and \
            self.brisk_menu_available:
-            panels.append([_("Mutiny"), "mutiny"])
+            self.add_to_panel_list(panels, "Mutiny", "mutiny")
         elif self.panel_layout_exists('mutiny-no-indicators') and \
            self.mate_dock_available and \
            self.appmenu_applet_available and \
            not self.indicators_available:
-            panels.append([_("Mutiny"), "mutiny-no-indicators"])
+            self.add_to_panel_list(panels, "Mutiny", "mutiny-no-indicators")
 
         # Prefer Indicator enabled Netbook layout and fallback to non-Indicator version.
         if self.panel_layout_exists('netbook') and \
@@ -1212,41 +1276,81 @@ class MateTweak:
            self.indicators_available and \
            self.brisk_menu_available and \
            self.mate_dock_available:
-            panels.append([_("Netbook"), "netbook"])
+            self.add_to_panel_list(panels, "Netbook", "netbook")
         elif self.panel_layout_exists('netbook-no-indicators') and \
            self.maximus_available and \
            not self.indicators_available:
-            panels.append([_("Netbook"), "netbook-no-indicators"])
+            self.add_to_panel_list(panels, "Netbook", "netbook-no-indicators")
 
         if self.panel_layout_exists('opensuse') and \
            self.gnome_menu_available:
-            panels.append([_("openSUSE"), "opensuse"])
+            self.add_to_panel_list(panels, "openSUSE", "opensuse")
 
         if self.dock is not None and \
            self.brisk_menu_available and \
            self.indicators_available:
             if self.panel_layout_exists('pantheon'):
-                panels.append([_("Pantheon"), "pantheon"])
+                self.add_to_panel_list(panels, "Pantheon", "pantheon")
 
         # Prefer Indicator enabled Redmond layout and fallback to non-Indicator version.
         if self.panel_layout_exists('redmond') and \
            self.indicators_available and \
            self.mate_menu_available:
-            panels.append([_("Redmond"), "redmond"])
+            self.add_to_panel_list(panels, "Redmond", "redmond")
         elif self.panel_layout_exists('redmond-no-indicators') and \
            self.mate_menu_available and \
            not self.indicators_available:
-            panels.append([_("Redmond"), "redmond-no-indicators"])
+            self.add_to_panel_list(panels, "Redmond", "redmond-no-indicators")
 
         if self.panel_layout_exists('solus') and \
            self.brisk_menu_available:
-            panels.append([_("Solus"), "solus"])
+            self.add_to_panel_list(panels, "Solus", "solus")
 
         if self.panel_layout_exists('ubuntu-mate') and \
            self.indicators_available:
-            panels.append([_("Traditional"), "ubuntu-mate"])
+            self.add_to_panel_list(panels, "Traditional", "ubuntu-mate")
+
+        print("System installed layouts: ")
+        print(self.system_installed_panel_layouts)
+
+        # Add any saved panel layouts to the start.
+        layouts = os.path.join('/','usr','share','mate-panel','layouts','*-tweak.layout')
+        for layout in glob.glob(layouts):
+            list_entry = self.get_custom_panel_list_entry(layout)
+            panels.prepend([list_entry['displayname'], list_entry['codename']])
 
         self.builder.get_object("combobox_panels").set_model(panels)
+    
+    def add_to_panel_list(self, panel_list_store, item_display_name, item_code_name):
+        panel_list_store.append([_(item_display_name), item_code_name])
+
+        if not item_code_name in self.system_installed_panel_layouts:
+            self.system_installed_panel_layouts.append(item_code_name)
+
+    def get_custom_panel_list_entry(self, layout_full_name):
+        layout_code_name = layout_full_name.replace('.layout','').replace('/usr/share/mate-panel/layouts/', '')
+        layout_display_name = layout_code_name
+
+        custom_layout_prefix = self.get_custom_layout_file_prefix(layout_code_name)
+
+        if custom_layout_prefix != '':
+            layout_display_name = layout_code_name.replace(custom_layout_prefix, '', 1)
+
+        layout_display_name = layout_display_name.replace('-tweak', '')      
+
+        result = {'displayname': _('Custom: ') + layout_display_name,
+                  'codename': layout_code_name}
+
+        return result
+
+    def get_custom_layout_file_prefix(self, layout_code_name):
+        result = ''
+
+        for layout_template in self.system_installed_panel_layouts:
+            if self.is_panel_layout_name_special(layout_code_name, [layout_template]):
+                result = layout_template + '--'
+        
+        return result
 
     def ask_for_layout_name(self):
         # Returns user input as a string or None
@@ -1316,7 +1420,8 @@ class MateTweak:
     def save_panels(self, widget):
         layoutname = self.ask_for_layout_name()
         if layoutname is not None:
-            layoutname += '-tweak'
+            layoutnameprefix = self.get_custom_layout_file_prefix(self.current_layout)
+            layoutname = layoutnameprefix + layoutname + '-tweak'
             print('Saving ' + layoutname)
             if self.panel_layout_exists(layoutname):
                 print('Layout exists. Ignoring that for now and over writting it.')
