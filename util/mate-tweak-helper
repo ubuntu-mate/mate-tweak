@@ -125,6 +125,8 @@ def backup_layout(filename):
                 layout.append("%s=%s\n" % (key, val))
         layout.append("\n")
 
+        layout.extend(get_non_panel_settings())
+
     #print(layout)
     with open(os.path.join(tempfile.gettempdir(), filename + '.layout'), 'w') as f:
         f.writelines(layout)
@@ -134,6 +136,70 @@ def backup_layout(filename):
     dump = dconf_process.communicate()[0].decode("UTF-8")
     with open(os.path.join(tempfile.gettempdir(),filename + '.panel'), 'w') as f:
         f.writelines(dump)
+
+def get_non_panel_settings():
+    layout = []
+
+    layout.extend(get_maximus_undecorate())
+    layout.extend(get_window_control_layout())
+
+    return layout
+
+def get_maximus_undecorate():
+    VALID = {'mate-maximus-undecorate': 'undecorate'}
+
+    schemas = {'mate-maximus-undecorate': 'org.mate.maximus'}
+
+    paths = {'mate-maximus-undecorate': '/org/mate/maximus/'}
+
+    layout = []
+    layout.append('[Customsetting maximusdecoration]\n')
+    layout.extend(collect_simple_settings(VALID, schemas, paths, False))
+
+    # We needed a way to determine if the user chose a different
+    # maximus undecorated setting as opposed to the setting not
+    # being present (old version of mate-tweak or just not in
+    # dconf)
+    if any('mate-maximus-undecorate' in entry for entry in layout):
+        layout.append('mate-maximus-recorded=True\n')
+    else:
+        layout.append('mate-maximus-recorded=False\n')
+
+    layout.append('\n')
+    return layout
+
+def get_window_control_layout():
+    VALID = {'mate-general': 'button-layout',
+             'mate-interface': 'gtk-decoration-layout',
+             'gnome-wm-preferences': 'button-layout'}
+
+    schemas = {'mate-general': 'org.mate.Marco.general',
+               'mate-interface': 'org.mate.interface',
+               'gnome-wm-preferences': 'org.gnome.desktop.wm.preferences'}
+
+    paths = {'mate-general': '/org/mate/Macro/general/',
+             'mate-interface': '/org/mate/interface/',
+             'gnome-wm-preferences': '/org/gnome/desktop/wm/preferences/'}
+
+    layout = []
+    layout.append('[Customsetting windowcontrollayout]\n')
+    layout.extend(collect_simple_settings(VALID, schemas, paths, True))
+    
+    return layout
+
+def collect_simple_settings(valid_keys, schemas, paths, append_final_newline):
+    layout = []
+    for setting in schemas.keys():
+        settings = Gio.Settings.new(schemas[setting])
+
+        for key in settings.keys():
+            if key == valid_keys[setting]:
+                val = settings[key]
+                layout.append(f"{setting}={val}\n")
+
+    if append_final_newline:
+        layout.append('\n')
+    return layout
 
 
 def backup_dock(filename):
