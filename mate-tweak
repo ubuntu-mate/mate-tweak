@@ -1147,7 +1147,6 @@ class MateTweak:
 
     def check_panel_features(self):
         # Determine what panel features are available
-        self.gnome_menu_available = False
         self.indicators_available = False
         self.mageia_cc_available = False
         self.mate_dock_available = False
@@ -1157,9 +1156,6 @@ class MateTweak:
         self.volume_applet_enabled = False
         self.brisk_menu_available = False
         self.appmenu_applet_available = False
-
-        if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
-            self.gnome_menu_available = True
 
         if os.path.exists('/usr/lib/indicators3/7/libapplication.so') and \
             os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service') and \
@@ -1303,7 +1299,7 @@ class MateTweak:
             self.add_to_panel_list(panels, "Netbook", "netbook-no-indicators")
 
         if self.panel_layout_exists('opensuse') and \
-           self.gnome_menu_available:
+           not self.indicators_available:
             self.add_to_panel_list(panels, "openSUSE", "opensuse")
 
         if self.dock is not None and \
