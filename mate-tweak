@@ -97,7 +97,7 @@ Exec=/usr/lib/MULTIARCH/indicator-application/indicator-application-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
-X-GNOME-Autostart-enabled=true
+NoDisplay=true
 X-MATE-Autostart-enabled=true
 """
 
@@ -108,7 +108,7 @@ Exec=/usr/lib/MULTIARCH/indicator-datetime/indicator-datetime-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
-X-GNOME-Autostart-enabled=true
+NoDisplay=true
 X-MATE-Autostart-enabled=true
 """
 
@@ -120,7 +120,7 @@ Exec=/usr/lib/MULTIARCH/indicator-sound/indicator-sound-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
-X-GNOME-Autostart-enabled=true
+NoDisplay=true
 X-MATE-Autostart-enabled=true
 """
 
@@ -131,7 +131,7 @@ Exec=/usr/lib/MULTIARCH/indicator-messages/indicator-messages-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
-X-GNOME-Autostart-enabled=true
+NoDisplay=true
 X-MATE-Autostart-enabled=true
 """
 
@@ -142,7 +142,7 @@ Exec=/usr/lib/MULTIARCH/indicator-power/indicator-power-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
-X-GNOME-Autostart-enabled=true
+NoDisplay=true
 X-MATE-Autostart-enabled=true
 """
 
@@ -153,7 +153,7 @@ Exec=/usr/lib/MULTIARCH/indicator-session/indicator-session-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
-X-GNOME-Autostart-enabled=true
+NoDisplay=true
 X-MATE-Autostart-enabled=true
 """
 
