@@ -19,6 +19,7 @@
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 import argparse
+import distro
 import errno
 import gettext
 import getpass
@@ -26,7 +27,6 @@ import gi
 import glob
 import mmap
 import os
-import platform
 import psutil
 import setproctitle
 import shutil
@@ -1253,7 +1253,7 @@ class MateTweak:
            self.indicators_available:
             self.add_to_panel_list(panels, "Familiar", "familiar")
 
-        if platform.linux_distribution()[0] != 'Ubuntu' and \
+        if distro.id() != 'ubuntu' and \
             self.panel_layout_exists('fedora'):
             self.add_to_panel_list(panels, "Fedora", "fedora")
 
