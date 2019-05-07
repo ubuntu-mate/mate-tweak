@@ -1103,7 +1103,7 @@ class MateTweak:
            os.path.exists('/usr/lib/mate-netbook/mate-window-picker-applet'):
             self.maximus_available = True
 
-        if os.path.exists('usr/lib/linuxmint/mintMenu/mintMenu.py'):
+        if os.path.exists('/usr/lib/linuxmint/mintMenu/mintMenu.py'):
             self.mint_menu_available = True
 
         config_dir = GLib.get_user_config_dir()
