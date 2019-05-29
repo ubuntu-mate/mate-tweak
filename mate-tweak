@@ -855,8 +855,7 @@ class MateTweak:
         if leds_enabled:
             self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
 
-        # Set the new layout
-        subprocess.call(['mate-panel', '--reset', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
+        # Reset panel configuration to defaults.
         self.reset_dconf_path('/org/mate/panel/objects/')
         self.reset_dconf_path('/org/mate/panel/toplevels/')
 
@@ -892,8 +891,6 @@ class MateTweak:
         if kill_brisk:
             self.kill_process('brisk-menu')
 
-        self.reload_panel()
-
         # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + new_layout)
@@ -921,6 +918,9 @@ class MateTweak:
                 self.maximus_undecorate()
             else:
                 self.maximus_decorate()
+
+        # Set the new layout
+        subprocess.call(['mate-panel', '--reset', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
 
         # Update the Dock checkbutton UI
         if not called_from_api:
