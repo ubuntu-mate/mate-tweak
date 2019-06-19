@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Slimane AMIRI, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-19 21:08+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
-"Language-Team: Hausa (http://www.transifex.com/mate/MATE/language/ha/)\n"
-"Language: ha\n"
+"PO-Revision-Date: 2018-10-06 12:40+0000\n"
+"Last-Translator: Slimane AMIRI\n"
+"Language-Team: Kabyle (http://www.transifex.com/mate/MATE/language/kab/)\n"
+"Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: ../mate-tweak:1203
 msgid "Right"
-msgstr ""
+msgstr "Ayfus"
 
 #: ../mate-tweak:1204
 msgid "Left"
-msgstr ""
+msgstr "Aẓelmaḍ"
 
 #: ../mate-tweak:1212
 msgid "Marco (No compositor)"
@@ -49,27 +50,27 @@ msgstr ""
 
 #: ../mate-tweak:1523
 msgid "Desktop"
-msgstr ""
+msgstr "Tanarit"
 
 #: ../mate-tweak:1524
 msgid "Interface"
-msgstr ""
+msgstr "Agrudem"
 
 #: ../mate-tweak:1525
 msgid "Panel"
-msgstr ""
+msgstr "Afeggag"
 
 #: ../mate-tweak:1526
 msgid "Windows"
-msgstr ""
+msgstr "Isfayluyen"
 
 #: ../mate-tweak:1575
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: ../mate-tweak:1578
 msgid "Desktop icons"
-msgstr ""
+msgstr "Tignitin n tnarit"
 
 #: ../mate-tweak:1579
 msgid "Performance"
@@ -85,7 +86,7 @@ msgstr ""
 
 #: ../mate-tweak:1582
 msgid "Panels"
-msgstr ""
+msgstr "Ifeggagen"
 
 #: ../mate-tweak:1583
 msgid "Panel Features"
@@ -97,7 +98,7 @@ msgstr ""
 
 #: ../mate-tweak:1585
 msgid "Icons"
-msgstr ""
+msgstr "Tignitin"
 
 #: ../mate-tweak:1586
 msgid "Context menus"
@@ -105,7 +106,7 @@ msgstr ""
 
 #: ../mate-tweak:1587
 msgid "Toolbars"
-msgstr ""
+msgstr "Afeggag n ifecka"
 
 #: ../mate-tweak:1588
 msgid "Window manager"
@@ -127,7 +128,7 @@ msgstr ""
 
 #: ../mate-tweak:1593
 msgid "Computer"
-msgstr ""
+msgstr "Aselkim"
 
 #: ../mate-tweak:1594
 msgid "Home"
@@ -135,7 +136,7 @@ msgstr ""
 
 #: ../mate-tweak:1595
 msgid "Network"
-msgstr ""
+msgstr "Aẓeṭṭa"
 
 #: ../mate-tweak:1596
 msgid "Trash"
@@ -434,3 +435,27 @@ msgstr ""
 #: ../mate-tweak:1754
 msgid "Text only"
 msgstr ""
+
+#~ msgid "Cupertino"
+#~ msgstr "Cupertino"
+
+#~ msgid "Fedora"
+#~ msgstr "Fedora"
+
+#~ msgid "GNOME2"
+#~ msgstr "GNOME2"
+
+#~ msgid "Linux Mint"
+#~ msgstr "Linux Mint"
+
+#~ msgid "Netbook"
+#~ msgstr "Imedlis n tezmilin"
+
+#~ msgid "openSUSE"
+#~ msgstr "openSUSE"
+
+#~ msgid "Pantheon"
+#~ msgstr "Pantheon"
+
+#~ msgid "Redmond"
+#~ msgstr "Redmond"

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Benedikt Straub <benedikt-straub@web.de>, 2018-2019
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-28 16:47+0100\n"
-"PO-Revision-Date: 2018-03-11 10:31+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"POT-Creation-Date: 2019-06-19 21:08+0100\n"
+"PO-Revision-Date: 2019-01-28 18:15+0000\n"
+"Last-Translator: Benedikt Straub <benedikt-straub@web.de>\n"
 "Language-Team: Low German (http://www.transifex.com/mate/MATE/language/"
 "nds/)\n"
 "Language: nds\n"
@@ -19,480 +20,486 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mate-tweak:1117
+#: ../mate-tweak:1203
 msgid "Right"
 msgstr "Rechts"
 
-#: ../mate-tweak:1118
+#: ../mate-tweak:1204
 msgid "Left"
 msgstr "Links"
 
-#: ../mate-tweak:1126
+#: ../mate-tweak:1212
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Marco (sünner Tosamensetter)"
 
-#: ../mate-tweak:1128
+#: ../mate-tweak:1214
 msgid "Marco (Adaptive compositor)"
-msgstr ""
+msgstr "Marco (Tosamensetter passt an)"
 
-#: ../mate-tweak:1130
+#: ../mate-tweak:1216
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (Tosamensetter: Compton GPU)"
 
-#: ../mate-tweak:1132
+#: ../mate-tweak:1218
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Compiz (Kumplizeerte Schrievdisk-Effekten mit GPU-anlopen)"
 
-#: ../mate-tweak:1135
+#: ../mate-tweak:1221
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
 msgstr ""
+"Du bruukst eenen Fenster-Uppasser, de nich bekannt is un nich stütt word. Wi "
+"könen nich wiss seggen, of dat, wat du hier ännerst, överhoopt gaht."
 
-#: ../mate-tweak:1155
-msgid "Contemporary"
-msgstr ""
-
-#: ../mate-tweak:1163 ../mate-tweak:1169
-msgid "Cupertino"
-msgstr ""
-
-#: ../mate-tweak:1174
-msgid "Familiar"
-msgstr ""
-
-#: ../mate-tweak:1178
-msgid "Fedora"
-msgstr ""
-
-#: ../mate-tweak:1182
-msgid "GNOME2"
-msgstr ""
-
-#: ../mate-tweak:1186
-msgid "Linux Mint"
-msgstr ""
-
-#: ../mate-tweak:1190
-msgid "Mageia"
-msgstr ""
-
-#: ../mate-tweak:1194
-msgid "Manjaro"
-msgstr ""
-
-#: ../mate-tweak:1202 ../mate-tweak:1207
-msgid "Mutiny"
-msgstr ""
-
-#: ../mate-tweak:1215 ../mate-tweak:1219
-msgid "Netbook"
-msgstr ""
-
-#: ../mate-tweak:1223
-msgid "openSUSE"
-msgstr ""
-
-#: ../mate-tweak:1229
-msgid "Pantheon"
-msgstr ""
-
-#: ../mate-tweak:1235 ../mate-tweak:1239
-msgid "Redmond"
-msgstr ""
-
-#: ../mate-tweak:1243
-msgid "Solus"
-msgstr ""
-
-#: ../mate-tweak:1247
-msgid "Traditional"
-msgstr ""
-
-#: ../mate-tweak:1402
+#: ../mate-tweak:1523
 msgid "Desktop"
 msgstr "Schreibtisch"
 
-#: ../mate-tweak:1403
+#: ../mate-tweak:1524
 msgid "Interface"
 msgstr "Schnittstelle"
 
-#: ../mate-tweak:1404
+#: ../mate-tweak:1525
 msgid "Panel"
 msgstr "Balken"
 
-#: ../mate-tweak:1405
+#: ../mate-tweak:1526
 msgid "Windows"
 msgstr "Fenster"
 
-#: ../mate-tweak:1454
+#: ../mate-tweak:1575
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE-Anpasser"
 
-#: ../mate-tweak:1457
+#: ../mate-tweak:1578
 msgid "Desktop icons"
 msgstr "Desktop-Symbole"
 
-#: ../mate-tweak:1458
+#: ../mate-tweak:1579
 msgid "Performance"
 msgstr "Leistung"
 
-#: ../mate-tweak:1459
+#: ../mate-tweak:1580
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Fenster-Maneren"
 
-#: ../mate-tweak:1460
+#: ../mate-tweak:1581
 msgid "Appearance"
 msgstr "Aussehen"
 
-#: ../mate-tweak:1461
+#: ../mate-tweak:1582
 msgid "Panels"
-msgstr ""
+msgstr "Balken"
 
-#: ../mate-tweak:1462
+#: ../mate-tweak:1583
 msgid "Panel Features"
-msgstr ""
+msgstr "Balken-Programmen"
 
-#: ../mate-tweak:1463
+#: ../mate-tweak:1584
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "Balken-Menü-Programmen"
 
-#: ../mate-tweak:1464
+#: ../mate-tweak:1585
 msgid "Icons"
 msgstr "Symbole"
 
-#: ../mate-tweak:1465
+#: ../mate-tweak:1586
 msgid "Context menus"
 msgstr "Kontextmenüs"
 
-#: ../mate-tweak:1466
+#: ../mate-tweak:1587
 msgid "Toolbars"
 msgstr "Werkzeugleisten"
 
-#: ../mate-tweak:1467
+#: ../mate-tweak:1588
 msgid "Window manager"
-msgstr ""
+msgstr "Fenster-Uppasser"
 
-#: ../mate-tweak:1469
+#: ../mate-tweak:1590
 msgid "Select the Desktop Icons you want enabled:"
-msgstr ""
+msgstr "Köör de Schrievdisk-Tekens ut, de du hebben willt:"
 
-#: ../mate-tweak:1470
+#: ../mate-tweak:1591
 msgid "Show Desktop Icons"
-msgstr ""
+msgstr "Wies Schrievdisk-Tekens"
 
-#: ../mate-tweak:1471
+#: ../mate-tweak:1592
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
 msgstr ""
+"Wenn nee, hett de Schrievdisk keene Tekens, un de Datei-Uppasser maakt daar "
+"ok nix"
 
-#: ../mate-tweak:1472
+#: ../mate-tweak:1593
 msgid "Computer"
 msgstr "Computer"
 
-#: ../mate-tweak:1473
+#: ../mate-tweak:1594
 msgid "Home"
 msgstr "Benutzerverzeichnis"
 
-#: ../mate-tweak:1474
+#: ../mate-tweak:1595
 msgid "Network"
 msgstr "Netzwerk"
 
-#: ../mate-tweak:1475
+#: ../mate-tweak:1596
 msgid "Trash"
 msgstr "Papierkorb"
 
-#: ../mate-tweak:1476
+#: ../mate-tweak:1597
 msgid "Mounted Volumes"
 msgstr "Eingehängte Laufwerke"
 
-#: ../mate-tweak:1478
+#: ../mate-tweak:1599
 msgid "Enable animations"
 msgstr "Animatschoonen aktiveren"
 
-#: ../mate-tweak:1479
+#: ../mate-tweak:1600
 msgid "Whether animations should be displayed by the window manager and panel"
-msgstr ""
+msgstr "Of de Fensters-Uppasser un de Balken Animationen wiesen sallen"
 
-#: ../mate-tweak:1480
+#: ../mate-tweak:1601
 msgid "Do not show window content when moving windows"
-msgstr ""
+msgstr "Fensterinholl bi'm Verschuven verbargen"
 
-#: ../mate-tweak:1481
+#: ../mate-tweak:1602
 msgid "Provide less feedback when moving windows by using wireframes"
 msgstr ""
+"Wiest minner Informatioonen bi'm Verschuven vun Fensters, indeem blot de "
+"Rannen wiest worden"
 
-#: ../mate-tweak:1482
+#: ../mate-tweak:1603
 msgid "Window manager performance tuning."
-msgstr ""
+msgstr "De Leistung vum Fenster-Uppasser anpassen"
 
-#: ../mate-tweak:1484
+#: ../mate-tweak:1605
 msgid "Enable window snapping"
-msgstr ""
+msgstr "Fensters könen annannersnappen"
 
-#: ../mate-tweak:1485
+#: ../mate-tweak:1606
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
 msgstr ""
+"Een Fenster am Billschirmrann lösstolaten, maximeert de Höcht un ännert de "
+"Breddt so, dat 't de halven Billschirm bedeckt"
 
-#: ../mate-tweak:1486
+#: ../mate-tweak:1607
 msgid "Undecorate maximized windows"
-msgstr ""
+msgstr "Maximeerte Fensters nich dekoreren"
 
-#: ../mate-tweak:1487
+#: ../mate-tweak:1608
 msgid "Undecorate windows when maximized"
-msgstr ""
+msgstr "Maximeerte Fensters nich dekoreren"
 
-#: ../mate-tweak:1488
+#: ../mate-tweak:1609
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "Neje Fensters nich stracks maximeren"
 
-#: ../mate-tweak:1489
+#: ../mate-tweak:1610
 msgid "Do not automatically maximize newly opened windows"
 msgstr ""
+"Een Fenster word nich automatisk stracks maximeert, wenn 't neei opmaakt word"
 
-#: ../mate-tweak:1490
+#: ../mate-tweak:1611
 msgid "Window control placement."
-msgstr ""
+msgstr "Fenster-Platzeren stüren"
 
-#: ../mate-tweak:1492
+#: ../mate-tweak:1613
 msgid "Save the current panel layout as your own custom version"
-msgstr ""
+msgstr "Dat aktuelle Balken-Utsehn as diene eegene Versioon sekern"
 
-#: ../mate-tweak:1493
+#: ../mate-tweak:1614
 msgid "Delete the currently selected panel layout"
-msgstr ""
+msgstr "Dat utköört Balken-Utsehn lösken"
 
-#: ../mate-tweak:1494
+#: ../mate-tweak:1615
 msgid "Open CCSM"
-msgstr ""
+msgstr "CCSM opmaken"
 
-#: ../mate-tweak:1495
+#: ../mate-tweak:1616
 msgid "Open the Compiz configuration and settings manager"
-msgstr ""
+msgstr "De Compiz Konfigureer- un Instellens-Verwalten opmaken"
 
-#: ../mate-tweak:1496
+#: ../mate-tweak:1617
 msgid "Reset Compiz"
-msgstr ""
+msgstr "Compiz torüggsetten"
 
-#: ../mate-tweak:1497
+#: ../mate-tweak:1618
 msgid "Reset the current Compiz configuration to factory defaults"
 msgstr ""
+"De aktuelle Compiz-Instellens up de Instellens in eener nejen Installeren "
+"torüggsetten"
 
-#: ../mate-tweak:1500 ../mate-tweak:1505
+#: ../mate-tweak:1621 ../mate-tweak:1626
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
-#: ../mate-tweak:1501
+#: ../mate-tweak:1622
 msgid "Select a window scaling factor."
-msgstr ""
+msgstr "Köör de Faktor för 't Fenster-Skaleren ut."
 
-#: ../mate-tweak:1503
+#: ../mate-tweak:1624
 msgid "Auto-detect"
-msgstr ""
+msgstr "Automatisk utfinnen"
 
-#: ../mate-tweak:1504
+#: ../mate-tweak:1625
 msgid "Regular"
-msgstr ""
+msgstr "Normaal"
 
-#: ../mate-tweak:1508
+#: ../mate-tweak:1629
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
 msgstr ""
+"De Grött vun all Fensters, Balkens, Schriftaarden, Programmen un so wieder "
+"för HiDPI-Billschirmen verdübbeln."
 
-#: ../mate-tweak:1514
+#: ../mate-tweak:1635
 msgid "Open Font preferences"
-msgstr ""
+msgstr "Schriftaard-Instellens opmaken"
 
-#: ../mate-tweak:1515 ../mate-tweak:1517
+#: ../mate-tweak:1636 ../mate-tweak:1638
 msgid "Fonts"
-msgstr ""
+msgstr "Schriftarten"
 
-#: ../mate-tweak:1516
+#: ../mate-tweak:1637
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
 msgstr ""
+"Maak de Schriftaard-Instellens op un klick up Details…, um de Schriftaard-"
+"Grött akkeraat fasttoleggen."
 
-#: ../mate-tweak:1519
+#: ../mate-tweak:1640
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "Tastatuur-LED anmaken"
 
-#: ../mate-tweak:1520
+#: ../mate-tweak:1641
 msgid "Show keyboard LED indicators in the notifcation tray"
-msgstr ""
+msgstr "Im Mitdeelensrebeet de LED-Wiesers för de Tastatuur wiesen"
 
-#: ../mate-tweak:1521
+#: ../mate-tweak:1642
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Oorderrieg tum Runnertrecken"
 
-#: ../mate-tweak:1522
+#: ../mate-tweak:1643
 msgid "When enabled press F12 to pull down terminal"
-msgstr ""
+msgstr "Wenn dat an is, drück F12, um eene Oorderrieg runnertotrecken"
 
-#: ../mate-tweak:1523
+#: ../mate-tweak:1644
 msgid "Enable Dock"
-msgstr ""
+msgstr "Dock bruken"
 
-#: ../mate-tweak:1524
+#: ../mate-tweak:1645
 msgid "When checked the Dock will be enabled."
-msgstr ""
+msgstr "Wenn du dat ankrüüzt, word dat Dock anmaakt."
 
-#: ../mate-tweak:1525
+#: ../mate-tweak:1646
 msgid "Enable HUD"
-msgstr ""
+msgstr "HUD bruken"
 
-#: ../mate-tweak:1526
+#: ../mate-tweak:1647
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
 msgstr ""
+"Wenn du dat ankrüüzt, word de Bovenkopp-Wieser (Heads-Up Display, HUD) "
+"anmaakt. Drück Alt-L, um im Programm-Menü to söken."
 
-#: ../mate-tweak:1528
+#: ../mate-tweak:1649
 msgid "Show Applications"
-msgstr ""
+msgstr "Programmen wiesen"
 
-#: ../mate-tweak:1529
+#: ../mate-tweak:1650
 msgid "Show Applications item in the menu bar"
-msgstr ""
+msgstr "Im Menübalken dat Programm-Teken wiesen"
 
-#: ../mate-tweak:1530
+#: ../mate-tweak:1651
 msgid "Show Places"
 msgstr "Orte opwiesen"
 
-#: ../mate-tweak:1531
+#: ../mate-tweak:1652
 msgid "Show Places item in the menu bar"
-msgstr ""
+msgstr "Im Menübalken dat Oorten-Teken wiesen"
 
-#: ../mate-tweak:1532
+#: ../mate-tweak:1653
 msgid "Show System"
-msgstr ""
+msgstr "System wiesen"
 
-#: ../mate-tweak:1533
+#: ../mate-tweak:1654
 msgid "Show System item in the menu bar"
-msgstr ""
+msgstr "Im Menübalken dat System-Teken wiesen"
 
-#: ../mate-tweak:1535
+#: ../mate-tweak:1656
 msgid "Show icons on menus"
 msgstr "Symbole in Menüs anzeigen"
 
-#: ../mate-tweak:1536
+#: ../mate-tweak:1657
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Of Menüs een Teken tegen eenem Indraag wiesen düren"
 
-#: ../mate-tweak:1537
+#: ../mate-tweak:1658
 msgid "Show icons on buttons"
 msgstr "Symbole auf Schaltflächen zeigen"
 
-#: ../mate-tweak:1538
+#: ../mate-tweak:1659
 msgid "Whether buttons may display an icon in addition to the button text"
-msgstr ""
+msgstr "Of Knopen een Teken to de Knoop-Text daarto wiesen düren"
 
-#: ../mate-tweak:1539
+#: ../mate-tweak:1660
 msgid "Show Input Methods menu in context menus"
 msgstr "Eingabemethode in Kontextmenüs anzeigen"
 
-#: ../mate-tweak:1540
+#: ../mate-tweak:1661
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr ""
+"Of de Kontextmenüs vun Indragen un Textansichten anbeden sallen, de Ingaav-"
+"Aard to ännern"
 
-#: ../mate-tweak:1541
+#: ../mate-tweak:1662
 msgid "Show Unicode Control Character menu in context menus"
 msgstr "Unicode-Kontrollzeichen-Menü in Kontextmenüs anzeigen"
 
-#: ../mate-tweak:1542
+#: ../mate-tweak:1663
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
 msgstr ""
+"Of de Kontextmenüs vun Indragen un Textansichten de Ingaav-Kuntroll-"
+"Bookstavens wiesen sallen"
 
-#: ../mate-tweak:1544
+#: ../mate-tweak:1665
 msgid "Style:"
 msgstr "Stil:"
 
-#: ../mate-tweak:1545
+#: ../mate-tweak:1666
 msgid "Icon size:"
 msgstr "Symbolgröße"
 
-#: ../mate-tweak:1564
+#: ../mate-tweak:1685
 msgid "Small"
 msgstr "Klein"
 
-#: ../mate-tweak:1565
+#: ../mate-tweak:1686
 msgid "Large"
 msgstr "Groß"
 
-#: ../mate-tweak:1574
+#: ../mate-tweak:1695
 msgid "The new window manager will be activated upon selection."
-msgstr ""
+msgstr "De neje Fenster-Uppasser word bi'm Utkören anmaakt."
 
-#: ../mate-tweak:1575
+#: ../mate-tweak:1696
 msgid "Select a window manager."
-msgstr ""
+msgstr "Köör eenen Fenster-Uppasser ut."
 
-#: ../mate-tweak:1581
+#: ../mate-tweak:1702
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Köör een Balken-Utsehn ut, um 't antowennen."
 
-#: ../mate-tweak:1582
+#: ../mate-tweak:1703
 msgid "Select a panel layout."
-msgstr ""
+msgstr "Köör een Balken-Utsehn ut."
 
-#: ../mate-tweak:1587
+#: ../mate-tweak:1708
 msgid "Default"
 msgstr "Standard"
 
-#: ../mate-tweak:1588
+#: ../mate-tweak:1709
 msgid "16px"
-msgstr ""
+msgstr "16 px"
 
-#: ../mate-tweak:1589
+#: ../mate-tweak:1710
 msgid "22px"
-msgstr ""
+msgstr "22 px"
 
-#: ../mate-tweak:1590
+#: ../mate-tweak:1711
 msgid "24px"
-msgstr ""
+msgstr "24 px"
 
-#: ../mate-tweak:1591
+#: ../mate-tweak:1712
 msgid "32px"
-msgstr ""
+msgstr "32 px"
 
-#: ../mate-tweak:1592
+#: ../mate-tweak:1713
 msgid "48px"
-msgstr ""
+msgstr "48 px"
 
-#: ../mate-tweak:1596
+#: ../mate-tweak:1717
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Sett de Teken-Grött im Balken."
 
-#: ../mate-tweak:1597
+#: ../mate-tweak:1718
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Köör de Teken-Grött im Balken ut."
 
-#: ../mate-tweak:1601
+#: ../mate-tweak:1722
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Sett de Teken-Grött för Menü-Indragen im Balken."
 
-#: ../mate-tweak:1602
+#: ../mate-tweak:1723
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Köör de Teken-Grött för Menü-Indragen im Balken ut."
 
-#: ../mate-tweak:1630
+#: ../mate-tweak:1751
 msgid "Text below items"
 msgstr "Text unter den Elementen"
 
-#: ../mate-tweak:1631
+#: ../mate-tweak:1752
 msgid "Text beside items"
 msgstr "Text neben Elementen"
 
-#: ../mate-tweak:1632
+#: ../mate-tweak:1753
 msgid "Icons only"
 msgstr "Nur Symbole"
 
-#: ../mate-tweak:1633
+#: ../mate-tweak:1754
 msgid "Text only"
 msgstr "Nur Text"
+
+#~ msgid "Contemporary"
+#~ msgstr "Neei"
+
+#~ msgid "Cupertino"
+#~ msgstr "Cupertino"
+
+#~ msgid "Familiar"
+#~ msgstr "Bekannt"
+
+#~ msgid "Fedora"
+#~ msgstr "Fedora"
+
+#~ msgid "GNOME2"
+#~ msgstr "GNOME2"
+
+#~ msgid "Linux Mint"
+#~ msgstr "Linux Mint"
+
+#~ msgid "Mageia"
+#~ msgstr "Mageia"
+
+#~ msgid "Manjaro"
+#~ msgstr "Manjaro"
+
+#~ msgid "Mutiny"
+#~ msgstr "Mutiny"
+
+#~ msgid "Netbook"
+#~ msgstr "Netbook"
+
+#~ msgid "openSUSE"
+#~ msgstr "openSUSE"
+
+#~ msgid "Pantheon"
+#~ msgstr "Pantheon"
+
+#~ msgid "Redmond"
+#~ msgstr "Redmond"
+
+#~ msgid "Solus"
+#~ msgstr "Solus"
+
+#~ msgid "Traditional"
+#~ msgstr "Oll"

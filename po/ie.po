@@ -8,10 +8,11 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-19 21:08+0100\n"
-"PO-Revision-Date: 2016-05-20 17:25+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
-"Language-Team: Hausa (http://www.transifex.com/mate/MATE/language/ha/)\n"
-"Language: ha\n"
+"PO-Revision-Date: 2019-06-16 22:44+0000\n"
+"Last-Translator: Ольга Смирнова\n"
+"Language-Team: Interlingue (http://www.transifex.com/mate/MATE/language/"
+"ie/)\n"
+"Language: ie\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,155 +20,159 @@ msgstr ""
 
 #: ../mate-tweak:1203
 msgid "Right"
-msgstr ""
+msgstr "A dextri"
 
 #: ../mate-tweak:1204
 msgid "Left"
-msgstr ""
+msgstr "A levul"
 
 #: ../mate-tweak:1212
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Marco (Sin un compositor)"
 
 #: ../mate-tweak:1214
 msgid "Marco (Adaptive compositor)"
-msgstr ""
+msgstr "Marco (Adaptiv compositor)"
 
 #: ../mate-tweak:1216
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (compositor GPU Compton)"
 
 #: ../mate-tweak:1218
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Compiz (Avansat efectes accelerat per li GPU)"
 
 #: ../mate-tweak:1221
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
 msgstr ""
+"Vu usa un ínconosset e ínsupportat gerente de fenestres. Noi ne posse "
+"garantir que modificationes fat per ti-ci utensile va esser efectiv."
 
 #: ../mate-tweak:1523
 msgid "Desktop"
-msgstr ""
+msgstr "Ambientie"
 
 #: ../mate-tweak:1524
 msgid "Interface"
-msgstr ""
+msgstr "Interfacie"
 
 #: ../mate-tweak:1525
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../mate-tweak:1526
 msgid "Windows"
-msgstr ""
+msgstr "Fenestres"
 
 #: ../mate-tweak:1575
 msgid "MATE Tweak"
-msgstr ""
+msgstr "Ajustar MATE"
 
 #: ../mate-tweak:1578
 msgid "Desktop icons"
-msgstr ""
+msgstr "Icones del Pupitre"
 
 #: ../mate-tweak:1579
 msgid "Performance"
-msgstr ""
+msgstr "Productivitá"
 
 #: ../mate-tweak:1580
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Conduida de fenestres"
 
 #: ../mate-tweak:1581
 msgid "Appearance"
-msgstr ""
+msgstr "Aspecte"
 
 #: ../mate-tweak:1582
 msgid "Panels"
-msgstr ""
+msgstr "Paneles"
 
 #: ../mate-tweak:1583
 msgid "Panel Features"
-msgstr ""
+msgstr "Parametres de panel"
 
 #: ../mate-tweak:1584
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "Parametres del menú de panel"
 
 #: ../mate-tweak:1585
 msgid "Icons"
-msgstr ""
+msgstr "Icones"
 
 #: ../mate-tweak:1586
 msgid "Context menus"
-msgstr ""
+msgstr "Menús contextual"
 
 #: ../mate-tweak:1587
 msgid "Toolbars"
-msgstr ""
+msgstr "Instrumentarium"
 
 #: ../mate-tweak:1588
 msgid "Window manager"
-msgstr ""
+msgstr "Gerente de fenestres"
 
 #: ../mate-tweak:1590
 msgid "Select the Desktop Icons you want enabled:"
-msgstr ""
+msgstr "Selecter li icones visibil sur li Pupitre:"
 
 #: ../mate-tweak:1591
 msgid "Show Desktop Icons"
-msgstr ""
+msgstr "Monstrar icones del Pupitre"
 
 #: ../mate-tweak:1592
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
 msgstr ""
+"Si depermisset, li Pupitre have null icones e null accesse al gerente de "
+"files"
 
 #: ../mate-tweak:1593
 msgid "Computer"
-msgstr ""
+msgstr "Computator"
 
 #: ../mate-tweak:1594
 msgid "Home"
-msgstr ""
+msgstr "Hem"
 
 #: ../mate-tweak:1595
 msgid "Network"
-msgstr ""
+msgstr "Rete"
 
 #: ../mate-tweak:1596
 msgid "Trash"
-msgstr ""
+msgstr "Paper-corb"
 
 #: ../mate-tweak:1597
 msgid "Mounted Volumes"
-msgstr ""
+msgstr "Montet volumes"
 
 #: ../mate-tweak:1599
 msgid "Enable animations"
-msgstr ""
+msgstr "Permisser animationes"
 
 #: ../mate-tweak:1600
 msgid "Whether animations should be displayed by the window manager and panel"
-msgstr ""
+msgstr "Activar animationes por li gerente de fenestres e paneles"
 
 #: ../mate-tweak:1601
 msgid "Do not show window content when moving windows"
-msgstr ""
+msgstr "Ne monstrar li contenete de fenestre quande it es movet"
 
 #: ../mate-tweak:1602
 msgid "Provide less feedback when moving windows by using wireframes"
-msgstr ""
+msgstr "Usar contures quande on move fenestres"
 
 #: ../mate-tweak:1603
 msgid "Window manager performance tuning."
-msgstr ""
+msgstr "Ajustar productivitá del gerente de fenestres."
 
 #: ../mate-tweak:1605
 msgid "Enable window snapping"
-msgstr ""
+msgstr "Activar fenestres serrant"
 
 #: ../mate-tweak:1606
 msgid ""
@@ -177,77 +182,79 @@ msgstr ""
 
 #: ../mate-tweak:1607
 msgid "Undecorate maximized windows"
-msgstr ""
+msgstr "De-decorar maximisat fenestres"
 
 #: ../mate-tweak:1608
 msgid "Undecorate windows when maximized"
-msgstr ""
+msgstr "De-decorar maximisat fenestres"
 
 #: ../mate-tweak:1609
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "Ne maximisar nov fenestres"
 
 #: ../mate-tweak:1610
 msgid "Do not automatically maximize newly opened windows"
-msgstr ""
+msgstr "Ne maximisar novmen apertet fenestres automaticmen"
 
 #: ../mate-tweak:1611
 msgid "Window control placement."
-msgstr ""
+msgstr "Plazzament del butones de fenestres."
 
 #: ../mate-tweak:1613
 msgid "Save the current panel layout as your own custom version"
-msgstr ""
+msgstr "Gardar li actual arangeament de paneles quam un personal version"
 
 #: ../mate-tweak:1614
 msgid "Delete the currently selected panel layout"
-msgstr ""
+msgstr "Remover li actual arangeament de paneles"
 
 #: ../mate-tweak:1615
 msgid "Open CCSM"
-msgstr ""
+msgstr "Aperter CCSM"
 
 #: ../mate-tweak:1616
 msgid "Open the Compiz configuration and settings manager"
-msgstr ""
+msgstr "Aperter li gerente de configuration de Compiz"
 
 #: ../mate-tweak:1617
 msgid "Reset Compiz"
-msgstr ""
+msgstr "Reverter Compiz"
 
 #: ../mate-tweak:1618
 msgid "Reset the current Compiz configuration to factory defaults"
-msgstr ""
+msgstr "Reverter li configuration de Compiz al predefinit"
 
 #: ../mate-tweak:1621 ../mate-tweak:1626
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
 #: ../mate-tweak:1622
 msgid "Select a window scaling factor."
-msgstr ""
+msgstr "Selecte li scale de fenestres."
 
 #: ../mate-tweak:1624
 msgid "Auto-detect"
-msgstr ""
+msgstr "Autodetecter"
 
 #: ../mate-tweak:1625
 msgid "Regular"
-msgstr ""
+msgstr "Regulari"
 
 #: ../mate-tweak:1629
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
 msgstr ""
+"Duplicar li dimension de omni fenestres, paneles, widgetes, fondes, etc. por "
+"monitores HiDPI"
 
 #: ../mate-tweak:1635
 msgid "Open Font preferences"
-msgstr ""
+msgstr "Aperter preferenties de fonde"
 
 #: ../mate-tweak:1636 ../mate-tweak:1638
 msgid "Fonts"
-msgstr ""
+msgstr "Fondes"
 
 #: ../mate-tweak:1637
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
@@ -255,15 +262,15 @@ msgstr ""
 
 #: ../mate-tweak:1640
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "Activar LEDs de tastatura"
 
 #: ../mate-tweak:1641
 msgid "Show keyboard LED indicators in the notifcation tray"
-msgstr ""
+msgstr "Monstrar indicatores LED de tastatura in li area de notificationes"
 
 #: ../mate-tweak:1642
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "Activar un tirant terminal"
 
 #: ../mate-tweak:1643
 msgid "When enabled press F12 to pull down terminal"
@@ -271,7 +278,7 @@ msgstr ""
 
 #: ../mate-tweak:1644
 msgid "Enable Dock"
-msgstr ""
+msgstr "Activar li dock"
 
 #: ../mate-tweak:1645
 msgid "When checked the Dock will be enabled."
@@ -279,7 +286,7 @@ msgstr ""
 
 #: ../mate-tweak:1646
 msgid "Enable HUD"
-msgstr ""
+msgstr "Activar li HUD"
 
 #: ../mate-tweak:1647
 msgid ""
@@ -289,47 +296,47 @@ msgstr ""
 
 #: ../mate-tweak:1649
 msgid "Show Applications"
-msgstr ""
+msgstr "Monstrar «Applicationes»"
 
 #: ../mate-tweak:1650
 msgid "Show Applications item in the menu bar"
-msgstr ""
+msgstr "Monstrar li element «Applicationes» in li panel de menú"
 
 #: ../mate-tweak:1651
 msgid "Show Places"
-msgstr ""
+msgstr "Monstrar «Locs»"
 
 #: ../mate-tweak:1652
 msgid "Show Places item in the menu bar"
-msgstr ""
+msgstr "Monstrar li element «Locs» in li panel de menú"
 
 #: ../mate-tweak:1653
 msgid "Show System"
-msgstr ""
+msgstr "Monstrar «Sistema»"
 
 #: ../mate-tweak:1654
 msgid "Show System item in the menu bar"
-msgstr ""
+msgstr "Monstrar li element «Sistema» in li panel de menú"
 
 #: ../mate-tweak:1656
 msgid "Show icons on menus"
-msgstr ""
+msgstr "Menús have icones"
 
 #: ../mate-tweak:1657
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Menús posse monstrar un icone apu li textu"
 
 #: ../mate-tweak:1658
 msgid "Show icons on buttons"
-msgstr ""
+msgstr "Butones have icones"
 
 #: ../mate-tweak:1659
 msgid "Whether buttons may display an icon in addition to the button text"
-msgstr ""
+msgstr "Butones posse monstrar un icone apu li textu"
 
 #: ../mate-tweak:1660
 msgid "Show Input Methods menu in context menus"
-msgstr ""
+msgstr "Monstrar un menú de metodes de intrada in menús contextual"
 
 #: ../mate-tweak:1661
 msgid ""
@@ -339,7 +346,7 @@ msgstr ""
 
 #: ../mate-tweak:1662
 msgid "Show Unicode Control Character menu in context menus"
-msgstr ""
+msgstr "Monstrar un menú de caracteres Unicode de control in menús contextual"
 
 #: ../mate-tweak:1663
 msgid ""
@@ -349,88 +356,133 @@ msgstr ""
 
 #: ../mate-tweak:1665
 msgid "Style:"
-msgstr ""
+msgstr "Stil:"
 
 #: ../mate-tweak:1666
 msgid "Icon size:"
-msgstr ""
+msgstr "Dimension de icones:"
 
 #: ../mate-tweak:1685
 msgid "Small"
-msgstr ""
+msgstr "Micri"
 
 #: ../mate-tweak:1686
 msgid "Large"
-msgstr ""
+msgstr "Grand"
 
 #: ../mate-tweak:1695
 msgid "The new window manager will be activated upon selection."
-msgstr ""
+msgstr "Li nov gerente de fenestres va esser activat pos selection."
 
 #: ../mate-tweak:1696
 msgid "Select a window manager."
-msgstr ""
+msgstr "Selecter un gerente de fenestres."
 
 #: ../mate-tweak:1702
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Selecter un arangeament de paneles."
 
 #: ../mate-tweak:1703
 msgid "Select a panel layout."
-msgstr ""
+msgstr "Selecter un arangeament de panel."
 
 #: ../mate-tweak:1708
 msgid "Default"
-msgstr ""
+msgstr "Predefinit"
 
 #: ../mate-tweak:1709
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1710
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1711
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1712
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1713
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1717
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Selecter li dimension de icones de panel."
 
 #: ../mate-tweak:1718
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Li dimension de icones de panel."
 
 #: ../mate-tweak:1722
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Li dimension de icones del elementes de menú de panel."
 
 #: ../mate-tweak:1723
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Li dimension de icones de elementes de menús de panel."
 
 #: ../mate-tweak:1751
 msgid "Text below items"
-msgstr ""
+msgstr "Textu sub icones"
 
 #: ../mate-tweak:1752
 msgid "Text beside items"
-msgstr ""
+msgstr "Textu apu icones"
 
 #: ../mate-tweak:1753
 msgid "Icons only"
-msgstr ""
+msgstr "Sol icones"
 
 #: ../mate-tweak:1754
 msgid "Text only"
-msgstr ""
+msgstr "Sol textu"
+
+#~ msgid "Contemporary"
+#~ msgstr "Contemporani"
+
+#~ msgid "Cupertino"
+#~ msgstr "Cupertino"
+
+#~ msgid "Familiar"
+#~ msgstr "Familiari"
+
+#~ msgid "Fedora"
+#~ msgstr "Fedora"
+
+#~ msgid "GNOME2"
+#~ msgstr "GNOME2"
+
+#~ msgid "Linux Mint"
+#~ msgstr "Linux Mint"
+
+#~ msgid "Mageia"
+#~ msgstr "Mageia"
+
+#~ msgid "Manjaro"
+#~ msgstr "Manjaro"
+
+#~ msgid "Mutiny"
+#~ msgstr "Mutiny"
+
+#~ msgid "Netbook"
+#~ msgstr "Netbook"
+
+#~ msgid "openSUSE"
+#~ msgstr "openSUSE"
+
+#~ msgid "Pantheon"
+#~ msgstr "Pantheon"
+
+#~ msgid "Redmond"
+#~ msgstr "Redmond"
+
+#~ msgid "Solus"
+#~ msgstr "Solus"
+
+#~ msgid "Traditional"
+#~ msgstr "Traditional"
