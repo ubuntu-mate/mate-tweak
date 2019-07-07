@@ -61,6 +61,8 @@ else
         --shadow-exclude "class_g = 'Conky'" \
         --shadow-exclude "class_g = 'Kupfer'" \
         --shadow-exclude "class_g = 'Synapse'" \
+        --shadow-exclude "class_g = 'Firefox' && argb" \
+        --shadow-exclude "class_g = 'Ulauncher'" \
         --shadow-exclude "class_g ?= 'Notify-osd'" \
         --shadow-exclude "class_g ?= 'Cairo-dock'" \
         --shadow-exclude "class_g = 'Cairo-clock'" \
