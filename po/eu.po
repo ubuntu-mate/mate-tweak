@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Alexander Gabilondo <alexgabilondo@gmail.com>, 2019
 # Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2015-2016,2018
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-19 21:08+0100\n"
-"PO-Revision-Date: 2018-03-13 22:01+0000\n"
-"Last-Translator: Wolfgang Ulbrich <mate@raveit.de>\n"
+"POT-Creation-Date: 2019-08-31 12:11+0100\n"
+"PO-Revision-Date: 2019-07-28 21:08+0000\n"
+"Last-Translator: Alexander Gabilondo <alexgabilondo@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/mate/MATE/language/eu/)\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
@@ -169,7 +170,7 @@ msgstr ""
 
 #: ../mate-tweak:1605
 msgid "Enable window snapping"
-msgstr ""
+msgstr "Aktibatu leihoen doitzea"
 
 #: ../mate-tweak:1606
 msgid ""
@@ -187,7 +188,7 @@ msgstr ""
 
 #: ../mate-tweak:1609
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "Ez maximizatu automatikoki leiho berriak"
 
 #: ../mate-tweak:1610
 msgid "Do not automatically maximize newly opened windows"
@@ -219,7 +220,7 @@ msgstr "Berrezarri Compiz"
 
 #: ../mate-tweak:1618
 msgid "Reset the current Compiz configuration to factory defaults"
-msgstr ""
+msgstr "Berrezarri Compizen uneko konfigurazioa fabrikako berezkora"
 
 #: ../mate-tweak:1621 ../mate-tweak:1626
 msgid "HiDPI"
@@ -245,11 +246,11 @@ msgstr ""
 
 #: ../mate-tweak:1635
 msgid "Open Font preferences"
-msgstr ""
+msgstr "Irekin letra-tipoen hobespenak"
 
 #: ../mate-tweak:1636 ../mate-tweak:1638
 msgid "Fonts"
-msgstr ""
+msgstr "Letra-tipoak"
 
 #: ../mate-tweak:1637
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
@@ -257,7 +258,7 @@ msgstr ""
 
 #: ../mate-tweak:1640
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "Aktibatu teklatuko LEDa"
 
 #: ../mate-tweak:1641
 msgid "Show keyboard LED indicators in the notifcation tray"
@@ -295,7 +296,7 @@ msgstr "Erakutsi Aplikazioak"
 
 #: ../mate-tweak:1650
 msgid "Show Applications item in the menu bar"
-msgstr ""
+msgstr "Erakutsi Aplikazioak elementua menu barran"
 
 #: ../mate-tweak:1651
 msgid "Show Places"
@@ -303,7 +304,7 @@ msgstr "Erakutsi Lekuak"
 
 #: ../mate-tweak:1652
 msgid "Show Places item in the menu bar"
-msgstr ""
+msgstr "Erakutsi Lekuak elementua menu barran"
 
 #: ../mate-tweak:1653
 msgid "Show System"
@@ -311,7 +312,7 @@ msgstr "Erakutsi Sistema"
 
 #: ../mate-tweak:1654
 msgid "Show System item in the menu bar"
-msgstr ""
+msgstr "Erakutsi Sistema elementua menu barran"
 
 #: ../mate-tweak:1656
 msgid "Show icons on menus"
@@ -379,7 +380,7 @@ msgstr ""
 
 #: ../mate-tweak:1703
 msgid "Select a panel layout."
-msgstr ""
+msgstr "Hautatu panel diseinu bat"
 
 #: ../mate-tweak:1708
 msgid "Default"
@@ -407,11 +408,11 @@ msgstr "48px"
 
 #: ../mate-tweak:1717
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Ezarri paneleko ikono tamaina"
 
 #: ../mate-tweak:1718
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Hautatu ikonoen tamaina paneleko ikonoentzat."
 
 #: ../mate-tweak:1722
 msgid "Set the icon size of menu items used in the panel."
@@ -419,7 +420,7 @@ msgstr ""
 
 #: ../mate-tweak:1723
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Hautatu ikonoen tamaina menuko elementuentzat panelean"
 
 #: ../mate-tweak:1751
 msgid "Text below items"
@@ -436,30 +437,3 @@ msgstr "Ikonoak soilik"
 #: ../mate-tweak:1754
 msgid "Text only"
 msgstr "Testua soilik"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"

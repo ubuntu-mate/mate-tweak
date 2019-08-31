@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-19 21:08+0100\n"
-"PO-Revision-Date: 2019-04-29 11:12+0000\n"
-"Last-Translator: Étienne Deparis <etienne@depar.is>\n"
+"POT-Creation-Date: 2019-08-31 12:11+0100\n"
+"PO-Revision-Date: 2019-06-26 09:20+0000\n"
+"Last-Translator: Colomban Wendling <cwendling@hypra.fr>\n"
 "Language-Team: French (http://www.transifex.com/mate/MATE/language/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -481,48 +481,3 @@ msgstr "Icônes seules"
 #: ../mate-tweak:1754
 msgid "Text only"
 msgstr "Texte seul"
-
-#~ msgid "Contemporary"
-#~ msgstr "Contemporain"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Familiar"
-#~ msgstr "Familier"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Manjaro"
-#~ msgstr "Manjaro"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Netbook"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
-
-#~ msgid "Traditional"
-#~ msgstr "Traditionnel"

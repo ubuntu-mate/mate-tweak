@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Fito JB, 2017
+# Adolfo Jayme-Barrientos, 2017
 # Andres Sanchez <blackatze93@gmail.com>, 2015-2016
 # Angel Mireles <lamborghinilph710@gmail.com>, 2016
 # Daniel Aranda <dwarandae@gmail.com>, 2016
@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-19 21:08+0100\n"
-"PO-Revision-Date: 2019-06-15 21:36+0000\n"
+"POT-Creation-Date: 2019-08-31 12:11+0100\n"
+"PO-Revision-Date: 2019-06-24 11:17+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/mate/MATE/language/es/)\n"
 "Language: es\n"
@@ -107,11 +107,11 @@ msgstr "Paneles "
 
 #: ../mate-tweak:1583
 msgid "Panel Features"
-msgstr "Características del Panel"
+msgstr "Características del panel"
 
 #: ../mate-tweak:1584
 msgid "Panel Menu Features"
-msgstr "Características del menú del Panel"
+msgstr "Características del menú del panel"
 
 #: ../mate-tweak:1585
 msgid "Icons"
@@ -131,11 +131,11 @@ msgstr "Gestor de ventanas"
 
 #: ../mate-tweak:1590
 msgid "Select the Desktop Icons you want enabled:"
-msgstr "Selecciona los Iconos de Escritorio que quieres activados:"
+msgstr "Selecciona los Iconos de escritorio que quieres activados:"
 
 #: ../mate-tweak:1591
 msgid "Show Desktop Icons"
-msgstr "Mostrar Iconos de Escritorio"
+msgstr "Mostrar Iconos de escritorio"
 
 #: ../mate-tweak:1592
 msgid ""
@@ -279,8 +279,8 @@ msgstr "Tipografías"
 #: ../mate-tweak:1637
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
 msgstr ""
-"Abra las preferencias de la tipografía y haga clic en los detalles para "
-"ajustar los PPP de la tipografía."
+"Abra las preferencias de tipografía y haga clic en los detales para ajustar "
+"con precisión los PPP de la tipografía."
 
 #: ../mate-tweak:1640
 msgid "Enable keyboard LED"
@@ -474,48 +474,3 @@ msgstr "Solo iconos"
 #: ../mate-tweak:1754
 msgid "Text only"
 msgstr "Solo texto"
-
-#~ msgid "Contemporary"
-#~ msgstr "Contemporáneo"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Familiar"
-#~ msgstr "Familiar"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Manjaro"
-#~ msgstr "Manjaro"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Netbook"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
-
-#~ msgid "Traditional"
-#~ msgstr "Tradicional"
