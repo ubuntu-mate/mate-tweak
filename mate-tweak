@@ -157,8 +157,10 @@ NoDisplay=true
 X-MATE-Autostart-enabled=true
 """
 
-__TRADITIONAL_BUTTONS__ = "menu:minimize,maximize,close"
-__CONTEMPORARY_BUTTONS__ = "close,minimize,maximize:menu"
+__TRADITIONAL_BUTTONS__ = ":minimize,maximize,close"
+__CONTEMPORARY_BUTTONS__ = "close,minimize,maximize:"
+__MENU_TRADITIONAL_BUTTONS__ = "menu:minimize,maximize,close"
+__MENU_CONTEMPORARY_BUTTONS__ = "close,minimize,maximize:menu"
 
 # i18n
 gettext.install('mate-tweak', os.path.join('/','usr','share','locale'))
@@ -1202,6 +1204,8 @@ class MateTweak:
         layouts = Gtk.ListStore(str, str)
         layouts.append([_("Right"), __TRADITIONAL_BUTTONS__])
         layouts.append([_("Left"), __CONTEMPORARY_BUTTONS__])
+        layouts.append([_("Right (with menu)"), __MENU_TRADITIONAL_BUTTONS__])
+        layouts.append([_("Left (with menu)"), __MENU_CONTEMPORARY_BUTTONS__])
         self.builder.get_object("combobox_window_control").set_model(layouts)
         self.init_combobox("org.mate.Marco.general", "button-layout", "combobox_window_control")
 
