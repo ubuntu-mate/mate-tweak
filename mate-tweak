@@ -1179,9 +1179,10 @@ class MateTweak:
             self.mate_menu_available = True
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/brisk-menu/brisk-menu') or \
-            os.path.exists('/usr/lib/brisk-menu/brisk-menu'):
-            if os.path.exists('/usr/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
-             self.brisk_menu_available = True
+            os.path.exists('/usr/lib/brisk-menu/brisk-menu') or \
+             os.path.exists('/usr/libexec/brisk-menu'):
+             if os.path.exists('/usr/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
+              self.brisk_menu_available = True
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/mate-panel/libappmenu-mate.so') and \
             os.path.exists('/usr/share/mate-panel/applets/org.vala-panel.appmenu.mate-panel-applet'):
