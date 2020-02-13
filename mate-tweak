@@ -1166,7 +1166,7 @@ class MateTweak:
             os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service') and \
             os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service') and \
             os.path.exists('/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service') and \
-            os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet'):
+            (os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet') or os.path.exists('/usr/share/mate-panel/applets/org.mate.applets.IndicatorAppmenu.mate-panel-applet')):
                 self.indicators_available = True
 
         if os.path.exists('/usr/share/applications/mageia-drakconf.desktop'):
