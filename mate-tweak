@@ -1399,7 +1399,7 @@ class MateTweak:
         name = entry.get_text().strip().replace(' ', '-')
         dialog.destroy()
 
-        if (response == Gtk.ResponseType.OK) and (name is not ''):
+        if (response == Gtk.ResponseType.OK) and (name != ''):
             return name
         else:
             return None
