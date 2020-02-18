@@ -75,6 +75,25 @@ __APPLET_SOUND__ = """[Desktop Entry]
 Name=Volume Control
 Comment=Show desktop volume control
 Icon=multimedia-volume-control
+Exec=mate-volume-control-applet
+Terminal=false
+Type=Application
+Categories=AudioVideo;Mixer;Settings;HardwareSettings;
+Keywords=MATE;volume;control;mixer;settings;sound;
+NoDisplay=true
+OnlyShowIn=MATE;
+X-MATE-Bugzilla-Bugzilla=MATE
+X-MATE-Bugzilla-Product=mate-media
+X-MATE-Bugzilla-Component=mate-volume-control
+# See http://bugzilla.gnome.org/show_bug.cgi?id=568320
+#X-MATE-Autostart-Phase=Panel
+X-MATE-Autostart-Notify=true
+"""
+
+__STATUS_ICON_SOUND__ = """[Desktop Entry]
+Name=Volume Control
+Comment=Show desktop volume control
+Icon=multimedia-volume-control
 Exec=mate-volume-control-status-icon
 Terminal=false
 Type=Application
@@ -600,7 +619,9 @@ class MateTweak:
         When indicators are enabled some MATE applets need disabling
         or hiding.
         """
+        self.kill_process('mate-volume-control-applet')
         self.kill_process('mate-volume-control-status-icon')
+        self.remove_autostart('mate-volume-control-applet.desktop')
         self.remove_autostart('mate-volume-control-status-icon.desktop')
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'never')
@@ -608,6 +629,7 @@ class MateTweak:
 
         # Remove the incorrectly named autostart file caused by an earlier bug.
         # Note the double .desktop suffix.
+        self.remove_autostart('mate-volume-control-applet.desktop.desktop')
         self.remove_autostart('mate-volume-control-status-icon.desktop.desktop')
 
     def enable_applets(self):
@@ -615,15 +637,23 @@ class MateTweak:
         When indicators are disabled some MATE applets need enabling
         or showing.
         """
+        if os.path.exists('/usr/lib/mate-media/mate-volume-control-applet'):
+           pid = subprocess.Popen(['/usr/lib/mate-media/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+        else:
+           pid = subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+        self.remove_autostart('mate-volume-control-applet.desktop')
+        self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
         pid = subprocess.Popen(['mate-volume-control-status-icon'], stdout=DEVNULL, stderr=DEVNULL).pid
         self.remove_autostart('mate-volume-control-status-icon.desktop')
-        self.create_autostart('mate-volume-control-status-icon.desktop', __APPLET_SOUND__)
+        self.create_autostart('mate-volume-control-status-icon.desktop', __STATUS_ICON_SOUND__)
+
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', True)
 
         # Remove the incorrectly named autostart file case by an earlier bug.
         # Note the double .desktop suffix.
+        self.remove_autostart('mate-volume-control-applet.desktop.desktop')
         self.remove_autostart('mate-volume-control-status-icon.desktop.desktop')
 
     def disable_indicators(self):
@@ -1156,6 +1186,7 @@ class MateTweak:
         self.maximus_available = False
         self.mint_menu_available = False
         self.volume_applet_enabled = False
+        self.volume_status_icon_enabled = False
         self.brisk_menu_available = False
         self.appmenu_applet_available = False
 
@@ -1196,9 +1227,13 @@ class MateTweak:
             self.mint_menu_available = True
 
         config_dir = GLib.get_user_config_dir()
+        if os.path.exists('/etc/xdg/autostart/mate-volume-control-applet.desktop') or \
+           os.path.exists(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-applet.desktop'):
+            self.volume_applet_enabled = True
+
         if os.path.exists('/etc/xdg/autostart/mate-volume-control-status-icon.desktop') or \
            os.path.exists(os.path.join(config_dir, 'autostart/') + 'mate-volume-control-status-icon.desktop'):
-            self.volume_applet_enabled = True
+            self.volume_status_icon_enabled = True
 
 
     def update_window_controls(self):
