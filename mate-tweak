@@ -639,13 +639,19 @@ class MateTweak:
         """
         if os.path.exists('/usr/lib/mate-media/mate-volume-control-applet'):
            pid = subprocess.Popen(['/usr/lib/mate-media/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+           self.kill_process('mate-volume-control-status-icon')
+           self.remove_autostart('mate-volume-control-status-icon.desktop')
+        elif os.path.exists('/usr/libexec/mate-volume-control-applet'):
+           pid = subprocess.Popen(['/usr/libexec/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+           self.kill_process('mate-volume-control-status-icon')
+           self.remove_autostart('mate-volume-control-status-icon.desktop')
         else:
-           pid = subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+           pid = subprocess.Popen(['mate-volume-control-status-icon'], stdout=DEVNULL, stderr=DEVNULL).pid
+           self.remove_autostart('mate-volume-control-status-icon.desktop')
+           self.create_autostart('mate-volume-control-status-icon.desktop', __STATUS_ICON_SOUND__)
+
         self.remove_autostart('mate-volume-control-applet.desktop')
         self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
-        pid = subprocess.Popen(['mate-volume-control-status-icon'], stdout=DEVNULL, stderr=DEVNULL).pid
-        self.remove_autostart('mate-volume-control-status-icon.desktop')
-        self.create_autostart('mate-volume-control-status-icon.desktop', __STATUS_ICON_SOUND__)
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
