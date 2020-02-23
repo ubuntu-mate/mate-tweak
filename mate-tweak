@@ -632,26 +632,24 @@ class MateTweak:
         self.remove_autostart('mate-volume-control-applet.desktop.desktop')
         self.remove_autostart('mate-volume-control-status-icon.desktop.desktop')
 
-    def enable_applets(self):
+    def enable_applets(self, new_layout):
         """
         When indicators are disabled some MATE applets need enabling
         or showing.
         """
-        if os.path.exists('/usr/lib/mate-media/mate-volume-control-applet'):
-           pid = subprocess.Popen(['/usr/lib/mate-media/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+        if self.panel_layout_uses('Object volume-control', new_layout):
+           if os.path.exists('/usr/lib/mate-media/mate-volume-control-applet'):
+              pid = subprocess.Popen(['/usr/lib/mate-media/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+           elif os.path.exists('/usr/libexec/mate-volume-control-applet'):
+              pid = subprocess.Popen(['/usr/libexec/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
            self.kill_process('mate-volume-control-status-icon')
            self.remove_autostart('mate-volume-control-status-icon.desktop')
-        elif os.path.exists('/usr/libexec/mate-volume-control-applet'):
-           pid = subprocess.Popen(['/usr/libexec/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
-           self.kill_process('mate-volume-control-status-icon')
-           self.remove_autostart('mate-volume-control-status-icon.desktop')
+           self.remove_autostart('mate-volume-control-applet.desktop')
+           self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
         else:
            pid = subprocess.Popen(['mate-volume-control-status-icon'], stdout=DEVNULL, stderr=DEVNULL).pid
            self.remove_autostart('mate-volume-control-status-icon.desktop')
            self.create_autostart('mate-volume-control-status-icon.desktop', __STATUS_ICON_SOUND__)
-
-        self.remove_autostart('mate-volume-control-applet.desktop')
-        self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
@@ -918,7 +916,7 @@ class MateTweak:
             self.enable_indicators()
         else:
             self.disable_indicators()
-            self.enable_applets()
+            self.enable_applets(new_layout)
 
         # Brisk Menu remains running.
         # So if Brisk is in the layout being switched away from, kill it.
