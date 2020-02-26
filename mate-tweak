@@ -71,11 +71,49 @@ Categories=GNOME;GTK;System;Utility;TerminalEmulator;
 X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true"""
 
-__APPLET_SOUND__ = """[Desktop Entry]
+__APPLET_SOUND_LIBEXEC__ = """[Desktop Entry]
 Name=Volume Control
 Comment=Show desktop volume control
 Icon=multimedia-volume-control
-Exec=mate-volume-control-applet
+Exec=/usr/libexec/mate-volume-control-applet
+Terminal=false
+Type=Application
+Categories=AudioVideo;Mixer;Settings;HardwareSettings;
+Keywords=MATE;volume;control;mixer;settings;sound;
+NoDisplay=true
+OnlyShowIn=MATE;
+X-MATE-Bugzilla-Bugzilla=MATE
+X-MATE-Bugzilla-Product=mate-media
+X-MATE-Bugzilla-Component=mate-volume-control
+# See http://bugzilla.gnome.org/show_bug.cgi?id=568320
+#X-MATE-Autostart-Phase=Panel
+X-MATE-Autostart-Notify=true
+"""
+
+__APPLET_SOUND_LIB__ = """[Desktop Entry]
+Name=Volume Control
+Comment=Show desktop volume control
+Icon=multimedia-volume-control
+Exec=/usr/lib/mate-media/mate-volume-control-applet
+Terminal=false
+Type=Application
+Categories=AudioVideo;Mixer;Settings;HardwareSettings;
+Keywords=MATE;volume;control;mixer;settings;sound;
+NoDisplay=true
+OnlyShowIn=MATE;
+X-MATE-Bugzilla-Bugzilla=MATE
+X-MATE-Bugzilla-Product=mate-media
+X-MATE-Bugzilla-Component=mate-volume-control
+# See http://bugzilla.gnome.org/show_bug.cgi?id=568320
+#X-MATE-Autostart-Phase=Panel
+X-MATE-Autostart-Notify=true
+"""
+
+__APPLET_SOUND_BIN__ = """[Desktop Entry]
+Name=Volume Control
+Comment=Show desktop volume control
+Icon=multimedia-volume-control
+Exec=/usr/bin/mate-volume-control-applet
 Terminal=false
 Type=Application
 Categories=AudioVideo;Mixer;Settings;HardwareSettings;
@@ -614,6 +652,20 @@ class MateTweak:
 
         self.pulldown_terminal_enabled = False
 
+    def enable_volume_control_applet(self):
+        if os.path.exists('/usr/lib/mate-media/mate-volume-control-applet'):
+           pid = subprocess.Popen(['/usr/lib/mate-media/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+           self.remove_autostart('mate-volume-control-applet.desktop')
+           self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND_LIB__)
+        elif os.path.exists('/usr/libexec/mate-volume-control-applet'):
+           pid = subprocess.Popen(['/usr/libexec/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+           self.remove_autostart('mate-volume-control-applet.desktop')
+           self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND_LIBEXEC__)
+        elif os.path.exists('/usr/bin/mate-volume-control-applet'):
+           pid = subprocess.Popen(['/usr/bin/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+           self.remove_autostart('mate-volume-control-applet.desktop')
+           self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND_BIN__)
+
     def disable_applets(self):
         """
         When indicators are enabled some MATE applets need disabling
@@ -638,18 +690,19 @@ class MateTweak:
         or showing.
         """
         if self.panel_layout_uses('Object volume-control', new_layout):
-           if os.path.exists('/usr/lib/mate-media/mate-volume-control-applet'):
-              pid = subprocess.Popen(['/usr/lib/mate-media/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
-           elif os.path.exists('/usr/libexec/mate-volume-control-applet'):
-              pid = subprocess.Popen(['/usr/libexec/mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
+           self.enable_volume_control_applet()
            self.kill_process('mate-volume-control-status-icon')
            self.remove_autostart('mate-volume-control-status-icon.desktop')
+        elif os.path.exists('/usr/bin/mate-volume-control-status-icon'):
+           self.kill_process('mate-volume-control-applet')
            self.remove_autostart('mate-volume-control-applet.desktop')
-           self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
-        else:
-           pid = subprocess.Popen(['mate-volume-control-status-icon'], stdout=DEVNULL, stderr=DEVNULL).pid
+           pid = subprocess.Popen(['/usr/bin/mate-volume-control-status-icon'], stdout=DEVNULL, stderr=DEVNULL).pid
            self.remove_autostart('mate-volume-control-status-icon.desktop')
            self.create_autostart('mate-volume-control-status-icon.desktop', __STATUS_ICON_SOUND__)
+        else:
+           self.enable_volume_control_applet()
+           self.kill_process('mate-volume-control-status-icon')
+           self.remove_autostart('mate-volume-control-status-icon.desktop')
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
