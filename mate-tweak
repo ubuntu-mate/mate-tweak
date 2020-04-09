@@ -794,7 +794,6 @@ class MateTweak:
         return confirmed
 
     def replace_panel_layout(self, new_layout, called_from_api=False):
-        kill_brisk = False
         leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
         item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
@@ -819,12 +818,10 @@ class MateTweak:
                 # If we're switching to Mutiny or Cupertino, and Brisk Menu change the window-type to dash.
                 # FIXME! Do not hardcode this.
                 self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 2)
-                kill_brisk = True
             elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven'):
-                # If we're switching from Mutiny, and Brisk Menu change the window-type to classic.
+                # If we're switching from Mutiny or Cupertino, and Brisk Menu change the window-type to classic.
                 # FIXME! Do not hardcode this.
                 self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 1)
-                kill_brisk = True
 
         # If we're switching to Cupertino or Mutiny to move window
         # controls to the left and enable Global Menu.
@@ -884,15 +881,6 @@ class MateTweak:
             self.disable_indicators()
             self.enable_applets()
 
-        # Brisk Menu remains running.
-        # So if Brisk is in the layout being switched away from, kill it.
-        if not self.panel_layout_uses('BriskMenu', self.current_layout) and \
-           self.process_running('brisk-menu'):
-            kill_brisk = True
-
-        if kill_brisk:
-            self.kill_process('brisk-menu')
-
         # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
             print('Loading additional panel configuration for ' + new_layout)
@@ -910,7 +898,7 @@ class MateTweak:
         if self.maximus_available:
             layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['mutiny','netbook'])
             custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting maximusdecoration', [])
-            
+
             # Prefer custom settings
             if custom_settings.get('mate-maximus-undecorate') and custom_settings.get('mate-maximus-undecorate').upper() == 'TRUE':
                 self.maximus_undecorate()
@@ -923,6 +911,11 @@ class MateTweak:
 
         # Set the new layout
         subprocess.call(['mate-panel', '--reset', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
+
+        # Brisk Menu remains running.
+        # So if Brisk is not in the layout being switched to, kill it.
+        if not self.panel_layout_uses('BriskMenu', new_layout) and self.process_running('brisk-menu'):
+            self.kill_process('brisk-menu')
 
         # Update the Dock checkbutton UI
         if not called_from_api:
