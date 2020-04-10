@@ -780,7 +780,7 @@ class MateTweak:
         label.set_use_markup(True)
 
         box = dialog.get_content_area()
-        box.set_border_width(8)
+        box.set_border_width(12)
         box.add(label)
         dialog.show_all()
 
