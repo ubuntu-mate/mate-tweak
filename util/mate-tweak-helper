@@ -125,7 +125,7 @@ def backup_layout(filename):
                 layout.append("%s=%s\n" % (key, val))
         layout.append("\n")
 
-        layout.extend(get_non_panel_settings())
+    layout.extend(get_non_panel_settings())
 
     #print(layout)
     with open(os.path.join(tempfile.gettempdir(), filename + '.layout'), 'w') as f:
