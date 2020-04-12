@@ -60,7 +60,7 @@ def backup_layout(filename):
     VALID = {'toplevel': ('enable-buttons', 'expand', 'monitor', 'orientation', 'screen', 'size'),
              'launcher': ('object-type', 'launcher-location', 'menu-path', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
              'applet': ('object-type', 'applet-iid', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
-             'drawer': ('object-type', 'attached-toplevel-id', 'toplvel-id', 'position', 'panel-right-stick', 'use-custom-icon'),
+             'drawer': ('object-type', 'attached-toplevel-id', 'toplevel-id', 'position', 'panel-right-stick', 'use-custom-icon'),
              'menu-bar': ('object-type', 'applet-iid', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
              'menu': ('object-type', 'toplevel-id', 'position', 'panel-right-stick', 'locked'),
              'action': ('object-type', 'action-type', 'position', 'toplevel-id', 'panel-right-stick', 'locked'),
