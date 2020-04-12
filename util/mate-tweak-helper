@@ -103,13 +103,7 @@ def backup_layout(filename):
 
         obj_toplevel = settings['toplevel-id']
         obj_type = settings['object-type']
-        obj_name = ""
-        if obj_type == "applet":
-            obj_name = settings['applet-iid'].split(":")[-1]
-        elif obj_type == "action":
-            obj_name = settings['action-type']
-        else:
-            obj_name = obj_type
+        obj_name = str(obj)
 
         if not obj_toplevel in toplevel_ids:
             print("WARNING! object \"%s\" references unknown toplevel... skipped" % obj_name)
