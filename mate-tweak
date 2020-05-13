@@ -1643,7 +1643,7 @@ class MateTweak:
         self.builder.get_object("checkbutton_dock").set_label(_("Enable Dock"))
         self.builder.get_object("checkbutton_dock").set_tooltip_text(_("When checked the Dock will be enabled."))
         self.builder.get_object("checkbutton_hud").set_label(_("Enable HUD"))
-        self.builder.get_object("checkbutton_hud").set_tooltip_text(_("When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to search application menus."))
+        self.builder.get_object("checkbutton_hud").set_tooltip_text(_("When checked the Heads-Up Display (HUD) will be enabled. Press Left ALT key to search application menus."))
 
         self.builder.get_object("checkbutton_show_applications").set_label(_("Show Applications"))
         self.builder.get_object("checkbutton_show_applications").set_tooltip_text(_("Show Applications item in the menu bar"))
