@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
 # Copyright (C) 2015-2018 Martin Wimpress <code@ubuntu-mate.org>
@@ -93,7 +93,7 @@ X-MATE-Autostart-Notify=true
 __INDICATOR_APPLICATION__ = """[Desktop Entry]
 Type=Application
 Name=Indicator Application
-Exec=/usr/lib/MULTIARCH/indicator-application/indicator-application-service
+Exec=/usr/libexec/ayatana-indicator-application/ayatana-indicator-application-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
@@ -104,7 +104,7 @@ X-MATE-Autostart-enabled=true
 __INDICATOR_DATETIME__ = """[Desktop Entry]
 Type=Application
 Name=Indicator Date and Time
-Exec=/usr/lib/MULTIARCH/indicator-datetime/indicator-datetime-service
+Exec=/usr/libexec/ayatana-indicator-datetime/ayatana-indicator-datetime-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
@@ -116,7 +116,7 @@ X-MATE-Autostart-enabled=true
 __INDICATOR_SOUND__ = """[Desktop Entry]
 Type=Application
 Name=Indicator Sound
-Exec=/usr/lib/MULTIARCH/indicator-sound/indicator-sound-service
+Exec=/usr/libexec/ayatana-indicator-sound/ayatana-indicator-sound-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
@@ -138,7 +138,7 @@ X-MATE-Autostart-enabled=true
 __INDICATOR_POWER__ = """[Desktop Entry]
 Type=Application
 Name=Indicator Power
-Exec=/usr/lib/MULTIARCH/indicator-power/indicator-power-service
+Exec=/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
@@ -149,7 +149,7 @@ X-MATE-Autostart-enabled=true
 __INDICATOR_SESSION__ = """[Desktop Entry]
 Type=Application
 Name=Indicator Session
-Exec=/usr/lib/MULTIARCH/indicator-session/indicator-session-service
+Exec=/usr/libexec/ayatana-indicator-session/ayatana-indicator-session-service
 StartupNotify=false
 Terminal=false
 OnlyShowIn=MATE
@@ -602,7 +602,7 @@ class MateTweak:
         """
         self.kill_process('mate-volume-control-applet')
         self.remove_autostart('mate-volume-control-applet.desktop')
-        if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
+        if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'never')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', False)
 
@@ -618,7 +618,7 @@ class MateTweak:
         pid = subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
         self.remove_autostart('mate-volume-control-applet.desktop')
         self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
-        if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
+        if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', True)
 
@@ -627,49 +627,49 @@ class MateTweak:
         self.remove_autostart('mate-volume-control-applet.desktop.desktop')
 
     def disable_indicators(self):
-        self.kill_process('indicator-session-service')
-        self.kill_process('indicator-power-service')
+        self.kill_process('ayatana-indicator-session-service')
+        self.kill_process('ayatana-indicator-power-service')
         self.kill_process('indicator-messages-service')
-        self.kill_process('indicator-sound-service')
-        self.kill_process('indicator-datetime-service')
-        self.kill_process('indicator-application-service')
-        self.remove_autostart('indicator-application.desktop')
-        self.remove_autostart('indicator-datetime.desktop')
-        self.remove_autostart('indicator-sound.desktop')
+        self.kill_process('ayatana-indicator-sound-service')
+        self.kill_process('ayatana-indicator-datetime-service')
+        self.kill_process('ayatana-indicator-application-service')
+        self.remove_autostart('ayatana-indicator-application.desktop')
+        self.remove_autostart('ayatana-indicator-datetime.desktop')
+        self.remove_autostart('ayatana-indicator-sound.desktop')
         self.remove_autostart('indicator-messages.desktop')
-        self.remove_autostart('indicator-power.desktop')
-        self.remove_autostart('indicator-session.desktop')
+        self.remove_autostart('ayatana-indicator-power.desktop')
+        self.remove_autostart('ayatana-indicator-session.desktop')
 
     def enable_indicators(self):
-        if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'):
-            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service'], stdout=DEVNULL, stderr=DEVNULL).pid
+        if os.path.exists('/usr/libexec/ayatana-indicator-application/ayatana-indicator-application-service'):
+            pid = subprocess.Popen(['/usr/libexec/ayatana-indicator-application/ayatana-indicator-application-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_application_autostart = __INDICATOR_APPLICATION__.replace('MULTIARCH', self.multiarch)
-            self.create_autostart('indicator-application.desktop', indicator_application_autostart)
+            self.create_autostart('ayatana-indicator-application.desktop', indicator_application_autostart)
 
-        if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-datetime/indicator-dateime-service'):
-            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-datetime/indicator-datetime-service'], stdout=DEVNULL, stderr=DEVNULL).pid
+        if os.path.exists('/usr/libexec/ayatana-indicator-datetime/ayatana-indicator-dateime-service'):
+            pid = subprocess.Popen(['/usr/libexec/ayatana-indicator-datetime/ayatana-indicator-datetime-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_datetime_autostart = __INDICATOR_DATETIME__.replace('MULTIARCH', self.multiarch)
-            self.create_autostart('indicator-datetime.desktop', indicator_datetime_autostart)
+            self.create_autostart('ayatana-indicator-datetime.desktop', indicator_datetime_autostart)
 
-        if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'):
-            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service'], stdout=DEVNULL, stderr=DEVNULL).pid
+        if os.path.exists('/usr/libexec/ayatana-indicator-sound/ayatana-indicator-sound-service'):
+            pid = subprocess.Popen(['/usr/libexec/ayatana-indicator-sound/ayatana-indicator-sound-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_sound_autostart = __INDICATOR_SOUND__.replace('MULTIARCH', self.multiarch)
-            self.create_autostart('indicator-sound.desktop', indicator_sound_autostart)
+            self.create_autostart('ayatana-indicator-sound.desktop', indicator_sound_autostart)
 
         if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'):
             pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_messages_autostart = __INDICATOR_MESSAGES__.replace('MULTIARCH', self.multiarch)
             self.create_autostart('indicator-messages.desktop', indicator_messages_autostart)
 
-        if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'):
-            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service'], stdout=DEVNULL, stderr=DEVNULL).pid
+        if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
+            pid = subprocess.Popen(['/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_power_autostart = __INDICATOR_POWER__.replace('MULTIARCH', self.multiarch)
-            self.create_autostart('indicator-power.desktop', indicator_power_autostart)
+            self.create_autostart('ayatana-indicator-power.desktop', indicator_power_autostart)
 
-        if os.path.exists('/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service'):
-            pid = subprocess.Popen(['/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service'], stdout=DEVNULL, stderr=DEVNULL).pid
+        if os.path.exists('/usr/libexec/ayatana-indicator-session/ayatana-indicator-session-service'):
+            pid = subprocess.Popen(['/usr/libexec/ayatana-indicator-session/ayatana-indicator-session-service'], stdout=DEVNULL, stderr=DEVNULL).pid
             indicator_session_autostart = __INDICATOR_SESSION__.replace('MULTIARCH', self.multiarch)
-            self.create_autostart('indicator-session.desktop', indicator_session_autostart)
+            self.create_autostart('ayatana-indicator-session.desktop', indicator_session_autostart)
 
     def toggle_desktop_icons_sensitiveness(self):
         sensitiveness = self.builder.get_object("checkbox_show_icons").get_active()
@@ -1153,12 +1153,12 @@ class MateTweak:
         self.appmenu_applet_available = False
 
         if os.path.exists('/usr/lib/indicators3/7/libapplication.so') and \
-            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-application/indicator-application-service') and \
-            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-datetime/indicator-datetime-service') and \
-            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-sound/indicator-sound-service') and \
+            os.path.exists('/usr/libexec/ayatana-indicator-application/ayatana-indicator-application-service') and \
+            os.path.exists('/usr/libexec/ayatana-indicator-datetime/ayatana-indicator-datetime-service') and \
+            os.path.exists('/usr/libexec/ayatana-indicator-sound/ayatana-indicator-sound-service') and \
             os.path.exists('/usr/lib/' + self.multiarch + '/indicator-messages/indicator-messages-service') and \
-            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-power/indicator-power-service') and \
-            os.path.exists('/usr/lib/' + self.multiarch + '/indicator-session/indicator-session-service') and \
+            os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service') and \
+            os.path.exists('/usr/libexec/ayatana-indicator-session/ayatana-indicator-session-service') and \
             (os.path.exists('/usr/share/mate-panel/applets/org.ayatana.panel.IndicatorApplet.mate-panel-applet') or \
              os.path.exists('/usr/share/mate-panel/applets/org.mate.applets.IndicatorAppmenu.mate-panel-applet')):
                 self.indicators_available = True
