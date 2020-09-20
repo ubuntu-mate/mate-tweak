@@ -586,7 +586,7 @@ class MateTweak:
         if len(settings.keys()) > 0 and len(target_keys) > 0:
             section_keys = set(settings.keys())
             ignore_keys = list(section_keys - set(target_keys))
-            
+
             for key in ignore_keys:
                 del settings[key]
 
@@ -604,7 +604,7 @@ class MateTweak:
             try:
                 with open(os.path.join('/','usr','share','mate-panel','layouts', panel_layout + '.layout'), 'rb', 0) as layout, \
                     mmap.mmap(layout.fileno(), 0, access=mmap.ACCESS_READ) as data:
-                    
+
                     section_pos = data.find(section.encode('utf-8'))
                     if section_pos != -1:
                         data.seek(section_pos)
@@ -614,12 +614,12 @@ class MateTweak:
                         while not done:
                             line = data.readline().strip().decode('utf-8')
                             done = (not line or line.isspace())
-                            
+
                             if not done:
                                 if line.find("=") > 0:
                                     setting = line.split("=", 1)
                                     settings[setting[0]] = setting[1]
-                            
+
             except:
                 print("ERROR!! Reading file %s" % panel_layout + '.layout', sys.exc_info()[0])
 
@@ -633,7 +633,7 @@ class MateTweak:
         for tag in name_tags:
             if panel_layout.startswith(tag):
                 return True
-        
+
         return False
 
 
@@ -1230,7 +1230,7 @@ class MateTweak:
         if custom_layout_prefix != '':
             layout_display_name = layout_code_name.replace(custom_layout_prefix, '', 1)
 
-        layout_display_name = layout_display_name.replace('-tweak', '')      
+        layout_display_name = layout_display_name.replace('-tweak', '')
 
         result = {'displayname': _('Custom: ') + layout_display_name,
                   'codename': layout_code_name}
@@ -1243,7 +1243,7 @@ class MateTweak:
         for layout_template in self.system_installed_panel_layouts:
             if self.is_panel_layout_name_special(layout_code_name, [layout_template]):
                 result = layout_template + '--'
-        
+
         return result
 
     def ask_for_layout_name(self):
