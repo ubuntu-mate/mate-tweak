@@ -764,9 +764,7 @@ class MateTweak:
         # indicators and applets need to be stopped/started
         if self.panel_layout_uses('IndicatorApplet', new_layout):
             self.disable_applets()
-            self.enable_indicators()
         else:
-            self.disable_indicators()
             self.enable_applets()
 
         # If we have a custom panel layout just replace the dconf dump.
