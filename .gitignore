@@ -3,3 +3,6 @@
 build
 dist
 *.egg-info
+
+# In case anyone uses PyCharm for linting
+.idea/*
