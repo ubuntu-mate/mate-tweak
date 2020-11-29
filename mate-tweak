@@ -59,7 +59,7 @@ from gi.repository import Notify
 # Workaround introspection bug, gnome bug 622084
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-__VERSION__ = '20.10.0'
+__VERSION__ = '21.04.0'
 
 __TILDA__ = """[Desktop Entry]
 Name=Tilda
