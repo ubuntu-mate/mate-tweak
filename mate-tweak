@@ -1189,7 +1189,7 @@ class MateTweak:
         # Prefer Indicator enabled Redmond layout and fallback to non-Indicator version.
         if self.panel_layout_exists('redmond') and \
            self.indicators_available and \
-           self.mate_menu_available:
+           self.brisk_menu_available:
             self.add_to_panel_list(panels, "Redmond", "redmond")
         elif self.panel_layout_exists('redmond-no-indicators') and \
            self.mate_menu_available and \
