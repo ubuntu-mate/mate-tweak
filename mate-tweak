@@ -1168,8 +1168,7 @@ class MateTweak:
         if self.panel_layout_exists('netbook') and \
            self.maximus_available and \
            self.indicators_available and \
-           self.brisk_menu_available and \
-           self.mate_dock_available:
+           self.brisk_menu_available:
             self.add_to_panel_list(panels, "Netbook", "netbook")
         elif self.panel_layout_exists('netbook-no-indicators') and \
            self.maximus_available and \
