@@ -1192,7 +1192,7 @@ class MateTweak:
            self.brisk_menu_available:
             self.add_to_panel_list(panels, "Redmond", "redmond")
         elif self.panel_layout_exists('redmond-no-indicators') and \
-           self.mate_menu_available and \
+           self.brisk_menu_available and \
            not self.indicators_available:
             self.add_to_panel_list(panels, "Redmond", "redmond-no-indicators")
 
