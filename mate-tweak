@@ -776,6 +776,28 @@ class MateTweak:
         # Determine if the dock should be enabled
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.dock')) and self.dock is not None:
             print('Found dock hint for ' + new_layout)
+            if not new_layout.startswith('mutiny'):
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/alignment', "'center'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/hide-mode', "'window-dodge'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/icon-size', "'48'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/items-alignment', "'center'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/position', "'bottom'")
+                mate_theme = self.get_string('org.mate.interface', None, 'gtk-theme')
+                if mate_theme == 'Yaru-MATE-dark':
+                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Yaru-dark'")
+                elif mate_theme == 'Yaru-MATE-light':
+                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Yaru-light'")
+                elif mate_theme in ['Ambiant-MATE', 'Ambiant-MATE-Dark', 'Radiant-MATE']:
+                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Ubuntu-MATE'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/zoom-enabled', "true")
+            elif new_layout.startswith('mutiny'):
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/alignment', "'fill'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/hide-mode', "'none'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/icon-size', "'56'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/items-alignment', "'start'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/position', "'left'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Mutiny'")
+                self.set_dconf_value('/net/launchpad/plank/docks/dock1/zoom-enabled', "false")
             self.enable_dock()
         else:
             self.disable_dock()
