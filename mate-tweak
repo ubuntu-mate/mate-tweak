@@ -711,10 +711,10 @@ class MateTweak:
                 # FIXME! Do not hardcode this.
                 self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 1)
 
-        # If we're switching to Cupertino or Mutiny to move window
+        # If we're switching to Cupertino move window
         # controls to the left and enable Global Menu.
         # If there is a custom setting, use that first
-        layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['eleven','mutiny','contemporary'])
+        layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['eleven','contemporary'])
 
         custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting windowcontrollayout', \
                                                         ['mate-general','mate-interface','gnome-wm-preferences'])
@@ -782,7 +782,7 @@ class MateTweak:
 
         # Determine if maximised windows should be undecorated
         if self.maximus_available:
-            layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['mutiny','netbook'])
+            layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['netbook'])
             custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting maximusdecoration', [])
 
             # Prefer custom settings
