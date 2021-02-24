@@ -1153,13 +1153,13 @@ class MateTweak:
 
         # Prefer Indicator enabled Mutiny layout and fallback to non-Indicator version.
         if self.panel_layout_exists('mutiny') and \
-           self.mate_dock_available and \
+           self.dock is not None and \
            self.appmenu_applet_available and \
            self.indicators_available and \
            self.brisk_menu_available:
             self.add_to_panel_list(panels, "Mutiny", "mutiny")
         elif self.panel_layout_exists('mutiny-no-indicators') and \
-           self.mate_dock_available and \
+           self.dock is not None and \
            self.appmenu_applet_available and \
            not self.indicators_available:
             self.add_to_panel_list(panels, "Mutiny", "mutiny-no-indicators")
