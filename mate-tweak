@@ -789,6 +789,8 @@ class MateTweak:
                     self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Yaru-light'")
                 elif mate_theme in ['Ambiant-MATE', 'Ambiant-MATE-Dark', 'Radiant-MATE']:
                     self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Ubuntu-MATE'")
+                else:
+                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Default'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/zoom-enabled', "true")
             elif new_layout.startswith('mutiny'):
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/alignment', "'fill'")
