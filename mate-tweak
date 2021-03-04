@@ -796,7 +796,12 @@ class MateTweak:
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/icon-size', "'56'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/items-alignment', "'start'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/position', "'left'")
-                self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Mutiny'")
+                if mate_theme == 'Yaru-MATE-dark':
+                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Mutiny-dark'")
+                elif mate_theme == 'Yaru-MATE-light':
+                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Mutiny-light'")
+                else:
+                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Matte'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/zoom-enabled', "false")
             self.enable_dock()
         else:
