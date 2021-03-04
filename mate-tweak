@@ -691,13 +691,13 @@ class MateTweak:
         if not called_from_api:
             self.update_panel_layout_ui(new_layout)
 
-        # Change Brisk Menu label-visible state when changing to/from Cupertino, Mutiny and Netbook.
+        # Change Brisk Menu label-visible state when changing to/from Cupertino and Netbook.
         if self.brisk_menu_available:
             label_visible = self.get_bool('com.solus-project.brisk-menu', None, 'label-visible')
-            if (new_layout.startswith('eleven') or new_layout.startswith('mutiny') or new_layout.startswith('netbook')):
+            if (new_layout.startswith('eleven') or new_layout.startswith('netbook')):
                 self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', False)
-            # If we're switching from Cupertino, Mutiny or Netbook and Brisk Menu label-visible is disabled then enable it.
-            elif (self.current_layout.startswith('eleven') or self.current_layout.startswith('mutiny') or self.current_layout.startswith('netbook')) and not label_visible:
+            # If we're switching from Cupertino or Netbook and Brisk Menu label-visible is disabled then enable it.
+            elif (self.current_layout.startswith('eleven') or self.current_layout.startswith('netbook')) and not label_visible:
                 self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
 
         # Change Brisk Menu window-type when changing to/from Mutiny or Cupertino.
