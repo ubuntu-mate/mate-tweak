@@ -184,6 +184,9 @@ def get_window_control_layout():
 def collect_simple_settings(valid_keys, schemas, paths, append_final_newline):
     layout = []
     for setting in schemas.keys():
+        if Gio.SettingsSchemaSource.get_default().lookup(schemas[setting], True) == None:
+            continue
+
         settings = Gio.Settings.new(schemas[setting])
 
         for key in settings.keys():
