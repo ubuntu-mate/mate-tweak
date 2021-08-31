@@ -1,10 +1,10 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
-# Kimmo Kujansuu <mrkujansuu@gmail.com>, 2019
+# Kimmo Kujansuu <mrkujansuu@gmail.com>, 2019-2020
 # Mikko Harhanen <gitti@mikkoharhanen.fi>, 2015
 # nomen omen, 2017-2018
 msgid ""
@@ -12,13 +12,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2019-04-16 23:16+0000\n"
+"PO-Revision-Date: 2020-12-14 22:53+0000\n"
 "Last-Translator: Kimmo Kujansuu <mrkujansuu@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/mate/MATE/language/fi/)\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:1207
@@ -31,11 +31,11 @@ msgstr "vasen"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "Oikea (valikossa)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "Vasen (valikossa)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
@@ -57,9 +57,7 @@ msgstr "Compiz (Edistyneet GPU-kiihdytetyt työpöytätehosteet)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Käytät tällä hetkellä tuntematonta ikkunointiohjelmaa, jota ei tueta. Emme "
-"voi siten taata, että tekemäsi muutokset astuvat voimaan."
+msgstr "Käytät tällä hetkellä tuntematonta ikkunointiohjelmaa, jota ei tueta. Emme voi siten taata, että tekemäsi muutokset astuvat voimaan."
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -137,9 +135,7 @@ msgstr "Näytä Työpöydän Kuvakkeet"
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
-msgstr ""
-"Kun työpöytä on poistettu käytöstä, sitä ei voi hallita ilman kuvakkeita tai "
-"tiedostojen hallintaa"
+msgstr "Kun työpöytä on poistettu käytöstä, sitä ei voi hallita ilman kuvakkeita tai tiedostojen hallintaa"
 
 #: ../mate-tweak:1599
 msgid "Computer"
@@ -189,9 +185,7 @@ msgstr "Ikkunan katkaisu käyttöön"
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
-msgstr ""
-"Ikkunoiden pudottaminen näytön reunoille maksimoi ne pystysuunnassa ja "
-"muuttaa niiden vaakasuuntaisesti puolet käytettävissä olevasta alueesta"
+msgstr "Ikkunoiden pudottaminen näytön reunoille maksimoi ne pystysuunnassa ja muuttaa niiden vaakasuuntaisesti puolet käytettävissä olevasta alueesta"
 
 #: ../mate-tweak:1613
 msgid "Undecorate maximized windows"
@@ -257,9 +251,7 @@ msgstr "Säännöllinen"
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
-msgstr ""
-"Kaikkien ikkunoiden, paneelien, widgetien, fonttien jne. "
-"Kaksinkertaistaminen HiDPI-näytöille."
+msgstr "Kaikkien ikkunoiden, paneelien, widgetien, fonttien jne. Kaksinkertaistaminen HiDPI-näytöille."
 
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
@@ -271,8 +263,7 @@ msgstr "Fontit"
 
 #: ../mate-tweak:1643
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
-msgstr ""
-"Avaa fontin asetukset ja napsautamalla Tiedot ... tarkentaaksesi fontin DPI."
+msgstr "Avaa fontin asetukset ja napsautamalla Tiedot ... tarkentaaksesi fontin DPI."
 
 #: ../mate-tweak:1646
 msgid "Enable keyboard LED"
@@ -306,9 +297,7 @@ msgstr "Käytä HUD"
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
-msgstr ""
-"Kun valittuna, Heads-Up Display (HUD) -näyttö otetaan käyttöön. Voit etsiä "
-"sovellusvalikkoja painamalla Alt_L."
+msgstr "Kun valittuna, Heads-Up Display (HUD) -näyttö otetaan käyttöön. Voit etsiä sovellusvalikkoja painamalla Alt_L."
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
@@ -358,9 +347,7 @@ msgstr "Näytä syöttövalikko pikavalikossa"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"Merkintöjen ja tekstinäkymien kontekstivalikot tarjoavat syöttötavan "
-"muuttamisen"
+msgstr "Merkintöjen ja tekstinäkymien kontekstivalikot tarjoavat syöttötavan muuttamisen"
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
@@ -370,9 +357,7 @@ msgstr "Näytä Unicode-ohjausmerkkivalikko pikavalikossa"
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
-msgstr ""
-"Sisällysluettelon ja tekstinäkymien kontekstivalikossa tulisi tarjota "
-"ohjausmerkit"
+msgstr "Sisällysluettelon ja tekstinäkymien kontekstivalikossa tulisi tarjota ohjausmerkit"
 
 #: ../mate-tweak:1671
 msgid "Style:"
@@ -461,48 +446,3 @@ msgstr "Pelkät kuvakkeet"
 #: ../mate-tweak:1760
 msgid "Text only"
 msgstr "Pelkkä teksti"
-
-#~ msgid "Contemporary"
-#~ msgstr "Nykyaikainen"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Familiar"
-#~ msgstr "Läheinen"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Manjaro"
-#~ msgstr "Manjaro"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Minikannettava"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
-
-#~ msgid "Traditional"
-#~ msgstr "Perinteinen"

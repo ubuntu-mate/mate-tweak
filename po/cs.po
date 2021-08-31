@@ -1,14 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
-# Jaroslav Lichtblau <dragonlord@seznam.cz>, 2016
-# LiberteCzech <liberte.czech@gmail.com>, 2015
-# Lucas Lommer <drom@kdyne.net>, 2018
-# LiberteCzech <liberte.czech@gmail.com>, 2015-2016
-# LiberteCzech <liberte.czech@gmail.com>, 2015
+# Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2016
+# Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2016
+# LiberteCzech <martin.kriz.czech@gmail.com>, 2015
+# Lukáš Lommer <drom@kdyne.net>, 2018
+# Lukáš Lommer <drom@kdyne.net>, 2021
+# LiberteCzech <martin.kriz.czech@gmail.com>, 2015-2016
+# LiberteCzech <martin.kriz.czech@gmail.com>, 2015
 # Milan Milzou <vonfsro@gmail.com>, 2015-2016
 # Robin Kriebel <kriebel.robin@gmail.com>, 2016
 # ToMáš Marný, 2017
@@ -18,15 +20,14 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2018-04-18 12:19+0000\n"
-"Last-Translator: ToMáš Marný\n"
+"PO-Revision-Date: 2021-07-24 06:53+0000\n"
+"Last-Translator: Lukáš Lommer <drom@kdyne.net>\n"
 "Language-Team: Czech (http://www.transifex.com/mate/MATE/language/cs/)\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
-"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: ../mate-tweak:1207
 msgid "Right"
@@ -38,11 +39,11 @@ msgstr "Vlevo"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "Vpravo (s nabídkou)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "Vlevo (s nabídkou)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
@@ -64,9 +65,7 @@ msgstr "Compiz (pokročilejší efekty plochy s GPU akcelerací)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"V současné době používáte neznámého a nepodporovaného správce oken. Nemůžeme "
-"tedy zaručit, že zde provedené změny budou účinné."
+msgstr "V současné době používáte neznámého a nepodporovaného správce oken. Nemůžeme tedy zaručit, že zde provedené změny budou účinné."
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -144,9 +143,7 @@ msgstr "Zobrazovat ikony na ploše"
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
-msgstr ""
-"Pokud bude odškrtnuto, pracovní plocha bude spravována bez přístupu k ikonám "
-"nebo správci souborů"
+msgstr "Pokud bude odškrtnuto, pracovní plocha bude spravována bez přístupu k ikonám nebo správci souborů"
 
 #: ../mate-tweak:1599
 msgid "Computer"
@@ -196,9 +193,7 @@ msgstr "Povolit přichytávání oken"
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
-msgstr ""
-"Upuštění oken na okrajích obrazovky je svisle maximálně zvětší a změní "
-"jejich velikost vodorovně tak, aby pokryla polovinu dostupné plochy"
+msgstr "Upuštění oken na okrajích obrazovky je svisle maximálně zvětší a změní jejich velikost vodorovně tak, aby pokryla polovinu dostupné plochy"
 
 #: ../mate-tweak:1613
 msgid "Undecorate maximized windows"
@@ -218,7 +213,7 @@ msgstr "Automaticky nemaximalizuje nově otevřená okna"
 
 #: ../mate-tweak:1617
 msgid "Window control placement."
-msgstr "Umístění ovládacího prvku okna."
+msgstr "Umístění ovládacích prvků okna."
 
 #: ../mate-tweak:1619
 msgid "Save the current panel layout as your own custom version"
@@ -264,9 +259,7 @@ msgstr "Normální"
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
-msgstr ""
-"Dvojnásobná velikost všech oken, panelů, elementů, písem a podobně pro "
-"použití s displeji HiDPI."
+msgstr "Dvojnásobná velikost všech oken, panelů, elementů, písem a podobně pro použití s displeji HiDPI."
 
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
@@ -278,9 +271,7 @@ msgstr "Písma"
 
 #: ../mate-tweak:1643
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
-msgstr ""
-"Otevřete předvolby písma a klikněte na Podrobnosti... pro jemné vyladění DPI "
-"písma."
+msgstr "Otevřete předvolby písma a klikněte na Podrobnosti... pro jemné vyladění DPI písma."
 
 #: ../mate-tweak:1646
 msgid "Enable keyboard LED"
@@ -314,9 +305,7 @@ msgstr "Povolit HUD"
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
-msgstr ""
-"Pokud je zaškrtnuto, bude aktivován Heads-Up Display (HUD). Stiskněte Alt_L "
-"pro vyhledání nabídek aplikací."
+msgstr "Pokud je zaškrtnuto, bude aktivován Heads-Up Display (HUD). Stiskněte Alt_L pro vyhledání nabídek aplikací."
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
@@ -366,9 +355,7 @@ msgstr "V kontextových nabídkách zobrazovat metody vstupu"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"Zda by měly kontextové nabídky vstupních polí a textových polí nabízet změnu "
-"vstupní metody"
+msgstr "Zda by měly kontextové nabídky vstupních polí a textových polí nabízet změnu vstupní metody"
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
@@ -378,9 +365,7 @@ msgstr "V kontextových nabídkách zobrazovat řídící znaky Unicode"
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
-msgstr ""
-"Zda by měly kontextové nabídky vstupních polí a textových polí nabízet "
-"vložení řídicích znaků"
+msgstr "Zda by měly kontextové nabídky vstupních polí a textových polí nabízet vložení řídicích znaků"
 
 #: ../mate-tweak:1671
 msgid "Style:"
@@ -469,48 +454,3 @@ msgstr "Pouze ikony"
 #: ../mate-tweak:1760
 msgid "Text only"
 msgstr "Pouze text"
-
-#~ msgid "Contemporary"
-#~ msgstr "Současné"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Familiar"
-#~ msgstr "Povědomé"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Manjaro"
-#~ msgstr "Manjaro"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Netbook"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
-
-#~ msgid "Traditional"
-#~ msgstr "Tradiční"

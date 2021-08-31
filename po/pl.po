@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Adam Czabara <kolofaza@o2.pl>, 2018
 # Beniamin Pawlus <kupwzywcu@o2.pl>, 2015
@@ -9,9 +9,10 @@
 # Dominik Adrian Grzywak, 2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
 # levi <levi@unseen.is>, 2017
-# Marcin Mikołajczak <me@m4sk.in>, 2017
+# Marcin Mikołajczak <me@mkljczk.pl>, 2017
+# No Ne, 2020
 # Pawel Pavroo <pavrroo@gmail.com>, 2016
-# pietrasagh <pietrasagh@gmail.com>, 2018
+# pietrasagh <kowalik.piotr@pm.me>, 2018
 # Piotr Drąg <piotrdrag@gmail.com>, 2017-2018
 # Piotr Strębski <strebski@gmail.com>, 2017
 # Piotr Strębski <strebski@gmail.com>, 2016
@@ -22,16 +23,14 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2018-06-15 16:20+0000\n"
-"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"PO-Revision-Date: 2020-12-30 10:18+0000\n"
+"Last-Translator: No Ne\n"
 "Language-Team: Polish (http://www.transifex.com/mate/MATE/language/pl/)\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
-"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
-"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: ../mate-tweak:1207
 msgid "Right"
@@ -43,11 +42,11 @@ msgstr "Lewo"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "Prawo (z menu)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "Lewo (z menu)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
@@ -69,9 +68,7 @@ msgstr "Compiz (zaawansowane efekty pulpitu wspomagane kartą graficzną)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Obecnie używasz nieznanego i nieobsługiwanego menedżera okien. Z tego powodu "
-"nie gwarantujemy, że zmiany tutaj wprowadzone będą skuteczne."
+msgstr "Obecnie używasz nieznanego i nieobsługiwanego menedżera okien. Z tego powodu nie gwarantujemy, że zmiany tutaj wprowadzone będą skuteczne."
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -149,9 +146,7 @@ msgstr "Pokaż ikony pulpitu"
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
-msgstr ""
-"Kiedy wyłączone pulpit nie będzie obsługiwany i bez ikon czy dostępu "
-"menedżera plików"
+msgstr "Kiedy wyłączone pulpit nie będzie obsługiwany i bez ikon czy dostępu menedżera plików"
 
 #: ../mate-tweak:1599
 msgid "Computer"
@@ -187,8 +182,7 @@ msgstr "Nie pokazuj zawartości okna podczas przeciągania"
 
 #: ../mate-tweak:1608
 msgid "Provide less feedback when moving windows by using wireframes"
-msgstr ""
-"Dostarcza mniej podglądu podczas przenoszenia okien przez użycie szkieletów"
+msgstr "Dostarcza mniej podglądu podczas przenoszenia okien przez użycie szkieletów"
 
 #: ../mate-tweak:1609
 msgid "Window manager performance tuning."
@@ -202,10 +196,7 @@ msgstr "Włącz przyciąganie okna"
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
-msgstr ""
-"Przeciągnięcie i upuszczenie okna przy bocznej krawędzi ekranu spowoduje "
-"maksymalizację pionowo oraz zmianę rozmiaru poziomo tak, by okno zajmowało "
-"połowę dostępnej przestrzeni."
+msgstr "Przeciągnięcie i upuszczenie okna przy bocznej krawędzi ekranu spowoduje maksymalizację pionowo oraz zmianę rozmiaru poziomo tak, by okno zajmowało połowę dostępnej przestrzeni."
 
 #: ../mate-tweak:1613
 msgid "Undecorate maximized windows"
@@ -271,9 +262,7 @@ msgstr "Regularny"
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
-msgstr ""
-"Podwojenie rozmiaru wszystkich okien, paneli, czionek itd. dla wyświetlaczy "
-"HiDPI."
+msgstr "Podwojenie rozmiaru wszystkich okien, paneli, czionek itd. dla wyświetlaczy HiDPI."
 
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
@@ -285,9 +274,7 @@ msgstr "Czcionki"
 
 #: ../mate-tweak:1643
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
-msgstr ""
-"Otwórz preferencje czcionek i kliknij Szczegóły..., aby dostroić DPI "
-"czcionki."
+msgstr "Otwórz preferencje czcionek i kliknij Szczegóły..., aby dostroić DPI czcionki."
 
 #: ../mate-tweak:1646
 msgid "Enable keyboard LED"
@@ -321,9 +308,7 @@ msgstr "Włącz HUD"
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
-msgstr ""
-"Kiedy zaznaczone Wyświetlacz Heads-UP (HUD) będzie włączony. Wciśnij Alt_L "
-"aby wyszukać menu aplikacji."
+msgstr "Kiedy zaznaczone Wyświetlacz Heads-UP (HUD) będzie włączony. Wciśnij Alt_L aby wyszukać menu aplikacji."
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
@@ -373,9 +358,7 @@ msgstr "Pokazuj menu metod wprowadzania w menu kontekstowym"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"Czy menu kontekstowe dla wpisów i widoków tekstu powinny dawać możliwość "
-"zmiany metody wprowadzania"
+msgstr "Czy menu kontekstowe dla wpisów i widoków tekstu powinny dawać możliwość zmiany metody wprowadzania"
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
@@ -385,9 +368,7 @@ msgstr "Pokazuj menu znaków sterowania Unicode w menu kontekstowym"
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
-msgstr ""
-"Czy menu kontekstowe wpisów i widoków tekstu powinny dawać możliwość "
-"wstawiania znaków sterowania"
+msgstr "Czy menu kontekstowe wpisów i widoków tekstu powinny dawać możliwość wstawiania znaków sterowania"
 
 #: ../mate-tweak:1671
 msgid "Style:"
@@ -476,48 +457,3 @@ msgstr "Tylko ikony"
 #: ../mate-tweak:1760
 msgid "Text only"
 msgstr "Tylko tekst"
-
-#~ msgid "Contemporary"
-#~ msgstr "Nowoczesny"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Familiar"
-#~ msgstr "Podobny"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME 2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Manjaro"
-#~ msgstr "Manjaro"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Netbook"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
-
-#~ msgid "Traditional"
-#~ msgstr "Tradycyjny"

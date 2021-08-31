@@ -1,16 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# dragnadh <dragnadh@gmail.com>, 2015,2017
+# dragnadh, 2015,2017
 # Kees Lijkendijk <clkndk@gmail.com>, 2016
 # Mathijn Jonker <mathijnjonker@hotmail.com>, 2015
 # Mathijn Jonker <mathijnjonker@hotmail.com>, 2015
 # Michael Steenbeek <m.o.steenbeek@gmail.com>, 2015
 # Nathan Follens, 2015
-# Pjotr <pjotrvertaalt@gmail.com>, 2017-2018
-# René Devers <rene.devers@gmail.com>, 2015
+# Pjotr <pjotrvertaalt@gmail.com>, 2017-2018,2020-2021
+# b9b0d258fa591da5350b6e67cf68cd68_9fecbb4 <28506b9ff23f99a34b566250ce31bbad_250479>, 2015
 # Robbie Deighton <deightonrobbie@gmail.com>, 2016
 # Volluta <volluta@tutanota.com>, 2016
 msgid ""
@@ -18,13 +18,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2018-02-10 23:10+0000\n"
+"PO-Revision-Date: 2021-01-28 21:54+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/mate/MATE/language/nl/)\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../mate-tweak:1207
@@ -37,20 +37,19 @@ msgstr "Links"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "Rechts (met menu)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "Links (met menu)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
 msgstr "Marco (geen beeldsamenstelling)"
 
 #: ../mate-tweak:1220
-#, fuzzy
 msgid "Marco (Adaptive compositor)"
-msgstr "Marco (geen beeldsamenstelling)"
+msgstr "Marco (flexibele beeldsamenstelling)"
 
 #: ../mate-tweak:1222
 msgid "Marco (Compton GPU compositor)"
@@ -64,10 +63,7 @@ msgstr "Compiz (geavanceerde GPU-versnelde visuele effecten)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"U gebruikt momenteel een onbekende en niet-ondersteunde vensterbeheerder. "
-"Daarom kunnen we niet garanderen dat wijzigingen die hier gemaakt worden ook "
-"effect hebben."
+msgstr "U gebruikt momenteel een onbekende en niet-ondersteunde vensterbeheerder. Daarom kunnen we niet garanderen dat wijzigingen die hier gemaakt worden ook effect hebben."
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -79,7 +75,7 @@ msgstr "Gebruikersschil"
 
 #: ../mate-tweak:1531
 msgid "Panel"
-msgstr "Paneel"
+msgstr "Werkbalk"
 
 #: ../mate-tweak:1532
 msgid "Windows"
@@ -107,15 +103,15 @@ msgstr "Uiterlijk"
 
 #: ../mate-tweak:1588
 msgid "Panels"
-msgstr "Panelen"
+msgstr "Werkbalken"
 
 #: ../mate-tweak:1589
 msgid "Panel Features"
-msgstr "Paneelfuncties"
+msgstr "Werkbalkfuncties"
 
 #: ../mate-tweak:1590
 msgid "Panel Menu Features"
-msgstr "Functies van paneelmenu"
+msgstr "Functies van werkbalkmenu"
 
 #: ../mate-tweak:1591
 msgid "Icons"
@@ -145,9 +141,7 @@ msgstr "Toon bureaubladpictogrammen"
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
-msgstr ""
-"Indien uitgeschakeld zal de werkomgeving onbeheerd zijn, zonder pictogrammen "
-"en zonder toegang tot het bestandbeheer"
+msgstr "Indien uitgeschakeld zal de werkomgeving onbeheerd zijn, zonder pictogrammen en zonder toegang tot het bestandbeheer"
 
 #: ../mate-tweak:1599
 msgid "Computer"
@@ -175,8 +169,7 @@ msgstr "Animaties inschakelen"
 
 #: ../mate-tweak:1606
 msgid "Whether animations should be displayed by the window manager and panel"
-msgstr ""
-"Of er animaties getoond moeten worden door de vensterbeheerder en het paneel"
+msgstr "Of er animaties getoond moeten worden door de vensterbeheerder en de werkbalk"
 
 #: ../mate-tweak:1607
 msgid "Do not show window content when moving windows"
@@ -184,9 +177,7 @@ msgstr "Toon geen vensterinhoud tijdens het verplaatsen van vensters"
 
 #: ../mate-tweak:1608
 msgid "Provide less feedback when moving windows by using wireframes"
-msgstr ""
-"Geef minder terugkoppeling bij het verplaatsen van vensters met gebruik van "
-"draadrasters"
+msgstr "Geef minder terugkoppeling bij het verplaatsen van vensters met gebruik van draadrasters"
 
 #: ../mate-tweak:1609
 msgid "Window manager performance tuning."
@@ -200,9 +191,7 @@ msgstr "Schakel vastklikken vensters in"
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
-msgstr ""
-"Het neerzetten van vensters op schermranden maximaliseert hen verticaal en "
-"laat hen horizontaal de helft van de beschikbare ruimte bedekken"
+msgstr "Het neerzetten van vensters op schermranden maximaliseert hen verticaal en laat hen horizontaal de helft van de beschikbare ruimte bedekken"
 
 #: ../mate-tweak:1613
 msgid "Undecorate maximized windows"
@@ -226,11 +215,11 @@ msgstr "Plaatsing van vensterknoppen."
 
 #: ../mate-tweak:1619
 msgid "Save the current panel layout as your own custom version"
-msgstr "Sla de huidige paneelvormgeving op als uw eigen aangepaste versie"
+msgstr "Sla de huidige werkbalkvormgeving op als uw eigen aangepaste versie"
 
 #: ../mate-tweak:1620
 msgid "Delete the currently selected panel layout"
-msgstr "Verwijder de thans geselecteerde paneelopmaak"
+msgstr "Verwijder de thans geselecteerde werkbalkopmaak"
 
 #: ../mate-tweak:1621
 msgid "Open CCSM"
@@ -268,21 +257,19 @@ msgstr "Regulier"
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
-msgstr ""
-"Verdubbel de grootte van alle vensters, panelen, minitoepassingen, "
-"lettertypes enz. voor HiDPI-schermen."
+msgstr "Verdubbel de grootte van alle vensters, werkbalken, minitoepassingen, lettertypes enz. voor HiDPI-schermen."
 
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
-msgstr ""
+msgstr "Open de lettertypevoorkeuren"
 
 #: ../mate-tweak:1642 ../mate-tweak:1644
 msgid "Fonts"
-msgstr ""
+msgstr "Lettertypes"
 
 #: ../mate-tweak:1643
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
-msgstr ""
+msgstr "Open de lettertypevoorkeuren en klik op Details... om de DPI bij te stellen van het lettertype."
 
 #: ../mate-tweak:1646
 msgid "Enable keyboard LED"
@@ -298,9 +285,7 @@ msgstr "Activeer uittrekbaar terminalvenster"
 
 #: ../mate-tweak:1649
 msgid "When enabled press F12 to pull down terminal"
-msgstr ""
-"Indien ingeschakeld: tik op F12 om het terminalvenster naar beneden te "
-"trekken"
+msgstr "Indien ingeschakeld: tik op F12 om het terminalvenster naar beneden te trekken"
 
 #: ../mate-tweak:1650
 msgid "Enable Dock"
@@ -318,9 +303,7 @@ msgstr "HUD inschakelen"
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
-msgstr ""
-"Wanneer aangevinkt zal de voorruitpresentatie (HUD) zijn ingeschakeld. Druk "
-"op de toetscombinatie Alt_L om toepassingsmenu's te zoeken."
+msgstr "Wanneer aangevinkt zal de voorruitpresentatie (HUD) zijn ingeschakeld. Druk op de toetscombinatie Alt_L om toepassingsmenu's te zoeken."
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
@@ -370,9 +353,7 @@ msgstr "Toon menu voor invoermethoden in contextmenu's"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"Of de contextmenu's van invoervelden en tekstweergaven zouden moeten "
-"aanbieden om de invoermethode te wijzigen"
+msgstr "Of de contextmenu's van invoervelden en tekstweergaven zouden moeten aanbieden om de invoermethode te wijzigen"
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
@@ -382,9 +363,7 @@ msgstr "Toon tekenbeheermenu voor Unicode in contextmenu's"
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
-msgstr ""
-"Of de contextmenu's van invoervelden en tekstweergaven de invoegtekens "
-"zouden moeten aanbieden"
+msgstr "Of de contextmenu's van invoervelden en tekstweergaven de invoegtekens zouden moeten aanbieden"
 
 #: ../mate-tweak:1671
 msgid "Style:"
@@ -412,11 +391,11 @@ msgstr "Kies een vensterbeheerder."
 
 #: ../mate-tweak:1708
 msgid "Select a panel layout to change the user interface."
-msgstr "Kies een paneelopmaak om de gebruikersomgeving aan te passen."
+msgstr "Kies een werkbalkopmaak om de gebruikersomgeving aan te passen."
 
 #: ../mate-tweak:1709
 msgid "Select a panel layout."
-msgstr "Kies een paneelopmaak."
+msgstr "Kies een werkbalkopmaak."
 
 #: ../mate-tweak:1714
 msgid "Default"
@@ -444,19 +423,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1723
 msgid "Set the panel icon size."
-msgstr "Stel de grootte in van de paneelpictogrammen."
+msgstr "Stel de grootte in van de werkbalkpictogrammen."
 
 #: ../mate-tweak:1724
 msgid "Select the icon size for panel icons."
-msgstr "Kies de grootte van paneelpictogrammen."
+msgstr "Kies de grootte van werkbalkpictogrammen."
 
 #: ../mate-tweak:1728
 msgid "Set the icon size of menu items used in the panel."
-msgstr "Stel de pictogramgrootte in van menu-elementen in het paneel."
+msgstr "Stel de pictogramgrootte in van menu-elementen in de werkbalk."
 
 #: ../mate-tweak:1729
 msgid "Select the icon size for menu items in the panel."
-msgstr "Kies de pictogramgrootte voor menu-elementen in het paneel."
+msgstr "Kies de pictogramgrootte voor menu-elementen in de werkbalk."
 
 #: ../mate-tweak:1757
 msgid "Text below items"
@@ -473,59 +452,3 @@ msgstr "Alleen pictogrammen"
 #: ../mate-tweak:1760
 msgid "Text only"
 msgstr "Alleen tekst"
-
-#~ msgid "Contemporary"
-#~ msgstr "Modern"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Manjaro"
-#~ msgstr "Manjaro"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Netbook"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
-
-#~ msgid "Traditional"
-#~ msgstr "Traditioneel"
-
-#~ msgid "Marco (Software compositor)"
-#~ msgstr "Marco (beeldsamenstelling)"
-
-#~ msgid "Enable locally integrated menus"
-#~ msgstr "Lokaal geïntegreerde menu's inschakelen"
-
-#~ msgid ""
-#~ "Display application menus in the application window. When local menus are "
-#~ "disabled, add the Global Menu applet to a panel to see them."
-#~ msgstr ""
-#~ "Toon toepassingsmenu's in het toepassingsvenster. Wanneer lokale menu's "
-#~ "zijn uitgeschakeld, voeg dan de Globaal Menu-minitoepassing toe aan een "
-#~ "paneel om hen te zien."

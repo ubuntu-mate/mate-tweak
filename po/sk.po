@@ -1,25 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Dušan Kazik <prescott66@gmail.com>, 2015-2017
+# Erik Bročko <erik.brocko@letemsvetemapplem.eu>, 2018
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
-# Ján Ďanovský <dagsoftware@yahoo.com>, 2015-2017
+# Ján Ďanovský <dagsoftware@yahoo.com>, 2015-2017,2020
 # Miroslav Sido <miro_redhawk@hotmail.com>, 2016
+# peter, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2018-03-11 10:31+0000\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
+"PO-Revision-Date: 2021-03-09 16:18+0000\n"
+"Last-Translator: peter\n"
 "Language-Team: Slovak (http://www.transifex.com/mate/MATE/language/sk/)\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 #: ../mate-tweak:1207
 msgid "Right"
@@ -31,20 +33,19 @@ msgstr "Vľavo"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "Vpravo (s menu)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "Vľavo (s menu)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
 msgstr "Marco (Bez kompozítora)"
 
 #: ../mate-tweak:1220
-#, fuzzy
 msgid "Marco (Adaptive compositor)"
-msgstr "Marco (Bez kompozítora)"
+msgstr "Marco (adaptívny kompozitor)"
 
 #: ../mate-tweak:1222
 msgid "Marco (Compton GPU compositor)"
@@ -58,9 +59,7 @@ msgstr "Compiz (rozšírené efekty plochy akcelerované GPU)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"Momentálne používate neznámeho alebo nepodporovaného správcu okien. Preto "
-"nie je zaručené, že vykonané zmeny budú uplatnené."
+msgstr "Momentálne používate neznámeho alebo nepodporovaného správcu okien. Preto nie je zaručené, že vykonané zmeny budú uplatnené."
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -138,9 +137,7 @@ msgstr "Zobraziť ikony na ploche"
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
-msgstr ""
-"Ak je zakázané, pracovná plocha bude spravovaná bez prístupu k ikonám alebo "
-"správcovi súborov."
+msgstr "Ak je zakázané, pracovná plocha bude spravovaná bez prístupu k ikonám alebo správcovi súborov."
 
 #: ../mate-tweak:1599
 msgid "Computer"
@@ -176,8 +173,7 @@ msgstr "Nezobraziť obsah okna počas jeho presúvania"
 
 #: ../mate-tweak:1608
 msgid "Provide less feedback when moving windows by using wireframes"
-msgstr ""
-"Poskytuje menej spätnej väzby pri presune okien použitím drôtových rámov"
+msgstr "Poskytuje menej spätnej väzby pri presune okien použitím drôtových rámov"
 
 #: ../mate-tweak:1609
 msgid "Window manager performance tuning."
@@ -191,9 +187,7 @@ msgstr "Povoliť priťahovanie okien"
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
-msgstr ""
-"Umiestnenie okna na okrajoch obrazovky ich maximalizuje vertikálne a zmení "
-"ich veľkosť horizontálne, tak, aby pokrylo polovicu dostupného priestoru. "
+msgstr "Umiestnenie okna na okrajoch obrazovky ich maximalizuje vertikálne a zmení ich veľkosť horizontálne, tak, aby pokrylo polovicu dostupného priestoru. "
 
 #: ../mate-tweak:1613
 msgid "Undecorate maximized windows"
@@ -241,37 +235,37 @@ msgstr "Zresetuje aktuálne nastavenie Compizu na predvolené."
 
 #: ../mate-tweak:1627 ../mate-tweak:1632
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
 #: ../mate-tweak:1628
 msgid "Select a window scaling factor."
-msgstr ""
+msgstr "Zvoľte škálovací faktor okien."
 
 #: ../mate-tweak:1630
 msgid "Auto-detect"
-msgstr ""
+msgstr "Automaticky rozpoznať"
 
 #: ../mate-tweak:1631
 msgid "Regular"
-msgstr ""
+msgstr "Normálne"
 
 #: ../mate-tweak:1635
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
-msgstr ""
+msgstr "Zdvojnásobí veľkosť všetkých okien, panelov, appletov, fontov a pod. pre HiDPI obrazovky."
 
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
-msgstr ""
+msgstr "Otvoriť predvoľby písma"
 
 #: ../mate-tweak:1642 ../mate-tweak:1644
 msgid "Fonts"
-msgstr ""
+msgstr "Písma"
 
 #: ../mate-tweak:1643
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
-msgstr ""
+msgstr "Otvorte predvoľby písma a kliknite na položku Podrobnosti... pre doladenie DPI písma."
 
 #: ../mate-tweak:1646
 msgid "Enable keyboard LED"
@@ -305,7 +299,7 @@ msgstr "Povoliť HUD"
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
-msgstr ""
+msgstr "Ak je táto možnosť vybraná, Heads-Up Display (HUD) bude povolený. Stlačte ľavý Alt pre vyhľadávanie v menu programov."
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
@@ -355,9 +349,7 @@ msgstr "Zobraziť menu Vstupných Metód v kontextových menu"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"Určuje, či majú kontextové menu vstupov a textových pohľadov ponúkať zmenu "
-"metódy vstupu."
+msgstr "Určuje, či majú kontextové menu vstupov a textových pohľadov ponúkať zmenu metódy vstupu."
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
@@ -367,9 +359,7 @@ msgstr "Zobraziť menu Ovládania Unicode znakov v kontextových menu"
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
-msgstr ""
-"Určuje, či majú kontextové menu vstupov a textových pohľadov ponúkať "
-"vloženie riadiacich znakov."
+msgstr "Určuje, či majú kontextové menu vstupov a textových pohľadov ponúkať vloženie riadiacich znakov."
 
 #: ../mate-tweak:1671
 msgid "Style:"
@@ -458,48 +448,3 @@ msgstr "Iba ikony"
 #: ../mate-tweak:1760
 msgid "Text only"
 msgstr "Iba text"
-
-#~ msgid "Contemporary"
-#~ msgstr "Moderne"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Manjaro"
-#~ msgstr "Manjaro"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Netbook"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
-
-#~ msgid "Traditional"
-#~ msgstr "Tradične"
-
-#~ msgid "Marco (Software compositor)"
-#~ msgstr "Marco (softvérový kompozítor)"

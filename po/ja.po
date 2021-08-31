@@ -1,12 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # ABE Tsunehiko, 2015,2017
 # あわしろいくや <ikunya@gmail.com>, 2015
 # ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2015-2016
+# jeiday, 2020
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Green, 2021
 # jeiday, 2019
 # Kenzo Matsumoto <dicegeist@gmail.com>, 2016
 # Mika Kobayashi, 2017
@@ -16,13 +18,13 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2019-01-18 21:21+0000\n"
-"Last-Translator: jeiday\n"
+"PO-Revision-Date: 2021-06-22 04:34+0000\n"
+"Last-Translator: Green\n"
 "Language-Team: Japanese (http://www.transifex.com/mate/MATE/language/ja/)\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../mate-tweak:1207
@@ -35,11 +37,11 @@ msgstr "左"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "右 (メニューボタン有り)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "左 (メニューボタン有り)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
@@ -61,9 +63,7 @@ msgstr "Compiz (先進的なGPUコンポジット)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
-"不明かつサポートされていないウィンドウマネージャを使用しています。そのためこ"
-"こで行った変更が有効になるかは保証できません。"
+msgstr "不明かつサポートされていないウィンドウマネージャを使用しています。そのためここで行った変更が有効になるかは保証できません。"
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -141,8 +141,7 @@ msgstr "デスクトップアイコンを表示する"
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
-msgstr ""
-"無効にするとデスクトップ上のアイコンやファイルにアクセスできなくなります。"
+msgstr "無効にするとデスクトップ上のアイコンやファイルにアクセスできなくなります。"
 
 #: ../mate-tweak:1599
 msgid "Computer"
@@ -192,9 +191,7 @@ msgstr "ウィンドウスナップを有効にする"
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
-msgstr ""
-"ウィンドウを画面の左右端にドラッグしたとき、縦幅を最大化、横幅を画面の半分に"
-"します。"
+msgstr "ウィンドウを画面の左右端にドラッグしたとき、縦幅を最大化、横幅を画面の半分にします。"
 
 #: ../mate-tweak:1613
 msgid "Undecorate maximized windows"
@@ -214,7 +211,7 @@ msgstr "新しく開いたウィンドウを自動で最大化しません。"
 
 #: ../mate-tweak:1617
 msgid "Window control placement."
-msgstr "ウィンドウコントロールの配置を選択する"
+msgstr "ウィンドウコントロールの配置。"
 
 #: ../mate-tweak:1619
 msgid "Save the current panel layout as your own custom version"
@@ -306,9 +303,7 @@ msgstr "HUDを有効にする"
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
-msgstr ""
-"ヘッドアップディスプレイ (HUD) を有効にします。左Alt キーを押下してアプリのメ"
-"ニューを検索します。"
+msgstr "ヘッドアップディスプレイ (HUD) を有効にします。左Alt キーを押下してアプリのメニューを検索します。"
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
@@ -358,9 +353,7 @@ msgstr "コンテキストメニューに入力メソッドのメニューを表
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
-"入力エントリーとテキストビューのコンテキストメニューに入力メソッドを切り替え"
-"るメニュー項目を追加するか指定します。"
+msgstr "入力エントリーとテキストビューのコンテキストメニューに入力メソッドを切り替えるメニュー項目を追加するか指定します。"
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
@@ -370,9 +363,7 @@ msgstr "コンテキストメニューにUnicode制御文字のメニューを�
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
-msgstr ""
-"入力エントリーとテキストビューのコンテキストメニューに制御文字を挿入するメ"
-"ニュー項目を追加するか指定します。"
+msgstr "入力エントリーとテキストビューのコンテキストメニューに制御文字を挿入するメニュー項目を追加するか指定します。"
 
 #: ../mate-tweak:1671
 msgid "Style:"
@@ -461,48 +452,3 @@ msgstr "アイコンのみ"
 #: ../mate-tweak:1760
 msgid "Text only"
 msgstr "ラベルのみ"
-
-#~ msgid "Contemporary"
-#~ msgstr "Contemporary"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Familiar"
-#~ msgstr "Familiar"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Manjaro"
-#~ msgstr "Manjaro"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Netbook"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Pantheon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
-
-#~ msgid "Traditional"
-#~ msgstr "Traditional"

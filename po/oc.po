@@ -1,29 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2015
 # Cédric Valmary <cvalmary@yahoo.fr>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Quentin PAGÈS, 2020-2021
+# Quentin PAGÈS, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2018-03-13 22:06+0000\n"
-"Last-Translator: Wolfgang Ulbrich <mate@raveit.de>\n"
-"Language-Team: Occitan (post 1500) (http://www.transifex.com/mate/MATE/"
-"language/oc/)\n"
-"Language: oc\n"
+"PO-Revision-Date: 2021-08-05 20:19+0000\n"
+"Last-Translator: Quentin PAGÈS\n"
+"Language-Team: Occitan (post 1500) (http://www.transifex.com/mate/MATE/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: oc\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../mate-tweak:1207
 msgid "Right"
-msgstr "Dreita"
+msgstr "Drecha"
 
 #: ../mate-tweak:1208
 msgid "Left"
@@ -31,11 +32,11 @@ msgstr "Esquèrra"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "Drecha (amb menú)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "Esquèrra (amb menú)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
@@ -85,11 +86,11 @@ msgstr "Icònas del burèu"
 
 #: ../mate-tweak:1585
 msgid "Performance"
-msgstr "Performància"
+msgstr "Performança"
 
 #: ../mate-tweak:1586
 msgid "Window Behaviour"
-msgstr ""
+msgstr "Compòrtament fenèstra"
 
 #: ../mate-tweak:1587
 msgid "Appearance"
@@ -121,7 +122,7 @@ msgstr "Barras d'aisinas"
 
 #: ../mate-tweak:1594
 msgid "Window manager"
-msgstr ""
+msgstr "Gestionari de fenèstras"
 
 #: ../mate-tweak:1596
 msgid "Select the Desktop Icons you want enabled:"
@@ -129,7 +130,7 @@ msgstr ""
 
 #: ../mate-tweak:1597
 msgid "Show Desktop Icons"
-msgstr ""
+msgstr "Mostrar las icònas burèu"
 
 #: ../mate-tweak:1598
 msgid ""
@@ -143,7 +144,7 @@ msgstr "Ordenador"
 
 #: ../mate-tweak:1600
 msgid "Home"
-msgstr "Dorsièr personal"
+msgstr "Dossièr personal"
 
 #: ../mate-tweak:1601
 msgid "Network"
@@ -233,7 +234,7 @@ msgstr ""
 
 #: ../mate-tweak:1627 ../mate-tweak:1632
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
 #: ../mate-tweak:1628
 msgid "Select a window scaling factor."
@@ -259,7 +260,7 @@ msgstr ""
 
 #: ../mate-tweak:1642 ../mate-tweak:1644
 msgid "Fonts"
-msgstr ""
+msgstr "Poliças"
 
 #: ../mate-tweak:1643
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
@@ -267,11 +268,11 @@ msgstr ""
 
 #: ../mate-tweak:1646
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "Activar DEL del clavièr"
 
 #: ../mate-tweak:1647
 msgid "Show keyboard LED indicators in the notifcation tray"
-msgstr ""
+msgstr "Afichar los indicators luminoses del clavièrs sul panèl de notificacions"
 
 #: ../mate-tweak:1648
 msgid "Enable pull-down terminal"
@@ -301,7 +302,7 @@ msgstr ""
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
-msgstr ""
+msgstr "Mostrar las aplicacions"
 
 #: ../mate-tweak:1656
 msgid "Show Applications item in the menu bar"
@@ -317,7 +318,7 @@ msgstr ""
 
 #: ../mate-tweak:1659
 msgid "Show System"
-msgstr ""
+msgstr "Mostrar lo sistèma"
 
 #: ../mate-tweak:1660
 msgid "Show System item in the menu bar"
@@ -397,23 +398,23 @@ msgstr "Per defaut"
 
 #: ../mate-tweak:1715
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../mate-tweak:1716
 msgid "22px"
-msgstr ""
+msgstr "22px"
 
 #: ../mate-tweak:1717
 msgid "24px"
-msgstr ""
+msgstr "24px"
 
 #: ../mate-tweak:1718
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../mate-tweak:1719
 msgid "48px"
-msgstr ""
+msgstr "48px"
 
 #: ../mate-tweak:1723
 msgid "Set the panel icon size."
@@ -446,15 +447,3 @@ msgstr "Sonque las icònas"
 #: ../mate-tweak:1760
 msgid "Text only"
 msgstr "Sonque lo tèxte"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
