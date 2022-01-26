@@ -1067,7 +1067,7 @@ class MateTweak:
         self.brisk_menu_available = False
         self.appmenu_applet_available = False
 
-        if os.path.exists('/usr/lib/ayatana-indicators3/7/libayatana-application.so') and \
+        if os.path.exists('/usr/libexec/ayatana-indicator-application/ayatana-indicator-application-service') and \
             os.path.exists('/usr/share/mate-panel/applets/org.mate.applets.Indicator.mate-panel-applet'):
                 self.indicators_available = True
 
