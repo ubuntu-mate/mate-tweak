@@ -6,6 +6,7 @@
 # Cédric Valmary <cvalmary@yahoo.fr>, 2015
 # Cédric Valmary <cvalmary@yahoo.fr>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
+# Quentin PAGÈS, 2020
 # Quentin PAGÈS, 2020-2021
 # Quentin PAGÈS, 2020
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2021-08-05 20:19+0000\n"
+"PO-Revision-Date: 2021-12-16 14:48+0000\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/mate/MATE/language/oc/)\n"
 "MIME-Version: 1.0\n"
@@ -78,7 +79,7 @@ msgstr "Fenèstras"
 
 #: ../mate-tweak:1581
 msgid "MATE Tweak"
-msgstr ""
+msgstr "Ajustaments MATE"
 
 #: ../mate-tweak:1584
 msgid "Desktop icons"
@@ -102,11 +103,11 @@ msgstr "Panèls"
 
 #: ../mate-tweak:1589
 msgid "Panel Features"
-msgstr ""
+msgstr "Foncionalitats de panèl"
 
 #: ../mate-tweak:1590
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "Foncionalitats de panèl de menú"
 
 #: ../mate-tweak:1591
 msgid "Icons"
@@ -126,7 +127,7 @@ msgstr "Gestionari de fenèstras"
 
 #: ../mate-tweak:1596
 msgid "Select the Desktop Icons you want enabled:"
-msgstr ""
+msgstr "Seleccionatz las icònas de burèu que volètz activadas :"
 
 #: ../mate-tweak:1597
 msgid "Show Desktop Icons"
@@ -168,7 +169,7 @@ msgstr ""
 
 #: ../mate-tweak:1607
 msgid "Do not show window content when moving windows"
-msgstr ""
+msgstr "Afichar pas lo contengut de la fenèstra quand es desplaçada"
 
 #: ../mate-tweak:1608
 msgid "Provide less feedback when moving windows by using wireframes"
@@ -210,7 +211,7 @@ msgstr ""
 
 #: ../mate-tweak:1619
 msgid "Save the current panel layout as your own custom version"
-msgstr ""
+msgstr "Enregistrar l'agençament de panèl actual coma vòstra version personalizada"
 
 #: ../mate-tweak:1620
 msgid "Delete the currently selected panel layout"
@@ -218,7 +219,7 @@ msgstr ""
 
 #: ../mate-tweak:1621
 msgid "Open CCSM"
-msgstr ""
+msgstr "Dobrir CCSM"
 
 #: ../mate-tweak:1622
 msgid "Open the Compiz configuration and settings manager"
@@ -238,11 +239,11 @@ msgstr "HiDPI"
 
 #: ../mate-tweak:1628
 msgid "Select a window scaling factor."
-msgstr ""
+msgstr "Seleccionar un factor d’escala de la fenèstra."
 
 #: ../mate-tweak:1630
 msgid "Auto-detect"
-msgstr ""
+msgstr "Deteccion automatica"
 
 #: ../mate-tweak:1631
 msgid "Regular"
@@ -256,7 +257,7 @@ msgstr ""
 
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
-msgstr ""
+msgstr "Dobrir las preferéncias de poliça"
 
 #: ../mate-tweak:1642 ../mate-tweak:1644
 msgid "Fonts"
@@ -284,7 +285,7 @@ msgstr ""
 
 #: ../mate-tweak:1650
 msgid "Enable Dock"
-msgstr ""
+msgstr "Activar lo Dock"
 
 #: ../mate-tweak:1651
 msgid "When checked the Dock will be enabled."
@@ -292,7 +293,7 @@ msgstr ""
 
 #: ../mate-tweak:1652
 msgid "Enable HUD"
-msgstr ""
+msgstr "Activar HUD"
 
 #: ../mate-tweak:1653
 msgid ""
@@ -306,7 +307,7 @@ msgstr "Mostrar las aplicacions"
 
 #: ../mate-tweak:1656
 msgid "Show Applications item in the menu bar"
-msgstr ""
+msgstr "Afichar l’icòna Aplicacions dins la barra de menú"
 
 #: ../mate-tweak:1657
 msgid "Show Places"
@@ -314,7 +315,7 @@ msgstr "Visualizar los acorchis"
 
 #: ../mate-tweak:1658
 msgid "Show Places item in the menu bar"
-msgstr ""
+msgstr "Afichar l’icòna Emplaçaments dins la barra de menú"
 
 #: ../mate-tweak:1659
 msgid "Show System"
@@ -322,7 +323,7 @@ msgstr "Mostrar lo sistèma"
 
 #: ../mate-tweak:1660
 msgid "Show System item in the menu bar"
-msgstr ""
+msgstr "Afichar l’icòna Sistèma dins la barra de menú"
 
 #: ../mate-tweak:1662
 msgid "Show icons on menus"
@@ -330,7 +331,7 @@ msgstr "Afichar las icònas dins los menús"
 
 #: ../mate-tweak:1663
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Indica se los menús pòdon afichar una icòna al costat del tèxte del menú"
 
 #: ../mate-tweak:1664
 msgid "Show icons on buttons"
@@ -338,7 +339,7 @@ msgstr "Afichar las icònas dins los botons"
 
 #: ../mate-tweak:1665
 msgid "Whether buttons may display an icon in addition to the button text"
-msgstr ""
+msgstr "Indica se los botons s’afichan amb una icòna en mai del tèxte del boton"
 
 #: ../mate-tweak:1666
 msgid "Show Input Methods menu in context menus"
@@ -348,7 +349,7 @@ msgstr "Afichar lo menú de metòdes de picada dins lo menú contextual"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
+msgstr "Indica se lo menú contextual de las zònas de picada e de las vistas tèxte deu ofrir la possibilitat de cambiar lo metòde de picada"
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
@@ -358,7 +359,7 @@ msgstr "Afichar lo menú dels caractèrs Unicode dins lo menú contextual"
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
-msgstr ""
+msgstr "Indica se lo menú contextual de las zònas de picadas e de las vistas tèxte deu ofrir la possibilitat d'inserir de caractèrs de contraròtle"
 
 #: ../mate-tweak:1671
 msgid "Style:"
@@ -382,15 +383,15 @@ msgstr ""
 
 #: ../mate-tweak:1702
 msgid "Select a window manager."
-msgstr ""
+msgstr "Seleccionar un gestionari de fenèstras."
 
 #: ../mate-tweak:1708
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "Seleccionar una disposicion del panèl per cambiar l’interfàcia utilizaire."
 
 #: ../mate-tweak:1709
 msgid "Select a panel layout."
-msgstr ""
+msgstr "Seleccionar una disposicion de panèl."
 
 #: ../mate-tweak:1714
 msgid "Default"
@@ -418,19 +419,19 @@ msgstr "48px"
 
 #: ../mate-tweak:1723
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "Seleccionar una talha d’icòna pels panèls."
 
 #: ../mate-tweak:1724
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "Seleccionar una talha d’icòna per las icònas de panèl."
 
 #: ../mate-tweak:1728
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "Seleccionar una talha d’icòna pels menús utilizats al panèl."
 
 #: ../mate-tweak:1729
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "Seleccionar una talha d’icòna per las entradas del menú al panèl."
 
 #: ../mate-tweak:1757
 msgid "Text below items"

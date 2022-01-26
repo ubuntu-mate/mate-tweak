@@ -1,11 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Damir Mevkić <damir.mevkic@gmail.com>, 2017
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009
-# Helena S <ele@tutamail.com>, 2017
+# Helena S <ele@tutamail.com>, 2017,2020
+# Martin Srebotnjak <miles@filmsi.net>, 2021
 # worm <thewormhole@gmail.com>, 2016
 # jetomit <timotej.lazar@araneo.si>, 2016
 msgid ""
@@ -13,15 +14,14 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2018-03-11 10:31+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2021-12-27 16:58+0000\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian (http://www.transifex.com/mate/MATE/language/sl/)\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: ../mate-tweak:1207
 msgid "Right"
@@ -33,23 +33,23 @@ msgstr "Levo"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "Desno (z menijem)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "Levo (z menijem)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Marco (brez skladalnika)"
 
 #: ../mate-tweak:1220
 msgid "Marco (Adaptive compositor)"
-msgstr ""
+msgstr "Marco (prilagodljivi skladalnik)"
 
 #: ../mate-tweak:1222
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (skladalnik GPE Compton)"
 
 #: ../mate-tweak:1224
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
@@ -59,7 +59,7 @@ msgstr "Compiz (Napredne nastavitve GPU pospešenih učinkov)"
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
-msgstr ""
+msgstr "Trenutno uporabljate neznan in nepodprt upravljalec oken. Zato ne moremo zagotoviti da bodo spremembe tukaj imele željen učinek."
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -137,7 +137,7 @@ msgstr "Pokaži ikone namizja"
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
-msgstr ""
+msgstr "V kolikor je onemogočeno, namizje ne bo mogoče upravljati in bo brez ikon ali dostopa do upravitelja datotek"
 
 #: ../mate-tweak:1599
 msgid "Computer"
@@ -165,7 +165,7 @@ msgstr "Omogoči animacije"
 
 #: ../mate-tweak:1606
 msgid "Whether animations should be displayed by the window manager and panel"
-msgstr ""
+msgstr "Ali naj upravitelj oken in pult prikazujeta animacije"
 
 #: ../mate-tweak:1607
 msgid "Do not show window content when moving windows"
@@ -173,7 +173,7 @@ msgstr "Ne prikaži vsebine oken med njihovim premikanjem"
 
 #: ../mate-tweak:1608
 msgid "Provide less feedback when moving windows by using wireframes"
-msgstr ""
+msgstr "Zagotovite manj povratnih informacij pri premikanju oken z uporabo obrobnih okvirov"
 
 #: ../mate-tweak:1609
 msgid "Window manager performance tuning."
@@ -187,7 +187,7 @@ msgstr "Omoči pripenjanje oken"
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
-msgstr ""
+msgstr "Če spustite okna na robove zaslona, jih povečate navpično in jih spremenite v vodoravno velikost, da pokrijejo polovico razpoložljivega območja"
 
 #: ../mate-tweak:1613
 msgid "Undecorate maximized windows"
@@ -195,7 +195,7 @@ msgstr "Neokrašeno razpni okna"
 
 #: ../mate-tweak:1614
 msgid "Undecorate windows when maximized"
-msgstr ""
+msgstr "Odstravi okrasitev oken, ko so povečana"
 
 #: ../mate-tweak:1615
 msgid "Do not auto-maximize new windows"
@@ -211,11 +211,11 @@ msgstr "Okenski nadzor nastavljen"
 
 #: ../mate-tweak:1619
 msgid "Save the current panel layout as your own custom version"
-msgstr ""
+msgstr "Shrani trenutno postavitev kot svojo različico po meri"
 
 #: ../mate-tweak:1620
 msgid "Delete the currently selected panel layout"
-msgstr ""
+msgstr "Izbriši trenutno izbrano postavitev pulta"
 
 #: ../mate-tweak:1621
 msgid "Open CCSM"
@@ -223,7 +223,7 @@ msgstr "Odpri CCSM"
 
 #: ../mate-tweak:1622
 msgid "Open the Compiz configuration and settings manager"
-msgstr ""
+msgstr "Odpri prilagoditev Compiz in upravitelja nastavitev"
 
 #: ../mate-tweak:1623
 msgid "Reset Compiz"
@@ -231,41 +231,41 @@ msgstr "Ponastavi Compiz"
 
 #: ../mate-tweak:1624
 msgid "Reset the current Compiz configuration to factory defaults"
-msgstr ""
+msgstr "Ponastavi trenutno prilagoditev Compiz na tovarniške privzete nastavitve"
 
 #: ../mate-tweak:1627 ../mate-tweak:1632
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
 #: ../mate-tweak:1628
 msgid "Select a window scaling factor."
-msgstr ""
+msgstr "Izberi faktor povečave oken."
 
 #: ../mate-tweak:1630
 msgid "Auto-detect"
-msgstr ""
+msgstr "Samodejno zaznaj"
 
 #: ../mate-tweak:1631
 msgid "Regular"
-msgstr ""
+msgstr "Navadno"
 
 #: ../mate-tweak:1635
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
-msgstr ""
+msgstr "Podvoji velikost vseh oken, pultov, gradnikov, pisav itd. za zaslone z HiDPI."
 
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
-msgstr ""
+msgstr "Odpri možnosti pisav"
 
 #: ../mate-tweak:1642 ../mate-tweak:1644
 msgid "Fonts"
-msgstr ""
+msgstr "Pisave"
 
 #: ../mate-tweak:1643
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
-msgstr ""
+msgstr "Odpri možnosti pisave in klikni Podrobnosti... za prilagoditev  velikosti pisave DPI."
 
 #: ../mate-tweak:1646
 msgid "Enable keyboard LED"
@@ -273,7 +273,7 @@ msgstr "Omogoči LED na tipkovnici"
 
 #: ../mate-tweak:1647
 msgid "Show keyboard LED indicators in the notifcation tray"
-msgstr ""
+msgstr "Omogoči indikatorje tipkovnice v obvestilni vrstici"
 
 #: ../mate-tweak:1648
 msgid "Enable pull-down terminal"
@@ -281,15 +281,15 @@ msgstr "Omogoči  podrt terminal"
 
 #: ../mate-tweak:1649
 msgid "When enabled press F12 to pull down terminal"
-msgstr ""
+msgstr "Ko je omogočeno pritisnite F12 za podrt terminal"
 
 #: ../mate-tweak:1650
 msgid "Enable Dock"
-msgstr ""
+msgstr "Omogoči sidrišče"
 
 #: ../mate-tweak:1651
 msgid "When checked the Dock will be enabled."
-msgstr ""
+msgstr "Ob potrditvi bo sidrišče omogočeno."
 
 #: ../mate-tweak:1652
 msgid "Enable HUD"
@@ -299,7 +299,7 @@ msgstr "Omogoči HUD"
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
-msgstr ""
+msgstr "Če je potrjeno, bo omogočen virtualni zaslon HUD (angl. Heads-Up Display). Pritisnite izmenjalka_L, da preiščete menije programa."
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
@@ -307,7 +307,7 @@ msgstr "Pokaži programe"
 
 #: ../mate-tweak:1656
 msgid "Show Applications item in the menu bar"
-msgstr ""
+msgstr "Pokaže meni Programi v menijski vrstici"
 
 #: ../mate-tweak:1657
 msgid "Show Places"
@@ -315,7 +315,7 @@ msgstr "Pokaži mesta"
 
 #: ../mate-tweak:1658
 msgid "Show Places item in the menu bar"
-msgstr ""
+msgstr "Pokaže meni Mesta v menijski vrstici"
 
 #: ../mate-tweak:1659
 msgid "Show System"
@@ -323,7 +323,7 @@ msgstr "Pokaži sistem"
 
 #: ../mate-tweak:1660
 msgid "Show System item in the menu bar"
-msgstr ""
+msgstr "Pokaže meni Sistem v menijski vrstici"
 
 #: ../mate-tweak:1662
 msgid "Show icons on menus"
@@ -331,7 +331,7 @@ msgstr "Pokaži ikone v meniju"
 
 #: ../mate-tweak:1663
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "Ali naj meniji prikažejo ikono ob vnosu menija"
 
 #: ../mate-tweak:1664
 msgid "Show icons on buttons"
@@ -339,7 +339,7 @@ msgstr "Pokaži ikone na gumbih"
 
 #: ../mate-tweak:1665
 msgid "Whether buttons may display an icon in addition to the button text"
-msgstr ""
+msgstr "Ali naj bo na gumbu ob besedilu še ikona."
 
 #: ../mate-tweak:1666
 msgid "Show Input Methods menu in context menus"
@@ -349,17 +349,17 @@ msgstr "Prikaži meni vhodnih metod v vsebinskih menijih"
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
-msgstr ""
+msgstr "Ali naj vsebinski meniji vnosov in pogledi besedil ponudijo možnost spreminjanja vnosnega načina"
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
-msgstr "Prikažni nadzorni znak Unicode v vsebinskih menijih"
+msgstr "Prikaži nadzorni znak Unicode v vsebinskih menijih"
 
 #: ../mate-tweak:1669
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
-msgstr ""
+msgstr "Ali naj vsebinski meniji vnosov in pogledi besedila ponudijo vstavljanje nadzornih znakov"
 
 #: ../mate-tweak:1671
 msgid "Style:"
@@ -391,7 +391,7 @@ msgstr "Izberi postavitev pulta za spremembo uporabniškega vmesnika."
 
 #: ../mate-tweak:1709
 msgid "Select a panel layout."
-msgstr ""
+msgstr "Izberi postavitev pulta."
 
 #: ../mate-tweak:1714
 msgid "Default"
@@ -448,36 +448,3 @@ msgstr "Samo ikone"
 #: ../mate-tweak:1760
 msgid "Text only"
 msgstr "Samo besedilo"
-
-#~ msgid "Cupertino"
-#~ msgstr "Cupertino"
-
-#~ msgid "Fedora"
-#~ msgstr "Fedora"
-
-#~ msgid "GNOME2"
-#~ msgstr "GNOME2"
-
-#~ msgid "Linux Mint"
-#~ msgstr "Linux Mint"
-
-#~ msgid "Mageia"
-#~ msgstr "Mageia"
-
-#~ msgid "Mutiny"
-#~ msgstr "Mutiny"
-
-#~ msgid "Netbook"
-#~ msgstr "Netbook"
-
-#~ msgid "openSUSE"
-#~ msgstr "openSUSE"
-
-#~ msgid "Pantheon"
-#~ msgstr "Panteon"
-
-#~ msgid "Redmond"
-#~ msgstr "Redmond"
-
-#~ msgid "Solus"
-#~ msgstr "Solus"
