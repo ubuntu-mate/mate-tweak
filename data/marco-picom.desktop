@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Marco
-Exec=marco-compton
+Exec=marco-picom
 NoDisplay=true
 # name of loadable control center module
 X-MATE-WMSettingsModule=marco

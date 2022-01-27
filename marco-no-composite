@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-WM=marco
+WM="marco"
 
-if [ ! -x $(which ${WM}) ]; then
+if [ ! -x "$(which "${WM}")" ]; then
     echo "ERROR! Can't find ${WM}."
     exit 1
 fi
+
+UNAME="$(id -un)"
+killall --user "${UNAME}" "${WM}" 2>/dev/null
 
 # Replace window manager and force compositing off.
 ${WM} --no-composite --replace &

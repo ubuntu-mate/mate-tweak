@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Copyright (C) 2007-2014 by Clement Lefebvre <root@linuxmint.com>
-# Copyright (C) 2015-2021 Martin Wimpress <code@ubuntu-mate.org>
+# Copyright (C) 2015-2022 Martin Wimpress <code@ubuntu-mate.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -319,8 +319,8 @@ class MateTweak:
         if ('Marco' in current_wm):
             self.current_wm = 'marco'
             composite_enabled = self.get_bool('org.mate.Marco.general', None, 'compositing-manager')
-            if self.process_running('compton'):
-                self.current_wm += '-compton'
+            if self.process_running('picom'):
+                self.current_wm += '-picom'
             elif not composite_enabled:
                 self.current_wm += '-no-composite'
         elif ('Compiz' in current_wm):
@@ -333,7 +333,7 @@ class MateTweak:
         self.compiz_capable = False
         self.ccsm_capable = False
         self.marco_capable = False
-        self.marco_compton_capable = False
+        self.marco_picom_capable = False
         self.marco_no_composite_capable = False
 
         if self.find_on_path('compiz'):
@@ -343,9 +343,9 @@ class MateTweak:
         if self.find_on_path('ccsm'):
             self.ccsm_capable = True
 
-        if self.find_on_path('marco-compton') and self.find_on_path('marco') and self.find_on_path('compton'):
+        if self.find_on_path('marco-picom') and self.find_on_path('marco') and self.find_on_path('picom'):
             if not self.software_rasterizer and self.texture_from_pixmap:
-                self.marco_compton_capable = True
+                self.marco_picom_capable = True
 
         if self.find_on_path('marco-no-composite') and self.find_on_path('marco'):
             self.marco_no_composite_capable = True
@@ -412,14 +412,13 @@ class MateTweak:
                 # FIXME! Don't assume 'metacity' is 1
                 self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
 
-        # If switching away from a compton composited window manager
-        # kill compton.
+        # If switching away from a picom composited window manager kill picom.
         if 'compiz' in self.current_wm:
             self.kill_process('compiz')
-        elif 'compton' in self.current_wm:
-            self.kill_process('compton')
+        elif 'picom' in self.current_wm:
+            self.kill_process('picom')
 
-        if ('compton' in new_wm) or ('no-composite' in new_wm):
+        if ('picom' in new_wm) or ('no-composite' in new_wm):
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
             wm_pid = subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL).pid
@@ -1118,9 +1117,9 @@ class MateTweak:
         if self.marco_no_composite_capable:
             wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
         if self.marco_capable:
-            wms.append([_("Marco (Adaptive compositor)"), 'marco'])
-        if self.marco_compton_capable and not self.software_rasterizer:
-            wms.append([_("Marco (Compton GPU compositor)"), 'marco-compton'])
+            wms.append([_("Marco (Xpresent)"), 'marco'])
+        if self.marco_picom_capable and not self.software_rasterizer:
+            wms.append([_("Marco (OpenGL)"), 'marco-picom'])
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
