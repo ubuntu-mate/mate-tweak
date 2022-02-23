@@ -10,7 +10,7 @@ if [ ! -x "$(which "${WM}")" ] || [ ! -x "$(which "${COMP}")" ]; then
     exit 1
 fi
 
-# Disable vsync is the NVIDIA compositor is enabled.
+# Disable vsync if the NVIDIA compositor is enabled.
 if [ -x "$(which nvidia-settings)" ]; then
     if nvidia-settings -q CurrentMetaMode -t | grep ForceCompositionPipeline=On; then
         VSYNC="--no-vsync"
@@ -39,11 +39,13 @@ else
         --detect-client-opacity \
         --glx-no-stencil \
         --no-use-damage \
-        --inactive-opacity-override \
         --mark-wmwin-focused \
         --mark-ovredir-focused \
-        --shadow-radius=24 --shadow-opacity=0.225 --shadow-offset-x=-24 --shadow-offset-y=-24 \
-        --shadow --no-dock-shadow --no-dnd-shadow \
+        --shadow \
+        --shadow-radius=24 \
+        --shadow-opacity=0.225 \
+        --shadow-offset-x=-24 \
+        --shadow-offset-y=-24 \
         --fading \
         --fade-delta=8 \
         --no-fading-destroyed-argb \
@@ -51,18 +53,17 @@ else
         --use-ewmh-active-win \
         --unredir-if-possible \
         --unredir-if-possible-exclude "class_g = 'Mate-screensaver'" \
-        --shadow-exclude "! name~=''" \
-        --shadow-exclude "name = 'Notification'" \
-        --shadow-exclude "name = 'Docky'" \
+        --fade-exclude "window_type *= 'menu'" \
+        --shadow-exclude "window_type *= 'dnd'" \
+        --shadow-exclude "window_type *= 'dock'" \
+        --shadow-exclude "window_type *= 'notification'" \
         --shadow-exclude "class_g = 'albert'" \
+        --shadow-exclude "class_g = 'Cairo-clock'" \
         --shadow-exclude "class_g = 'Conky'" \
-        --shadow-exclude "class_g = 'Kupfer'" \
-        --shadow-exclude "class_g = 'Plank'" \
+        --shadow-exclude "class_g = 'Firefox' && argb" \
+        --shadow-exclude "class_g ?= 'Notify-osd'" \
         --shadow-exclude "class_g = 'Synapse'" \
         --shadow-exclude "class_g = 'Ulauncher'" \
-        --shadow-exclude "class_g ?= 'Notify-osd'" \
-        --shadow-exclude "class_g ?= 'Cairo-dock'" \
-        --shadow-exclude "class_g = 'Cairo-clock'" \
         --shadow-exclude "_GTK_FRAME_EXTENTS@:c" \
         --shadow-exclude "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" \
         --shadow-exclude "_NET_WM_STATE@:32a *= '_NET_WM_STATE_MAXIMIZED'"
