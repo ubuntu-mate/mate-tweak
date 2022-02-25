@@ -11,4 +11,5 @@ UNAME="$(id -un)"
 killall --user "${UNAME}" "${WM}" 2>/dev/null
 
 # Replace window manager and force compositing off.
+gsettings set org.mate.Marco.general compositing-manager false
 ${WM} --no-composite --replace &
