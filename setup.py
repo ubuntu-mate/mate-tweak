@@ -55,7 +55,9 @@ def datafilelist(installbase, sourcebase):
 data_files = [
     ('{prefix}/share/man/man1'.format(prefix=sys.prefix), glob('data/*.1')),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/mate-tweak.desktop',]),
-    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-picom.desktop',]),
+    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-xrender.desktop',]),
+    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-glx.desktop',]),
+    ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-xr_glx_hybrid.desktop',]),
     ('{prefix}/share/applications'.format(prefix=sys.prefix), ['data/marco-no-composite.desktop',]),
     ('{prefix}/share/polkit-1/actions'.format(prefix=sys.prefix), ['data/org.mate.mate-tweak.policy',]),
     ('{prefix}/lib/mate-tweak'.format(prefix=sys.prefix), ['data/mate-tweak.ui', 'util/mate-tweak-helper']),
@@ -78,6 +80,6 @@ setup(
     package_dir = {'': '.'},
     data_files = data_files,
     install_requires = [ 'setuptools', ],
-    scripts = ['mate-tweak', 'marco-picom', 'marco-no-composite'],
+    scripts = ['mate-tweak', 'marco-xrender', 'marco-glx', 'marco-xr_glx_hybrid', 'marco-no-composite', 'marco-compton'],
     cmdclass = cmdclass,
 )
