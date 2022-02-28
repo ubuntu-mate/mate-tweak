@@ -320,7 +320,7 @@ class MateTweak:
             self.current_wm = 'marco'
             composite_enabled = self.get_bool('org.mate.Marco.general', None, 'compositing-manager')
             if self.process_running('picom'):
-                self.current_wm += '-picom'
+                self.current_wm = self.get_string('org.mate.session.required-components', None, 'windowmanager')
             elif not composite_enabled:
                 self.current_wm += '-no-composite'
         elif ('Compiz' in current_wm):
@@ -343,7 +343,7 @@ class MateTweak:
         if self.find_on_path('ccsm'):
             self.ccsm_capable = True
 
-        if self.find_on_path('marco-picom') and self.find_on_path('marco') and self.find_on_path('picom'):
+        if self.find_on_path('marco-wrapper') and self.find_on_path('marco') and self.find_on_path('picom'):
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.marco_picom_capable = True
 
@@ -374,6 +374,7 @@ class MateTweak:
             return
 
         if new_wm == 'marco':
+            self.set_bool('org.mate.Marco.general', None, 'compositing-manager', True)
             wm_params = '--composite'
         elif new_wm == 'compiz':
             wm_params = '--keep-desktop-hints'
@@ -412,13 +413,15 @@ class MateTweak:
                 # FIXME! Don't assume 'metacity' is 1
                 self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
 
-        # If switching away from a picom composited window manager kill picom.
+        # If switching away from a Compiz or picom composited window manager kill the compositor
         if 'compiz' in self.current_wm:
             self.kill_process('compiz')
-        elif 'picom' in self.current_wm:
+        elif ('xrender' in self.current_wm) or ('glx' in self.current_wm) or ('xr_glx_hybrid' in self.current_wm):
+            self.kill_process('compton')
             self.kill_process('picom')
 
-        if ('picom' in new_wm) or ('no-composite' in new_wm):
+        if ('xrender' in new_wm) or ('glx' in new_wm) or ('xr_glx_hybrid' in new_wm) or ('no-composite' in new_wm):
+            self.set_bool('org.mate.Marco.general', None, 'compositing-manager', False)
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
             wm_pid = subprocess.Popen([new_wm, '--replace', wm_params], stdout=DEVNULL, stderr=DEVNULL).pid
@@ -1117,9 +1120,11 @@ class MateTweak:
         if self.marco_no_composite_capable:
             wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
         if self.marco_capable:
-            wms.append([_("Marco (Xpresent)"), 'marco'])
+            wms.append([_("Marco (Built-In: Xpresent)"), 'marco'])
         if self.marco_picom_capable and not self.software_rasterizer:
-            wms.append([_("Marco (OpenGL)"), 'marco-picom'])
+            wms.append([_("Marco (picom: Xrender)"), 'marco-xrender'])
+            wms.append([_("Marco (picom: GLX)"), 'marco-glx'])
+            wms.append([_("Marco (picom: Hybrid)"), 'marco-xr_glx_hybrid'])
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
