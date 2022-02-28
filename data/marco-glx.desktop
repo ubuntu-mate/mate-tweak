@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Marco (picom: Xrender)
-Exec=marco-xrender
+Name=Marco (picom: GLX)
+Exec=marco-glx
 NoDisplay=true
 # name of loadable control center module
 X-MATE-WMSettingsModule=marco

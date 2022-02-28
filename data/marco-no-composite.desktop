@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Marco
+Name=Marco (No Compositor)
 Exec=marco --no-composite
 NoDisplay=true
 # name of loadable control center module
