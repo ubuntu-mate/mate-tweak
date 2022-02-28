@@ -65,9 +65,9 @@ data_files = [
 data_files.extend(datafilelist('{prefix}/share/locale'.format(prefix=sys.prefix), 'build/mo'))
 
 cmdclass ={
-            "build" : DistUtilsExtra.command.build_extra.build_extra,
-            "build_i18n" :  DistUtilsExtra.command.build_i18n.build_i18n,
-            "clean": DistUtilsExtra.command.clean_i18n.clean_i18n,
+    "build" : DistUtilsExtra.command.build_extra.build_extra,
+    "build_i18n" :  DistUtilsExtra.command.build_i18n.build_i18n,
+    "clean": DistUtilsExtra.command.clean_i18n.clean_i18n,
 }
 
 setup(
