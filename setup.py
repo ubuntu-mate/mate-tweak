@@ -80,6 +80,6 @@ setup(
     package_dir = {'': '.'},
     data_files = data_files,
     install_requires = [ 'setuptools', ],
-    scripts = ['mate-tweak', 'marco-xrender', 'marco-glx', 'marco-xr_glx_hybrid', 'marco-no-composite', 'marco-compton'],
+    scripts = ['mate-tweak', 'marco-xrender', 'marco-glx', 'marco-xr_glx_hybrid', 'marco-no-composite', 'marco-compton', 'marco-picom'],
     cmdclass = cmdclass,
 )
