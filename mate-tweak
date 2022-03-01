@@ -413,14 +413,19 @@ class MateTweak:
                 # FIXME! Don't assume 'metacity' is 1
                 self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
 
-        # If switching away from a Compiz or picom composited window manager kill the compositor
+        # If switching away from a Compiz or Marco window manager kill the window manager
         if 'compiz' in self.current_wm:
             self.kill_process('compiz')
-        elif ('xrender' in self.current_wm) or ('glx' in self.current_wm) or ('xr_glx_hybrid' in self.current_wm):
+        elif 'marco' in self.current_wm:
+            self.kill_process('marco')
+
+        # If switching away from a picom/compton compositor then kill the compositor
+        if ('xrender' in self.current_wm) or ('glx' in self.current_wm) or ('xr_glx_hybrid' in self.current_wm)  or ('compton' in self.current_wm):
             self.kill_process('compton')
             self.kill_process('picom')
 
         if ('xrender' in new_wm) or ('glx' in new_wm) or ('xr_glx_hybrid' in new_wm) or ('no-composite' in new_wm):
+            # Disable Marco's compositor when using a 3rd party compositor
             self.set_bool('org.mate.Marco.general', None, 'compositing-manager', False)
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
         else:
