@@ -343,7 +343,7 @@ class MateTweak:
         if self.find_on_path('ccsm'):
             self.ccsm_capable = True
 
-        if self.find_on_path('marco-wrapper') and self.find_on_path('marco') and self.find_on_path('picom'):
+        if self.find_on_path('marco') and self.find_on_path('picom'):
             if not self.software_rasterizer and self.texture_from_pixmap:
                 self.marco_picom_capable = True
 
@@ -1122,9 +1122,12 @@ class MateTweak:
         if self.marco_capable:
             wms.append([_("Marco (Built-In: Xpresent)"), 'marco'])
         if self.marco_picom_capable and not self.software_rasterizer:
-            wms.append([_("Marco (picom: Xrender)"), 'marco-xrender'])
-            wms.append([_("Marco (picom: GLX)"), 'marco-glx'])
-            wms.append([_("Marco (picom: Hybrid)"), 'marco-xr_glx_hybrid'])
+            if self.find_on_path('marco-xrender'):
+                wms.append([_("Marco (picom: Xrender)"), 'marco-xrender'])
+            if self.find_on_path('marco-glx'):
+                wms.append([_("Marco (picom: GLX)"), 'marco-glx'])
+            if self.find_on_path('marco-xr_glx_hybrid'):
+                wms.append([_("Marco (picom: Hybrid)"), 'marco-xr_glx_hybrid'])
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
