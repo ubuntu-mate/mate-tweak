@@ -1120,7 +1120,17 @@ class MateTweak:
         if self.marco_no_composite_capable:
             wms.append([_("Marco (No compositor)"), 'marco-no-composite'])
         if self.marco_capable:
-            wms.append([_("Marco (Built-In: Xpresent)"), 'marco'])
+            # Use 'ldd' to determine which Marco compositor is enabled.
+            compositor = "Xrender"
+            try:
+                ldd = subprocess.Popen('ldd /usr/bin/marco', shell=True, stdout=subprocess.PIPE)
+                for line in ldd.stdout:
+                    if "present" in str(line):
+                        compositor = "Xpresent"
+                        break
+            except:
+                pass
+            wms.append([_("Marco (built-in: "+compositor+")"), 'marco'])
         if self.marco_picom_capable and not self.software_rasterizer:
             if self.find_on_path('marco-xrender'):
                 wms.append([_("Marco (picom: Xrender)"), 'marco-xrender'])
