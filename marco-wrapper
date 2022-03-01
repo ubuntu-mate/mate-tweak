@@ -58,10 +58,10 @@ if [ -n "${COMP}" ]; then
             --mark-wmwin-focused \
             --mark-ovredir-focused \
             --shadow \
-            --shadow-radius=24 \
-            --shadow-opacity=0.225 \
-            --shadow-offset-x=-24 \
-            --shadow-offset-y=-24 \
+            --shadow-radius=12 \
+            --shadow-opacity=0.125 \
+            --shadow-offset-x=-12 \
+            --shadow-offset-y=-12 \
             --fading \
             --fade-delta=8 \
             --no-fading-destroyed-argb \
