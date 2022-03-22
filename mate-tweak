@@ -790,10 +790,11 @@ class MateTweak:
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/icon-size', "'48'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/items-alignment', "'center'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/position', "'bottom'")
-                if mate_theme == 'Yaru-MATE-dark':
-                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Yaru-dark'")
-                elif mate_theme == 'Yaru-MATE-light':
-                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Yaru-light'")
+                if mate_theme.startswith('Yaru'):
+                    if mate_theme.endswith('-dark'):
+                        self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Yaru-dark'")
+                    else:
+                        self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Yaru-light'")
                 elif mate_theme in ['Ambiant-MATE', 'Ambiant-MATE-Dark', 'Radiant-MATE']:
                     self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Ubuntu-MATE'")
                 else:
@@ -805,10 +806,11 @@ class MateTweak:
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/icon-size', "'56'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/items-alignment', "'start'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/position', "'left'")
-                if mate_theme == 'Yaru-MATE-dark':
-                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Mutiny-dark'")
-                elif mate_theme == 'Yaru-MATE-light':
-                    self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Mutiny-light'")
+                if mate_theme.startswith('Yaru'):
+                    if mate_theme.endswith('-dark'):
+                        self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Mutiny-dark'")
+                    else:
+                        self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Mutiny-light'")
                 else:
                     self.set_dconf_value('/net/launchpad/plank/docks/dock1/theme', "'Matte'")
                 self.set_dconf_value('/net/launchpad/plank/docks/dock1/zoom-enabled', "false")
