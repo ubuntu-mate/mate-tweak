@@ -1130,7 +1130,7 @@ class MateTweak:
             try:
                 ldd = subprocess.Popen('ldd /usr/bin/marco', shell=True, stdout=subprocess.PIPE)
                 for line in ldd.stdout:
-                    if "present" in str(line):
+                    if "libXpresent" in str(line):
                         compositor = "Xpresent"
                         break
             except:
