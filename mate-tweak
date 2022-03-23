@@ -502,9 +502,9 @@ class MateTweak:
                 pid = subprocess.Popen([self.current_wm, '--replace'], stdout=DEVNULL, stderr=DEVNULL).pid
 
         # Launch the dock, if it is not already enabled.
-        if not self.dock_enabled:
+        if not self.process_running(self.dock):
             pid = subprocess.Popen([self.dock], stdout=DEVNULL, stderr=DEVNULL).pid
-            self.dock_enabled = True
+        self.dock_enabled = True
 
     def disable_dock(self):
         if 'compiz' in self.current_wm:
