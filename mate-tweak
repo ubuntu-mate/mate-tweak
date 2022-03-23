@@ -694,6 +694,9 @@ class MateTweak:
         item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
 
         print('Switching to: ' + new_layout)
+        self.kill_process('mate-panel')
+        if self.dock and self.process_running(self.dock):
+            self.kill_process(self.dock)
 
         if not called_from_api:
             self.update_panel_layout_ui(new_layout)
@@ -780,6 +783,31 @@ class MateTweak:
             cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
             subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
 
+        # Determine if maximised windows should be undecorated
+        if self.maximus_available:
+            layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['netbook'])
+            custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting maximusdecoration', [])
+
+            # Prefer custom settings
+            if custom_settings.get('mate-maximus-undecorate') and custom_settings.get('mate-maximus-undecorate').upper() == 'TRUE':
+                self.maximus_undecorate()
+            elif custom_settings.get('mate-maximus-recorded') and custom_settings.get('mate-maximus-undecorate').upper() == 'FALSE':
+                self.maximus_decorate()
+            elif layout_name_is_special:
+                self.maximus_undecorate()
+            else:
+                self.maximus_decorate()
+
+        # Set the new layout
+        subprocess.call(['mate-panel', '--reset'], stdout=DEVNULL, stderr=DEVNULL)
+        subprocess.call(['mate-panel', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
+        self.reload_panel()
+
+        # Brisk Menu remains running.
+        # So if Brisk is not in the layout being switched to, kill it.
+        if not self.panel_layout_uses('BriskMenu', new_layout) and self.process_running('brisk-menu'):
+            self.kill_process('brisk-menu')
+
         # Determine if the dock should be enabled
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.dock')) and self.dock is not None:
             print('Found dock hint for ' + new_layout)
@@ -817,29 +845,6 @@ class MateTweak:
             self.enable_dock()
         else:
             self.disable_dock()
-
-        # Determine if maximised windows should be undecorated
-        if self.maximus_available:
-            layout_name_is_special = self.is_panel_layout_name_special(new_layout, ['netbook'])
-            custom_settings = self.get_panel_layout_section_settings(new_layout, 'Customsetting maximusdecoration', [])
-
-            # Prefer custom settings
-            if custom_settings.get('mate-maximus-undecorate') and custom_settings.get('mate-maximus-undecorate').upper() == 'TRUE':
-                self.maximus_undecorate()
-            elif custom_settings.get('mate-maximus-recorded') and custom_settings.get('mate-maximus-undecorate').upper() == 'FALSE':
-                self.maximus_decorate()
-            elif layout_name_is_special:
-                self.maximus_undecorate()
-            else:
-                self.maximus_decorate()
-
-        # Set the new layout
-        subprocess.call(['mate-panel', '--reset', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
-
-        # Brisk Menu remains running.
-        # So if Brisk is not in the layout being switched to, kill it.
-        if not self.panel_layout_uses('BriskMenu', new_layout) and self.process_running('brisk-menu'):
-            self.kill_process('brisk-menu')
 
         # Update the Dock checkbutton UI
         if not called_from_api:
