@@ -517,6 +517,17 @@ class MateTweak:
         self.kill_process(self.dock)
         self.dock_enabled = False
 
+    def enable_keyboard_led(self):
+        self.keyboard_led_enabled = True
+        self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', self.keyboard_led_enabled)
+        self.reload_settings_daemon()
+        time.sleep(1)
+        subprocess.call(['caja', '-q'], stdout=DEVNULL, stderr=DEVNULL)
+
+    def disable_keyboard_led(self):
+        self.keyboard_led_enabled = False
+        self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', self.keyboard_led_enabled)
+
     def enable_pulldown_terminal(self):
         if self.pulldown_terminal == 'tilda':
             self.create_autostart(self.pulldown_terminal + '.desktop', __TILDA__)
@@ -910,6 +921,13 @@ class MateTweak:
         else:
             self.disable_dock()
 
+    def toggle_keyboard_led(self, checkbutton):
+        if checkbutton.get_active():
+            if not self.keyboard_led_enabled:
+                self.enable_keyboard_led()
+        else:
+            self.disable_keyboard_led()
+
     def panel_layout_exists(self, panel_layout):
         return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
 
@@ -1035,6 +1053,9 @@ class MateTweak:
             index = int("%s" % treePath) #Hack to turn treePath into an int
             target = self.sidePages[index].notebook_index
             self.builder.get_object("main_notebook").set_current_page(target)
+
+    def check_keyboard_led_features(self):
+        self.keyboard_led_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
 
     def check_dock_features(self):
         # Order matters. Plank is preferred.
@@ -1436,6 +1457,7 @@ class MateTweak:
         self.multiarch = sysconfig.get_config_var('MULTIARCH')
         self.check_glx_features()
         self.check_dock_features()
+        self.check_keyboard_led_features()
         self.check_pulldown_terminal_features()
         self.check_hud_features()
         self.check_panel_features()
@@ -1577,7 +1599,7 @@ class MateTweak:
         self.builder.get_object("label_font").set_markup("<b>" + _("Fonts") + "</b>")
 
         self.builder.get_object("checkbutton_keyboard_led").set_label(_("Enable keyboard LED"))
-        self.builder.get_object("checkbutton_keyboard_led").set_tooltip_text(_("Show keyboard LED indicators in the notifcation tray"))
+        self.builder.get_object("checkbutton_keyboard_led").set_tooltip_text(_("Show keyboard LED indicators in the notifcation area"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_label(_("Enable pull-down terminal"))
         self.builder.get_object("checkbutton_pulldown_terminal").set_tooltip_text(_("When enabled press F12 to pull down terminal"))
         self.builder.get_object("checkbutton_dock").set_label(_("Enable Dock"))
@@ -1618,7 +1640,6 @@ class MateTweak:
         self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
         self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
         self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
-        self.init_checkbox("org.mate.peripherals-keyboard-xkb.general", "duplicate-leds", "checkbutton_keyboard_led")
 
         iconSizes = Gtk.ListStore(str, str)
         iconSizes.append([_("Small"), "small-toolbar"])
@@ -1666,6 +1687,10 @@ class MateTweak:
         self.builder.get_object("checkbutton_pulldown_terminal").set_active(self.pulldown_terminal_enabled)
         if not self.pulldown_terminal:
             self.builder.get_object('checkbutton_pulldown_terminal').props.sensitive = False
+
+        # Keyboard LED
+        self.builder.get_object("checkbutton_keyboard_led").connect("toggled", self.toggle_keyboard_led)
+        self.builder.get_object("checkbutton_keyboard_led").set_active(self.keyboard_led_enabled)
 
         # Dock
         self.builder.get_object("checkbutton_dock").connect("toggled", self.toggle_dock)
