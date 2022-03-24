@@ -520,9 +520,11 @@ class MateTweak:
     def enable_keyboard_led(self):
         self.keyboard_led_enabled = True
         self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', self.keyboard_led_enabled)
-        self.reload_settings_daemon()
-        time.sleep(1)
-        subprocess.call(['caja', '-q'], stdout=DEVNULL, stderr=DEVNULL)
+        # Disabled as restart the settings-daemon and Caja is invasive and unreliable
+        # - https://pad.lv/1728715
+        #self.reload_settings_daemon()
+        #time.sleep(1)
+        #subprocess.call(['caja', '-q'], stdout=DEVNULL, stderr=DEVNULL)
 
     def disable_keyboard_led(self):
         self.keyboard_led_enabled = False
