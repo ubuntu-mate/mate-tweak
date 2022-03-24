@@ -905,7 +905,8 @@ class MateTweak:
 
     def toggle_dock(self, checkbutton):
         if checkbutton.get_active():
-            self.enable_dock()
+            if not self.dock_enabled:
+                self.enable_dock()
         else:
             self.disable_dock()
 
