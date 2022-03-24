@@ -703,14 +703,16 @@ class MateTweak:
         return confirmed
 
     def replace_panel_layout(self, new_layout, called_from_api=False):
-        leds_enabled = self.get_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds')
         icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
         item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
 
         print('Switching to: ' + new_layout)
+        # Shutdown panel processes before switching
         self.kill_process('mate-panel')
         if self.dock and self.process_running(self.dock):
             self.kill_process(self.dock)
+        if self.keyboard_led_enabled:
+            self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
 
         if not called_from_api:
             self.update_panel_layout_ui(new_layout)
@@ -763,9 +765,6 @@ class MateTweak:
         if not called_from_api:
             self.update_window_controls()
 
-        if leds_enabled:
-            self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
-
         # Reset panel configuration to defaults.
         self.reset_dconf_path('/org/mate/panel/objects/')
         self.reset_dconf_path('/org/mate/panel/toplevels/')
@@ -815,6 +814,8 @@ class MateTweak:
         # Set the new layout
         subprocess.call(['mate-panel', '--reset'], stdout=DEVNULL, stderr=DEVNULL)
         subprocess.call(['mate-panel', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
+        if self.keyboard_led_enabled:
+            self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
         self.reload_panel()
 
         # Brisk Menu remains running.
@@ -872,10 +873,6 @@ class MateTweak:
                 self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/hsize', str(num_workspaces))
                 self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
                 print('Set ' + str(num_workspaces) + ' workspaces for ' + self.current_wm)
-
-        if leds_enabled:
-            time.sleep(1)
-            self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
 
         # Make sure the correct panel name is set
         if not called_from_api:
