@@ -664,6 +664,9 @@ class MateTweak:
     def reload_panel(self):
         pid = subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL).pid
 
+    def reload_settings_daemon(self):
+        pid = subprocess.Popen(['mate-settings-daemon', '--replace'], stdout=DEVNULL, stderr=DEVNULL).pid
+
     def confirm_dialog(self, title, text):
         dialog = Gtk.Dialog(title, None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
             (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
