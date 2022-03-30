@@ -710,7 +710,6 @@ class MateTweak:
 
         print('Switching to: ' + new_layout)
         # Shutdown panel processes before switching
-        self.kill_process('mate-panel')
         if self.dock and self.process_running(self.dock):
             self.kill_process(self.dock)
         if self.keyboard_led_enabled:
@@ -718,26 +717,6 @@ class MateTweak:
 
         if not called_from_api:
             self.update_panel_layout_ui(new_layout)
-
-        # Change Brisk Menu label-visible state when changing to/from Cupertino and Netbook.
-        if self.brisk_menu_available:
-            label_visible = self.get_bool('com.solus-project.brisk-menu', None, 'label-visible')
-            if (new_layout.startswith('eleven') or new_layout.startswith('netbook')):
-                self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', False)
-            # If we're switching from Cupertino or Netbook and Brisk Menu label-visible is disabled then enable it.
-            elif (self.current_layout.startswith('eleven') or self.current_layout.startswith('netbook')) and not label_visible:
-                self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
-
-        # Change Brisk Menu window-type when changing to/from Mutiny or Cupertino.
-        if self.brisk_menu_available and self.schema_has_key('com.solus-project.brisk-menu', 'window-type'):
-            if new_layout.startswith('mutiny') or new_layout.startswith('eleven'):
-                # If we're switching to Mutiny or Cupertino, and Brisk Menu change the window-type to dash.
-                # FIXME! Do not hardcode this.
-                self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 2)
-            elif self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven'):
-                # If we're switching from Mutiny or Cupertino, and Brisk Menu change the window-type to classic.
-                # FIXME! Do not hardcode this.
-                self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 1)
 
         # If we're switching to Cupertino move window
         # controls to the left and enable Global Menu.
@@ -767,10 +746,6 @@ class MateTweak:
         if not called_from_api:
             self.update_window_controls()
 
-        # Reset panel configuration to defaults.
-        self.reset_dconf_path('/org/mate/panel/objects/')
-        self.reset_dconf_path('/org/mate/panel/toplevels/')
-
         # Get the icon sizes now the new layout has been applied.
         new_icon_size = self.get_string('org.mate.panel.menubar', None, 'icon-size')
         new_item_icon_size = self.get_string('org.mate.panel.menubar', None, 'item-icon-size')
@@ -792,11 +767,50 @@ class MateTweak:
         else:
             self.enable_applets()
 
+        # Change Brisk Menu label-visible state when changing to/from Cupertino and Netbook.
+        if self.brisk_menu_available:
+            label_visible = self.get_bool('com.solus-project.brisk-menu', None, 'label-visible')
+            if (new_layout.startswith('eleven') or new_layout.startswith('netbook')):
+                self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', False)
+            # If we're switching from Cupertino or Netbook and Brisk Menu label-visible is disabled then enable it.
+            elif (self.current_layout.startswith('eleven') or self.current_layout.startswith('netbook')) and not label_visible:
+                self.set_bool('com.solus-project.brisk-menu', None, 'label-visible', True)
+
+        # Change Brisk Menu window-type when changing to/from Mutiny or Cupertino.
+        if self.brisk_menu_available and self.schema_has_key('com.solus-project.brisk-menu', 'window-type'):
+            current_window_type = self.get_enum('com.solus-project.brisk-menu', None, 'window-type')
+            if (new_layout.startswith('mutiny') or new_layout.startswith('eleven')) and (current_window_type != 2):
+                # If we're switching to Mutiny or Cupertino, and Brisk Menu change the window-type to dash.
+                self.kill_process('brisk-menu')
+                # FIXME! Do not hardcode this.
+                self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 2)
+            elif (self.current_layout.startswith('mutiny') or self.current_layout.startswith('eleven')) and (current_window_type != 1):
+                # If we're switching from Mutiny or Cupertino, and Brisk Menu change the window-type to classic.
+                self.kill_process('brisk-menu')
+                # FIXME! Do not hardcode this.
+                self.set_enum('com.solus-project.brisk-menu', None, 'window-type', 1)
+
         # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
+            # Reset panel configuration to defaults.
+            self.reset_dconf_path('/org/mate/panel/objects/')
+            self.reset_dconf_path('/org/mate/panel/toplevels/')
             print('Loading additional panel configuration for ' + new_layout)
             cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
             subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
+        else:
+            # Set the new layout
+            subprocess.call(['mate-panel', '--reset', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
+
+        # Brisk Menu remains running.
+        # So if Brisk is not in the layout being switched to, kill it.
+        if not self.panel_layout_uses('BriskMenu', new_layout) and self.process_running('brisk-menu'):
+            self.kill_process('brisk-menu')
+
+        self.reload_panel()
+
+        if self.keyboard_led_enabled:
+            self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', False)
 
         # Determine if maximised windows should be undecorated
         if self.maximus_available:
@@ -812,18 +826,6 @@ class MateTweak:
                 self.maximus_undecorate()
             else:
                 self.maximus_decorate()
-
-        # Set the new layout
-        subprocess.call(['mate-panel', '--reset'], stdout=DEVNULL, stderr=DEVNULL)
-        subprocess.call(['mate-panel', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
-        if self.keyboard_led_enabled:
-            self.set_bool('org.mate.peripherals-keyboard-xkb.general', None, 'duplicate-leds', True)
-        self.reload_panel()
-
-        # Brisk Menu remains running.
-        # So if Brisk is not in the layout being switched to, kill it.
-        if not self.panel_layout_uses('BriskMenu', new_layout) and self.process_running('brisk-menu'):
-            self.kill_process('brisk-menu')
 
         # Determine if the dock should be enabled
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.dock')) and self.dock is not None:
