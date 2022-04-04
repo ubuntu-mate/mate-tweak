@@ -267,7 +267,7 @@ class MateTweak:
                 if name == proc['name'] and uid == proc['uids'].real:
                     try:
                         target = psutil.Process(proc['pid'])
-                        target.kill()
+                        target.terminate()
                     except psutil.NoSuchProcess:
                         pass
 
@@ -675,7 +675,7 @@ class MateTweak:
             self.builder.get_object('button_delete_panel').props.sensitive = False
 
     def reload_panel(self):
-        pid = subprocess.Popen(['mate-panel', '--replace'], stdout=DEVNULL, stderr=DEVNULL).pid
+        pid = subprocess.Popen(['mate-panel', '--replace'], shell=True, stdout=DEVNULL, stderr=DEVNULL).pid
 
     def reload_settings_daemon(self):
         pid = subprocess.Popen(['mate-settings-daemon', '--replace'], stdout=DEVNULL, stderr=DEVNULL).pid
