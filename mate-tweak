@@ -107,6 +107,8 @@ class SidePage:
 class MateTweak:
     system_installed_panel_layouts = []
 
+    mate_basedir = "/usr"
+
     def on_checkbox_toggled(self, widget, schema_id, key):
         if (key == "reduced-resources"):
             if ('marco' in self.current_wm):
@@ -447,7 +449,7 @@ class MateTweak:
         if self.hud_available and not self.process_running('mate-hud'):
             if self.schema_has_key('org.mate.hud', 'enabled'):
                 self.set_bool('org.mate.hud', None, 'enabled', True)
-            pid = subprocess.Popen(['/usr/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL).pid
+            pid = subprocess.Popen([self.mate_basedir+'/lib/mate-hud/mate-hud'], stdout=DEVNULL, stderr=DEVNULL).pid
             self.hud_enabled = True
 
     def disable_hud(self):
@@ -555,7 +557,7 @@ class MateTweak:
         """
         self.kill_process('mate-volume-control-applet')
         self.remove_autostart('mate-volume-control-applet.desktop')
-        if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
+        if os.path.exists(self.mate_basedir+'/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'never')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', False)
 
@@ -571,7 +573,7 @@ class MateTweak:
         pid = subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
         self.remove_autostart('mate-volume-control-applet.desktop')
         self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
-        if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
+        if os.path.exists(self.mate_basedir+'/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', True)
 
@@ -796,7 +798,7 @@ class MateTweak:
             self.reset_dconf_path('/org/mate/panel/objects/')
             self.reset_dconf_path('/org/mate/panel/toplevels/')
             print('Loading additional panel configuration for ' + new_layout)
-            cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
+            cmd = 'dconf load /org/mate/panel/ < '+self.mate_basedir+'/share/mate-panel/layouts/' + new_layout + '.panel'
             subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
         else:
             # Set the new layout
@@ -930,7 +932,7 @@ class MateTweak:
             self.disable_keyboard_led()
 
     def panel_layout_exists(self, panel_layout):
-        return os.path.exists('/usr/share/mate-panel/layouts/' + panel_layout + '.layout')
+        return os.path.exists(self.mate_basedir+'/share/mate-panel/layouts/' + panel_layout + '.layout')
 
     def check_glx_features(self):
         if self.find_on_path('glxinfo'):
@@ -1085,7 +1087,7 @@ class MateTweak:
             self.pulldown_terminal_enabled = False
 
     def check_hud_features(self):
-        if os.path.exists('/usr/lib/mate-hud/mate-hud'):
+        if os.path.exists(self.mate_basedir+'/lib/mate-hud/mate-hud'):
             self.hud_available = True
             if self.schema_has_key('org.mate.hud', 'enabled'):
                 self.hud_enabled = self.get_bool('org.mate.hud', None, 'enabled')
@@ -1107,33 +1109,35 @@ class MateTweak:
         self.brisk_menu_available = False
         self.appmenu_applet_available = False
 
-        if os.path.exists('/usr/libexec/ayatana-indicator-application/ayatana-indicator-application-service') and \
-            os.path.exists('/usr/share/mate-panel/applets/org.mate.applets.Indicator.mate-panel-applet'):
+        if os.path.exists(self.mate_basedir+'/libexec/ayatana-indicator-application/ayatana-indicator-application-service') and \
+            os.path.exists(self.mate_basedir+'/share/mate-panel/applets/org.mate.applets.Indicator.mate-panel-applet'):
                 self.indicators_available = True
 
+        # hard-coded path because we can only expect this to exist on mageia
         if os.path.exists('/usr/share/applications/mageia-drakconf.desktop'):
             self.mageia_cc_available = True
 
-        if os.path.exists('/usr/lib/mate-applets/mate-dock-applet/dock.py'):
+        if os.path.exists(self.mate_basedir+'/lib/mate-applets/mate-dock-applet/dock.py'):
             self.mate_dock_available = True
 
-        if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
+        if os.path.exists(self.mate_basedir+'/lib/mate-menu/mate-menu.py'):
             self.mate_menu_available = True
 
-        if os.path.exists('/usr/lib/' + self.multiarch + '/brisk-menu/brisk-menu') or \
-            os.path.exists('/usr/lib/brisk-menu/brisk-menu') or \
-             os.path.exists('/usr/libexec/brisk-menu'):
-             if os.path.exists('/usr/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
+        if os.path.exists(self.mate_basedir+'/lib/' + self.multiarch + '/brisk-menu/brisk-menu') or \
+            os.path.exists(self.mate_basedir+'/lib/brisk-menu/brisk-menu') or \
+             os.path.exists(self.mate_basedir+'/libexec/brisk-menu'):
+             if os.path.exists(self.mate_basedir+'/share/mate-panel/applets/com.solus_project.brisk.BriskMenu.mate-panel-applet'):
               self.brisk_menu_available = True
 
-        if os.path.exists('/usr/lib/' + self.multiarch + '/mate-panel/libappmenu-mate.so') and \
-            os.path.exists('/usr/share/mate-panel/applets/org.vala-panel.appmenu.mate-panel-applet'):
+        if os.path.exists(self.mate_basedir+'/lib/' + self.multiarch + '/mate-panel/libappmenu-mate.so') and \
+            os.path.exists(self.mate_basedir+'/share/mate-panel/applets/org.vala-panel.appmenu.mate-panel-applet'):
             self.appmenu_applet_available = True
 
-        if os.path.exists('/usr/bin/mate-maximus') and \
-           os.path.exists('/usr/lib/mate-netbook/mate-window-picker-applet'):
+        if os.path.exists(self.mate_basedir+'/bin/mate-maximus') and \
+           os.path.exists(self.mate_basedir+'/lib/mate-netbook/mate-window-picker-applet'):
             self.maximus_available = True
 
+        # hard-coded path because we can only expect this to exist on Mint
         if os.path.exists('/usr/lib/linuxmint/mintMenu/mintMenu.py'):
             self.mint_menu_available = True
 
@@ -1161,7 +1165,7 @@ class MateTweak:
             # Use 'ldd' to determine which Marco compositor is enabled.
             compositor = "Xrender"
             try:
-                ldd = subprocess.Popen('ldd /usr/bin/marco', shell=True, stdout=subprocess.PIPE)
+                ldd = subprocess.Popen('ldd '+self.mate_basedir+'/bin/marco', shell=True, stdout=subprocess.PIPE)
                 for line in ldd.stdout:
                     if "libXpresent" in str(line):
                         compositor = "Xpresent"
@@ -1305,7 +1309,7 @@ class MateTweak:
             self.system_installed_panel_layouts.append(item_code_name)
 
     def get_custom_panel_list_entry(self, layout_full_name):
-        layout_code_name = layout_full_name.replace('.layout','').replace('/usr/share/mate-panel/layouts/', '')
+        layout_code_name = layout_full_name.replace('.layout','').replace(self.mate_basedir+'/share/mate-panel/layouts/', '')
         layout_display_name = layout_code_name
 
         custom_layout_prefix = self.get_custom_layout_file_prefix(layout_code_name)
@@ -1465,6 +1469,17 @@ class MateTweak:
         self.check_wm_features()
         self.check_appmenu()
         self.previous_wm = self.current_wm
+
+        # Check for MATE base dir
+        mate_session_path = shutil.which("mate-session")
+        if mate_session_path and mate_session_path.endswith("/bin/mate-session"):
+            # Naively scrub "/bin/mate-session" from end of path
+            self.mate_basedir = mate_session_path[:-17]
+            print("MATE found in", self.mate_basedir)
+        else:
+            # Maybe mate-session isn't installed or not in $PATH for some reason,
+            # let's fall back to /usr (already set in self.mate_basedir)
+            print("Falling back to default MATE base directory path")
 
         # Load the Glade UI file
         self.builder = Gtk.Builder()
