@@ -1100,6 +1100,7 @@ class MateTweak:
         self.indicators_available = False
         self.mageia_cc_available = False
         self.mate_dock_available = False
+        self.window_buttons_applet_available = False
         self.mate_menu_available = False
         self.maximus_available = False
         self.mint_menu_available = False
@@ -1116,6 +1117,9 @@ class MateTweak:
 
         if os.path.exists('/usr/lib/mate-applets/mate-dock-applet/dock.py'):
             self.mate_dock_available = True
+
+        if os.path.exists('/usr/lib/mate-applets/mate-window-applets/window-buttons/window-buttons-applet'):
+            self.window_buttons_applet_available = True
 
         if os.path.exists('/usr/lib/mate-menu/mate-menu.py'):
             self.mate_menu_available = True
@@ -1252,11 +1256,13 @@ class MateTweak:
         if self.panel_layout_exists('netbook') and \
            self.maximus_available and \
            self.indicators_available and \
-           self.brisk_menu_available:
+           self.brisk_menu_available and \
+           self.window_buttons_applet_available:
             self.add_to_panel_list(panels, "Netbook", "netbook")
         elif self.panel_layout_exists('netbook-no-indicators') and \
            self.maximus_available and \
-           not self.indicators_available:
+           not self.indicators_available and \
+           self.window_buttons_applet_available:
             self.add_to_panel_list(panels, "Netbook", "netbook-no-indicators")
 
         if self.panel_layout_exists('opensuse') and \
