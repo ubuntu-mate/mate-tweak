@@ -420,11 +420,11 @@ class MateTweak:
             self.kill_process('marco')
 
         # If switching away from a picom/compton compositor then kill the compositor
-        if ('xrender' in self.current_wm) or ('glx' in self.current_wm) or ('xr_glx_hybrid' in self.current_wm)  or ('compton' in self.current_wm):
+        if ('xrender' in self.current_wm) or ('glx' in self.current_wm) or ('compton' in self.current_wm):
             self.kill_process('compton')
             self.kill_process('picom')
 
-        if ('xrender' in new_wm) or ('glx' in new_wm) or ('xr_glx_hybrid' in new_wm) or ('no-composite' in new_wm):
+        if ('xrender' in new_wm) or ('glx' in new_wm) or ('no-composite' in new_wm):
             # Disable Marco's compositor when using a 3rd party compositor
             self.set_bool('org.mate.Marco.general', None, 'compositing-manager', False)
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
@@ -1174,8 +1174,6 @@ class MateTweak:
                 wms.append([_("Marco (picom: Xrender)"), 'marco-xrender'])
             if self.find_on_path('marco-glx'):
                 wms.append([_("Marco (picom: GLX)"), 'marco-glx'])
-            if self.find_on_path('marco-xr_glx_hybrid'):
-                wms.append([_("Marco (picom: Hybrid)"), 'marco-xr_glx_hybrid'])
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 

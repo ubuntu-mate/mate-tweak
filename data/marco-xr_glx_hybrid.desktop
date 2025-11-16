@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Marco (picom: Hybrid)
+Name=Marco (picom: Hybrid) (it is outdated ; now just a migration to default)
 Exec=marco-xr_glx_hybrid
 NoDisplay=true
 # name of loadable control center module

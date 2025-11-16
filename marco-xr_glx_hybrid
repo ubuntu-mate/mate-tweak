@@ -1,1 +1,13 @@
-marco-wrapper
+#!/usr/bin/env bash
+#
+# Migrate to default windowmanager ; Because outdated
+#
+# This file "marco-xr_glx_hybrid" is deprecated (since picom v10), and just for migration.
+#  Please keep this file, to be backward-compatible
+#    (in case this window-manager was selected once by user ; Otherwise these users does not have any windowmanager ; currently there is no fallback to default in Mate)
+#  The Changes done by picom in version v10 (Nov 14, 2022) are:
+#   - the backend "xr_glx_hybrid" is marked as deprecated and "will eventually be removed".
+#   - a new parameter is required to start it ("--legacy-backends").
+
+gsettings reset org.mate.session.required-components windowmanager
+marco

@@ -17,7 +17,7 @@ case ${BACKEND} in
   no-composite)
     COMP=""
     ;;
-  xrender|glx|xr_glx_hybrid)
+  xrender|glx)
     COMP="picom"
     ;;
   *)
