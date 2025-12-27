@@ -37,6 +37,14 @@ msgstr ""
 msgid "Marco (No compositor)"
 msgstr ""
 
+#: ../mate-tweak:1218
+msgid "build-in"
+msgstr ""
+
+#: ../mate-tweak:1218
+msgid "default setting"
+msgstr ""
+
 #: ../mate-tweak:1220
 msgid "Marco (Adaptive compositor)"
 msgstr ""

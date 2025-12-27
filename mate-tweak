@@ -1168,7 +1168,7 @@ class MateTweak:
                         break
             except:
                 pass
-            wms.append([_("Marco (built-in: "+compositor+")"), 'marco'])
+            wms.append([_("Marco ")+"("+_("built-in")+": "+compositor+")"+' - MATE '+_("default setting"), 'marco'])
         if self.marco_picom_capable and not self.software_rasterizer:
             if self.find_on_path('marco-xrender'):
                 wms.append([_("Marco (picom: Xrender)"), 'marco-xrender'])
