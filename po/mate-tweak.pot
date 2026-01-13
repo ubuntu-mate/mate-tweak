@@ -55,6 +55,24 @@ msgid ""
 "cannot guarantee that changes made here will be effective."
 msgstr ""
 
+#: ../mate-tweak:
+msgid "Custom launcher not saved"
+msgstr ""
+
+#: ../mate-tweak:
+msgid "You have modified or created custom launchers in your panel. These will be not saved:"
+msgstr ""
+
+#: ../mate-tweak:
+msgid "You can do yourself a backup of these files:"
+msgstr ""
+
+#: ../mate-tweak:
+msgid ""
+"To restore it again: First restore these files, than load the "
+"saved panel. Or, alternative: load panel , restore files , re-login."
+msgstr ""
+
 #: ../mate-tweak:1529
 msgid "Desktop"
 msgstr ""

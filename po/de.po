@@ -64,6 +64,28 @@ msgstr ""
 "Fensterverwaltung. Deswegen können wir nicht garantieren, dass hier "
 "eingegebene Änderungen übernommen werden."
 
+#: ../mate-tweak:
+msgid "Custom launcher not saved"
+msgstr "Angepasste Starter nicht gesichert"
+
+#: ../mate-tweak:
+msgid "You have modified or created custom launchers in your panel. These will be not saved:"
+msgstr ""
+"Sie haben benutzerdefinierte oder angepassten Anwendungsstarter im Panel hinterlegt. "
+"Diese werden nicht gespeichert:"
+
+#: ../mate-tweak:
+msgid "You can do yourself a backup of these files:"
+msgstr "Sie können selber eine Datensicherung machen von diesen Dateien:"
+
+#: ../mate-tweak:
+msgid ""
+"To restore it again: First restore these files, than load the "
+"saved panel. Or, alternative: load panel , restore files , re-login."
+msgstr ""
+"Wiederherstellung: Erst diese Dateien wiederherstellen, dann das gespeicherte Panel laden. "
+" Oder alternativ: lade Panel, wiederherstellen dieser Dateien, erneut einloggen)"
+
 #: ../mate-tweak:1529
 msgid "Desktop"
 msgstr "Schreibtisch"

@@ -1394,7 +1394,76 @@ class MateTweak:
                         index += 1
                     self.combobox_panels_handler = widget.connect("changed", self.combo_fallback, 'org.mate.panel', 'default-layout')
 
+    def get_locale(self):
+        langs = GLib.get_language_names()
+        for l in langs:
+            # find first without encoding
+            if l.find ('.') == -1 :
+                return l
+        return None
+
+    def save_panel__info_laucher_not_save(self):
+        title = _('Custom launcher not saved')
+        labelText = _('You have modified or created custom launchers in your panel. These will be not saved:')
+        path = os.path.join(GLib.get_user_config_dir(), 'mate', 'panel2.d', 'default', 'launchers', '');
+        text = ""
+        counter = 0
+        lang = self.get_locale();
+        # read the .desktop files
+        for fileName in glob.glob(path + '*.desktop'):
+            if fileName.strip() == '':
+                continue
+            counter += 1
+            f = open(fileName,'r')
+            lines = f.readlines()
+            pName = ''
+            pName_loc = None
+            pExecUrl = ''
+            for line in lines:
+                if line[0:4].lower() == "exec":
+                    pExecUrl += " - "+line[5:].strip()
+                if line[0:3].lower() == "url":
+                    pExecUrl += " - "+line[4:].strip()
+                if line[0:4].lower() == "name":
+                    if line[0:5].lower() == "name=" :
+                        pName = line[5:].strip()
+                    elif lang != None and line[0:5 + len(lang)].lower() == "name[" + lang.lower():
+                        pName_loc = line[line.find('=')+1:].strip()
+            if pName_loc != None:
+                pName = pName_loc # is more up-to-date
+            text += "\n"+str(counter)+".) " + (fileName.replace(path,'').replace('.desktop','').strip()) + ' - ' + pName + pExecUrl
+        if(text==""):
+            return Gtk.ResponseType.OK
+        dialog = Gtk.Dialog(title, None)
+        dialog.set_destroy_with_parent(True)
+        dialog.set_modal(True)
+        dialog.add_buttons(
+            Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+            Gtk.STOCK_OK, Gtk.ResponseType.OK
+        )
+        dialog.set_default_size(250, 120)
+
+        label = Gtk.Label()
+        label.set_text(labelText)
+        label2 = Gtk.Label()
+        label2.set_markup(_('You can do yourself a backup of these files:') + ' <a href="file://' + path + '">' + path + '</a>\n' + _('To restore it again: First restore these files, than load the saved panel. Or, alternative: load panel , restore files , re-login.'))
+        scrolled_win = Gtk.ScrolledWindow()
+        textarea = Gtk.Label()
+        textarea.set_text(text.strip())
+        scrolled_win.add(textarea)
+        box = dialog.get_content_area()
+        box.set_border_width(8)
+        box.add(label)
+        box.add(scrolled_win)
+        box.add(label2)
+        dialog.show_all()
+        response = dialog.run()
+        dialog.destroy()
+        return response
+
     def save_panels(self, widget):
+        if self.save_panel__info_laucher_not_save() != Gtk.ResponseType.OK :
+            return None
         layoutname = self.ask_for_layout_name()
         if layoutname is not None:
             layoutnameprefix = self.get_custom_layout_file_prefix(self.current_layout)
