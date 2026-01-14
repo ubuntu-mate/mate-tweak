@@ -23,6 +23,9 @@ case ${BACKEND} in
   *)
     COMP="picom"
     BACKEND="xrender"
+    if [ -f "${HOME}/.config/picom.conf" ]; then
+        BACKEND=""
+    fi
     ;;
 esac
 
@@ -40,11 +43,18 @@ killall --user "${UNAME}" picom 2>/dev/null
 if [ -n "${COMP}" ]; then
     # Allow users to override the defaults by creating their own config
     # for this wrapper.
-    if [ -f "${HOME}/.config/${WM}-${COMP}.conf" ]; then
+    if [ ${COMP}=='picom' ] && \
+       [ ${BACKEND}=='' ]; then
+        ${COMP} \
+            --daemon \
+            --config "${HOME}/.config/picom.conf" \
+            ${VSYNC}
+    elif [ -f "${HOME}/.config/${WM}-${COMP}.conf" ]; then
         ${COMP} \
             --daemon \
             --config "${HOME}/.config/${WM}-${COMP}.conf"
     else
+        # You change a parameters?: Please also sync/copy your change to PICOM_CONF_PRESET (see below)
         ${COMP} \
             --daemon \
             --config /dev/null \
@@ -85,6 +95,41 @@ if [ -n "${COMP}" ]; then
             --shadow-exclude "_NET_WM_STATE@:32a *= '_NET_WM_STATE_MAXIMIZED'"
     fi
 fi
+
+## __PICOM_CONF_PRESET__START ## ((don't remove))
+## PLEASE keep it in SYNC with the parameters above
+## This part will be read by picom_conf_preset()
+## This are the default / start values for use of GUI picom-conf from Mate-Tweak
+## Here should every line should start with #
+# backend = "xrender"
+# detect-rounded-corners =true
+# detect-client-leader =true
+# detect-transient =true
+# detect-client-opacity =true
+# glx-no-stencil =true
+# no-use-damage =true
+# mark-wmwin-focused =true
+# mark-ovredir-focused =true
+# shadow =true
+# shadow-radius=12
+# shadow-opacity=0.125
+# shadow-offset-x=-12
+# shadow-offset-y=-12
+# fading =true
+# fade-delta=8
+# no-fading-destroyed-argb =true
+# xinerama-shadow-crop =true
+# use-ewmh-active-win =true
+# unredir-if-possible =true
+# unredir-if-possible-exclude = [ "class_g = 'Mate-screensaver'" ]
+# fade-exclude = [ "window_type *= 'menu'" ]
+# shadow-exclude = [ "window_type *= 'dnd'", "window_type *= 'dock'", "window_type *= 'notification'", "class_g = 'albert'", "class_g = 'Cairo-clock'", "class_g = 'Conky'", "class_g ?= 'Firefox' && argb", "class_g ?= 'Notify-osd'", "class_g = 'Synapse'", "class_g = 'Ulauncher'", "_GTK_FRAME_EXTENTS@:c", "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'", "_NET_WM_STATE@:32a *= '_NET_WM_STATE_MAXIMIZED'"];
+## the following lines are only added, to have bedder defaults in GUI picom-conf:
+# inactive-opacity = 1.0;
+# active-opacity = 1.0;
+# frame-opacity = 1.0;
+## __PICOM_CONF_PRESET__END ## ((don't remove))
+
 
 # Replace window manager and force compositing off.
 ${WM} --no-composite --replace &

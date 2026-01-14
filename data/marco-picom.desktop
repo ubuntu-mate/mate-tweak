@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Name=Marco (picom: custom settings possible via picom-conf )
+Exec=marco-picom
+NoDisplay=true
+# name of loadable control center module
+X-MATE-WMSettingsModule=marco
+# name we put on the WM spec check window
+X-MATE-WMName=Marco
+# back compat only
+X-MateWMSettingsLibrary=marco
+X-MATE-Bugzilla-Bugzilla=MATE
+X-MATE-Bugzilla-Product=marco
+X-MATE-Bugzilla-Component=general
+X-GNOME-Autostart-Phase=WindowManager
+X-MATE-Autostart-Phase=WindowManager
+X-GNOME-Provides=windowmanager
+X-MATE-Provides=windowmanager
+X-GNOME-Autostart-Notify=true
+X-MATE-Autostart-Notify=true

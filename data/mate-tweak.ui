@@ -12,10 +12,30 @@
     <property name="can_focus">False</property>
     <property name="stock">gtk-preferences</property>
   </object>
+  <object class="GtkImage" id="Preferences2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-preferences</property>
+  </object>
+  <object class="GtkImage" id="Help">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-help</property>
+  </object>
   <object class="GtkImage" id="Reset">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-revert-to-saved</property>
+  </object>
+  <object class="GtkImage" id="Reset2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-revert-to-saved</property>
+  </object>
+  <object class="GtkImage" id="Refresh">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-refresh</property>
   </object>
   <object class="GtkWindow" id="main_window">
     <property name="visible">True</property>
@@ -935,6 +955,125 @@
                                     <property name="tooltip_text" translatable="yes">Open Compiz Config Settings Manager</property>
                                     <property name="halign">start</property>
                                     <property name="image">Preferences</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">5</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButtonBox" id="button_box_picom_conf_pre">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="margin_top">8</property>
+                                <property name="layout_style">start</property>
+                                <child>
+                                  <object class="GtkCheckButton" id="checkbox_picom_conf__know_restore">
+                                    <property name="label" translatable="yes">I know how to restore my Desktop</property>
+                                    <property name="visible">True</property>
+                                    <property name="tooltip_text" translatable="yes">Warning: With wrong settings all windows are permanent invisible.
+Restore the default by: CTRL + ALT + F1 ; login ; pkill picom ; rm .config/picom.conf ; CTRL + ALT + F7.</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                                    <property name="halign">start</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="button_picom_conf_info">
+                                    <property name="label" translatable="yes">Info</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="tooltip_text" translatable="yes"></property>
+                                    <property name="halign">start</property>
+                                    <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                                    <property name="halign">start</property>
+                                    <property name="image">Help</property>
+                                    <signal name="clicked" handler="picom_conf_show_helpinfo" swapped="no"/>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">5</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButtonBox" id="button_box_picom_conf_main">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="margin_top">8</property>
+                                <property name="layout_style">start</property>
+                                <child>
+                                  <object class="GtkLabel" id="label_picom_conf_fileopen_link">
+                                    <property name="label" translatable="yes">Open Picom-Config file</property>
+                                    <property name="visible">True</property>
+                                    <property name="use_markup">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="tooltip_text" translatable="yes">Open the Picom-Conf Config file to edit manual</property>
+                                    <property name="halign">start</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="button_picom_conf_restart">
+                                    <property name="label" translatable="yes">Restart Picom</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="tooltip_text" translatable="yes">Restart and reload the config-file of picomg</property>
+                                    <property name="halign">start</property>
+                                    <property name="image">Refresh</property>
+                                    <signal name="clicked" handler="picom_conf_restart" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="button_picom_conf_preset">
+                                    <property name="label" translatable="yes">Reset to default preset</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="tooltip_text" translatable="yes">Reset the current Picom-Conf configuration to the default presets, which were shipped by Mate-Tweak</property>
+                                    <property name="halign">start</property>
+                                    <property name="image">Reset2</property>
+                                    <signal name="clicked" handler="picom_conf_preset" swapped="no"/>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="button_picom_conf_start">
+                                    <property name="label" translatable="yes">Open Picom-Conf</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="tooltip_text" translatable="yes">Open the Picom-Conf settings manager</property>
+                                    <property name="halign">start</property>
+                                    <property name="image">Preferences2</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>

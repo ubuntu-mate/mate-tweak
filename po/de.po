@@ -255,6 +255,26 @@ msgstr "HiDPI"
 msgid "Select a window scaling factor."
 msgstr "Faktor für die Fensterskalierung wählen."
 
+#: ../mate-tweak:
+msgid "Open the Picom-Conf Config file to edit manual"
+msgstr "Öffnen die Picom-Conf Konfigurations-Datei zum manuellen bearbeiten"
+
+#: ../mate-tweak:
+msgid "Restart Picom"
+msgstr "Neustart Picom"
+
+#: ../mate-tweak:
+msgid "Restart and reload the config-file of picom"
+msgstr "Neustart und neuladen der Konfiguration von picom"
+
+#: ../mate-tweak:
+msgid "Reset to default preset"
+msgstr "Zurücksetzen auf standard Voreinstellung"
+
+#: ../mate-tweak:
+msgid "Reset the current Picom-Conf configuration to the default presets, which were shipped by Mate-Tweak"
+msgstr "Zurücksetzen der aktuellen Picom-Conf Konfiguration auf standard Voreinstellung, die von Mate-Tweak mitgeliefert wurde."
+
 #: ../mate-tweak:1630
 msgid "Auto-detect"
 msgstr "Autoerkennung"
@@ -521,3 +541,7 @@ msgstr "Nur Text"
 
 #~ msgid "Traditional"
 #~ msgstr "traditionell"
+
+#: ../mate-tweak:
+msgid "Your custom Picom configuration has been reset to Mate-Tweak-preset."
+msgstr "Ihre custom Picom Konfiguration wurde zurückgesetzt auf Mate-Tweak Ausgangswert."

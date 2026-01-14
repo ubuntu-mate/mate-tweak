@@ -273,16 +273,22 @@ class MateTweak:
 
     def find_on_path(self, command):
         """Is command on the executable search path?"""
+        if self.get_the_path(command) !='':
+            return True
+        return False
+
+    def get_the_path(self, command):
+        """get the path of executable search"""
         if 'PATH' not in os.environ:
-            return False
+            return ''
         path = os.environ['PATH']
         for element in path.split(os.pathsep):
             if not element:
                 continue
             filename = os.path.join(element, command)
             if os.path.isfile(filename) and os.access(filename, os.X_OK):
-                return True
-        return False
+                return element
+        return ''
 
     def mkdir_p(self, path):
         try:
@@ -309,8 +315,9 @@ class MateTweak:
             os.remove(autostart_file)
 
         # Make sure any system desktop files are also removed
-        mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
-        subprocess.call(['pkexec', mate_tweak_helper, 'autostop', filename], stdout=DEVNULL, stderr=DEVNULL)
+        if os.path.exists(os.path.join('/', 'etc', 'xdg', 'autostart',filename)):
+            mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
+            subprocess.call(['pkexec', mate_tweak_helper, 'autostop', filename], stdout=DEVNULL, stderr=DEVNULL)
 
     def check_wm_features(self):
         screen = Gdk.Screen.get_default()
@@ -342,6 +349,9 @@ class MateTweak:
 
         if self.find_on_path('ccsm'):
             self.ccsm_capable = True
+
+        if self.find_on_path('picom-conf') and self.find_on_path('marco'):
+            self.picom_conf_capable = True
 
         if self.find_on_path('marco') and self.find_on_path('picom'):
             if not self.software_rasterizer and self.texture_from_pixmap:
@@ -392,6 +402,18 @@ class MateTweak:
                 self.set_dconf_value('/org/compiz/profiles/mate/plugins/core/vsize', '1')
             print('Set ' + str(num_workspaces) + ' workspaces for ' + new_wm)
 
+        # Prevent autostart picom
+        # Situations: in case ~/.config/picom.conf ; or in older versions (picom < v12 , before commit: May 23 05:53:43 2024)
+        if new_wm == 'marco-picom' or new_wm == 'marco-no-composite' or new_wm == 'compiz':
+            self.remove_autostart('picom.desktop') # Remove autostart picom
+            self.kill_process('picom') #maybe old autostart progress
+
+        # defaults for custom picom.conf
+        config_dir = GLib.get_user_config_dir()
+        if (new_wm == 'marco-picom') and not os.path.exists(os.path.join(config_dir, 'picom.conf')):
+            with open(os.path.join(config_dir, 'picom.conf'),'w') as f:
+                f.write(__PICOM_CONF_PRESET__)
+
         # Make sure Compiz use the same theme as Marco to
         # prevent theme/xcursor changes when switching themes.
         if (new_wm == 'compiz'):
@@ -420,11 +442,11 @@ class MateTweak:
             self.kill_process('marco')
 
         # If switching away from a picom/compton compositor then kill the compositor
-        if ('xrender' in self.current_wm) or ('glx' in self.current_wm) or ('xr_glx_hybrid' in self.current_wm)  or ('compton' in self.current_wm):
+        if ('xrender' in self.current_wm) or ('glx' in self.current_wm) or ('xr_glx_hybrid' in self.current_wm)  or ('compton' in self.current_wm) or ('picom' in self.current_wm):
             self.kill_process('compton')
             self.kill_process('picom')
 
-        if ('xrender' in new_wm) or ('glx' in new_wm) or ('xr_glx_hybrid' in new_wm) or ('no-composite' in new_wm):
+        if ('xrender' in new_wm) or ('glx' in new_wm) or ('xr_glx_hybrid' in new_wm) or ('no-composite' in new_wm) or ('picom' in self.current_wm):
             # Disable Marco's compositor when using a 3rd party compositor
             self.set_bool('org.mate.Marco.general', None, 'compositing-manager', False)
             subprocess.Popen([new_wm], stdout=DEVNULL, stderr=DEVNULL)
@@ -437,9 +459,10 @@ class MateTweak:
         self.current_wm = new_wm
         self.builder.get_object("label_unknown_wm").hide()
 
-        Notify.init(_('MATE Tweak'))
-        replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + self.current_wm),'dialog-information')
-        replace_windowmanager_notify.show()
+        if new_wm!=self.previous_wm:
+            Notify.init(_('MATE Tweak'))
+            replace_windowmanager_notify=Notify.Notification.new (_('Window Manager Replaced'),_('Your window manager has been replaced with ' + self.current_wm),'dialog-information')
+            replace_windowmanager_notify.show()
 
     def enable_hud(self):
         # Remove old-style autostart .desktop file for mate-hud
@@ -915,6 +938,15 @@ class MateTweak:
         else:
             self.disable_pulldown_terminal()
 
+    def toogle_wm_picom_conf_show_settings(self, checkbutton):
+        if checkbutton.get_active():
+            if not self.wm_picom_conf_show_settings:
+                self.wm_picom_conf_show_settings=True
+                self.builder.get_object('button_box_picom_conf_main').show()
+        else:
+            self.wm_picom_conf_show_settings=False
+            self.builder.get_object('button_box_picom_conf_main').hide()
+
     def toggle_dock(self, checkbutton):
         if checkbutton.get_active():
             if not self.dock_enabled:
@@ -978,6 +1010,22 @@ class MateTweak:
         else:
            self.builder.get_object('button_compiz_reset').hide()
            self.builder.get_object('button_ccsm').hide()
+
+        if self.current_wm == 'marco-picom':
+           if self.picom_conf_capable:
+               self.builder.get_object('button_box_picom_conf_pre').show()
+               self.builder.get_object('button_box_picom_conf_main').show()
+               if self.wm_picom_conf_show_settings:
+                   self.builder.get_object('button_box_picom_conf_main').show()
+               else:
+                   self.builder.get_object('button_box_picom_conf_main').hide()
+           else:
+               self.builder.get_object('button_box_picom_conf_pre').hide()
+               self.builder.get_object('button_box_picom_conf_main').hide()
+        else:
+           self.builder.get_object('button_box_picom_conf_pre').hide()
+           self.builder.get_object('button_box_picom_conf_main').hide()
+
 
     def additional_tweaks(self, schema, key, value):
         if schema == "org.mate.Marco.general" and key == "button-layout":
@@ -1176,6 +1224,8 @@ class MateTweak:
                 wms.append([_("Marco (picom: GLX)"), 'marco-glx'])
             if self.find_on_path('marco-xr_glx_hybrid'):
                 wms.append([_("Marco (picom: Hybrid)"), 'marco-xr_glx_hybrid'])
+            if self.marco_picom_capable:
+                wms.append([_("Marco (picom: custom settings, by picom-conf)"), 'marco-picom'])
         if self.compiz_capable:
             wms.append([_("Compiz (Advanced GPU accelerated desktop effects)"), 'compiz'])
 
@@ -1441,9 +1491,68 @@ class MateTweak:
         compiz_reset_notify=Notify.Notification.new (_('Compiz Reset'),_('Your Compiz configuration has been reset to factory defaults.'),'dialog-information')
         compiz_reset_notify.show()
 
+    def picom_conf_show_helpinfo(self, widget):
+        title=_("Warning")
+        text=_("Here you can can open GUI Tool Picom-conf or edit the config manual.")+"\n"+_("⚠ Warning: Both could be a little bit risky. Your Desktop can easy damaged permanent (e.g. all windows are nearly permanent invisible).\nSo, it is important for you to know, how to restore your Desktop. Please write this down (on paper) note:")+"\n\n"+_("Restore with this commands / keys:")+"\n"+_("CTRL + ALT + F1\n...do login as user...\npkill picom\nrm .config/picom.conf\nCTRL + ALT + F7\n")+"\n"+_("Only if you understand (and tested) these command you should continue.")
+        dialog = Gtk.Dialog(title, None)
+        dialog.set_destroy_with_parent(True)
+        dialog.set_modal(True)
+        dialog.add_buttons(
+            Gtk.STOCK_OK, Gtk.ResponseType.OK
+        )
+        dialog.set_default_size(500, 160)
+
+        label = Gtk.Label()
+        label.set_markup(text)
+
+        box = dialog.get_content_area()
+        box.set_border_width(12)
+        box.add(label)
+        dialog.show_all()
+
+        response = dialog.run()
+        dialog.destroy()
+
     def launch_ccsm(self, widget):
         # Launch Compiz Config Settings Manager
         pid = subprocess.Popen(['ccsm'], stdout=DEVNULL, stderr=DEVNULL).pid
+
+    def launch_picom_conf(self, widget):
+        # Launch picom-conf Config Settings Manager
+        pid = subprocess.Popen(['picom-conf'], stdout=DEVNULL, stderr=DEVNULL).pid
+
+    def picom_conf_restart(self, widget):
+        self.replace_windowmanager('marco-picom')
+
+    def picom_conf_preset(self, widget):
+        f = self.get_the_path('marco-picom')+'/marco-picom'
+        preset_read=''
+        beginn_found=False;
+        with open(f,'r') as txt:
+          for l in txt:
+              if len(l)<4:
+                  continue
+              l = l.strip()
+              if l[0:2]=='##':
+                  if l[2:].strip()[:26] == "__PICOM_CONF_PRESET__START":
+                      beginn_found=True
+                  if l[2:].strip()[:24] == "__PICOM_CONF_PRESET__END":
+                      break
+              if beginn_found:
+                  if l[0:2]=='##':
+                      continue
+                  if l[0]=='#':
+                      preset_read+=l[1:].strip() + "\n"
+        if f=='' or preset_read=='':
+            print("Error: Executable file marco-picom not found / or no readable content")
+        config_dir = GLib.get_user_config_dir()
+        with open(os.path.join(config_dir, 'picom.conf'),'w') as f:
+            f.write(preset_read)
+        self.replace_windowmanager('marco-picom')
+        Notify.init(_('MATE Tweak'))
+        if len(preset_read)>0:
+            compiz_reset_notify=Notify.Notification.new (_('Picom Reset'),_('Your custom Picom configuration has been reset to Mate-Tweak-preset.'),'dialog-information')
+            compiz_reset_notify.show()
 
     def launch_fonts(self, widget):
         # Launch Fonts Appearance Preferences
@@ -1465,6 +1574,7 @@ class MateTweak:
         self.check_wm_features()
         self.check_appmenu()
         self.previous_wm = self.current_wm
+        self.wm_picom_conf_show_settings=False
 
         # Load the Glade UI file
         self.builder = Gtk.Builder()
@@ -1480,6 +1590,10 @@ class MateTweak:
         self.builder.get_object("button_delete_panel").connect("clicked", self.delete_panel)
         self.builder.get_object("button_compiz_reset").connect("clicked", self.compiz_reset)
         self.builder.get_object("button_ccsm").connect("clicked", self.launch_ccsm)
+        self.builder.get_object("button_picom_conf_info").connect("clicked", self.picom_conf_show_helpinfo)
+        self.builder.get_object("button_picom_conf_start").connect("clicked", self.launch_picom_conf)
+        self.builder.get_object("button_picom_conf_restart").connect("clicked", self.picom_conf_restart)
+        self.builder.get_object("button_picom_conf_preset").connect("clicked", self.picom_conf_preset)
         self.builder.get_object("button_fonts").connect("clicked", self.launch_fonts)
 
         side_desktop_options = SidePage(0, _("Desktop"), "user-desktop")
@@ -1518,6 +1632,10 @@ class MateTweak:
         if not self.current_wm == "compiz":
             self.builder.get_object('button_compiz_reset').hide()
             self.builder.get_object('button_ccsm').hide()
+
+        if not self.current_wm == "picom":
+            self.builder.get_object('button_box_picom_conf_pre').hide()
+            self.builder.get_object('button_box_picom_conf_main').hide()
 
         if not self.maximus_available:
             self.builder.get_object('checkbox_undecorate').props.sensitive = False
@@ -1578,6 +1696,17 @@ class MateTweak:
         self.builder.get_object("button_ccsm").set_tooltip_text(_("Open the Compiz configuration and settings manager"))
         self.builder.get_object("button_compiz_reset").set_label(_("Reset Compiz"))
         self.builder.get_object("button_compiz_reset").set_tooltip_text(_("Reset the current Compiz configuration to factory defaults"))
+        self.builder.get_object("checkbox_picom_conf__know_restore").set_label(_("I know how to restore my Desktop"))
+        self.builder.get_object("checkbox_picom_conf__know_restore").set_tooltip_text(_("Warning: With wrong settings all windows are permanent invisible.")+"\n"+_("Restore the default by: ")+_("CTRL + ALT + F1 ; login ; pkill picom ; rm .config/picom.conf ; CTRL + ALT + F7."))
+        self.builder.get_object("button_picom_conf_start").set_label(_("Open Picom-Conf"))
+        self.builder.get_object("button_picom_conf_start").set_tooltip_text(_("Open the Picom-Conf settings manager"))
+        home_dir = GLib.get_home_dir()
+        self.builder.get_object("label_picom_conf_fileopen_link").set_label("<a href=\"file://"+home_dir+"/.config/picom.conf\">"+_("Open Config file")+"</a>")
+        self.builder.get_object("label_picom_conf_fileopen_link").set_tooltip_text(_("Open the Picom-Conf Config file to edit manual"))
+        self.builder.get_object("button_picom_conf_restart").set_label(_("Restart Picom"))
+        self.builder.get_object("button_picom_conf_restart").set_tooltip_text(_("Restart and reload the config-file of picom"))
+        self.builder.get_object("button_picom_conf_preset").set_label(_("Reset to default preset"))
+        self.builder.get_object("button_picom_conf_preset").set_tooltip_text(_("Reset the current Picom-Conf configuration to the default presets, which were shipped by Mate-Tweak"))
 
         if self.schema_has_key('org.mate.interface', 'window-scaling-factor'):
             self.builder.get_object("label_hidpi").set_markup("<b>" + _("HiDPI") + "</b>")
@@ -1657,6 +1786,8 @@ class MateTweak:
         self.builder.get_object("caption_window_manager").set_markup("<small>" + _("Select a window manager.") + "</small>")
         self.init_combobox("org.mate.session.required-components", "windowmanager", "combobox_window_manager")
         self.update_windowmanager_widgets()
+
+        self.builder.get_object("checkbox_picom_conf__know_restore").connect("toggled", self.toogle_wm_picom_conf_show_settings)
 
         # Panel layouts
         self.make_list_of_panel_layouts()
