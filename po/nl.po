@@ -276,7 +276,7 @@ msgid "Enable keyboard LED"
 msgstr "Activeer toetsenbord-LED"
 
 #: ../mate-tweak:1647
-msgid "Show keyboard LED indicators in the notifcation tray"
+msgid "Show keyboard LED indicators in the notifcation area"
 msgstr "Toon LED-aanwijzers voor het toetsenbord in het meldingenvak"
 
 #: ../mate-tweak:1648
@@ -301,8 +301,8 @@ msgstr "HUD inschakelen"
 
 #: ../mate-tweak:1653
 msgid ""
-"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
-"search application menus."
+"When checked the Heads-Up Display (HUD) will be enabled. Press the "
+"configured key (defaults to Left Alt) to search application menus."
 msgstr "Wanneer aangevinkt zal de voorruitpresentatie (HUD) zijn ingeschakeld. Druk op de toetscombinatie Alt_L om toepassingsmenu's te zoeken."
 
 #: ../mate-tweak:1655

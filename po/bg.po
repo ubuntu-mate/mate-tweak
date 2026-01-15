@@ -283,7 +283,7 @@ msgid "Enable keyboard LED"
 msgstr "Разрешаване на светодиодите на клавиатурата"
 
 #: ../mate-tweak:1647
-msgid "Show keyboard LED indicators in the notifcation tray"
+msgid "Show keyboard LED indicators in the notifcation area"
 msgstr "Показване на диодната индикация на клавиатурата в областта за известия"
 
 #: ../mate-tweak:1648
@@ -310,8 +310,8 @@ msgstr "Включване на екранните елементи"
 
 #: ../mate-tweak:1653
 msgid ""
-"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
-"search application menus."
+"When checked the Heads-Up Display (HUD) will be enabled. Press the "
+"configured key (defaults to Left Alt) to search application menus."
 msgstr ""
 "Ако е отметнато, екранните елементи ще бъдат включено. Натиснете Alt+L, за "
 "да потърсите менютата на приложение."

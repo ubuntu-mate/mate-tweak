@@ -280,7 +280,7 @@ msgid "Enable keyboard LED"
 msgstr "Įjungti klaviatūros šviesos diodus"
 
 #: ../mate-tweak:1647
-msgid "Show keyboard LED indicators in the notifcation tray"
+msgid "Show keyboard LED indicators in the notifcation area"
 msgstr "Rodyti pranešimų dėkle klaviatūros šviesos diodų indikatorius"
 
 #: ../mate-tweak:1648
@@ -306,8 +306,8 @@ msgstr "Įjungti HUD"
 
 #: ../mate-tweak:1653
 msgid ""
-"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
-"search application menus."
+"When checked the Heads-Up Display (HUD) will be enabled. Press the "
+"configured key (defaults to Left Alt) to search application menus."
 msgstr ""
 "Pažymėjus, bus įjungtas vadovaujantis rodinys (angl. Heads-Up Display "
 "(HUD)). Paspauskite Alt_L, norėdami atlikti paiešką programos meniu."

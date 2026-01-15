@@ -278,7 +278,7 @@ msgid "Enable keyboard LED"
 msgstr "Zapnout LED diody klávesnice"
 
 #: ../mate-tweak:1647
-msgid "Show keyboard LED indicators in the notifcation tray"
+msgid "Show keyboard LED indicators in the notifcation area"
 msgstr "Zobrazí indikátory LED klávesnice v oznamovací liště"
 
 #: ../mate-tweak:1648
@@ -303,8 +303,8 @@ msgstr "Povolit HUD"
 
 #: ../mate-tweak:1653
 msgid ""
-"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
-"search application menus."
+"When checked the Heads-Up Display (HUD) will be enabled. Press the "
+"configured key (defaults to Left Alt) to search application menus."
 msgstr "Pokud je zaškrtnuto, bude aktivován Heads-Up Display (HUD). Stiskněte Alt_L pro vyhledání nabídek aplikací."
 
 #: ../mate-tweak:1655

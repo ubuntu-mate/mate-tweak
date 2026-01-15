@@ -1011,7 +1011,7 @@ class MateTweak:
         elif schema == "org.mate.panel" and key == "default-layout":
             panel_layout = value
             title = _('Change the layout?')
-            text = _('<b>Changing the layout will completely replace and reset the current configuration!</b>\n\nAre you sure you want to replace this layout and potentially lose any customizations you might have made?')
+            text = '<b>' + _('Changing the layout will completely replace and reset the current configuration!') + '</b>\n\n' + _('Are you sure you want to replace this layout and potentially lose any customizations you might have made?')
             if not self.confirm_dialog(title, text):
                 # Revert the change that the signal already caught
                 source = Gio.SettingsSchemaSource.get_default()
@@ -1369,7 +1369,7 @@ class MateTweak:
             old_layout = self.current_layout
 
             title = _('Delete this custom layout?')
-            text = _('<b>Deleting this custom layout will also return your layout to the system default.</b>\n\nAre you sure you want to permanently delete this custom layout?')
+            text = '<b>' + _('Deleting this custom layout will also return your layout to the system default.') + '</b>\n\n' + _('Are you sure you want to permanently delete this custom layout?')
 
             if self.confirm_dialog(title, text):
                 mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')

@@ -8,19 +8,45 @@
 # Robert Orzanna <robert@orzanna.de>, 2017
 # Tobias Bannert <tobannert@gmail.com>, 2015-2018
 # Vinzenz Vietzke <vinz@vinzv.de>, 2018
+# Stefan Kadow <git17@ska67.de>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2019-03-23 00:52+0000\n"
-"Last-Translator: Stefan Kadow <git17@ska67.de>\n"
+"POT-Creation-Date: 2026-01-10 14:40+0200\n"
+"PO-Revision-Date: 2026-01-10 15:40+0200\n"
+"Last-Translator: \n"
 "Language-Team: German (http://www.transifex.com/mate/MATE/language/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mate-tweak:
+msgid "Window Manager Replaced"
+msgstr "Fensterverwaltung ersetzt"
+
+#: mate-tweak:
+msgid "Your window manager has been replaced with "
+msgstr "Ihre Fensterverwaltung wurde ersetzt mit "
+
+#: mate-tweak:
+msgid "Change the layout?"
+msgstr "Wechseln des Layouts?"
+
+#: mate-tweak:
+msgid "Changing the layout will completely replace and reset the current "
+"configuration!"
+msgstr "Wechseln des Layouts wird es vollständig ersetzen und ihre "
+"aktuellen Anpassungen zurücksetzen!"
+
+#: mate-tweak:
+msgid ""
+"Are you sure you want to replace this layout and potentially lose any "
+"customizations you might have made?"
+msgstr "Sind Sie sich, das sie Ihr layout ersetzen wollen und "
+"potentiell ihre ganzen durchgeführten Anpassungen verlieren?"
 
 #: ../mate-tweak:1207
 msgid "Right"
@@ -63,6 +89,57 @@ msgstr ""
 "Sie benutzen im Moment eine unbekannte und nicht unterstützte "
 "Fensterverwaltung. Deswegen können wir nicht garantieren, dass hier "
 "eingegebene Änderungen übernommen werden."
+
+#: mate-tweak:
+msgid "Custom: "
+msgstr "Benutzerdefiniert: "
+
+#: mate-tweak:
+msgid "Panel layout name"
+msgstr "Panel Layout name"
+
+#: mate-tweak:
+msgid "Enter the name for your panel layout."
+msgstr "Geben Sie ihren Panel Layout einen Namen."
+
+#: mate-tweak:
+msgid "Delete this custom layout?"
+msgstr "Löschen dieses Benutzerdefinierten Layouts?"
+
+#: mate-tweak:
+msgid ""
+"Deleting this custom layout will also return your layout to the system "
+"default."
+msgstr "Nach dem löschen dieses Benutzerdefinierten Layouts, wird ihr System"
+"auf das standard Layout zurücksetzen"
+
+#: mate-tweak:
+msgid "Are you sure you want to permanently delete this custom layout?"
+msgstr "Sind Sie sicher, dieses Benutzerdefinierte Layout permanent zu löschen?"
+
+#: mate-tweak:
+msgid "Panel Layout Deleted"
+msgstr "Panel Layout gelöscht"
+
+#: mate-tweak:
+msgid "Your panel layout has been deleted: "
+msgstr "Ihr Panel Layout wurde gelöscht: "
+
+#: mate-tweak:
+msgid "Panel Layout Saved"
+msgstr "Panel Layout gespeichert"
+
+#: mate-tweak:
+msgid "Your panel layout has been saved as "
+msgstr "Ihr Panel Layout wurde gespeichert als "
+
+#: mate-tweak:
+msgid "Compiz Reset"
+msgstr "Compiz Zurücksetzen"
+
+#: mate-tweak:
+msgid "Your Compiz configuration has been reset to factory defaults."
+msgstr "Ihre Compiz Konfiguration wurde auf Auslieferungs-Zustand zurückgesetzt."
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -271,6 +348,10 @@ msgstr ""
 "Die Größe von allen Fenstern, Leisten, Widgets, Schriften usw. für HiDPI-"
 "Bildschirme verdoppeln."
 
+#: mate-tweak:
+msgid "Logout or restart for the settings to take effect."
+msgstr "Abmelden oder Neustarten damit diese Einstellung wirksam wird."
+
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
 msgstr "Schrifteinstellungen öffnen"
@@ -290,7 +371,7 @@ msgid "Enable keyboard LED"
 msgstr "Tastatur-LED aktivieren"
 
 #: ../mate-tweak:1647
-msgid "Show keyboard LED indicators in the notifcation tray"
+msgid "Show keyboard LED indicators in the notifcation area"
 msgstr "Tastatur-LED-Anzeigen in der Benachrichtigungsleiste anzeigen"
 
 #: ../mate-tweak:1648
@@ -315,8 +396,8 @@ msgstr "HUD aktivieren"
 
 #: ../mate-tweak:1653
 msgid ""
-"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
-"search application menus."
+"When checked the Heads-Up Display (HUD) will be enabled. Press the "
+"configured key (defaults to Left Alt) to search application menus."
 msgstr ""
 "Wenn diese Option aktiviert ist, wird das Heads-Up Display (HUD) aktiviert. "
 "Drücken Sie Alt_L, um die Anwendungsmenüs zu durchsuchen."

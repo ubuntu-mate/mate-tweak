@@ -298,7 +298,7 @@ msgid "Enable keyboard LED"
 msgstr "Activer les indicateurs de verrouillage du clavier"
 
 #: ../mate-tweak:1647
-msgid "Show keyboard LED indicators in the notifcation tray"
+msgid "Show keyboard LED indicators in the notifcation area"
 msgstr ""
 "Affiche les indicateurs de verrouillage du clavier (numérique, majuscule, "
 "défilement) dans la zone de notification"
@@ -325,8 +325,8 @@ msgstr "Activer l’affichage tête haute (HUD)"
 
 #: ../mate-tweak:1653
 msgid ""
-"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
-"search application menus."
+"When checked the Heads-Up Display (HUD) will be enabled. Press the "
+"configured key (defaults to Left Alt) to search application menus."
 msgstr ""
 "Si l’option est cochée, l’affichage tête haute (HUD) sera activé. Appuyez "
 "sur Alt_L pour effectuer des recherches dans les menus d’applications."

@@ -272,7 +272,7 @@ msgid "Enable keyboard LED"
 msgstr "Увімкнути підсвічування набірниці"
 
 #: ../mate-tweak:1647
-msgid "Show keyboard LED indicators in the notifcation tray"
+msgid "Show keyboard LED indicators in the notifcation area"
 msgstr "Показати індикатори набірниці у ділянці сповіщень"
 
 #: ../mate-tweak:1648
@@ -297,8 +297,8 @@ msgstr "Увімкнути HUD"
 
 #: ../mate-tweak:1653
 msgid ""
-"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
-"search application menus."
+"When checked the Heads-Up Display (HUD) will be enabled. Press the "
+"configured key (defaults to Left Alt) to search application menus."
 msgstr "Активує режим приладової панелі (HUD). Для виклику меню пошуку додатків натисніть лівий ALT."
 
 #: ../mate-tweak:1655

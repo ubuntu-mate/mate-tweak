@@ -17,6 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: mate-tweak:
+msgid "Window Manager Replaced"
+msgstr ""
+
+#: mate-tweak:
+msgid "Your window manager has been replaced with "
+msgstr ""
+
+#: mate-tweak:
+msgid "Change the layout?"
+msgstr ""
+
+#: mate-tweak:
+msgid "Changing the layout will completely replace and reset the current "
+"configuration!"
+msgstr ""
+
+#: mate-tweak:
+msgid ""
+"Are you sure you want to replace this layout and potentially lose any "
+"customizations you might have made?"
+msgstr ""
+
 #: ../mate-tweak:1207
 msgid "Right"
 msgstr ""
@@ -53,6 +76,56 @@ msgstr ""
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
+msgstr ""
+
+#: mate-tweak:
+msgid "Custom: "
+msgstr ""
+
+#: mate-tweak:
+msgid "Panel layout name"
+msgstr ""
+
+#: mate-tweak:
+msgid "Enter the name for your panel layout."
+msgstr ""
+
+#: mate-tweak:
+msgid "Delete this custom layout?"
+msgstr ""
+
+#: mate-tweak:
+msgid ""
+"Deleting this custom layout will also return your layout to the system "
+"default."
+msgstr ""
+
+#: mate-tweak:
+msgid "Are you sure you want to permanently delete this custom layout?"
+msgstr ""
+
+#: mate-tweak:
+msgid "Panel Layout Deleted"
+msgstr ""
+
+#: mate-tweak:
+msgid "Your panel layout has been deleted: "
+msgstr ""
+
+#: mate-tweak:
+msgid "Panel Layout Saved"
+msgstr ""
+
+#: mate-tweak:
+msgid "Your panel layout has been saved as "
+msgstr ""
+
+#: mate-tweak:
+msgid "Compiz Reset"
+msgstr ""
+
+#: mate-tweak:
+msgid "Your Compiz configuration has been reset to factory defaults."
 msgstr ""
 
 #: ../mate-tweak:1529
@@ -249,6 +322,10 @@ msgid ""
 "displays."
 msgstr ""
 
+#: mate-tweak:
+msgid "Logout or restart for the settings to take effect."
+msgstr ""
+
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
 msgstr ""
@@ -265,8 +342,8 @@ msgstr ""
 msgid "Enable keyboard LED"
 msgstr ""
 
-#: ../mate-tweak:1647
-msgid "Show keyboard LED indicators in the notifcation tray"
+#: mate-tweak:
+msgid "Show keyboard LED indicators in the notifcation area"
 msgstr ""
 
 #: ../mate-tweak:1648
@@ -289,10 +366,10 @@ msgstr ""
 msgid "Enable HUD"
 msgstr ""
 
-#: ../mate-tweak:1653
+#: ../mate-tweak:
 msgid ""
-"When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
-"search application menus."
+"When checked the Heads-Up Display (HUD) will be enabled. Press the "
+"configured key (defaults to Left Alt) to search application menus."
 msgstr ""
 
 #: ../mate-tweak:1655
