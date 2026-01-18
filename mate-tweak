@@ -310,7 +310,8 @@ class MateTweak:
 
         # Make sure any system desktop files are also removed
         mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
-        subprocess.call(['pkexec', mate_tweak_helper, 'autostop', filename], stdout=DEVNULL, stderr=DEVNULL)
+        if os.path.exists(os.path.join('/', 'etc', 'xdg', 'autostart',filename)):
+            subprocess.call(['pkexec', mate_tweak_helper, 'autostop', filename], stdout=DEVNULL, stderr=DEVNULL)
 
     def check_wm_features(self):
         screen = Gdk.Screen.get_default()
@@ -323,7 +324,7 @@ class MateTweak:
                 self.current_wm = self.get_string('org.mate.session.required-components', None, 'windowmanager')
             elif not composite_enabled:
                 self.current_wm += '-no-composite'
-        elif ('Compiz' in current_wm):
+        elif ('compiz' in current_wm.lower()):
             self.current_wm = current_wm.lower()
         else:
             self.current_wm = 'Unknown'
@@ -681,14 +682,17 @@ class MateTweak:
         pid = subprocess.Popen(['mate-settings-daemon', '--replace'], stdout=DEVNULL, stderr=DEVNULL).pid
 
     def confirm_dialog(self, title, text):
-        dialog = Gtk.Dialog(title, None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-            (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-             Gtk.STOCK_OK, Gtk.ResponseType.OK))
-
+        dialog = Gtk.Dialog(title, None)
+        dialog.set_destroy_with_parent(True)
+        dialog.set_modal(True)
+        dialog.add_buttons(
+            Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+            Gtk.STOCK_OK, Gtk.ResponseType.OK
+        )
         dialog.set_default_size(500, 160)
 
-        label = Gtk.Label(text)
-        label.set_use_markup(True)
+        label = Gtk.Label()
+        label.set_markup(text)
 
         box = dialog.get_content_area()
         box.set_border_width(12)
@@ -792,12 +796,15 @@ class MateTweak:
 
         # If we have a custom panel layout just replace the dconf dump.
         if os.path.exists(os.path.join('/','usr','share','mate-panel','layouts', new_layout + '.panel')):
+            history_last_run = self.get_dconf_value('/org/mate/panel/general/history-mate-run')
             # Reset panel configuration to defaults.
             self.reset_dconf_path('/org/mate/panel/objects/')
             self.reset_dconf_path('/org/mate/panel/toplevels/')
             print('Loading additional panel configuration for ' + new_layout)
             cmd = 'dconf load /org/mate/panel/ < /usr/share/mate-panel/layouts/' + new_layout + '.panel'
             subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
+            self.reset_dconf_path('/org/mate/panel/general/history-mate-run')
+            self.set_dconf_value('/org/mate/panel/general/history-mate-run', history_last_run) #restore
         else:
             # Set the new layout
             subprocess.call(['mate-panel', '--reset', '--layout', new_layout], stdout=DEVNULL, stderr=DEVNULL)
@@ -1260,6 +1267,7 @@ class MateTweak:
             self.add_to_panel_list(panels, "Netbook", "netbook-no-indicators")
 
         if self.panel_layout_exists('opensuse') and \
+           self.mate_menu_available and \
            not self.indicators_available:
             self.add_to_panel_list(panels, "openSUSE", "opensuse")
 
@@ -1334,14 +1342,17 @@ class MateTweak:
         title = _('Panel layout name')
         text = _('Enter the name for your panel layout.')
 
-        dialog = Gtk.Dialog(title, None, Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-            (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-             Gtk.STOCK_OK, Gtk.ResponseType.OK))
-
+        dialog = Gtk.Dialog(title, None)
+        dialog.set_destroy_with_parent(True)
+        dialog.set_modal(True)
+        dialog.add_buttons(
+            Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+            Gtk.STOCK_OK, Gtk.ResponseType.OK
+        )
         dialog.set_default_size(250, 120)
 
-        label = Gtk.Label(text)
-        label.set_use_markup(True)
+        label = Gtk.Label()
+        label.set_markup(text)
 
         box = dialog.get_content_area()
         box.set_border_width(8)
@@ -1374,6 +1385,8 @@ class MateTweak:
             if self.confirm_dialog(title, text):
                 mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
                 delete = subprocess.call(['pkexec', mate_tweak_helper, 'delete', old_layout], stdout=DEVNULL, stderr=DEVNULL)
+                if os.path.exists(os.path.join('/', 'usr', 'share', 'mate-panel', 'layouts', old_layout + '.layout')):
+                    return
                 Notify.init(_('MATE Tweak'))
                 delete_panel_notify=Notify.Notification.new (_('Panel Layout Deleted'),_('Your panel layout has been deleted: ') + old_layout.replace('-tweak','') , 'dialog-information')
                 delete_panel_notify.show()
@@ -1408,6 +1421,8 @@ class MateTweak:
             if self.dock_enabled:
                 dock = subprocess.call([mate_tweak_helper, 'dock', layoutname], stdout=DEVNULL, stderr=DEVNULL)
             install = subprocess.call(['pkexec', mate_tweak_helper, 'install', layoutname], stdout=DEVNULL, stderr=DEVNULL)
+            if not os.path.exists(os.path.join('/', 'usr', 'share', 'mate-panel', 'layouts', layoutname + '.layout')):
+                return
             Notify.init(_('MATE Tweak'))
             save_panels_notify=Notify.Notification.new (_('Panel Layout Saved'),_('Your panel layout has been saved as ') + layoutname.replace('-tweak',''), 'dialog-information')
             save_panels_notify.show()
