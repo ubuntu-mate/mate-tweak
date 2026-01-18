@@ -71,11 +71,11 @@ Categories=GNOME;GTK;System;Utility;TerminalEmulator;
 X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true"""
 
-__APPLET_SOUND__ = """[Desktop Entry]
+__SOUND_STATUS_ICON__ = """[Desktop Entry]
 Name=Volume Control
 Comment=Show desktop volume control
 Icon=multimedia-volume-control
-Exec=mate-volume-control-applet
+Exec=mate-volume-control-status-icon
 Terminal=false
 Type=Application
 Categories=AudioVideo;Mixer;Settings;HardwareSettings;
@@ -553,12 +553,15 @@ class MateTweak:
         When indicators are enabled some MATE applets need disabling
         or hiding.
         """
-        self.kill_process('mate-volume-control-applet')
-        self.remove_autostart('mate-volume-control-applet.desktop')
+        self.kill_process('mate-volume-control-status-icon')
+        self.remove_autostart('mate-volume-control-status-icon.desktop')
+
         if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'never')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', False)
 
+        # Remove the outdated part
+        self.remove_autostart('mate-volume-control-applet.desktop')
         # Remove the incorrectly named autostart file caused by an earlier bug.
         # Note the double .desktop suffix.
         self.remove_autostart('mate-volume-control-applet.desktop.desktop')
@@ -568,13 +571,16 @@ class MateTweak:
         When indicators are disabled some MATE applets need enabling
         or showing.
         """
-        pid = subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
-        self.remove_autostart('mate-volume-control-applet.desktop')
-        self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
+        if self.find_on_path('mate-volume-control-status-icon'):
+           pid = subprocess.Popen(['mate-volume-control-status-icon'], stdout=DEVNULL, stderr=DEVNULL).pid
+        self.create_autostart('mate-volume-control-status-icon.desktop', __SOUND_STATUS_ICON__)
+
         if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', True)
 
+        # Remove the outdated part
+        self.remove_autostart('mate-volume-control-applet.desktop')
         # Remove the incorrectly named autostart file case by an earlier bug.
         # Note the double .desktop suffix.
         self.remove_autostart('mate-volume-control-applet.desktop.desktop')
