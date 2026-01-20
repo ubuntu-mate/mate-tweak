@@ -413,6 +413,16 @@ class MateTweak:
                 # FIXME! Don't assume 'metacity' is 1
                 self.set_enum('org.gnome.metacity.theme', None, 'type', 1)
 
+        # If switching to Compiz
+        if new_wm == 'compiz': # in case of change from marco-no-compositor: picom was maybe unwanted autostarted
+            self.kill_process('picom')
+
+        # no-composite and picom shouldn't run parallel
+        config_dir = GLib.get_user_config_dir()
+        config_file_picom = config_dir + "/picom.conf"
+        if ('no-composite' in new_wm) and os.path.exists('/etc/xdg/autostart/picom.desktop') and os.path.exists(config_file_picom):
+            self.confirm_dialog(_("'No composite' may not work"), _("After you re-login in MATE: Maybe the composite system will start again.\nReason: You have this config file:") + config_file_picom + "\n" + _("This can result in an unwanted autostart of picom.\n(depends on the concret system-wide autostart files of your distribution.)")) # just as workaround (dialog bug: both unwanted cancel button (no effect))
+
         # If switching away from a Compiz or Marco window manager kill the window manager
         if 'compiz' in self.current_wm:
             self.kill_process('compiz')
