@@ -15,6 +15,6 @@
       <allow_inactive>no</allow_inactive>
       <allow_active>yes</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/mate-tweak/mate-tweak-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">@libdir@/@PACKAGE@/mate-tweak-helper</annotate>
   </action>
 </policyconfig>

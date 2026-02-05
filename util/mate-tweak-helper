@@ -26,9 +26,16 @@ import tempfile
 from gi.repository import Gio
 from subprocess import PIPE
 
+try:
+    from MateTweak import config
+    file_path = config.pkgdatadir
+    version = config.VERSION
+except:
+    file_path = './data/'
+    version = __VERSION__
 
 def autostop(filename):
-    desktopfile = os.path.join('/','etc','xdg','autostart', filename)
+    desktopfile = os.path.join(config.sysconfdir,'xdg','autostart', filename)
     if os.path.exists(desktopfile):
         os.remove(desktopfile)
 
@@ -36,18 +43,18 @@ def autostop(filename):
 def install_layout(filename):
     if os.path.exists(os.path.join(tempfile.gettempdir(),filename)):
         shutil.copy2(os.path.join(tempfile.gettempdir(),filename),
-                     os.path.join('/','usr','share','mate-panel','layouts',filename))
+                     os.path.join(config.datadir,'mate-panel','layouts', filename ))
         os.remove(os.path.join(tempfile.gettempdir(),filename))
     else:
         # If a .dock hint is not found but is installed, remove it.
-        if filename.endswith('dock') and os.path.exists(os.path.join('/','usr','share','mate-panel','layouts',filename)):
-            os.remove(os.path.join('/','usr','share','mate-panel','layouts',filename))
+        if filename.endswith('dock') and os.path.exists(os.path.join(config.datadir,'mate-panel','layouts', filename )):
+            os.remove(os.path.join(config.datadir,'mate-panel','layouts', filename ))
         print('Unable to find ' + os.path.join(tempfile.gettempdir(),filename))
 
 
 def delete_layout(filename):
     if 'tweak' in filename:
-        layout = os.path.join('/','usr','share','mate-panel','layouts',filename)
+        layout = os.path.join(config.datadir,'mate-panel','layouts',filename)
         if os.path.exists(layout):
             os.remove(layout)
         else:

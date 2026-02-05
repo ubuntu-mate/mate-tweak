@@ -1,0 +1,59 @@
+#! @PYTHON@ @PYOPTIONS@
+# -*- python -*-
+# -*- coding: utf-8 -*-
+#   MateTweak
+#
+#   This library is free software; you can redistribute it and/or
+#   modify it under the terms of the GNU Library General Public
+#   License as published by the Free Software Foundation; either
+#   version 2 of the License, or (at your option) any later version.
+#
+#   This library is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#   Library General Public License for more details.
+#
+#   You should have received a copy of the GNU Library General Public
+#   License along with this library; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+import argparse
+import setproctitle
+import signal
+import sys
+
+import MateTweak
+from MateTweak.MainWindow import MateTweak
+
+def main():
+    try:
+        from MateTweak import config
+        file_path = config.pkgdatadir
+        version = config.VERSION
+    except:
+        file_path = './data/'
+        version = '22.10.0'
+
+    setproctitle.setproctitle('mate-tweak')
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--layout', help="Switch to a panel layout")
+    parser.add_argument('--get-layout', action='store_true', help="Get the current panel layout")
+    args = parser.parse_args()
+
+    # If we've been given a layout then attempt to switch layouts.
+    if args.layout:
+        mt = MateTweak(file_path, version, sys.argv)
+        if mt.panel_layout_exists(args.layout):
+            mt.replace_panel_layout(args.layout, True)
+        else:
+            print("ERROR! Unable to find layout: " + args.layout)
+    elif args.get_layout:
+        mt = MateTweak(file_path, version, sys.argv)
+    else:
+        mt = MateTweak(file_path, version, sys.argv)
+        mt.run()
+
+if __name__ == '__main__':
+    main()
+

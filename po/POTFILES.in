@@ -1,1 +1,3 @@
-mate-tweak
+mate-tweak.in.in
+data/mate-tweak.desktop.in.in
+data/mate-tweak.ui
