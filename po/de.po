@@ -22,6 +22,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../mate-tweak:
+msgid "created by MateTweak: This overwrites the system-wide autostart."
+msgstr "erstellt von MateTweak: Dies überschreibt den System-weiten autostart."
+
+#: ../mate-tweak:
+msgid "disabled by Mate-Tweak."
+msgstr "deaktiviert von Mate-Tweak."
+
+#: ../mate-tweak:
+msgid "Reason: parallel running compiz has problems"
+msgstr "Grund: wenn es gleichzeitig mit compiz läuft, gibt es probleme"
+
+#: ../mate-tweak:
+msgid "Reason: ayatana-indicator has already a volume controller"
+msgstr "Grund: ayatana-indicator hat bereits ein Lautstärke Regler"
+
 #: ../mate-tweak:1207
 msgid "Right"
 msgstr "Rechts"

@@ -312,6 +312,95 @@ class MateTweak:
         mate_tweak_helper = os.path.join('/','usr', 'lib', 'mate-tweak', 'mate-tweak-helper')
         subprocess.call(['pkexec', mate_tweak_helper, 'autostop', filename], stdout=DEVNULL, stderr=DEVNULL)
 
+    def enable_autostart(self, filename, content=""):
+        if self.has_active_autostart(filename):
+           return
+        # Enable autostart by remove local disabled .desktop file
+        config_dir = GLib.get_user_config_dir()
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        local_autostart = os.path.join(config_dir, 'autostart', filename)
+        system_autostart = os.path.join('/', 'etc', 'xdg', 'autostart', filename) # missed check of: /usr/share/mate/autostart and /usr/share/autostart
+        if os.path.exists(system_autostart) and self.activ_desktopfile(system_autostart):
+            # the system-wide autostart is ok, but looks overwritten by local
+            if os.path.exists(local_autostart) and self.inactiv_desktopfile(local_autostart):
+                os.remove(local_autostart)
+                return
+        else:
+            # the system-wide autostart is not found / not working
+            if content == "":
+                print("Error: failed to create Autostart (missing content) "+filename)
+                return
+            with open(local_autostart,'w') as out_file:
+                out_file.write(content)
+
+    def disable_autostart(self, filename, comment_add=""):
+        if not self.has_active_autostart(filename):
+           return
+        # Disable autostart by local overwrite .desktop file
+        config_dir = GLib.get_user_config_dir()
+        self.mkdir_p(os.path.join(config_dir, 'autostart/'))
+        local_autostart = os.path.join(config_dir, 'autostart', filename)
+        system_autostart = os.path.join('/', 'etc', 'xdg', 'autostart', filename)
+        if os.path.exists(local_autostart) and self.activ_desktopfile(local_autostart):
+            os.remove(local_autostart)
+        if os.path.exists(system_autostart) and self.activ_desktopfile(system_autostart):
+            self.copy_system_autostart_to_local_and_disable(system_autostart, local_autostart, comment_add)
+
+    def has_active_autostart(self, filename):
+        config_dir = GLib.get_user_config_dir()
+        local_autostart = os.path.join(config_dir, 'autostart', filename)
+        system_autostart = os.path.join('/', 'etc', 'xdg', 'autostart', filename) # missed check of: /usr/share/mate/autostart and /usr/share/autostart
+        if os.path.exists(local_autostart):
+           if self.activ_desktopfile(local_autostart):
+               return True
+        else:
+           if os.path.exists(system_autostart) and self.activ_desktopfile(system_autostart):
+               return True
+        return False
+
+    def copy_system_autostart_to_local_and_disable(self, in_filename_with_path, out_filename_with_path, comment_add=""):
+        # copy a .desktop file and make inactiv (= will not autostart ; by "hidden:true") and add addational text to comment
+        comment_add = "(" + _("disabled by Mate-Tweak.") + " "+comment_add + ") "
+        input_file = open(in_filename_with_path, "r")
+        output_file = open(out_filename_with_path, "w")
+        for line in input_file:
+            if len(line) > 8 and line[0:7] == "Comment":
+                line = line.replace('=', '='+comment_add, 1)
+            if len(line) > 8 and line[0:6] == "Hidden=":
+                continue
+            output_file.write(line)
+        input_file.close()
+        output_file.write("Hidden=true\n");
+        output_file.write("# "+_("created by MateTweak: This overwrites the system-wide autostart.")+" "+comment_add+"\n")
+        output_file.close()
+
+    def inactiv_desktopfile(self, filename_with_path):
+        # check if .desktop file is disabled (= will not autostart )
+        if os.path.exists(filename_with_path):
+            with open(filename_with_path, 'r') as txt:
+                for line in txt:
+                    line = line.replace(' ', '').replace("\t", '')
+                    if line.find('#') != -1:
+                        if line.find('#') > 2:
+                            line = line[:line.find('#')-1]
+                        else:
+                            continue
+                    if line.find('Hidden=true') != -1:
+                        return True
+                    if line.find('NotShowIn') != -1:
+                        if line.find('=MATE') != -1 or line.find(';MATE') !=- 1:
+                            return True
+                    if line.find('OnlyShowIn') != -1 and len(line) > 12:
+                        if line.find('=MATE') == -1 and line.find(';MATE') ==- 1:
+                            return True
+        else:
+            print("file not found to check: " + filename_with_path)
+            return True
+        return False
+
+    def activ_desktopfile(self, filename_with_path):
+        return not self.inactiv_desktopfile(filename_with_path)
+
     def check_wm_features(self):
         screen = Gdk.Screen.get_default()
         current_wm = GdkX11.X11Screen.get_window_manager_name(screen)
@@ -485,7 +574,7 @@ class MateTweak:
     def enable_dock(self):
         self.set_string('org.mate.session.required-components', None, 'dock', self.dock)
         if self.dock:
-            self.remove_autostart(self.dock + '.desktop')
+            self.disable_autostart(self.dock + '.desktop')
 
         # Docks require compositing
         schema = None
@@ -513,7 +602,7 @@ class MateTweak:
 
         self.set_string('org.mate.session.required-components', None, 'dock', '')
         if self.dock:
-            self.remove_autostart(self.dock + '.desktop')
+            self.disable_autostart(self.dock + '.desktop')
         self.kill_process(self.dock)
         self.dock_enabled = False
 
@@ -532,7 +621,7 @@ class MateTweak:
 
     def enable_pulldown_terminal(self):
         if self.pulldown_terminal == 'tilda':
-            self.create_autostart(self.pulldown_terminal + '.desktop', __TILDA__)
+            self.enable_autostart(self.pulldown_terminal + '.desktop', __TILDA__)
 
             # Launch tilda, if it is not already enabled.
             if not self.pulldown_terminal_enabled:
@@ -541,7 +630,7 @@ class MateTweak:
 
     def disable_pulldown_terminal(self):
         if self.pulldown_terminal == 'tilda':
-            self.remove_autostart(self.pulldown_terminal + '.desktop')
+            self.disable_autostart(self.pulldown_terminal + '.desktop')
 
         if self.process_running(self.pulldown_terminal):
             self.kill_process(self.pulldown_terminal)
@@ -554,7 +643,7 @@ class MateTweak:
         or hiding.
         """
         self.kill_process('mate-volume-control-applet')
-        self.remove_autostart('mate-volume-control-applet.desktop')
+        self.disable_autostart('mate-volume-control-applet.desktop')
         if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'never')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', False)
@@ -570,7 +659,7 @@ class MateTweak:
         """
         pid = subprocess.Popen(['mate-volume-control-applet'], stdout=DEVNULL, stderr=DEVNULL).pid
         self.remove_autostart('mate-volume-control-applet.desktop')
-        self.create_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
+        self.enable_autostart('mate-volume-control-applet.desktop', __APPLET_SOUND__)
         if os.path.exists('/usr/libexec/ayatana-indicator-power/ayatana-indicator-power-service'):
             self.set_string('org.mate.power-manager', None, 'icon-policy', 'present')
             self.set_bool('org.mate.power-manager', None, 'notify-low-capacity', True)

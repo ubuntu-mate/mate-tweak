@@ -17,6 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../mate-tweak:
+msgid "created by MateTweak: This overwrites the system-wide autostart."
+msgstr ""
+
+#: ../mate-tweak:
+msgid "disabled by Mate-Tweak."
+msgstr ""
+
+#: ../mate-tweak:
+msgid "Reason: parallel running compiz has problems"
+msgstr ""
+
+#: ../mate-tweak:
+msgid "Reason: ayatana-indicator has already a volume controller"
+msgstr ""
+
 #: ../mate-tweak:1207
 msgid "Right"
 msgstr ""
