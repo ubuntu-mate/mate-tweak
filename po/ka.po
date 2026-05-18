@@ -1,60 +1,62 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Georgian translation for mate-tweak.
+# Copyright (C) 2026 mate-tweak's authors.
+# This file is distributed under the same license as the mate-tweak package.
+# Ekaterine Papava <papava.e@gtu.ge>, 2026.
 #
-# Translators:
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: mate-tweak\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 22:22+0000\n"
-"PO-Revision-Date: 2018-03-11 10:31+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2026-05-18 15:32+0200\n"
+"Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian (http://www.transifex.com/mate/MATE/language/ka/)\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #: ../mate-tweak:1207
 msgid "Right"
-msgstr "მარჯვნივ"
+msgstr "მარჯვენა"
 
 #: ../mate-tweak:1208
 msgid "Left"
-msgstr "მარცხნივ"
+msgstr "მარცხენა"
 
 #: ../mate-tweak:1209
 msgid "Right (with menu)"
-msgstr ""
+msgstr "მარჯვენა (მენიუთი)"
 
 #: ../mate-tweak:1210
 msgid "Left (with menu)"
-msgstr ""
+msgstr "მარცხენა (მენიუთი)"
 
 #: ../mate-tweak:1218
 msgid "Marco (No compositor)"
-msgstr ""
+msgstr "Marco (კომპოზიტორის გარეშე)"
 
 #: ../mate-tweak:1220
 msgid "Marco (Adaptive compositor)"
-msgstr ""
+msgstr "Marco (ატაპტიური კომპოზიტორი)"
 
 #: ../mate-tweak:1222
 msgid "Marco (Compton GPU compositor)"
-msgstr ""
+msgstr "Marco (კომპოზიტორი Compton GPU)"
 
 #: ../mate-tweak:1224
 msgid "Compiz (Advanced GPU accelerated desktop effects)"
-msgstr ""
+msgstr "Compiz (GPU-თი აჩქარებული სამუშაო მაგიდის დამატებითი ეფექტები)"
 
 #: ../mate-tweak:1227
 msgid ""
 "You are currently using an unknown and unsupported window manager. Thus we "
 "cannot guarantee that changes made here will be effective."
 msgstr ""
+"ამჟამად უცნობ და მხარდაუჭერელ ფანჯრების მმართველს იყენებთ. ამიტომ "
+"გარანტიას, რომ აქ შეტანილი ცვლილებები ეფექტური იქნება, ვერ მოგცემთ."
 
 #: ../mate-tweak:1529
 msgid "Desktop"
@@ -74,35 +76,35 @@ msgstr "ფანჯრები"
 
 #: ../mate-tweak:1581
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE-ის მორგება"
 
 #: ../mate-tweak:1584
 msgid "Desktop icons"
-msgstr ""
+msgstr "სამუშაო მაგიდის ხატულები"
 
 #: ../mate-tweak:1585
 msgid "Performance"
-msgstr ""
+msgstr "წარმადობა"
 
 #: ../mate-tweak:1586
 msgid "Window Behaviour"
-msgstr ""
+msgstr "ფანჯრს ქცევა"
 
 #: ../mate-tweak:1587
 msgid "Appearance"
-msgstr "გარემოს იერსახე"
+msgstr "გარეგნობა"
 
 #: ../mate-tweak:1588
 msgid "Panels"
-msgstr ""
+msgstr "პანელები"
 
 #: ../mate-tweak:1589
 msgid "Panel Features"
-msgstr ""
+msgstr "პანელი ფუნქციები"
 
 #: ../mate-tweak:1590
 msgid "Panel Menu Features"
-msgstr ""
+msgstr "პანელის მენიუს ფუნქციები"
 
 #: ../mate-tweak:1591
 msgid "Icons"
@@ -110,29 +112,31 @@ msgstr "ხატულები"
 
 #: ../mate-tweak:1592
 msgid "Context menus"
-msgstr ""
+msgstr "კონტექსტური მენიუები"
 
 #: ../mate-tweak:1593
 msgid "Toolbars"
-msgstr "პულტები"
+msgstr "ხელსაწყოთა ზოლები"
 
 #: ../mate-tweak:1594
 msgid "Window manager"
-msgstr ""
+msgstr "ფანჯრების მმართველი"
 
 #: ../mate-tweak:1596
 msgid "Select the Desktop Icons you want enabled:"
-msgstr ""
+msgstr "აირჩიეთ, რომელი სამუშაო მაგიდის ხატულების ჩართვა გნებავთ:"
 
 #: ../mate-tweak:1597
 msgid "Show Desktop Icons"
-msgstr ""
+msgstr "სამუშაო მაგიდის ხატულების ჩვენება"
 
 #: ../mate-tweak:1598
 msgid ""
 "When disabled the desktop will be unmanaged with no icons or file manager "
 "access"
 msgstr ""
+"როცა გამორთულია, სამუშაო მაგიდა უმართავი იქნება ხატულების, ან ფაილების "
+"მმართველთან წვდომის გარეშე"
 
 #: ../mate-tweak:1599
 msgid "Computer"
@@ -140,7 +144,7 @@ msgstr "კომპიუტერი"
 
 #: ../mate-tweak:1600
 msgid "Home"
-msgstr "სახლი"
+msgstr "საწყისი"
 
 #: ../mate-tweak:1601
 msgid "Network"
@@ -148,11 +152,11 @@ msgstr "ქსელი"
 
 #: ../mate-tweak:1602
 msgid "Trash"
-msgstr "სანაგვე ყუთი"
+msgstr "ნაგვის ყუთი"
 
 #: ../mate-tweak:1603
 msgid "Mounted Volumes"
-msgstr ""
+msgstr "მიმაგრებული საცავები"
 
 #: ../mate-tweak:1605
 msgid "Enable animations"
@@ -161,148 +165,157 @@ msgstr "ანიმაციების ჩართვა"
 #: ../mate-tweak:1606
 msgid "Whether animations should be displayed by the window manager and panel"
 msgstr ""
+"მოხდება, თუ არა ანიმაციების ჩვენება ფანჯრების მმართველისა და პანელის მიერ"
 
 #: ../mate-tweak:1607
 msgid "Do not show window content when moving windows"
-msgstr ""
+msgstr "ფანჯრის შემცველობის არჩვენება მისი გადატანისას"
 
 #: ../mate-tweak:1608
 msgid "Provide less feedback when moving windows by using wireframes"
-msgstr ""
+msgstr "ნაკლები უკუკავშირის ჩვენება ფანჯრების ჩარჩოთი გადათრევისას"
 
 #: ../mate-tweak:1609
 msgid "Window manager performance tuning."
-msgstr ""
+msgstr "ფანჯრების მმართველის წარმადობის მორგება."
 
 #: ../mate-tweak:1611
 msgid "Enable window snapping"
-msgstr ""
+msgstr "ფანჯრის მიწებების ჩართვა"
 
 #: ../mate-tweak:1612
 msgid ""
 "Dropping windows on screen edges maximizes them vertically and resizes them "
 "horizontally to cover half the available area"
 msgstr ""
+"ფანჯრების დაყრა ეკრანის წიბოებზე მათ გაშლის ვერტიკალურად და ზომას შეუცვლის "
+"ჰორიზონტალურად, რომ მან ხელმისაწვდომი სივრცის ნახევარი არე დაფაროს"
 
 #: ../mate-tweak:1613
 msgid "Undecorate maximized windows"
-msgstr ""
+msgstr "დეკორაციების მოხსნა გაშლილი ფანჯრებიდან"
 
 #: ../mate-tweak:1614
 msgid "Undecorate windows when maximized"
-msgstr ""
+msgstr "დეკორაციების მოხსნა ფანჯრის გაშლისას"
 
 #: ../mate-tweak:1615
 msgid "Do not auto-maximize new windows"
-msgstr ""
+msgstr "ახალი ფანჯრების მთელ ეკრანზე არგაშლა"
 
 #: ../mate-tweak:1616
 msgid "Do not automatically maximize newly opened windows"
-msgstr ""
+msgstr "ახალი ფანჯრების ავტომატური გადიდება არ მოხდეს"
 
 #: ../mate-tweak:1617
 msgid "Window control placement."
-msgstr ""
+msgstr "ფანჯრის კონტროლის ელემენტების განთავსება."
 
 #: ../mate-tweak:1619
 msgid "Save the current panel layout as your own custom version"
-msgstr ""
+msgstr "მიმდინარე პანელის განლაგების შენახვა თქვენს საკუთარ ვერსიის სახით"
 
 #: ../mate-tweak:1620
 msgid "Delete the currently selected panel layout"
-msgstr ""
+msgstr "მონიშნული პანელის განლაგების წაშლა"
 
 #: ../mate-tweak:1621
 msgid "Open CCSM"
-msgstr ""
+msgstr "CCSM-ის გახსნა"
 
 #: ../mate-tweak:1622
 msgid "Open the Compiz configuration and settings manager"
-msgstr ""
+msgstr "Compiz-ის მორგებისა და პარამეტრების მმართველის გახსნა"
 
 #: ../mate-tweak:1623
 msgid "Reset Compiz"
-msgstr ""
+msgstr "Compiz-ის ჩამოყრა"
 
 #: ../mate-tweak:1624
 msgid "Reset the current Compiz configuration to factory defaults"
-msgstr ""
+msgstr "Compiz-ის მიმდინარე დოკუმენტების ქარხნულ მნიშვნელობებზე ჩამოყრა"
 
 #: ../mate-tweak:1627 ../mate-tweak:1632
 msgid "HiDPI"
-msgstr ""
+msgstr "HiDPI"
 
 #: ../mate-tweak:1628
 msgid "Select a window scaling factor."
-msgstr ""
+msgstr "აირჩიეთ ფანჯრის მასშტაბის კოეფიციენტი."
 
 #: ../mate-tweak:1630
 msgid "Auto-detect"
-msgstr ""
+msgstr "ავტომატური გამოცნობა"
 
 #: ../mate-tweak:1631
 msgid "Regular"
-msgstr ""
+msgstr "ჩვეულებრივი"
 
 #: ../mate-tweak:1635
 msgid ""
 "Double the size of all windows, panels, widgets, fonts, etc. for HiDPI "
 "displays."
 msgstr ""
+"ყველა პანელის, ფანჯრის, ვიჯეტების, ფონტების და ა.შ. გაორმაგება HiDPI "
+"ეკრანებისთვის."
 
 #: ../mate-tweak:1641
 msgid "Open Font preferences"
-msgstr ""
+msgstr "ფონტის მორგების გახსნა"
 
 #: ../mate-tweak:1642 ../mate-tweak:1644
 msgid "Fonts"
-msgstr ""
+msgstr "ფონტები"
 
 #: ../mate-tweak:1643
 msgid "Open Font preferences and click Details... to fine tune the font DPI."
 msgstr ""
+"ფონტის DPI-ის ზუსტად მოსარგებად გახსენით ფონტის მორგების ფანჯარა და დაჭირეთ "
+"ღილაკს 'დეტალები...'."
 
 #: ../mate-tweak:1646
 msgid "Enable keyboard LED"
-msgstr ""
+msgstr "კლავიატურის LED-ის ჩართვა"
 
 #: ../mate-tweak:1647
 msgid "Show keyboard LED indicators in the notifcation tray"
-msgstr ""
+msgstr "კლავიატურის LED-ების მაჩვენებლების ჩვენება სისტემურ საათთან"
 
 #: ../mate-tweak:1648
 msgid "Enable pull-down terminal"
-msgstr ""
+msgstr "ჩამოსაშლელი ტერმინალის ჩართვა"
 
 #: ../mate-tweak:1649
 msgid "When enabled press F12 to pull down terminal"
-msgstr ""
+msgstr "როცა ჩართულია, F12-ის დაჭერა ტერმინალს ჩამოშლის"
 
 #: ../mate-tweak:1650
 msgid "Enable Dock"
-msgstr ""
+msgstr "დოკის ჩართვა"
 
 #: ../mate-tweak:1651
 msgid "When checked the Dock will be enabled."
-msgstr ""
+msgstr "როცა ჩართულია, დოკი ჩაირთვება."
 
 #: ../mate-tweak:1652
 msgid "Enable HUD"
-msgstr ""
+msgstr "HUD-ის ჩართვა"
 
 #: ../mate-tweak:1653
 msgid ""
 "When checked the Heads-Up Display (HUD) will be enabled. Press Alt_L to "
 "search application menus."
 msgstr ""
+"როცა ჩართულია, ჩაირთვება HUD. აპლიკაციის მენიუების მოსაძებნად დააჭირეთ Alt-"
+"L."
 
 #: ../mate-tweak:1655
 msgid "Show Applications"
-msgstr ""
+msgstr "აპლიკაციების ჩვენება"
 
 #: ../mate-tweak:1656
 msgid "Show Applications item in the menu bar"
-msgstr ""
+msgstr "აპლიკაციების ელემენტის ჩვენება მენიუს პანელზე"
 
 #: ../mate-tweak:1657
 msgid "Show Places"
@@ -310,59 +323,63 @@ msgstr "მდებარეობების ჩვენება"
 
 #: ../mate-tweak:1658
 msgid "Show Places item in the menu bar"
-msgstr ""
+msgstr "ადგილების ელემენტის ჩვენება მენიუს პანელზე"
 
 #: ../mate-tweak:1659
 msgid "Show System"
-msgstr ""
+msgstr "სისტემის ჩვენება"
 
 #: ../mate-tweak:1660
 msgid "Show System item in the menu bar"
-msgstr ""
+msgstr "სისტემის ელემენტის ჩვენება მენიუს პანელზე"
 
 #: ../mate-tweak:1662
 msgid "Show icons on menus"
-msgstr ""
+msgstr "მენიუებში ხატულების ჩვენება"
 
 #: ../mate-tweak:1663
 msgid "Whether menus may display an icon next to a menu entry"
-msgstr ""
+msgstr "უნდა მოხდეს, თუ არა მენიუებში პუნქტის შემდეგ ხატულას ჩვენება"
 
 #: ../mate-tweak:1664
 msgid "Show icons on buttons"
-msgstr ""
+msgstr "ღილაკებზე ხატულების ჩვენება"
 
 #: ../mate-tweak:1665
 msgid "Whether buttons may display an icon in addition to the button text"
-msgstr ""
+msgstr "იქნება, თუ არა ნაჩვენები ხატულა ღილაკის ტექსტის გვერდით"
 
 #: ../mate-tweak:1666
 msgid "Show Input Methods menu in context menus"
-msgstr ""
+msgstr "შეყვანის მეთოდების მენიუს ჩვენება კონტექსტურ მენიუებში"
 
 #: ../mate-tweak:1667
 msgid ""
 "Whether the context menus of entries and text views should offer to change "
 "the input method"
 msgstr ""
+"უნდა შეიცავდეს თუ არა კონტექსტური მენიუები ჩანაწერების და ტექსტის "
+"ხედებისთვის შეყვანის მეთოდის შეცვლის შესაძლებლობას"
 
 #: ../mate-tweak:1668
 msgid "Show Unicode Control Character menu in context menus"
-msgstr ""
+msgstr "უნიკოდის კონტროლის სიმბოლოს მენიუს ჩვენება კონტექსტურ მენიუებში"
 
 #: ../mate-tweak:1669
 msgid ""
 "Whether the context menu of entries and text views should offer the insert "
 "control characters"
 msgstr ""
+"უნდა შეიცავდეს თუ არა კონტექსტური მენიუები ჩანაწერებისა და ტექსტისთვის "
+"საკონტროლო სიმბოლოების ჩასმის შესაძლებლობას"
 
 #: ../mate-tweak:1671
 msgid "Style:"
-msgstr ""
+msgstr "სტილი:"
 
 #: ../mate-tweak:1672
 msgid "Icon size:"
-msgstr ""
+msgstr "ხატულების ზომა:"
 
 #: ../mate-tweak:1691
 msgid "Small"
@@ -374,19 +391,19 @@ msgstr "დიდი"
 
 #: ../mate-tweak:1701
 msgid "The new window manager will be activated upon selection."
-msgstr ""
+msgstr "მონიშვნისას გააქტიურდება ახალი ფანჯრების მმართველი."
 
 #: ../mate-tweak:1702
 msgid "Select a window manager."
-msgstr ""
+msgstr "აირჩიეთ ფანჯრების მმართველი."
 
 #: ../mate-tweak:1708
 msgid "Select a panel layout to change the user interface."
-msgstr ""
+msgstr "მომხმარებლის ინტერფეისის შესაცვლელად აირჩიეთ პანელის განლაგება."
 
 #: ../mate-tweak:1709
 msgid "Select a panel layout."
-msgstr ""
+msgstr "აირჩიეთ პანელის განლაგება."
 
 #: ../mate-tweak:1714
 msgid "Default"
@@ -394,51 +411,51 @@ msgstr "ნაგულისხმევი"
 
 #: ../mate-tweak:1715
 msgid "16px"
-msgstr ""
+msgstr "16 პიქსელი"
 
 #: ../mate-tweak:1716
 msgid "22px"
-msgstr ""
+msgstr "22 პიქსელი"
 
 #: ../mate-tweak:1717
 msgid "24px"
-msgstr ""
+msgstr "24 პიქსელი"
 
 #: ../mate-tweak:1718
 msgid "32px"
-msgstr ""
+msgstr "32 პიქსელი"
 
 #: ../mate-tweak:1719
 msgid "48px"
-msgstr ""
+msgstr "48 პიქსელი"
 
 #: ../mate-tweak:1723
 msgid "Set the panel icon size."
-msgstr ""
+msgstr "პანელის ხატულების ზომის დაყენება."
 
 #: ../mate-tweak:1724
 msgid "Select the icon size for panel icons."
-msgstr ""
+msgstr "აირჩიეთ ხატულას ზომა პანელის ხატულებისთვის."
 
 #: ../mate-tweak:1728
 msgid "Set the icon size of menu items used in the panel."
-msgstr ""
+msgstr "პანელზე გამოყენებული მენიუს ელემენტების ხატულას ზომის დაყენება."
 
 #: ../mate-tweak:1729
 msgid "Select the icon size for menu items in the panel."
-msgstr ""
+msgstr "აირჩიეთ ხატულას ზომა პანელზე არსებული მენიუს ელემენტებისთვის."
 
 #: ../mate-tweak:1757
 msgid "Text below items"
-msgstr ""
+msgstr "ტექსტი ელემენტების ქვემოთ"
 
 #: ../mate-tweak:1758
 msgid "Text beside items"
-msgstr ""
+msgstr "ტექსტი ელემენტის გვერდით"
 
 #: ../mate-tweak:1759
 msgid "Icons only"
-msgstr ""
+msgstr "მხოლოდ ხატულები"
 
 #: ../mate-tweak:1760
 msgid "Text only"
