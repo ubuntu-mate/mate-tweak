@@ -1490,8 +1490,9 @@ class MateTweak:
         # Toolbar seetings appear to not be supported with GTK3.
         # Disable the side_interface page.
         #  - https://pad.lv/1714799
-        #self.sidePages = [side_desktop_options, side_interface, side_panel, side_windows]
-        self.sidePages = [side_desktop_options, side_panel, side_windows]
+        self.sidePages = [side_desktop_options, side_interface, side_panel, side_windows]
+        # reactivation of the "interface" tab
+        #self.sidePages = [side_desktop_options, side_panel, side_windows]
 
         # create the backing store for the side nav-view.
         theme = Gtk.IconTheme.get_default()
@@ -1620,9 +1621,17 @@ class MateTweak:
         self.builder.get_object("checkbutton_button_icons").set_label(_("Show icons on buttons"))
         self.builder.get_object("checkbutton_button_icons").set_tooltip_text(_("Whether buttons may display an icon in addition to the button text"))
         self.builder.get_object("checkbutton_im_menu").set_label(_("Show Input Methods menu in context menus"))
+        # greyed-out options
+        self.builder.get_object("checkbutton_im_menu").set_sensitive(False)
         self.builder.get_object("checkbutton_im_menu").set_tooltip_text(_("Whether the context menus of entries and text views should offer to change the input method"))
+        # greyed-out options
+        self.builder.get_object("checkbutton_im_menu").set_sensitive(False)        
         self.builder.get_object("checkbutton_unicode").set_label(_("Show Unicode Control Character menu in context menus"))
+        # greyed-out options
+        self.builder.get_object("checkbutton_unicode").set_sensitive(False)
         self.builder.get_object("checkbutton_unicode").set_tooltip_text(_("Whether the context menu of entries and text views should offer the insert control characters"))
+        # greyed-out options
+        self.builder.get_object("checkbutton_unicode").set_sensitive(False)
 
         self.builder.get_object("label_toolbar_style").set_text(_("Style:"))
         self.builder.get_object("label_toolbar_icon_size").set_text(_("Icon size:"))
@@ -1638,8 +1647,9 @@ class MateTweak:
 
         # interface page
         self.init_checkbox("org.mate.interface", "menus-have-icons", "checkbutton_menuicon")
-        self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
-        self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
+        # greyed-out options
+        #self.init_checkbox("org.mate.interface", "show-input-method-menu","checkbutton_im_menu")
+        #self.init_checkbox("org.mate.interface", "show-unicode-menu", "checkbutton_unicode")
         self.init_checkbox("org.mate.interface", "buttons-have-icons", "checkbutton_button_icons")
 
         iconSizes = Gtk.ListStore(str, str)
@@ -1715,8 +1725,9 @@ class MateTweak:
         iconStyles = Gtk.ListStore(str, str)
         iconStyles.append([_("Text below items"), "both"])
         iconStyles.append([_("Text beside items"), "both-horiz"])
-        iconStyles.append([_("Icons only"), "icons"])
-        iconStyles.append([_("Text only"), "text"])
+        # adapt menu toobar icon style with nemo files manager
+        #iconStyles.append([_("Icons only"), "icons"])
+        #iconStyles.append([_("Text only"), "text"])
         self.builder.get_object("combobox_toolbar_style").set_model(iconStyles)
         self.init_combobox("org.mate.interface", "toolbar-style", "combobox_toolbar_style")
         self.builder.get_object("close_tweak").connect("clicked", self.close_tweak)
